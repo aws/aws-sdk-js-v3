@@ -24,9 +24,7 @@ export interface DescribeStorageConfigurationCommandInput extends DescribeStorag
  *
  * The output of {@link DescribeStorageConfigurationCommand}.
  */
-export interface DescribeStorageConfigurationCommandOutput
-  extends DescribeStorageConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeStorageConfigurationCommandOutput extends DescribeStorageConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>

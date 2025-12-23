@@ -9,10 +9,8 @@ AWS SDK for JavaScript InspectorScan Client for Node.js, Browser and React Nativ
 <p>Amazon Inspector Scan is a vulnerability discovery service that scans a provided Software Bill of Materials (SBOM) for security vulnerabilities.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-inspector-scan
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-inspector-scan`
 - `yarn add @aws-sdk/client-inspector-scan`
 - `pnpm add @aws-sdk/client-inspector-scan`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new InspectorScanClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ScanSbomCommand(params);
 ```
 
@@ -209,5 +205,4 @@ ScanSbom
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector-scan/command/ScanSbomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector-scan/Interface/ScanSbomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector-scan/Interface/ScanSbomCommandOutput/)
-
 </details>

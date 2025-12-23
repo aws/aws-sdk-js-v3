@@ -28,9 +28,7 @@ export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetCh
  *
  * The output of {@link UpdateSubnetChangeProtectionCommand}.
  */
-export interface UpdateSubnetChangeProtectionCommandOutput
-  extends UpdateSubnetChangeProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateSubnetChangeProtectionCommandOutput extends UpdateSubnetChangeProtectionResponse, __MetadataBearer {}
 
 /**
  * <p></p>

@@ -28,9 +28,7 @@ export interface DisassociateOriginationIdentityCommandInput extends Disassociat
  *
  * The output of {@link DisassociateOriginationIdentityCommand}.
  */
-export interface DisassociateOriginationIdentityCommandOutput
-  extends DisassociateOriginationIdentityResult,
-    __MetadataBearer {}
+export interface DisassociateOriginationIdentityCommandOutput extends DisassociateOriginationIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Removes the specified origination identity from an existing pool.</p> <p>If the origination identity isn't associated with the specified pool, an error is returned.</p>

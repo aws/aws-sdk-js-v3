@@ -13,9 +13,9 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
     const result: any = await client.send(new DescribeTenantDatabasesCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        return result.TenantDatabases.length == 0.0;
-      };
+      let returnComparator = () => {
+        return (result.TenantDatabases.length == 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

@@ -649,8 +649,14 @@ export interface Comprehend {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -681,7 +687,10 @@ export interface Comprehend {
     args: CreateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
-  createEndpoint(args: CreateEndpointCommandInput, cb: (err: any, data?: CreateEndpointCommandOutput) => void): void;
+  createEndpoint(
+    args: CreateEndpointCommandInput,
+    cb: (err: any, data?: CreateEndpointCommandOutput) => void
+  ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -712,7 +721,10 @@ export interface Comprehend {
     args: CreateFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFlywheelCommandOutput>;
-  createFlywheel(args: CreateFlywheelCommandInput, cb: (err: any, data?: CreateFlywheelCommandOutput) => void): void;
+  createFlywheel(
+    args: CreateFlywheelCommandInput,
+    cb: (err: any, data?: CreateFlywheelCommandOutput) => void
+  ): void;
   createFlywheel(
     args: CreateFlywheelCommandInput,
     options: __HttpHandlerOptions,
@@ -743,7 +755,10 @@ export interface Comprehend {
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
+    args: DeleteEndpointCommandInput,
+    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
+  ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -774,7 +789,10 @@ export interface Comprehend {
     args: DeleteFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFlywheelCommandOutput>;
-  deleteFlywheel(args: DeleteFlywheelCommandInput, cb: (err: any, data?: DeleteFlywheelCommandOutput) => void): void;
+  deleteFlywheel(
+    args: DeleteFlywheelCommandInput,
+    cb: (err: any, data?: DeleteFlywheelCommandOutput) => void
+  ): void;
   deleteFlywheel(
     args: DeleteFlywheelCommandInput,
     options: __HttpHandlerOptions,
@@ -805,7 +823,10 @@ export interface Comprehend {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -1092,7 +1113,10 @@ export interface Comprehend {
     args: DetectEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectEntitiesCommandOutput>;
-  detectEntities(args: DetectEntitiesCommandInput, cb: (err: any, data?: DetectEntitiesCommandOutput) => void): void;
+  detectEntities(
+    args: DetectEntitiesCommandInput,
+    cb: (err: any, data?: DetectEntitiesCommandOutput) => void
+  ): void;
   detectEntities(
     args: DetectEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -1140,7 +1164,10 @@ export interface Comprehend {
     args: DetectSentimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectSentimentCommandOutput>;
-  detectSentiment(args: DetectSentimentCommandInput, cb: (err: any, data?: DetectSentimentCommandOutput) => void): void;
+  detectSentiment(
+    args: DetectSentimentCommandInput,
+    cb: (err: any, data?: DetectSentimentCommandOutput) => void
+  ): void;
   detectSentiment(
     args: DetectSentimentCommandInput,
     options: __HttpHandlerOptions,
@@ -1150,8 +1177,14 @@ export interface Comprehend {
   /**
    * @see {@link DetectSyntaxCommand}
    */
-  detectSyntax(args: DetectSyntaxCommandInput, options?: __HttpHandlerOptions): Promise<DetectSyntaxCommandOutput>;
-  detectSyntax(args: DetectSyntaxCommandInput, cb: (err: any, data?: DetectSyntaxCommandOutput) => void): void;
+  detectSyntax(
+    args: DetectSyntaxCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectSyntaxCommandOutput>;
+  detectSyntax(
+    args: DetectSyntaxCommandInput,
+    cb: (err: any, data?: DetectSyntaxCommandOutput) => void
+  ): void;
   detectSyntax(
     args: DetectSyntaxCommandInput,
     options: __HttpHandlerOptions,
@@ -1195,8 +1228,14 @@ export interface Comprehend {
   /**
    * @see {@link ImportModelCommand}
    */
-  importModel(args: ImportModelCommandInput, options?: __HttpHandlerOptions): Promise<ImportModelCommandOutput>;
-  importModel(args: ImportModelCommandInput, cb: (err: any, data?: ImportModelCommandOutput) => void): void;
+  importModel(
+    args: ImportModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportModelCommandOutput>;
+  importModel(
+    args: ImportModelCommandInput,
+    cb: (err: any, data?: ImportModelCommandOutput) => void
+  ): void;
   importModel(
     args: ImportModelCommandInput,
     options: __HttpHandlerOptions,
@@ -1207,8 +1246,14 @@ export interface Comprehend {
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1291,8 +1336,14 @@ export interface Comprehend {
    * @see {@link ListEndpointsCommand}
    */
   listEndpoints(): Promise<ListEndpointsCommandOutput>;
-  listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
-  listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
+  listEndpoints(
+    args: ListEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEndpointsCommandOutput>;
+  listEndpoints(
+    args: ListEndpointsCommandInput,
+    cb: (err: any, data?: ListEndpointsCommandOutput) => void
+  ): void;
   listEndpoints(
     args: ListEndpointsCommandInput,
     options: __HttpHandlerOptions,
@@ -1392,8 +1443,14 @@ export interface Comprehend {
    * @see {@link ListFlywheelsCommand}
    */
   listFlywheels(): Promise<ListFlywheelsCommandOutput>;
-  listFlywheels(args: ListFlywheelsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlywheelsCommandOutput>;
-  listFlywheels(args: ListFlywheelsCommandInput, cb: (err: any, data?: ListFlywheelsCommandOutput) => void): void;
+  listFlywheels(
+    args: ListFlywheelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlywheelsCommandOutput>;
+  listFlywheels(
+    args: ListFlywheelsCommandInput,
+    cb: (err: any, data?: ListFlywheelsCommandOutput) => void
+  ): void;
   listFlywheels(
     args: ListFlywheelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1850,8 +1907,14 @@ export interface Comprehend {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1861,8 +1924,14 @@ export interface Comprehend {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1876,7 +1945,10 @@ export interface Comprehend {
     args: UpdateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointCommandOutput>;
-  updateEndpoint(args: UpdateEndpointCommandInput, cb: (err: any, data?: UpdateEndpointCommandOutput) => void): void;
+  updateEndpoint(
+    args: UpdateEndpointCommandInput,
+    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
+  ): void;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -1890,7 +1962,10 @@ export interface Comprehend {
     args: UpdateFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFlywheelCommandOutput>;
-  updateFlywheel(args: UpdateFlywheelCommandInput, cb: (err: any, data?: UpdateFlywheelCommandOutput) => void): void;
+  updateFlywheel(
+    args: UpdateFlywheelCommandInput,
+    cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
+  ): void;
   updateFlywheel(
     args: UpdateFlywheelCommandInput,
     options: __HttpHandlerOptions,

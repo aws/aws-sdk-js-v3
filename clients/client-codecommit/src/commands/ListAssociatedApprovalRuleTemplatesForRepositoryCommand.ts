@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
-  extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
 /**
  * @public
  *
  * The output of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-  extends ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-    __MetadataBearer {}
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput extends ListAssociatedApprovalRuleTemplatesForRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all approval rule templates that are associated with a specified repository.</p>

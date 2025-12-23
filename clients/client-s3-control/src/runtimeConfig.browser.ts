@@ -30,11 +30,8 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,
     region: config?.region ?? invalidProvider("Region is missing"),

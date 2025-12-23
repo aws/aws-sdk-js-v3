@@ -28,9 +28,7 @@ export interface ListAvailableSolutionStacksCommandInput {}
  *
  * The output of {@link ListAvailableSolutionStacksCommand}.
  */
-export interface ListAvailableSolutionStacksCommandOutput
-  extends ListAvailableSolutionStacksResultMessage,
-    __MetadataBearer {}
+export interface ListAvailableSolutionStacksCommandOutput extends ListAvailableSolutionStacksResultMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available solution stack names, with the public version first and

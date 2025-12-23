@@ -27,9 +27,7 @@ export interface CreatePersistentContactAssociationCommandInput extends CreatePe
  *
  * The output of {@link CreatePersistentContactAssociationCommand}.
  */
-export interface CreatePersistentContactAssociationCommandOutput
-  extends CreatePersistentContactAssociationResponse,
-    __MetadataBearer {}
+export interface CreatePersistentContactAssociationCommandOutput extends CreatePersistentContactAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see

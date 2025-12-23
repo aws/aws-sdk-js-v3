@@ -27,9 +27,7 @@ export interface ListDocumentClassifierSummariesCommandInput extends ListDocumen
  *
  * The output of {@link ListDocumentClassifierSummariesCommand}.
  */
-export interface ListDocumentClassifierSummariesCommandOutput
-  extends ListDocumentClassifierSummariesResponse,
-    __MetadataBearer {}
+export interface ListDocumentClassifierSummariesCommandOutput extends ListDocumentClassifierSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of summaries of the document classifiers that you have created</p>

@@ -27,9 +27,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInter
  *
  * The output of {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
-export interface GetInterpolatedAssetPropertyValuesCommandOutput
-  extends GetInterpolatedAssetPropertyValuesResponse,
-    __MetadataBearer {}
+export interface GetInterpolatedAssetPropertyValuesCommandOutput extends GetInterpolatedAssetPropertyValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Get interpolated values for an asset property for a specified time interval, during a

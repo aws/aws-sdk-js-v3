@@ -270,569 +270,661 @@ import {
 import { KinesisServiceException } from "../models/KinesisServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI, 0, [_SN, _T, _SARN], [0, 128 | 0, 0]];
-export var ChildShard$: StaticStructureSchema = [3, n0, _CS, 0, [_SI, _PS, _HKR], [0, 64 | 0, () => HashKeyRange$]];
-export var Consumer$: StaticStructureSchema = [3, n0, _C, 0, [_CN, _CARN, _CSo, _CCT], [0, 0, 0, 4]];
-export var ConsumerDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _CD,
+export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
+  0,
+  [_SN, _T, _SARN],
+  [0, 128 | 0, 0]
+];
+export var ChildShard$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_SI, _PS, _HKR],
+  [0, 64 | 0, () => HashKeyRange$]
+];
+export var Consumer$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_CN, _CARN, _CSo, _CCT],
+  [0, 0, 0, 4]
+];
+export var ConsumerDescription$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_CN, _CARN, _CSo, _CCT, _SARN],
-  [0, 0, 0, 4, 0],
+  [0, 0, 0, 4, 0]
 ];
-export var CreateStreamInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSI,
+export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB],
-  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1],
+  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1]
 ];
-export var DecreaseStreamRetentionPeriodInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRPI,
+export var DecreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, _DSRPI,
   0,
   [_SN, _RPH, _SARN],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI, 0, [_RARN], [0]];
-export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_SN, _ECD, _SARN], [0, 2, 0]];
-export var DeregisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCI, 0, [_SARN, _CN, _CARN], [0, 0, 0]];
-export var DescribeAccountSettingsInput$: StaticStructureSchema = [3, n0, _DASI, 0, [], []];
-export var DescribeAccountSettingsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DASO,
+export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
+  0,
+  [_RARN],
+  [0]
+];
+export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI,
+  0,
+  [_SN, _ECD, _SARN],
+  [0, 2, 0]
+];
+export var DeregisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCI,
+  0,
+  [_SARN, _CN, _CARN],
+  [0, 0, 0]
+];
+export var DescribeAccountSettingsInput$: StaticStructureSchema = [3, n0, _DASI,
+  0,
+  [],
+  []
+];
+export var DescribeAccountSettingsOutput$: StaticStructureSchema = [3, n0, _DASO,
   0,
   [_MTBC],
-  [() => MinimumThroughputBillingCommitmentOutput$],
+  [() => MinimumThroughputBillingCommitmentOutput$]
 ];
-export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI, 0, [], []];
-export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO, 0, [_SL, _OSC, _ODSC, _ODSCL], [1, 1, 1, 1]];
-export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe, 0, [_SARN, _CN, _CARN], [0, 0, 0]];
-export var DescribeStreamConsumerOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCO,
+export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI,
+  0,
+  [],
+  []
+];
+export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO,
+  0,
+  [_SL, _OSC, _ODSC, _ODSCL],
+  [1, 1, 1, 1]
+];
+export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe,
+  0,
+  [_SARN, _CN, _CARN],
+  [0, 0, 0]
+];
+export var DescribeStreamConsumerOutput$: StaticStructureSchema = [3, n0, _DSCO,
   0,
   [_CD],
-  [() => ConsumerDescription$],
+  [() => ConsumerDescription$]
 ];
-export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe, 0, [_SN, _L, _ESSI, _SARN], [0, 1, 0, 0]];
-export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [_SD], [() => StreamDescription$]];
-export var DescribeStreamSummaryInput$: StaticStructureSchema = [3, n0, _DSSI, 0, [_SN, _SARN], [0, 0]];
-export var DescribeStreamSummaryOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSSO,
+export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe,
+  0,
+  [_SN, _L, _ESSI, _SARN],
+  [0, 1, 0, 0]
+];
+export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
+  0,
+  [_SD],
+  [() => StreamDescription$]
+];
+export var DescribeStreamSummaryInput$: StaticStructureSchema = [3, n0, _DSSI,
+  0,
+  [_SN, _SARN],
+  [0, 0]
+];
+export var DescribeStreamSummaryOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
   [_SDS],
-  [() => StreamDescriptionSummary$],
+  [() => StreamDescriptionSummary$]
 ];
-export var DisableEnhancedMonitoringInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEMI,
+export var DisableEnhancedMonitoringInput$: StaticStructureSchema = [3, n0, _DEMI,
   0,
   [_SN, _SLM, _SARN],
-  [0, 64 | 0, 0],
+  [0, 64 | 0, 0]
 ];
-export var EnableEnhancedMonitoringInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _EEMI,
+export var EnableEnhancedMonitoringInput$: StaticStructureSchema = [3, n0, _EEMI,
   0,
   [_SN, _SLM, _SARN],
-  [0, 64 | 0, 0],
+  [0, 64 | 0, 0]
 ];
-export var EnhancedMetrics$: StaticStructureSchema = [3, n0, _EM, 0, [_SLM], [64 | 0]];
-export var EnhancedMonitoringOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _EMO,
+export var EnhancedMetrics$: StaticStructureSchema = [3, n0, _EM,
+  0,
+  [_SLM],
+  [64 | 0]
+];
+export var EnhancedMonitoringOutput$: StaticStructureSchema = [3, n0, _EMO,
   0,
   [_SN, _CSLM, _DSLM, _SARN],
-  [0, 64 | 0, 64 | 0, 0],
+  [0, 64 | 0, 64 | 0, 0]
 ];
-export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE, { [_e]: _c }, [_m], [0]];
+export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ExpiredIteratorException$, ExpiredIteratorException);
-export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE, { [_e]: _c }, [_m], [0]];
+export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
-export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI, 0, [_SIh, _L, _SARN], [0, 1, 0]];
-export var GetRecordsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRO,
+export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
+  0,
+  [_SIh, _L, _SARN],
+  [0, 1, 0]
+];
+export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
   [_R, _NSI, _MBL, _CSh],
-  [() => RecordList, 0, 1, () => ChildShardList],
+  [() => RecordList, 0, 1, () => ChildShardList]
 ];
-export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI, 0, [_RARN], [0]];
-export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO, 0, [_P], [0]];
-export var GetShardIteratorInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSII,
+export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
+  0,
+  [_RARN],
+  [0]
+];
+export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
+  0,
+  [_P],
+  [0]
+];
+export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
   [_SN, _SI, _SIT, _SSN, _Ti, _SARN],
-  [0, 0, 0, 0, 4, 0],
+  [0, 0, 0, 0, 4, 0]
 ];
-export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO, 0, [_SIh], [0]];
-export var HashKeyRange$: StaticStructureSchema = [3, n0, _HKR, 0, [_SHK, _EHK], [0, 0]];
-export var IncreaseStreamRetentionPeriodInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISRPI,
+export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
+  0,
+  [_SIh],
+  [0]
+];
+export var HashKeyRange$: StaticStructureSchema = [3, n0, _HKR,
+  0,
+  [_SHK, _EHK],
+  [0, 0]
+];
+export var IncreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, _ISRPI,
   0,
   [_SN, _RPH, _SARN],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s }, [_m], [0]];
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _s },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var KMSAccessDeniedException$: StaticErrorSchema = [-3, n0, _KMSADE, { [_e]: _c }, [_m], [0]];
+export var KMSAccessDeniedException$: StaticErrorSchema = [-3, n0, _KMSADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSAccessDeniedException$, KMSAccessDeniedException);
-export var KMSDisabledException$: StaticErrorSchema = [-3, n0, _KMSDE, { [_e]: _c }, [_m], [0]];
+export var KMSDisabledException$: StaticErrorSchema = [-3, n0, _KMSDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSDisabledException$, KMSDisabledException);
-export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISE, { [_e]: _c }, [_m], [0]];
+export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSInvalidStateException$, KMSInvalidStateException);
-export var KMSNotFoundException$: StaticErrorSchema = [-3, n0, _KMSNFE, { [_e]: _c }, [_m], [0]];
+export var KMSNotFoundException$: StaticErrorSchema = [-3, n0, _KMSNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSNotFoundException$, KMSNotFoundException);
-export var KMSOptInRequired$: StaticErrorSchema = [-3, n0, _KMSOIR, { [_e]: _c }, [_m], [0]];
+export var KMSOptInRequired$: StaticErrorSchema = [-3, n0, _KMSOIR,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSOptInRequired$, KMSOptInRequired);
-export var KMSThrottlingException$: StaticErrorSchema = [-3, n0, _KMSTE, { [_e]: _c }, [_m], [0]];
+export var KMSThrottlingException$: StaticErrorSchema = [-3, n0, _KMSTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(KMSThrottlingException$, KMSThrottlingException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListShardsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSI,
+export var ListShardsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_SN, _NT, _ESSI, _MR, _SCT, _SF, _SARN],
-  [0, 0, 0, 1, 4, () => ShardFilter$, 0],
+  [0, 0, 0, 1, 4, () => ShardFilter$, 0]
 ];
-export var ListShardsOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_S, _NT], [() => ShardList, 0]];
-export var ListStreamConsumersInput$: StaticStructureSchema = [3, n0, _LSCI, 0, [_SARN, _NT, _MR, _SCT], [0, 0, 1, 4]];
-export var ListStreamConsumersOutput$: StaticStructureSchema = [3, n0, _LSCO, 0, [_Co, _NT], [() => ConsumerList, 0]];
-export var ListStreamsInput$: StaticStructureSchema = [3, n0, _LSIi, 0, [_L, _ESSN, _NT], [1, 0, 0]];
-export var ListStreamsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSOi,
+export var ListShardsOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_S, _NT],
+  [() => ShardList, 0]
+];
+export var ListStreamConsumersInput$: StaticStructureSchema = [3, n0, _LSCI,
+  0,
+  [_SARN, _NT, _MR, _SCT],
+  [0, 0, 1, 4]
+];
+export var ListStreamConsumersOutput$: StaticStructureSchema = [3, n0, _LSCO,
+  0,
+  [_Co, _NT],
+  [() => ConsumerList, 0]
+];
+export var ListStreamsInput$: StaticStructureSchema = [3, n0, _LSIi,
+  0,
+  [_L, _ESSN, _NT],
+  [1, 0, 0]
+];
+export var ListStreamsOutput$: StaticStructureSchema = [3, n0, _LSOi,
   0,
   [_SNt, _HMS, _NT, _SS],
-  [64 | 0, 2, 0, () => StreamSummaryList],
+  [64 | 0, 2, 0, () => StreamSummaryList]
 ];
-export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_RARN], [0]];
-export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [() => TagList]];
-export var ListTagsForStreamInput$: StaticStructureSchema = [3, n0, _LTFSI, 0, [_SN, _ESTK, _L, _SARN], [0, 0, 1, 0]];
-export var ListTagsForStreamOutput$: StaticStructureSchema = [3, n0, _LTFSO, 0, [_T, _HMT], [() => TagList, 2]];
-export var MergeShardsInput$: StaticStructureSchema = [3, n0, _MSI, 0, [_SN, _STM, _ASTM, _SARN], [0, 0, 0, 0]];
-export var MinimumThroughputBillingCommitmentInput$: StaticStructureSchema = [3, n0, _MTBCI, 0, [_St], [0]];
-export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _MTBCO,
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
+  0,
+  [_RARN],
+  [0]
+];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
+  0,
+  [_T],
+  [() => TagList]
+];
+export var ListTagsForStreamInput$: StaticStructureSchema = [3, n0, _LTFSI,
+  0,
+  [_SN, _ESTK, _L, _SARN],
+  [0, 0, 1, 0]
+];
+export var ListTagsForStreamOutput$: StaticStructureSchema = [3, n0, _LTFSO,
+  0,
+  [_T, _HMT],
+  [() => TagList, 2]
+];
+export var MergeShardsInput$: StaticStructureSchema = [3, n0, _MSI,
+  0,
+  [_SN, _STM, _ASTM, _SARN],
+  [0, 0, 0, 0]
+];
+export var MinimumThroughputBillingCommitmentInput$: StaticStructureSchema = [3, n0, _MTBCI,
+  0,
+  [_St],
+  [0]
+];
+export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [3, n0, _MTBCO,
   0,
   [_St, _SA, _EA, _EAEA],
-  [0, 4, 4, 4],
+  [0, 4, 4, 4]
 ];
-export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE, { [_e]: _c }, [_m], [0]];
+export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
-export var PutRecordInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRI,
+export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
   [_SN, _D, _PK, _EHKx, _SNFO, _SARN],
-  [0, 21, 0, 0, 0, 0],
+  [0, 21, 0, 0, 0, 0]
 ];
-export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO, 0, [_SI, _SNe, _ET], [0, 0, 0]];
-export var PutRecordsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRIu,
+export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
+  0,
+  [_SI, _SNe, _ET],
+  [0, 0, 0]
+];
+export var PutRecordsInput$: StaticStructureSchema = [3, n0, _PRIu,
   0,
   [_R, _SN, _SARN],
-  [() => PutRecordsRequestEntryList, 0, 0],
+  [() => PutRecordsRequestEntryList, 0, 0]
 ];
-export var PutRecordsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PROu,
+export var PutRecordsOutput$: StaticStructureSchema = [3, n0, _PROu,
   0,
   [_FRC, _R, _ET],
-  [1, () => PutRecordsResultEntryList, 0],
+  [1, () => PutRecordsResultEntryList, 0]
 ];
-export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE, 0, [_D, _EHKx, _PK], [21, 0, 0]];
-export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu, 0, [_SNe, _SI, _EC, _EMr], [0, 0, 0, 0]];
-export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI, 0, [_RARN, _P], [0, 0]];
-export var _Record$: StaticStructureSchema = [3, n0, _Re, 0, [_SNe, _AAT, _D, _PK, _ET], [0, 4, 21, 0, 0]];
-export var RegisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _RSCI, 0, [_SARN, _CN, _T], [0, 0, 128 | 0]];
-export var RegisterStreamConsumerOutput$: StaticStructureSchema = [3, n0, _RSCO, 0, [_C], [() => Consumer$]];
-export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI, 0, [_SN, _TK, _SARN], [0, 64 | 0, 0]];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_m], [0]];
+export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE,
+  0,
+  [_D, _EHKx, _PK],
+  [21, 0, 0]
+];
+export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
+  0,
+  [_SNe, _SI, _EC, _EMr],
+  [0, 0, 0, 0]
+];
+export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
+  0,
+  [_RARN, _P],
+  [0, 0]
+];
+export var _Record$: StaticStructureSchema = [3, n0, _Re,
+  0,
+  [_SNe, _AAT, _D, _PK, _ET],
+  [0, 4, 21, 0, 0]
+];
+export var RegisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _RSCI,
+  0,
+  [_SARN, _CN, _T],
+  [0, 0, 128 | 0]
+];
+export var RegisterStreamConsumerOutput$: StaticStructureSchema = [3, n0, _RSCO,
+  0,
+  [_C],
+  [() => Consumer$]
+];
+export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI,
+  0,
+  [_SN, _TK, _SARN],
+  [0, 64 | 0, 0]
+];
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR, 0, [_SSN, _ESN], [0, 0]];
-export var Shard$: StaticStructureSchema = [
-  3,
-  n0,
-  _Sh,
+export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
+  0,
+  [_SSN, _ESN],
+  [0, 0]
+];
+export var Shard$: StaticStructureSchema = [3, n0, _Sh,
   0,
   [_SI, _PSI, _APSI, _HKR, _SNR],
-  [0, 0, 0, () => HashKeyRange$, () => SequenceNumberRange$],
+  [0, 0, 0, () => HashKeyRange$, () => SequenceNumberRange$]
 ];
-export var ShardFilter$: StaticStructureSchema = [3, n0, _SF, 0, [_Ty, _SI, _Ti], [0, 0, 4]];
-export var SplitShardInput$: StaticStructureSchema = [3, n0, _SSI, 0, [_SN, _STS, _NSHK, _SARN], [0, 0, 0, 0]];
-export var StartingPosition$: StaticStructureSchema = [3, n0, _SP, 0, [_Ty, _SNe, _Ti], [0, 0, 4]];
-export var StartStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEI, 0, [_SN, _ET, _KI, _SARN], [0, 0, 0, 0]];
-export var StopStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEIt, 0, [_SN, _ET, _KI, _SARN], [0, 0, 0, 0]];
-export var StreamDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
+export var ShardFilter$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_Ty, _SI, _Ti],
+  [0, 0, 4]
+];
+export var SplitShardInput$: StaticStructureSchema = [3, n0, _SSI,
+  0,
+  [_SN, _STS, _NSHK, _SARN],
+  [0, 0, 0, 0]
+];
+export var StartingPosition$: StaticStructureSchema = [3, n0, _SP,
+  0,
+  [_Ty, _SNe, _Ti],
+  [0, 0, 4]
+];
+export var StartStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEI,
+  0,
+  [_SN, _ET, _KI, _SARN],
+  [0, 0, 0, 0]
+];
+export var StopStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEIt,
+  0,
+  [_SN, _ET, _KI, _SARN],
+  [0, 0, 0, 0]
+];
+export var StreamDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_SN, _SARN, _SSt, _SMD, _S, _HMSa, _RPH, _SCT, _EMn, _ET, _KI],
-  [0, 0, 0, () => StreamModeDetails$, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, 0, 0],
+  [0, 0, 0, () => StreamModeDetails$, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, 0, 0]
 ];
-export var StreamDescriptionSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDS,
+export var StreamDescriptionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
   [_SN, _SARN, _SSt, _SMD, _RPH, _SCT, _EMn, _ET, _KI, _OSC, _CC, _WT, _MRSIKB],
-  [0, 0, 0, () => StreamModeDetails$, 1, 4, () => EnhancedMonitoringList, 0, 0, 1, 1, () => WarmThroughputObject$, 1],
+  [0, 0, 0, () => StreamModeDetails$, 1, 4, () => EnhancedMonitoringList, 0, 0, 1, 1, () => WarmThroughputObject$, 1]
 ];
-export var StreamModeDetails$: StaticStructureSchema = [3, n0, _SMD, 0, [_SM], [0]];
-export var StreamSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SStr,
+export var StreamModeDetails$: StaticStructureSchema = [3, n0, _SMD,
+  0,
+  [_SM],
+  [0]
+];
+export var StreamSummary$: StaticStructureSchema = [3, n0, _SStr,
   0,
   [_SN, _SARN, _SSt, _SMD, _SCT],
-  [0, 0, 0, () => StreamModeDetails$, 4],
+  [0, 0, 0, () => StreamModeDetails$, 4]
 ];
-export var SubscribeToShardEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _STSE,
+export var SubscribeToShardEvent$: StaticStructureSchema = [3, n0, _STSE,
   0,
   [_R, _CSN, _MBL, _CSh],
-  [() => RecordList, 0, 1, () => ChildShardList],
+  [() => RecordList, 0, 1, () => ChildShardList]
 ];
-export var SubscribeToShardInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _STSI,
+export var SubscribeToShardInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
   [_CARN, _SI, _SP],
-  [0, 0, () => StartingPosition$],
+  [0, 0, () => StartingPosition$]
 ];
-export var SubscribeToShardOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _STSO,
+export var SubscribeToShardOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
   [_ES],
-  [[() => SubscribeToShardEventStream$, 0]],
+  [[() => SubscribeToShardEventStream$, 0]]
 ];
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_T, _RARN], [128 | 0, 0]];
-export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI, 0, [_TK, _RARN], [64 | 0, 0]];
-export var UpdateAccountSettingsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UASI,
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_T, _RARN],
+  [128 | 0, 0]
+];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
+  0,
+  [_TK, _RARN],
+  [64 | 0, 0]
+];
+export var UpdateAccountSettingsInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
   [_MTBC],
-  [() => MinimumThroughputBillingCommitmentInput$],
+  [() => MinimumThroughputBillingCommitmentInput$]
 ];
-export var UpdateAccountSettingsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UASO,
+export var UpdateAccountSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
   [_MTBC],
-  [() => MinimumThroughputBillingCommitmentOutput$],
+  [() => MinimumThroughputBillingCommitmentOutput$]
 ];
-export var UpdateMaxRecordSizeInput$: StaticStructureSchema = [3, n0, _UMRSI, 0, [_SARN, _MRSIKB], [0, 1]];
-export var UpdateShardCountInput$: StaticStructureSchema = [3, n0, _USCI, 0, [_SN, _TSC, _ST, _SARN], [0, 1, 0, 0]];
-export var UpdateShardCountOutput$: StaticStructureSchema = [3, n0, _USCO, 0, [_SN, _CSC, _TSC, _SARN], [0, 1, 1, 0]];
-export var UpdateStreamModeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _USMI,
+export var UpdateMaxRecordSizeInput$: StaticStructureSchema = [3, n0, _UMRSI,
+  0,
+  [_SARN, _MRSIKB],
+  [0, 1]
+];
+export var UpdateShardCountInput$: StaticStructureSchema = [3, n0, _USCI,
+  0,
+  [_SN, _TSC, _ST, _SARN],
+  [0, 1, 0, 0]
+];
+export var UpdateShardCountOutput$: StaticStructureSchema = [3, n0, _USCO,
+  0,
+  [_SN, _CSC, _TSC, _SARN],
+  [0, 1, 1, 0]
+];
+export var UpdateStreamModeInput$: StaticStructureSchema = [3, n0, _USMI,
   0,
   [_SARN, _SMD, _WTMB],
-  [0, () => StreamModeDetails$, 1],
+  [0, () => StreamModeDetails$, 1]
 ];
-export var UpdateStreamWarmThroughputInput$: StaticStructureSchema = [3, n0, _USWTI, 0, [_SARN, _SN, _WTMB], [0, 0, 1]];
-export var UpdateStreamWarmThroughputOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _USWTO,
+export var UpdateStreamWarmThroughputInput$: StaticStructureSchema = [3, n0, _USWTI,
+  0,
+  [_SARN, _SN, _WTMB],
+  [0, 0, 1]
+];
+export var UpdateStreamWarmThroughputOutput$: StaticStructureSchema = [3, n0, _USWTO,
   0,
   [_SARN, _SN, _WT],
-  [0, 0, () => WarmThroughputObject$],
+  [0, 0, () => WarmThroughputObject$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var WarmThroughputObject$: StaticStructureSchema = [3, n0, _WTO, 0, [_TMB, _CMB], [1, 1]];
+export var WarmThroughputObject$: StaticStructureSchema = [3, n0, _WTO,
+  0,
+  [_TMB, _CMB],
+  [1, 1]
+];
 var __Unit = "unit" as const;
 export var KinesisServiceException$: StaticErrorSchema = [-3, _sm, "KinesisServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KinesisServiceException$, KinesisServiceException);
-var ChildShardList: StaticListSchema = [1, n0, _CSL, 0, () => ChildShard$];
-var ConsumerList: StaticListSchema = [1, n0, _CL, 0, () => Consumer$];
-var EnhancedMonitoringList: StaticListSchema = [1, n0, _EML, 0, () => EnhancedMetrics$];
+var ChildShardList: StaticListSchema = [1, n0, _CSL,
+  0, () => ChildShard$
+];
+var ConsumerList: StaticListSchema = [1, n0, _CL,
+  0, () => Consumer$
+];
+var EnhancedMonitoringList: StaticListSchema = [1, n0, _EML,
+  0, () => EnhancedMetrics$
+];
 var MetricsNameList = 64 | 0;
-var PutRecordsRequestEntryList: StaticListSchema = [1, n0, _PRREL, 0, () => PutRecordsRequestEntry$];
-var PutRecordsResultEntryList: StaticListSchema = [1, n0, _PRRELu, 0, () => PutRecordsResultEntry$];
-var RecordList: StaticListSchema = [1, n0, _RL, 0, () => _Record$];
+var PutRecordsRequestEntryList: StaticListSchema = [1, n0, _PRREL,
+  0, () => PutRecordsRequestEntry$
+];
+var PutRecordsResultEntryList: StaticListSchema = [1, n0, _PRRELu,
+  0, () => PutRecordsResultEntry$
+];
+var RecordList: StaticListSchema = [1, n0, _RL,
+  0, () => _Record$
+];
 var ShardIdList = 64 | 0;
-var ShardList: StaticListSchema = [1, n0, _SLh, 0, () => Shard$];
+var ShardList: StaticListSchema = [1, n0, _SLh,
+  0, () => Shard$
+];
 var StreamNameList = 64 | 0;
-var StreamSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => StreamSummary$];
+var StreamSummaryList: StaticListSchema = [1, n0, _SSL,
+  0, () => StreamSummary$
+];
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
 var TagMap = 128 | 0;
-export var SubscribeToShardEventStream$: StaticUnionSchema = [
-  4,
-  n0,
-  _STSES,
+export var SubscribeToShardEventStream$: StaticUnionSchema = [4, n0, _STSES,
   { [_st]: 1 },
   [_STSE, _RNFE, _RIUE, _KMSDE, _KMSISE, _KMSADE, _KMSNFE, _KMSOIR, _KMSTE, _IFE],
-  [
-    () => SubscribeToShardEvent$,
-    [() => ResourceNotFoundException$, 0],
-    [() => ResourceInUseException$, 0],
-    [() => KMSDisabledException$, 0],
-    [() => KMSInvalidStateException$, 0],
-    [() => KMSAccessDeniedException$, 0],
-    [() => KMSNotFoundException$, 0],
-    [() => KMSOptInRequired$, 0],
-    [() => KMSThrottlingException$, 0],
-    [() => InternalFailureException$, 0],
-  ],
+  [() => SubscribeToShardEvent$, [() => ResourceNotFoundException$, 0], [() => ResourceInUseException$, 0], [() => KMSDisabledException$, 0], [() => KMSInvalidStateException$, 0], [() => KMSAccessDeniedException$, 0], [() => KMSNotFoundException$, 0], [() => KMSOptInRequired$, 0], [() => KMSThrottlingException$, 0], [() => InternalFailureException$, 0]]
 ];
-export var AddTagsToStream$: StaticOperationSchema = [9, n0, _ATTS, 0, () => AddTagsToStreamInput$, () => __Unit];
-export var CreateStream$: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateStreamInput$, () => __Unit];
-export var DecreaseStreamRetentionPeriod$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSRP,
-  0,
-  () => DecreaseStreamRetentionPeriodInput$,
-  () => __Unit,
+export var AddTagsToStream$: StaticOperationSchema = [9, n0, _ATTS,
+  0, () => AddTagsToStreamInput$, () => __Unit
 ];
-export var DeleteResourcePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRP,
-  0,
-  () => DeleteResourcePolicyInput$,
-  () => __Unit,
+export var CreateStream$: StaticOperationSchema = [9, n0, _CSr,
+  0, () => CreateStreamInput$, () => __Unit
 ];
-export var DeleteStream$: StaticOperationSchema = [9, n0, _DS, 0, () => DeleteStreamInput$, () => __Unit];
-export var DeregisterStreamConsumer$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSC,
-  0,
-  () => DeregisterStreamConsumerInput$,
-  () => __Unit,
+export var DecreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _DSRP,
+  0, () => DecreaseStreamRetentionPeriodInput$, () => __Unit
 ];
-export var DescribeAccountSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _DAS,
-  0,
-  () => DescribeAccountSettingsInput$,
-  () => DescribeAccountSettingsOutput$,
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  0, () => DeleteResourcePolicyInput$, () => __Unit
 ];
-export var DescribeLimits$: StaticOperationSchema = [
-  9,
-  n0,
-  _DL,
-  0,
-  () => DescribeLimitsInput$,
-  () => DescribeLimitsOutput$,
+export var DeleteStream$: StaticOperationSchema = [9, n0, _DS,
+  0, () => DeleteStreamInput$, () => __Unit
 ];
-export var DescribeStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSe,
-  0,
-  () => DescribeStreamInput$,
-  () => DescribeStreamOutput$,
+export var DeregisterStreamConsumer$: StaticOperationSchema = [9, n0, _DSC,
+  0, () => DeregisterStreamConsumerInput$, () => __Unit
 ];
-export var DescribeStreamConsumer$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSCe,
-  0,
-  () => DescribeStreamConsumerInput$,
-  () => DescribeStreamConsumerOutput$,
+export var DescribeAccountSettings$: StaticOperationSchema = [9, n0, _DAS,
+  0, () => DescribeAccountSettingsInput$, () => DescribeAccountSettingsOutput$
 ];
-export var DescribeStreamSummary$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSS,
-  0,
-  () => DescribeStreamSummaryInput$,
-  () => DescribeStreamSummaryOutput$,
+export var DescribeLimits$: StaticOperationSchema = [9, n0, _DL,
+  0, () => DescribeLimitsInput$, () => DescribeLimitsOutput$
 ];
-export var DisableEnhancedMonitoring$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEM,
-  0,
-  () => DisableEnhancedMonitoringInput$,
-  () => EnhancedMonitoringOutput$,
+export var DescribeStream$: StaticOperationSchema = [9, n0, _DSe,
+  0, () => DescribeStreamInput$, () => DescribeStreamOutput$
 ];
-export var EnableEnhancedMonitoring$: StaticOperationSchema = [
-  9,
-  n0,
-  _EEM,
-  0,
-  () => EnableEnhancedMonitoringInput$,
-  () => EnhancedMonitoringOutput$,
+export var DescribeStreamConsumer$: StaticOperationSchema = [9, n0, _DSCe,
+  0, () => DescribeStreamConsumerInput$, () => DescribeStreamConsumerOutput$
 ];
-export var GetRecords$: StaticOperationSchema = [9, n0, _GR, 0, () => GetRecordsInput$, () => GetRecordsOutput$];
-export var GetResourcePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRP,
-  0,
-  () => GetResourcePolicyInput$,
-  () => GetResourcePolicyOutput$,
+export var DescribeStreamSummary$: StaticOperationSchema = [9, n0, _DSS,
+  0, () => DescribeStreamSummaryInput$, () => DescribeStreamSummaryOutput$
 ];
-export var GetShardIterator$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSI,
-  0,
-  () => GetShardIteratorInput$,
-  () => GetShardIteratorOutput$,
+export var DisableEnhancedMonitoring$: StaticOperationSchema = [9, n0, _DEM,
+  0, () => DisableEnhancedMonitoringInput$, () => EnhancedMonitoringOutput$
 ];
-export var IncreaseStreamRetentionPeriod$: StaticOperationSchema = [
-  9,
-  n0,
-  _ISRP,
-  0,
-  () => IncreaseStreamRetentionPeriodInput$,
-  () => __Unit,
+export var EnableEnhancedMonitoring$: StaticOperationSchema = [9, n0, _EEM,
+  0, () => EnableEnhancedMonitoringInput$, () => EnhancedMonitoringOutput$
 ];
-export var ListShards$: StaticOperationSchema = [9, n0, _LS, 0, () => ListShardsInput$, () => ListShardsOutput$];
-export var ListStreamConsumers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSC,
-  0,
-  () => ListStreamConsumersInput$,
-  () => ListStreamConsumersOutput$,
+export var GetRecords$: StaticOperationSchema = [9, n0, _GR,
+  0, () => GetRecordsInput$, () => GetRecordsOutput$
 ];
-export var ListStreams$: StaticOperationSchema = [9, n0, _LSi, 0, () => ListStreamsInput$, () => ListStreamsOutput$];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceInput$,
-  () => ListTagsForResourceOutput$,
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  0, () => GetResourcePolicyInput$, () => GetResourcePolicyOutput$
 ];
-export var ListTagsForStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFS,
-  0,
-  () => ListTagsForStreamInput$,
-  () => ListTagsForStreamOutput$,
+export var GetShardIterator$: StaticOperationSchema = [9, n0, _GSI,
+  0, () => GetShardIteratorInput$, () => GetShardIteratorOutput$
 ];
-export var MergeShards$: StaticOperationSchema = [9, n0, _MS, 0, () => MergeShardsInput$, () => __Unit];
-export var PutRecord$: StaticOperationSchema = [9, n0, _PR, 0, () => PutRecordInput$, () => PutRecordOutput$];
-export var PutRecords$: StaticOperationSchema = [9, n0, _PRu, 0, () => PutRecordsInput$, () => PutRecordsOutput$];
-export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP, 0, () => PutResourcePolicyInput$, () => __Unit];
-export var RegisterStreamConsumer$: StaticOperationSchema = [
-  9,
-  n0,
-  _RSC,
-  0,
-  () => RegisterStreamConsumerInput$,
-  () => RegisterStreamConsumerOutput$,
+export var IncreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _ISRP,
+  0, () => IncreaseStreamRetentionPeriodInput$, () => __Unit
 ];
-export var RemoveTagsFromStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _RTFS,
-  0,
-  () => RemoveTagsFromStreamInput$,
-  () => __Unit,
+export var ListShards$: StaticOperationSchema = [9, n0, _LS,
+  0, () => ListShardsInput$, () => ListShardsOutput$
 ];
-export var SplitShard$: StaticOperationSchema = [9, n0, _SSp, 0, () => SplitShardInput$, () => __Unit];
-export var StartStreamEncryption$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSE,
-  0,
-  () => StartStreamEncryptionInput$,
-  () => __Unit,
+export var ListStreamConsumers$: StaticOperationSchema = [9, n0, _LSC,
+  0, () => ListStreamConsumersInput$, () => ListStreamConsumersOutput$
 ];
-export var StopStreamEncryption$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSEt,
-  0,
-  () => StopStreamEncryptionInput$,
-  () => __Unit,
+export var ListStreams$: StaticOperationSchema = [9, n0, _LSi,
+  0, () => ListStreamsInput$, () => ListStreamsOutput$
 ];
-export var SubscribeToShard$: StaticOperationSchema = [
-  9,
-  n0,
-  _STSu,
-  0,
-  () => SubscribeToShardInput$,
-  () => SubscribeToShardOutput$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceInput$, () => __Unit];
-export var UntagResource$: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceInput$, () => __Unit];
-export var UpdateAccountSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _UAS,
-  0,
-  () => UpdateAccountSettingsInput$,
-  () => UpdateAccountSettingsOutput$,
+export var ListTagsForStream$: StaticOperationSchema = [9, n0, _LTFS,
+  0, () => ListTagsForStreamInput$, () => ListTagsForStreamOutput$
 ];
-export var UpdateMaxRecordSize$: StaticOperationSchema = [
-  9,
-  n0,
-  _UMRS,
-  0,
-  () => UpdateMaxRecordSizeInput$,
-  () => __Unit,
+export var MergeShards$: StaticOperationSchema = [9, n0, _MS,
+  0, () => MergeShardsInput$, () => __Unit
 ];
-export var UpdateShardCount$: StaticOperationSchema = [
-  9,
-  n0,
-  _USC,
-  0,
-  () => UpdateShardCountInput$,
-  () => UpdateShardCountOutput$,
+export var PutRecord$: StaticOperationSchema = [9, n0, _PR,
+  0, () => PutRecordInput$, () => PutRecordOutput$
 ];
-export var UpdateStreamMode$: StaticOperationSchema = [9, n0, _USM, 0, () => UpdateStreamModeInput$, () => __Unit];
-export var UpdateStreamWarmThroughput$: StaticOperationSchema = [
-  9,
-  n0,
-  _USWT,
-  0,
-  () => UpdateStreamWarmThroughputInput$,
-  () => UpdateStreamWarmThroughputOutput$,
+export var PutRecords$: StaticOperationSchema = [9, n0, _PRu,
+  0, () => PutRecordsInput$, () => PutRecordsOutput$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  0, () => PutResourcePolicyInput$, () => __Unit
+];
+export var RegisterStreamConsumer$: StaticOperationSchema = [9, n0, _RSC,
+  0, () => RegisterStreamConsumerInput$, () => RegisterStreamConsumerOutput$
+];
+export var RemoveTagsFromStream$: StaticOperationSchema = [9, n0, _RTFS,
+  0, () => RemoveTagsFromStreamInput$, () => __Unit
+];
+export var SplitShard$: StaticOperationSchema = [9, n0, _SSp,
+  0, () => SplitShardInput$, () => __Unit
+];
+export var StartStreamEncryption$: StaticOperationSchema = [9, n0, _SSE,
+  0, () => StartStreamEncryptionInput$, () => __Unit
+];
+export var StopStreamEncryption$: StaticOperationSchema = [9, n0, _SSEt,
+  0, () => StopStreamEncryptionInput$, () => __Unit
+];
+export var SubscribeToShard$: StaticOperationSchema = [9, n0, _STSu,
+  0, () => SubscribeToShardInput$, () => SubscribeToShardOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  0, () => TagResourceInput$, () => __Unit
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceInput$, () => __Unit
+];
+export var UpdateAccountSettings$: StaticOperationSchema = [9, n0, _UAS,
+  0, () => UpdateAccountSettingsInput$, () => UpdateAccountSettingsOutput$
+];
+export var UpdateMaxRecordSize$: StaticOperationSchema = [9, n0, _UMRS,
+  0, () => UpdateMaxRecordSizeInput$, () => __Unit
+];
+export var UpdateShardCount$: StaticOperationSchema = [9, n0, _USC,
+  0, () => UpdateShardCountInput$, () => UpdateShardCountOutput$
+];
+export var UpdateStreamMode$: StaticOperationSchema = [9, n0, _USM,
+  0, () => UpdateStreamModeInput$, () => __Unit
+];
+export var UpdateStreamWarmThroughput$: StaticOperationSchema = [9, n0, _USWT,
+  0, () => UpdateStreamWarmThroughputInput$, () => UpdateStreamWarmThroughputOutput$
 ];

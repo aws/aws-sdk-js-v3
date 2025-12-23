@@ -27,9 +27,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends Update
  *
  * The output of {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
-export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
-  extends UpdateCloudFrontOriginAccessIdentityResult,
-    __MetadataBearer {}
+export interface UpdateCloudFrontOriginAccessIdentityCommandOutput extends UpdateCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Update an origin access identity.</p>

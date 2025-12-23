@@ -31,9 +31,7 @@ export interface ListResourceTelemetryForOrganizationCommandInput extends ListRe
  *
  * The output of {@link ListResourceTelemetryForOrganizationCommand}.
  */
-export interface ListResourceTelemetryForOrganizationCommandOutput
-  extends ListResourceTelemetryForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListResourceTelemetryForOrganizationCommandOutput extends ListResourceTelemetryForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization. </p>

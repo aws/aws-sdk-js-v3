@@ -24,9 +24,7 @@ export interface DeleteEnvironmentTemplateVersionCommandInput extends DeleteEnvi
  *
  * The output of {@link DeleteEnvironmentTemplateVersionCommand}.
  */
-export interface DeleteEnvironmentTemplateVersionCommandOutput
-  extends DeleteEnvironmentTemplateVersionOutput,
-    __MetadataBearer {}
+export interface DeleteEnvironmentTemplateVersionCommandOutput extends DeleteEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the

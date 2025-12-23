@@ -24,9 +24,7 @@ export interface UpdateSubscriberNotificationCommandInput extends UpdateSubscrib
  *
  * The output of {@link UpdateSubscriberNotificationCommand}.
  */
-export interface UpdateSubscriberNotificationCommandOutput
-  extends UpdateSubscriberNotificationResponse,
-    __MetadataBearer {}
+export interface UpdateSubscriberNotificationCommandOutput extends UpdateSubscriberNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or

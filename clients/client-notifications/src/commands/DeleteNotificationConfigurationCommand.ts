@@ -27,9 +27,7 @@ export interface DeleteNotificationConfigurationCommandInput extends DeleteNotif
  *
  * The output of {@link DeleteNotificationConfigurationCommand}.
  */
-export interface DeleteNotificationConfigurationCommandOutput
-  extends DeleteNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteNotificationConfigurationCommandOutput extends DeleteNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>NotificationConfiguration</code>.</p>

@@ -24,9 +24,7 @@ export interface DescribeTrafficMirrorSessionsCommandInput extends DescribeTraff
  *
  * The output of {@link DescribeTrafficMirrorSessionsCommand}.
  */
-export interface DescribeTrafficMirrorSessionsCommandOutput
-  extends DescribeTrafficMirrorSessionsResult,
-    __MetadataBearer {}
+export interface DescribeTrafficMirrorSessionsCommandOutput extends DescribeTrafficMirrorSessionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>

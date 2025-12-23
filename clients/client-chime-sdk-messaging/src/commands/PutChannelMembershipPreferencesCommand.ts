@@ -31,9 +31,7 @@ export interface PutChannelMembershipPreferencesCommandInput extends PutChannelM
  *
  * The output of {@link PutChannelMembershipPreferencesCommand}.
  */
-export interface PutChannelMembershipPreferencesCommandOutput
-  extends PutChannelMembershipPreferencesResponse,
-    __MetadataBearer {}
+export interface PutChannelMembershipPreferencesCommandOutput extends PutChannelMembershipPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>

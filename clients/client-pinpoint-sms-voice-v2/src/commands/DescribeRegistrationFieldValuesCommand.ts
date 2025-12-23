@@ -28,9 +28,7 @@ export interface DescribeRegistrationFieldValuesCommandInput extends DescribeReg
  *
  * The output of {@link DescribeRegistrationFieldValuesCommand}.
  */
-export interface DescribeRegistrationFieldValuesCommandOutput
-  extends DescribeRegistrationFieldValuesResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationFieldValuesCommandOutput extends DescribeRegistrationFieldValuesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration field values.</p>

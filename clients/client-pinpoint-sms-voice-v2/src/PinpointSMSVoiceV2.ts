@@ -571,8 +571,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link CarrierLookupCommand}
    */
-  carrierLookup(args: CarrierLookupCommandInput, options?: __HttpHandlerOptions): Promise<CarrierLookupCommandOutput>;
-  carrierLookup(args: CarrierLookupCommandInput, cb: (err: any, data?: CarrierLookupCommandOutput) => void): void;
+  carrierLookup(
+    args: CarrierLookupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CarrierLookupCommandOutput>;
+  carrierLookup(
+    args: CarrierLookupCommandInput,
+    cb: (err: any, data?: CarrierLookupCommandOutput) => void
+  ): void;
   carrierLookup(
     args: CarrierLookupCommandInput,
     options: __HttpHandlerOptions,
@@ -633,8 +639,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link CreatePoolCommand}
    */
-  createPool(args: CreatePoolCommandInput, options?: __HttpHandlerOptions): Promise<CreatePoolCommandOutput>;
-  createPool(args: CreatePoolCommandInput, cb: (err: any, data?: CreatePoolCommandOutput) => void): void;
+  createPool(
+    args: CreatePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePoolCommandOutput>;
+  createPool(
+    args: CreatePoolCommandInput,
+    cb: (err: any, data?: CreatePoolCommandOutput) => void
+  ): void;
   createPool(
     args: CreatePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -834,8 +846,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeleteKeywordCommand}
    */
-  deleteKeyword(args: DeleteKeywordCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeywordCommandOutput>;
-  deleteKeyword(args: DeleteKeywordCommandInput, cb: (err: any, data?: DeleteKeywordCommandOutput) => void): void;
+  deleteKeyword(
+    args: DeleteKeywordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeywordCommandOutput>;
+  deleteKeyword(
+    args: DeleteKeywordCommandInput,
+    cb: (err: any, data?: DeleteKeywordCommandOutput) => void
+  ): void;
   deleteKeyword(
     args: DeleteKeywordCommandInput,
     options: __HttpHandlerOptions,
@@ -897,8 +915,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeletePoolCommand}
    */
-  deletePool(args: DeletePoolCommandInput, options?: __HttpHandlerOptions): Promise<DeletePoolCommandOutput>;
-  deletePool(args: DeletePoolCommandInput, cb: (err: any, data?: DeletePoolCommandOutput) => void): void;
+  deletePool(
+    args: DeletePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePoolCommandOutput>;
+  deletePool(
+    args: DeletePoolCommandInput,
+    cb: (err: any, data?: DeletePoolCommandOutput) => void
+  ): void;
   deletePool(
     args: DeletePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -1188,8 +1212,14 @@ export interface PinpointSMSVoiceV2 {
    * @see {@link DescribePoolsCommand}
    */
   describePools(): Promise<DescribePoolsCommandOutput>;
-  describePools(args: DescribePoolsCommandInput, options?: __HttpHandlerOptions): Promise<DescribePoolsCommandOutput>;
-  describePools(args: DescribePoolsCommandInput, cb: (err: any, data?: DescribePoolsCommandOutput) => void): void;
+  describePools(
+    args: DescribePoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePoolsCommandOutput>;
+  describePools(
+    args: DescribePoolsCommandInput,
+    cb: (err: any, data?: DescribePoolsCommandOutput) => void
+  ): void;
   describePools(
     args: DescribePoolsCommandInput,
     options: __HttpHandlerOptions,
@@ -1546,8 +1576,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link PutKeywordCommand}
    */
-  putKeyword(args: PutKeywordCommandInput, options?: __HttpHandlerOptions): Promise<PutKeywordCommandOutput>;
-  putKeyword(args: PutKeywordCommandInput, cb: (err: any, data?: PutKeywordCommandOutput) => void): void;
+  putKeyword(
+    args: PutKeywordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutKeywordCommandOutput>;
+  putKeyword(
+    args: PutKeywordCommandInput,
+    cb: (err: any, data?: PutKeywordCommandOutput) => void
+  ): void;
   putKeyword(
     args: PutKeywordCommandInput,
     options: __HttpHandlerOptions,
@@ -1663,7 +1699,10 @@ export interface PinpointSMSVoiceV2 {
     args: ReleaseSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReleaseSenderIdCommandOutput>;
-  releaseSenderId(args: ReleaseSenderIdCommandInput, cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void): void;
+  releaseSenderId(
+    args: ReleaseSenderIdCommandInput,
+    cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void
+  ): void;
   releaseSenderId(
     args: ReleaseSenderIdCommandInput,
     options: __HttpHandlerOptions,
@@ -1694,7 +1733,10 @@ export interface PinpointSMSVoiceV2 {
     args: RequestSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RequestSenderIdCommandOutput>;
-  requestSenderId(args: RequestSenderIdCommandInput, cb: (err: any, data?: RequestSenderIdCommandOutput) => void): void;
+  requestSenderId(
+    args: RequestSenderIdCommandInput,
+    cb: (err: any, data?: RequestSenderIdCommandOutput) => void
+  ): void;
   requestSenderId(
     args: RequestSenderIdCommandInput,
     options: __HttpHandlerOptions,
@@ -1742,7 +1784,10 @@ export interface PinpointSMSVoiceV2 {
     args: SendTextMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendTextMessageCommandOutput>;
-  sendTextMessage(args: SendTextMessageCommandInput, cb: (err: any, data?: SendTextMessageCommandOutput) => void): void;
+  sendTextMessage(
+    args: SendTextMessageCommandInput,
+    cb: (err: any, data?: SendTextMessageCommandOutput) => void
+  ): void;
   sendTextMessage(
     args: SendTextMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -1905,8 +1950,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1916,8 +1967,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1961,8 +2018,14 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link UpdatePoolCommand}
    */
-  updatePool(args: UpdatePoolCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePoolCommandOutput>;
-  updatePool(args: UpdatePoolCommandInput, cb: (err: any, data?: UpdatePoolCommandOutput) => void): void;
+  updatePool(
+    args: UpdatePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePoolCommandOutput>;
+  updatePool(
+    args: UpdatePoolCommandInput,
+    cb: (err: any, data?: UpdatePoolCommandOutput) => void
+  ): void;
   updatePool(
     args: UpdatePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -2010,7 +2073,10 @@ export interface PinpointSMSVoiceV2 {
     args: UpdateSenderIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSenderIdCommandOutput>;
-  updateSenderId(args: UpdateSenderIdCommandInput, cb: (err: any, data?: UpdateSenderIdCommandOutput) => void): void;
+  updateSenderId(
+    args: UpdateSenderIdCommandInput,
+    cb: (err: any, data?: UpdateSenderIdCommandOutput) => void
+  ): void;
   updateSenderId(
     args: UpdateSenderIdCommandInput,
     options: __HttpHandlerOptions,

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateTrafficDistributionGroupUserCommand}.
  */
-export interface AssociateTrafficDistributionGroupUserCommandInput
-  extends AssociateTrafficDistributionGroupUserRequest {}
+export interface AssociateTrafficDistributionGroupUserCommandInput extends AssociateTrafficDistributionGroupUserRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateTrafficDistributionGroupUserCommand}.
  */
-export interface AssociateTrafficDistributionGroupUserCommandOutput
-  extends AssociateTrafficDistributionGroupUserResponse,
-    __MetadataBearer {}
+export interface AssociateTrafficDistributionGroupUserCommandOutput extends AssociateTrafficDistributionGroupUserResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an agent with a traffic distribution group. This API can be called only in the Region where the traffic distribution group

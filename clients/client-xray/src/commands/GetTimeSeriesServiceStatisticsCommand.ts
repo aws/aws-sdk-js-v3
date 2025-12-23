@@ -24,9 +24,7 @@ export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSerie
  *
  * The output of {@link GetTimeSeriesServiceStatisticsCommand}.
  */
-export interface GetTimeSeriesServiceStatisticsCommandOutput
-  extends GetTimeSeriesServiceStatisticsResult,
-    __MetadataBearer {}
+export interface GetTimeSeriesServiceStatisticsCommandOutput extends GetTimeSeriesServiceStatisticsResult, __MetadataBearer {}
 
 /**
  * <p>Get an aggregation of service statistics defined by a specific time

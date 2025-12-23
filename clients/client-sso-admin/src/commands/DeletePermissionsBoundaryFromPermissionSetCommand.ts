@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
-  extends DeletePermissionsBoundaryFromPermissionSetRequest {}
+export interface DeletePermissionsBoundaryFromPermissionSetCommandInput extends DeletePermissionsBoundaryFromPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
-export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
-  extends DeletePermissionsBoundaryFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput extends DeletePermissionsBoundaryFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>

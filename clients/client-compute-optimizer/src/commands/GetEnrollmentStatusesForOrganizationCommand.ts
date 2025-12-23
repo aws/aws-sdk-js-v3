@@ -31,9 +31,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnr
  *
  * The output of {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
-export interface GetEnrollmentStatusesForOrganizationCommandOutput
-  extends GetEnrollmentStatusesForOrganizationResponse,
-    __MetadataBearer {}
+export interface GetEnrollmentStatusesForOrganizationCommandOutput extends GetEnrollmentStatusesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member

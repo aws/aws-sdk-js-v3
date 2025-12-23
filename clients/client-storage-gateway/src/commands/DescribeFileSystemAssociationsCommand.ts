@@ -28,9 +28,7 @@ export interface DescribeFileSystemAssociationsCommandInput extends DescribeFile
  *
  * The output of {@link DescribeFileSystemAssociationsCommand}.
  */
-export interface DescribeFileSystemAssociationsCommandOutput
-  extends DescribeFileSystemAssociationsOutput,
-    __MetadataBearer {}
+export interface DescribeFileSystemAssociationsCommandOutput extends DescribeFileSystemAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the file system association information. This operation is only supported for FSx

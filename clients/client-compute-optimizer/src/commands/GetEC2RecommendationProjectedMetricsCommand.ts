@@ -31,9 +31,7 @@ export interface GetEC2RecommendationProjectedMetricsCommandInput extends GetEC2
  *
  * The output of {@link GetEC2RecommendationProjectedMetricsCommand}.
  */
-export interface GetEC2RecommendationProjectedMetricsCommandOutput
-  extends GetEC2RecommendationProjectedMetricsResponse,
-    __MetadataBearer {}
+export interface GetEC2RecommendationProjectedMetricsCommandOutput extends GetEC2RecommendationProjectedMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the projected utilization metrics of Amazon EC2 instance

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ExportAutomatedReasoningPolicyVersionCommand}.
  */
-export interface ExportAutomatedReasoningPolicyVersionCommandInput
-  extends ExportAutomatedReasoningPolicyVersionRequest {}
+export interface ExportAutomatedReasoningPolicyVersionCommandInput extends ExportAutomatedReasoningPolicyVersionRequest {}
 /**
  * @public
  *
  * The output of {@link ExportAutomatedReasoningPolicyVersionCommand}.
  */
-export interface ExportAutomatedReasoningPolicyVersionCommandOutput
-  extends ExportAutomatedReasoningPolicyVersionResponse,
-    __MetadataBearer {}
+export interface ExportAutomatedReasoningPolicyVersionCommandOutput extends ExportAutomatedReasoningPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Exports the policy definition for an Automated Reasoning policy version. Returns the complete policy definition including rules, variables, and custom variable types in a structured format.</p>

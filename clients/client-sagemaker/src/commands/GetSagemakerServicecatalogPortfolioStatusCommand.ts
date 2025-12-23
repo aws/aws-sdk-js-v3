@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
-  extends GetSagemakerServicecatalogPortfolioStatusInput {}
+export interface GetSagemakerServicecatalogPortfolioStatusCommandInput extends GetSagemakerServicecatalogPortfolioStatusInput {}
 /**
  * @public
  *
  * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
-  extends GetSagemakerServicecatalogPortfolioStatusOutput,
-    __MetadataBearer {}
+export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput extends GetSagemakerServicecatalogPortfolioStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>

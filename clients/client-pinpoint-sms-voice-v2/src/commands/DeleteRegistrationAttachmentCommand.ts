@@ -28,9 +28,7 @@ export interface DeleteRegistrationAttachmentCommandInput extends DeleteRegistra
  *
  * The output of {@link DeleteRegistrationAttachmentCommand}.
  */
-export interface DeleteRegistrationAttachmentCommandOutput
-  extends DeleteRegistrationAttachmentResult,
-    __MetadataBearer {}
+export interface DeleteRegistrationAttachmentCommandOutput extends DeleteRegistrationAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Permanently delete the specified registration attachment.</p>

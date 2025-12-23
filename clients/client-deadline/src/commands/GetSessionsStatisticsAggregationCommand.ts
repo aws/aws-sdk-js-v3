@@ -27,9 +27,7 @@ export interface GetSessionsStatisticsAggregationCommandInput extends GetSession
  *
  * The output of {@link GetSessionsStatisticsAggregationCommand}.
  */
-export interface GetSessionsStatisticsAggregationCommandOutput
-  extends GetSessionsStatisticsAggregationResponse,
-    __MetadataBearer {}
+export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessionsStatisticsAggregationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a set of statistics for queues or farms. Before you can call the

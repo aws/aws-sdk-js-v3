@@ -24,9 +24,7 @@ export interface DescribeMacModificationTasksCommandInput extends DescribeMacMod
  *
  * The output of {@link DescribeMacModificationTasksCommand}.
  */
-export interface DescribeMacModificationTasksCommandOutput
-  extends DescribeMacModificationTasksResult,
-    __MetadataBearer {}
+export interface DescribeMacModificationTasksCommandOutput extends DescribeMacModificationTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes a System Integrity Protection (SIP) modification task or volume ownership delegation

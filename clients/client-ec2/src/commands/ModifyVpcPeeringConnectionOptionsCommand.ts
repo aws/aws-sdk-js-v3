@@ -27,9 +27,7 @@ export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpc
  *
  * The output of {@link ModifyVpcPeeringConnectionOptionsCommand}.
  */
-export interface ModifyVpcPeeringConnectionOptionsCommandOutput
-  extends ModifyVpcPeeringConnectionOptionsResult,
-    __MetadataBearer {}
+export interface ModifyVpcPeeringConnectionOptionsCommandOutput extends ModifyVpcPeeringConnectionOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the VPC peering connection options on one side of a VPC peering connection.</p>

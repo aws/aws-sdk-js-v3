@@ -24,9 +24,7 @@ export interface DisassociateOpsItemRelatedItemCommandInput extends Disassociate
  *
  * The output of {@link DisassociateOpsItemRelatedItemCommand}.
  */
-export interface DisassociateOpsItemRelatedItemCommandOutput
-  extends DisassociateOpsItemRelatedItemResponse,
-    __MetadataBearer {}
+export interface DisassociateOpsItemRelatedItemCommandOutput extends DisassociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between an OpsItem and a related item. For example, this API

@@ -27,9 +27,7 @@ export interface ListDistributionsByAnycastIpListIdCommandInput extends ListDist
  *
  * The output of {@link ListDistributionsByAnycastIpListIdCommand}.
  */
-export interface ListDistributionsByAnycastIpListIdCommandOutput
-  extends ListDistributionsByAnycastIpListIdResult,
-    __MetadataBearer {}
+export interface ListDistributionsByAnycastIpListIdCommandOutput extends ListDistributionsByAnycastIpListIdResult, __MetadataBearer {}
 
 /**
  * <p>Lists the distributions in your account that are associated with the specified <code>AnycastIpListId</code>.</p>

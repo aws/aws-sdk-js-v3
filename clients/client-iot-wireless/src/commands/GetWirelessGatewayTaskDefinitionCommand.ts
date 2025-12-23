@@ -27,9 +27,7 @@ export interface GetWirelessGatewayTaskDefinitionCommandInput extends GetWireles
  *
  * The output of {@link GetWirelessGatewayTaskDefinitionCommand}.
  */
-export interface GetWirelessGatewayTaskDefinitionCommandOutput
-  extends GetWirelessGatewayTaskDefinitionResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayTaskDefinitionCommandOutput extends GetWirelessGatewayTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a wireless gateway task definition.</p>

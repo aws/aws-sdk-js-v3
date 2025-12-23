@@ -24,9 +24,7 @@ export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorksp
  *
  * The output of {@link DescribeWorkspaceDirectoriesCommand}.
  */
-export interface DescribeWorkspaceDirectoriesCommandOutput
-  extends DescribeWorkspaceDirectoriesResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorkspaceDirectoriesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>

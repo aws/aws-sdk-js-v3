@@ -24,9 +24,7 @@ export interface ListHoursOfOperationOverridesCommandInput extends ListHoursOfOp
  *
  * The output of {@link ListHoursOfOperationOverridesCommand}.
  */
-export interface ListHoursOfOperationOverridesCommandOutput
-  extends ListHoursOfOperationOverridesResponse,
-    __MetadataBearer {}
+export interface ListHoursOfOperationOverridesCommandOutput extends ListHoursOfOperationOverridesResponse, __MetadataBearer {}
 
 /**
  * <p>List the hours of operation overrides.</p>

@@ -28,9 +28,7 @@ export interface ListApplicationDependenciesCommandInput extends ListApplication
  *
  * The output of {@link ListApplicationDependenciesCommand}.
  */
-export interface ListApplicationDependenciesCommandOutput
-  extends ListApplicationDependenciesResponse,
-    __MetadataBearer {}
+export interface ListApplicationDependenciesCommandOutput extends ListApplicationDependenciesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of applications nested in the containing application.</p>

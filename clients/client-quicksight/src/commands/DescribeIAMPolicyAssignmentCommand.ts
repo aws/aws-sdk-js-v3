@@ -24,9 +24,7 @@ export interface DescribeIAMPolicyAssignmentCommandInput extends DescribeIAMPoli
  *
  * The output of {@link DescribeIAMPolicyAssignmentCommand}.
  */
-export interface DescribeIAMPolicyAssignmentCommandOutput
-  extends DescribeIAMPolicyAssignmentResponse,
-    __MetadataBearer {}
+export interface DescribeIAMPolicyAssignmentCommandOutput extends DescribeIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing IAM policy assignment, as specified by the

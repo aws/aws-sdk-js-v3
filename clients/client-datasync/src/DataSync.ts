@@ -310,8 +310,14 @@ export interface DataSync {
   /**
    * @see {@link CreateAgentCommand}
    */
-  createAgent(args: CreateAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAgentCommandOutput>;
-  createAgent(args: CreateAgentCommandInput, cb: (err: any, data?: CreateAgentCommandOutput) => void): void;
+  createAgent(
+    args: CreateAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentCommandOutput>;
+  createAgent(
+    args: CreateAgentCommandInput,
+    cb: (err: any, data?: CreateAgentCommandOutput) => void
+  ): void;
   createAgent(
     args: CreateAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -508,8 +514,14 @@ export interface DataSync {
   /**
    * @see {@link CreateTaskCommand}
    */
-  createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
-  createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
+  createTask(
+    args: CreateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTaskCommandOutput>;
+  createTask(
+    args: CreateTaskCommandInput,
+    cb: (err: any, data?: CreateTaskCommandOutput) => void
+  ): void;
   createTask(
     args: CreateTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -519,8 +531,14 @@ export interface DataSync {
   /**
    * @see {@link DeleteAgentCommand}
    */
-  deleteAgent(args: DeleteAgentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAgentCommandOutput>;
-  deleteAgent(args: DeleteAgentCommandInput, cb: (err: any, data?: DeleteAgentCommandOutput) => void): void;
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgentCommandOutput>;
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    cb: (err: any, data?: DeleteAgentCommandOutput) => void
+  ): void;
   deleteAgent(
     args: DeleteAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -534,7 +552,10 @@ export interface DataSync {
     args: DeleteLocationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLocationCommandOutput>;
-  deleteLocation(args: DeleteLocationCommandInput, cb: (err: any, data?: DeleteLocationCommandOutput) => void): void;
+  deleteLocation(
+    args: DeleteLocationCommandInput,
+    cb: (err: any, data?: DeleteLocationCommandOutput) => void
+  ): void;
   deleteLocation(
     args: DeleteLocationCommandInput,
     options: __HttpHandlerOptions,
@@ -544,8 +565,14 @@ export interface DataSync {
   /**
    * @see {@link DeleteTaskCommand}
    */
-  deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
-  deleteTask(args: DeleteTaskCommandInput, cb: (err: any, data?: DeleteTaskCommandOutput) => void): void;
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTaskCommandOutput>;
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    cb: (err: any, data?: DeleteTaskCommandOutput) => void
+  ): void;
   deleteTask(
     args: DeleteTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -555,8 +582,14 @@ export interface DataSync {
   /**
    * @see {@link DescribeAgentCommand}
    */
-  describeAgent(args: DescribeAgentCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAgentCommandOutput>;
-  describeAgent(args: DescribeAgentCommandInput, cb: (err: any, data?: DescribeAgentCommandOutput) => void): void;
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgentCommandOutput>;
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    cb: (err: any, data?: DescribeAgentCommandOutput) => void
+  ): void;
   describeAgent(
     args: DescribeAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -753,8 +786,14 @@ export interface DataSync {
   /**
    * @see {@link DescribeTaskCommand}
    */
-  describeTask(args: DescribeTaskCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTaskCommandOutput>;
-  describeTask(args: DescribeTaskCommandInput, cb: (err: any, data?: DescribeTaskCommandOutput) => void): void;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTaskCommandOutput>;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    cb: (err: any, data?: DescribeTaskCommandOutput) => void
+  ): void;
   describeTask(
     args: DescribeTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -782,8 +821,14 @@ export interface DataSync {
    * @see {@link ListAgentsCommand}
    */
   listAgents(): Promise<ListAgentsCommandOutput>;
-  listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
-  listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
+  listAgents(
+    args: ListAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentsCommandOutput>;
+  listAgents(
+    args: ListAgentsCommandInput,
+    cb: (err: any, data?: ListAgentsCommandOutput) => void
+  ): void;
   listAgents(
     args: ListAgentsCommandInput,
     options: __HttpHandlerOptions,
@@ -794,8 +839,14 @@ export interface DataSync {
    * @see {@link ListLocationsCommand}
    */
   listLocations(): Promise<ListLocationsCommandOutput>;
-  listLocations(args: ListLocationsCommandInput, options?: __HttpHandlerOptions): Promise<ListLocationsCommandOutput>;
-  listLocations(args: ListLocationsCommandInput, cb: (err: any, data?: ListLocationsCommandOutput) => void): void;
+  listLocations(
+    args: ListLocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLocationsCommandOutput>;
+  listLocations(
+    args: ListLocationsCommandInput,
+    cb: (err: any, data?: ListLocationsCommandOutput) => void
+  ): void;
   listLocations(
     args: ListLocationsCommandInput,
     options: __HttpHandlerOptions,
@@ -841,8 +892,14 @@ export interface DataSync {
    * @see {@link ListTasksCommand}
    */
   listTasks(): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTasksCommandOutput>;
+  listTasks(
+    args: ListTasksCommandInput,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
   listTasks(
     args: ListTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -869,8 +926,14 @@ export interface DataSync {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -880,8 +943,14 @@ export interface DataSync {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -891,8 +960,14 @@ export interface DataSync {
   /**
    * @see {@link UpdateAgentCommand}
    */
-  updateAgent(args: UpdateAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAgentCommandOutput>;
-  updateAgent(args: UpdateAgentCommandInput, cb: (err: any, data?: UpdateAgentCommandOutput) => void): void;
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentCommandOutput>;
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    cb: (err: any, data?: UpdateAgentCommandOutput) => void
+  ): void;
   updateAgent(
     args: UpdateAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -1089,8 +1164,14 @@ export interface DataSync {
   /**
    * @see {@link UpdateTaskCommand}
    */
-  updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
-  updateTask(args: UpdateTaskCommandInput, cb: (err: any, data?: UpdateTaskCommandOutput) => void): void;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskCommandOutput>;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    cb: (err: any, data?: UpdateTaskCommandOutput) => void
+  ): void;
   updateTask(
     args: UpdateTaskCommandInput,
     options: __HttpHandlerOptions,

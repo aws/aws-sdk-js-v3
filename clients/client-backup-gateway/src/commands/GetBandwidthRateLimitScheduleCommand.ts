@@ -24,9 +24,7 @@ export interface GetBandwidthRateLimitScheduleCommandInput extends GetBandwidthR
  *
  * The output of {@link GetBandwidthRateLimitScheduleCommand}.
  */
-export interface GetBandwidthRateLimitScheduleCommandOutput
-  extends GetBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface GetBandwidthRateLimitScheduleCommandOutput extends GetBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.

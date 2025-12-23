@@ -49,17 +49,13 @@ export const defaultRekognitionStreamingHttpAuthSchemeParametersProvider = async
 ): Promise<RekognitionStreamingHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: RekognitionStreamingHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: RekognitionStreamingHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface RekognitionStreamingHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultRekognitionStreamingHttpAuthSchemeProvider: RekognitionStreamingHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultRekognitionStreamingHttpAuthSchemeProvider: RekognitionStreamingHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

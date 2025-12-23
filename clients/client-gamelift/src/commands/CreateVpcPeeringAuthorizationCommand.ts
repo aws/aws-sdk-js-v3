@@ -24,9 +24,7 @@ export interface CreateVpcPeeringAuthorizationCommandInput extends CreateVpcPeer
  *
  * The output of {@link CreateVpcPeeringAuthorizationCommand}.
  */
-export interface CreateVpcPeeringAuthorizationCommandOutput
-  extends CreateVpcPeeringAuthorizationOutput,
-    __MetadataBearer {}
+export interface CreateVpcPeeringAuthorizationCommandOutput extends CreateVpcPeeringAuthorizationOutput, __MetadataBearer {}
 
 /**
  * <p>

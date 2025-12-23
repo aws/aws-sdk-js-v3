@@ -49,11 +49,9 @@ export const defaultObservabilityAdminHttpAuthSchemeParametersProvider = async (
 ): Promise<ObservabilityAdminHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface ObservabilityAdminHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultObservabilityAdminHttpAuthSchemeProvider: ObservabilityAdminHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultObservabilityAdminHttpAuthSchemeProvider: ObservabilityAdminHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

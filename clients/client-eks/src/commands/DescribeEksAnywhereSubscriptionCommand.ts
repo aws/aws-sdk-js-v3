@@ -27,9 +27,7 @@ export interface DescribeEksAnywhereSubscriptionCommandInput extends DescribeEks
  *
  * The output of {@link DescribeEksAnywhereSubscriptionCommand}.
  */
-export interface DescribeEksAnywhereSubscriptionCommandOutput
-  extends DescribeEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface DescribeEksAnywhereSubscriptionCommandOutput extends DescribeEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about a subscription.</p>

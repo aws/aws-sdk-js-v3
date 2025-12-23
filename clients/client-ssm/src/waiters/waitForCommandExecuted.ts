@@ -10,65 +10,65 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     const result: any = await client.send(new GetCommandInvocationCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Pending") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "InProgress") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Delayed") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Success") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Cancelled") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "TimedOut") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "Cancelling") {
         return { state: WaiterState.FAILURE, reason };
       }

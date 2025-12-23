@@ -27,9 +27,7 @@ export interface UpdateCodeSecurityScanConfigurationCommandInput extends UpdateC
  *
  * The output of {@link UpdateCodeSecurityScanConfigurationCommand}.
  */
-export interface UpdateCodeSecurityScanConfigurationCommandOutput
-  extends UpdateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateCodeSecurityScanConfigurationCommandOutput extends UpdateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing code security scan configuration.</p>

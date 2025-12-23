@@ -27,9 +27,7 @@ export interface DisassociateEntitiesFromExperienceCommandInput extends Disassoc
  *
  * The output of {@link DisassociateEntitiesFromExperienceCommand}.
  */
-export interface DisassociateEntitiesFromExperienceCommandOutput
-  extends DisassociateEntitiesFromExperienceResponse,
-    __MetadataBearer {}
+export interface DisassociateEntitiesFromExperienceCommandOutput extends DisassociateEntitiesFromExperienceResponse, __MetadataBearer {}
 
 /**
  * <p>Prevents users or groups in your IAM Identity Center identity source

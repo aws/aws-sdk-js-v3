@@ -23,16 +23,13 @@ export { $Command };
  *
  * The input for {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
-export interface DescribeMultiRegionAccessPointOperationCommandInput
-  extends DescribeMultiRegionAccessPointOperationRequest {}
+export interface DescribeMultiRegionAccessPointOperationCommandInput extends DescribeMultiRegionAccessPointOperationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
-export interface DescribeMultiRegionAccessPointOperationCommandOutput
-  extends DescribeMultiRegionAccessPointOperationResult,
-    __MetadataBearer {}
+export interface DescribeMultiRegionAccessPointOperationCommandOutput extends DescribeMultiRegionAccessPointOperationResult, __MetadataBearer {}
 
 /**
  * <note>

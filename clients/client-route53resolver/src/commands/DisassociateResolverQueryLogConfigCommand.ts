@@ -31,9 +31,7 @@ export interface DisassociateResolverQueryLogConfigCommandInput extends Disassoc
  *
  * The output of {@link DisassociateResolverQueryLogConfigCommand}.
  */
-export interface DisassociateResolverQueryLogConfigCommandOutput
-  extends DisassociateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface DisassociateResolverQueryLogConfigCommandOutput extends DisassociateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a VPC from a query logging configuration.</p>

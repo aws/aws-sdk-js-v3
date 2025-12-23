@@ -28,9 +28,7 @@ export interface ExportLicenseRecommendationsCommandInput extends ExportLicenseR
  *
  * The output of {@link ExportLicenseRecommendationsCommand}.
  */
-export interface ExportLicenseRecommendationsCommandOutput
-  extends ExportLicenseRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportLicenseRecommendationsCommandOutput extends ExportLicenseRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>

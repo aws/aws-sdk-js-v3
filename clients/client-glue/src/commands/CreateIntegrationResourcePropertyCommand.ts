@@ -27,9 +27,7 @@ export interface CreateIntegrationResourcePropertyCommandInput extends CreateInt
  *
  * The output of {@link CreateIntegrationResourcePropertyCommand}.
  */
-export interface CreateIntegrationResourcePropertyCommandOutput
-  extends CreateIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface CreateIntegrationResourcePropertyCommandOutput extends CreateIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API can be used for setting up the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. To set both source and target properties the same API needs to be invoked with the Glue connection ARN as <code>ResourceArn</code> with <code>SourceProcessingProperties</code> and the Glue database ARN as <code>ResourceArn</code> with <code>TargetProcessingProperties</code> respectively.</p>

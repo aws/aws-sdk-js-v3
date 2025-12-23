@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
-export interface ListServiceActionsForProvisioningArtifactCommandInput
-  extends ListServiceActionsForProvisioningArtifactInput {}
+export interface ListServiceActionsForProvisioningArtifactCommandInput extends ListServiceActionsForProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
-export interface ListServiceActionsForProvisioningArtifactCommandOutput
-  extends ListServiceActionsForProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface ListServiceActionsForProvisioningArtifactCommandOutput extends ListServiceActionsForProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>

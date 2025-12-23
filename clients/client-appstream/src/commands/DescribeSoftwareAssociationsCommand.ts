@@ -24,9 +24,7 @@ export interface DescribeSoftwareAssociationsCommandInput extends DescribeSoftwa
  *
  * The output of {@link DescribeSoftwareAssociationsCommand}.
  */
-export interface DescribeSoftwareAssociationsCommandOutput
-  extends DescribeSoftwareAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeSoftwareAssociationsCommandOutput extends DescribeSoftwareAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves license included application associations for a specified resource.</p>

@@ -24,9 +24,7 @@ export interface DescribeChannelPlacementGroupCommandInput extends DescribeChann
  *
  * The output of {@link DescribeChannelPlacementGroupCommand}.
  */
-export interface DescribeChannelPlacementGroupCommandOutput
-  extends DescribeChannelPlacementGroupResponse,
-    __MetadataBearer {}
+export interface DescribeChannelPlacementGroupCommandOutput extends DescribeChannelPlacementGroupResponse, __MetadataBearer {}
 
 /**
  * Get details about a ChannelPlacementGroup.

@@ -24,9 +24,7 @@ export interface GetConfiguredTableAnalysisRuleCommandInput extends GetConfigure
  *
  * The output of {@link GetConfiguredTableAnalysisRuleCommand}.
  */
-export interface GetConfiguredTableAnalysisRuleCommandOutput
-  extends GetConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface GetConfiguredTableAnalysisRuleCommandOutput extends GetConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured table analysis rule.</p>

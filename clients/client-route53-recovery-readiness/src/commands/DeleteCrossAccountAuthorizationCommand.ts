@@ -31,9 +31,7 @@ export interface DeleteCrossAccountAuthorizationCommandInput extends DeleteCross
  *
  * The output of {@link DeleteCrossAccountAuthorizationCommand}.
  */
-export interface DeleteCrossAccountAuthorizationCommandOutput
-  extends DeleteCrossAccountAuthorizationResponse,
-    __MetadataBearer {}
+export interface DeleteCrossAccountAuthorizationCommandOutput extends DeleteCrossAccountAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes cross account readiness authorization.</p>

@@ -24,9 +24,7 @@ export interface CreateVerifiedAccessInstanceCommandInput extends CreateVerified
  *
  * The output of {@link CreateVerifiedAccessInstanceCommand}.
  */
-export interface CreateVerifiedAccessInstanceCommandOutput
-  extends CreateVerifiedAccessInstanceResult,
-    __MetadataBearer {}
+export interface CreateVerifiedAccessInstanceCommandOutput extends CreateVerifiedAccessInstanceResult, __MetadataBearer {}
 
 /**
  * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants

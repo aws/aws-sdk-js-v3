@@ -27,9 +27,7 @@ export interface CreateCloudWatchAlarmTemplateGroupCommandInput extends CreateCl
  *
  * The output of {@link CreateCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface CreateCloudWatchAlarmTemplateGroupCommandOutput
-  extends CreateCloudWatchAlarmTemplateGroupResponse,
-    __MetadataBearer {}
+export interface CreateCloudWatchAlarmTemplateGroupCommandOutput extends CreateCloudWatchAlarmTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Creates a cloudwatch alarm template group to group your cloudwatch alarm templates and to attach to signal maps for dynamically creating alarms.

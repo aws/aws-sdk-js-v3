@@ -24,9 +24,7 @@ export interface CreateEventBridgeRuleTemplateCommandInput extends CreateEventBr
  *
  * The output of {@link CreateEventBridgeRuleTemplateCommand}.
  */
-export interface CreateEventBridgeRuleTemplateCommandOutput
-  extends CreateEventBridgeRuleTemplateResponse,
-    __MetadataBearer {}
+export interface CreateEventBridgeRuleTemplateCommandOutput extends CreateEventBridgeRuleTemplateResponse, __MetadataBearer {}
 
 /**
  * Creates an eventbridge rule template to monitor events and send notifications to your targeted resources.

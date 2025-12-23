@@ -24,9 +24,7 @@ export interface RejectResourceShareInvitationCommandInput extends RejectResourc
  *
  * The output of {@link RejectResourceShareInvitationCommand}.
  */
-export interface RejectResourceShareInvitationCommandOutput
-  extends RejectResourceShareInvitationResponse,
-    __MetadataBearer {}
+export interface RejectResourceShareInvitationCommandOutput extends RejectResourceShareInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>

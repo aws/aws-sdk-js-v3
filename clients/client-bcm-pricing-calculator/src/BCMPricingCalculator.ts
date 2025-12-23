@@ -482,7 +482,10 @@ export interface BCMPricingCalculator {
     args: GetBillEstimateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBillEstimateCommandOutput>;
-  getBillEstimate(args: GetBillEstimateCommandInput, cb: (err: any, data?: GetBillEstimateCommandOutput) => void): void;
+  getBillEstimate(
+    args: GetBillEstimateCommandInput,
+    cb: (err: any, data?: GetBillEstimateCommandOutput) => void
+  ): void;
   getBillEstimate(
     args: GetBillEstimateCommandInput,
     options: __HttpHandlerOptions,
@@ -496,7 +499,10 @@ export interface BCMPricingCalculator {
     args: GetBillScenarioCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBillScenarioCommandOutput>;
-  getBillScenario(args: GetBillScenarioCommandInput, cb: (err: any, data?: GetBillScenarioCommandOutput) => void): void;
+  getBillScenario(
+    args: GetBillScenarioCommandInput,
+    cb: (err: any, data?: GetBillScenarioCommandOutput) => void
+  ): void;
   getBillScenario(
     args: GetBillScenarioCommandInput,
     options: __HttpHandlerOptions,
@@ -511,7 +517,10 @@ export interface BCMPricingCalculator {
     args: GetPreferencesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPreferencesCommandOutput>;
-  getPreferences(args: GetPreferencesCommandInput, cb: (err: any, data?: GetPreferencesCommandOutput) => void): void;
+  getPreferences(
+    args: GetPreferencesCommandInput,
+    cb: (err: any, data?: GetPreferencesCommandOutput) => void
+  ): void;
   getPreferences(
     args: GetPreferencesCommandInput,
     options: __HttpHandlerOptions,
@@ -728,8 +737,14 @@ export interface BCMPricingCalculator {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -739,8 +754,14 @@ export interface BCMPricingCalculator {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

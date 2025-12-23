@@ -42,9 +42,7 @@ interface _PartnerCentralChannelHttpAuthSchemeParameters extends HttpAuthSchemeP
 /**
  * @internal
  */
-export interface PartnerCentralChannelHttpAuthSchemeParameters
-  extends _PartnerCentralChannelHttpAuthSchemeParameters,
-    EndpointParameters {
+export interface PartnerCentralChannelHttpAuthSchemeParameters extends _PartnerCentralChannelHttpAuthSchemeParameters, EndpointParameters {
   region?: string;
 }
 
@@ -104,13 +102,13 @@ const createEndpointRuleSetHttpAuthSchemeParametersProvider =
   > =>
   async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
     if (!input) {
-      throw new Error(`Could not find \`input\` for \`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\``);
+      throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
     }
     const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
     const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
       ?.getEndpointParameterInstructions;
     if (!instructionsFn) {
-      throw new Error(`getEndpointParameterInstructions() is not defined on \`${context.commandName!}\``);
+      throw new Error(`getEndpointParameterInstructions() is not defined on '${context.commandName!}'`);
     }
     const endpointParameters = await resolveParams(
       input as Record<string, unknown>,
@@ -129,11 +127,9 @@ const _defaultPartnerCentralChannelHttpAuthSchemeParametersProvider = async (
 ): Promise<_PartnerCentralChannelHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 /**
@@ -142,9 +138,7 @@ const _defaultPartnerCentralChannelHttpAuthSchemeParametersProvider = async (
 export const defaultPartnerCentralChannelHttpAuthSchemeParametersProvider: PartnerCentralChannelHttpAuthSchemeParametersProvider =
   createEndpointRuleSetHttpAuthSchemeParametersProvider(_defaultPartnerCentralChannelHttpAuthSchemeParametersProvider);
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: PartnerCentralChannelHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: PartnerCentralChannelHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -163,9 +157,7 @@ function createAwsAuthSigv4HttpAuthOption(
   };
 }
 
-function createAwsAuthSigv4aHttpAuthOption(
-  authParameters: PartnerCentralChannelHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4aHttpAuthOption(authParameters: PartnerCentralChannelHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4a",
     signingProperties: {
@@ -187,14 +179,12 @@ function createAwsAuthSigv4aHttpAuthOption(
 /**
  * @internal
  */
-interface _PartnerCentralChannelHttpAuthSchemeProvider
-  extends HttpAuthSchemeProvider<PartnerCentralChannelHttpAuthSchemeParameters> {}
+interface _PartnerCentralChannelHttpAuthSchemeProvider extends HttpAuthSchemeProvider<PartnerCentralChannelHttpAuthSchemeParameters> {}
 
 /**
  * @internal
  */
-export interface PartnerCentralChannelHttpAuthSchemeProvider
-  extends HttpAuthSchemeProvider<PartnerCentralChannelHttpAuthSchemeParameters> {}
+export interface PartnerCentralChannelHttpAuthSchemeProvider extends HttpAuthSchemeProvider<PartnerCentralChannelHttpAuthSchemeParameters> {}
 
 /**
  * @internal
@@ -237,7 +227,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       const { name: resolvedName, properties = {}, ...rest } = scheme;
       const name = resolvedName.toLowerCase();
       if (resolvedName !== name) {
-        console.warn(`HttpAuthScheme has been normalized with lowercasing: \`${resolvedName}\` to \`${name}\``);
+        console.warn(`HttpAuthScheme has been normalized with lowercasing: '${resolvedName}' to '${name}'`);
       }
       let schemeId;
       if (name === "sigv4a") {
@@ -253,11 +243,11 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       } else if (name.startsWith("sigv4")) {
         schemeId = "aws.auth#sigv4";
       } else {
-        throw new Error(`Unknown HttpAuthScheme found in \`@smithy.rules#endpointRuleSet\`: \`${name}\``);
+        throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '${name}'`);
       }
       const createOption = createHttpAuthOptionFunctions[schemeId];
       if (!createOption) {
-        throw new Error(`Could not find HttpAuthOption create function for \`${schemeId}\``);
+        throw new Error(`Could not find HttpAuthOption create function for '${schemeId}'`);
       }
       const option = createOption(authParameters);
       option.schemeId = schemeId;
@@ -272,9 +262,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
 /**
  * @internal
  */
-const _defaultPartnerCentralChannelHttpAuthSchemeProvider: _PartnerCentralChannelHttpAuthSchemeProvider = (
-  authParameters
-) => {
+const _defaultPartnerCentralChannelHttpAuthSchemeProvider: _PartnerCentralChannelHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {
@@ -287,15 +275,12 @@ const _defaultPartnerCentralChannelHttpAuthSchemeProvider: _PartnerCentralChanne
 /**
  * @internal
  */
-export const defaultPartnerCentralChannelHttpAuthSchemeProvider: PartnerCentralChannelHttpAuthSchemeProvider =
-  createEndpointRuleSetHttpAuthSchemeProvider(
-    defaultEndpointResolver,
-    _defaultPartnerCentralChannelHttpAuthSchemeProvider,
-    {
-      "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
-      "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
-    }
-  );
+export const defaultPartnerCentralChannelHttpAuthSchemeProvider: PartnerCentralChannelHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
+  defaultEndpointResolver,
+  _defaultPartnerCentralChannelHttpAuthSchemeProvider, {
+    "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
+    "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
+  });
 
 /**
  * @public

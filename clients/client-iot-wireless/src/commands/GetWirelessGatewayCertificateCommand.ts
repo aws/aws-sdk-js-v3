@@ -24,9 +24,7 @@ export interface GetWirelessGatewayCertificateCommandInput extends GetWirelessGa
  *
  * The output of {@link GetWirelessGatewayCertificateCommand}.
  */
-export interface GetWirelessGatewayCertificateCommandOutput
-  extends GetWirelessGatewayCertificateResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayCertificateCommandOutput extends GetWirelessGatewayCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the ID of the certificate that is currently associated with a wireless

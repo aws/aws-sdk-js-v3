@@ -24,9 +24,7 @@ export interface OperationWithRequiredMembersWithDefaultsCommandInput {}
  *
  * The output of {@link OperationWithRequiredMembersWithDefaultsCommand}.
  */
-export interface OperationWithRequiredMembersWithDefaultsCommandOutput
-  extends OperationWithRequiredMembersWithDefaultsOutput,
-    __MetadataBearer {}
+export interface OperationWithRequiredMembersWithDefaultsCommandOutput extends OperationWithRequiredMembersWithDefaultsOutput, __MetadataBearer {}
 
 /**
  * @public

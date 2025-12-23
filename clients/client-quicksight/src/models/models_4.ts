@@ -39,7 +39,6 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
-
 import {
   type AccountCustomization,
   type AmazonQInQuickSightConsoleConfigurations,
@@ -48,7 +47,6 @@ import {
   ActionConnectorSummary,
   ActiveIAMPolicyAssignment,
 } from "./models_0";
-
 import {
   type _Parameters,
   type AnalysisDefinition,
@@ -95,7 +93,6 @@ import {
   ResourcePermission,
   Tag,
 } from "./models_2";
-
 import {
   type CustomInstructions,
   type DashboardVisualResult,

@@ -28,9 +28,7 @@ export interface CreateProgramManagementAccountCommandInput extends CreateProgra
  *
  * The output of {@link CreateProgramManagementAccountCommand}.
  */
-export interface CreateProgramManagementAccountCommandOutput
-  extends CreateProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface CreateProgramManagementAccountCommandOutput extends CreateProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new program management account for managing partner relationships.</p>

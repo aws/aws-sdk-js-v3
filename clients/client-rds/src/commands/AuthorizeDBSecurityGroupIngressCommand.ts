@@ -24,9 +24,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandInput extends AuthorizeDB
  *
  * The output of {@link AuthorizeDBSecurityGroupIngressCommand}.
  */
-export interface AuthorizeDBSecurityGroupIngressCommandOutput
-  extends AuthorizeDBSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeDBSecurityGroupIngressCommandOutput extends AuthorizeDBSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security

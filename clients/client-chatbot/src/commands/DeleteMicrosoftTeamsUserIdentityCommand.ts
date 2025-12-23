@@ -27,9 +27,7 @@ export interface DeleteMicrosoftTeamsUserIdentityCommandInput extends DeleteMicr
  *
  * The output of {@link DeleteMicrosoftTeamsUserIdentityCommand}.
  */
-export interface DeleteMicrosoftTeamsUserIdentityCommandOutput
-  extends DeleteMicrosoftTeamsUserIdentityResult,
-    __MetadataBearer {}
+export interface DeleteMicrosoftTeamsUserIdentityCommandOutput extends DeleteMicrosoftTeamsUserIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Identifes a user level permission for a channel configuration.</p>

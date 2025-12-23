@@ -7,15 +7,12 @@
 AWS SDK for JavaScript Kinesis Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
-
 <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
 processing of streaming big data.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kinesis
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kinesis`
 - `yarn add @aws-sdk/client-kinesis`
 - `pnpm add @aws-sdk/client-kinesis`
@@ -51,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KinesisClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListShardsCommand(params);
 ```
 
@@ -212,7 +207,6 @@ AddTagsToStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/AddTagsToStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AddTagsToStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/AddTagsToStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +214,6 @@ CreateStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/CreateStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/CreateStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +221,6 @@ DecreaseStreamRetentionPeriod
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DecreaseStreamRetentionPeriodCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DecreaseStreamRetentionPeriodCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DecreaseStreamRetentionPeriodCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +228,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +235,6 @@ DeleteStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DeleteStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeleteStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +242,6 @@ DeregisterStreamConsumer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DeregisterStreamConsumerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeregisterStreamConsumerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DeregisterStreamConsumerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +249,6 @@ DescribeAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +256,6 @@ DescribeLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +263,6 @@ DescribeStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +270,6 @@ DescribeStreamConsumer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeStreamConsumerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamConsumerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamConsumerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +277,6 @@ DescribeStreamSummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DescribeStreamSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DescribeStreamSummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +284,6 @@ DisableEnhancedMonitoring
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/DisableEnhancedMonitoringCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DisableEnhancedMonitoringCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/DisableEnhancedMonitoringCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +291,6 @@ EnableEnhancedMonitoring
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/EnableEnhancedMonitoringCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/EnableEnhancedMonitoringCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/EnableEnhancedMonitoringCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +298,6 @@ GetRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/GetRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +305,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +312,6 @@ GetShardIterator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/GetShardIteratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetShardIteratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/GetShardIteratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +319,6 @@ IncreaseStreamRetentionPeriod
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/IncreaseStreamRetentionPeriodCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/IncreaseStreamRetentionPeriodCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/IncreaseStreamRetentionPeriodCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +326,6 @@ ListShards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListShardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListShardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListShardsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +333,6 @@ ListStreamConsumers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListStreamConsumersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListStreamConsumersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListStreamConsumersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +340,6 @@ ListStreams
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListStreamsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +347,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +354,6 @@ ListTagsForStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/ListTagsForStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListTagsForStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/ListTagsForStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +361,6 @@ MergeShards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/MergeShardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/MergeShardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/MergeShardsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +368,6 @@ PutRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +375,6 @@ PutRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +382,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +389,6 @@ RegisterStreamConsumer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/RegisterStreamConsumerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RegisterStreamConsumerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RegisterStreamConsumerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +396,6 @@ RemoveTagsFromStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/RemoveTagsFromStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RemoveTagsFromStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/RemoveTagsFromStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +403,6 @@ SplitShard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/SplitShardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/SplitShardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/SplitShardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +410,6 @@ StartStreamEncryption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/StartStreamEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/StartStreamEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/StartStreamEncryptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +417,6 @@ StopStreamEncryption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/StopStreamEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/StopStreamEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/StopStreamEncryptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +424,6 @@ SubscribeToShard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/SubscribeToShardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/SubscribeToShardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/SubscribeToShardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +431,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +438,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +445,6 @@ UpdateAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,7 +452,6 @@ UpdateMaxRecordSize
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateMaxRecordSizeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -500,7 +459,6 @@ UpdateShardCount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateShardCountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateShardCountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateShardCountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -508,7 +466,6 @@ UpdateStreamMode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateStreamModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateStreamModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateStreamModeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -516,5 +473,4 @@ UpdateStreamWarmThroughput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateStreamWarmThroughputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateStreamWarmThroughputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateStreamWarmThroughputCommandOutput/)
-
 </details>

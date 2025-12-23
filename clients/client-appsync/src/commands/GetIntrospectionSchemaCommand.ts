@@ -32,9 +32,7 @@ export type GetIntrospectionSchemaCommandOutputType = Omit<GetIntrospectionSchem
  *
  * The output of {@link GetIntrospectionSchemaCommand}.
  */
-export interface GetIntrospectionSchemaCommandOutput
-  extends GetIntrospectionSchemaCommandOutputType,
-    __MetadataBearer {}
+export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Retrieves the introspection schema for a GraphQL API.</p>

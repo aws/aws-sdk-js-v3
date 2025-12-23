@@ -31,9 +31,7 @@ export interface ListRegisteredSubscriptionProvidersCommandInput extends ListReg
  *
  * The output of {@link ListRegisteredSubscriptionProvidersCommand}.
  */
-export interface ListRegisteredSubscriptionProvidersCommandOutput
-  extends ListRegisteredSubscriptionProvidersResponse,
-    __MetadataBearer {}
+export interface ListRegisteredSubscriptionProvidersCommandOutput extends ListRegisteredSubscriptionProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>List Bring Your Own License (BYOL) subscription registration resources for your account.</p>

@@ -11,10 +11,8 @@ the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide
 Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-healthlake
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-healthlake`
 - `yarn add @aws-sdk/client-healthlake`
 - `pnpm add @aws-sdk/client-healthlake`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new HealthLakeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListFHIRDatastoresCommand(params);
 ```
 
@@ -211,7 +207,6 @@ CreateFHIRDatastore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/CreateFHIRDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/CreateFHIRDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/CreateFHIRDatastoreCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ DeleteFHIRDatastore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/DeleteFHIRDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DeleteFHIRDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DeleteFHIRDatastoreCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ DescribeFHIRDatastore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/DescribeFHIRDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRDatastoreCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ DescribeFHIRExportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/DescribeFHIRExportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRExportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRExportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ DescribeFHIRImportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/DescribeFHIRImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/DescribeFHIRImportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ ListFHIRDatastores
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/ListFHIRDatastoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRDatastoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRDatastoresCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ ListFHIRExportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/ListFHIRExportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRExportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRExportJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ ListFHIRImportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/ListFHIRImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListFHIRImportJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ StartFHIRExportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/StartFHIRExportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/StartFHIRExportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/StartFHIRExportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ StartFHIRImportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/StartFHIRImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/StartFHIRImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/StartFHIRImportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,5 +291,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/healthlake/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-healthlake/Interface/UntagResourceCommandOutput/)
-
 </details>

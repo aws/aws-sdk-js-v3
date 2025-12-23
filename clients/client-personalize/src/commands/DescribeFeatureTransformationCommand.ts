@@ -24,9 +24,7 @@ export interface DescribeFeatureTransformationCommandInput extends DescribeFeatu
  *
  * The output of {@link DescribeFeatureTransformationCommand}.
  */
-export interface DescribeFeatureTransformationCommandOutput
-  extends DescribeFeatureTransformationResponse,
-    __MetadataBearer {}
+export interface DescribeFeatureTransformationCommandOutput extends DescribeFeatureTransformationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the given feature transformation.</p>

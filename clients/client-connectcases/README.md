@@ -9,10 +9,8 @@ AWS SDK for JavaScript ConnectCases Client for Node.js, Browser and React Native
 <ul> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases actions</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data types</a> </p> </li> </ul> <p>With Amazon Connect Cases, your agents can track and manage customer issues that require multiple interactions, follow-up tasks, and teams in your contact center. A case represents a customer issue. It records the issue, the steps and interactions taken to resolve the issue, and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-connectcases
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-connectcases`
 - `yarn add @aws-sdk/client-connectcases`
 - `pnpm add @aws-sdk/client-connectcases`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ConnectCasesClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDomainsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ BatchGetCaseRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/BatchGetCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetCaseRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ BatchGetField
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/BatchGetFieldCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetFieldCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetFieldCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ BatchPutFieldOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/BatchPutFieldOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchPutFieldOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchPutFieldOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreateCaseRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ CreateDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ CreateField
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateFieldCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateFieldCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateFieldCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ CreateLayout
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateLayoutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ CreateRelatedItem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateRelatedItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateRelatedItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateRelatedItemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ CreateTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ DeleteCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ DeleteCaseRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ DeleteDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ DeleteField
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteFieldCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteFieldCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteFieldCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ DeleteLayout
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteLayoutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ DeleteRelatedItem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteRelatedItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteRelatedItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteRelatedItemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ DeleteTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ GetCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ GetCaseAuditEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetCaseAuditEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseAuditEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseAuditEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ GetCaseEventConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetCaseEventConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseEventConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseEventConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ GetDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ GetLayout
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetLayoutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ GetTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ ListCaseRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListCaseRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCaseRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCaseRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ ListCasesForContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListCasesForContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCasesForContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCasesForContactCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ ListDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ ListFieldOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListFieldOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListFieldOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListFieldOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ ListFields
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListFieldsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListFieldsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListFieldsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ ListLayouts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListLayoutsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListLayoutsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListLayoutsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +415,6 @@ ListTemplates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListTemplatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +422,6 @@ PutCaseEventConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/PutCaseEventConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/PutCaseEventConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/PutCaseEventConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +429,6 @@ SearchAllRelatedItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/SearchAllRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchAllRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchAllRelatedItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +436,6 @@ SearchCases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/SearchCasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchCasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchCasesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,7 +443,6 @@ SearchRelatedItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/SearchRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchRelatedItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -489,7 +450,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -497,7 +457,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -505,7 +464,6 @@ UpdateCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -513,7 +471,6 @@ UpdateCaseRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -521,7 +478,6 @@ UpdateField
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateFieldCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateFieldCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateFieldCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -529,7 +485,6 @@ UpdateLayout
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateLayoutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -537,5 +492,4 @@ UpdateTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateTemplateCommandOutput/)
-
 </details>

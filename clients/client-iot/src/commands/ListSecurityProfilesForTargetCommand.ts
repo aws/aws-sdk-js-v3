@@ -24,9 +24,7 @@ export interface ListSecurityProfilesForTargetCommandInput extends ListSecurityP
  *
  * The output of {@link ListSecurityProfilesForTargetCommand}.
  */
-export interface ListSecurityProfilesForTargetCommandOutput
-  extends ListSecurityProfilesForTargetResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfilesForTargetCommandOutput extends ListSecurityProfilesForTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>

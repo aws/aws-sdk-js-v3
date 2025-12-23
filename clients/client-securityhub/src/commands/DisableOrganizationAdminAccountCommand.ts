@@ -27,9 +27,7 @@ export interface DisableOrganizationAdminAccountCommandInput extends DisableOrga
  *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
-export interface DisableOrganizationAdminAccountCommandOutput
-  extends DisableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disables a Security Hub administrator account. Can only be called by the organization

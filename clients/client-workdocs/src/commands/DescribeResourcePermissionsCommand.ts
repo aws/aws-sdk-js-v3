@@ -24,9 +24,7 @@ export interface DescribeResourcePermissionsCommandInput extends DescribeResourc
  *
  * The output of {@link DescribeResourcePermissionsCommand}.
  */
-export interface DescribeResourcePermissionsCommandOutput
-  extends DescribeResourcePermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeResourcePermissionsCommandOutput extends DescribeResourcePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions of a specified resource.</p>

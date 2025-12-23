@@ -28,9 +28,7 @@ export interface CreateCloudFormationChangeSetCommandInput extends CreateCloudFo
  *
  * The output of {@link CreateCloudFormationChangeSetCommand}.
  */
-export interface CreateCloudFormationChangeSetCommandOutput
-  extends CreateCloudFormationChangeSetResponse,
-    __MetadataBearer {}
+export interface CreateCloudFormationChangeSetCommandOutput extends CreateCloudFormationChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation change set for the given application.</p>

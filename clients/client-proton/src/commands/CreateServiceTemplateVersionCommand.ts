@@ -24,9 +24,7 @@ export interface CreateServiceTemplateVersionCommandInput extends CreateServiceT
  *
  * The output of {@link CreateServiceTemplateVersionCommand}.
  */
-export interface CreateServiceTemplateVersionCommandOutput
-  extends CreateServiceTemplateVersionOutput,
-    __MetadataBearer {}
+export interface CreateServiceTemplateVersionCommandOutput extends CreateServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Create a new major or minor version of a service template. A major version of a service

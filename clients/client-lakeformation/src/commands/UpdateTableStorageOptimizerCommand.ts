@@ -24,9 +24,7 @@ export interface UpdateTableStorageOptimizerCommandInput extends UpdateTableStor
  *
  * The output of {@link UpdateTableStorageOptimizerCommand}.
  */
-export interface UpdateTableStorageOptimizerCommandOutput
-  extends UpdateTableStorageOptimizerResponse,
-    __MetadataBearer {}
+export interface UpdateTableStorageOptimizerCommandOutput extends UpdateTableStorageOptimizerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of the storage optimizers for a table.</p>

@@ -7,7 +7,6 @@
 AWS SDK for JavaScript SNS Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Simple Notification Service</fullname>
-
 <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you
 to build distributed web-enabled applications. Applications can use Amazon SNS to easily push
 real-time notification messages to interested subscribers over multiple delivery
@@ -22,10 +21,8 @@ cryptographically signing your service requests, retrying requests, and handling
 responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sns
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sns`
 - `yarn add @aws-sdk/client-sns`
 - `pnpm add @aws-sdk/client-sns`
@@ -61,9 +58,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SNSClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTopicsCommand(params);
 ```
 
@@ -222,7 +217,6 @@ AddPermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/AddPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/AddPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/AddPermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ CheckIfPhoneNumberIsOptedOut
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CheckIfPhoneNumberIsOptedOutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CheckIfPhoneNumberIsOptedOutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CheckIfPhoneNumberIsOptedOutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ ConfirmSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ConfirmSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ConfirmSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ConfirmSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ CreatePlatformApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreatePlatformApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreatePlatformApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreatePlatformApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ CreatePlatformEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreatePlatformEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreatePlatformEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreatePlatformEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ CreateSMSSandboxPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreateSMSSandboxPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreateSMSSandboxPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreateSMSSandboxPhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ CreateTopic
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreateTopicCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/CreateTopicCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ DeleteEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +273,6 @@ DeletePlatformApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeletePlatformApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeletePlatformApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeletePlatformApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +280,6 @@ DeleteSMSSandboxPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteSMSSandboxPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteSMSSandboxPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteSMSSandboxPhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +287,6 @@ DeleteTopic
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteTopicCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/DeleteTopicCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +294,6 @@ GetDataProtectionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetDataProtectionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetDataProtectionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetDataProtectionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +301,6 @@ GetEndpointAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetEndpointAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetEndpointAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetEndpointAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +308,6 @@ GetPlatformApplicationAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetPlatformApplicationAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetPlatformApplicationAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetPlatformApplicationAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +315,6 @@ GetSMSAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetSMSAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSMSAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSMSAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +322,6 @@ GetSMSSandboxAccountStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetSMSSandboxAccountStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSMSSandboxAccountStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSMSSandboxAccountStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,7 +329,6 @@ GetSubscriptionAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetSubscriptionAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSubscriptionAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetSubscriptionAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -358,7 +336,6 @@ GetTopicAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetTopicAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetTopicAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/GetTopicAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -366,7 +343,6 @@ ListEndpointsByPlatformApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListEndpointsByPlatformApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListEndpointsByPlatformApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListEndpointsByPlatformApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -374,7 +350,6 @@ ListOriginationNumbers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListOriginationNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListOriginationNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListOriginationNumbersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -382,7 +357,6 @@ ListPhoneNumbersOptedOut
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListPhoneNumbersOptedOutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListPhoneNumbersOptedOutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListPhoneNumbersOptedOutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -390,7 +364,6 @@ ListPlatformApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListPlatformApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListPlatformApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListPlatformApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -398,7 +371,6 @@ ListSMSSandboxPhoneNumbers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListSMSSandboxPhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSMSSandboxPhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSMSSandboxPhoneNumbersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -406,7 +378,6 @@ ListSubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSubscriptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -414,7 +385,6 @@ ListSubscriptionsByTopic
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListSubscriptionsByTopicCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSubscriptionsByTopicCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListSubscriptionsByTopicCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -422,7 +392,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -430,7 +399,6 @@ ListTopics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListTopicsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListTopicsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/ListTopicsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -438,7 +406,6 @@ OptInPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/OptInPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/OptInPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/OptInPhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -446,7 +413,6 @@ Publish
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PublishCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PublishCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -454,7 +420,6 @@ PublishBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/PublishBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PublishBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PublishBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -462,7 +427,6 @@ PutDataProtectionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/PutDataProtectionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PutDataProtectionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/PutDataProtectionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -470,7 +434,6 @@ RemovePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/RemovePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/RemovePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/RemovePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -478,7 +441,6 @@ SetEndpointAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetEndpointAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetEndpointAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetEndpointAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -486,7 +448,6 @@ SetPlatformApplicationAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetPlatformApplicationAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetPlatformApplicationAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetPlatformApplicationAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -494,7 +455,6 @@ SetSMSAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetSMSAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetSMSAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetSMSAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -502,7 +462,6 @@ SetSubscriptionAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetSubscriptionAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetSubscriptionAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetSubscriptionAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -510,7 +469,6 @@ SetTopicAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetTopicAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetTopicAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SetTopicAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -518,7 +476,6 @@ Subscribe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SubscribeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/SubscribeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -526,7 +483,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -534,7 +490,6 @@ Unsubscribe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/UnsubscribeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/UnsubscribeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -542,7 +497,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -550,5 +504,4 @@ VerifySMSSandboxPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/VerifySMSSandboxPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/VerifySMSSandboxPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sns/Interface/VerifySMSSandboxPhoneNumberCommandOutput/)
-
 </details>

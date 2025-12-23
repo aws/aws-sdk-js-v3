@@ -31,9 +31,7 @@ export interface DescribeRecommendationLimitationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeRecommendationLimitationsCommand}.
  */
-export interface DescribeRecommendationLimitationsCommandOutput
-  extends DescribeRecommendationLimitationsResponse,
-    __MetadataBearer {}
+export interface DescribeRecommendationLimitationsCommandOutput extends DescribeRecommendationLimitationsResponse, __MetadataBearer {}
 
 /**
  * <important>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
-export interface DescribeReplicationTaskIndividualAssessmentsCommandInput
-  extends DescribeReplicationTaskIndividualAssessmentsMessage {}
+export interface DescribeReplicationTaskIndividualAssessmentsCommandInput extends DescribeReplicationTaskIndividualAssessmentsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
-export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
-  extends DescribeReplicationTaskIndividualAssessmentsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput extends DescribeReplicationTaskIndividualAssessmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>

@@ -27,9 +27,7 @@ export interface UpdateDashboardsQAConfigurationCommandInput extends UpdateDashb
  *
  * The output of {@link UpdateDashboardsQAConfigurationCommand}.
  */
-export interface UpdateDashboardsQAConfigurationCommandOutput
-  extends UpdateDashboardsQAConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateDashboardsQAConfigurationCommandOutput extends UpdateDashboardsQAConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Dashboard QA configuration.</p>

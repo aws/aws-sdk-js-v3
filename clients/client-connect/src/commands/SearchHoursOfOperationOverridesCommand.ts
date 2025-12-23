@@ -25,9 +25,7 @@ export interface SearchHoursOfOperationOverridesCommandInput extends SearchHours
  *
  * The output of {@link SearchHoursOfOperationOverridesCommand}.
  */
-export interface SearchHoursOfOperationOverridesCommandOutput
-  extends SearchHoursOfOperationOverridesResponse,
-    __MetadataBearer {}
+export interface SearchHoursOfOperationOverridesCommandOutput extends SearchHoursOfOperationOverridesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches the hours of operation overrides.</p>

@@ -27,9 +27,7 @@ export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetw
  *
  * The output of {@link CreateNetworkInterfacePermissionCommand}.
  */
-export interface CreateNetworkInterfacePermissionCommandOutput
-  extends CreateNetworkInterfacePermissionResult,
-    __MetadataBearer {}
+export interface CreateNetworkInterfacePermissionCommandOutput extends CreateNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified

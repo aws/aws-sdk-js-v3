@@ -27,9 +27,7 @@ export interface GetIpamDiscoveredPublicAddressesCommandInput extends GetIpamDis
  *
  * The output of {@link GetIpamDiscoveredPublicAddressesCommand}.
  */
-export interface GetIpamDiscoveredPublicAddressesCommandOutput
-  extends GetIpamDiscoveredPublicAddressesResult,
-    __MetadataBearer {}
+export interface GetIpamDiscoveredPublicAddressesCommandOutput extends GetIpamDiscoveredPublicAddressesResult, __MetadataBearer {}
 
 /**
  * <p>Gets the public IP addresses that have been discovered by IPAM.</p>

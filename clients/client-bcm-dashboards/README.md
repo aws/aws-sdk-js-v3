@@ -9,10 +9,8 @@ AWS SDK for JavaScript BCMDashboards Client for Node.js, Browser and React Nativ
 <p>Amazon Web Services Billing and Cost Management Dashboards is a service that enables you to create, manage, and share dashboards that combine multiple visualizations of your Amazon Web Services cost and usage data. You can combine multiple data sources including Cost Explorer, Savings Plans, and Reserved Instance metrics into unified dashboards, helping you analyze spending patterns and share cost insights across your organization.</p> <p>You can use the Amazon Web Services Billing and Cost Management Dashboards API to programmatically create, manage, and share dashboards. This includes creating custom dashboards, configuring widgets, managing dashboard permissions, and sharing dashboards across accounts in your organization.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-bcm-dashboards
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-bcm-dashboards`
 - `yarn add @aws-sdk/client-bcm-dashboards`
 - `pnpm add @aws-sdk/client-bcm-dashboards`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new BCMDashboardsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDashboardsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/CreateDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/CreateDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/CreateDashboardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/DeleteDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteDashboardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ GetDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/GetDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetDashboardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ ListDashboards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/ListDashboardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListDashboardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListDashboardsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,5 +261,4 @@ UpdateDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/UpdateDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateDashboardCommandOutput/)
-
 </details>

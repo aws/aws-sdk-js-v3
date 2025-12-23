@@ -24,9 +24,7 @@ export interface CreateHubContentPresignedUrlsCommandInput extends CreateHubCont
  *
  * The output of {@link CreateHubContentPresignedUrlsCommand}.
  */
-export interface CreateHubContentPresignedUrlsCommandOutput
-  extends CreateHubContentPresignedUrlsResponse,
-    __MetadataBearer {}
+export interface CreateHubContentPresignedUrlsCommandOutput extends CreateHubContentPresignedUrlsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates presigned URLs for accessing hub content artifacts. This operation generates time-limited, secure URLs that allow direct download of model artifacts and associated files from Amazon SageMaker hub content, including gated models that require end-user license agreement acceptance.</p>

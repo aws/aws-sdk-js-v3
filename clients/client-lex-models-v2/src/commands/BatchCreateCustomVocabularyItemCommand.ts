@@ -27,9 +27,7 @@ export interface BatchCreateCustomVocabularyItemCommandInput extends BatchCreate
  *
  * The output of {@link BatchCreateCustomVocabularyItemCommand}.
  */
-export interface BatchCreateCustomVocabularyItemCommandOutput
-  extends BatchCreateCustomVocabularyItemResponse,
-    __MetadataBearer {}
+export interface BatchCreateCustomVocabularyItemCommandOutput extends BatchCreateCustomVocabularyItemResponse, __MetadataBearer {}
 
 /**
  * <p>Create a batch of custom vocabulary items for a given bot locale's

@@ -236,618 +236,414 @@ var DICOMStudyInstanceUID: StaticSimpleSchema = [0, n0, _DICOMSIUIDt, 8, 0];
 var DICOMStudyTime: StaticSimpleSchema = [0, n0, _DICOMST, 8, 0];
 var ImageSetMetadataBlob: StaticSimpleSchema = [0, n0, _ISMB, { [_s]: 1 }, 42];
 var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_s]: 1 }, 42];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CopyDestinationImageSet$: StaticStructureSchema = [3, n0, _CDIS, 0, [_iSI, _lVI], [0, 0]];
-export var CopyDestinationImageSetProperties$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDISP,
+export var CopyDestinationImageSet$: StaticStructureSchema = [3, n0, _CDIS,
+  0,
+  [_iSI, _lVI],
+  [0, 0]
+];
+export var CopyDestinationImageSetProperties$: StaticStructureSchema = [3, n0, _CDISP,
   0,
   [_iSI, _lVI, _iSS, _iSWS, _cA, _uA, _iSA],
-  [0, 0, 0, 0, 4, 4, 0],
+  [0, 0, 0, 0, 4, 4, 0]
 ];
-export var CopyImageSetInformation$: StaticStructureSchema = [
-  3,
-  n0,
-  _CISI,
+export var CopyImageSetInformation$: StaticStructureSchema = [3, n0, _CISI,
   0,
   [_sIS, _dIS],
-  [[() => CopySourceImageSetInformation$, 0], () => CopyDestinationImageSet$],
+  [[() => CopySourceImageSetInformation$, 0], () => CopyDestinationImageSet$]
 ];
-export var CopyImageSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CISR,
+export var CopyImageSetRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
   [_dI, _sISI, _cISI, _f, _pTP],
-  [
-    [0, 1],
-    [0, 1],
-    [() => CopyImageSetInformation$, 16],
-    [2, { [_hQ]: _f }],
-    [2, { [_hQ]: _pTP }],
-  ],
+  [[0, 1], [0, 1], [() => CopyImageSetInformation$, 16], [2, { [_hQ]: _f }], [2, { [_hQ]: _pTP }]]
 ];
-export var CopyImageSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CISRo,
+export var CopyImageSetResponse$: StaticStructureSchema = [3, n0, _CISRo,
   0,
   [_dI, _sISP, _dISP],
-  [0, () => CopySourceImageSetProperties$, () => CopyDestinationImageSetProperties$],
+  [0, () => CopySourceImageSetProperties$, () => CopyDestinationImageSetProperties$]
 ];
-export var CopySourceImageSetInformation$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSISI,
+export var CopySourceImageSetInformation$: StaticStructureSchema = [3, n0, _CSISI,
   0,
   [_lVI, _DICOMC],
-  [0, [() => MetadataCopies$, 0]],
+  [0, [() => MetadataCopies$, 0]]
 ];
-export var CopySourceImageSetProperties$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSISP,
+export var CopySourceImageSetProperties$: StaticStructureSchema = [3, n0, _CSISP,
   0,
   [_iSI, _lVI, _iSS, _iSWS, _cA, _uA, _iSA],
-  [0, 0, 0, 0, 4, 4, 0],
+  [0, 0, 0, 0, 4, 4, 0]
 ];
-export var CreateDatastoreRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDR,
+export var CreateDatastoreRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_dN, _cT, _t, _kKA, _lAA, _lSF],
-  [0, [0, 4], 128 | 0, 0, 0, 0],
+  [0, [0, 4], 128 | 0, 0, 0, 0]
 ];
-export var CreateDatastoreResponse$: StaticStructureSchema = [3, n0, _CDRr, 0, [_dI, _dS], [0, 0]];
-export var DatastoreProperties$: StaticStructureSchema = [
-  3,
-  n0,
-  _DP,
+export var CreateDatastoreResponse$: StaticStructureSchema = [3, n0, _CDRr,
+  0,
+  [_dI, _dS],
+  [0, 0]
+];
+export var DatastoreProperties$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_dI, _dN, _dS, _kKA, _lAA, _lSF, _dA, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
-export var DatastoreSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DS,
+export var DatastoreSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_dI, _dN, _dS, _dA, _cA, _uA],
-  [0, 0, 0, 0, 4, 4],
+  [0, 0, 0, 0, 4, 4]
 ];
-export var DeleteDatastoreRequest$: StaticStructureSchema = [3, n0, _DDR, 0, [_dI], [[0, 1]]];
-export var DeleteDatastoreResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [_dI, _dS], [0, 0]];
-export var DeleteImageSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DISR,
+export var DeleteDatastoreRequest$: StaticStructureSchema = [3, n0, _DDR,
+  0,
+  [_dI],
+  [[0, 1]]
+];
+export var DeleteDatastoreResponse$: StaticStructureSchema = [3, n0, _DDRe,
+  0,
+  [_dI, _dS],
+  [0, 0]
+];
+export var DeleteImageSetRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
   [_dI, _iSI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var DeleteImageSetResponse$: StaticStructureSchema = [3, n0, _DISRe, 0, [_dI, _iSI, _iSS, _iSWS], [0, 0, 0, 0]];
-export var DICOMImportJobProperties$: StaticStructureSchema = [
-  3,
-  n0,
-  _DICOMIJP,
+export var DeleteImageSetResponse$: StaticStructureSchema = [3, n0, _DISRe,
+  0,
+  [_dI, _iSI, _iSS, _iSWS],
+  [0, 0, 0, 0]
+];
+export var DICOMImportJobProperties$: StaticStructureSchema = [3, n0, _DICOMIJP,
   0,
   [_jI, _jN, _jS, _dI, _dARA, _eA, _sA, _iSU, _oSU, _m],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0]
 ];
-export var DICOMImportJobSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DICOMIJS,
+export var DICOMImportJobSummary$: StaticStructureSchema = [3, n0, _DICOMIJS,
   0,
   [_jI, _jN, _jS, _dI, _dARA, _eA, _sA, _m],
-  [0, 0, 0, 0, 0, 4, 4, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0]
 ];
-export var DICOMStudyDateAndTime$: StaticStructureSchema = [
-  3,
-  n0,
-  _DICOMSDAT,
+export var DICOMStudyDateAndTime$: StaticStructureSchema = [3, n0, _DICOMSDAT,
   0,
   [_DICOMSD, _DICOMST],
-  [
-    [() => DICOMStudyDate, 0],
-    [() => DICOMStudyTime, 0],
-  ],
+  [[() => DICOMStudyDate, 0], [() => DICOMStudyTime, 0]]
 ];
-export var DICOMTags$: StaticStructureSchema = [
-  3,
-  n0,
-  _DICOMT,
+export var DICOMTags$: StaticStructureSchema = [3, n0, _DICOMT,
   0,
-  [
-    _DICOMPI,
-    _DICOMPN,
-    _DICOMPBD,
-    _DICOMPS,
-    _DICOMSIUIDt,
-    _DICOMSI,
-    _DICOMSDt,
-    _DICOMNOSRS,
-    _DICOMNOSRI,
-    _DICOMAN,
-    _DICOMSIUID,
-    _DICOMSM,
-    _DICOMSBP,
-    _DICOMSN,
-    _DICOMSD,
-    _DICOMST,
-  ],
-  [
-    [() => DICOMPatientId, 0],
-    [() => DICOMPatientName, 0],
-    [() => DICOMPatientBirthDate, 0],
-    [() => DICOMPatientSex, 0],
-    [() => DICOMStudyInstanceUID, 0],
-    [() => DICOMStudyId, 0],
-    [() => DICOMStudyDescription, 0],
-    1,
-    1,
-    [() => DICOMAccessionNumber, 0],
-    [() => DICOMSeriesInstanceUID, 0],
-    [() => DICOMSeriesModality, 0],
-    [() => DICOMSeriesBodyPart, 0],
-    [() => DICOMSeriesNumber, 0],
-    [() => DICOMStudyDate, 0],
-    [() => DICOMStudyTime, 0],
-  ],
+  [_DICOMPI, _DICOMPN, _DICOMPBD, _DICOMPS, _DICOMSIUIDt, _DICOMSI, _DICOMSDt, _DICOMNOSRS, _DICOMNOSRI, _DICOMAN, _DICOMSIUID, _DICOMSM, _DICOMSBP, _DICOMSN, _DICOMSD, _DICOMST],
+  [[() => DICOMPatientId, 0], [() => DICOMPatientName, 0], [() => DICOMPatientBirthDate, 0], [() => DICOMPatientSex, 0], [() => DICOMStudyInstanceUID, 0], [() => DICOMStudyId, 0], [() => DICOMStudyDescription, 0], 1, 1, [() => DICOMAccessionNumber, 0], [() => DICOMSeriesInstanceUID, 0], [() => DICOMSeriesModality, 0], [() => DICOMSeriesBodyPart, 0], [() => DICOMSeriesNumber, 0], [() => DICOMStudyDate, 0], [() => DICOMStudyTime, 0]]
 ];
-export var DICOMUpdates$: StaticStructureSchema = [
-  3,
-  n0,
-  _DICOMU,
+export var DICOMUpdates$: StaticStructureSchema = [3, n0, _DICOMU,
   0,
   [_rA, _uAp],
-  [
-    [() => DICOMAttribute, 0],
-    [() => DICOMAttribute, 0],
-  ],
+  [[() => DICOMAttribute, 0], [() => DICOMAttribute, 0]]
 ];
-export var GetDatastoreRequest$: StaticStructureSchema = [3, n0, _GDR, 0, [_dI], [[0, 1]]];
-export var GetDatastoreResponse$: StaticStructureSchema = [3, n0, _GDRe, 0, [_dP], [() => DatastoreProperties$]];
-export var GetDICOMImportJobRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDICOMIJR,
+export var GetDatastoreRequest$: StaticStructureSchema = [3, n0, _GDR,
+  0,
+  [_dI],
+  [[0, 1]]
+];
+export var GetDatastoreResponse$: StaticStructureSchema = [3, n0, _GDRe,
+  0,
+  [_dP],
+  [() => DatastoreProperties$]
+];
+export var GetDICOMImportJobRequest$: StaticStructureSchema = [3, n0, _GDICOMIJR,
   0,
   [_dI, _jI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var GetDICOMImportJobResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDICOMIJRe,
+export var GetDICOMImportJobResponse$: StaticStructureSchema = [3, n0, _GDICOMIJRe,
   0,
   [_jP],
-  [() => DICOMImportJobProperties$],
+  [() => DICOMImportJobProperties$]
 ];
-export var GetImageFrameRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIFR,
+export var GetImageFrameRequest$: StaticStructureSchema = [3, n0, _GIFR,
   0,
   [_dI, _iSI, _iFI],
-  [
-    [0, 1],
-    [0, 1],
-    [() => ImageFrameInformation$, 16],
-  ],
+  [[0, 1], [0, 1], [() => ImageFrameInformation$, 16]]
 ];
-export var GetImageFrameResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIFRe,
+export var GetImageFrameResponse$: StaticStructureSchema = [3, n0, _GIFRe,
   0,
   [_iFB, _cTo],
-  [
-    [() => PayloadBlob, 16],
-    [0, { [_hH]: _CT }],
-  ],
+  [[() => PayloadBlob, 16], [0, { [_hH]: _CT }]]
 ];
-export var GetImageSetMetadataRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GISMR,
+export var GetImageSetMetadataRequest$: StaticStructureSchema = [3, n0, _GISMR,
   0,
   [_dI, _iSI, _vI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _v }],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _v }]]
 ];
-export var GetImageSetMetadataResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GISMRe,
+export var GetImageSetMetadataResponse$: StaticStructureSchema = [3, n0, _GISMRe,
   0,
   [_iSMB, _cTo, _cE],
-  [
-    [() => ImageSetMetadataBlob, 16],
-    [0, { [_hH]: _CT }],
-    [0, { [_hH]: _CE_ }],
-  ],
+  [[() => ImageSetMetadataBlob, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _CE_ }]]
 ];
-export var GetImageSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GISR,
+export var GetImageSetRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
   [_dI, _iSI, _vI],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _v }],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _v }]]
 ];
-export var GetImageSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GISRe,
+export var GetImageSetResponse$: StaticStructureSchema = [3, n0, _GISRe,
   0,
   [_dI, _iSI, _vI, _iSS, _iSWS, _cA, _uA, _dAe, _m, _iSA, _o, _iP, _lAAa, _sT],
-  [0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => Overrides$, 2, 4, 0],
+  [0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => Overrides$, 2, 4, 0]
 ];
-export var ImageFrameInformation$: StaticStructureSchema = [3, n0, _IFI, 0, [_iFIm], [0]];
-export var ImageSetProperties$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISP,
+export var ImageFrameInformation$: StaticStructureSchema = [3, n0, _IFI,
+  0,
+  [_iFIm],
+  [0]
+];
+export var ImageSetProperties$: StaticStructureSchema = [3, n0, _ISP,
   0,
   [_iSI, _vI, _iSS, _ISWS, _cA, _uA, _dAe, _m, _o, _iP],
-  [0, 0, 0, 0, 4, 4, 4, 0, () => Overrides$, 2],
+  [0, 0, 0, 0, 4, 4, 4, 0, () => Overrides$, 2]
 ];
-export var ImageSetsMetadataSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISMS,
+export var ImageSetsMetadataSummary$: StaticStructureSchema = [3, n0, _ISMS,
   0,
   [_iSI, _v, _cA, _uA, _lAAa, _sT, _DICOMT, _iP],
-  [0, 1, 4, 4, 4, 0, [() => DICOMTags$, 0], 2],
+  [0, 1, 4, 4, 4, 0, [() => DICOMTags$, 0], 2]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListDatastoresRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDR,
+export var ListDatastoresRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_dS, _nT, _mR],
-  [
-    [0, { [_hQ]: _dS }],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [[0, { [_hQ]: _dS }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListDatastoresResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDRi,
+export var ListDatastoresResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_dSa, _nT],
-  [() => DatastoreSummaries, 0],
+  [() => DatastoreSummaries, 0]
 ];
-export var ListDICOMImportJobsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDICOMIJR,
+export var ListDICOMImportJobsRequest$: StaticStructureSchema = [3, n0, _LDICOMIJR,
   0,
   [_dI, _jS, _nT, _mR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _jS }],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [[0, 1], [0, { [_hQ]: _jS }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListDICOMImportJobsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDICOMIJRi,
+export var ListDICOMImportJobsResponse$: StaticStructureSchema = [3, n0, _LDICOMIJRi,
   0,
   [_jSo, _nT],
-  [() => DICOMImportJobSummaries, 0],
+  [() => DICOMImportJobSummaries, 0]
 ];
-export var ListImageSetVersionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LISVR,
+export var ListImageSetVersionsRequest$: StaticStructureSchema = [3, n0, _LISVR,
   0,
   [_dI, _iSI, _nT, _mR],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListImageSetVersionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LISVRi,
+export var ListImageSetVersionsResponse$: StaticStructureSchema = [3, n0, _LISVRi,
   0,
   [_iSPL, _nT],
-  [() => ImageSetPropertiesList, 0],
+  [() => ImageSetPropertiesList, 0]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var MetadataCopies$: StaticStructureSchema = [3, n0, _MC, 0, [_cAo], [[() => CopiableAttributes, 0]]];
-export var Overrides$: StaticStructureSchema = [3, n0, _O, 0, [_fo], [2]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rAe],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var MetadataCopies$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_cAo],
+  [[() => CopiableAttributes, 0]]
+];
+export var Overrides$: StaticStructureSchema = [3, n0, _O,
+  0,
+  [_fo],
+  [2]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SearchCriteria$: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
+export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   8,
   [_fi, _so],
-  [[() => SearchFilters, 0], () => Sort$],
+  [[() => SearchFilters, 0], () => Sort$]
 ];
-export var SearchFilter$: StaticStructureSchema = [3, n0, _SF, 0, [_va, _op], [[() => SearchByAttributeValues, 0], 0]];
-export var SearchImageSetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SISR,
+export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_va, _op],
+  [[() => SearchByAttributeValues, 0], 0]
+];
+export var SearchImageSetsRequest$: StaticStructureSchema = [3, n0, _SISR,
   0,
   [_dI, _sC, _mR, _nT],
-  [
-    [0, 1],
-    [() => SearchCriteria$, 16],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [() => SearchCriteria$, 16], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var SearchImageSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SISRe,
+export var SearchImageSetsResponse$: StaticStructureSchema = [3, n0, _SISRe,
   0,
   [_iSMS, _so, _nT],
-  [[() => ImageSetsMetadataSummaries, 0], () => Sort$, 0],
+  [[() => ImageSetsMetadataSummaries, 0], () => Sort$, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var Sort$: StaticStructureSchema = [3, n0, _S, 0, [_sO, _sF], [0, 0]];
-export var StartDICOMImportJobRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDICOMIJR,
+export var Sort$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sO, _sF],
+  [0, 0]
+];
+export var StartDICOMImportJobRequest$: StaticStructureSchema = [3, n0, _SDICOMIJR,
   0,
   [_jN, _dARA, _cT, _dI, _iSU, _oSU, _iOAI],
-  [0, 0, [0, 4], [0, 1], 0, 0, 0],
+  [0, 0, [0, 4], [0, 1], 0, 0, 0]
 ];
-export var StartDICOMImportJobResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDICOMIJRt,
+export var StartDICOMImportJobResponse$: StaticStructureSchema = [3, n0, _SDICOMIJRt,
   0,
   [_dI, _jI, _jS, _sA],
-  [0, 0, 0, 4],
+  [0, 0, 0, 4]
 ];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rAe, _t],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UntagResourceRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateImageSetMetadataRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UISMR,
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateImageSetMetadataRequest$: StaticStructureSchema = [3, n0, _UISMR,
   0,
   [_dI, _iSI, _lVI, _f, _uISMU],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _lV }],
-    [2, { [_hQ]: _f }],
-    [() => MetadataUpdates$, 16],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _lV }], [2, { [_hQ]: _f }], [() => MetadataUpdates$, 16]]
 ];
-export var UpdateImageSetMetadataResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UISMRp,
+export var UpdateImageSetMetadataResponse$: StaticStructureSchema = [3, n0, _UISMRp,
   0,
   [_dI, _iSI, _lVI, _iSS, _iSWS, _cA, _uA, _m],
-  [0, 0, 0, 0, 0, 4, 4, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var MedicalImagingServiceException$: StaticErrorSchema = [-3, _sm, "MedicalImagingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MedicalImagingServiceException$, MedicalImagingServiceException);
-var DatastoreSummaries: StaticListSchema = [1, n0, _DSa, 0, () => DatastoreSummary$];
-var DICOMImportJobSummaries: StaticListSchema = [1, n0, _DICOMIJSm, 0, () => DICOMImportJobSummary$];
-var ImageSetPropertiesList: StaticListSchema = [1, n0, _ISPL, 0, () => ImageSetProperties$];
-var ImageSetsMetadataSummaries: StaticListSchema = [1, n0, _ISMSm, 0, [() => ImageSetsMetadataSummary$, 0]];
-var SearchByAttributeValues: StaticListSchema = [1, n0, _SBAV, 0, [() => SearchByAttributeValue$, 0]];
-var SearchFilters: StaticListSchema = [1, n0, _SFe, 0, [() => SearchFilter$, 0]];
+var DatastoreSummaries: StaticListSchema = [1, n0, _DSa,
+  0, () => DatastoreSummary$
+];
+var DICOMImportJobSummaries: StaticListSchema = [1, n0, _DICOMIJSm,
+  0, () => DICOMImportJobSummary$
+];
+var ImageSetPropertiesList: StaticListSchema = [1, n0, _ISPL,
+  0, () => ImageSetProperties$
+];
+var ImageSetsMetadataSummaries: StaticListSchema = [1, n0, _ISMSm,
+  0, [() => ImageSetsMetadataSummary$,
+    0]
+];
+var SearchByAttributeValues: StaticListSchema = [1, n0, _SBAV,
+  0, [() => SearchByAttributeValue$,
+    0]
+];
+var SearchFilters: StaticListSchema = [1, n0, _SFe,
+  0, [() => SearchFilter$,
+    0]
+];
 var TagKeyList = 64 | 0;
 var TagMap = 128 | 0;
-export var MetadataUpdates$: StaticUnionSchema = [4, n0, _MU, 0, [_DICOMU, _rTVI], [[() => DICOMUpdates$, 0], 0]];
-export var SearchByAttributeValue$: StaticUnionSchema = [
-  4,
-  n0,
-  _SBAVe,
+export var MetadataUpdates$: StaticUnionSchema = [4, n0, _MU,
+  0,
+  [_DICOMU, _rTVI],
+  [[() => DICOMUpdates$, 0], 0]
+];
+export var SearchByAttributeValue$: StaticUnionSchema = [4, n0, _SBAVe,
   0,
   [_DICOMPI, _DICOMAN, _DICOMSI, _DICOMSIUIDt, _DICOMSIUID, _cA, _uA, _DICOMSDAT, _iP],
-  [
-    [() => DICOMPatientId, 0],
-    [() => DICOMAccessionNumber, 0],
-    [() => DICOMStudyId, 0],
-    [() => DICOMStudyInstanceUID, 0],
-    [() => DICOMSeriesInstanceUID, 0],
-    4,
-    4,
-    [() => DICOMStudyDateAndTime$, 0],
-    2,
-  ],
+  [[() => DICOMPatientId, 0], [() => DICOMAccessionNumber, 0], [() => DICOMStudyId, 0], [() => DICOMStudyInstanceUID, 0], [() => DICOMSeriesInstanceUID, 0], 4, 4, [() => DICOMStudyDateAndTime$, 0], 2]
 ];
-export var CopyImageSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CIS,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet", 200] },
-  () => CopyImageSetRequest$,
-  () => CopyImageSetResponse$,
+export var CopyImageSet$: StaticOperationSchema = [9, n0, _CIS,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet", 200] }, () => CopyImageSetRequest$, () => CopyImageSetResponse$
 ];
-export var CreateDatastore$: StaticOperationSchema = [
-  9,
-  n0,
-  _CD,
-  { [_h]: ["POST", "/datastore", 200] },
-  () => CreateDatastoreRequest$,
-  () => CreateDatastoreResponse$,
+export var CreateDatastore$: StaticOperationSchema = [9, n0, _CD,
+  { [_h]: ["POST", "/datastore", 200] }, () => CreateDatastoreRequest$, () => CreateDatastoreResponse$
 ];
-export var DeleteDatastore$: StaticOperationSchema = [
-  9,
-  n0,
-  _DD,
-  { [_h]: ["DELETE", "/datastore/{datastoreId}", 200] },
-  () => DeleteDatastoreRequest$,
-  () => DeleteDatastoreResponse$,
+export var DeleteDatastore$: StaticOperationSchema = [9, n0, _DD,
+  { [_h]: ["DELETE", "/datastore/{datastoreId}", 200] }, () => DeleteDatastoreRequest$, () => DeleteDatastoreResponse$
 ];
-export var DeleteImageSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIS,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet", 200] },
-  () => DeleteImageSetRequest$,
-  () => DeleteImageSetResponse$,
+export var DeleteImageSet$: StaticOperationSchema = [9, n0, _DIS,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet", 200] }, () => DeleteImageSetRequest$, () => DeleteImageSetResponse$
 ];
-export var GetDatastore$: StaticOperationSchema = [
-  9,
-  n0,
-  _GD,
-  { [_h]: ["GET", "/datastore/{datastoreId}", 200] },
-  () => GetDatastoreRequest$,
-  () => GetDatastoreResponse$,
+export var GetDatastore$: StaticOperationSchema = [9, n0, _GD,
+  { [_h]: ["GET", "/datastore/{datastoreId}", 200] }, () => GetDatastoreRequest$, () => GetDatastoreResponse$
 ];
-export var GetDICOMImportJob$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDICOMIJ,
-  { [_h]: ["GET", "/getDICOMImportJob/datastore/{datastoreId}/job/{jobId}", 200] },
-  () => GetDICOMImportJobRequest$,
-  () => GetDICOMImportJobResponse$,
+export var GetDICOMImportJob$: StaticOperationSchema = [9, n0, _GDICOMIJ,
+  { [_h]: ["GET", "/getDICOMImportJob/datastore/{datastoreId}/job/{jobId}", 200] }, () => GetDICOMImportJobRequest$, () => GetDICOMImportJobResponse$
 ];
-export var GetImageFrame$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIF,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame", 200] },
-  () => GetImageFrameRequest$,
-  () => GetImageFrameResponse$,
+export var GetImageFrame$: StaticOperationSchema = [9, n0, _GIF,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame", 200] }, () => GetImageFrameRequest$, () => GetImageFrameResponse$
 ];
-export var GetImageSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIS,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet", 200] },
-  () => GetImageSetRequest$,
-  () => GetImageSetResponse$,
+export var GetImageSet$: StaticOperationSchema = [9, n0, _GIS,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet", 200] }, () => GetImageSetRequest$, () => GetImageSetResponse$
 ];
-export var GetImageSetMetadata$: StaticOperationSchema = [
-  9,
-  n0,
-  _GISM,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata", 200] },
-  () => GetImageSetMetadataRequest$,
-  () => GetImageSetMetadataResponse$,
+export var GetImageSetMetadata$: StaticOperationSchema = [9, n0, _GISM,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata", 200] }, () => GetImageSetMetadataRequest$, () => GetImageSetMetadataResponse$
 ];
-export var ListDatastores$: StaticOperationSchema = [
-  9,
-  n0,
-  _LD,
-  { [_h]: ["GET", "/datastore", 200] },
-  () => ListDatastoresRequest$,
-  () => ListDatastoresResponse$,
+export var ListDatastores$: StaticOperationSchema = [9, n0, _LD,
+  { [_h]: ["GET", "/datastore", 200] }, () => ListDatastoresRequest$, () => ListDatastoresResponse$
 ];
-export var ListDICOMImportJobs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDICOMIJ,
-  { [_h]: ["GET", "/listDICOMImportJobs/datastore/{datastoreId}", 200] },
-  () => ListDICOMImportJobsRequest$,
-  () => ListDICOMImportJobsResponse$,
+export var ListDICOMImportJobs$: StaticOperationSchema = [9, n0, _LDICOMIJ,
+  { [_h]: ["GET", "/listDICOMImportJobs/datastore/{datastoreId}", 200] }, () => ListDICOMImportJobsRequest$, () => ListDICOMImportJobsResponse$
 ];
-export var ListImageSetVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LISV,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions", 200] },
-  () => ListImageSetVersionsRequest$,
-  () => ListImageSetVersionsResponse$,
+export var ListImageSetVersions$: StaticOperationSchema = [9, n0, _LISV,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions", 200] }, () => ListImageSetVersionsRequest$, () => ListImageSetVersionsResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var SearchImageSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIS,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/searchImageSets", 200] },
-  () => SearchImageSetsRequest$,
-  () => SearchImageSetsResponse$,
+export var SearchImageSets$: StaticOperationSchema = [9, n0, _SIS,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/searchImageSets", 200] }, () => SearchImageSetsRequest$, () => SearchImageSetsResponse$
 ];
-export var StartDICOMImportJob$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDICOMIJ,
-  { [_h]: ["POST", "/startDICOMImportJob/datastore/{datastoreId}", 200] },
-  () => StartDICOMImportJobRequest$,
-  () => StartDICOMImportJobResponse$,
+export var StartDICOMImportJob$: StaticOperationSchema = [9, n0, _SDICOMIJ,
+  { [_h]: ["POST", "/startDICOMImportJob/datastore/{datastoreId}", 200] }, () => StartDICOMImportJobRequest$, () => StartDICOMImportJobResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest$,
-  () => TagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
-export var UpdateImageSetMetadata$: StaticOperationSchema = [
-  9,
-  n0,
-  _UISM,
-  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata", 200] },
-  () => UpdateImageSetMetadataRequest$,
-  () => UpdateImageSetMetadataResponse$,
+export var UpdateImageSetMetadata$: StaticOperationSchema = [9, n0, _UISM,
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata", 200] }, () => UpdateImageSetMetadataRequest$, () => UpdateImageSetMetadataResponse$
 ];

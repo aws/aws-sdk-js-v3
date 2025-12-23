@@ -24,9 +24,7 @@ export interface TestAvailabilityConfigurationCommandInput extends TestAvailabil
  *
  * The output of {@link TestAvailabilityConfigurationCommand}.
  */
-export interface TestAvailabilityConfigurationCommandOutput
-  extends TestAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface TestAvailabilityConfigurationCommandOutput extends TestAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access

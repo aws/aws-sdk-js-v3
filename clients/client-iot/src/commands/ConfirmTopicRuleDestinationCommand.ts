@@ -24,9 +24,7 @@ export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRul
  *
  * The output of {@link ConfirmTopicRuleDestinationCommand}.
  */
-export interface ConfirmTopicRuleDestinationCommandOutput
-  extends ConfirmTopicRuleDestinationResponse,
-    __MetadataBearer {}
+export interface ConfirmTopicRuleDestinationCommandOutput extends ConfirmTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT

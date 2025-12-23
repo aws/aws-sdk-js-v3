@@ -24,9 +24,7 @@ export interface DescribeApplicationInstanceCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationInstanceCommand}.
  */
-export interface DescribeApplicationInstanceCommandOutput
-  extends DescribeApplicationInstanceResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationInstanceCommandOutput extends DescribeApplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an application instance on a device.</p>

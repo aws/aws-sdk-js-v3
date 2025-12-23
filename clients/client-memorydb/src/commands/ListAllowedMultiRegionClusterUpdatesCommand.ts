@@ -27,9 +27,7 @@ export interface ListAllowedMultiRegionClusterUpdatesCommandInput extends ListAl
  *
  * The output of {@link ListAllowedMultiRegionClusterUpdatesCommand}.
  */
-export interface ListAllowedMultiRegionClusterUpdatesCommandOutput
-  extends ListAllowedMultiRegionClusterUpdatesResponse,
-    __MetadataBearer {}
+export interface ListAllowedMultiRegionClusterUpdatesCommandOutput extends ListAllowedMultiRegionClusterUpdatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the allowed updates for a multi-Region cluster.</p>

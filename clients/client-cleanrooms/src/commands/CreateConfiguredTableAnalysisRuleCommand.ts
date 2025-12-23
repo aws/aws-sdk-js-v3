@@ -27,9 +27,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandInput extends CreateCon
  *
  * The output of {@link CreateConfiguredTableAnalysisRuleCommand}.
  */
-export interface CreateConfiguredTableAnalysisRuleCommandOutput
-  extends CreateConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface CreateConfiguredTableAnalysisRuleCommandOutput extends CreateConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule can be created for a given configured table.</p>

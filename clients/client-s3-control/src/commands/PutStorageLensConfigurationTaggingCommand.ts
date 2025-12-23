@@ -28,9 +28,7 @@ export interface PutStorageLensConfigurationTaggingCommandInput extends PutStora
  *
  * The output of {@link PutStorageLensConfigurationTaggingCommand}.
  */
-export interface PutStorageLensConfigurationTaggingCommandOutput
-  extends PutStorageLensConfigurationTaggingResult,
-    __MetadataBearer {}
+export interface PutStorageLensConfigurationTaggingCommandOutput extends PutStorageLensConfigurationTaggingResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -95,7 +93,10 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "PutStorageLensConfigurationTagging", {})
   .n("S3ControlClient", "PutStorageLensConfigurationTaggingCommand")

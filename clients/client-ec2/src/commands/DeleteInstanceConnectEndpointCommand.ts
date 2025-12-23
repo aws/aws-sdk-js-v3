@@ -24,9 +24,7 @@ export interface DeleteInstanceConnectEndpointCommandInput extends DeleteInstanc
  *
  * The output of {@link DeleteInstanceConnectEndpointCommand}.
  */
-export interface DeleteInstanceConnectEndpointCommandOutput
-  extends DeleteInstanceConnectEndpointResult,
-    __MetadataBearer {}
+export interface DeleteInstanceConnectEndpointCommandOutput extends DeleteInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified EC2 Instance Connect Endpoint.</p>

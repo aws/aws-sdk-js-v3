@@ -78,12 +78,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = EchoCommandInput | LengthCommandInput;
+export type ServiceInputTypes =
+  | EchoCommandInput
+  | LengthCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = EchoCommandOutput | LengthCommandOutput;
+export type ServiceOutputTypes =
+  | EchoCommandOutput
+  | LengthCommandOutput;
 
 /**
  * @public

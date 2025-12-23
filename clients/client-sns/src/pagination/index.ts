@@ -5,6 +5,6 @@ export * from "./ListOriginationNumbersPaginator";
 export * from "./ListPhoneNumbersOptedOutPaginator";
 export * from "./ListPlatformApplicationsPaginator";
 export * from "./ListSMSSandboxPhoneNumbersPaginator";
-export * from "./ListSubscriptionsByTopicPaginator";
 export * from "./ListSubscriptionsPaginator";
+export * from "./ListSubscriptionsByTopicPaginator";
 export * from "./ListTopicsPaginator";

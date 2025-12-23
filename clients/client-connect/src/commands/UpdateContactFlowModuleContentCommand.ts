@@ -24,9 +24,7 @@ export interface UpdateContactFlowModuleContentCommandInput extends UpdateContac
  *
  * The output of {@link UpdateContactFlowModuleContentCommand}.
  */
-export interface UpdateContactFlowModuleContentCommandOutput
-  extends UpdateContactFlowModuleContentResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleContentCommandOutput extends UpdateContactFlowModuleContentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>

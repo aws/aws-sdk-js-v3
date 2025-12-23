@@ -55,7 +55,6 @@ import {
   TraversalType,
   WarmTierState,
 } from "./enums";
-
 import {
   AccessDeniedException,
   ConflictingOperationException,

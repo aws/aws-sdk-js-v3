@@ -24,9 +24,7 @@ export interface DescribeEnvironmentMembershipsCommandInput extends DescribeEnvi
  *
  * The output of {@link DescribeEnvironmentMembershipsCommand}.
  */
-export interface DescribeEnvironmentMembershipsCommandOutput
-  extends DescribeEnvironmentMembershipsResult,
-    __MetadataBearer {}
+export interface DescribeEnvironmentMembershipsCommandOutput extends DescribeEnvironmentMembershipsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about environment members for an Cloud9 development environment.</p>

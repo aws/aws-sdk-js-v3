@@ -24,9 +24,7 @@ export interface GetRateBasedRuleManagedKeysCommandInput extends GetRateBasedRul
  *
  * The output of {@link GetRateBasedRuleManagedKeysCommand}.
  */
-export interface GetRateBasedRuleManagedKeysCommandOutput
-  extends GetRateBasedRuleManagedKeysResponse,
-    __MetadataBearer {}
+export interface GetRateBasedRuleManagedKeysCommandOutput extends GetRateBasedRuleManagedKeysResponse, __MetadataBearer {}
 
 /**
  * <note>

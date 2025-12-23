@@ -24,9 +24,7 @@ export interface CreateQueueLimitAssociationCommandInput extends CreateQueueLimi
  *
  * The output of {@link CreateQueueLimitAssociationCommand}.
  */
-export interface CreateQueueLimitAssociationCommandOutput
-  extends CreateQueueLimitAssociationResponse,
-    __MetadataBearer {}
+export interface CreateQueueLimitAssociationCommandOutput extends CreateQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a limit with a particular queue. After the limit is associated, all workers

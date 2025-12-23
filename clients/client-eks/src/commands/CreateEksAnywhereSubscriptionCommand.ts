@@ -24,9 +24,7 @@ export interface CreateEksAnywhereSubscriptionCommandInput extends CreateEksAnyw
  *
  * The output of {@link CreateEksAnywhereSubscriptionCommand}.
  */
-export interface CreateEksAnywhereSubscriptionCommandOutput
-  extends CreateEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface CreateEksAnywhereSubscriptionCommandOutput extends CreateEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an EKS Anywhere subscription. When a subscription is created, it is a contract

@@ -27,9 +27,7 @@ export interface RevokePipelineEndpointConnectionsCommandInput extends RevokePip
  *
  * The output of {@link RevokePipelineEndpointConnectionsCommand}.
  */
-export interface RevokePipelineEndpointConnectionsCommandOutput
-  extends RevokePipelineEndpointConnectionsResponse,
-    __MetadataBearer {}
+export interface RevokePipelineEndpointConnectionsCommandOutput extends RevokePipelineEndpointConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Revokes pipeline endpoints from specified endpoint IDs.</p>

@@ -24,9 +24,7 @@ export interface EnableImageBlockPublicAccessCommandInput extends EnableImageBlo
  *
  * The output of {@link EnableImageBlockPublicAccessCommand}.
  */
-export interface EnableImageBlockPublicAccessCommandOutput
-  extends EnableImageBlockPublicAccessResult,
-    __MetadataBearer {}
+export interface EnableImageBlockPublicAccessCommandOutput extends EnableImageBlockPublicAccessResult, __MetadataBearer {}
 
 /**
  * <p>Enables <i>block public access for AMIs</i> at the account level in the

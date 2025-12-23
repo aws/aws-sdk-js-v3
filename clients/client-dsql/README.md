@@ -9,10 +9,8 @@ AWS SDK for JavaScript DSQL Client for Node.js, Browser and React Native.
 <p>This is an interface reference for Amazon Aurora DSQL. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Aurora DSQL.</p> <p>Amazon Aurora DSQL is a serverless, distributed SQL database suitable for workloads of any size. is available in both single-Region and multi-Region configurations, so your clusters and databases are always available even if an Availability Zone or an Amazon Web Services Region are unavailable. lets you focus on using your data to acquire new insights for your business and customers.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-dsql
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-dsql`
 - `yarn add @aws-sdk/client-dsql`
 - `pnpm add @aws-sdk/client-dsql`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DSQLClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListClustersCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/CreateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/CreateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/CreateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/DeleteClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ DeleteClusterPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/DeleteClusterPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ GetCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/GetClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetClusterPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/GetClusterPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetClusterPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetClusterPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ GetVpcEndpointServiceName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/GetVpcEndpointServiceNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetVpcEndpointServiceNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetVpcEndpointServiceNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/ListClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListClustersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ PutClusterPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/PutClusterPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/PutClusterPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/PutClusterPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,5 +282,4 @@ UpdateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/UpdateClusterCommandOutput/)
-
 </details>

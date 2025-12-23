@@ -27,9 +27,7 @@ export interface DeleteDefaultQBusinessApplicationCommandInput extends DeleteDef
  *
  * The output of {@link DeleteDefaultQBusinessApplicationCommand}.
  */
-export interface DeleteDefaultQBusinessApplicationCommandOutput
-  extends DeleteDefaultQBusinessApplicationResponse,
-    __MetadataBearer {}
+export interface DeleteDefaultQBusinessApplicationCommandOutput extends DeleteDefaultQBusinessApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a linked Amazon Q Business application from an Quick Sight account</p>

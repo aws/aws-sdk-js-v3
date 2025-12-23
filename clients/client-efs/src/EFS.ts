@@ -253,8 +253,14 @@ export interface EFS {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -349,8 +355,14 @@ export interface EFS {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -518,8 +530,14 @@ export interface EFS {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -584,7 +602,10 @@ export interface EFS {
     args: PutBackupPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutBackupPolicyCommandOutput>;
-  putBackupPolicy(args: PutBackupPolicyCommandInput, cb: (err: any, data?: PutBackupPolicyCommandOutput) => void): void;
+  putBackupPolicy(
+    args: PutBackupPolicyCommandInput,
+    cb: (err: any, data?: PutBackupPolicyCommandOutput) => void
+  ): void;
   putBackupPolicy(
     args: PutBackupPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -628,8 +649,14 @@ export interface EFS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -639,8 +666,14 @@ export interface EFS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

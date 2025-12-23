@@ -24,9 +24,7 @@ export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourc
  *
  * The output of {@link DeleteResourcePolicyStatementCommand}.
  */
-export interface DeleteResourcePolicyStatementCommandOutput
-  extends DeleteResourcePolicyStatementResponse,
-    __MetadataBearer {}
+export interface DeleteResourcePolicyStatementCommandOutput extends DeleteResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a policy statement from a resource policy. If you delete the

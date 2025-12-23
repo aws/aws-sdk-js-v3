@@ -24,9 +24,7 @@ export interface SetIdentityNotificationTopicCommandInput extends SetIdentityNot
  *
  * The output of {@link SetIdentityNotificationTopicCommand}.
  */
-export interface SetIdentityNotificationTopicCommandOutput
-  extends SetIdentityNotificationTopicResponse,
-    __MetadataBearer {}
+export interface SetIdentityNotificationTopicCommandOutput extends SetIdentityNotificationTopicResponse, __MetadataBearer {}
 
 /**
  * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use

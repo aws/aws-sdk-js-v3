@@ -10,25 +10,25 @@ const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInp
     const result: any = await client.send(new DescribeNodeCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DEREGISTERED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DEREGISTERING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DRAINING") {
         return { state: WaiterState.RETRY, reason };
       }

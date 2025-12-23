@@ -27,9 +27,7 @@ export interface StartAuditMitigationActionsTaskCommandInput extends StartAuditM
  *
  * The output of {@link StartAuditMitigationActionsTaskCommand}.
  */
-export interface StartAuditMitigationActionsTaskCommandOutput
-  extends StartAuditMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface StartAuditMitigationActionsTaskCommandOutput extends StartAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>

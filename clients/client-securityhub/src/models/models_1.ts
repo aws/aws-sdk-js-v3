@@ -9,7 +9,6 @@ import {
   NetworkDirection,
   SeverityLabel,
 } from "./enums";
-
 import {
   type AwsEcsTaskDefinitionProxyConfigurationDetails,
   type AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
@@ -2222,9 +2221,7 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails {
    *         </p>
    * @public
    */
-  ScanEc2InstanceWithFindings?:
-    | AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
-    | undefined;
+  ScanEc2InstanceWithFindings?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails | undefined;
 
   /**
    * <p>
@@ -7783,9 +7780,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
    *          of days before Amazon S3 cancels the entire upload.</p>
    * @public
    */
-  AbortIncompleteMultipartUpload?:
-    | AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
-    | undefined;
+  AbortIncompleteMultipartUpload?: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails | undefined;
 
   /**
    * <p>The date when objects are moved or deleted.</p>
@@ -7832,9 +7827,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
    * <p>Transition rules that describe when noncurrent objects transition to a specified storage class.</p>
    * @public
    */
-  NoncurrentVersionTransitions?:
-    | AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[]
-    | undefined;
+  NoncurrentVersionTransitions?: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[] | undefined;
 
   /**
    * <p>A prefix that identifies one or more objects that the rule applies to.</p>
@@ -10454,9 +10447,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDeta
    *         </p>
    * @public
    */
-  CloudWatchLogsLogGroup?:
-    | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
-    | undefined;
+  CloudWatchLogsLogGroup?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails | undefined;
 }
 
 /**

@@ -31,9 +31,7 @@ export interface ListUsageForLicenseConfigurationCommandInput extends ListUsageF
  *
  * The output of {@link ListUsageForLicenseConfigurationCommand}.
  */
-export interface ListUsageForLicenseConfigurationCommandOutput
-  extends ListUsageForLicenseConfigurationResponse,
-    __MetadataBearer {}
+export interface ListUsageForLicenseConfigurationCommandOutput extends ListUsageForLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all license usage records for a license configuration, displaying license

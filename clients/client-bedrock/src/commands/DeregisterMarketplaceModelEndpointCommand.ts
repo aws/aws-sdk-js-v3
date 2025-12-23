@@ -27,9 +27,7 @@ export interface DeregisterMarketplaceModelEndpointCommandInput extends Deregist
  *
  * The output of {@link DeregisterMarketplaceModelEndpointCommand}.
  */
-export interface DeregisterMarketplaceModelEndpointCommandOutput
-  extends DeregisterMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface DeregisterMarketplaceModelEndpointCommandOutput extends DeregisterMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters an endpoint for a model from Amazon Bedrock Marketplace. This operation removes the endpoint's association with Amazon Bedrock but does not delete the underlying Amazon SageMaker endpoint.</p>

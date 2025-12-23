@@ -23,8 +23,14 @@ export interface Glacier {
   /**
    * @see {@link UploadArchiveCommand}
    */
-  uploadArchive(args: UploadArchiveCommandInput, options?: __HttpHandlerOptions): Promise<UploadArchiveCommandOutput>;
-  uploadArchive(args: UploadArchiveCommandInput, cb: (err: any, data?: UploadArchiveCommandOutput) => void): void;
+  uploadArchive(
+    args: UploadArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UploadArchiveCommandOutput>;
+  uploadArchive(
+    args: UploadArchiveCommandInput,
+    cb: (err: any, data?: UploadArchiveCommandOutput) => void
+  ): void;
   uploadArchive(
     args: UploadArchiveCommandInput,
     options: __HttpHandlerOptions,

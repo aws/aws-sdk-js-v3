@@ -27,9 +27,7 @@ export interface CreateLocalGatewayVirtualInterfaceCommandInput extends CreateLo
  *
  * The output of {@link CreateLocalGatewayVirtualInterfaceCommand}.
  */
-export interface CreateLocalGatewayVirtualInterfaceCommandOutput
-  extends CreateLocalGatewayVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayVirtualInterfaceCommandOutput extends CreateLocalGatewayVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Create a virtual interface for a local gateway. </p>

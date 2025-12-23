@@ -24,9 +24,7 @@ export interface GetChatControlsConfigurationCommandInput extends GetChatControl
  *
  * The output of {@link GetChatControlsConfigurationCommand}.
  */
-export interface GetChatControlsConfigurationCommandOutput
-  extends GetChatControlsConfigurationResponse,
-    __MetadataBearer {}
+export interface GetChatControlsConfigurationCommandOutput extends GetChatControlsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about chat controls configured for an existing Amazon Q Business application.</p>

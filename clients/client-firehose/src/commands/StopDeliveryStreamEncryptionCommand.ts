@@ -24,9 +24,7 @@ export interface StopDeliveryStreamEncryptionCommandInput extends StopDeliverySt
  *
  * The output of {@link StopDeliveryStreamEncryptionCommand}.
  */
-export interface StopDeliveryStreamEncryptionCommandOutput
-  extends StopDeliveryStreamEncryptionOutput,
-    __MetadataBearer {}
+export interface StopDeliveryStreamEncryptionCommandOutput extends StopDeliveryStreamEncryptionOutput, __MetadataBearer {}
 
 /**
  * <p>Disables server-side encryption (SSE) for the Firehose stream. </p>

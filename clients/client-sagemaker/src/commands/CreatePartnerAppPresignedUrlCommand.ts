@@ -24,9 +24,7 @@ export interface CreatePartnerAppPresignedUrlCommandInput extends CreatePartnerA
  *
  * The output of {@link CreatePartnerAppPresignedUrlCommand}.
  */
-export interface CreatePartnerAppPresignedUrlCommandOutput
-  extends CreatePartnerAppPresignedUrlResponse,
-    __MetadataBearer {}
+export interface CreatePartnerAppPresignedUrlCommandOutput extends CreatePartnerAppPresignedUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a presigned URL to access an Amazon SageMaker Partner AI App.</p>

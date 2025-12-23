@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
-export interface CancelDataQualityRuleRecommendationRunCommandInput
-  extends CancelDataQualityRuleRecommendationRunRequest {}
+export interface CancelDataQualityRuleRecommendationRunCommandInput extends CancelDataQualityRuleRecommendationRunRequest {}
 /**
  * @public
  *
  * The output of {@link CancelDataQualityRuleRecommendationRunCommand}.
  */
-export interface CancelDataQualityRuleRecommendationRunCommandOutput
-  extends CancelDataQualityRuleRecommendationRunResponse,
-    __MetadataBearer {}
+export interface CancelDataQualityRuleRecommendationRunCommandOutput extends CancelDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified recommendation run that was being used to generate rules.</p>

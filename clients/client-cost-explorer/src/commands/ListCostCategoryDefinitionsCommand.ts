@@ -24,9 +24,7 @@ export interface ListCostCategoryDefinitionsCommandInput extends ListCostCategor
  *
  * The output of {@link ListCostCategoryDefinitionsCommand}.
  */
-export interface ListCostCategoryDefinitionsCommandOutput
-  extends ListCostCategoryDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListCostCategoryDefinitionsCommandOutput extends ListCostCategoryDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective

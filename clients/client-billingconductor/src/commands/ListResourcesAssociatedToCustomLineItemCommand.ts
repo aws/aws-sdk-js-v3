@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
-export interface ListResourcesAssociatedToCustomLineItemCommandInput
-  extends ListResourcesAssociatedToCustomLineItemInput {}
+export interface ListResourcesAssociatedToCustomLineItemCommandInput extends ListResourcesAssociatedToCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link ListResourcesAssociatedToCustomLineItemCommand}.
  */
-export interface ListResourcesAssociatedToCustomLineItemCommandOutput
-  extends ListResourcesAssociatedToCustomLineItemOutput,
-    __MetadataBearer {}
+export interface ListResourcesAssociatedToCustomLineItemCommandOutput extends ListResourcesAssociatedToCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> List the resources that are associated to a custom line item. </p>

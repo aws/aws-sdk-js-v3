@@ -27,9 +27,7 @@ export interface CreateSubscriptionDefinitionVersionCommandInput extends CreateS
  *
  * The output of {@link CreateSubscriptionDefinitionVersionCommand}.
  */
-export interface CreateSubscriptionDefinitionVersionCommandOutput
-  extends CreateSubscriptionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateSubscriptionDefinitionVersionCommandOutput extends CreateSubscriptionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a subscription definition which has already been defined.

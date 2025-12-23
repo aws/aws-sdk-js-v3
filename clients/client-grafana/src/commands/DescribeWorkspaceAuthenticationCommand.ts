@@ -27,9 +27,7 @@ export interface DescribeWorkspaceAuthenticationCommandInput extends DescribeWor
  *
  * The output of {@link DescribeWorkspaceAuthenticationCommand}.
  */
-export interface DescribeWorkspaceAuthenticationCommandOutput
-  extends DescribeWorkspaceAuthenticationResponse,
-    __MetadataBearer {}
+export interface DescribeWorkspaceAuthenticationCommandOutput extends DescribeWorkspaceAuthenticationResponse, __MetadataBearer {}
 
 /**
  * <p>Displays information about the authentication methods used in one Amazon Managed Grafana

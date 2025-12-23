@@ -28,9 +28,7 @@ export interface CreateApplicationPresignedUrlCommandInput extends CreateApplica
  *
  * The output of {@link CreateApplicationPresignedUrlCommand}.
  */
-export interface CreateApplicationPresignedUrlCommandOutput
-  extends CreateApplicationPresignedUrlResponse,
-    __MetadataBearer {}
+export interface CreateApplicationPresignedUrlCommandOutput extends CreateApplicationPresignedUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and returns a URL that you can use to connect to

@@ -10,41 +10,41 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
     const result: any = await client.send(new GetImportTaskCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CANCELLING") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CANCELLED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ROLLING_BACK") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "SUCCEEDED") {
         return { state: WaiterState.SUCCESS, reason };
       }

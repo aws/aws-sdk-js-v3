@@ -24,9 +24,7 @@ export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnaly
  *
  * The output of {@link CreateCallAnalyticsCategoryCommand}.
  */
-export interface CreateCallAnalyticsCategoryCommandOutput
-  extends CreateCallAnalyticsCategoryResponse,
-    __MetadataBearer {}
+export interface CreateCallAnalyticsCategoryCommandOutput extends CreateCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Call Analytics category.</p>

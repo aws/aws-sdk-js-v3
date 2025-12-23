@@ -202,7 +202,9 @@ export interface GetGroupIdResponse {
  * <p>An object containing the identifier of a group member.</p>
  * @public
  */
-export type MemberId = MemberId.UserIdMember | MemberId.$UnknownMember;
+export type MemberId =
+  | MemberId.UserIdMember
+  | MemberId.$UnknownMember;
 
 /**
  * @public

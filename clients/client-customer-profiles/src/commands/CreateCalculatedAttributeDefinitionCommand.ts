@@ -31,9 +31,7 @@ export interface CreateCalculatedAttributeDefinitionCommandInput extends CreateC
  *
  * The output of {@link CreateCalculatedAttributeDefinitionCommand}.
  */
-export interface CreateCalculatedAttributeDefinitionCommandOutput
-  extends CreateCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateCalculatedAttributeDefinitionCommandOutput extends CreateCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new calculated attribute definition. After creation, new object data ingested

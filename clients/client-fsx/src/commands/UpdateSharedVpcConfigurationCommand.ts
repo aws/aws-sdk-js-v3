@@ -24,9 +24,7 @@ export interface UpdateSharedVpcConfigurationCommandInput extends UpdateSharedVp
  *
  * The output of {@link UpdateSharedVpcConfigurationCommand}.
  */
-export interface UpdateSharedVpcConfigurationCommandOutput
-  extends UpdateSharedVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateSharedVpcConfigurationCommandOutput extends UpdateSharedVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configures whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual

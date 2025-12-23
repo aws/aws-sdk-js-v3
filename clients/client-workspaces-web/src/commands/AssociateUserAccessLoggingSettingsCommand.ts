@@ -27,9 +27,7 @@ export interface AssociateUserAccessLoggingSettingsCommandInput extends Associat
  *
  * The output of {@link AssociateUserAccessLoggingSettingsCommand}.
  */
-export interface AssociateUserAccessLoggingSettingsCommandOutput
-  extends AssociateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface AssociateUserAccessLoggingSettingsCommandOutput extends AssociateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a user access logging settings resource with a web portal.</p>

@@ -27,9 +27,7 @@ export interface DescribeSubscribersForNotificationCommandInput extends Describe
  *
  * The output of {@link DescribeSubscribersForNotificationCommand}.
  */
-export interface DescribeSubscribersForNotificationCommandOutput
-  extends DescribeSubscribersForNotificationResponse,
-    __MetadataBearer {}
+export interface DescribeSubscribersForNotificationCommandOutput extends DescribeSubscribersForNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the subscribers that are associated with a notification.</p>

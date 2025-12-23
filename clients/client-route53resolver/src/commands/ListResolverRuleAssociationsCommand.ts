@@ -28,9 +28,7 @@ export interface ListResolverRuleAssociationsCommandInput extends ListResolverRu
  *
  * The output of {@link ListResolverRuleAssociationsCommand}.
  */
-export interface ListResolverRuleAssociationsCommandOutput
-  extends ListResolverRuleAssociationsResponse,
-    __MetadataBearer {}
+export interface ListResolverRuleAssociationsCommandOutput extends ListResolverRuleAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>

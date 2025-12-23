@@ -24,9 +24,7 @@ export interface GetIpamPolicyAllocationRulesCommandInput extends GetIpamPolicyA
  *
  * The output of {@link GetIpamPolicyAllocationRulesCommand}.
  */
-export interface GetIpamPolicyAllocationRulesCommandOutput
-  extends GetIpamPolicyAllocationRulesResult,
-    __MetadataBearer {}
+export interface GetIpamPolicyAllocationRulesCommandOutput extends GetIpamPolicyAllocationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Gets the allocation rules for an IPAM policy.</p>

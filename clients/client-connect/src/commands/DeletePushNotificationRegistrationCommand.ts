@@ -27,9 +27,7 @@ export interface DeletePushNotificationRegistrationCommandInput extends DeletePu
  *
  * The output of {@link DeletePushNotificationRegistrationCommand}.
  */
-export interface DeletePushNotificationRegistrationCommandOutput
-  extends DeletePushNotificationRegistrationResponse,
-    __MetadataBearer {}
+export interface DeletePushNotificationRegistrationCommandOutput extends DeletePushNotificationRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes registration for a device token and a chat contact.</p>

@@ -449,7 +449,10 @@ export interface WAFRegional {
     args: AssociateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateWebACLCommandOutput>;
-  associateWebACL(args: AssociateWebACLCommandInput, cb: (err: any, data?: AssociateWebACLCommandOutput) => void): void;
+  associateWebACL(
+    args: AssociateWebACLCommandInput,
+    cb: (err: any, data?: AssociateWebACLCommandOutput) => void
+  ): void;
   associateWebACL(
     args: AssociateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -493,8 +496,14 @@ export interface WAFRegional {
   /**
    * @see {@link CreateIPSetCommand}
    */
-  createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
-  createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIPSetCommandOutput>;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    cb: (err: any, data?: CreateIPSetCommandOutput) => void
+  ): void;
   createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -555,8 +564,14 @@ export interface WAFRegional {
   /**
    * @see {@link CreateRuleCommand}
    */
-  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleCommandOutput>;
+  createRule(
+    args: CreateRuleCommandInput,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
   createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -570,7 +585,10 @@ export interface WAFRegional {
     args: CreateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRuleGroupCommandOutput>;
-  createRuleGroup(args: CreateRuleGroupCommandInput, cb: (err: any, data?: CreateRuleGroupCommandOutput) => void): void;
+  createRuleGroup(
+    args: CreateRuleGroupCommandInput,
+    cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
+  ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -614,8 +632,14 @@ export interface WAFRegional {
   /**
    * @see {@link CreateWebACLCommand}
    */
-  createWebACL(args: CreateWebACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebACLCommandOutput>;
-  createWebACL(args: CreateWebACLCommandInput, cb: (err: any, data?: CreateWebACLCommandOutput) => void): void;
+  createWebACL(
+    args: CreateWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebACLCommandOutput>;
+  createWebACL(
+    args: CreateWebACLCommandInput,
+    cb: (err: any, data?: CreateWebACLCommandOutput) => void
+  ): void;
   createWebACL(
     args: CreateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -693,8 +717,14 @@ export interface WAFRegional {
   /**
    * @see {@link DeleteIPSetCommand}
    */
-  deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
-  deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIPSetCommandOutput>;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -789,8 +819,14 @@ export interface WAFRegional {
   /**
    * @see {@link DeleteRuleCommand}
    */
-  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleCommandOutput>;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -804,7 +840,10 @@ export interface WAFRegional {
     args: DeleteRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
-  deleteRuleGroup(args: DeleteRuleGroupCommandInput, cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void): void;
+  deleteRuleGroup(
+    args: DeleteRuleGroupCommandInput,
+    cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
+  ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -848,8 +887,14 @@ export interface WAFRegional {
   /**
    * @see {@link DeleteWebACLCommand}
    */
-  deleteWebACL(args: DeleteWebACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebACLCommandOutput>;
-  deleteWebACL(args: DeleteWebACLCommandInput, cb: (err: any, data?: DeleteWebACLCommandOutput) => void): void;
+  deleteWebACL(
+    args: DeleteWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebACLCommandOutput>;
+  deleteWebACL(
+    args: DeleteWebACLCommandInput,
+    cb: (err: any, data?: DeleteWebACLCommandOutput) => void
+  ): void;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -897,7 +942,10 @@ export interface WAFRegional {
     args: GetByteMatchSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetByteMatchSetCommandOutput>;
-  getByteMatchSet(args: GetByteMatchSetCommandInput, cb: (err: any, data?: GetByteMatchSetCommandOutput) => void): void;
+  getByteMatchSet(
+    args: GetByteMatchSetCommandInput,
+    cb: (err: any, data?: GetByteMatchSetCommandOutput) => void
+  ): void;
   getByteMatchSet(
     args: GetByteMatchSetCommandInput,
     options: __HttpHandlerOptions,
@@ -912,7 +960,10 @@ export interface WAFRegional {
     args: GetChangeTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetChangeTokenCommandOutput>;
-  getChangeToken(args: GetChangeTokenCommandInput, cb: (err: any, data?: GetChangeTokenCommandOutput) => void): void;
+  getChangeToken(
+    args: GetChangeTokenCommandInput,
+    cb: (err: any, data?: GetChangeTokenCommandOutput) => void
+  ): void;
   getChangeToken(
     args: GetChangeTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -943,7 +994,10 @@ export interface WAFRegional {
     args: GetGeoMatchSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetGeoMatchSetCommandOutput>;
-  getGeoMatchSet(args: GetGeoMatchSetCommandInput, cb: (err: any, data?: GetGeoMatchSetCommandOutput) => void): void;
+  getGeoMatchSet(
+    args: GetGeoMatchSetCommandInput,
+    cb: (err: any, data?: GetGeoMatchSetCommandOutput) => void
+  ): void;
   getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
     options: __HttpHandlerOptions,
@@ -953,8 +1007,14 @@ export interface WAFRegional {
   /**
    * @see {@link GetIPSetCommand}
    */
-  getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
-  getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIPSetCommandOutput>;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    cb: (err: any, data?: GetIPSetCommandOutput) => void
+  ): void;
   getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1066,8 +1126,14 @@ export interface WAFRegional {
   /**
    * @see {@link GetRuleCommand}
    */
-  getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
-  getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
+  getRule(
+    args: GetRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleCommandOutput>;
+  getRule(
+    args: GetRuleCommandInput,
+    cb: (err: any, data?: GetRuleCommandOutput) => void
+  ): void;
   getRule(
     args: GetRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1077,8 +1143,14 @@ export interface WAFRegional {
   /**
    * @see {@link GetRuleGroupCommand}
    */
-  getRuleGroup(args: GetRuleGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleGroupCommandOutput>;
-  getRuleGroup(args: GetRuleGroupCommandInput, cb: (err: any, data?: GetRuleGroupCommandOutput) => void): void;
+  getRuleGroup(
+    args: GetRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleGroupCommandOutput>;
+  getRuleGroup(
+    args: GetRuleGroupCommandInput,
+    cb: (err: any, data?: GetRuleGroupCommandOutput) => void
+  ): void;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1139,8 +1211,14 @@ export interface WAFRegional {
   /**
    * @see {@link GetWebACLCommand}
    */
-  getWebACL(args: GetWebACLCommandInput, options?: __HttpHandlerOptions): Promise<GetWebACLCommandOutput>;
-  getWebACL(args: GetWebACLCommandInput, cb: (err: any, data?: GetWebACLCommandOutput) => void): void;
+  getWebACL(
+    args: GetWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebACLCommandOutput>;
+  getWebACL(
+    args: GetWebACLCommandInput,
+    cb: (err: any, data?: GetWebACLCommandOutput) => void
+  ): void;
   getWebACL(
     args: GetWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -1171,7 +1249,10 @@ export interface WAFRegional {
     args: GetXssMatchSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetXssMatchSetCommandOutput>;
-  getXssMatchSet(args: GetXssMatchSetCommandInput, cb: (err: any, data?: GetXssMatchSetCommandOutput) => void): void;
+  getXssMatchSet(
+    args: GetXssMatchSetCommandInput,
+    cb: (err: any, data?: GetXssMatchSetCommandOutput) => void
+  ): void;
   getXssMatchSet(
     args: GetXssMatchSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1236,8 +1317,14 @@ export interface WAFRegional {
    * @see {@link ListIPSetsCommand}
    */
   listIPSets(): Promise<ListIPSetsCommandOutput>;
-  listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
-  listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIPSetsCommandOutput>;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
   listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1341,7 +1428,10 @@ export interface WAFRegional {
     args: ListRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRuleGroupsCommandOutput>;
-  listRuleGroups(args: ListRuleGroupsCommandInput, cb: (err: any, data?: ListRuleGroupsCommandOutput) => void): void;
+  listRuleGroups(
+    args: ListRuleGroupsCommandInput,
+    cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
+  ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1352,8 +1442,14 @@ export interface WAFRegional {
    * @see {@link ListRulesCommand}
    */
   listRules(): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  listRules(
+    args: ListRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRulesCommandOutput>;
+  listRules(
+    args: ListRulesCommandInput,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
   listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -1435,8 +1531,14 @@ export interface WAFRegional {
    * @see {@link ListWebACLsCommand}
    */
   listWebACLs(): Promise<ListWebACLsCommandOutput>;
-  listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
-  listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
+  listWebACLs(
+    args: ListWebACLsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebACLsCommandOutput>;
+  listWebACLs(
+    args: ListWebACLsCommandInput,
+    cb: (err: any, data?: ListWebACLsCommandOutput) => void
+  ): void;
   listWebACLs(
     args: ListWebACLsCommandInput,
     options: __HttpHandlerOptions,
@@ -1498,8 +1600,14 @@ export interface WAFRegional {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1509,8 +1617,14 @@ export interface WAFRegional {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1554,8 +1668,14 @@ export interface WAFRegional {
   /**
    * @see {@link UpdateIPSetCommand}
    */
-  updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
-  updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIPSetCommandOutput>;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
+  ): void;
   updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1616,8 +1736,14 @@ export interface WAFRegional {
   /**
    * @see {@link UpdateRuleCommand}
    */
-  updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
-  updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRuleCommandOutput>;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): void;
   updateRule(
     args: UpdateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1631,7 +1757,10 @@ export interface WAFRegional {
     args: UpdateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
-  updateRuleGroup(args: UpdateRuleGroupCommandInput, cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void): void;
+  updateRuleGroup(
+    args: UpdateRuleGroupCommandInput,
+    cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
+  ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1675,8 +1804,14 @@ export interface WAFRegional {
   /**
    * @see {@link UpdateWebACLCommand}
    */
-  updateWebACL(args: UpdateWebACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebACLCommandOutput>;
-  updateWebACL(args: UpdateWebACLCommandInput, cb: (err: any, data?: UpdateWebACLCommandOutput) => void): void;
+  updateWebACL(
+    args: UpdateWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebACLCommandOutput>;
+  updateWebACL(
+    args: UpdateWebACLCommandInput,
+    cb: (err: any, data?: UpdateWebACLCommandOutput) => void
+  ): void;
   updateWebACL(
     args: UpdateWebACLCommandInput,
     options: __HttpHandlerOptions,

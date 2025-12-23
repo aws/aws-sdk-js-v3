@@ -31,9 +31,7 @@ export interface StartOrganizationServiceAccessUpdateCommandInput extends StartO
  *
  * The output of {@link StartOrganizationServiceAccessUpdateCommand}.
  */
-export interface StartOrganizationServiceAccessUpdateCommandOutput
-  extends StartOrganizationServiceAccessUpdateResponse,
-    __MetadataBearer {}
+export interface StartOrganizationServiceAccessUpdateCommandOutput extends StartOrganizationServiceAccessUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>

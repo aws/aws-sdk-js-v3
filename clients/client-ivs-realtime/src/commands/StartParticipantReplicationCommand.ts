@@ -24,9 +24,7 @@ export interface StartParticipantReplicationCommandInput extends StartParticipan
  *
  * The output of {@link StartParticipantReplicationCommand}.
  */
-export interface StartParticipantReplicationCommandOutput
-  extends StartParticipantReplicationResponse,
-    __MetadataBearer {}
+export interface StartParticipantReplicationCommandOutput extends StartParticipantReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts replicating a publishing participant from a source stage to a destination stage.</p>

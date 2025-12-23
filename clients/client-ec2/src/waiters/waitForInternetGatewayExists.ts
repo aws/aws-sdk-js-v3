@@ -13,13 +13,13 @@ const checkState = async (client: EC2Client, input: DescribeInternetGatewaysComm
     const result: any = await client.send(new DescribeInternetGatewaysCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.InternetGateways);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.InternetGateways);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.InternetGatewayId;
         });
-        return projection_3.length > 0.0;
-      };
+        return (projection_3.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

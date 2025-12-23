@@ -24,9 +24,7 @@ export interface ListCollaborationChangeRequestsCommandInput extends ListCollabo
  *
  * The output of {@link ListCollaborationChangeRequestsCommand}.
  */
-export interface ListCollaborationChangeRequestsCommandOutput
-  extends ListCollaborationChangeRequestsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationChangeRequestsCommandOutput extends ListCollaborationChangeRequestsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all change requests for a collaboration with pagination support. Returns change requests sorted by creation time.</p>

@@ -31,9 +31,7 @@ export interface DisassociateResourceFromProfileCommandInput extends Disassociat
  *
  * The output of {@link DisassociateResourceFromProfileCommand}.
  */
-export interface DisassociateResourceFromProfileCommandOutput
-  extends DisassociateResourceFromProfileResponse,
-    __MetadataBearer {}
+export interface DisassociateResourceFromProfileCommandOutput extends DisassociateResourceFromProfileResponse, __MetadataBearer {}
 
 /**
  * <p>

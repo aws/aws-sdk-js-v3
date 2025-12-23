@@ -10,17 +10,17 @@ const checkState = async (client: MediaConnectClient, input: GetRouterOutputComm
     const result: any = await client.send(new GetRouterOutputCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterOutput.RoutedState;
-      };
+      }
       if (returnComparator() === "ROUTED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterOutput.RoutedState;
-      };
+      }
       if (returnComparator() === "ROUTING") {
         return { state: WaiterState.RETRY, reason };
       }

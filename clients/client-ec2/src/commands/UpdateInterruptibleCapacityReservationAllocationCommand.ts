@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateInterruptibleCapacityReservationAllocationCommand}.
  */
-export interface UpdateInterruptibleCapacityReservationAllocationCommandInput
-  extends UpdateInterruptibleCapacityReservationAllocationRequest {}
+export interface UpdateInterruptibleCapacityReservationAllocationCommandInput extends UpdateInterruptibleCapacityReservationAllocationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateInterruptibleCapacityReservationAllocationCommand}.
  */
-export interface UpdateInterruptibleCapacityReservationAllocationCommandOutput
-  extends UpdateInterruptibleCapacityReservationAllocationResult,
-    __MetadataBearer {}
+export interface UpdateInterruptibleCapacityReservationAllocationCommandOutput extends UpdateInterruptibleCapacityReservationAllocationResult, __MetadataBearer {}
 
 /**
  * <p>

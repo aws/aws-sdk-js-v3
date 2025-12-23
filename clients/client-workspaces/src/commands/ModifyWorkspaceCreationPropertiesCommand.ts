@@ -27,9 +27,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandInput extends ModifyWor
  *
  * The output of {@link ModifyWorkspaceCreationPropertiesCommand}.
  */
-export interface ModifyWorkspaceCreationPropertiesCommandOutput
-  extends ModifyWorkspaceCreationPropertiesResult,
-    __MetadataBearer {}
+export interface ModifyWorkspaceCreationPropertiesCommandOutput extends ModifyWorkspaceCreationPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Modify the default properties used to create WorkSpaces.</p>

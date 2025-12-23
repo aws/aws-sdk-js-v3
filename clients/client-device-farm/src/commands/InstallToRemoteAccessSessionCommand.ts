@@ -24,9 +24,7 @@ export interface InstallToRemoteAccessSessionCommandInput extends InstallToRemot
  *
  * The output of {@link InstallToRemoteAccessSessionCommand}.
  */
-export interface InstallToRemoteAccessSessionCommandOutput
-  extends InstallToRemoteAccessSessionResult,
-    __MetadataBearer {}
+export interface InstallToRemoteAccessSessionCommandOutput extends InstallToRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
  * <p>Installs an application to the device in a remote access session. For Android

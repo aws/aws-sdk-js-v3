@@ -24,9 +24,7 @@ export interface DescribeUserHierarchyStructureCommandInput extends DescribeUser
  *
  * The output of {@link DescribeUserHierarchyStructureCommand}.
  */
-export interface DescribeUserHierarchyStructureCommandOutput
-  extends DescribeUserHierarchyStructureResponse,
-    __MetadataBearer {}
+export interface DescribeUserHierarchyStructureCommandOutput extends DescribeUserHierarchyStructureResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>

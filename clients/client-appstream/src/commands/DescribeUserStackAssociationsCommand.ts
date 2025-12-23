@@ -24,9 +24,7 @@ export interface DescribeUserStackAssociationsCommandInput extends DescribeUserS
  *
  * The output of {@link DescribeUserStackAssociationsCommand}.
  */
-export interface DescribeUserStackAssociationsCommandOutput
-  extends DescribeUserStackAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeUserStackAssociationsCommandOutput extends DescribeUserStackAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>

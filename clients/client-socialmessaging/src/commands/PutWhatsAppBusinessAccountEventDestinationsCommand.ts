@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link PutWhatsAppBusinessAccountEventDestinationsCommand}.
  */
-export interface PutWhatsAppBusinessAccountEventDestinationsCommandInput
-  extends PutWhatsAppBusinessAccountEventDestinationsInput {}
+export interface PutWhatsAppBusinessAccountEventDestinationsCommandInput extends PutWhatsAppBusinessAccountEventDestinationsInput {}
 /**
  * @public
  *
  * The output of {@link PutWhatsAppBusinessAccountEventDestinationsCommand}.
  */
-export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput
-  extends PutWhatsAppBusinessAccountEventDestinationsOutput,
-    __MetadataBearer {}
+export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput extends PutWhatsAppBusinessAccountEventDestinationsOutput, __MetadataBearer {}
 
 /**
  * <p>Add an event destination to log event data from WhatsApp for a WhatsApp Business Account (WABA). A WABA can only have one event destination at a time. All resources associated with the WABA use the same event destination.</p>

@@ -26,17 +26,20 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new SigV4Signer(),
       },
       {
         schemeId: "smithy.api#httpApiKeyAuth",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpApiKeyAuth"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpApiKeyAuth"),
         signer: new HttpApiKeyAuthSigner(),
       },
       {
         schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
         signer: new HttpBearerAuthSigner(),
       },
       {

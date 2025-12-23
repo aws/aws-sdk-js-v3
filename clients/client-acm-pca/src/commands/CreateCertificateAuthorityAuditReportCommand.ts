@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateCertificateAuthorityAuditReportCommand}.
  */
-export interface CreateCertificateAuthorityAuditReportCommandInput
-  extends CreateCertificateAuthorityAuditReportRequest {}
+export interface CreateCertificateAuthorityAuditReportCommandInput extends CreateCertificateAuthorityAuditReportRequest {}
 /**
  * @public
  *
  * The output of {@link CreateCertificateAuthorityAuditReportCommand}.
  */
-export interface CreateCertificateAuthorityAuditReportCommandOutput
-  extends CreateCertificateAuthorityAuditReportResponse,
-    __MetadataBearer {}
+export interface CreateCertificateAuthorityAuditReportCommandOutput extends CreateCertificateAuthorityAuditReportResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use the private key.</p> <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare an Amazon S3 bucket for audit reports</a>.</p> <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit Reports</a>.</p> <note> <p>You can generate a maximum of one report every 30 minutes.</p> </note>

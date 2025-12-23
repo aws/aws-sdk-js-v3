@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RejectResourceGroupingRecommendationsCommand}.
  */
-export interface RejectResourceGroupingRecommendationsCommandInput
-  extends RejectResourceGroupingRecommendationsRequest {}
+export interface RejectResourceGroupingRecommendationsCommandInput extends RejectResourceGroupingRecommendationsRequest {}
 /**
  * @public
  *
  * The output of {@link RejectResourceGroupingRecommendationsCommand}.
  */
-export interface RejectResourceGroupingRecommendationsCommandOutput
-  extends RejectResourceGroupingRecommendationsResponse,
-    __MetadataBearer {}
+export interface RejectResourceGroupingRecommendationsCommandOutput extends RejectResourceGroupingRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Rejects resource grouping recommendations.</p>

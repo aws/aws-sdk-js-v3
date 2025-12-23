@@ -82,12 +82,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = SendSSHPublicKeyCommandInput | SendSerialConsoleSSHPublicKeyCommandInput;
+export type ServiceInputTypes =
+  | SendSSHPublicKeyCommandInput
+  | SendSerialConsoleSSHPublicKeyCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = SendSSHPublicKeyCommandOutput | SendSerialConsoleSSHPublicKeyCommandOutput;
+export type ServiceOutputTypes =
+  | SendSSHPublicKeyCommandOutput
+  | SendSerialConsoleSSHPublicKeyCommandOutput;
 
 /**
  * @public

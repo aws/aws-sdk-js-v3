@@ -24,9 +24,7 @@ export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAu
  *
  * The output of {@link GetAccountAuthorizationDetailsCommand}.
  */
-export interface GetAccountAuthorizationDetailsCommandOutput
-  extends GetAccountAuthorizationDetailsResponse,
-    __MetadataBearer {}
+export interface GetAccountAuthorizationDetailsCommandOutput extends GetAccountAuthorizationDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services

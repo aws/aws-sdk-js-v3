@@ -27,9 +27,7 @@ export interface PutRegistryScanningConfigurationCommandInput extends PutRegistr
  *
  * The output of {@link PutRegistryScanningConfigurationCommand}.
  */
-export interface PutRegistryScanningConfigurationCommandOutput
-  extends PutRegistryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface PutRegistryScanningConfigurationCommandOutput extends PutRegistryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the scanning configuration for your private registry.</p>

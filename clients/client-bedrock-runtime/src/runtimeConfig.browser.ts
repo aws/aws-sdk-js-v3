@@ -4,9 +4,9 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import {
-  WebSocketFetchHandlerOptions,
-  WebSocketFetchHandler as WebSocketRequestHandler,
   eventStreamPayloadHandlerProvider,
+  WebSocketFetchHandler as WebSocketRequestHandler,
+  WebSocketFetchHandlerOptions,
 } from "@aws-sdk/middleware-websocket";
 import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
@@ -34,22 +34,21 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: WebSocketRequestHandler.create(
-      (config?.requestHandler as
-        | WebSocketRequestHandler
-        | WebSocketFetchHandlerOptions
-        | (() => Promise<WebSocketFetchHandlerOptions>)) ?? defaultConfigProvider,
-      HttpRequestHandler.create(defaultConfigProvider)
-    ),
+        config?.requestHandler as
+            WebSocketRequestHandler |
+            WebSocketFetchHandlerOptions |
+            (() => Promise<WebSocketFetchHandlerOptions>)
+          ?? defaultConfigProvider,
+        HttpRequestHandler.create(defaultConfigProvider)
+    )
+,
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

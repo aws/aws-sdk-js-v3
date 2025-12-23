@@ -27,9 +27,7 @@ export interface ListConnectorDefinitionVersionsCommandInput extends ListConnect
  *
  * The output of {@link ListConnectorDefinitionVersionsCommand}.
  */
-export interface ListConnectorDefinitionVersionsCommandOutput
-  extends ListConnectorDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListConnectorDefinitionVersionsCommandOutput extends ListConnectorDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.

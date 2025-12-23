@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface CreateLakeFormationIdentityCenterConfigurationCommandInput
-  extends CreateLakeFormationIdentityCenterConfigurationRequest {}
+export interface CreateLakeFormationIdentityCenterConfigurationCommandInput extends CreateLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
-  extends CreateLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput extends CreateLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.</p>

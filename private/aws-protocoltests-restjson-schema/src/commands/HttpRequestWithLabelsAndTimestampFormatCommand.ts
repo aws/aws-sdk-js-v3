@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
  */
-export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
-  extends HttpRequestWithLabelsAndTimestampFormatInput {}
+export interface HttpRequestWithLabelsAndTimestampFormatCommandInput extends HttpRequestWithLabelsAndTimestampFormatInput {}
 /**
  * @public
  *

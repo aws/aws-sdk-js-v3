@@ -24,9 +24,7 @@ export interface DisableAllowedImagesSettingsCommandInput extends DisableAllowed
  *
  * The output of {@link DisableAllowedImagesSettingsCommand}.
  */
-export interface DisableAllowedImagesSettingsCommandOutput
-  extends DisableAllowedImagesSettingsResult,
-    __MetadataBearer {}
+export interface DisableAllowedImagesSettingsCommandOutput extends DisableAllowedImagesSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Disables Allowed AMIs for your account in the specified Amazon Web Services Region. When set to

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}.
  */
-export interface ListServiceQuotaIncreaseRequestsInTemplateCommandInput
-  extends ListServiceQuotaIncreaseRequestsInTemplateRequest {}
+export interface ListServiceQuotaIncreaseRequestsInTemplateCommandInput extends ListServiceQuotaIncreaseRequestsInTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}.
  */
-export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-  extends ListServiceQuotaIncreaseRequestsInTemplateResponse,
-    __MetadataBearer {}
+export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput extends ListServiceQuotaIncreaseRequestsInTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the quota increase requests in the specified quota request template.</p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateBenefitApplicationResourceCommand}.
  */
-export interface DisassociateBenefitApplicationResourceCommandInput
-  extends DisassociateBenefitApplicationResourceInput {}
+export interface DisassociateBenefitApplicationResourceCommandInput extends DisassociateBenefitApplicationResourceInput {}
 /**
  * @public
  *
  * The output of {@link DisassociateBenefitApplicationResourceCommand}.
  */
-export interface DisassociateBenefitApplicationResourceCommandOutput
-  extends DisassociateBenefitApplicationResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateBenefitApplicationResourceCommandOutput extends DisassociateBenefitApplicationResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an AWS resource and a benefit application.</p>

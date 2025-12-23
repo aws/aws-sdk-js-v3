@@ -31,9 +31,7 @@ export interface ListDataIntegrationAssociationsCommandInput extends ListDataInt
  *
  * The output of {@link ListDataIntegrationAssociationsCommand}.
  */
-export interface ListDataIntegrationAssociationsCommandOutput
-  extends ListDataIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListDataIntegrationAssociationsCommandOutput extends ListDataIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>

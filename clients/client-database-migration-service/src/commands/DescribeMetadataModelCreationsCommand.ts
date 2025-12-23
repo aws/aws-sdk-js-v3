@@ -28,9 +28,7 @@ export interface DescribeMetadataModelCreationsCommandInput extends DescribeMeta
  *
  * The output of {@link DescribeMetadataModelCreationsCommand}.
  */
-export interface DescribeMetadataModelCreationsCommandOutput
-  extends DescribeMetadataModelCreationsResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelCreationsCommandOutput extends DescribeMetadataModelCreationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model creation requests for a migration project.</p>

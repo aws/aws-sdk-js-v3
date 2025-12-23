@@ -24,9 +24,7 @@ export interface GetIpamPrefixListResolverRulesCommandInput extends GetIpamPrefi
  *
  * The output of {@link GetIpamPrefixListResolverRulesCommand}.
  */
-export interface GetIpamPrefixListResolverRulesCommandOutput
-  extends GetIpamPrefixListResolverRulesResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverRulesCommandOutput extends GetIpamPrefixListResolverRulesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the CIDR selection rules for an IPAM prefix list resolver. Use this operation to view the business logic that determines which CIDRs are selected for synchronization with prefix lists.</p>

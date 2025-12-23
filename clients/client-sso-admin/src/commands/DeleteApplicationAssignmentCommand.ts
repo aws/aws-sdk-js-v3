@@ -24,9 +24,7 @@ export interface DeleteApplicationAssignmentCommandInput extends DeleteApplicati
  *
  * The output of {@link DeleteApplicationAssignmentCommand}.
  */
-export interface DeleteApplicationAssignmentCommandOutput
-  extends DeleteApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationAssignmentCommandOutput extends DeleteApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Revoke application access to an application by deleting application assignments for a user or group.</p>

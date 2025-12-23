@@ -46,11 +46,9 @@ export const defaultManagedBlockchainHttpAuthSchemeParametersProvider = async (
 ): Promise<ManagedBlockchainHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface ManagedBlockchainHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultManagedBlockchainHttpAuthSchemeProvider: ManagedBlockchainHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultManagedBlockchainHttpAuthSchemeProvider: ManagedBlockchainHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

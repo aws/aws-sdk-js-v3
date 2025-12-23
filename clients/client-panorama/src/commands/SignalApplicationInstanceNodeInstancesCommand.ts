@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
-export interface SignalApplicationInstanceNodeInstancesCommandInput
-  extends SignalApplicationInstanceNodeInstancesRequest {}
+export interface SignalApplicationInstanceNodeInstancesCommandInput extends SignalApplicationInstanceNodeInstancesRequest {}
 /**
  * @public
  *
  * The output of {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
-export interface SignalApplicationInstanceNodeInstancesCommandOutput
-  extends SignalApplicationInstanceNodeInstancesResponse,
-    __MetadataBearer {}
+export interface SignalApplicationInstanceNodeInstancesCommandOutput extends SignalApplicationInstanceNodeInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Signal camera nodes to stop or resume.</p>

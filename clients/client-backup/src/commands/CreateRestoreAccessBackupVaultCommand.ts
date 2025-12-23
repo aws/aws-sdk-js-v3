@@ -24,9 +24,7 @@ export interface CreateRestoreAccessBackupVaultCommandInput extends CreateRestor
  *
  * The output of {@link CreateRestoreAccessBackupVaultCommand}.
  */
-export interface CreateRestoreAccessBackupVaultCommandOutput
-  extends CreateRestoreAccessBackupVaultOutput,
-    __MetadataBearer {}
+export interface CreateRestoreAccessBackupVaultCommandOutput extends CreateRestoreAccessBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a restore access backup vault that provides temporary access to recovery points in a logically air-gapped backup vault, subject to MPA approval.</p>

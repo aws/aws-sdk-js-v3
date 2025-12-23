@@ -27,9 +27,7 @@ export interface DescribeHostReservationOfferingsCommandInput extends DescribeHo
  *
  * The output of {@link DescribeHostReservationOfferingsCommand}.
  */
-export interface DescribeHostReservationOfferingsCommandOutput
-  extends DescribeHostReservationOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeHostReservationOfferingsCommandOutput extends DescribeHostReservationOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>

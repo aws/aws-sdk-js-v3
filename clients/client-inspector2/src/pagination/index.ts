@@ -1,8 +1,7 @@
-export * from "./GetCisScanResultDetailsPaginator";
-
-export * from "./GetClustersForImagePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetCisScanResultDetailsPaginator";
+export * from "./GetClustersForImagePaginator";
 export * from "./ListAccountPermissionsPaginator";
 export * from "./ListCisScanConfigurationsPaginator";
 export * from "./ListCisScanResultsAggregatedByChecksPaginator";

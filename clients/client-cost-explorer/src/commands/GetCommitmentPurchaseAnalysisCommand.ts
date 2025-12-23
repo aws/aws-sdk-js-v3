@@ -24,9 +24,7 @@ export interface GetCommitmentPurchaseAnalysisCommandInput extends GetCommitment
  *
  * The output of {@link GetCommitmentPurchaseAnalysisCommand}.
  */
-export interface GetCommitmentPurchaseAnalysisCommandOutput
-  extends GetCommitmentPurchaseAnalysisResponse,
-    __MetadataBearer {}
+export interface GetCommitmentPurchaseAnalysisCommandOutput extends GetCommitmentPurchaseAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a commitment purchase analysis result based on the

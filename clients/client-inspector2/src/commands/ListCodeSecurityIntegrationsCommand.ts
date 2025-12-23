@@ -24,9 +24,7 @@ export interface ListCodeSecurityIntegrationsCommandInput extends ListCodeSecuri
  *
  * The output of {@link ListCodeSecurityIntegrationsCommand}.
  */
-export interface ListCodeSecurityIntegrationsCommandOutput
-  extends ListCodeSecurityIntegrationsResponse,
-    __MetadataBearer {}
+export interface ListCodeSecurityIntegrationsCommandOutput extends ListCodeSecurityIntegrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all code security integrations in your account.</p>

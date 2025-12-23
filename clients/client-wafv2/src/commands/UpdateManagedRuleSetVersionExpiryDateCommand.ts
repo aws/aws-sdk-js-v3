@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
-export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
-  extends UpdateManagedRuleSetVersionExpiryDateRequest {}
+export interface UpdateManagedRuleSetVersionExpiryDateCommandInput extends UpdateManagedRuleSetVersionExpiryDateRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
-export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
-  extends UpdateManagedRuleSetVersionExpiryDateResponse,
-    __MetadataBearer {}
+export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput extends UpdateManagedRuleSetVersionExpiryDateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the

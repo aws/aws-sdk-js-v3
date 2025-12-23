@@ -24,9 +24,7 @@ export interface CreateBillOfMaterialsImportJobCommandInput extends CreateBillOf
  *
  * The output of {@link CreateBillOfMaterialsImportJobCommand}.
  */
-export interface CreateBillOfMaterialsImportJobCommandOutput
-  extends CreateBillOfMaterialsImportJobResponse,
-    __MetadataBearer {}
+export interface CreateBillOfMaterialsImportJobCommandOutput extends CreateBillOfMaterialsImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of Materials (BOM) entity. For information on the product_bom entity, see the AWS Supply Chain User Guide.</p>

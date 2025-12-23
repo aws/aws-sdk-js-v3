@@ -24,9 +24,7 @@ export interface UpdateEksAnywhereSubscriptionCommandInput extends UpdateEksAnyw
  *
  * The output of {@link UpdateEksAnywhereSubscriptionCommand}.
  */
-export interface UpdateEksAnywhereSubscriptionCommandOutput
-  extends UpdateEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateEksAnywhereSubscriptionCommandOutput extends UpdateEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Update an EKS Anywhere Subscription. Only auto renewal and tags can be updated after

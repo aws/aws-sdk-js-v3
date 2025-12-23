@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
-export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
-  extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
 /**
  * @public
  *
  * The output of {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
-export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-  extends GetServiceLastAccessedDetailsWithEntitiesResponse,
-    __MetadataBearer {}
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput extends GetServiceLastAccessedDetailsWithEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>After you generate a group or policy report using the

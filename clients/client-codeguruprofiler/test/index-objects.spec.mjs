@@ -87,6 +87,10 @@ import {
   MetricType,
   NotificationConfiguration$,
   OrderBy,
+  paginateGetFindingsReportAccountSummary,
+  paginateListFindingsReports,
+  paginateListProfileTimes,
+  paginateListProfilingGroups,
   Pattern$,
   PostAgentProfile$,
   PostAgentProfileCommand,
@@ -134,10 +138,6 @@ import {
   UserFeedback$,
   ValidationException,
   ValidationException$,
-  paginateGetFindingsReportAccountSummary,
-  paginateListFindingsReports,
-  paginateListProfileTimes,
-  paginateListProfilingGroups,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

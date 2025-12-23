@@ -27,9 +27,7 @@ export interface CreateDataLakeExceptionSubscriptionCommandInput extends CreateD
  *
  * The output of {@link CreateDataLakeExceptionSubscriptionCommand}.
  */
-export interface CreateDataLakeExceptionSubscriptionCommandOutput
-  extends CreateDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface CreateDataLakeExceptionSubscriptionCommandOutput extends CreateDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the specified notification subscription in Amazon Security Lake for the organization

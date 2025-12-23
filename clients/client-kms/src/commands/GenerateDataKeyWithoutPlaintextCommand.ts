@@ -27,9 +27,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandInput extends GenerateDat
  *
  * The output of {@link GenerateDataKeyWithoutPlaintextCommand}.
  */
-export interface GenerateDataKeyWithoutPlaintextCommandOutput
-  extends GenerateDataKeyWithoutPlaintextResponse,
-    __MetadataBearer {}
+export interface GenerateDataKeyWithoutPlaintextCommandOutput extends GenerateDataKeyWithoutPlaintextResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a

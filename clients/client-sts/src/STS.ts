@@ -69,8 +69,14 @@ export interface STS {
   /**
    * @see {@link AssumeRoleCommand}
    */
-  assumeRole(args: AssumeRoleCommandInput, options?: __HttpHandlerOptions): Promise<AssumeRoleCommandOutput>;
-  assumeRole(args: AssumeRoleCommandInput, cb: (err: any, data?: AssumeRoleCommandOutput) => void): void;
+  assumeRole(
+    args: AssumeRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeRoleCommandOutput>;
+  assumeRole(
+    args: AssumeRoleCommandInput,
+    cb: (err: any, data?: AssumeRoleCommandOutput) => void
+  ): void;
   assumeRole(
     args: AssumeRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -114,8 +120,14 @@ export interface STS {
   /**
    * @see {@link AssumeRootCommand}
    */
-  assumeRoot(args: AssumeRootCommandInput, options?: __HttpHandlerOptions): Promise<AssumeRootCommandOutput>;
-  assumeRoot(args: AssumeRootCommandInput, cb: (err: any, data?: AssumeRootCommandOutput) => void): void;
+  assumeRoot(
+    args: AssumeRootCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssumeRootCommandOutput>;
+  assumeRoot(
+    args: AssumeRootCommandInput,
+    cb: (err: any, data?: AssumeRootCommandOutput) => void
+  ): void;
   assumeRoot(
     args: AssumeRootCommandInput,
     options: __HttpHandlerOptions,
@@ -216,7 +228,10 @@ export interface STS {
     args: GetSessionTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSessionTokenCommandOutput>;
-  getSessionToken(args: GetSessionTokenCommandInput, cb: (err: any, data?: GetSessionTokenCommandOutput) => void): void;
+  getSessionToken(
+    args: GetSessionTokenCommandInput,
+    cb: (err: any, data?: GetSessionTokenCommandOutput) => void
+  ): void;
   getSessionToken(
     args: GetSessionTokenCommandInput,
     options: __HttpHandlerOptions,

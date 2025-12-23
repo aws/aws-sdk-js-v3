@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListChannelsModeratedByAppInstanceUserCommand}.
  */
-export interface ListChannelsModeratedByAppInstanceUserCommandInput
-  extends ListChannelsModeratedByAppInstanceUserRequest {}
+export interface ListChannelsModeratedByAppInstanceUserCommandInput extends ListChannelsModeratedByAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link ListChannelsModeratedByAppInstanceUserCommand}.
  */
-export interface ListChannelsModeratedByAppInstanceUserCommandOutput
-  extends ListChannelsModeratedByAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface ListChannelsModeratedByAppInstanceUserCommandOutput extends ListChannelsModeratedByAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>

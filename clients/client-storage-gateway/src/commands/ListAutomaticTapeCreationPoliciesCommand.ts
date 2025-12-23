@@ -31,9 +31,7 @@ export interface ListAutomaticTapeCreationPoliciesCommandInput extends ListAutom
  *
  * The output of {@link ListAutomaticTapeCreationPoliciesCommand}.
  */
-export interface ListAutomaticTapeCreationPoliciesCommandOutput
-  extends ListAutomaticTapeCreationPoliciesOutput,
-    __MetadataBearer {}
+export interface ListAutomaticTapeCreationPoliciesCommandOutput extends ListAutomaticTapeCreationPoliciesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape

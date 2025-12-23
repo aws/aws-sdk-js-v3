@@ -24,9 +24,7 @@ export interface BatchDisassociateScramSecretCommandInput extends BatchDisassoci
  *
  * The output of {@link BatchDisassociateScramSecretCommand}.
  */
-export interface BatchDisassociateScramSecretCommandOutput
-  extends BatchDisassociateScramSecretResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateScramSecretCommandOutput extends BatchDisassociateScramSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>

@@ -28,9 +28,7 @@ export interface ExportMetadataModelAssessmentCommandInput extends ExportMetadat
  *
  * The output of {@link ExportMetadataModelAssessmentCommand}.
  */
-export interface ExportMetadataModelAssessmentCommandOutput
-  extends ExportMetadataModelAssessmentResponse,
-    __MetadataBearer {}
+export interface ExportMetadataModelAssessmentCommandOutput extends ExportMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can

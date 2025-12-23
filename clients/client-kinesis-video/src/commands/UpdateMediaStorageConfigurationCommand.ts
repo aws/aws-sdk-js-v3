@@ -24,9 +24,7 @@ export interface UpdateMediaStorageConfigurationCommandInput extends UpdateMedia
  *
  * The output of {@link UpdateMediaStorageConfigurationCommand}.
  */
-export interface UpdateMediaStorageConfigurationCommandOutput
-  extends UpdateMediaStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateMediaStorageConfigurationCommandOutput extends UpdateMediaStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are

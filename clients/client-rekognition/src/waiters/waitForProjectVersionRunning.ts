@@ -7,39 +7,36 @@ import {
 } from "../commands/DescribeProjectVersionsCommand";
 import { RekognitionClient } from "../RekognitionClient";
 
-const checkState = async (
-  client: RekognitionClient,
-  input: DescribeProjectVersionsCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: RekognitionClient, input: DescribeProjectVersionsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeProjectVersionsCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ProjectVersionDescriptions);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.ProjectVersionDescriptions);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "RUNNING";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "RUNNING")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.ProjectVersionDescriptions);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.ProjectVersionDescriptions);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "FAILED") {
           return { state: WaiterState.FAILURE, reason };
         }

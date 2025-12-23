@@ -24,9 +24,7 @@ export interface GenerateMobileSdkReleaseUrlCommandInput extends GenerateMobileS
  *
  * The output of {@link GenerateMobileSdkReleaseUrlCommand}.
  */
-export interface GenerateMobileSdkReleaseUrlCommandOutput
-  extends GenerateMobileSdkReleaseUrlResponse,
-    __MetadataBearer {}
+export interface GenerateMobileSdkReleaseUrlCommandOutput extends GenerateMobileSdkReleaseUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a presigned download URL for the specified release of the mobile SDK.</p>

@@ -27,9 +27,7 @@ export interface ListImageScanFindingAggregationsCommandInput extends ListImageS
  *
  * The output of {@link ListImageScanFindingAggregationsCommand}.
  */
-export interface ListImageScanFindingAggregationsCommandOutput
-  extends ListImageScanFindingAggregationsResponse,
-    __MetadataBearer {}
+export interface ListImageScanFindingAggregationsCommandOutput extends ListImageScanFindingAggregationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of image scan aggregations for your account. You can filter by the type

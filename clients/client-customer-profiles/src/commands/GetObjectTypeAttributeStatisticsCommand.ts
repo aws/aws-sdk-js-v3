@@ -31,9 +31,7 @@ export interface GetObjectTypeAttributeStatisticsCommandInput extends GetObjectT
  *
  * The output of {@link GetObjectTypeAttributeStatisticsCommand}.
  */
-export interface GetObjectTypeAttributeStatisticsCommandOutput
-  extends GetObjectTypeAttributeStatisticsResponse,
-    __MetadataBearer {}
+export interface GetObjectTypeAttributeStatisticsCommandOutput extends GetObjectTypeAttributeStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>The GetObjectTypeAttributeValues API delivers statistical insights about attributes within a specific object type, but is exclusively available for domains with data store enabled. This API performs daily calculations to provide statistical information about your attribute values, helping you understand patterns and trends in your data. The statistical calculations are performed once per day, providing a consistent snapshot of your attribute data characteristics.</p>

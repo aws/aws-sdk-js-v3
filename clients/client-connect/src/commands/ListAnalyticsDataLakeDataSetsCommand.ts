@@ -24,9 +24,7 @@ export interface ListAnalyticsDataLakeDataSetsCommandInput extends ListAnalytics
  *
  * The output of {@link ListAnalyticsDataLakeDataSetsCommand}.
  */
-export interface ListAnalyticsDataLakeDataSetsCommandOutput
-  extends ListAnalyticsDataLakeDataSetsResponse,
-    __MetadataBearer {}
+export interface ListAnalyticsDataLakeDataSetsCommandOutput extends ListAnalyticsDataLakeDataSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the data lake datasets available to associate with for a given Amazon Connect instance.</p>

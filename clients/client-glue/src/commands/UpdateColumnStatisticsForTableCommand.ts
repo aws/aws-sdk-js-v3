@@ -24,9 +24,7 @@ export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumn
  *
  * The output of {@link UpdateColumnStatisticsForTableCommand}.
  */
-export interface UpdateColumnStatisticsForTableCommandOutput
-  extends UpdateColumnStatisticsForTableResponse,
-    __MetadataBearer {}
+export interface UpdateColumnStatisticsForTableCommandOutput extends UpdateColumnStatisticsForTableResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates table statistics of columns.</p>

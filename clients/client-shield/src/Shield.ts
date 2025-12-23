@@ -395,7 +395,10 @@ export interface Shield {
     args: DescribeAttackCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAttackCommandOutput>;
-  describeAttack(args: DescribeAttackCommandInput, cb: (err: any, data?: DescribeAttackCommandOutput) => void): void;
+  describeAttack(
+    args: DescribeAttackCommandInput,
+    cb: (err: any, data?: DescribeAttackCommandOutput) => void
+  ): void;
   describeAttack(
     args: DescribeAttackCommandInput,
     options: __HttpHandlerOptions,
@@ -653,8 +656,14 @@ export interface Shield {
    * @see {@link ListAttacksCommand}
    */
   listAttacks(): Promise<ListAttacksCommandOutput>;
-  listAttacks(args: ListAttacksCommandInput, options?: __HttpHandlerOptions): Promise<ListAttacksCommandOutput>;
-  listAttacks(args: ListAttacksCommandInput, cb: (err: any, data?: ListAttacksCommandOutput) => void): void;
+  listAttacks(
+    args: ListAttacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttacksCommandOutput>;
+  listAttacks(
+    args: ListAttacksCommandInput,
+    cb: (err: any, data?: ListAttacksCommandOutput) => void
+  ): void;
   listAttacks(
     args: ListAttacksCommandInput,
     options: __HttpHandlerOptions,
@@ -687,7 +696,10 @@ export interface Shield {
     args: ListProtectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListProtectionsCommandOutput>;
-  listProtections(args: ListProtectionsCommandInput, cb: (err: any, data?: ListProtectionsCommandOutput) => void): void;
+  listProtections(
+    args: ListProtectionsCommandInput,
+    cb: (err: any, data?: ListProtectionsCommandOutput) => void
+  ): void;
   listProtections(
     args: ListProtectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -731,8 +743,14 @@ export interface Shield {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -742,8 +760,14 @@ export interface Shield {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

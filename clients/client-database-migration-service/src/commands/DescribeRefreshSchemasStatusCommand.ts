@@ -28,9 +28,7 @@ export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefres
  *
  * The output of {@link DescribeRefreshSchemasStatusCommand}.
  */
-export interface DescribeRefreshSchemasStatusCommandOutput
-  extends DescribeRefreshSchemasStatusResponse,
-    __MetadataBearer {}
+export interface DescribeRefreshSchemasStatusCommandOutput extends DescribeRefreshSchemasStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the status of the RefreshSchemas operation.</p>

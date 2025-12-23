@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateMediaPipelineKinesisVideoStreamPoolCommand}.
  */
-export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandInput
-  extends UpdateMediaPipelineKinesisVideoStreamPoolRequest {}
+export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandInput extends UpdateMediaPipelineKinesisVideoStreamPoolRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateMediaPipelineKinesisVideoStreamPoolCommand}.
  */
-export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
-  extends UpdateMediaPipelineKinesisVideoStreamPoolResponse,
-    __MetadataBearer {}
+export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput extends UpdateMediaPipelineKinesisVideoStreamPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Kinesis Video Stream pool in a media pipeline.</p>

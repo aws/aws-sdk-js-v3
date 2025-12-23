@@ -27,9 +27,7 @@ export interface DescribeObservabilityConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeObservabilityConfigurationCommand}.
  */
-export interface DescribeObservabilityConfigurationCommandOutput
-  extends DescribeObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeObservabilityConfigurationCommandOutput extends DescribeObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner observability configuration resource.</p>

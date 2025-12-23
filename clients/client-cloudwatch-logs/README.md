@@ -43,10 +43,8 @@ into the log service. You can then access the raw log data when you need it.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudwatch-logs
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudwatch-logs`
 - `yarn add @aws-sdk/client-cloudwatch-logs`
 - `pnpm add @aws-sdk/client-cloudwatch-logs`
@@ -82,9 +80,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudWatchLogsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAnomaliesCommand(params);
 ```
 
@@ -243,7 +239,6 @@ AssociateKmsKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/AssociateKmsKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateKmsKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateKmsKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +246,6 @@ AssociateSourceToS3TableIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/AssociateSourceToS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateSourceToS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateSourceToS3TableIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +253,6 @@ CancelExportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CancelExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CancelExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CancelExportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +260,6 @@ CancelImportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CancelImportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CancelImportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CancelImportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +267,6 @@ CreateDelivery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateDeliveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateDeliveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateDeliveryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +274,6 @@ CreateExportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateExportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +281,6 @@ CreateImportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateImportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateImportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateImportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +288,6 @@ CreateLogAnomalyDetector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogAnomalyDetectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +295,6 @@ CreateLogGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +302,6 @@ CreateLogStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateLogStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateLogStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +309,6 @@ CreateScheduledQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/CreateScheduledQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateScheduledQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/CreateScheduledQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +316,6 @@ DeleteAccountPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteAccountPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteAccountPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteAccountPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +323,6 @@ DeleteDataProtectionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDataProtectionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDataProtectionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDataProtectionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +330,6 @@ DeleteDelivery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDeliveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +337,6 @@ DeleteDeliveryDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDeliveryDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +344,6 @@ DeleteDeliveryDestinationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDeliveryDestinationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryDestinationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliveryDestinationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +351,6 @@ DeleteDeliverySource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDeliverySourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliverySourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDeliverySourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +358,6 @@ DeleteDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +365,6 @@ DeleteIndexPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteIndexPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteIndexPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteIndexPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +372,6 @@ DeleteIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +379,6 @@ DeleteLogAnomalyDetector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogAnomalyDetectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +386,6 @@ DeleteLogGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteLogGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +393,6 @@ DeleteLogStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteLogStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteLogStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +400,6 @@ DeleteMetricFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteMetricFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteMetricFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteMetricFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,7 +407,6 @@ DeleteQueryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteQueryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteQueryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteQueryDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -443,7 +414,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -451,7 +421,6 @@ DeleteRetentionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteRetentionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteRetentionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteRetentionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -459,7 +428,6 @@ DeleteScheduledQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteScheduledQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteScheduledQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteScheduledQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -467,7 +435,6 @@ DeleteSubscriptionFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteSubscriptionFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteSubscriptionFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteSubscriptionFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -475,7 +442,6 @@ DeleteTransformer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DeleteTransformerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteTransformerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DeleteTransformerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -483,7 +449,6 @@ DescribeAccountPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeAccountPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeAccountPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeAccountPoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -491,7 +456,6 @@ DescribeConfigurationTemplates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeConfigurationTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeConfigurationTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeConfigurationTemplatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -499,7 +463,6 @@ DescribeDeliveries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeDeliveriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliveriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliveriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -507,7 +470,6 @@ DescribeDeliveryDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeDeliveryDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliveryDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliveryDestinationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -515,7 +477,6 @@ DescribeDeliverySources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeDeliverySourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliverySourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDeliverySourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -523,7 +484,6 @@ DescribeDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeDestinationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -531,7 +491,6 @@ DescribeExportTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeExportTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeExportTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeExportTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -539,7 +498,6 @@ DescribeFieldIndexes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeFieldIndexesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeFieldIndexesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeFieldIndexesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -547,7 +505,6 @@ DescribeImportTaskBatches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeImportTaskBatchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeImportTaskBatchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeImportTaskBatchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -555,7 +512,6 @@ DescribeImportTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeImportTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeImportTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeImportTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -563,7 +519,6 @@ DescribeIndexPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeIndexPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeIndexPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeIndexPoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -571,7 +526,6 @@ DescribeLogGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeLogGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeLogGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeLogGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -579,7 +533,6 @@ DescribeLogStreams
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeLogStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeLogStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeLogStreamsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -587,7 +540,6 @@ DescribeMetricFilters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeMetricFiltersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeMetricFiltersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeMetricFiltersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -595,7 +547,6 @@ DescribeQueries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeQueriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +554,6 @@ DescribeQueryDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeQueryDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeQueryDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeQueryDefinitionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,7 +561,6 @@ DescribeResourcePolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeResourcePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeResourcePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeResourcePoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -619,7 +568,6 @@ DescribeSubscriptionFilters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DescribeSubscriptionFiltersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeSubscriptionFiltersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DescribeSubscriptionFiltersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -627,7 +575,6 @@ DisassociateKmsKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DisassociateKmsKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateKmsKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateKmsKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -635,7 +582,6 @@ DisassociateSourceFromS3TableIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DisassociateSourceFromS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateSourceFromS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateSourceFromS3TableIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -643,7 +589,6 @@ FilterLogEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/FilterLogEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/FilterLogEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/FilterLogEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -651,7 +596,6 @@ GetDataProtectionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetDataProtectionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDataProtectionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDataProtectionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -659,7 +603,6 @@ GetDelivery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetDeliveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -667,7 +610,6 @@ GetDeliveryDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetDeliveryDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -675,7 +617,6 @@ GetDeliveryDestinationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetDeliveryDestinationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryDestinationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliveryDestinationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -683,7 +624,6 @@ GetDeliverySource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetDeliverySourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliverySourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetDeliverySourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -691,7 +631,6 @@ GetIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -699,7 +638,6 @@ GetLogAnomalyDetector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogAnomalyDetectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -707,7 +645,6 @@ GetLogEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -715,7 +652,6 @@ GetLogFields
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogFieldsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogFieldsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogFieldsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -723,7 +659,6 @@ GetLogGroupFields
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogGroupFieldsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogGroupFieldsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogGroupFieldsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -731,7 +666,6 @@ GetLogObject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogObjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -739,7 +673,6 @@ GetLogRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -747,7 +680,6 @@ GetQueryResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetQueryResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetQueryResultsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -755,7 +687,6 @@ GetScheduledQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetScheduledQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetScheduledQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetScheduledQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -763,7 +694,6 @@ GetScheduledQueryHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetScheduledQueryHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetScheduledQueryHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetScheduledQueryHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -771,7 +701,6 @@ GetTransformer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetTransformerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetTransformerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetTransformerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -779,7 +708,6 @@ ListAggregateLogGroupSummaries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListAggregateLogGroupSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAggregateLogGroupSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAggregateLogGroupSummariesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -787,7 +715,6 @@ ListAnomalies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListAnomaliesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAnomaliesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAnomaliesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -795,7 +722,6 @@ ListIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListIntegrationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -803,7 +729,6 @@ ListLogAnomalyDetectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListLogAnomalyDetectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogAnomalyDetectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogAnomalyDetectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -811,7 +736,6 @@ ListLogGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListLogGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -819,7 +743,6 @@ ListLogGroupsForQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListLogGroupsForQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogGroupsForQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListLogGroupsForQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -827,7 +750,6 @@ ListScheduledQueries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListScheduledQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListScheduledQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListScheduledQueriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -835,7 +757,6 @@ ListSourcesForS3TableIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListSourcesForS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSourcesForS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSourcesForS3TableIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -843,7 +764,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -851,7 +771,6 @@ ListTagsLogGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListTagsLogGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListTagsLogGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListTagsLogGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -859,7 +778,6 @@ PutAccountPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutAccountPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutAccountPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutAccountPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -867,7 +785,6 @@ PutDataProtectionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDataProtectionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDataProtectionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDataProtectionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -875,7 +792,6 @@ PutDeliveryDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDeliveryDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliveryDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliveryDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -883,7 +799,6 @@ PutDeliveryDestinationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDeliveryDestinationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliveryDestinationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliveryDestinationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -891,7 +806,6 @@ PutDeliverySource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDeliverySourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliverySourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDeliverySourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -899,7 +813,6 @@ PutDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -907,7 +820,6 @@ PutDestinationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutDestinationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDestinationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutDestinationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -915,7 +827,6 @@ PutIndexPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutIndexPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutIndexPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutIndexPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -923,7 +834,6 @@ PutIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -931,7 +841,6 @@ PutLogEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutLogEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -939,7 +848,6 @@ PutLogGroupDeletionProtection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutLogGroupDeletionProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogGroupDeletionProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogGroupDeletionProtectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -947,7 +855,6 @@ PutMetricFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutMetricFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutMetricFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutMetricFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -955,7 +862,6 @@ PutQueryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutQueryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutQueryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutQueryDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -963,7 +869,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -971,7 +876,6 @@ PutRetentionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutRetentionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutRetentionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutRetentionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -979,7 +883,6 @@ PutSubscriptionFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutSubscriptionFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSubscriptionFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutSubscriptionFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -987,7 +890,6 @@ PutTransformer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutTransformerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutTransformerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutTransformerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -995,7 +897,6 @@ StartLiveTail
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartLiveTailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartLiveTailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartLiveTailCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1003,7 +904,6 @@ StartQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1011,7 +911,6 @@ StopQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StopQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StopQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StopQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1019,7 +918,6 @@ TagLogGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/TagLogGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TagLogGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TagLogGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1027,7 +925,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1035,7 +932,6 @@ TestMetricFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/TestMetricFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TestMetricFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TestMetricFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1043,7 +939,6 @@ TestTransformer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/TestTransformerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TestTransformerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/TestTransformerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1051,7 +946,6 @@ UntagLogGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UntagLogGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagLogGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagLogGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1059,7 +953,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1067,7 +960,6 @@ UpdateAnomaly
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateAnomalyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateAnomalyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateAnomalyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1075,7 +967,6 @@ UpdateDeliveryConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateDeliveryConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateDeliveryConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateDeliveryConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1083,7 +974,6 @@ UpdateLogAnomalyDetector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateLogAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateLogAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateLogAnomalyDetectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1091,5 +981,4 @@ UpdateScheduledQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/UpdateScheduledQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateScheduledQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/UpdateScheduledQueryCommandOutput/)
-
 </details>

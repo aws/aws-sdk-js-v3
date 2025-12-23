@@ -28,9 +28,7 @@ export interface AssociateProductWithPortfolioCommandInput extends AssociateProd
  *
  * The output of {@link AssociateProductWithPortfolioCommand}.
  */
-export interface AssociateProductWithPortfolioCommandOutput
-  extends AssociateProductWithPortfolioOutput,
-    __MetadataBearer {}
+export interface AssociateProductWithPortfolioCommandOutput extends AssociateProductWithPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Associates the specified product with the specified portfolio.</p>

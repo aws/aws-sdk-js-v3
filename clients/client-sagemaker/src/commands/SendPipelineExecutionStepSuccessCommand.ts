@@ -27,9 +27,7 @@ export interface SendPipelineExecutionStepSuccessCommandInput extends SendPipeli
  *
  * The output of {@link SendPipelineExecutionStepSuccessCommand}.
  */
-export interface SendPipelineExecutionStepSuccessCommandOutput
-  extends SendPipelineExecutionStepSuccessResponse,
-    __MetadataBearer {}
+export interface SendPipelineExecutionStepSuccessCommandOutput extends SendPipelineExecutionStepSuccessResponse, __MetadataBearer {}
 
 /**
  * <p>Notifies the pipeline that the execution of a callback step succeeded and provides a list of the step's output parameters. When a callback step is run, the pipeline generates a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>

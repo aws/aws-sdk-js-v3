@@ -28,9 +28,7 @@ export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnviro
  *
  * The output of {@link DescribeEnvironmentResourcesCommand}.
  */
-export interface DescribeEnvironmentResourcesCommandOutput
-  extends EnvironmentResourceDescriptionsMessage,
-    __MetadataBearer {}
+export interface DescribeEnvironmentResourcesCommandOutput extends EnvironmentResourceDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns AWS resources for this environment.</p>

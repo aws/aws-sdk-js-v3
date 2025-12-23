@@ -402,8 +402,14 @@ export interface Forecast {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -485,7 +491,10 @@ export interface Forecast {
     args: CreateForecastCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateForecastCommandOutput>;
-  createForecast(args: CreateForecastCommandInput, cb: (err: any, data?: CreateForecastCommandOutput) => void): void;
+  createForecast(
+    args: CreateForecastCommandInput,
+    cb: (err: any, data?: CreateForecastCommandOutput) => void
+  ): void;
   createForecast(
     args: CreateForecastCommandInput,
     options: __HttpHandlerOptions,
@@ -512,8 +521,14 @@ export interface Forecast {
   /**
    * @see {@link CreateMonitorCommand}
    */
-  createMonitor(args: CreateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<CreateMonitorCommandOutput>;
-  createMonitor(args: CreateMonitorCommandInput, cb: (err: any, data?: CreateMonitorCommandOutput) => void): void;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitorCommandOutput>;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -527,7 +542,10 @@ export interface Forecast {
     args: CreatePredictorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePredictorCommandOutput>;
-  createPredictor(args: CreatePredictorCommandInput, cb: (err: any, data?: CreatePredictorCommandOutput) => void): void;
+  createPredictor(
+    args: CreatePredictorCommandInput,
+    cb: (err: any, data?: CreatePredictorCommandOutput) => void
+  ): void;
   createPredictor(
     args: CreatePredictorCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +623,14 @@ export interface Forecast {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -688,7 +712,10 @@ export interface Forecast {
     args: DeleteForecastCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteForecastCommandOutput>;
-  deleteForecast(args: DeleteForecastCommandInput, cb: (err: any, data?: DeleteForecastCommandOutput) => void): void;
+  deleteForecast(
+    args: DeleteForecastCommandInput,
+    cb: (err: any, data?: DeleteForecastCommandOutput) => void
+  ): void;
   deleteForecast(
     args: DeleteForecastCommandInput,
     options: __HttpHandlerOptions,
@@ -715,8 +742,14 @@ export interface Forecast {
   /**
    * @see {@link DeleteMonitorCommand}
    */
-  deleteMonitor(args: DeleteMonitorCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMonitorCommandOutput>;
-  deleteMonitor(args: DeleteMonitorCommandInput, cb: (err: any, data?: DeleteMonitorCommandOutput) => void): void;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitorCommandOutput>;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -730,7 +763,10 @@ export interface Forecast {
     args: DeletePredictorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePredictorCommandOutput>;
-  deletePredictor(args: DeletePredictorCommandInput, cb: (err: any, data?: DeletePredictorCommandOutput) => void): void;
+  deletePredictor(
+    args: DeletePredictorCommandInput,
+    cb: (err: any, data?: DeletePredictorCommandOutput) => void
+  ): void;
   deletePredictor(
     args: DeletePredictorCommandInput,
     options: __HttpHandlerOptions,
@@ -846,7 +882,10 @@ export interface Forecast {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -962,7 +1001,10 @@ export interface Forecast {
     args: DescribeMonitorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeMonitorCommandOutput>;
-  describeMonitor(args: DescribeMonitorCommandInput, cb: (err: any, data?: DescribeMonitorCommandOutput) => void): void;
+  describeMonitor(
+    args: DescribeMonitorCommandInput,
+    cb: (err: any, data?: DescribeMonitorCommandOutput) => void
+  ): void;
   describeMonitor(
     args: DescribeMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -1111,8 +1153,14 @@ export interface Forecast {
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1177,8 +1225,14 @@ export interface Forecast {
    * @see {@link ListForecastsCommand}
    */
   listForecasts(): Promise<ListForecastsCommandOutput>;
-  listForecasts(args: ListForecastsCommandInput, options?: __HttpHandlerOptions): Promise<ListForecastsCommandOutput>;
-  listForecasts(args: ListForecastsCommandInput, cb: (err: any, data?: ListForecastsCommandOutput) => void): void;
+  listForecasts(
+    args: ListForecastsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListForecastsCommandOutput>;
+  listForecasts(
+    args: ListForecastsCommandInput,
+    cb: (err: any, data?: ListForecastsCommandOutput) => void
+  ): void;
   listForecasts(
     args: ListForecastsCommandInput,
     options: __HttpHandlerOptions,
@@ -1206,8 +1260,14 @@ export interface Forecast {
    * @see {@link ListMonitorsCommand}
    */
   listMonitors(): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorsCommandOutput>;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    cb: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1240,7 +1300,10 @@ export interface Forecast {
     args: ListPredictorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPredictorsCommandOutput>;
-  listPredictors(args: ListPredictorsCommandInput, cb: (err: any, data?: ListPredictorsCommandOutput) => void): void;
+  listPredictors(
+    args: ListPredictorsCommandInput,
+    cb: (err: any, data?: ListPredictorsCommandOutput) => void
+  ): void;
   listPredictors(
     args: ListPredictorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1325,7 +1388,10 @@ export interface Forecast {
     args: ResumeResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResumeResourceCommandOutput>;
-  resumeResource(args: ResumeResourceCommandInput, cb: (err: any, data?: ResumeResourceCommandOutput) => void): void;
+  resumeResource(
+    args: ResumeResourceCommandInput,
+    cb: (err: any, data?: ResumeResourceCommandOutput) => void
+  ): void;
   resumeResource(
     args: ResumeResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1335,8 +1401,14 @@ export interface Forecast {
   /**
    * @see {@link StopResourceCommand}
    */
-  stopResource(args: StopResourceCommandInput, options?: __HttpHandlerOptions): Promise<StopResourceCommandOutput>;
-  stopResource(args: StopResourceCommandInput, cb: (err: any, data?: StopResourceCommandOutput) => void): void;
+  stopResource(
+    args: StopResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopResourceCommandOutput>;
+  stopResource(
+    args: StopResourceCommandInput,
+    cb: (err: any, data?: StopResourceCommandOutput) => void
+  ): void;
   stopResource(
     args: StopResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1346,8 +1418,14 @@ export interface Forecast {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1357,8 +1435,14 @@ export interface Forecast {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

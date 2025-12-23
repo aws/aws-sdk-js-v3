@@ -6,5 +6,5 @@ export * from "./ListServiceDependentsPaginator";
 export * from "./ListServiceLevelObjectiveExclusionWindowsPaginator";
 export * from "./ListServiceLevelObjectivesPaginator";
 export * from "./ListServiceOperationsPaginator";
-export * from "./ListServiceStatesPaginator";
 export * from "./ListServicesPaginator";
+export * from "./ListServiceStatesPaginator";

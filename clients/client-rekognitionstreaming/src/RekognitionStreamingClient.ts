@@ -98,12 +98,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = StartFaceLivenessSessionCommandInput;
+export type ServiceInputTypes =
+  | StartFaceLivenessSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = StartFaceLivenessSessionCommandOutput;
+export type ServiceOutputTypes =
+  | StartFaceLivenessSessionCommandOutput;
 
 /**
  * @public
@@ -264,6 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
 }
 
 /**

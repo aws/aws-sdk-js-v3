@@ -27,9 +27,7 @@ export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPolic
  *
  * The output of {@link ListPoliciesGrantingServiceAccessCommand}.
  */
-export interface ListPoliciesGrantingServiceAccessCommandOutput
-  extends ListPoliciesGrantingServiceAccessResponse,
-    __MetadataBearer {}
+export interface ListPoliciesGrantingServiceAccessCommandOutput extends ListPoliciesGrantingServiceAccessResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to

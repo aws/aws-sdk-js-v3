@@ -24,9 +24,7 @@ export interface ModifyPublicIpDnsNameOptionsCommandInput extends ModifyPublicIp
  *
  * The output of {@link ModifyPublicIpDnsNameOptionsCommand}.
  */
-export interface ModifyPublicIpDnsNameOptionsCommandOutput
-  extends ModifyPublicIpDnsNameOptionsResult,
-    __MetadataBearer {}
+export interface ModifyPublicIpDnsNameOptionsCommandOutput extends ModifyPublicIpDnsNameOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modify public hostname options for a network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>

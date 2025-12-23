@@ -28,9 +28,7 @@ export interface StartMetadataModelAssessmentCommandInput extends StartMetadataM
  *
  * The output of {@link StartMetadataModelAssessmentCommand}.
  */
-export interface StartMetadataModelAssessmentCommandOutput
-  extends StartMetadataModelAssessmentResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelAssessmentCommandOutput extends StartMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a database migration assessment report by assessing the migration complexity for

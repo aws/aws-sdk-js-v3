@@ -28,9 +28,7 @@ export interface CreateResolverQueryLogConfigCommandInput extends CreateResolver
  *
  * The output of {@link CreateResolverQueryLogConfigCommand}.
  */
-export interface CreateResolverQueryLogConfigCommandOutput
-  extends CreateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface CreateResolverQueryLogConfigCommandOutput extends CreateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.

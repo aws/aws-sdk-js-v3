@@ -27,9 +27,7 @@ export interface DisassociateWorkspaceApplicationCommandInput extends Disassocia
  *
  * The output of {@link DisassociateWorkspaceApplicationCommand}.
  */
-export interface DisassociateWorkspaceApplicationCommandOutput
-  extends DisassociateWorkspaceApplicationResult,
-    __MetadataBearer {}
+export interface DisassociateWorkspaceApplicationCommandOutput extends DisassociateWorkspaceApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified application from a WorkSpace.</p>

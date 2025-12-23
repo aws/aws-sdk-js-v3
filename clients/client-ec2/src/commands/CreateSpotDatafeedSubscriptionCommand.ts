@@ -25,9 +25,7 @@ export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDa
  *
  * The output of {@link CreateSpotDatafeedSubscriptionCommand}.
  */
-export interface CreateSpotDatafeedSubscriptionCommandOutput
-  extends CreateSpotDatafeedSubscriptionResult,
-    __MetadataBearer {}
+export interface CreateSpotDatafeedSubscriptionCommandOutput extends CreateSpotDatafeedSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.

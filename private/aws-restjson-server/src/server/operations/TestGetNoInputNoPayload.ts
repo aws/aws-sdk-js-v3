@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,11 +30,7 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type TestGetNoInputNoPayload<Context> = __Operation<
-  TestGetNoInputNoPayloadServerInput,
-  TestGetNoInputNoPayloadServerOutput,
-  Context
->;
+export type TestGetNoInputNoPayload<Context> = __Operation<TestGetNoInputNoPayloadServerInput, TestGetNoInputNoPayloadServerOutput, Context>
 
 export interface TestGetNoInputNoPayloadServerInput {}
 export namespace TestGetNoInputNoPayloadServerInput {
@@ -47,41 +43,33 @@ export interface TestGetNoInputNoPayloadServerOutput extends TestNoPayloadInputO
 
 export type TestGetNoInputNoPayloadErrors = never;
 
-export class TestGetNoInputNoPayloadSerializer
-  implements __OperationSerializer<RestJsonService<any>, "TestGetNoInputNoPayload", TestGetNoInputNoPayloadErrors>
-{
+export class TestGetNoInputNoPayloadSerializer implements __OperationSerializer<RestJsonService<any>, "TestGetNoInputNoPayload", TestGetNoInputNoPayloadErrors> {
   serialize = serializeTestGetNoInputNoPayloadResponse;
   deserialize = deserializeTestGetNoInputNoPayloadRequest;
 
   isOperationError(error: any): error is TestGetNoInputNoPayloadErrors {
     return false;
-  }
+  };
 
   serializeError(error: TestGetNoInputNoPayloadErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getTestGetNoInputNoPayloadHandler = <Context>(
-  operation: __Operation<TestGetNoInputNoPayloadServerInput, TestGetNoInputNoPayloadServerOutput, Context>,
-  customizer: __ValidationCustomizer<"TestGetNoInputNoPayload">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getTestGetNoInputNoPayloadHandler = <Context>(operation: __Operation<TestGetNoInputNoPayloadServerInput, TestGetNoInputNoPayloadServerOutput, Context>, customizer: __ValidationCustomizer<"TestGetNoInputNoPayload">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "TestGetNoInputNoPayload">([
     new httpbinding.UriSpec<"RestJson", "TestGetNoInputNoPayload">(
-      "GET",
-      [{ type: "path_literal", value: "no_input_no_payload" }],
-      [],
-      { service: "RestJson", operation: "TestGetNoInputNoPayload" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "no_input_no_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestGetNoInputNoPayload" }),
   ]);
-  return new TestGetNoInputNoPayloadHandler(
-    operation,
-    mux,
-    new TestGetNoInputNoPayloadSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new TestGetNoInputNoPayloadHandler(operation, mux, new TestGetNoInputNoPayloadSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -90,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -105,49 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class TestGetNoInputNoPayloadHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    TestGetNoInputNoPayloadServerInput,
-    TestGetNoInputNoPayloadServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<TestGetNoInputNoPayloadServerInput, TestGetNoInputNoPayloadServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "TestGetNoInputNoPayload">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "TestGetNoInputNoPayload",
-    TestGetNoInputNoPayloadErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "TestGetNoInputNoPayload", TestGetNoInputNoPayloadErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"TestGetNoInputNoPayload">;
   /**
    * Construct a TestGetNoInputNoPayload handler.
@@ -161,11 +137,7 @@ export class TestGetNoInputNoPayloadHandler<Context> implements __ServiceHandler
   constructor(
     operation: __Operation<TestGetNoInputNoPayloadServerInput, TestGetNoInputNoPayloadServerOutput, Context>,
     mux: __Mux<"RestJson", "TestGetNoInputNoPayload">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "TestGetNoInputNoPayload",
-      TestGetNoInputNoPayloadErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "TestGetNoInputNoPayload", TestGetNoInputNoPayloadErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"TestGetNoInputNoPayload">
   ) {
@@ -178,20 +150,9 @@ export class TestGetNoInputNoPayloadHandler<Context> implements __ServiceHandler
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.TestGetNoInputNoPayload. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.TestGetNoInputNoPayload. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "TestGetNoInputNoPayload",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      TestGetNoInputNoPayloadServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "TestGetNoInputNoPayload", this.serializer, this.operation, this.serializeFrameworkException, TestGetNoInputNoPayloadServerInput.validate, this.validationCustomizer);
   }
 }

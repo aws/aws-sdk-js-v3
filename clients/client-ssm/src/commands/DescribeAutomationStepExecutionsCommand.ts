@@ -27,9 +27,7 @@ export interface DescribeAutomationStepExecutionsCommandInput extends DescribeAu
  *
  * The output of {@link DescribeAutomationStepExecutionsCommand}.
  */
-export interface DescribeAutomationStepExecutionsCommandOutput
-  extends DescribeAutomationStepExecutionsResult,
-    __MetadataBearer {}
+export interface DescribeAutomationStepExecutionsCommandOutput extends DescribeAutomationStepExecutionsResult, __MetadataBearer {}
 
 /**
  * <p>Information about all active and terminated step executions in an Automation

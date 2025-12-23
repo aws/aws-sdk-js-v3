@@ -28,9 +28,7 @@ export interface GetRecommendationPreferencesCommandInput extends GetRecommendat
  *
  * The output of {@link GetRecommendationPreferencesCommand}.
  */
-export interface GetRecommendationPreferencesCommandOutput
-  extends GetRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface GetRecommendationPreferencesCommandOutput extends GetRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure

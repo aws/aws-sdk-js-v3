@@ -27,9 +27,7 @@ export interface GetCloudWatchAlarmTemplateGroupCommandInput extends GetCloudWat
  *
  * The output of {@link GetCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface GetCloudWatchAlarmTemplateGroupCommandOutput
-  extends GetCloudWatchAlarmTemplateGroupResponse,
-    __MetadataBearer {}
+export interface GetCloudWatchAlarmTemplateGroupCommandOutput extends GetCloudWatchAlarmTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Retrieves the specified cloudwatch alarm template group.

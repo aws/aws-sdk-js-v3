@@ -24,9 +24,7 @@ export interface CancelMulticastGroupSessionCommandInput extends CancelMulticast
  *
  * The output of {@link CancelMulticastGroupSessionCommand}.
  */
-export interface CancelMulticastGroupSessionCommandOutput
-  extends CancelMulticastGroupSessionResponse,
-    __MetadataBearer {}
+export interface CancelMulticastGroupSessionCommandOutput extends CancelMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels an existing multicast group session.</p>

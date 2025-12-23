@@ -171,7 +171,7 @@ export interface ActivatedRule {
   OverrideAction?: WafOverrideAction | undefined;
 
   /**
-   * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
+   * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist. 		
    * 			</p>
    * @public
    */
@@ -368,7 +368,7 @@ export interface ByteMatchTuple {
   /**
    * <p>The value that you want AWS WAF to search for. AWS WAF searches for the specified string in the part of web requests that you
    * 			specified in <code>FieldToMatch</code>. The maximum length of the value is 50 bytes.</p>
-   * 		       <p>Valid values depend on the values that you specified for <code>FieldToMatch</code>:</p>
+   * 		       <p>Valid values depend on the values that you specified for <code>FieldToMatch</code>:</p>		
    * 		       <ul>
    *             <li>
    *                <p>
@@ -411,7 +411,7 @@ export interface ByteMatchTuple {
    *                <code>TargetString</code>.</p>
    * 		          </li>
    *          </ul>
-   *
+   * 		
    * 		       <p>If <code>TargetString</code> includes alphabetic characters A-Z and a-z, note that the value is case sensitive.</p>
    * 		       <p>
    *             <b>If you're using the AWS WAF API</b>
@@ -435,7 +435,7 @@ export interface ByteMatchTuple {
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
    * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
-   *          <p>You can only specify a single type of TextTransformation.</p>
+   *          <p>You can only specify a single type of TextTransformation.</p>			
    * 		       <p>
    *             <b>CMD_LINE</b>
    *          </p>
@@ -459,7 +459,7 @@ export interface ByteMatchTuple {
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
    *          </ul>
-   *
+   * 		
    * 		       <p>
    *             <b>COMPRESS_WHITE_SPACE</b>
    *          </p>
@@ -485,7 +485,7 @@ export interface ByteMatchTuple {
    *             </li>
    *          </ul>
    * 		       <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    * 		       <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -514,15 +514,15 @@ export interface ByteMatchTuple {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    * 				characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    * 		       <p>
    *             <b>URL_DECODE</b>
    *          </p>
-   * 		       <p>Use this option to decode a URL-encoded value.</p>
+   * 		       <p>Use this option to decode a URL-encoded value.</p>		
    * 		       <p>
    *             <b>NONE</b>
    *          </p>
@@ -536,7 +536,7 @@ export interface ByteMatchTuple {
    * 		       <p>
    *             <b>CONTAINS</b>
    *          </p>
-   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>
+   * 		       <p>The specified part of the web request must include the value of <code>TargetString</code>, but the location doesn't matter.</p>		
    * 		       <p>
    *             <b>CONTAINS_WORD</b>
    *          </p>
@@ -572,7 +572,7 @@ export interface ByteMatchTuple {
    * 		       <p>
    *             <b>STARTS_WITH</b>
    *          </p>
-   * 		       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>
+   * 		       <p>The value of <code>TargetString</code> must appear at the beginning of the specified part of the web request.</p>		
    * 		       <p>
    *             <b>ENDS_WITH</b>
    *          </p>
@@ -785,7 +785,7 @@ export interface IPSetDescriptor {
    * 				<code>192.0.2.0/24</code>.</p>
    *             </li>
    *          </ul>
-   *
+   * 		
    * 	        <p>For more information about CIDR notation, see the Wikipedia entry
    * 	      <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
    * 	        <p>Specify an IPv6 address by using CIDR notation. For example:</p>
@@ -1137,8 +1137,8 @@ export interface RegexMatchTuple {
 
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p>
-   *          <p>You can only specify a single type of TextTransformation.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p>	
+   *          <p>You can only specify a single type of TextTransformation.</p>			
    * 		       <p>
    *             <b>CMD_LINE</b>
    *          </p>
@@ -1160,7 +1160,7 @@ export interface RegexMatchTuple {
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
    *          </ul>
-   *
+   * 		
    * 		       <p>
    *             <b>COMPRESS_WHITE_SPACE</b>
    *          </p>
@@ -1186,7 +1186,7 @@ export interface RegexMatchTuple {
    *             </li>
    *          </ul>
    * 		       <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    * 		       <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -1215,15 +1215,15 @@ export interface RegexMatchTuple {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    * 				characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    * 		       <p>
    *             <b>URL_DECODE</b>
    *          </p>
-   * 		       <p>Use this option to decode a URL-encoded value.</p>
+   * 		       <p>Use this option to decode a URL-encoded value.</p>		
    * 		       <p>
    *             <b>NONE</b>
    *          </p>
@@ -1634,13 +1634,13 @@ export interface SizeConstraint {
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
    * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
-   *          <p>You can only specify a single type of TextTransformation.</p>
+   *          <p>You can only specify a single type of TextTransformation.</p>			
    * 		       <p>Note that if you choose <code>BODY</code> for the value of <code>Type</code>, you must choose <code>NONE</code> for <code>TextTransformation</code>
-   * 			because CloudFront forwards only the first 8192 bytes for inspection. </p>
+   * 			because CloudFront forwards only the first 8192 bytes for inspection. </p>		
    * 		       <p>
    *             <b>NONE</b>
    *          </p>
-   * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
+   * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>		
    * 		       <p>
    *             <b>CMD_LINE</b>
    *          </p>
@@ -1661,7 +1661,7 @@ export interface SizeConstraint {
    *             <li>
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>COMPRESS_WHITE_SPACE</b>
    *          </p>
@@ -1687,7 +1687,7 @@ export interface SizeConstraint {
    *             </li>
    *          </ul>
    * 		       <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    * 		       <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -1716,11 +1716,11 @@ export interface SizeConstraint {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    * 				characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    * 		       <p>
    *             <b>URL_DECODE</b>
    *          </p>
@@ -1868,7 +1868,7 @@ export interface SqlInjectionMatchTuple {
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
    * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
-   *          <p>You can only specify a single type of TextTransformation.</p>
+   *          <p>You can only specify a single type of TextTransformation.</p>			
    * 		       <p>
    *             <b>CMD_LINE</b>
    *          </p>
@@ -1891,7 +1891,7 @@ export interface SqlInjectionMatchTuple {
    *             <li>
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>COMPRESS_WHITE_SPACE</b>
    *          </p>
@@ -1917,7 +1917,7 @@ export interface SqlInjectionMatchTuple {
    *             </li>
    *          </ul>
    * 		       <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    * 		       <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -1946,15 +1946,15 @@ export interface SqlInjectionMatchTuple {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    * 				characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    * 		       <p>
    *             <b>URL_DECODE</b>
    *          </p>
-   * 		       <p>Use this option to decode a URL-encoded value.</p>
+   * 		       <p>Use this option to decode a URL-encoded value.</p>		
    * 		       <p>
    *             <b>NONE</b>
    *          </p>
@@ -2231,8 +2231,8 @@ export interface XssMatchTuple {
 
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
-   *          <p>You can only specify a single type of TextTransformation.</p>
+   * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>	
+   *          <p>You can only specify a single type of TextTransformation.</p>			
    * 		       <p>
    *             <b>CMD_LINE</b>
    *          </p>
@@ -2255,7 +2255,7 @@ export interface XssMatchTuple {
    *             <li>
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>COMPRESS_WHITE_SPACE</b>
    *          </p>
@@ -2281,7 +2281,7 @@ export interface XssMatchTuple {
    *             </li>
    *          </ul>
    * 		       <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    * 		       <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -2310,15 +2310,15 @@ export interface XssMatchTuple {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    * 				characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   * 		       <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    * 		       <p>
    *             <b>URL_DECODE</b>
    *          </p>
-   * 		       <p>Use this option to decode a URL-encoded value.</p>
+   * 		       <p>Use this option to decode a URL-encoded value.</p>		
    * 		       <p>
    *             <b>NONE</b>
    *          </p>
@@ -5629,7 +5629,7 @@ export interface UpdateWebACLRequest {
   ChangeToken: string | undefined;
 
   /**
-   * <p>An array of updates to make to the <a>WebACL</a>.</p>
+   * <p>An array of updates to make to the <a>WebACL</a>.</p>		
    * 		       <p>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete from a
    * 			<a>WebACL</a>. For more information, see the applicable data types:</p>
    * 		       <ul>

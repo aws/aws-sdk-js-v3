@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface GetTransitGatewayMulticastDomainAssociationsCommandInput
-  extends GetTransitGatewayMulticastDomainAssociationsRequest {}
+export interface GetTransitGatewayMulticastDomainAssociationsCommandInput extends GetTransitGatewayMulticastDomainAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
-  extends GetTransitGatewayMulticastDomainAssociationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput extends GetTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the associations for the transit gateway multicast domain.</p>

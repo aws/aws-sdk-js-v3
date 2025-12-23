@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeInstanceEventNotificationAttributesCommand}.
  */
-export interface DescribeInstanceEventNotificationAttributesCommandInput
-  extends DescribeInstanceEventNotificationAttributesRequest {}
+export interface DescribeInstanceEventNotificationAttributesCommandInput extends DescribeInstanceEventNotificationAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeInstanceEventNotificationAttributesCommand}.
  */
-export interface DescribeInstanceEventNotificationAttributesCommandOutput
-  extends DescribeInstanceEventNotificationAttributesResult,
-    __MetadataBearer {}
+export interface DescribeInstanceEventNotificationAttributesCommandOutput extends DescribeInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the tag keys that are registered to appear in scheduled event notifications

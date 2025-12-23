@@ -27,9 +27,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandInput extends CreateL
  *
  * The output of {@link CreateLogicallyAirGappedBackupVaultCommand}.
  */
-export interface CreateLogicallyAirGappedBackupVaultCommandOutput
-  extends CreateLogicallyAirGappedBackupVaultOutput,
-    __MetadataBearer {}
+export interface CreateLogicallyAirGappedBackupVaultCommandOutput extends CreateLogicallyAirGappedBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a logical container to where backups may be copied.</p>

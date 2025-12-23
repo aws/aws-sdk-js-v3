@@ -46,8 +46,14 @@ export interface ApiGatewayManagementApi {
   /**
    * @see {@link GetConnectionCommand}
    */
-  getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
-  getConnection(args: GetConnectionCommandInput, cb: (err: any, data?: GetConnectionCommandOutput) => void): void;
+  getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
   getConnection(
     args: GetConnectionCommandInput,
     options: __HttpHandlerOptions,

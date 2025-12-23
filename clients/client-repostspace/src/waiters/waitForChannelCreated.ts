@@ -10,25 +10,25 @@ const checkState = async (client: RepostspaceClient, input: GetChannelCommandInp
     const result: any = await client.send(new GetChannelCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "CREATED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.channelStatus;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.RETRY, reason };
       }

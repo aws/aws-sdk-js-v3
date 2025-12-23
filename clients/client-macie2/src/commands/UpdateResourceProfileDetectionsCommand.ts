@@ -27,9 +27,7 @@ export interface UpdateResourceProfileDetectionsCommandInput extends UpdateResou
  *
  * The output of {@link UpdateResourceProfileDetectionsCommand}.
  */
-export interface UpdateResourceProfileDetectionsCommandOutput
-  extends UpdateResourceProfileDetectionsResponse,
-    __MetadataBearer {}
+export interface UpdateResourceProfileDetectionsCommandOutput extends UpdateResourceProfileDetectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>

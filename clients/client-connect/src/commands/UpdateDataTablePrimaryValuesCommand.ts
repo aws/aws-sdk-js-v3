@@ -24,9 +24,7 @@ export interface UpdateDataTablePrimaryValuesCommandInput extends UpdateDataTabl
  *
  * The output of {@link UpdateDataTablePrimaryValuesCommand}.
  */
-export interface UpdateDataTablePrimaryValuesCommandOutput
-  extends UpdateDataTablePrimaryValuesResponse,
-    __MetadataBearer {}
+export interface UpdateDataTablePrimaryValuesCommandOutput extends UpdateDataTablePrimaryValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the primary values for a record. This operation affects all existing values that are currently

@@ -24,9 +24,7 @@ export interface DescribeActiveReceiptRuleSetCommandInput extends DescribeActive
  *
  * The output of {@link DescribeActiveReceiptRuleSetCommand}.
  */
-export interface DescribeActiveReceiptRuleSetCommandOutput
-  extends DescribeActiveReceiptRuleSetResponse,
-    __MetadataBearer {}
+export interface DescribeActiveReceiptRuleSetCommandOutput extends DescribeActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the metadata and receipt rules for the receipt rule set that is currently

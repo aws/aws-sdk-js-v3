@@ -1,10 +1,10 @@
 import {
-  ARCZonalShift,
-  ARCZonalShiftClient,
-  ARCZonalShiftServiceException,
   AccessDeniedException,
   AccessDeniedException$,
   AppliedStatus,
+  ARCZonalShift,
+  ARCZonalShiftClient,
+  ARCZonalShiftServiceException,
   AutoshiftAppliedStatus,
   AutoshiftExecutionStatus,
   AutoshiftInResource$,
@@ -53,6 +53,9 @@ import {
   ListZonalShiftsRequest$,
   ListZonalShiftsResponse$,
   ManagedResourceSummary$,
+  paginateListAutoshifts,
+  paginateListManagedResources,
+  paginateListZonalShifts,
   PracticeRunConfiguration$,
   PracticeRunOutcome,
   ResourceNotFoundException,
@@ -90,9 +93,6 @@ import {
   ZonalShiftInResource$,
   ZonalShiftStatus,
   ZonalShiftSummary$,
-  paginateListAutoshifts,
-  paginateListManagedResources,
-  paginateListZonalShifts,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

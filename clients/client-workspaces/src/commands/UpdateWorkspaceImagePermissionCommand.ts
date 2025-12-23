@@ -24,9 +24,7 @@ export interface UpdateWorkspaceImagePermissionCommandInput extends UpdateWorksp
  *
  * The output of {@link UpdateWorkspaceImagePermissionCommand}.
  */
-export interface UpdateWorkspaceImagePermissionCommandOutput
-  extends UpdateWorkspaceImagePermissionResult,
-    __MetadataBearer {}
+export interface UpdateWorkspaceImagePermissionCommandOutput extends UpdateWorkspaceImagePermissionResult, __MetadataBearer {}
 
 /**
  * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by

@@ -27,9 +27,7 @@ export interface ListCisScanResultsAggregatedByChecksCommandInput extends ListCi
  *
  * The output of {@link ListCisScanResultsAggregatedByChecksCommand}.
  */
-export interface ListCisScanResultsAggregatedByChecksCommandOutput
-  extends ListCisScanResultsAggregatedByChecksResponse,
-    __MetadataBearer {}
+export interface ListCisScanResultsAggregatedByChecksCommandOutput extends ListCisScanResultsAggregatedByChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Lists scan results aggregated by checks.</p>

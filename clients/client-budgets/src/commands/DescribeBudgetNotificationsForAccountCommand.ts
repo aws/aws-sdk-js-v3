@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeBudgetNotificationsForAccountCommand}.
  */
-export interface DescribeBudgetNotificationsForAccountCommandInput
-  extends DescribeBudgetNotificationsForAccountRequest {}
+export interface DescribeBudgetNotificationsForAccountCommandInput extends DescribeBudgetNotificationsForAccountRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeBudgetNotificationsForAccountCommand}.
  */
-export interface DescribeBudgetNotificationsForAccountCommandOutput
-  extends DescribeBudgetNotificationsForAccountResponse,
-    __MetadataBearer {}
+export interface DescribeBudgetNotificationsForAccountCommandOutput extends DescribeBudgetNotificationsForAccountResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the budget names and notifications that are associated with an account. </p>

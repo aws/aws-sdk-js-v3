@@ -69,7 +69,6 @@ import {
   Type,
   VectorSearchRerankingConfigurationType,
 } from "./enums";
-
 import {
   AccessDeniedException,
   BadGatewayException,
@@ -326,7 +325,10 @@ export interface S3Identifier {
  * <p> Contains details about the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>. You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the s3 field. </p>
  * @public
  */
-export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
+export type APISchema =
+  | APISchema.PayloadMember
+  | APISchema.S3Member
+  | APISchema.$UnknownMember;
 
 /**
  * @public
@@ -430,7 +432,9 @@ export interface FunctionDefinition {
  * <p> Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema. </p>
  * @public
  */
-export type FunctionSchema = FunctionSchema.FunctionsMember | FunctionSchema.$UnknownMember;
+export type FunctionSchema =
+  | FunctionSchema.FunctionsMember
+  | FunctionSchema.$UnknownMember;
 
 /**
  * @public
@@ -515,7 +519,9 @@ export interface AgentActionGroup {
  * <p>Details about the source of an input image in the result from a function in the action group invocation.</p>
  * @public
  */
-export type ImageInputSource = ImageInputSource.BytesMember | ImageInputSource.$UnknownMember;
+export type ImageInputSource =
+  | ImageInputSource.BytesMember
+  | ImageInputSource.$UnknownMember;
 
 /**
  * @public
@@ -1096,7 +1102,9 @@ export interface AgentCollaboratorInvocationOutput {
  * <p>Details about a caller.</p>
  * @public
  */
-export type Caller = Caller.AgentAliasArnMember | Caller.$UnknownMember;
+export type Caller =
+  | Caller.AgentAliasArnMember
+  | Caller.$UnknownMember;
 
 /**
  * @public
@@ -3086,7 +3094,9 @@ export interface FlowFailureEvent {
  * <p>Contains the content of an flow execution input or output field.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
-export type FlowExecutionContent = FlowExecutionContent.DocumentMember | FlowExecutionContent.$UnknownMember;
+export type FlowExecutionContent =
+  | FlowExecutionContent.DocumentMember
+  | FlowExecutionContent.$UnknownMember;
 
 /**
  * @public
@@ -3255,7 +3265,9 @@ export interface NodeActionEvent {
  * <p>Contains trace elements for node execution tracking.</p>
  * @public
  */
-export type NodeTraceElements = NodeTraceElements.AgentTracesMember | NodeTraceElements.$UnknownMember;
+export type NodeTraceElements =
+  | NodeTraceElements.AgentTracesMember
+  | NodeTraceElements.$UnknownMember;
 
 /**
  * @public
@@ -3346,7 +3358,9 @@ export interface NodeFailureEvent {
  * <p>Contains the content of a flow node's input or output field for a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
-export type NodeExecutionContent = NodeExecutionContent.DocumentMember | NodeExecutionContent.$UnknownMember;
+export type NodeExecutionContent =
+  | NodeExecutionContent.DocumentMember
+  | NodeExecutionContent.$UnknownMember;
 
 /**
  * @public
@@ -3887,7 +3901,9 @@ export interface ListFlowExecutionsResponse {
  * <p>Contains information about an input into the flow.</p>
  * @public
  */
-export type FlowInputContent = FlowInputContent.DocumentMember | FlowInputContent.$UnknownMember;
+export type FlowInputContent =
+  | FlowInputContent.DocumentMember
+  | FlowInputContent.$UnknownMember;
 
 /**
  * @public
@@ -4180,7 +4196,9 @@ export interface FlowMultiTurnInputRequestEvent {
  * <p>Contains information about the content in an output from prompt flow invocation.</p>
  * @public
  */
-export type FlowOutputContent = FlowOutputContent.DocumentMember | FlowOutputContent.$UnknownMember;
+export type FlowOutputContent =
+  | FlowOutputContent.DocumentMember
+  | FlowOutputContent.$UnknownMember;
 
 /**
  * @public
@@ -4325,7 +4343,9 @@ export interface FlowTraceNodeActionEvent {
  * <p>Contains trace elements for flow execution tracking.</p>
  * @public
  */
-export type TraceElements = TraceElements.AgentTracesMember | TraceElements.$UnknownMember;
+export type TraceElements =
+  | TraceElements.AgentTracesMember
+  | TraceElements.$UnknownMember;
 
 /**
  * @public
@@ -5267,7 +5287,9 @@ export interface PromptCreationConfigurations {
  * <p>A content block.</p>
  * @public
  */
-export type ContentBlock = ContentBlock.TextMember | ContentBlock.$UnknownMember;
+export type ContentBlock =
+  | ContentBlock.TextMember
+  | ContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -6303,7 +6325,9 @@ export interface PromptOverrideConfiguration {
  * <p>The structure of the executor invoking the actions in custom orchestration.</p>
  * @public
  */
-export type OrchestrationExecutor = OrchestrationExecutor.LambdaMember | OrchestrationExecutor.$UnknownMember;
+export type OrchestrationExecutor =
+  | OrchestrationExecutor.LambdaMember
+  | OrchestrationExecutor.$UnknownMember;
 
 /**
  * @public
@@ -6951,7 +6975,9 @@ export interface MemorySessionSummary {
  * <p>Contains sessions summaries.</p>
  * @public
  */
-export type Memory = Memory.SessionSummaryMember | Memory.$UnknownMember;
+export type Memory =
+  | Memory.SessionSummaryMember
+  | Memory.$UnknownMember;
 
 /**
  * @public
@@ -7017,7 +7043,9 @@ export interface TextPrompt {
  * <p>Contains information about the prompt to optimize.</p>
  * @public
  */
-export type InputPrompt = InputPrompt.TextPromptMember | InputPrompt.$UnknownMember;
+export type InputPrompt =
+  | InputPrompt.TextPromptMember
+  | InputPrompt.$UnknownMember;
 
 /**
  * @public
@@ -7083,7 +7111,9 @@ export interface AnalyzePromptEvent {
  * <p>Contains information about the optimized prompt.</p>
  * @public
  */
-export type OptimizedPrompt = OptimizedPrompt.TextPromptMember | OptimizedPrompt.$UnknownMember;
+export type OptimizedPrompt =
+  | OptimizedPrompt.TextPromptMember
+  | OptimizedPrompt.$UnknownMember;
 
 /**
  * @public
@@ -8629,7 +8659,10 @@ export interface S3Location {
  * <p>The source for an image.</p>
  * @public
  */
-export type ImageSource = ImageSource.BytesMember | ImageSource.S3LocationMember | ImageSource.$UnknownMember;
+export type ImageSource =
+  | ImageSource.BytesMember
+  | ImageSource.S3LocationMember
+  | ImageSource.$UnknownMember;
 
 /**
  * @public
@@ -8750,7 +8783,9 @@ export namespace BedrockSessionContentBlock {
  * <p>Payload content, such as text and images, for the invocation step.</p>
  * @public
  */
-export type InvocationStepPayload = InvocationStepPayload.ContentBlocksMember | InvocationStepPayload.$UnknownMember;
+export type InvocationStepPayload =
+  | InvocationStepPayload.ContentBlocksMember
+  | InvocationStepPayload.$UnknownMember;
 
 /**
  * @public

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DescribeVpcEndpointConnectionNotificationsCommandInput
-  extends DescribeVpcEndpointConnectionNotificationsRequest {}
+export interface DescribeVpcEndpointConnectionNotificationsCommandInput extends DescribeVpcEndpointConnectionNotificationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
-  extends DescribeVpcEndpointConnectionNotificationsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointConnectionNotificationsCommandOutput extends DescribeVpcEndpointConnectionNotificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the connection notifications for VPC endpoints and VPC endpoint

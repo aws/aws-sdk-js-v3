@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
-export interface ListRepositoriesForApprovalRuleTemplateCommandInput
-  extends ListRepositoriesForApprovalRuleTemplateInput {}
+export interface ListRepositoriesForApprovalRuleTemplateCommandInput extends ListRepositoriesForApprovalRuleTemplateInput {}
 /**
  * @public
  *
  * The output of {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
-export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
-  extends ListRepositoriesForApprovalRuleTemplateOutput,
-    __MetadataBearer {}
+export interface ListRepositoriesForApprovalRuleTemplateCommandOutput extends ListRepositoriesForApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all repositories associated with the specified approval rule template.</p>

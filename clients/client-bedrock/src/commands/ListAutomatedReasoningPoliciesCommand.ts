@@ -24,9 +24,7 @@ export interface ListAutomatedReasoningPoliciesCommandInput extends ListAutomate
  *
  * The output of {@link ListAutomatedReasoningPoliciesCommand}.
  */
-export interface ListAutomatedReasoningPoliciesCommandOutput
-  extends ListAutomatedReasoningPoliciesResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPoliciesCommandOutput extends ListAutomatedReasoningPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Automated Reasoning policies in your account, with optional filtering by policy ARN. This helps you manage and discover existing policies.</p>

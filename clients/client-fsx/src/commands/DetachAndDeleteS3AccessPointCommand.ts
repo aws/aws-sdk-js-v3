@@ -24,9 +24,7 @@ export interface DetachAndDeleteS3AccessPointCommandInput extends DetachAndDelet
  *
  * The output of {@link DetachAndDeleteS3AccessPointCommand}.
  */
-export interface DetachAndDeleteS3AccessPointCommandOutput
-  extends DetachAndDeleteS3AccessPointResponse,
-    __MetadataBearer {}
+export interface DetachAndDeleteS3AccessPointCommandOutput extends DetachAndDeleteS3AccessPointResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.</p>

@@ -28,9 +28,7 @@ export interface ListCoreNetworkPolicyVersionsCommandInput extends ListCoreNetwo
  *
  * The output of {@link ListCoreNetworkPolicyVersionsCommand}.
  */
-export interface ListCoreNetworkPolicyVersionsCommandOutput
-  extends ListCoreNetworkPolicyVersionsResponse,
-    __MetadataBearer {}
+export interface ListCoreNetworkPolicyVersionsCommandOutput extends ListCoreNetworkPolicyVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of core network policy versions.</p>

@@ -9,10 +9,8 @@ AWS SDK for JavaScript SageMakerRuntime Client for Node.js, Browser and React Na
 <p> The Amazon SageMaker AI runtime API. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-runtime
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-runtime`
 - `yarn add @aws-sdk/client-sagemaker-runtime`
 - `pnpm add @aws-sdk/client-sagemaker-runtime`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SageMakerRuntimeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new InvokeEndpointCommand(params);
 ```
 
@@ -209,7 +205,6 @@ InvokeEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-runtime/command/InvokeEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ InvokeEndpointAsync
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-runtime/command/InvokeEndpointAsyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointAsyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointAsyncCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,5 +219,4 @@ InvokeEndpointWithResponseStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-runtime/command/InvokeEndpointWithResponseStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointWithResponseStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-runtime/Interface/InvokeEndpointWithResponseStreamCommandOutput/)
-
 </details>

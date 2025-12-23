@@ -28,9 +28,7 @@ export interface ListSnapshotCopyConfigurationsCommandInput extends ListSnapshot
  *
  * The output of {@link ListSnapshotCopyConfigurationsCommand}.
  */
-export interface ListSnapshotCopyConfigurationsCommandOutput
-  extends ListSnapshotCopyConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListSnapshotCopyConfigurationsCommandOutput extends ListSnapshotCopyConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot copy configurations.</p>

@@ -28,6 +28,7 @@ import {
   OpenTunnelCommand,
   OpenTunnelRequest$,
   OpenTunnelResponse$,
+  paginateListTunnels,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RotateTunnelAccessToken$,
@@ -47,7 +48,6 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
-  paginateListTunnels,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

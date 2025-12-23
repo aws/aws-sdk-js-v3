@@ -24,9 +24,7 @@ export interface CreateDataflowEndpointGroupV2CommandInput extends CreateDataflo
  *
  * The output of {@link CreateDataflowEndpointGroupV2Command}.
  */
-export interface CreateDataflowEndpointGroupV2CommandOutput
-  extends CreateDataflowEndpointGroupV2Response,
-    __MetadataBearer {}
+export interface CreateDataflowEndpointGroupV2CommandOutput extends CreateDataflowEndpointGroupV2Response, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>DataflowEndpointGroupV2</code> containing the specified list of <code>DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>

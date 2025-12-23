@@ -27,9 +27,7 @@ export interface GetIpamPolicyOrganizationTargetsCommandInput extends GetIpamPol
  *
  * The output of {@link GetIpamPolicyOrganizationTargetsCommand}.
  */
-export interface GetIpamPolicyOrganizationTargetsCommandOutput
-  extends GetIpamPolicyOrganizationTargetsResult,
-    __MetadataBearer {}
+export interface GetIpamPolicyOrganizationTargetsCommandOutput extends GetIpamPolicyOrganizationTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Gets the Amazon Web Services Organizations targets for an IPAM policy.</p>

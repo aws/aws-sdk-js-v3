@@ -14,10 +14,8 @@ this data without maintaining multiple log aggregators and reporting tools. Afte
 from your applications.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudtrail-data
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudtrail-data`
 - `yarn add @aws-sdk/client-cloudtrail-data`
 - `pnpm add @aws-sdk/client-cloudtrail-data`
@@ -53,9 +51,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudTrailDataClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new PutAuditEventsCommand(params);
 ```
 
@@ -214,5 +210,4 @@ PutAuditEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudtrail-data/command/PutAuditEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail-data/Interface/PutAuditEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail-data/Interface/PutAuditEventsCommandOutput/)
-
 </details>

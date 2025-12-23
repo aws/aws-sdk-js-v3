@@ -27,9 +27,7 @@ export interface ListDistributionsByOwnedResourceCommandInput extends ListDistri
  *
  * The output of {@link ListDistributionsByOwnedResourceCommand}.
  */
-export interface ListDistributionsByOwnedResourceCommandOutput
-  extends ListDistributionsByOwnedResourceResult,
-    __MetadataBearer {}
+export interface ListDistributionsByOwnedResourceCommandOutput extends ListDistributionsByOwnedResourceResult, __MetadataBearer {}
 
 /**
  * <p>Lists the CloudFront distributions that are associated with the specified resource that you own.</p>

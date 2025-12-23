@@ -27,9 +27,7 @@ export interface DescribeRemediationExecutionStatusCommandInput extends Describe
  *
  * The output of {@link DescribeRemediationExecutionStatusCommand}.
  */
-export interface DescribeRemediationExecutionStatusCommandOutput
-  extends DescribeRemediationExecutionStatusResponse,
-    __MetadataBearer {}
+export interface DescribeRemediationExecutionStatusCommandOutput extends DescribeRemediationExecutionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.

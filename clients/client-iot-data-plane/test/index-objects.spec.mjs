@@ -35,6 +35,7 @@ import {
   ListRetainedMessagesResponse$,
   MethodNotAllowedException,
   MethodNotAllowedException$,
+  paginateListRetainedMessages,
   PayloadFormatIndicator,
   Publish$,
   PublishCommand,
@@ -56,7 +57,6 @@ import {
   UpdateThingShadowCommand,
   UpdateThingShadowRequest$,
   UpdateThingShadowResponse$,
-  paginateListRetainedMessages,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

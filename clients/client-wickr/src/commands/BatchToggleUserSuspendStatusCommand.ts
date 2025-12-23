@@ -24,9 +24,7 @@ export interface BatchToggleUserSuspendStatusCommandInput extends BatchToggleUse
  *
  * The output of {@link BatchToggleUserSuspendStatusCommand}.
  */
-export interface BatchToggleUserSuspendStatusCommandOutput
-  extends BatchToggleUserSuspendStatusResponse,
-    __MetadataBearer {}
+export interface BatchToggleUserSuspendStatusCommandOutput extends BatchToggleUserSuspendStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Suspends or unsuspends multiple users in a Wickr network. Suspended users cannot access the network until they are unsuspended. This operation is useful for temporarily restricting access without deleting user accounts.</p>

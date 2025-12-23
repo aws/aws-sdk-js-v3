@@ -28,9 +28,7 @@ export interface GetNotificationConfigurationCommandInput extends GetNotificatio
  *
  * The output of {@link GetNotificationConfigurationCommand}.
  */
-export interface GetNotificationConfigurationCommandOutput
-  extends GetNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetNotificationConfigurationCommandOutput extends GetNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p> Get a notification configuration for a specified event type.</p>

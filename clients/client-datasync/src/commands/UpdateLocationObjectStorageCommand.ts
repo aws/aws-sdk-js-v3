@@ -24,9 +24,7 @@ export interface UpdateLocationObjectStorageCommandInput extends UpdateLocationO
  *
  * The output of {@link UpdateLocationObjectStorageCommand}.
  */
-export interface UpdateLocationObjectStorageCommandOutput
-  extends UpdateLocationObjectStorageResponse,
-    __MetadataBearer {}
+export interface UpdateLocationObjectStorageCommandOutput extends UpdateLocationObjectStorageResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the following configuration parameters of the object storage transfer location

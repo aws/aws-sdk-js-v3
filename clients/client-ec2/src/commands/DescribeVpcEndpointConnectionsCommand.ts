@@ -24,9 +24,7 @@ export interface DescribeVpcEndpointConnectionsCommandInput extends DescribeVpcE
  *
  * The output of {@link DescribeVpcEndpointConnectionsCommand}.
  */
-export interface DescribeVpcEndpointConnectionsCommandOutput
-  extends DescribeVpcEndpointConnectionsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointConnectionsCommandOutput extends DescribeVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any

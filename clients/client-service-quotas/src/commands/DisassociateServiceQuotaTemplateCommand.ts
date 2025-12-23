@@ -27,9 +27,7 @@ export interface DisassociateServiceQuotaTemplateCommandInput extends Disassocia
  *
  * The output of {@link DisassociateServiceQuotaTemplateCommand}.
  */
-export interface DisassociateServiceQuotaTemplateCommandOutput
-  extends DisassociateServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface DisassociateServiceQuotaTemplateCommandOutput extends DisassociateServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Disables your quota request template. After a template is disabled, the quota increase

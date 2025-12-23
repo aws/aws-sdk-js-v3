@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link ImportCertificateAuthorityCertificateCommand}.
  */
-export interface ImportCertificateAuthorityCertificateCommandInput
-  extends ImportCertificateAuthorityCertificateRequest {}
+export interface ImportCertificateAuthorityCertificateCommandInput extends ImportCertificateAuthorityCertificateRequest {}
 /**
  * @public
  *

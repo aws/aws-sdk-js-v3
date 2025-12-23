@@ -10,25 +10,25 @@ const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommand
     const result: any = await client.send(new ReadJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Job.Status;
-      };
+      }
       if (returnComparator() === "Complete") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Job.Status;
-      };
+      }
       if (returnComparator() === "Canceled") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Job.Status;
-      };
+      }
       if (returnComparator() === "Error") {
         return { state: WaiterState.FAILURE, reason };
       }

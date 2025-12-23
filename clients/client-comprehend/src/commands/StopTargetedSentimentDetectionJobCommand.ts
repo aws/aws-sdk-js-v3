@@ -27,9 +27,7 @@ export interface StopTargetedSentimentDetectionJobCommandInput extends StopTarge
  *
  * The output of {@link StopTargetedSentimentDetectionJobCommand}.
  */
-export interface StopTargetedSentimentDetectionJobCommandOutput
-  extends StopTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface StopTargetedSentimentDetectionJobCommandOutput extends StopTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a targeted sentiment detection job in progress.</p>

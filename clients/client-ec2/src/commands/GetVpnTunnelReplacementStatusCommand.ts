@@ -24,9 +24,7 @@ export interface GetVpnTunnelReplacementStatusCommandInput extends GetVpnTunnelR
  *
  * The output of {@link GetVpnTunnelReplacementStatusCommand}.
  */
-export interface GetVpnTunnelReplacementStatusCommandOutput
-  extends GetVpnTunnelReplacementStatusResult,
-    __MetadataBearer {}
+export interface GetVpnTunnelReplacementStatusCommandOutput extends GetVpnTunnelReplacementStatusResult, __MetadataBearer {}
 
 /**
  * <p>Get details of available tunnel endpoint maintenance.</p>

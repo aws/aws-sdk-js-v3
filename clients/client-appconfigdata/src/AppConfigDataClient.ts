@@ -85,12 +85,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetLatestConfigurationCommandInput | StartConfigurationSessionCommandInput;
+export type ServiceInputTypes =
+  | GetLatestConfigurationCommandInput
+  | StartConfigurationSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetLatestConfigurationCommandOutput | StartConfigurationSessionCommandOutput;
+export type ServiceOutputTypes =
+  | GetLatestConfigurationCommandOutput
+  | StartConfigurationSessionCommandOutput;
 
 /**
  * @public

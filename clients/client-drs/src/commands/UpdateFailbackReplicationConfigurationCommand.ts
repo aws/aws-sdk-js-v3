@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateFailbackReplicationConfigurationCommand}.
  */
-export interface UpdateFailbackReplicationConfigurationCommandInput
-  extends UpdateFailbackReplicationConfigurationRequest {}
+export interface UpdateFailbackReplicationConfigurationCommandInput extends UpdateFailbackReplicationConfigurationRequest {}
 /**
  * @public
  *

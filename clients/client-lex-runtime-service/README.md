@@ -20,10 +20,8 @@ Amazon Lex bot. For a list of build-time operations, see the build-time
 API, . </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-lex-runtime-service
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-lex-runtime-service`
 - `yarn add @aws-sdk/client-lex-runtime-service`
 - `pnpm add @aws-sdk/client-lex-runtime-service`
@@ -59,9 +57,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new LexRuntimeServiceClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetSessionCommand(params);
 ```
 
@@ -220,7 +216,6 @@ DeleteSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/DeleteSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/DeleteSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/DeleteSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +223,6 @@ GetSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/GetSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +230,6 @@ PostContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PostContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostContentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +237,6 @@ PostText
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PostTextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostTextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostTextCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,5 +244,4 @@ PutSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PutSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PutSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PutSessionCommandOutput/)
-
 </details>

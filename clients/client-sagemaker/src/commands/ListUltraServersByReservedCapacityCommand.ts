@@ -27,9 +27,7 @@ export interface ListUltraServersByReservedCapacityCommandInput extends ListUltr
  *
  * The output of {@link ListUltraServersByReservedCapacityCommand}.
  */
-export interface ListUltraServersByReservedCapacityCommandOutput
-  extends ListUltraServersByReservedCapacityResponse,
-    __MetadataBearer {}
+export interface ListUltraServersByReservedCapacityCommandOutput extends ListUltraServersByReservedCapacityResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all UltraServers that are part of a specified reserved capacity.</p>

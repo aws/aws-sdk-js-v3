@@ -24,9 +24,7 @@ export interface DescribeInboundDmarcSettingsCommandInput extends DescribeInboun
  *
  * The output of {@link DescribeInboundDmarcSettingsCommand}.
  */
-export interface DescribeInboundDmarcSettingsCommandOutput
-  extends DescribeInboundDmarcSettingsResponse,
-    __MetadataBearer {}
+export interface DescribeInboundDmarcSettingsCommandOutput extends DescribeInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the settings in a DMARC policy for a specified organization.</p>

@@ -133,7 +133,10 @@ export interface ManagedBlockchain {
     args: CreateAccessorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAccessorCommandOutput>;
-  createAccessor(args: CreateAccessorCommandInput, cb: (err: any, data?: CreateAccessorCommandOutput) => void): void;
+  createAccessor(
+    args: CreateAccessorCommandInput,
+    cb: (err: any, data?: CreateAccessorCommandOutput) => void
+  ): void;
   createAccessor(
     args: CreateAccessorCommandInput,
     options: __HttpHandlerOptions,
@@ -143,8 +146,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link CreateMemberCommand}
    */
-  createMember(args: CreateMemberCommandInput, options?: __HttpHandlerOptions): Promise<CreateMemberCommandOutput>;
-  createMember(args: CreateMemberCommandInput, cb: (err: any, data?: CreateMemberCommandOutput) => void): void;
+  createMember(
+    args: CreateMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMemberCommandOutput>;
+  createMember(
+    args: CreateMemberCommandInput,
+    cb: (err: any, data?: CreateMemberCommandOutput) => void
+  ): void;
   createMember(
     args: CreateMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -154,8 +163,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link CreateNetworkCommand}
    */
-  createNetwork(args: CreateNetworkCommandInput, options?: __HttpHandlerOptions): Promise<CreateNetworkCommandOutput>;
-  createNetwork(args: CreateNetworkCommandInput, cb: (err: any, data?: CreateNetworkCommandOutput) => void): void;
+  createNetwork(
+    args: CreateNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkCommandOutput>;
+  createNetwork(
+    args: CreateNetworkCommandInput,
+    cb: (err: any, data?: CreateNetworkCommandOutput) => void
+  ): void;
   createNetwork(
     args: CreateNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -165,8 +180,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link CreateNodeCommand}
    */
-  createNode(args: CreateNodeCommandInput, options?: __HttpHandlerOptions): Promise<CreateNodeCommandOutput>;
-  createNode(args: CreateNodeCommandInput, cb: (err: any, data?: CreateNodeCommandOutput) => void): void;
+  createNode(
+    args: CreateNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNodeCommandOutput>;
+  createNode(
+    args: CreateNodeCommandInput,
+    cb: (err: any, data?: CreateNodeCommandOutput) => void
+  ): void;
   createNode(
     args: CreateNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -180,7 +201,10 @@ export interface ManagedBlockchain {
     args: CreateProposalCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateProposalCommandOutput>;
-  createProposal(args: CreateProposalCommandInput, cb: (err: any, data?: CreateProposalCommandOutput) => void): void;
+  createProposal(
+    args: CreateProposalCommandInput,
+    cb: (err: any, data?: CreateProposalCommandOutput) => void
+  ): void;
   createProposal(
     args: CreateProposalCommandInput,
     options: __HttpHandlerOptions,
@@ -194,7 +218,10 @@ export interface ManagedBlockchain {
     args: DeleteAccessorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAccessorCommandOutput>;
-  deleteAccessor(args: DeleteAccessorCommandInput, cb: (err: any, data?: DeleteAccessorCommandOutput) => void): void;
+  deleteAccessor(
+    args: DeleteAccessorCommandInput,
+    cb: (err: any, data?: DeleteAccessorCommandOutput) => void
+  ): void;
   deleteAccessor(
     args: DeleteAccessorCommandInput,
     options: __HttpHandlerOptions,
@@ -204,8 +231,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link DeleteMemberCommand}
    */
-  deleteMember(args: DeleteMemberCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMemberCommandOutput>;
-  deleteMember(args: DeleteMemberCommandInput, cb: (err: any, data?: DeleteMemberCommandOutput) => void): void;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMemberCommandOutput>;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    cb: (err: any, data?: DeleteMemberCommandOutput) => void
+  ): void;
   deleteMember(
     args: DeleteMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -215,8 +248,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link DeleteNodeCommand}
    */
-  deleteNode(args: DeleteNodeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNodeCommandOutput>;
-  deleteNode(args: DeleteNodeCommandInput, cb: (err: any, data?: DeleteNodeCommandOutput) => void): void;
+  deleteNode(
+    args: DeleteNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNodeCommandOutput>;
+  deleteNode(
+    args: DeleteNodeCommandInput,
+    cb: (err: any, data?: DeleteNodeCommandOutput) => void
+  ): void;
   deleteNode(
     args: DeleteNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -226,8 +265,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link GetAccessorCommand}
    */
-  getAccessor(args: GetAccessorCommandInput, options?: __HttpHandlerOptions): Promise<GetAccessorCommandOutput>;
-  getAccessor(args: GetAccessorCommandInput, cb: (err: any, data?: GetAccessorCommandOutput) => void): void;
+  getAccessor(
+    args: GetAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessorCommandOutput>;
+  getAccessor(
+    args: GetAccessorCommandInput,
+    cb: (err: any, data?: GetAccessorCommandOutput) => void
+  ): void;
   getAccessor(
     args: GetAccessorCommandInput,
     options: __HttpHandlerOptions,
@@ -237,8 +282,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link GetMemberCommand}
    */
-  getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
-  getMember(args: GetMemberCommandInput, cb: (err: any, data?: GetMemberCommandOutput) => void): void;
+  getMember(
+    args: GetMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemberCommandOutput>;
+  getMember(
+    args: GetMemberCommandInput,
+    cb: (err: any, data?: GetMemberCommandOutput) => void
+  ): void;
   getMember(
     args: GetMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -248,8 +299,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link GetNetworkCommand}
    */
-  getNetwork(args: GetNetworkCommandInput, options?: __HttpHandlerOptions): Promise<GetNetworkCommandOutput>;
-  getNetwork(args: GetNetworkCommandInput, cb: (err: any, data?: GetNetworkCommandOutput) => void): void;
+  getNetwork(
+    args: GetNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkCommandOutput>;
+  getNetwork(
+    args: GetNetworkCommandInput,
+    cb: (err: any, data?: GetNetworkCommandOutput) => void
+  ): void;
   getNetwork(
     args: GetNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -259,8 +316,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link GetNodeCommand}
    */
-  getNode(args: GetNodeCommandInput, options?: __HttpHandlerOptions): Promise<GetNodeCommandOutput>;
-  getNode(args: GetNodeCommandInput, cb: (err: any, data?: GetNodeCommandOutput) => void): void;
+  getNode(
+    args: GetNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNodeCommandOutput>;
+  getNode(
+    args: GetNodeCommandInput,
+    cb: (err: any, data?: GetNodeCommandOutput) => void
+  ): void;
   getNode(
     args: GetNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -270,8 +333,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link GetProposalCommand}
    */
-  getProposal(args: GetProposalCommandInput, options?: __HttpHandlerOptions): Promise<GetProposalCommandOutput>;
-  getProposal(args: GetProposalCommandInput, cb: (err: any, data?: GetProposalCommandOutput) => void): void;
+  getProposal(
+    args: GetProposalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProposalCommandOutput>;
+  getProposal(
+    args: GetProposalCommandInput,
+    cb: (err: any, data?: GetProposalCommandOutput) => void
+  ): void;
   getProposal(
     args: GetProposalCommandInput,
     options: __HttpHandlerOptions,
@@ -282,8 +351,14 @@ export interface ManagedBlockchain {
    * @see {@link ListAccessorsCommand}
    */
   listAccessors(): Promise<ListAccessorsCommandOutput>;
-  listAccessors(args: ListAccessorsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccessorsCommandOutput>;
-  listAccessors(args: ListAccessorsCommandInput, cb: (err: any, data?: ListAccessorsCommandOutput) => void): void;
+  listAccessors(
+    args: ListAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessorsCommandOutput>;
+  listAccessors(
+    args: ListAccessorsCommandInput,
+    cb: (err: any, data?: ListAccessorsCommandOutput) => void
+  ): void;
   listAccessors(
     args: ListAccessorsCommandInput,
     options: __HttpHandlerOptions,
@@ -298,7 +373,10 @@ export interface ManagedBlockchain {
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
-  listInvitations(args: ListInvitationsCommandInput, cb: (err: any, data?: ListInvitationsCommandOutput) => void): void;
+  listInvitations(
+    args: ListInvitationsCommandInput,
+    cb: (err: any, data?: ListInvitationsCommandOutput) => void
+  ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
     options: __HttpHandlerOptions,
@@ -308,8 +386,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListMembersCommand}
    */
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -320,8 +404,14 @@ export interface ManagedBlockchain {
    * @see {@link ListNetworksCommand}
    */
   listNetworks(): Promise<ListNetworksCommandOutput>;
-  listNetworks(args: ListNetworksCommandInput, options?: __HttpHandlerOptions): Promise<ListNetworksCommandOutput>;
-  listNetworks(args: ListNetworksCommandInput, cb: (err: any, data?: ListNetworksCommandOutput) => void): void;
+  listNetworks(
+    args: ListNetworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworksCommandOutput>;
+  listNetworks(
+    args: ListNetworksCommandInput,
+    cb: (err: any, data?: ListNetworksCommandOutput) => void
+  ): void;
   listNetworks(
     args: ListNetworksCommandInput,
     options: __HttpHandlerOptions,
@@ -331,8 +421,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListNodesCommand}
    */
-  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
-  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesCommandOutput>;
+  listNodes(
+    args: ListNodesCommandInput,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
   listNodes(
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
@@ -342,8 +438,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListProposalsCommand}
    */
-  listProposals(args: ListProposalsCommandInput, options?: __HttpHandlerOptions): Promise<ListProposalsCommandOutput>;
-  listProposals(args: ListProposalsCommandInput, cb: (err: any, data?: ListProposalsCommandOutput) => void): void;
+  listProposals(
+    args: ListProposalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProposalsCommandOutput>;
+  listProposals(
+    args: ListProposalsCommandInput,
+    cb: (err: any, data?: ListProposalsCommandOutput) => void
+  ): void;
   listProposals(
     args: ListProposalsCommandInput,
     options: __HttpHandlerOptions,
@@ -404,8 +506,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -415,8 +523,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -426,8 +540,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link UpdateMemberCommand}
    */
-  updateMember(args: UpdateMemberCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMemberCommandOutput>;
-  updateMember(args: UpdateMemberCommandInput, cb: (err: any, data?: UpdateMemberCommandOutput) => void): void;
+  updateMember(
+    args: UpdateMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMemberCommandOutput>;
+  updateMember(
+    args: UpdateMemberCommandInput,
+    cb: (err: any, data?: UpdateMemberCommandOutput) => void
+  ): void;
   updateMember(
     args: UpdateMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -437,8 +557,14 @@ export interface ManagedBlockchain {
   /**
    * @see {@link UpdateNodeCommand}
    */
-  updateNode(args: UpdateNodeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNodeCommandOutput>;
-  updateNode(args: UpdateNodeCommandInput, cb: (err: any, data?: UpdateNodeCommandOutput) => void): void;
+  updateNode(
+    args: UpdateNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNodeCommandOutput>;
+  updateNode(
+    args: UpdateNodeCommandInput,
+    cb: (err: any, data?: UpdateNodeCommandOutput) => void
+  ): void;
   updateNode(
     args: UpdateNodeCommandInput,
     options: __HttpHandlerOptions,
@@ -452,7 +578,10 @@ export interface ManagedBlockchain {
     args: VoteOnProposalCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<VoteOnProposalCommandOutput>;
-  voteOnProposal(args: VoteOnProposalCommandInput, cb: (err: any, data?: VoteOnProposalCommandOutput) => void): void;
+  voteOnProposal(
+    args: VoteOnProposalCommandInput,
+    cb: (err: any, data?: VoteOnProposalCommandOutput) => void
+  ): void;
   voteOnProposal(
     args: VoteOnProposalCommandInput,
     options: __HttpHandlerOptions,

@@ -24,9 +24,7 @@ export interface ListWirelessDeviceImportTasksCommandInput extends ListWirelessD
  *
  * The output of {@link ListWirelessDeviceImportTasksCommand}.
  */
-export interface ListWirelessDeviceImportTasksCommandOutput
-  extends ListWirelessDeviceImportTasksResponse,
-    __MetadataBearer {}
+export interface ListWirelessDeviceImportTasksCommandOutput extends ListWirelessDeviceImportTasksResponse, __MetadataBearer {}
 
 /**
  * <p>List of import tasks and summary information of onboarding status of devices in each

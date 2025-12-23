@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayPolicyTablesCommandInput extends Describe
  *
  * The output of {@link DescribeTransitGatewayPolicyTablesCommand}.
  */
-export interface DescribeTransitGatewayPolicyTablesCommandOutput
-  extends DescribeTransitGatewayPolicyTablesResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayPolicyTablesCommandOutput extends DescribeTransitGatewayPolicyTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway route policy tables.  </p>

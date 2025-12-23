@@ -24,9 +24,7 @@ export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboun
  *
  * The output of {@link DescribeOutboundConnectionsCommand}.
  */
-export interface DescribeOutboundConnectionsCommandOutput
-  extends DescribeOutboundConnectionsResponse,
-    __MetadataBearer {}
+export interface DescribeOutboundConnectionsCommandOutput extends DescribeOutboundConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon

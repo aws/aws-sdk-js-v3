@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetNotificationsAccessForOrganizationCommand}.
  */
-export interface GetNotificationsAccessForOrganizationCommandInput
-  extends GetNotificationsAccessForOrganizationRequest {}
+export interface GetNotificationsAccessForOrganizationCommandInput extends GetNotificationsAccessForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link GetNotificationsAccessForOrganizationCommand}.
  */
-export interface GetNotificationsAccessForOrganizationCommandOutput
-  extends GetNotificationsAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface GetNotificationsAccessForOrganizationCommandOutput extends GetNotificationsAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>

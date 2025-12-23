@@ -28,16 +28,13 @@ export { $Command };
  *
  * The input for {@link StartCallAnalyticsStreamTranscriptionCommand}.
  */
-export interface StartCallAnalyticsStreamTranscriptionCommandInput
-  extends StartCallAnalyticsStreamTranscriptionRequest {}
+export interface StartCallAnalyticsStreamTranscriptionCommandInput extends StartCallAnalyticsStreamTranscriptionRequest {}
 /**
  * @public
  *
  * The output of {@link StartCallAnalyticsStreamTranscriptionCommand}.
  */
-export interface StartCallAnalyticsStreamTranscriptionCommandOutput
-  extends StartCallAnalyticsStreamTranscriptionResponse,
-    __MetadataBearer {}
+export interface StartCallAnalyticsStreamTranscriptionCommandOutput extends StartCallAnalyticsStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
@@ -258,7 +255,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amzn-transcribe-",
+        headerPrefix: 'x-amzn-transcribe-',
       }),
       getTranscribeStreamingPlugin(config),
     ];

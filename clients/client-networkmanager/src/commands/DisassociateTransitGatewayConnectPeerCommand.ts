@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
-export interface DisassociateTransitGatewayConnectPeerCommandInput
-  extends DisassociateTransitGatewayConnectPeerRequest {}
+export interface DisassociateTransitGatewayConnectPeerCommandInput extends DisassociateTransitGatewayConnectPeerRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayConnectPeerCommand}.
  */
-export interface DisassociateTransitGatewayConnectPeerCommandOutput
-  extends DisassociateTransitGatewayConnectPeerResponse,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayConnectPeerCommandOutput extends DisassociateTransitGatewayConnectPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>

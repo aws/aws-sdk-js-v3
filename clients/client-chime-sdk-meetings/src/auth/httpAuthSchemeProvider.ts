@@ -46,11 +46,9 @@ export const defaultChimeSDKMeetingsHttpAuthSchemeParametersProvider = async (
 ): Promise<ChimeSDKMeetingsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface ChimeSDKMeetingsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultChimeSDKMeetingsHttpAuthSchemeProvider: ChimeSDKMeetingsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultChimeSDKMeetingsHttpAuthSchemeProvider: ChimeSDKMeetingsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

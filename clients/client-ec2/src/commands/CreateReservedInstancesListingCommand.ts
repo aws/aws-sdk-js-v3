@@ -24,9 +24,7 @@ export interface CreateReservedInstancesListingCommandInput extends CreateReserv
  *
  * The output of {@link CreateReservedInstancesListingCommand}.
  */
-export interface CreateReservedInstancesListingCommandOutput
-  extends CreateReservedInstancesListingResult,
-    __MetadataBearer {}
+export interface CreateReservedInstancesListingCommandOutput extends CreateReservedInstancesListingResult, __MetadataBearer {}
 
 /**
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved

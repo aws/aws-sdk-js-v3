@@ -27,9 +27,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandInput extends GenerateEm
  *
  * The output of {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
-export interface GenerateEmbedUrlForAnonymousUserCommandOutput
-  extends GenerateEmbedUrlForAnonymousUserResponse,
-    __MetadataBearer {}
+export interface GenerateEmbedUrlForAnonymousUserCommandOutput extends GenerateEmbedUrlForAnonymousUserResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard or

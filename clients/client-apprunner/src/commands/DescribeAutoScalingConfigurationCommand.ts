@@ -27,9 +27,7 @@ export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAu
  *
  * The output of {@link DescribeAutoScalingConfigurationCommand}.
  */
-export interface DescribeAutoScalingConfigurationCommandOutput
-  extends DescribeAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAutoScalingConfigurationCommandOutput extends DescribeAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>

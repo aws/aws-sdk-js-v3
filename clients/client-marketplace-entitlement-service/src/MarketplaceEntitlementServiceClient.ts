@@ -78,12 +78,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetEntitlementsCommandInput;
+export type ServiceInputTypes =
+  | GetEntitlementsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetEntitlementsCommandOutput;
+export type ServiceOutputTypes =
+  | GetEntitlementsCommandOutput;
 
 /**
  * @public
@@ -258,24 +260,22 @@ export interface MarketplaceEntitlementServiceClientConfig extends MarketplaceEn
 /**
  * @public
  */
-export type MarketplaceEntitlementServiceClientResolvedConfigType =
-  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-    Required<ClientDefaults> &
-    RuntimeExtensionsConfig &
-    UserAgentResolvedConfig &
-    RetryResolvedConfig &
-    RegionResolvedConfig &
-    HostHeaderResolvedConfig &
-    EndpointResolvedConfig<EndpointParameters> &
-    HttpAuthSchemeResolvedConfig &
-    ClientResolvedEndpointParameters;
+export type MarketplaceEntitlementServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+  Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
  *  The resolved configuration interface of MarketplaceEntitlementServiceClient class. This is resolved and normalized from the {@link MarketplaceEntitlementServiceClientConfig | constructor configuration interface}.
  */
-export interface MarketplaceEntitlementServiceClientResolvedConfig
-  extends MarketplaceEntitlementServiceClientResolvedConfigType {}
+export interface MarketplaceEntitlementServiceClientResolvedConfig extends MarketplaceEntitlementServiceClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Marketplace Entitlement Service</fullname>

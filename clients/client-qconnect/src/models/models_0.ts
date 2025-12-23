@@ -144,7 +144,10 @@ export interface TagCondition {
  * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
  * @public
  */
-export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagConditionMember | OrCondition.$UnknownMember;
+export type OrCondition =
+  | OrCondition.AndConditionsMember
+  | OrCondition.TagConditionMember
+  | OrCondition.$UnknownMember;
 
 /**
  * @public
@@ -4644,7 +4647,9 @@ export interface QueryConditionItem {
  * <p>Information about how to query content.</p>
  * @public
  */
-export type QueryCondition = QueryCondition.SingleMember | QueryCondition.$UnknownMember;
+export type QueryCondition =
+  | QueryCondition.SingleMember
+  | QueryCondition.$UnknownMember;
 
 /**
  * @public
@@ -4885,7 +4890,9 @@ export interface FilterAttribute {
  * <p>A knowledge source that provides content for recommendations.</p>
  * @public
  */
-export type KnowledgeSource = KnowledgeSource.AssistantAssociationIdsMember | KnowledgeSource.$UnknownMember;
+export type KnowledgeSource =
+  | KnowledgeSource.AssistantAssociationIdsMember
+  | KnowledgeSource.$UnknownMember;
 
 /**
  * @public
@@ -5423,7 +5430,10 @@ export interface ToolUseResultData {
  * <p>The message data.</p>
  * @public
  */
-export type MessageData = MessageData.TextMember | MessageData.ToolUseResultMember | MessageData.$UnknownMember;
+export type MessageData =
+  | MessageData.TextMember
+  | MessageData.ToolUseResultMember
+  | MessageData.$UnknownMember;
 
 /**
  * @public
@@ -6197,7 +6207,9 @@ export interface ConnectConfiguration {
  * <p>The configuration information of the external data source.</p>
  * @public
  */
-export type Configuration = Configuration.ConnectConfigurationMember | Configuration.$UnknownMember;
+export type Configuration =
+  | Configuration.ConnectConfigurationMember
+  | Configuration.$UnknownMember;
 
 /**
  * @public

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfiguredAudienceModelAssociationCommand}.
  */
-export interface CreateConfiguredAudienceModelAssociationCommandInput
-  extends CreateConfiguredAudienceModelAssociationInput {}
+export interface CreateConfiguredAudienceModelAssociationCommandInput extends CreateConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link CreateConfiguredAudienceModelAssociationCommand}.
  */
-export interface CreateConfiguredAudienceModelAssociationCommandOutput
-  extends CreateConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface CreateConfiguredAudienceModelAssociationCommandOutput extends CreateConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details necessary to create a configured audience model association.</p>

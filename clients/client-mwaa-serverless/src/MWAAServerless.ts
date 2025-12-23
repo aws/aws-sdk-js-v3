@@ -97,7 +97,10 @@ export interface MWAAServerless {
     args: CreateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkflowCommandOutput>;
-  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -111,7 +114,10 @@ export interface MWAAServerless {
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -125,7 +131,10 @@ export interface MWAAServerless {
     args: GetTaskInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTaskInstanceCommandOutput>;
-  getTaskInstance(args: GetTaskInstanceCommandInput, cb: (err: any, data?: GetTaskInstanceCommandOutput) => void): void;
+  getTaskInstance(
+    args: GetTaskInstanceCommandInput,
+    cb: (err: any, data?: GetTaskInstanceCommandOutput) => void
+  ): void;
   getTaskInstance(
     args: GetTaskInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -135,8 +144,14 @@ export interface MWAAServerless {
   /**
    * @see {@link GetWorkflowCommand}
    */
-  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -150,7 +165,10 @@ export interface MWAAServerless {
     args: GetWorkflowRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetWorkflowRunCommandOutput>;
-  getWorkflowRun(args: GetWorkflowRunCommandInput, cb: (err: any, data?: GetWorkflowRunCommandOutput) => void): void;
+  getWorkflowRun(
+    args: GetWorkflowRunCommandInput,
+    cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
+  ): void;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
@@ -212,8 +230,14 @@ export interface MWAAServerless {
    * @see {@link ListWorkflowsCommand}
    */
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -261,7 +285,10 @@ export interface MWAAServerless {
     args: StopWorkflowRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopWorkflowRunCommandOutput>;
-  stopWorkflowRun(args: StopWorkflowRunCommandInput, cb: (err: any, data?: StopWorkflowRunCommandOutput) => void): void;
+  stopWorkflowRun(
+    args: StopWorkflowRunCommandInput,
+    cb: (err: any, data?: StopWorkflowRunCommandOutput) => void
+  ): void;
   stopWorkflowRun(
     args: StopWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
@@ -271,8 +298,14 @@ export interface MWAAServerless {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -282,8 +315,14 @@ export interface MWAAServerless {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -297,7 +336,10 @@ export interface MWAAServerless {
     args: UpdateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkflowCommandOutput>;
-  updateWorkflow(args: UpdateWorkflowCommandInput, cb: (err: any, data?: UpdateWorkflowCommandOutput) => void): void;
+  updateWorkflow(
+    args: UpdateWorkflowCommandInput,
+    cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
+  ): void;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
     options: __HttpHandlerOptions,

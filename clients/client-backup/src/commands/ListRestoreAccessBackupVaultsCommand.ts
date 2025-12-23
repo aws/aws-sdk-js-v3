@@ -24,9 +24,7 @@ export interface ListRestoreAccessBackupVaultsCommandInput extends ListRestoreAc
  *
  * The output of {@link ListRestoreAccessBackupVaultsCommand}.
  */
-export interface ListRestoreAccessBackupVaultsCommandOutput
-  extends ListRestoreAccessBackupVaultsOutput,
-    __MetadataBearer {}
+export interface ListRestoreAccessBackupVaultsCommandOutput extends ListRestoreAccessBackupVaultsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of restore access backup vaults associated with a specified backup vault.</p>

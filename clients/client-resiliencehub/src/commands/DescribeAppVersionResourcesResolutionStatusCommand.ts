@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
-export interface DescribeAppVersionResourcesResolutionStatusCommandInput
-  extends DescribeAppVersionResourcesResolutionStatusRequest {}
+export interface DescribeAppVersionResourcesResolutionStatusCommandInput extends DescribeAppVersionResourcesResolutionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAppVersionResourcesResolutionStatusCommand}.
  */
-export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
-  extends DescribeAppVersionResourcesResolutionStatusResponse,
-    __MetadataBearer {}
+export interface DescribeAppVersionResourcesResolutionStatusCommandOutput extends DescribeAppVersionResourcesResolutionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the resolution status for the specified resolution identifier for an application

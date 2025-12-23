@@ -27,9 +27,7 @@ export interface ModifyInstanceCreditSpecificationCommandInput extends ModifyIns
  *
  * The output of {@link ModifyInstanceCreditSpecificationCommand}.
  */
-export interface ModifyInstanceCreditSpecificationCommandOutput
-  extends ModifyInstanceCreditSpecificationResult,
-    __MetadataBearer {}
+export interface ModifyInstanceCreditSpecificationCommandOutput extends ModifyInstanceCreditSpecificationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance

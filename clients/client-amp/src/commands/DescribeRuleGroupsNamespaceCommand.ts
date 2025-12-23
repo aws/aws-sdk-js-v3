@@ -24,9 +24,7 @@ export interface DescribeRuleGroupsNamespaceCommandInput extends DescribeRuleGro
  *
  * The output of {@link DescribeRuleGroupsNamespaceCommand}.
  */
-export interface DescribeRuleGroupsNamespaceCommandOutput
-  extends DescribeRuleGroupsNamespaceResponse,
-    __MetadataBearer {}
+export interface DescribeRuleGroupsNamespaceCommandOutput extends DescribeRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns complete information about one rule groups namespace. To retrieve a list of rule groups namespaces, use <code>ListRuleGroupsNamespaces</code>.</p>

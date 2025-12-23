@@ -7,7 +7,6 @@
 AWS SDK for JavaScript PI Client for Node.js, Browser and React Native.
 
 <fullname>Amazon RDS Performance Insights</fullname>
-
 <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide
 provides detailed information about Performance Insights data types, parameters and errors.</p>
 <p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance. Amazon CloudWatch provides the
@@ -34,10 +33,8 @@ dimensions, measured at that time point. Examples include SQL, Wait event, User,
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pi
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pi`
 - `yarn add @aws-sdk/client-pi`
 - `pnpm add @aws-sdk/client-pi`
@@ -73,9 +70,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PIClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTagsForResourceCommand(params);
 ```
 
@@ -234,7 +229,6 @@ CreatePerformanceAnalysisReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/CreatePerformanceAnalysisReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/CreatePerformanceAnalysisReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/CreatePerformanceAnalysisReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +236,6 @@ DeletePerformanceAnalysisReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/DeletePerformanceAnalysisReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/DeletePerformanceAnalysisReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/DeletePerformanceAnalysisReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +243,6 @@ DescribeDimensionKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/DescribeDimensionKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/DescribeDimensionKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/DescribeDimensionKeysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +250,6 @@ GetDimensionKeyDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/GetDimensionKeyDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetDimensionKeyDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetDimensionKeyDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +257,6 @@ GetPerformanceAnalysisReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/GetPerformanceAnalysisReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetPerformanceAnalysisReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetPerformanceAnalysisReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +264,6 @@ GetResourceMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/GetResourceMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetResourceMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetResourceMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +271,6 @@ GetResourceMetrics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/GetResourceMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetResourceMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/GetResourceMetricsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +278,6 @@ ListAvailableResourceDimensions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/ListAvailableResourceDimensionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListAvailableResourceDimensionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListAvailableResourceDimensionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +285,6 @@ ListAvailableResourceMetrics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/ListAvailableResourceMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListAvailableResourceMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListAvailableResourceMetricsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +292,6 @@ ListPerformanceAnalysisReports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/ListPerformanceAnalysisReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListPerformanceAnalysisReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListPerformanceAnalysisReportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +299,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +306,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,5 +313,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/UntagResourceCommandOutput/)
-
 </details>

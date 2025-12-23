@@ -27,9 +27,7 @@ export interface CreateServiceSpecificCredentialCommandInput extends CreateServi
  *
  * The output of {@link CreateServiceSpecificCredentialCommand}.
  */
-export interface CreateServiceSpecificCredentialCommandOutput
-  extends CreateServiceSpecificCredentialResponse,
-    __MetadataBearer {}
+export interface CreateServiceSpecificCredentialCommandOutput extends CreateServiceSpecificCredentialResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a set of credentials consisting of a user name and password that can be used

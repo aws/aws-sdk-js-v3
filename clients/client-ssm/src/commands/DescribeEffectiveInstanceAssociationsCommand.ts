@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
-export interface DescribeEffectiveInstanceAssociationsCommandInput
-  extends DescribeEffectiveInstanceAssociationsRequest {}
+export interface DescribeEffectiveInstanceAssociationsCommandInput extends DescribeEffectiveInstanceAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
-export interface DescribeEffectiveInstanceAssociationsCommandOutput
-  extends DescribeEffectiveInstanceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeEffectiveInstanceAssociationsCommandOutput extends DescribeEffectiveInstanceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>All associations for the managed nodes.</p>

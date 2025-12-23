@@ -27,9 +27,7 @@ export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCat
  *
  * The output of {@link PutDataCatalogEncryptionSettingsCommand}.
  */
-export interface PutDataCatalogEncryptionSettingsCommandOutput
-  extends PutDataCatalogEncryptionSettingsResponse,
-    __MetadataBearer {}
+export interface PutDataCatalogEncryptionSettingsCommandOutput extends PutDataCatalogEncryptionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the security configuration for a specified catalog. After the configuration has been

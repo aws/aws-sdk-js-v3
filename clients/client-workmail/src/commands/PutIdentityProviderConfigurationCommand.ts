@@ -27,9 +27,7 @@ export interface PutIdentityProviderConfigurationCommandInput extends PutIdentit
  *
  * The output of {@link PutIdentityProviderConfigurationCommand}.
  */
-export interface PutIdentityProviderConfigurationCommandOutput
-  extends PutIdentityProviderConfigurationResponse,
-    __MetadataBearer {}
+export interface PutIdentityProviderConfigurationCommandOutput extends PutIdentityProviderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>

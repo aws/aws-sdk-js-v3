@@ -28,9 +28,7 @@ export interface DescribeMetadataModelChildrenCommandInput extends DescribeMetad
  *
  * The output of {@link DescribeMetadataModelChildrenCommand}.
  */
-export interface DescribeMetadataModelChildrenCommandOutput
-  extends DescribeMetadataModelChildrenResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelChildrenCommandOutput extends DescribeMetadataModelChildrenResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of child metadata models for the specified metadata model in the database hierarchy.</p>

@@ -24,9 +24,7 @@ export interface CreateAnnotationStoreVersionCommandInput extends CreateAnnotati
  *
  * The output of {@link CreateAnnotationStoreVersionCommand}.
  */
-export interface CreateAnnotationStoreVersionCommandOutput
-  extends CreateAnnotationStoreVersionResponse,
-    __MetadataBearer {}
+export interface CreateAnnotationStoreVersionCommandOutput extends CreateAnnotationStoreVersionResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a new version of an annotation store. </p>

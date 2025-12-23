@@ -28,9 +28,7 @@ export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRec
  *
  * The output of {@link GetEBSVolumeRecommendationsCommand}.
  */
-export interface GetEBSVolumeRecommendationsCommandOutput
-  extends GetEBSVolumeRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetEBSVolumeRecommendationsCommandOutput extends GetEBSVolumeRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>

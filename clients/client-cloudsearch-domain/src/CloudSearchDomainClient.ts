@@ -80,12 +80,18 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = SearchCommandInput | SuggestCommandInput | UploadDocumentsCommandInput;
+export type ServiceInputTypes =
+  | SearchCommandInput
+  | SuggestCommandInput
+  | UploadDocumentsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = SearchCommandOutput | SuggestCommandOutput | UploadDocumentsCommandOutput;
+export type ServiceOutputTypes =
+  | SearchCommandOutput
+  | SuggestCommandOutput
+  | UploadDocumentsCommandOutput;
 
 /**
  * @public

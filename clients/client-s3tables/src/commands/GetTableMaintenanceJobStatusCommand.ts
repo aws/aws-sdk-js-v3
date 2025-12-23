@@ -24,9 +24,7 @@ export interface GetTableMaintenanceJobStatusCommandInput extends GetTableMainte
  *
  * The output of {@link GetTableMaintenanceJobStatusCommand}.
  */
-export interface GetTableMaintenanceJobStatusCommandOutput
-  extends GetTableMaintenanceJobStatusResponse,
-    __MetadataBearer {}
+export interface GetTableMaintenanceJobStatusCommandOutput extends GetTableMaintenanceJobStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of a maintenance job for a table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html">S3 Tables maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableMaintenanceJobStatus</code> permission to use this operation. </p> </dd> </dl>

@@ -143,7 +143,10 @@ export interface ConnectCampaigns {
     args: CreateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
-  createCampaign(args: CreateCampaignCommandInput, cb: (err: any, data?: CreateCampaignCommandOutput) => void): void;
+  createCampaign(
+    args: CreateCampaignCommandInput,
+    cb: (err: any, data?: CreateCampaignCommandOutput) => void
+  ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -157,7 +160,10 @@ export interface ConnectCampaigns {
     args: DeleteCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
-  deleteCampaign(args: DeleteCampaignCommandInput, cb: (err: any, data?: DeleteCampaignCommandOutput) => void): void;
+  deleteCampaign(
+    args: DeleteCampaignCommandInput,
+    cb: (err: any, data?: DeleteCampaignCommandOutput) => void
+  ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -287,8 +293,14 @@ export interface ConnectCampaigns {
    * @see {@link ListCampaignsCommand}
    */
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCampaignsCommandOutput>;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    cb: (err: any, data?: ListCampaignsCommandOutput) => void
+  ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
     options: __HttpHandlerOptions,
@@ -315,8 +327,14 @@ export interface ConnectCampaigns {
   /**
    * @see {@link PauseCampaignCommand}
    */
-  pauseCampaign(args: PauseCampaignCommandInput, options?: __HttpHandlerOptions): Promise<PauseCampaignCommandOutput>;
-  pauseCampaign(args: PauseCampaignCommandInput, cb: (err: any, data?: PauseCampaignCommandOutput) => void): void;
+  pauseCampaign(
+    args: PauseCampaignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseCampaignCommandOutput>;
+  pauseCampaign(
+    args: PauseCampaignCommandInput,
+    cb: (err: any, data?: PauseCampaignCommandOutput) => void
+  ): void;
   pauseCampaign(
     args: PauseCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -347,7 +365,10 @@ export interface ConnectCampaigns {
     args: ResumeCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResumeCampaignCommandOutput>;
-  resumeCampaign(args: ResumeCampaignCommandInput, cb: (err: any, data?: ResumeCampaignCommandOutput) => void): void;
+  resumeCampaign(
+    args: ResumeCampaignCommandInput,
+    cb: (err: any, data?: ResumeCampaignCommandOutput) => void
+  ): void;
   resumeCampaign(
     args: ResumeCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -357,8 +378,14 @@ export interface ConnectCampaigns {
   /**
    * @see {@link StartCampaignCommand}
    */
-  startCampaign(args: StartCampaignCommandInput, options?: __HttpHandlerOptions): Promise<StartCampaignCommandOutput>;
-  startCampaign(args: StartCampaignCommandInput, cb: (err: any, data?: StartCampaignCommandOutput) => void): void;
+  startCampaign(
+    args: StartCampaignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCampaignCommandOutput>;
+  startCampaign(
+    args: StartCampaignCommandInput,
+    cb: (err: any, data?: StartCampaignCommandOutput) => void
+  ): void;
   startCampaign(
     args: StartCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -385,8 +412,14 @@ export interface ConnectCampaigns {
   /**
    * @see {@link StopCampaignCommand}
    */
-  stopCampaign(args: StopCampaignCommandInput, options?: __HttpHandlerOptions): Promise<StopCampaignCommandOutput>;
-  stopCampaign(args: StopCampaignCommandInput, cb: (err: any, data?: StopCampaignCommandOutput) => void): void;
+  stopCampaign(
+    args: StopCampaignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCampaignCommandOutput>;
+  stopCampaign(
+    args: StopCampaignCommandInput,
+    cb: (err: any, data?: StopCampaignCommandOutput) => void
+  ): void;
   stopCampaign(
     args: StopCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -396,8 +429,14 @@ export interface ConnectCampaigns {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -407,8 +446,14 @@ export interface ConnectCampaigns {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

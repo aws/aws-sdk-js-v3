@@ -24,9 +24,7 @@ export interface SubmitAttachmentStateChangesCommandInput extends SubmitAttachme
  *
  * The output of {@link SubmitAttachmentStateChangesCommand}.
  */
-export interface SubmitAttachmentStateChangesCommandOutput
-  extends SubmitAttachmentStateChangesResponse,
-    __MetadataBearer {}
+export interface SubmitAttachmentStateChangesCommandOutput extends SubmitAttachmentStateChangesResponse, __MetadataBearer {}
 
 /**
  * <note>

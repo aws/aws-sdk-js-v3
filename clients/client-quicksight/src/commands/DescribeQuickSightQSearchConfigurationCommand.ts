@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeQuickSightQSearchConfigurationCommand}.
  */
-export interface DescribeQuickSightQSearchConfigurationCommandInput
-  extends DescribeQuickSightQSearchConfigurationRequest {}
+export interface DescribeQuickSightQSearchConfigurationCommandInput extends DescribeQuickSightQSearchConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeQuickSightQSearchConfigurationCommand}.
  */
-export interface DescribeQuickSightQSearchConfigurationCommandOutput
-  extends DescribeQuickSightQSearchConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeQuickSightQSearchConfigurationCommandOutput extends DescribeQuickSightQSearchConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the state of a Quick Sight Q Search configuration.</p>

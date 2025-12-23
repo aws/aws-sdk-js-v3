@@ -24,9 +24,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandInput extends ReleaseFileSyst
  *
  * The output of {@link ReleaseFileSystemNfsV3LocksCommand}.
  */
-export interface ReleaseFileSystemNfsV3LocksCommandOutput
-  extends ReleaseFileSystemNfsV3LocksResponse,
-    __MetadataBearer {}
+export interface ReleaseFileSystemNfsV3LocksCommandOutput extends ReleaseFileSystemNfsV3LocksResponse, __MetadataBearer {}
 
 /**
  * <p>Releases the file system lock from an Amazon FSx for OpenZFS file

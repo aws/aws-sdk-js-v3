@@ -24,9 +24,7 @@ export interface ReplacePermissionAssociationsCommandInput extends ReplacePermis
  *
  * The output of {@link ReplacePermissionAssociationsCommand}.
  */
-export interface ReplacePermissionAssociationsCommandOutput
-  extends ReplacePermissionAssociationsResponse,
-    __MetadataBearer {}
+export interface ReplacePermissionAssociationsCommandOutput extends ReplacePermissionAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates all resource shares that use a managed permission to a different managed

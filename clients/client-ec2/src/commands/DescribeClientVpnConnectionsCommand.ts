@@ -24,9 +24,7 @@ export interface DescribeClientVpnConnectionsCommandInput extends DescribeClient
  *
  * The output of {@link DescribeClientVpnConnectionsCommand}.
  */
-export interface DescribeClientVpnConnectionsCommandOutput
-  extends DescribeClientVpnConnectionsResult,
-    __MetadataBearer {}
+export interface DescribeClientVpnConnectionsCommandOutput extends DescribeClientVpnConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes active client connections and connections that have been terminated within the last 60

@@ -27,9 +27,7 @@ export interface ListCloudWatchAlarmTemplateGroupsCommandInput extends ListCloud
  *
  * The output of {@link ListCloudWatchAlarmTemplateGroupsCommand}.
  */
-export interface ListCloudWatchAlarmTemplateGroupsCommandOutput
-  extends ListCloudWatchAlarmTemplateGroupsResponse,
-    __MetadataBearer {}
+export interface ListCloudWatchAlarmTemplateGroupsCommandOutput extends ListCloudWatchAlarmTemplateGroupsResponse, __MetadataBearer {}
 
 /**
  * Lists cloudwatch alarm template groups.

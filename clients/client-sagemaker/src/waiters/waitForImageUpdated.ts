@@ -10,17 +10,17 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
     const result: any = await client.send(new DescribeImageCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ImageStatus;
-      };
+      }
       if (returnComparator() === "CREATED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ImageStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

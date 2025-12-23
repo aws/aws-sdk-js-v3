@@ -9,10 +9,8 @@ AWS SDK for JavaScript GameLiftStreams Client for Node.js, Browser and React Nat
 <fullname>Amazon GameLift Streams</fullname> <p>Amazon GameLift Streams provides a global cloud solution for content streaming experiences. Use Amazon GameLift Streams tools to upload and configure content for streaming, deploy and scale computing resources to host streams, and manage stream session placement to meet customer demand.</p> <p>This Reference Guide describes the Amazon GameLift Streams service API. You can use the API through the Amazon Web Services SDK, the Command Line Interface (CLI), or by making direct REST calls through HTTPS.</p> <p>See the <i>Amazon GameLift Streams Developer Guide</i> for more information on how Amazon GameLift Streams works and how to work with it.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-gameliftstreams
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-gameliftstreams`
 - `yarn add @aws-sdk/client-gameliftstreams`
 - `pnpm add @aws-sdk/client-gameliftstreams`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new GameLiftStreamsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListApplicationsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ AddStreamGroupLocations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/AddStreamGroupLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/AddStreamGroupLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/AddStreamGroupLocationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ AssociateApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/AssociateApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/AssociateApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/AssociateApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateStreamGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/CreateStreamGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreateStreamSessionConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/CreateStreamSessionConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamSessionConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamSessionConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteStreamGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/DeleteStreamGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DeleteStreamGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DeleteStreamGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DisassociateApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/DisassociateApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DisassociateApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/DisassociateApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ExportStreamSessionFiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ExportStreamSessionFilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ExportStreamSessionFilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ExportStreamSessionFilesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ GetApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ GetStreamGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/GetStreamGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ GetStreamSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/GetStreamSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ ListStreamGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListStreamGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ ListStreamSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListStreamSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamSessionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ ListStreamSessionsByAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListStreamSessionsByAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamSessionsByAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamSessionsByAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ RemoveStreamGroupLocations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/RemoveStreamGroupLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RemoveStreamGroupLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RemoveStreamGroupLocationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ StartStreamSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/StartStreamSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/StartStreamSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/StartStreamSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ TerminateStreamSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/TerminateStreamSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/TerminateStreamSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/TerminateStreamSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UpdateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,5 +366,4 @@ UpdateStreamGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/UpdateStreamGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UpdateStreamGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/UpdateStreamGroupCommandOutput/)
-
 </details>

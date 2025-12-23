@@ -53,7 +53,7 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  *             </li>
  *          </ul>
  * 		       <p> For example, you can create a <code>RegexPatternSet</code> that matches any requests with <code>User-Agent</code> headers
- *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+ *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>		
  * 		       <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>

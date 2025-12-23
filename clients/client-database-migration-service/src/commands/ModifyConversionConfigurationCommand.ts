@@ -28,9 +28,7 @@ export interface ModifyConversionConfigurationCommandInput extends ModifyConvers
  *
  * The output of {@link ModifyConversionConfigurationCommand}.
  */
-export interface ModifyConversionConfigurationCommandOutput
-  extends ModifyConversionConfigurationResponse,
-    __MetadataBearer {}
+export interface ModifyConversionConfigurationCommandOutput extends ModifyConversionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified schema conversion configuration using the provided parameters. </p>

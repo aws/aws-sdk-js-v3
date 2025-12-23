@@ -376,7 +376,10 @@ export interface IoTFleetWise {
     args: CreateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
-  createCampaign(args: CreateCampaignCommandInput, cb: (err: any, data?: CreateCampaignCommandOutput) => void): void;
+  createCampaign(
+    args: CreateCampaignCommandInput,
+    cb: (err: any, data?: CreateCampaignCommandOutput) => void
+  ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -403,8 +406,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link CreateFleetCommand}
    */
-  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
-  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetCommandOutput>;
+  createFleet(
+    args: CreateFleetCommandInput,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
+  ): void;
   createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -465,8 +474,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link CreateVehicleCommand}
    */
-  createVehicle(args: CreateVehicleCommandInput, options?: __HttpHandlerOptions): Promise<CreateVehicleCommandOutput>;
-  createVehicle(args: CreateVehicleCommandInput, cb: (err: any, data?: CreateVehicleCommandOutput) => void): void;
+  createVehicle(
+    args: CreateVehicleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVehicleCommandOutput>;
+  createVehicle(
+    args: CreateVehicleCommandInput,
+    cb: (err: any, data?: CreateVehicleCommandOutput) => void
+  ): void;
   createVehicle(
     args: CreateVehicleCommandInput,
     options: __HttpHandlerOptions,
@@ -480,7 +495,10 @@ export interface IoTFleetWise {
     args: DeleteCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
-  deleteCampaign(args: DeleteCampaignCommandInput, cb: (err: any, data?: DeleteCampaignCommandOutput) => void): void;
+  deleteCampaign(
+    args: DeleteCampaignCommandInput,
+    cb: (err: any, data?: DeleteCampaignCommandOutput) => void
+  ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -507,8 +525,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link DeleteFleetCommand}
    */
-  deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
-  deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetCommandOutput>;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    cb: (err: any, data?: DeleteFleetCommandOutput) => void
+  ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -569,8 +593,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link DeleteVehicleCommand}
    */
-  deleteVehicle(args: DeleteVehicleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVehicleCommandOutput>;
-  deleteVehicle(args: DeleteVehicleCommandInput, cb: (err: any, data?: DeleteVehicleCommandOutput) => void): void;
+  deleteVehicle(
+    args: DeleteVehicleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVehicleCommandOutput>;
+  deleteVehicle(
+    args: DeleteVehicleCommandInput,
+    cb: (err: any, data?: DeleteVehicleCommandOutput) => void
+  ): void;
   deleteVehicle(
     args: DeleteVehicleCommandInput,
     options: __HttpHandlerOptions,
@@ -597,8 +627,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetCampaignCommand}
    */
-  getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
-  getCampaign(args: GetCampaignCommandInput, cb: (err: any, data?: GetCampaignCommandOutput) => void): void;
+  getCampaign(
+    args: GetCampaignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCampaignCommandOutput>;
+  getCampaign(
+    args: GetCampaignCommandInput,
+    cb: (err: any, data?: GetCampaignCommandOutput) => void
+  ): void;
   getCampaign(
     args: GetCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -643,8 +679,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetFleetCommand}
    */
-  getFleet(args: GetFleetCommandInput, options?: __HttpHandlerOptions): Promise<GetFleetCommandOutput>;
-  getFleet(args: GetFleetCommandInput, cb: (err: any, data?: GetFleetCommandOutput) => void): void;
+  getFleet(
+    args: GetFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFleetCommandOutput>;
+  getFleet(
+    args: GetFleetCommandInput,
+    cb: (err: any, data?: GetFleetCommandOutput) => void
+  ): void;
   getFleet(
     args: GetFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -741,8 +783,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetVehicleCommand}
    */
-  getVehicle(args: GetVehicleCommandInput, options?: __HttpHandlerOptions): Promise<GetVehicleCommandOutput>;
-  getVehicle(args: GetVehicleCommandInput, cb: (err: any, data?: GetVehicleCommandOutput) => void): void;
+  getVehicle(
+    args: GetVehicleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVehicleCommandOutput>;
+  getVehicle(
+    args: GetVehicleCommandInput,
+    cb: (err: any, data?: GetVehicleCommandOutput) => void
+  ): void;
   getVehicle(
     args: GetVehicleCommandInput,
     options: __HttpHandlerOptions,
@@ -804,8 +852,14 @@ export interface IoTFleetWise {
    * @see {@link ListCampaignsCommand}
    */
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCampaignsCommandOutput>;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    cb: (err: any, data?: ListCampaignsCommandOutput) => void
+  ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
     options: __HttpHandlerOptions,
@@ -868,8 +922,14 @@ export interface IoTFleetWise {
    * @see {@link ListFleetsCommand}
    */
   listFleets(): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
+  listFleets(
+    args: ListFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetsCommandOutput>;
+  listFleets(
+    args: ListFleetsCommandInput,
+    cb: (err: any, data?: ListFleetsCommandOutput) => void
+  ): void;
   listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1002,8 +1062,14 @@ export interface IoTFleetWise {
    * @see {@link ListVehiclesCommand}
    */
   listVehicles(): Promise<ListVehiclesCommandOutput>;
-  listVehicles(args: ListVehiclesCommandInput, options?: __HttpHandlerOptions): Promise<ListVehiclesCommandOutput>;
-  listVehicles(args: ListVehiclesCommandInput, cb: (err: any, data?: ListVehiclesCommandOutput) => void): void;
+  listVehicles(
+    args: ListVehiclesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVehiclesCommandOutput>;
+  listVehicles(
+    args: ListVehiclesCommandInput,
+    cb: (err: any, data?: ListVehiclesCommandOutput) => void
+  ): void;
   listVehicles(
     args: ListVehiclesCommandInput,
     options: __HttpHandlerOptions,
@@ -1069,7 +1135,10 @@ export interface IoTFleetWise {
     args: RegisterAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterAccountCommandOutput>;
-  registerAccount(args: RegisterAccountCommandInput, cb: (err: any, data?: RegisterAccountCommandOutput) => void): void;
+  registerAccount(
+    args: RegisterAccountCommandInput,
+    cb: (err: any, data?: RegisterAccountCommandOutput) => void
+  ): void;
   registerAccount(
     args: RegisterAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1079,8 +1148,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1090,8 +1165,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1105,7 +1186,10 @@ export interface IoTFleetWise {
     args: UpdateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateCampaignCommandOutput>;
-  updateCampaign(args: UpdateCampaignCommandInput, cb: (err: any, data?: UpdateCampaignCommandOutput) => void): void;
+  updateCampaign(
+    args: UpdateCampaignCommandInput,
+    cb: (err: any, data?: UpdateCampaignCommandOutput) => void
+  ): void;
   updateCampaign(
     args: UpdateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -1132,8 +1216,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link UpdateFleetCommand}
    */
-  updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
-  updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFleetCommandOutput>;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    cb: (err: any, data?: UpdateFleetCommandOutput) => void
+  ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1194,8 +1284,14 @@ export interface IoTFleetWise {
   /**
    * @see {@link UpdateVehicleCommand}
    */
-  updateVehicle(args: UpdateVehicleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateVehicleCommandOutput>;
-  updateVehicle(args: UpdateVehicleCommandInput, cb: (err: any, data?: UpdateVehicleCommandOutput) => void): void;
+  updateVehicle(
+    args: UpdateVehicleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVehicleCommandOutput>;
+  updateVehicle(
+    args: UpdateVehicleCommandInput,
+    cb: (err: any, data?: UpdateVehicleCommandOutput) => void
+  ): void;
   updateVehicle(
     args: UpdateVehicleCommandInput,
     options: __HttpHandlerOptions,

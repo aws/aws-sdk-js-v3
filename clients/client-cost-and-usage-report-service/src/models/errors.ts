@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { CostAndUsageReportServiceServiceException as __BaseException } from "./CostAndUsageReportServiceServiceException";
+import {
+  CostAndUsageReportServiceServiceException as __BaseException,
+} from "./CostAndUsageReportServiceServiceException";
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>

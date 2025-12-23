@@ -23,16 +23,13 @@ export { $Command };
  *
  * The input for {@link PutAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface PutAccessGrantsInstanceResourcePolicyCommandInput
-  extends PutAccessGrantsInstanceResourcePolicyRequest {}
+export interface PutAccessGrantsInstanceResourcePolicyCommandInput extends PutAccessGrantsInstanceResourcePolicyRequest {}
 /**
  * @public
  *
  * The output of {@link PutAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface PutAccessGrantsInstanceResourcePolicyCommandOutput
-  extends PutAccessGrantsInstanceResourcePolicyResult,
-    __MetadataBearer {}
+export interface PutAccessGrantsInstanceResourcePolicyCommandOutput extends PutAccessGrantsInstanceResourcePolicyResult, __MetadataBearer {}
 
 /**
  * <p>Updates the resource policy of the S3 Access Grants instance. </p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
-export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
-  extends AttachCustomerManagedPolicyReferenceToPermissionSetRequest {}
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput extends AttachCustomerManagedPolicyReferenceToPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
-export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
-  extends AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
-    __MetadataBearer {}
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput extends AttachCustomerManagedPolicyReferenceToPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>

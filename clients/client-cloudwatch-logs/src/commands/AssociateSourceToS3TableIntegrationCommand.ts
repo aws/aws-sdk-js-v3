@@ -31,9 +31,7 @@ export interface AssociateSourceToS3TableIntegrationCommandInput extends Associa
  *
  * The output of {@link AssociateSourceToS3TableIntegrationCommand}.
  */
-export interface AssociateSourceToS3TableIntegrationCommandOutput
-  extends AssociateSourceToS3TableIntegrationResponse,
-    __MetadataBearer {}
+export interface AssociateSourceToS3TableIntegrationCommandOutput extends AssociateSourceToS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a data source with an S3 Table Integration for query access in the 'logs'

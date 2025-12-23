@@ -24,9 +24,7 @@ export interface UpdateServiceTemplateVersionCommandInput extends UpdateServiceT
  *
  * The output of {@link UpdateServiceTemplateVersionCommand}.
  */
-export interface UpdateServiceTemplateVersionCommandOutput
-  extends UpdateServiceTemplateVersionOutput,
-    __MetadataBearer {}
+export interface UpdateServiceTemplateVersionCommandOutput extends UpdateServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Update a major or minor version of a service template.</p>

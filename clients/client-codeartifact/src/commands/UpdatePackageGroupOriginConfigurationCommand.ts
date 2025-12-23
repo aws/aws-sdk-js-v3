@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdatePackageGroupOriginConfigurationCommand}.
  */
-export interface UpdatePackageGroupOriginConfigurationCommandInput
-  extends UpdatePackageGroupOriginConfigurationRequest {}
+export interface UpdatePackageGroupOriginConfigurationCommandInput extends UpdatePackageGroupOriginConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdatePackageGroupOriginConfigurationCommand}.
  */
-export interface UpdatePackageGroupOriginConfigurationCommandOutput
-  extends UpdatePackageGroupOriginConfigurationResult,
-    __MetadataBearer {}
+export interface UpdatePackageGroupOriginConfigurationCommandOutput extends UpdatePackageGroupOriginConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates the package origin configuration for a package group.</p>

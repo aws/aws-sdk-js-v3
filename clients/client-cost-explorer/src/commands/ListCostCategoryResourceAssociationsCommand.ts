@@ -27,9 +27,7 @@ export interface ListCostCategoryResourceAssociationsCommandInput extends ListCo
  *
  * The output of {@link ListCostCategoryResourceAssociationsCommand}.
  */
-export interface ListCostCategoryResourceAssociationsCommandOutput
-  extends ListCostCategoryResourceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCostCategoryResourceAssociationsCommandOutput extends ListCostCategoryResourceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns resource associations of all cost categories defined in the account. You have the option to use <code>CostCategoryArn</code> to get the association for a specific cost category. <code>ListCostCategoryResourceAssociations</code> supports pagination. The request can have a <code>MaxResults</code> range up to 100.

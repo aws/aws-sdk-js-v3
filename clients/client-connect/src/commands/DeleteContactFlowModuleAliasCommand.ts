@@ -24,9 +24,7 @@ export interface DeleteContactFlowModuleAliasCommandInput extends DeleteContactF
  *
  * The output of {@link DeleteContactFlowModuleAliasCommand}.
  */
-export interface DeleteContactFlowModuleAliasCommandOutput
-  extends DeleteContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface DeleteContactFlowModuleAliasCommandOutput extends DeleteContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an alias reference, breaking the named connection to the underlying module version without affecting the

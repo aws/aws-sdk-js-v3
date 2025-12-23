@@ -24,9 +24,7 @@ export interface DescribeInboundIntegrationsCommandInput extends DescribeInbound
  *
  * The output of {@link DescribeInboundIntegrationsCommand}.
  */
-export interface DescribeInboundIntegrationsCommandOutput
-  extends DescribeInboundIntegrationsResponse,
-    __MetadataBearer {}
+export interface DescribeInboundIntegrationsCommandOutput extends DescribeInboundIntegrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of inbound integrations for the specified integration.</p>

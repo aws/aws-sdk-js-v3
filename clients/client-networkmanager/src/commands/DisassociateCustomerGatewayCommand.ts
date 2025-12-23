@@ -28,9 +28,7 @@ export interface DisassociateCustomerGatewayCommandInput extends DisassociateCus
  *
  * The output of {@link DisassociateCustomerGatewayCommand}.
  */
-export interface DisassociateCustomerGatewayCommandOutput
-  extends DisassociateCustomerGatewayResponse,
-    __MetadataBearer {}
+export interface DisassociateCustomerGatewayCommandOutput extends DisassociateCustomerGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a customer gateway from a device and a link.</p>

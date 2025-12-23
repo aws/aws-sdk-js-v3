@@ -10,25 +10,25 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
     const result: any = await client.send(new DescribeStepCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Step.Status.State;
-      };
+      }
       if (returnComparator() === "COMPLETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Step.Status.State;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Step.Status.State;
-      };
+      }
       if (returnComparator() === "CANCELLED") {
         return { state: WaiterState.FAILURE, reason };
       }

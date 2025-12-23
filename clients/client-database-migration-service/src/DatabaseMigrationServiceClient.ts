@@ -926,8 +926,7 @@ export type DatabaseMigrationServiceClientResolvedConfigType = __SmithyResolvedC
  *
  *  The resolved configuration interface of DatabaseMigrationServiceClient class. This is resolved and normalized from the {@link DatabaseMigrationServiceClientConfig | constructor configuration interface}.
  */
-export interface DatabaseMigrationServiceClientResolvedConfig
-  extends DatabaseMigrationServiceClientResolvedConfigType {}
+export interface DatabaseMigrationServiceClientResolvedConfig extends DatabaseMigrationServiceClientResolvedConfigType {}
 
 /**
  * <fullname>Database Migration Service</fullname>

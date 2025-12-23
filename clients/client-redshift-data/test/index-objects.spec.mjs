@@ -57,6 +57,13 @@ import {
   ListTablesCommand,
   ListTablesRequest$,
   ListTablesResponse$,
+  paginateDescribeTable,
+  paginateGetStatementResult,
+  paginateGetStatementResultV2,
+  paginateListDatabases,
+  paginateListSchemas,
+  paginateListStatements,
+  paginateListTables,
   QueryRecords$,
   QueryTimeoutException,
   QueryTimeoutException$,
@@ -74,13 +81,6 @@ import {
   TableMember$,
   ValidationException,
   ValidationException$,
-  paginateDescribeTable,
-  paginateGetStatementResult,
-  paginateGetStatementResultV2,
-  paginateListDatabases,
-  paginateListSchemas,
-  paginateListStatements,
-  paginateListTables,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

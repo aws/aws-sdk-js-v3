@@ -34,10 +34,8 @@ the Open Cybersecurity Schema Framework (OCSF).</p>
 incident response and security data analytics.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-securitylake
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-securitylake`
 - `yarn add @aws-sdk/client-securitylake`
 - `pnpm add @aws-sdk/client-securitylake`
@@ -73,9 +71,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SecurityLakeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDataLakesCommand(params);
 ```
 
@@ -234,7 +230,6 @@ CreateAwsLogSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateAwsLogSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateAwsLogSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateAwsLogSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +237,6 @@ CreateCustomLogSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateCustomLogSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateCustomLogSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateCustomLogSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +244,6 @@ CreateDataLake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateDataLakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +251,6 @@ CreateDataLakeExceptionSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateDataLakeExceptionSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeExceptionSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeExceptionSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +258,6 @@ CreateDataLakeOrganizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateDataLakeOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateDataLakeOrganizationConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +265,6 @@ CreateSubscriber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateSubscriberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +272,6 @@ CreateSubscriberNotification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/CreateSubscriberNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateSubscriberNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/CreateSubscriberNotificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +279,6 @@ DeleteAwsLogSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteAwsLogSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteAwsLogSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteAwsLogSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +286,6 @@ DeleteCustomLogSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteCustomLogSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteCustomLogSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteCustomLogSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +293,6 @@ DeleteDataLake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteDataLakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +300,6 @@ DeleteDataLakeExceptionSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteDataLakeExceptionSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeExceptionSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeExceptionSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +307,6 @@ DeleteDataLakeOrganizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteDataLakeOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteDataLakeOrganizationConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +314,6 @@ DeleteSubscriber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteSubscriberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +321,6 @@ DeleteSubscriberNotification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeleteSubscriberNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteSubscriberNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeleteSubscriberNotificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +328,6 @@ DeregisterDataLakeDelegatedAdministrator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/DeregisterDataLakeDelegatedAdministratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeregisterDataLakeDelegatedAdministratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/DeregisterDataLakeDelegatedAdministratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +335,6 @@ GetDataLakeExceptionSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/GetDataLakeExceptionSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeExceptionSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeExceptionSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +342,6 @@ GetDataLakeOrganizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/GetDataLakeOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeOrganizationConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +349,6 @@ GetDataLakeSources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/GetDataLakeSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetDataLakeSourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +356,6 @@ GetSubscriber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/GetSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/GetSubscriberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +363,6 @@ ListDataLakeExceptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/ListDataLakeExceptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListDataLakeExceptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListDataLakeExceptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +370,6 @@ ListDataLakes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/ListDataLakesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListDataLakesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListDataLakesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +377,6 @@ ListLogSources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/ListLogSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListLogSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListLogSourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +384,6 @@ ListSubscribers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/ListSubscribersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListSubscribersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListSubscribersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +391,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +398,6 @@ RegisterDataLakeDelegatedAdministrator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/RegisterDataLakeDelegatedAdministratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/RegisterDataLakeDelegatedAdministratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/RegisterDataLakeDelegatedAdministratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,7 +405,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -442,7 +412,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -450,7 +419,6 @@ UpdateDataLake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/UpdateDataLakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateDataLakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateDataLakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -458,7 +426,6 @@ UpdateDataLakeExceptionSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/UpdateDataLakeExceptionSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateDataLakeExceptionSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateDataLakeExceptionSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -466,7 +433,6 @@ UpdateSubscriber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/UpdateSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateSubscriberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -474,5 +440,4 @@ UpdateSubscriberNotification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securitylake/command/UpdateSubscriberNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateSubscriberNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securitylake/Interface/UpdateSubscriberNotificationCommandOutput/)
-
 </details>

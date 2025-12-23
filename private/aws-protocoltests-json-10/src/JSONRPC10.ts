@@ -211,8 +211,14 @@ export interface JSONRPC10 {
    * @see {@link JsonUnionsCommand}
    */
   jsonUnions(): Promise<JsonUnionsCommandOutput>;
-  jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
-  jsonUnions(args: JsonUnionsCommandInput, cb: (err: any, data?: JsonUnionsCommandOutput) => void): void;
+  jsonUnions(
+    args: JsonUnionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonUnionsCommandOutput>;
+  jsonUnions(
+    args: JsonUnionsCommandInput,
+    cb: (err: any, data?: JsonUnionsCommandOutput) => void
+  ): void;
   jsonUnions(
     args: JsonUnionsCommandInput,
     options: __HttpHandlerOptions,

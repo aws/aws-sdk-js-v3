@@ -27,9 +27,7 @@ export interface UpdateGatewayCapabilityConfigurationCommandInput extends Update
  *
  * The output of {@link UpdateGatewayCapabilityConfigurationCommand}.
  */
-export interface UpdateGatewayCapabilityConfigurationCommandOutput
-  extends UpdateGatewayCapabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateGatewayCapabilityConfigurationCommandOutput extends UpdateGatewayCapabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.</p>

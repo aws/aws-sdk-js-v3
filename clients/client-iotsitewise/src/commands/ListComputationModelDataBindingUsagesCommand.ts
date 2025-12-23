@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListComputationModelDataBindingUsagesCommand}.
  */
-export interface ListComputationModelDataBindingUsagesCommandInput
-  extends ListComputationModelDataBindingUsagesRequest {}
+export interface ListComputationModelDataBindingUsagesCommandInput extends ListComputationModelDataBindingUsagesRequest {}
 /**
  * @public
  *
  * The output of {@link ListComputationModelDataBindingUsagesCommand}.
  */
-export interface ListComputationModelDataBindingUsagesCommandOutput
-  extends ListComputationModelDataBindingUsagesResponse,
-    __MetadataBearer {}
+export interface ListComputationModelDataBindingUsagesCommandOutput extends ListComputationModelDataBindingUsagesResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all data binding usages for computation models. This allows to identify where

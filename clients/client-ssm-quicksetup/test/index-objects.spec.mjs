@@ -44,13 +44,15 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListConfigurationManagers,
+  paginateListConfigurations,
   QuickSetupTypeOutput$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ServiceSettings$,
   SSMQuickSetup,
   SSMQuickSetupClient,
   SSMQuickSetupServiceException,
-  ServiceSettings$,
   Status,
   StatusSummary$,
   StatusType,
@@ -74,8 +76,6 @@ import {
   UpdateServiceSettingsInput$,
   ValidationException,
   ValidationException$,
-  paginateListConfigurationManagers,
-  paginateListConfigurations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

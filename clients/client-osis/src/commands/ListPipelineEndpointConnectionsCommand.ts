@@ -27,9 +27,7 @@ export interface ListPipelineEndpointConnectionsCommandInput extends ListPipelin
  *
  * The output of {@link ListPipelineEndpointConnectionsCommand}.
  */
-export interface ListPipelineEndpointConnectionsCommandOutput
-  extends ListPipelineEndpointConnectionsResponse,
-    __MetadataBearer {}
+export interface ListPipelineEndpointConnectionsCommandOutput extends ListPipelineEndpointConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the pipeline endpoints connected to pipelines in your account.</p>

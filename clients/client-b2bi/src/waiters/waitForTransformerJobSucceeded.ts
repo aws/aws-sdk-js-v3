@@ -10,17 +10,17 @@ const checkState = async (client: B2biClient, input: GetTransformerJobCommandInp
     const result: any = await client.send(new GetTransformerJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "succeeded") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "failed") {
         return { state: WaiterState.FAILURE, reason };
       }

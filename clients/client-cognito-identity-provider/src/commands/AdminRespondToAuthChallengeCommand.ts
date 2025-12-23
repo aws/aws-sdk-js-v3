@@ -28,9 +28,7 @@ export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToA
  *
  * The output of {@link AdminRespondToAuthChallengeCommand}.
  */
-export interface AdminRespondToAuthChallengeCommandOutput
-  extends AdminRespondToAuthChallengeResponse,
-    __MetadataBearer {}
+export interface AdminRespondToAuthChallengeCommandOutput extends AdminRespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
  * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA

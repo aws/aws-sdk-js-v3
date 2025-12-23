@@ -24,9 +24,7 @@ export interface DisassociateIpAccessSettingsCommandInput extends DisassociateIp
  *
  * The output of {@link DisassociateIpAccessSettingsCommand}.
  */
-export interface DisassociateIpAccessSettingsCommandOutput
-  extends DisassociateIpAccessSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateIpAccessSettingsCommandOutput extends DisassociateIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates IP access settings from a web portal.</p>

@@ -1,5 +1,5 @@
-export * from "./CreateCertificateAuthorityAuditReportCommand";
 // smithy-typescript generated code
+export * from "./CreateCertificateAuthorityAuditReportCommand";
 export * from "./CreateCertificateAuthorityCommand";
 export * from "./CreatePermissionCommand";
 export * from "./DeleteCertificateAuthorityCommand";

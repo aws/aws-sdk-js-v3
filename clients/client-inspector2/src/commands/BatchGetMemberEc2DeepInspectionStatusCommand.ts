@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchGetMemberEc2DeepInspectionStatusCommand}.
  */
-export interface BatchGetMemberEc2DeepInspectionStatusCommandInput
-  extends BatchGetMemberEc2DeepInspectionStatusRequest {}
+export interface BatchGetMemberEc2DeepInspectionStatusCommandInput extends BatchGetMemberEc2DeepInspectionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetMemberEc2DeepInspectionStatusCommand}.
  */
-export interface BatchGetMemberEc2DeepInspectionStatusCommandOutput
-  extends BatchGetMemberEc2DeepInspectionStatusResponse,
-    __MetadataBearer {}
+export interface BatchGetMemberEc2DeepInspectionStatusCommandOutput extends BatchGetMemberEc2DeepInspectionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves Amazon Inspector deep inspection activation status of multiple member accounts within

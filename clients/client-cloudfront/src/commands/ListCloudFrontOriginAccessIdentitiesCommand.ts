@@ -27,9 +27,7 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandInput extends ListCl
  *
  * The output of {@link ListCloudFrontOriginAccessIdentitiesCommand}.
  */
-export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
-  extends ListCloudFrontOriginAccessIdentitiesResult,
-    __MetadataBearer {}
+export interface ListCloudFrontOriginAccessIdentitiesCommandOutput extends ListCloudFrontOriginAccessIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>Lists origin access identities.</p>

@@ -27,9 +27,7 @@ export interface GetConformancePackComplianceSummaryCommandInput extends GetConf
  *
  * The output of {@link GetConformancePackComplianceSummaryCommand}.
  */
-export interface GetConformancePackComplianceSummaryCommandOutput
-  extends GetConformancePackComplianceSummaryResponse,
-    __MetadataBearer {}
+export interface GetConformancePackComplianceSummaryCommandOutput extends GetConformancePackComplianceSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>

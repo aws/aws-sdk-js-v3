@@ -62,7 +62,7 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  *          you want to allow, block, or count. For example, if you're receiving
  *          requests that contain cross-site scripting attacks in the request body and you want to
  *          block the requests, you can create an <code>XssMatchSet</code> with the applicable
- *          settings, and then configure AWS WAF to block the requests. </p>
+ *          settings, and then configure AWS WAF to block the requests. </p>		
  * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>

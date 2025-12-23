@@ -149,6 +149,10 @@ import {
   OpenIdConnectTokenSelectionDetail$,
   OpenIdConnectTokenSelectionItem$,
   OpenIdIssuer,
+  paginateListIdentitySources,
+  paginateListPolicies,
+  paginateListPolicyStores,
+  paginateListPolicyTemplates,
   PolicyDefinition$,
   PolicyDefinitionDetail$,
   PolicyDefinitionItem$,
@@ -221,10 +225,6 @@ import {
   VerifiedPermissions,
   VerifiedPermissionsClient,
   VerifiedPermissionsServiceException,
-  paginateListIdentitySources,
-  paginateListPolicies,
-  paginateListPolicyStores,
-  paginateListPolicyTemplates,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

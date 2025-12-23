@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
-export interface DescribeDefaultEncryptionConfigurationCommandInput
-  extends DescribeDefaultEncryptionConfigurationRequest {}
+export interface DescribeDefaultEncryptionConfigurationCommandInput extends DescribeDefaultEncryptionConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
-export interface DescribeDefaultEncryptionConfigurationCommandOutput
-  extends DescribeDefaultEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeDefaultEncryptionConfigurationCommandOutput extends DescribeDefaultEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in

@@ -104,7 +104,10 @@ export interface ManagedBlockchainQuery {
     args: GetTokenBalanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTokenBalanceCommandOutput>;
-  getTokenBalance(args: GetTokenBalanceCommandInput, cb: (err: any, data?: GetTokenBalanceCommandOutput) => void): void;
+  getTokenBalance(
+    args: GetTokenBalanceCommandInput,
+    cb: (err: any, data?: GetTokenBalanceCommandOutput) => void
+  ): void;
   getTokenBalance(
     args: GetTokenBalanceCommandInput,
     options: __HttpHandlerOptions,
@@ -118,7 +121,10 @@ export interface ManagedBlockchainQuery {
     args: GetTransactionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTransactionCommandOutput>;
-  getTransaction(args: GetTransactionCommandInput, cb: (err: any, data?: GetTransactionCommandOutput) => void): void;
+  getTransaction(
+    args: GetTransactionCommandInput,
+    cb: (err: any, data?: GetTransactionCommandOutput) => void
+  ): void;
   getTransaction(
     args: GetTransactionCommandInput,
     options: __HttpHandlerOptions,

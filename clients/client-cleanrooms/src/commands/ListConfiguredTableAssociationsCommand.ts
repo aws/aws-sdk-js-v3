@@ -24,9 +24,7 @@ export interface ListConfiguredTableAssociationsCommandInput extends ListConfigu
  *
  * The output of {@link ListConfiguredTableAssociationsCommand}.
  */
-export interface ListConfiguredTableAssociationsCommandOutput
-  extends ListConfiguredTableAssociationsOutput,
-    __MetadataBearer {}
+export interface ListConfiguredTableAssociationsCommandOutput extends ListConfiguredTableAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists configured table associations for a membership.</p>

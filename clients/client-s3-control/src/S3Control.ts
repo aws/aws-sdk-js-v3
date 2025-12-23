@@ -676,8 +676,14 @@ export interface S3Control {
   /**
    * @see {@link CreateBucketCommand}
    */
-  createBucket(args: CreateBucketCommandInput, options?: __HttpHandlerOptions): Promise<CreateBucketCommandOutput>;
-  createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
+  createBucket(
+    args: CreateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketCommandOutput>;
+  createBucket(
+    args: CreateBucketCommandInput,
+    cb: (err: any, data?: CreateBucketCommandOutput) => void
+  ): void;
   createBucket(
     args: CreateBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -687,8 +693,14 @@ export interface S3Control {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -887,8 +899,14 @@ export interface S3Control {
   /**
    * @see {@link DeleteBucketCommand}
    */
-  deleteBucket(args: DeleteBucketCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBucketCommandOutput>;
-  deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketCommandOutput>;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    cb: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): void;
   deleteBucket(
     args: DeleteBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1069,8 +1087,14 @@ export interface S3Control {
   /**
    * @see {@link DescribeJobCommand}
    */
-  describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
-  describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
+  describeJob(
+    args: DescribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobCommandOutput>;
+  describeJob(
+    args: DescribeJobCommandInput,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
   describeJob(
     args: DescribeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1119,7 +1143,10 @@ export interface S3Control {
     args: GetAccessGrantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessGrantCommandOutput>;
-  getAccessGrant(args: GetAccessGrantCommandInput, cb: (err: any, data?: GetAccessGrantCommandOutput) => void): void;
+  getAccessGrant(
+    args: GetAccessGrantCommandInput,
+    cb: (err: any, data?: GetAccessGrantCommandOutput) => void
+  ): void;
   getAccessGrant(
     args: GetAccessGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -1203,7 +1230,10 @@ export interface S3Control {
     args: GetAccessPointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessPointCommandOutput>;
-  getAccessPoint(args: GetAccessPointCommandInput, cb: (err: any, data?: GetAccessPointCommandOutput) => void): void;
+  getAccessPoint(
+    args: GetAccessPointCommandInput,
+    cb: (err: any, data?: GetAccessPointCommandOutput) => void
+  ): void;
   getAccessPoint(
     args: GetAccessPointCommandInput,
     options: __HttpHandlerOptions,
@@ -1332,8 +1362,14 @@ export interface S3Control {
   /**
    * @see {@link GetBucketCommand}
    */
-  getBucket(args: GetBucketCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketCommandOutput>;
-  getBucket(args: GetBucketCommandInput, cb: (err: any, data?: GetBucketCommandOutput) => void): void;
+  getBucket(
+    args: GetBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketCommandOutput>;
+  getBucket(
+    args: GetBucketCommandInput,
+    cb: (err: any, data?: GetBucketCommandOutput) => void
+  ): void;
   getBucket(
     args: GetBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1364,7 +1400,10 @@ export interface S3Control {
     args: GetBucketPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBucketPolicyCommandOutput>;
-  getBucketPolicy(args: GetBucketPolicyCommandInput, cb: (err: any, data?: GetBucketPolicyCommandOutput) => void): void;
+  getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
+  ): void;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1425,8 +1464,14 @@ export interface S3Control {
   /**
    * @see {@link GetDataAccessCommand}
    */
-  getDataAccess(args: GetDataAccessCommandInput, options?: __HttpHandlerOptions): Promise<GetDataAccessCommandOutput>;
-  getDataAccess(args: GetDataAccessCommandInput, cb: (err: any, data?: GetDataAccessCommandOutput) => void): void;
+  getDataAccess(
+    args: GetDataAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAccessCommandOutput>;
+  getDataAccess(
+    args: GetDataAccessCommandInput,
+    cb: (err: any, data?: GetDataAccessCommandOutput) => void
+  ): void;
   getDataAccess(
     args: GetDataAccessCommandInput,
     options: __HttpHandlerOptions,
@@ -1436,8 +1481,14 @@ export interface S3Control {
   /**
    * @see {@link GetJobTaggingCommand}
    */
-  getJobTagging(args: GetJobTaggingCommandInput, options?: __HttpHandlerOptions): Promise<GetJobTaggingCommandOutput>;
-  getJobTagging(args: GetJobTaggingCommandInput, cb: (err: any, data?: GetJobTaggingCommandOutput) => void): void;
+  getJobTagging(
+    args: GetJobTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobTaggingCommandOutput>;
+  getJobTagging(
+    args: GetJobTaggingCommandInput,
+    cb: (err: any, data?: GetJobTaggingCommandOutput) => void
+  ): void;
   getJobTagging(
     args: GetJobTaggingCommandInput,
     options: __HttpHandlerOptions,
@@ -1711,8 +1762,14 @@ export interface S3Control {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1917,7 +1974,10 @@ export interface S3Control {
     args: PutBucketPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutBucketPolicyCommandOutput>;
-  putBucketPolicy(args: PutBucketPolicyCommandInput, cb: (err: any, data?: PutBucketPolicyCommandOutput) => void): void;
+  putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
+  ): void;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1978,8 +2038,14 @@ export interface S3Control {
   /**
    * @see {@link PutJobTaggingCommand}
    */
-  putJobTagging(args: PutJobTaggingCommandInput, options?: __HttpHandlerOptions): Promise<PutJobTaggingCommandOutput>;
-  putJobTagging(args: PutJobTaggingCommandInput, cb: (err: any, data?: PutJobTaggingCommandOutput) => void): void;
+  putJobTagging(
+    args: PutJobTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutJobTaggingCommandOutput>;
+  putJobTagging(
+    args: PutJobTaggingCommandInput,
+    cb: (err: any, data?: PutJobTaggingCommandOutput) => void
+  ): void;
   putJobTagging(
     args: PutJobTaggingCommandInput,
     options: __HttpHandlerOptions,
@@ -2074,8 +2140,14 @@ export interface S3Control {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2085,8 +2157,14 @@ export interface S3Control {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2134,7 +2212,10 @@ export interface S3Control {
     args: UpdateJobStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateJobStatusCommandOutput>;
-  updateJobStatus(args: UpdateJobStatusCommandInput, cb: (err: any, data?: UpdateJobStatusCommandOutput) => void): void;
+  updateJobStatus(
+    args: UpdateJobStatusCommandInput,
+    cb: (err: any, data?: UpdateJobStatusCommandOutput) => void
+  ): void;
   updateJobStatus(
     args: UpdateJobStatusCommandInput,
     options: __HttpHandlerOptions,

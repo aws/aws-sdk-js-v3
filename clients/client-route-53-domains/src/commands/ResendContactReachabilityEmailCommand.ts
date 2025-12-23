@@ -28,9 +28,7 @@ export interface ResendContactReachabilityEmailCommandInput extends ResendContac
  *
  * The output of {@link ResendContactReachabilityEmailCommand}.
  */
-export interface ResendContactReachabilityEmailCommandOutput
-  extends ResendContactReachabilityEmailResponse,
-    __MetadataBearer {}
+export interface ResendContactReachabilityEmailCommandOutput extends ResendContactReachabilityEmailResponse, __MetadataBearer {}
 
 /**
  * <p>For operations that require confirmation that the email address for the registrant

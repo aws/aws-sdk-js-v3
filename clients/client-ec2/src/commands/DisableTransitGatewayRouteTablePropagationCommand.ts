@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface DisableTransitGatewayRouteTablePropagationCommandInput
-  extends DisableTransitGatewayRouteTablePropagationRequest {}
+export interface DisableTransitGatewayRouteTablePropagationCommandInput extends DisableTransitGatewayRouteTablePropagationRequest {}
 /**
  * @public
  *
  * The output of {@link DisableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface DisableTransitGatewayRouteTablePropagationCommandOutput
-  extends DisableTransitGatewayRouteTablePropagationResult,
-    __MetadataBearer {}
+export interface DisableTransitGatewayRouteTablePropagationCommandOutput extends DisableTransitGatewayRouteTablePropagationResult, __MetadataBearer {}
 
 /**
  * <p>Disables the specified resource attachment from propagating routes to the specified

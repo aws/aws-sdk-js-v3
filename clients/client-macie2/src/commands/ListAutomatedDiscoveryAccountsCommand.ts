@@ -24,9 +24,7 @@ export interface ListAutomatedDiscoveryAccountsCommandInput extends ListAutomate
  *
  * The output of {@link ListAutomatedDiscoveryAccountsCommand}.
  */
-export interface ListAutomatedDiscoveryAccountsCommandOutput
-  extends ListAutomatedDiscoveryAccountsResponse,
-    __MetadataBearer {}
+export interface ListAutomatedDiscoveryAccountsCommandOutput extends ListAutomatedDiscoveryAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of automated sensitive data discovery for one or more accounts.</p>

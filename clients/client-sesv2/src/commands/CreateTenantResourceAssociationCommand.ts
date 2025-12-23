@@ -27,9 +27,7 @@ export interface CreateTenantResourceAssociationCommandInput extends CreateTenan
  *
  * The output of {@link CreateTenantResourceAssociationCommand}.
  */
-export interface CreateTenantResourceAssociationCommandOutput
-  extends CreateTenantResourceAssociationResponse,
-    __MetadataBearer {}
+export interface CreateTenantResourceAssociationCommandOutput extends CreateTenantResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a resource with a tenant.</p>

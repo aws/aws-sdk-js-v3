@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByConnectionFunctionCommandInput
-  extends ListDistributionsByConnectionFunctionRequest {}
+export interface ListDistributionsByConnectionFunctionCommandInput extends ListDistributionsByConnectionFunctionRequest {}
 /**
  * @public
  *
  * The output of {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByConnectionFunctionCommandOutput
-  extends ListDistributionsByConnectionFunctionResult,
-    __MetadataBearer {}
+export interface ListDistributionsByConnectionFunctionCommandOutput extends ListDistributionsByConnectionFunctionResult, __MetadataBearer {}
 
 /**
  * <p>Lists distributions by connection function.</p>

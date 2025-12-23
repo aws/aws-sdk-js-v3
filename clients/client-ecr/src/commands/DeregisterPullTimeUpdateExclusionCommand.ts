@@ -27,9 +27,7 @@ export interface DeregisterPullTimeUpdateExclusionCommandInput extends Deregiste
  *
  * The output of {@link DeregisterPullTimeUpdateExclusionCommand}.
  */
-export interface DeregisterPullTimeUpdateExclusionCommandOutput
-  extends DeregisterPullTimeUpdateExclusionResponse,
-    __MetadataBearer {}
+export interface DeregisterPullTimeUpdateExclusionCommandOutput extends DeregisterPullTimeUpdateExclusionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a principal from the pull time update exclusion list for a registry. Once removed, Amazon ECR will resume updating the pull time if the specified principal pulls an image.</p>

@@ -24,9 +24,7 @@ export interface GetLogLevelsByResourceTypesCommandInput extends GetLogLevelsByR
  *
  * The output of {@link GetLogLevelsByResourceTypesCommand}.
  */
-export interface GetLogLevelsByResourceTypesCommandOutput
-  extends GetLogLevelsByResourceTypesResponse,
-    __MetadataBearer {}
+export interface GetLogLevelsByResourceTypesCommandOutput extends GetLogLevelsByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns current default log levels or log levels by resource types. Based on the

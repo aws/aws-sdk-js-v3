@@ -10,17 +10,17 @@ const checkState = async (client: NeptuneGraphClient, input: GetExportTaskComman
     const result: any = await client.send(new GetExportTaskCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        return result.status != "CANCELLING" && result.status != "CANCELLED";
-      };
+      let returnComparator = () => {
+        return ((result.status != "CANCELLING") && (result.status != "CANCELLED"));
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "CANCELLED") {
         return { state: WaiterState.SUCCESS, reason };
       }

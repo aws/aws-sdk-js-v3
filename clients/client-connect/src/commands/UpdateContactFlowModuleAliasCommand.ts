@@ -24,9 +24,7 @@ export interface UpdateContactFlowModuleAliasCommandInput extends UpdateContactF
  *
  * The output of {@link UpdateContactFlowModuleAliasCommand}.
  */
-export interface UpdateContactFlowModuleAliasCommandOutput
-  extends UpdateContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleAliasCommandOutput extends UpdateContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a specific Aliases metadata, including the version it’s tied to, it’s name, and description.</p>

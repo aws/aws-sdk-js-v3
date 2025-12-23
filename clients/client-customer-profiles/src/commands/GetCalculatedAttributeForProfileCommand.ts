@@ -31,9 +31,7 @@ export interface GetCalculatedAttributeForProfileCommandInput extends GetCalcula
  *
  * The output of {@link GetCalculatedAttributeForProfileCommand}.
  */
-export interface GetCalculatedAttributeForProfileCommandOutput
-  extends GetCalculatedAttributeForProfileResponse,
-    __MetadataBearer {}
+export interface GetCalculatedAttributeForProfileCommandOutput extends GetCalculatedAttributeForProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a calculated attribute for a customer profile.</p>

@@ -9,10 +9,8 @@ AWS SDK for JavaScript MediaPackage Client for Node.js, Browser and React Native
 AWS Elemental MediaPackage
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-mediapackage
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-mediapackage`
 - `yarn add @aws-sdk/client-mediapackage`
 - `pnpm add @aws-sdk/client-mediapackage`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MediaPackageClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListChannelsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ ConfigureLogs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/ConfigureLogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ConfigureLogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ConfigureLogsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/CreateChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateHarvestJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/CreateHarvestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateHarvestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateHarvestJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateOriginEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/CreateOriginEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateOriginEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/CreateOriginEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ DeleteChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/DeleteChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DeleteChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DeleteChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ DeleteOriginEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/DeleteOriginEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DeleteOriginEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DeleteOriginEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DescribeChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/DescribeChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DescribeHarvestJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/DescribeHarvestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeHarvestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeHarvestJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ DescribeOriginEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/DescribeOriginEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeOriginEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/DescribeOriginEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/ListChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListChannelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ ListHarvestJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/ListHarvestJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListHarvestJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListHarvestJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ ListOriginEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/ListOriginEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListOriginEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListOriginEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ RotateChannelCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/RotateChannelCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/RotateChannelCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/RotateChannelCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ RotateIngestEndpointCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/RotateIngestEndpointCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/RotateIngestEndpointCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/RotateIngestEndpointCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ UpdateChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/UpdateChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UpdateChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UpdateChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,5 +331,4 @@ UpdateOriginEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackage/command/UpdateOriginEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UpdateOriginEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackage/Interface/UpdateOriginEndpointCommandOutput/)
-
 </details>

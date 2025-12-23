@@ -27,9 +27,7 @@ export interface RegisterMarketplaceModelEndpointCommandInput extends RegisterMa
  *
  * The output of {@link RegisterMarketplaceModelEndpointCommand}.
  */
-export interface RegisterMarketplaceModelEndpointCommandOutput
-  extends RegisterMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface RegisterMarketplaceModelEndpointCommandOutput extends RegisterMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace, allowing it to be used with Amazon Bedrock APIs.</p>

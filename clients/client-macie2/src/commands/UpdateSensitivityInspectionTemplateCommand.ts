@@ -27,9 +27,7 @@ export interface UpdateSensitivityInspectionTemplateCommandInput extends UpdateS
  *
  * The output of {@link UpdateSensitivityInspectionTemplateCommand}.
  */
-export interface UpdateSensitivityInspectionTemplateCommandOutput
-  extends UpdateSensitivityInspectionTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateSensitivityInspectionTemplateCommandOutput extends UpdateSensitivityInspectionTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the settings for the sensitivity inspection template for an account.</p>

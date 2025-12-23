@@ -147,8 +147,14 @@ export interface DocDBElastic {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -175,8 +181,14 @@ export interface DocDBElastic {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -203,8 +215,14 @@ export interface DocDBElastic {
   /**
    * @see {@link GetClusterCommand}
    */
-  getCluster(args: GetClusterCommandInput, options?: __HttpHandlerOptions): Promise<GetClusterCommandOutput>;
-  getCluster(args: GetClusterCommandInput, cb: (err: any, data?: GetClusterCommandOutput) => void): void;
+  getCluster(
+    args: GetClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClusterCommandOutput>;
+  getCluster(
+    args: GetClusterCommandInput,
+    cb: (err: any, data?: GetClusterCommandOutput) => void
+  ): void;
   getCluster(
     args: GetClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -249,8 +267,14 @@ export interface DocDBElastic {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -330,8 +354,14 @@ export interface DocDBElastic {
   /**
    * @see {@link StartClusterCommand}
    */
-  startCluster(args: StartClusterCommandInput, options?: __HttpHandlerOptions): Promise<StartClusterCommandOutput>;
-  startCluster(args: StartClusterCommandInput, cb: (err: any, data?: StartClusterCommandOutput) => void): void;
+  startCluster(
+    args: StartClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartClusterCommandOutput>;
+  startCluster(
+    args: StartClusterCommandInput,
+    cb: (err: any, data?: StartClusterCommandOutput) => void
+  ): void;
   startCluster(
     args: StartClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -341,8 +371,14 @@ export interface DocDBElastic {
   /**
    * @see {@link StopClusterCommand}
    */
-  stopCluster(args: StopClusterCommandInput, options?: __HttpHandlerOptions): Promise<StopClusterCommandOutput>;
-  stopCluster(args: StopClusterCommandInput, cb: (err: any, data?: StopClusterCommandOutput) => void): void;
+  stopCluster(
+    args: StopClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopClusterCommandOutput>;
+  stopCluster(
+    args: StopClusterCommandInput,
+    cb: (err: any, data?: StopClusterCommandOutput) => void
+  ): void;
   stopCluster(
     args: StopClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -352,8 +388,14 @@ export interface DocDBElastic {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -363,8 +405,14 @@ export interface DocDBElastic {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -374,8 +422,14 @@ export interface DocDBElastic {
   /**
    * @see {@link UpdateClusterCommand}
    */
-  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
-  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,

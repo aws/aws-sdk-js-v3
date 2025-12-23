@@ -28,9 +28,7 @@ export interface ListRecommendedActionSummariesCommandInput extends ListRecommen
  *
  * The output of {@link ListRecommendedActionSummariesCommand}.
  */
-export interface ListRecommendedActionSummariesCommandOutput
-  extends ListRecommendedActionSummariesResponse,
-    __MetadataBearer {}
+export interface ListRecommendedActionSummariesCommandOutput extends ListRecommendedActionSummariesResponse, __MetadataBearer {}
 
 /**
  * <p> Provides a summary of recommended actions based on specified filters. </p> <note> <p>Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>

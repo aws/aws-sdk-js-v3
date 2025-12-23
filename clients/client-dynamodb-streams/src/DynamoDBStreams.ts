@@ -31,7 +31,10 @@ export interface DynamoDBStreams {
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStreamCommandOutput>;
-  describeStream(args: DescribeStreamCommandInput, cb: (err: any, data?: DescribeStreamCommandOutput) => void): void;
+  describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
   describeStream(
     args: DescribeStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -41,8 +44,14 @@ export interface DynamoDBStreams {
   /**
    * @see {@link GetRecordsCommand}
    */
-  getRecords(args: GetRecordsCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordsCommandOutput>;
-  getRecords(args: GetRecordsCommandInput, cb: (err: any, data?: GetRecordsCommandOutput) => void): void;
+  getRecords(
+    args: GetRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecordsCommandOutput>;
+  getRecords(
+    args: GetRecordsCommandInput,
+    cb: (err: any, data?: GetRecordsCommandOutput) => void
+  ): void;
   getRecords(
     args: GetRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -70,8 +79,14 @@ export interface DynamoDBStreams {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,

@@ -31,9 +31,7 @@ export interface PutResolverQueryLogConfigPolicyCommandInput extends PutResolver
  *
  * The output of {@link PutResolverQueryLogConfigPolicyCommand}.
  */
-export interface PutResolverQueryLogConfigPolicyCommandOutput
-  extends PutResolverQueryLogConfigPolicyResponse,
-    __MetadataBearer {}
+export interface PutResolverQueryLogConfigPolicyCommandOutput extends PutResolverQueryLogConfigPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,

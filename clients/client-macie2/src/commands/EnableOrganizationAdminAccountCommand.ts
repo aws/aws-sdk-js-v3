@@ -24,9 +24,7 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
  *
  * The output of {@link EnableOrganizationAdminAccountCommand}.
  */
-export interface EnableOrganizationAdminAccountCommandOutput
-  extends EnableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Designates an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>

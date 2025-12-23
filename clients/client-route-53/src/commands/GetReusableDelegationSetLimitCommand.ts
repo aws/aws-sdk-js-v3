@@ -25,9 +25,7 @@ export interface GetReusableDelegationSetLimitCommandInput extends GetReusableDe
  *
  * The output of {@link GetReusableDelegationSetLimitCommand}.
  */
-export interface GetReusableDelegationSetLimitCommandOutput
-  extends GetReusableDelegationSetLimitResponse,
-    __MetadataBearer {}
+export interface GetReusableDelegationSetLimitCommandOutput extends GetReusableDelegationSetLimitResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the maximum number of hosted zones that you can associate with the specified
@@ -87,7 +85,10 @@ export class GetReusableDelegationSetLimitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "GetReusableDelegationSetLimit", {})
   .n("Route53Client", "GetReusableDelegationSetLimitCommand")

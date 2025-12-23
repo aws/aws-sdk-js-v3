@@ -472,7 +472,10 @@ export class StartConversationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "StartConversation", {
     /**

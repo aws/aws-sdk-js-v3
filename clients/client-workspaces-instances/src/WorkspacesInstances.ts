@@ -85,7 +85,10 @@ export interface WorkspacesInstances {
     args: AssociateVolumeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateVolumeCommandOutput>;
-  associateVolume(args: AssociateVolumeCommandInput, cb: (err: any, data?: AssociateVolumeCommandOutput) => void): void;
+  associateVolume(
+    args: AssociateVolumeCommandInput,
+    cb: (err: any, data?: AssociateVolumeCommandOutput) => void
+  ): void;
   associateVolume(
     args: AssociateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -95,8 +98,14 @@ export interface WorkspacesInstances {
   /**
    * @see {@link CreateVolumeCommand}
    */
-  createVolume(args: CreateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<CreateVolumeCommandOutput>;
-  createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVolumeCommandOutput>;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    cb: (err: any, data?: CreateVolumeCommandOutput) => void
+  ): void;
   createVolume(
     args: CreateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -123,8 +132,14 @@ export interface WorkspacesInstances {
   /**
    * @see {@link DeleteVolumeCommand}
    */
-  deleteVolume(args: DeleteVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVolumeCommandOutput>;
-  deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -204,8 +219,14 @@ export interface WorkspacesInstances {
    * @see {@link ListRegionsCommand}
    */
   listRegions(): Promise<ListRegionsCommandOutput>;
-  listRegions(args: ListRegionsCommandInput, options?: __HttpHandlerOptions): Promise<ListRegionsCommandOutput>;
-  listRegions(args: ListRegionsCommandInput, cb: (err: any, data?: ListRegionsCommandOutput) => void): void;
+  listRegions(
+    args: ListRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegionsCommandOutput>;
+  listRegions(
+    args: ListRegionsCommandInput,
+    cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
   listRegions(
     args: ListRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -250,8 +271,14 @@ export interface WorkspacesInstances {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -261,8 +288,14 @@ export interface WorkspacesInstances {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

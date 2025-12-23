@@ -24,9 +24,7 @@ export interface ListApplicationAccessScopesCommandInput extends ListApplication
  *
  * The output of {@link ListApplicationAccessScopesCommand}.
  */
-export interface ListApplicationAccessScopesCommandOutput
-  extends ListApplicationAccessScopesResponse,
-    __MetadataBearer {}
+export interface ListApplicationAccessScopesCommandOutput extends ListApplicationAccessScopesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the access scopes and authorized targets associated with an application.</p>

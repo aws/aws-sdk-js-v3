@@ -24,9 +24,7 @@ export interface CreateCapacityManagerDataExportCommandInput extends CreateCapac
  *
  * The output of {@link CreateCapacityManagerDataExportCommand}.
  */
-export interface CreateCapacityManagerDataExportCommandOutput
-  extends CreateCapacityManagerDataExportResult,
-    __MetadataBearer {}
+export interface CreateCapacityManagerDataExportCommandOutput extends CreateCapacityManagerDataExportResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface DeregisterContainerInstanceCommandInput extends DeregisterConta
  *
  * The output of {@link DeregisterContainerInstanceCommand}.
  */
-export interface DeregisterContainerInstanceCommandOutput
-  extends DeregisterContainerInstanceResponse,
-    __MetadataBearer {}
+export interface DeregisterContainerInstanceCommandOutput extends DeregisterContainerInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance

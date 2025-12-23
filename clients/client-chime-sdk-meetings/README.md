@@ -11,10 +11,8 @@ receive meeting notifications. For more information about the meeting APIs, see
 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-chime-sdk-meetings
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-chime-sdk-meetings`
 - `yarn add @aws-sdk/client-chime-sdk-meetings`
 - `pnpm add @aws-sdk/client-chime-sdk-meetings`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ChimeSDKMeetingsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAttendeesCommand(params);
 ```
 
@@ -211,7 +207,6 @@ BatchCreateAttendee
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/BatchCreateAttendeeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/BatchCreateAttendeeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/BatchCreateAttendeeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ BatchUpdateAttendeeCapabilitiesExcept
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/BatchUpdateAttendeeCapabilitiesExceptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/BatchUpdateAttendeeCapabilitiesExceptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/BatchUpdateAttendeeCapabilitiesExceptCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ CreateAttendee
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/CreateAttendeeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateAttendeeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateAttendeeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ CreateMeeting
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/CreateMeetingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateMeetingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateMeetingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ CreateMeetingWithAttendees
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/CreateMeetingWithAttendeesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateMeetingWithAttendeesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/CreateMeetingWithAttendeesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ DeleteAttendee
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/DeleteAttendeeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/DeleteAttendeeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/DeleteAttendeeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ DeleteMeeting
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/DeleteMeetingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/DeleteMeetingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/DeleteMeetingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ GetAttendee
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/GetAttendeeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/GetAttendeeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/GetAttendeeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ GetMeeting
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/GetMeetingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/GetMeetingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/GetMeetingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ ListAttendees
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/ListAttendeesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/ListAttendeesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/ListAttendeesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ StartMeetingTranscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/StartMeetingTranscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/StartMeetingTranscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/StartMeetingTranscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ StopMeetingTranscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/StopMeetingTranscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/StopMeetingTranscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/StopMeetingTranscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +298,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +305,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,5 +312,4 @@ UpdateAttendeeCapabilities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-meetings/command/UpdateAttendeeCapabilitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/UpdateAttendeeCapabilitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-meetings/Interface/UpdateAttendeeCapabilitiesCommandOutput/)
-
 </details>

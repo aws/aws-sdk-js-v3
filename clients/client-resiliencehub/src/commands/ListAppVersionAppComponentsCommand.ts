@@ -24,9 +24,7 @@ export interface ListAppVersionAppComponentsCommandInput extends ListAppVersionA
  *
  * The output of {@link ListAppVersionAppComponentsCommand}.
  */
-export interface ListAppVersionAppComponentsCommandOutput
-  extends ListAppVersionAppComponentsResponse,
-    __MetadataBearer {}
+export interface ListAppVersionAppComponentsCommandOutput extends ListAppVersionAppComponentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the Application Components in the Resilience Hub application.</p>

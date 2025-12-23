@@ -1,6 +1,6 @@
-export * from "./DescribeTopicPartitionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeTopicPartitionsPaginator";
 export * from "./ListClientVpcConnectionsPaginator";
 export * from "./ListClusterOperationsPaginator";
 export * from "./ListClusterOperationsV2Paginator";

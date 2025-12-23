@@ -24,9 +24,7 @@ export interface AssociateAgentKnowledgeBaseCommandInput extends AssociateAgentK
  *
  * The output of {@link AssociateAgentKnowledgeBaseCommand}.
  */
-export interface AssociateAgentKnowledgeBaseCommandOutput
-  extends AssociateAgentKnowledgeBaseResponse,
-    __MetadataBearer {}
+export interface AssociateAgentKnowledgeBaseCommandOutput extends AssociateAgentKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a knowledge base with an agent. If a knowledge base is associated and its <code>indexState</code> is set to <code>Enabled</code>, the agent queries the knowledge base for information to augment its response to the user.</p>

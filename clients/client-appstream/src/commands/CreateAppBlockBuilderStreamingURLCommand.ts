@@ -27,9 +27,7 @@ export interface CreateAppBlockBuilderStreamingURLCommandInput extends CreateApp
  *
  * The output of {@link CreateAppBlockBuilderStreamingURLCommand}.
  */
-export interface CreateAppBlockBuilderStreamingURLCommandOutput
-  extends CreateAppBlockBuilderStreamingURLResult,
-    __MetadataBearer {}
+export interface CreateAppBlockBuilderStreamingURLCommandOutput extends CreateAppBlockBuilderStreamingURLResult, __MetadataBearer {}
 
 /**
  * <p>Creates a URL to start a create app block builder streaming session.</p>

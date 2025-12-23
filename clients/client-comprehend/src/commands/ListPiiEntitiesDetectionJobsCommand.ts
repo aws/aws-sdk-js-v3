@@ -24,9 +24,7 @@ export interface ListPiiEntitiesDetectionJobsCommandInput extends ListPiiEntitie
  *
  * The output of {@link ListPiiEntitiesDetectionJobsCommand}.
  */
-export interface ListPiiEntitiesDetectionJobsCommandOutput
-  extends ListPiiEntitiesDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListPiiEntitiesDetectionJobsCommandOutput extends ListPiiEntitiesDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>

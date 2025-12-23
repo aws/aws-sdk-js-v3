@@ -27,9 +27,7 @@ export interface AddDraftAppVersionResourceMappingsCommandInput extends AddDraft
  *
  * The output of {@link AddDraftAppVersionResourceMappingsCommand}.
  */
-export interface AddDraftAppVersionResourceMappingsCommandOutput
-  extends AddDraftAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface AddDraftAppVersionResourceMappingsCommandOutput extends AddDraftAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds the source of resource-maps to the draft version of an application. During

@@ -24,9 +24,7 @@ export interface DisassociateMemberFromGroupCommandInput extends DisassociateMem
  *
  * The output of {@link DisassociateMemberFromGroupCommand}.
  */
-export interface DisassociateMemberFromGroupCommandOutput
-  extends DisassociateMemberFromGroupResponse,
-    __MetadataBearer {}
+export interface DisassociateMemberFromGroupCommandOutput extends DisassociateMemberFromGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a member from a group.</p>

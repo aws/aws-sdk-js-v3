@@ -107,6 +107,10 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   Oauth2Credential$,
+  paginateListAppAuthorizations,
+  paginateListAppBundles,
+  paginateListIngestionDestinations,
+  paginateListIngestions,
   Persona,
   ProcessingConfiguration$,
   ResourceNotFoundException,
@@ -155,10 +159,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListAppAuthorizations,
-  paginateListAppBundles,
-  paginateListIngestionDestinations,
-  paginateListIngestions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

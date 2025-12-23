@@ -28,9 +28,7 @@ export interface DescribePortfolioShareStatusCommandInput extends DescribePortfo
  *
  * The output of {@link DescribePortfolioShareStatusCommand}.
  */
-export interface DescribePortfolioShareStatusCommandOutput
-  extends DescribePortfolioShareStatusOutput,
-    __MetadataBearer {}
+export interface DescribePortfolioShareStatusCommandOutput extends DescribePortfolioShareStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the specified portfolio share operation. This API can only be called

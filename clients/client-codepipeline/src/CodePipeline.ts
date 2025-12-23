@@ -263,7 +263,10 @@ export interface CodePipeline {
     args: AcknowledgeJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AcknowledgeJobCommandOutput>;
-  acknowledgeJob(args: AcknowledgeJobCommandInput, cb: (err: any, data?: AcknowledgeJobCommandOutput) => void): void;
+  acknowledgeJob(
+    args: AcknowledgeJobCommandInput,
+    cb: (err: any, data?: AcknowledgeJobCommandOutput) => void
+  ): void;
   acknowledgeJob(
     args: AcknowledgeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -311,7 +314,10 @@ export interface CodePipeline {
     args: CreatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePipelineCommandOutput>;
-  createPipeline(args: CreatePipelineCommandInput, cb: (err: any, data?: CreatePipelineCommandOutput) => void): void;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -342,7 +348,10 @@ export interface CodePipeline {
     args: DeletePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePipelineCommandOutput>;
-  deletePipeline(args: DeletePipelineCommandInput, cb: (err: any, data?: DeletePipelineCommandOutput) => void): void;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -352,8 +361,14 @@ export interface CodePipeline {
   /**
    * @see {@link DeleteWebhookCommand}
    */
-  deleteWebhook(args: DeleteWebhookCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebhookCommandOutput>;
-  deleteWebhook(args: DeleteWebhookCommandInput, cb: (err: any, data?: DeleteWebhookCommandOutput) => void): void;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebhookCommandOutput>;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): void;
   deleteWebhook(
     args: DeleteWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -415,8 +430,14 @@ export interface CodePipeline {
   /**
    * @see {@link GetActionTypeCommand}
    */
-  getActionType(args: GetActionTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetActionTypeCommandOutput>;
-  getActionType(args: GetActionTypeCommandInput, cb: (err: any, data?: GetActionTypeCommandOutput) => void): void;
+  getActionType(
+    args: GetActionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetActionTypeCommandOutput>;
+  getActionType(
+    args: GetActionTypeCommandInput,
+    cb: (err: any, data?: GetActionTypeCommandOutput) => void
+  ): void;
   getActionType(
     args: GetActionTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -426,8 +447,14 @@ export interface CodePipeline {
   /**
    * @see {@link GetJobDetailsCommand}
    */
-  getJobDetails(args: GetJobDetailsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobDetailsCommandOutput>;
-  getJobDetails(args: GetJobDetailsCommandInput, cb: (err: any, data?: GetJobDetailsCommandOutput) => void): void;
+  getJobDetails(
+    args: GetJobDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobDetailsCommandOutput>;
+  getJobDetails(
+    args: GetJobDetailsCommandInput,
+    cb: (err: any, data?: GetJobDetailsCommandOutput) => void
+  ): void;
   getJobDetails(
     args: GetJobDetailsCommandInput,
     options: __HttpHandlerOptions,
@@ -437,8 +464,14 @@ export interface CodePipeline {
   /**
    * @see {@link GetPipelineCommand}
    */
-  getPipeline(args: GetPipelineCommandInput, options?: __HttpHandlerOptions): Promise<GetPipelineCommandOutput>;
-  getPipeline(args: GetPipelineCommandInput, cb: (err: any, data?: GetPipelineCommandOutput) => void): void;
+  getPipeline(
+    args: GetPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPipelineCommandOutput>;
+  getPipeline(
+    args: GetPipelineCommandInput,
+    cb: (err: any, data?: GetPipelineCommandOutput) => void
+  ): void;
   getPipeline(
     args: GetPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -521,7 +554,10 @@ export interface CodePipeline {
     args: ListActionTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListActionTypesCommandOutput>;
-  listActionTypes(args: ListActionTypesCommandInput, cb: (err: any, data?: ListActionTypesCommandOutput) => void): void;
+  listActionTypes(
+    args: ListActionTypesCommandInput,
+    cb: (err: any, data?: ListActionTypesCommandOutput) => void
+  ): void;
   listActionTypes(
     args: ListActionTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -566,8 +602,14 @@ export interface CodePipeline {
    * @see {@link ListPipelinesCommand}
    */
   listPipelines(): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
     options: __HttpHandlerOptions,
@@ -595,8 +637,14 @@ export interface CodePipeline {
    * @see {@link ListRuleTypesCommand}
    */
   listRuleTypes(): Promise<ListRuleTypesCommandOutput>;
-  listRuleTypes(args: ListRuleTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListRuleTypesCommandOutput>;
-  listRuleTypes(args: ListRuleTypesCommandInput, cb: (err: any, data?: ListRuleTypesCommandOutput) => void): void;
+  listRuleTypes(
+    args: ListRuleTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRuleTypesCommandOutput>;
+  listRuleTypes(
+    args: ListRuleTypesCommandInput,
+    cb: (err: any, data?: ListRuleTypesCommandOutput) => void
+  ): void;
   listRuleTypes(
     args: ListRuleTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -624,8 +672,14 @@ export interface CodePipeline {
    * @see {@link ListWebhooksCommand}
    */
   listWebhooks(): Promise<ListWebhooksCommandOutput>;
-  listWebhooks(args: ListWebhooksCommandInput, options?: __HttpHandlerOptions): Promise<ListWebhooksCommandOutput>;
-  listWebhooks(args: ListWebhooksCommandInput, cb: (err: any, data?: ListWebhooksCommandOutput) => void): void;
+  listWebhooks(
+    args: ListWebhooksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebhooksCommandOutput>;
+  listWebhooks(
+    args: ListWebhooksCommandInput,
+    cb: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): void;
   listWebhooks(
     args: ListWebhooksCommandInput,
     options: __HttpHandlerOptions,
@@ -652,8 +706,14 @@ export interface CodePipeline {
   /**
    * @see {@link PollForJobsCommand}
    */
-  pollForJobs(args: PollForJobsCommandInput, options?: __HttpHandlerOptions): Promise<PollForJobsCommandOutput>;
-  pollForJobs(args: PollForJobsCommandInput, cb: (err: any, data?: PollForJobsCommandOutput) => void): void;
+  pollForJobs(
+    args: PollForJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PollForJobsCommandOutput>;
+  pollForJobs(
+    args: PollForJobsCommandInput,
+    cb: (err: any, data?: PollForJobsCommandOutput) => void
+  ): void;
   pollForJobs(
     args: PollForJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -782,8 +842,14 @@ export interface CodePipeline {
   /**
    * @see {@link PutWebhookCommand}
    */
-  putWebhook(args: PutWebhookCommandInput, options?: __HttpHandlerOptions): Promise<PutWebhookCommandOutput>;
-  putWebhook(args: PutWebhookCommandInput, cb: (err: any, data?: PutWebhookCommandOutput) => void): void;
+  putWebhook(
+    args: PutWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWebhookCommandOutput>;
+  putWebhook(
+    args: PutWebhookCommandInput,
+    cb: (err: any, data?: PutWebhookCommandOutput) => void
+  ): void;
   putWebhook(
     args: PutWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -828,8 +894,14 @@ export interface CodePipeline {
   /**
    * @see {@link RollbackStageCommand}
    */
-  rollbackStage(args: RollbackStageCommandInput, options?: __HttpHandlerOptions): Promise<RollbackStageCommandOutput>;
-  rollbackStage(args: RollbackStageCommandInput, cb: (err: any, data?: RollbackStageCommandOutput) => void): void;
+  rollbackStage(
+    args: RollbackStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackStageCommandOutput>;
+  rollbackStage(
+    args: RollbackStageCommandInput,
+    cb: (err: any, data?: RollbackStageCommandOutput) => void
+  ): void;
   rollbackStage(
     args: RollbackStageCommandInput,
     options: __HttpHandlerOptions,
@@ -873,8 +945,14 @@ export interface CodePipeline {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -884,8 +962,14 @@ export interface CodePipeline {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -916,7 +1000,10 @@ export interface CodePipeline {
     args: UpdatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePipelineCommandOutput>;
-  updatePipeline(args: UpdatePipelineCommandInput, cb: (err: any, data?: UpdatePipelineCommandOutput) => void): void;
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
   updatePipeline(
     args: UpdatePipelineCommandInput,
     options: __HttpHandlerOptions,

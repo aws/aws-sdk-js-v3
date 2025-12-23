@@ -30,10 +30,8 @@ operations for Rekognition Face Liveness.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-rekognitionstreaming
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-rekognitionstreaming`
 - `yarn add @aws-sdk/client-rekognitionstreaming`
 - `pnpm add @aws-sdk/client-rekognitionstreaming`
@@ -69,9 +67,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new RekognitionStreamingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new StartFaceLivenessSessionCommand(params);
 ```
 
@@ -230,5 +226,4 @@ StartFaceLivenessSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rekognitionstreaming/command/StartFaceLivenessSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rekognitionstreaming/Interface/StartFaceLivenessSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rekognitionstreaming/Interface/StartFaceLivenessSessionCommandOutput/)
-
 </details>

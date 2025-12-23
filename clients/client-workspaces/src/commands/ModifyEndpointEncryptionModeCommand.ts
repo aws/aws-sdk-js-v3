@@ -24,9 +24,7 @@ export interface ModifyEndpointEncryptionModeCommandInput extends ModifyEndpoint
  *
  * The output of {@link ModifyEndpointEncryptionModeCommand}.
  */
-export interface ModifyEndpointEncryptionModeCommandOutput
-  extends ModifyEndpointEncryptionModeResponse,
-    __MetadataBearer {}
+export interface ModifyEndpointEncryptionModeCommandOutput extends ModifyEndpointEncryptionModeResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the endpoint encryption mode that allows you to configure the specified

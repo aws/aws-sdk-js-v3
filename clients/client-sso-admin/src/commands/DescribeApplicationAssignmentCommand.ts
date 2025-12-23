@@ -24,9 +24,7 @@ export interface DescribeApplicationAssignmentCommandInput extends DescribeAppli
  *
  * The output of {@link DescribeApplicationAssignmentCommand}.
  */
-export interface DescribeApplicationAssignmentCommandOutput
-  extends DescribeApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationAssignmentCommandOutput extends DescribeApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application, the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>

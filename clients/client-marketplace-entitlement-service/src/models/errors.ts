@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { MarketplaceEntitlementServiceServiceException as __BaseException } from "./MarketplaceEntitlementServiceServiceException";
+import {
+  MarketplaceEntitlementServiceServiceException as __BaseException,
+} from "./MarketplaceEntitlementServiceServiceException";
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a

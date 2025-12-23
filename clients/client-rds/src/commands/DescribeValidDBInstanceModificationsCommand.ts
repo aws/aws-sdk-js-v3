@@ -27,9 +27,7 @@ export interface DescribeValidDBInstanceModificationsCommandInput extends Descri
  *
  * The output of {@link DescribeValidDBInstanceModificationsCommand}.
  */
-export interface DescribeValidDBInstanceModificationsCommandOutput
-  extends DescribeValidDBInstanceModificationsResult,
-    __MetadataBearer {}
+export interface DescribeValidDBInstanceModificationsCommandOutput extends DescribeValidDBInstanceModificationsResult, __MetadataBearer {}
 
 /**
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to

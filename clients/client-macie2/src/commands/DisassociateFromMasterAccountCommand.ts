@@ -24,9 +24,7 @@ export interface DisassociateFromMasterAccountCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
-export interface DisassociateFromMasterAccountCommandOutput
-  extends DisassociateFromMasterAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateFromMasterAccountCommandOutput extends DisassociateFromMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>

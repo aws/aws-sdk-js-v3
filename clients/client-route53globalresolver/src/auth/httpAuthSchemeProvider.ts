@@ -49,17 +49,13 @@ export const defaultRoute53GlobalResolverHttpAuthSchemeParametersProvider = asyn
 ): Promise<Route53GlobalResolverHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: Route53GlobalResolverHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: Route53GlobalResolverHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface Route53GlobalResolverHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultRoute53GlobalResolverHttpAuthSchemeProvider: Route53GlobalResolverHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultRoute53GlobalResolverHttpAuthSchemeProvider: Route53GlobalResolverHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

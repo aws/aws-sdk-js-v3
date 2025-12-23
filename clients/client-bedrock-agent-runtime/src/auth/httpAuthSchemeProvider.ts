@@ -49,11 +49,9 @@ export const defaultBedrockAgentRuntimeHttpAuthSchemeParametersProvider = async 
 ): Promise<BedrockAgentRuntimeHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface BedrockAgentRuntimeHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultBedrockAgentRuntimeHttpAuthSchemeProvider: BedrockAgentRuntimeHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultBedrockAgentRuntimeHttpAuthSchemeProvider: BedrockAgentRuntimeHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

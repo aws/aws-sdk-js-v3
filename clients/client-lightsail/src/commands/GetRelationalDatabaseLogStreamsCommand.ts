@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseLogStreamsCommand}.
  */
-export interface GetRelationalDatabaseLogStreamsCommandOutput
-  extends GetRelationalDatabaseLogStreamsResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseLogStreamsCommandOutput extends GetRelationalDatabaseLogStreamsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>

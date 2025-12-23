@@ -84,12 +84,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetRestApisCommandInput;
+export type ServiceInputTypes =
+  | GetRestApisCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetRestApisCommandOutput;
+export type ServiceOutputTypes =
+  | GetRestApisCommandOutput;
 
 /**
  * @public

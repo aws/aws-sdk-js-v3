@@ -24,9 +24,7 @@ export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisasso
  *
  * The output of {@link BatchDisassociateProjectAssetsCommand}.
  */
-export interface BatchDisassociateProjectAssetsCommandOutput
-  extends BatchDisassociateProjectAssetsResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateProjectAssetsCommandOutput extends BatchDisassociateProjectAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>

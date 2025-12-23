@@ -24,9 +24,7 @@ export interface ManagePropertygraphStatisticsCommandInput extends ManagePropert
  *
  * The output of {@link ManagePropertygraphStatisticsCommand}.
  */
-export interface ManagePropertygraphStatisticsCommandOutput
-  extends ManagePropertygraphStatisticsOutput,
-    __MetadataBearer {}
+export interface ManagePropertygraphStatisticsCommandOutput extends ManagePropertygraphStatisticsOutput, __MetadataBearer {}
 
 /**
  * <p>Manages the generation and use of property graph statistics.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics">neptune-db:ManageStatistics</a> IAM action in that cluster.</p>

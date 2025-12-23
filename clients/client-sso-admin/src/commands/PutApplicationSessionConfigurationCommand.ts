@@ -27,9 +27,7 @@ export interface PutApplicationSessionConfigurationCommandInput extends PutAppli
  *
  * The output of {@link PutApplicationSessionConfigurationCommand}.
  */
-export interface PutApplicationSessionConfigurationCommandOutput
-  extends PutApplicationSessionConfigurationResponse,
-    __MetadataBearer {}
+export interface PutApplicationSessionConfigurationCommandOutput extends PutApplicationSessionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the session configuration for an application in IAM Identity Center.</p> <p>The session configuration determines how users can access an application. This includes whether user background sessions are enabled. User background sessions allow users to start a job on a supported Amazon Web Services managed application without having to remain signed in to an active session while the job runs.</p>

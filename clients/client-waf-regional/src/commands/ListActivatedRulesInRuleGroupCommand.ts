@@ -24,9 +24,7 @@ export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivated
  *
  * The output of {@link ListActivatedRulesInRuleGroupCommand}.
  */
-export interface ListActivatedRulesInRuleGroupCommandOutput
-  extends ListActivatedRulesInRuleGroupResponse,
-    __MetadataBearer {}
+export interface ListActivatedRulesInRuleGroupCommandOutput extends ListActivatedRulesInRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <note>

@@ -24,9 +24,7 @@ export interface DeleteAssetModelCompositeModelCommandInput extends DeleteAssetM
  *
  * The output of {@link DeleteAssetModelCompositeModelCommand}.
  */
-export interface DeleteAssetModelCompositeModelCommandOutput
-  extends DeleteAssetModelCompositeModelResponse,
-    __MetadataBearer {}
+export interface DeleteAssetModelCompositeModelCommandOutput extends DeleteAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a composite model. This action can't be undone. You must delete all assets created

@@ -30,10 +30,8 @@ insight into customer service calls, use this option. Refer to  for details.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-transcribe
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-transcribe`
 - `yarn add @aws-sdk/client-transcribe`
 - `pnpm add @aws-sdk/client-transcribe`
@@ -69,9 +67,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new TranscribeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListVocabulariesCommand(params);
 ```
 
@@ -230,7 +226,6 @@ CreateCallAnalyticsCategory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/CreateCallAnalyticsCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateCallAnalyticsCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateCallAnalyticsCategoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +233,6 @@ CreateLanguageModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/CreateLanguageModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateLanguageModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateLanguageModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +240,6 @@ CreateMedicalVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/CreateMedicalVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateMedicalVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateMedicalVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +247,6 @@ CreateVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/CreateVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +254,6 @@ CreateVocabularyFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/CreateVocabularyFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateVocabularyFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/CreateVocabularyFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +261,6 @@ DeleteCallAnalyticsCategory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteCallAnalyticsCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteCallAnalyticsCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteCallAnalyticsCategoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +268,6 @@ DeleteCallAnalyticsJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteCallAnalyticsJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteCallAnalyticsJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteCallAnalyticsJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +275,6 @@ DeleteLanguageModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteLanguageModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteLanguageModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteLanguageModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +282,6 @@ DeleteMedicalScribeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteMedicalScribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalScribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalScribeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +289,6 @@ DeleteMedicalTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteMedicalTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +296,6 @@ DeleteMedicalVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteMedicalVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteMedicalVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +303,6 @@ DeleteTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +310,6 @@ DeleteVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +317,6 @@ DeleteVocabularyFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteVocabularyFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteVocabularyFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DeleteVocabularyFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +324,6 @@ DescribeLanguageModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DescribeLanguageModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DescribeLanguageModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/DescribeLanguageModelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,7 +331,6 @@ GetCallAnalyticsCategory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetCallAnalyticsCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetCallAnalyticsCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetCallAnalyticsCategoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -358,7 +338,6 @@ GetCallAnalyticsJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetCallAnalyticsJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetCallAnalyticsJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetCallAnalyticsJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -366,7 +345,6 @@ GetMedicalScribeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetMedicalScribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalScribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalScribeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -374,7 +352,6 @@ GetMedicalTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetMedicalTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -382,7 +359,6 @@ GetMedicalVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetMedicalVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetMedicalVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -390,7 +366,6 @@ GetTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -398,7 +373,6 @@ GetVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -406,7 +380,6 @@ GetVocabularyFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/GetVocabularyFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetVocabularyFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/GetVocabularyFilterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -414,7 +387,6 @@ ListCallAnalyticsCategories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListCallAnalyticsCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListCallAnalyticsCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListCallAnalyticsCategoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -422,7 +394,6 @@ ListCallAnalyticsJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListCallAnalyticsJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListCallAnalyticsJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListCallAnalyticsJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -430,7 +401,6 @@ ListLanguageModels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListLanguageModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListLanguageModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListLanguageModelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -438,7 +408,6 @@ ListMedicalScribeJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalScribeJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalScribeJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalScribeJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -446,7 +415,6 @@ ListMedicalTranscriptionJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalTranscriptionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalTranscriptionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalTranscriptionJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -454,7 +422,6 @@ ListMedicalVocabularies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalVocabulariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalVocabulariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListMedicalVocabulariesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -462,7 +429,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -470,7 +436,6 @@ ListTranscriptionJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListTranscriptionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListTranscriptionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListTranscriptionJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -478,7 +443,6 @@ ListVocabularies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListVocabulariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListVocabulariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListVocabulariesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -486,7 +450,6 @@ ListVocabularyFilters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListVocabularyFiltersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListVocabularyFiltersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/ListVocabularyFiltersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -494,7 +457,6 @@ StartCallAnalyticsJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartCallAnalyticsJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartCallAnalyticsJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartCallAnalyticsJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -502,7 +464,6 @@ StartMedicalScribeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartMedicalScribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartMedicalScribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartMedicalScribeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -510,7 +471,6 @@ StartMedicalTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartMedicalTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartMedicalTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartMedicalTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -518,7 +478,6 @@ StartTranscriptionJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartTranscriptionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartTranscriptionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/StartTranscriptionJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -526,7 +485,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -534,7 +492,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -542,7 +499,6 @@ UpdateCallAnalyticsCategory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UpdateCallAnalyticsCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateCallAnalyticsCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateCallAnalyticsCategoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -550,7 +506,6 @@ UpdateMedicalVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UpdateMedicalVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateMedicalVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateMedicalVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -558,7 +513,6 @@ UpdateVocabulary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UpdateVocabularyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateVocabularyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateVocabularyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -566,5 +520,4 @@ UpdateVocabularyFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UpdateVocabularyFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateVocabularyFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateVocabularyFilterCommandOutput/)
-
 </details>

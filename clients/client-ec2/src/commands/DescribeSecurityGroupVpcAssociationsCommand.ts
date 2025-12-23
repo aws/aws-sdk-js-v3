@@ -27,9 +27,7 @@ export interface DescribeSecurityGroupVpcAssociationsCommandInput extends Descri
  *
  * The output of {@link DescribeSecurityGroupVpcAssociationsCommand}.
  */
-export interface DescribeSecurityGroupVpcAssociationsCommandOutput
-  extends DescribeSecurityGroupVpcAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeSecurityGroupVpcAssociationsCommandOutput extends DescribeSecurityGroupVpcAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes security group VPC associations made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>

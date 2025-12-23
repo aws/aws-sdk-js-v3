@@ -24,9 +24,7 @@ export interface ModifyIpamPolicyAllocationRulesCommandInput extends ModifyIpamP
  *
  * The output of {@link ModifyIpamPolicyAllocationRulesCommand}.
  */
-export interface ModifyIpamPolicyAllocationRulesCommandOutput
-  extends ModifyIpamPolicyAllocationRulesResult,
-    __MetadataBearer {}
+export interface ModifyIpamPolicyAllocationRulesCommandOutput extends ModifyIpamPolicyAllocationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the allocation rules in an IPAM policy.</p>

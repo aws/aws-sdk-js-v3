@@ -24,9 +24,7 @@ export interface GetPortalProductSharingPolicyCommandInput extends GetPortalProd
  *
  * The output of {@link GetPortalProductSharingPolicyCommand}.
  */
-export interface GetPortalProductSharingPolicyCommandOutput
-  extends GetPortalProductSharingPolicyResponse,
-    __MetadataBearer {}
+export interface GetPortalProductSharingPolicyCommandOutput extends GetPortalProductSharingPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the sharing policy for a portal product.</p>

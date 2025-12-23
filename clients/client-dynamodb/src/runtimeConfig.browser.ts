@@ -30,11 +30,8 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     defaultsMode,
     accountIdEndpointMode: config?.accountIdEndpointMode ?? (() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE)),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     endpointDiscoveryEnabledProvider: config?.endpointDiscoveryEnabledProvider ?? (() => Promise.resolve(undefined)),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),

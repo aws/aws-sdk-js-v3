@@ -24,9 +24,7 @@ export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMet
  *
  * The output of {@link ListDocumentMetadataHistoryCommand}.
  */
-export interface ListDocumentMetadataHistoryCommandOutput
-  extends ListDocumentMetadataHistoryResponse,
-    __MetadataBearer {}
+export interface ListDocumentMetadataHistoryCommandOutput extends ListDocumentMetadataHistoryResponse, __MetadataBearer {}
 
 /**
  * <important>

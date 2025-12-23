@@ -27,9 +27,7 @@ export interface ListMobileDeviceAccessOverridesCommandInput extends ListMobileD
  *
  * The output of {@link ListMobileDeviceAccessOverridesCommand}.
  */
-export interface ListMobileDeviceAccessOverridesCommandOutput
-  extends ListMobileDeviceAccessOverridesResponse,
-    __MetadataBearer {}
+export interface ListMobileDeviceAccessOverridesCommandOutput extends ListMobileDeviceAccessOverridesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>

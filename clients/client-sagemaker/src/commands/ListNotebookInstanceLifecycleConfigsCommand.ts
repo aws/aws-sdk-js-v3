@@ -27,9 +27,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandInput extends ListNo
  *
  * The output of {@link ListNotebookInstanceLifecycleConfigsCommand}.
  */
-export interface ListNotebookInstanceLifecycleConfigsCommandOutput
-  extends ListNotebookInstanceLifecycleConfigsOutput,
-    __MetadataBearer {}
+export interface ListNotebookInstanceLifecycleConfigsCommandOutput extends ListNotebookInstanceLifecycleConfigsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists notebook instance lifestyle configurations created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>

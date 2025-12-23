@@ -24,9 +24,7 @@ export interface DescribeLocationObjectStorageCommandInput extends DescribeLocat
  *
  * The output of {@link DescribeLocationObjectStorageCommand}.
  */
-export interface DescribeLocationObjectStorageCommandOutput
-  extends DescribeLocationObjectStorageResponse,
-    __MetadataBearer {}
+export interface DescribeLocationObjectStorageCommandOutput extends DescribeLocationObjectStorageResponse, __MetadataBearer {}
 
 /**
  * <p>Provides details about how an DataSync transfer location for an object

@@ -27,9 +27,7 @@ export interface AuthorizeClusterSecurityGroupIngressCommandInput extends Author
  *
  * The output of {@link AuthorizeClusterSecurityGroupIngressCommand}.
  */
-export interface AuthorizeClusterSecurityGroupIngressCommandOutput
-  extends AuthorizeClusterSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeClusterSecurityGroupIngressCommandOutput extends AuthorizeClusterSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether

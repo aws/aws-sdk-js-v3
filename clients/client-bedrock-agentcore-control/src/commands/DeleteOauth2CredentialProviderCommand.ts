@@ -28,9 +28,7 @@ export interface DeleteOauth2CredentialProviderCommandInput extends DeleteOauth2
  *
  * The output of {@link DeleteOauth2CredentialProviderCommand}.
  */
-export interface DeleteOauth2CredentialProviderCommandOutput
-  extends DeleteOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface DeleteOauth2CredentialProviderCommandOutput extends DeleteOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an OAuth2 credential provider.</p>

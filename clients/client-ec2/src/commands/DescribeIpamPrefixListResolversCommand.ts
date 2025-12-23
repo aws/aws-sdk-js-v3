@@ -24,9 +24,7 @@ export interface DescribeIpamPrefixListResolversCommandInput extends DescribeIpa
  *
  * The output of {@link DescribeIpamPrefixListResolversCommand}.
  */
-export interface DescribeIpamPrefixListResolversCommandOutput
-  extends DescribeIpamPrefixListResolversResult,
-    __MetadataBearer {}
+export interface DescribeIpamPrefixListResolversCommandOutput extends DescribeIpamPrefixListResolversResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more IPAM prefix list resolvers. Use this operation to view the configuration, status, and properties of your resolvers.</p>

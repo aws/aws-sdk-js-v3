@@ -24,9 +24,7 @@ export interface UpdateStorageVirtualMachineCommandInput extends UpdateStorageVi
  *
  * The output of {@link UpdateStorageVirtualMachineCommand}.
  */
-export interface UpdateStorageVirtualMachineCommandOutput
-  extends UpdateStorageVirtualMachineResponse,
-    __MetadataBearer {}
+export interface UpdateStorageVirtualMachineCommandOutput extends UpdateStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an FSx for ONTAP storage virtual machine (SVM).</p>

@@ -27,9 +27,7 @@ export interface ListSecurityProfileApplicationsCommandInput extends ListSecurit
  *
  * The output of {@link ListSecurityProfileApplicationsCommand}.
  */
-export interface ListSecurityProfileApplicationsCommandOutput
-  extends ListSecurityProfileApplicationsResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfileApplicationsCommandOutput extends ListSecurityProfileApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of third-party applications or MCP Servers in a specific security profile.</p>

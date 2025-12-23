@@ -24,9 +24,7 @@ export interface GetFieldLevelEncryptionConfigCommandInput extends GetFieldLevel
  *
  * The output of {@link GetFieldLevelEncryptionConfigCommand}.
  */
-export interface GetFieldLevelEncryptionConfigCommandOutput
-  extends GetFieldLevelEncryptionConfigResult,
-    __MetadataBearer {}
+export interface GetFieldLevelEncryptionConfigCommandOutput extends GetFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the field-level encryption configuration information.</p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StopQueryWorkloadInsightsTopContributorsCommand}.
  */
-export interface StopQueryWorkloadInsightsTopContributorsCommandInput
-  extends StopQueryWorkloadInsightsTopContributorsInput {}
+export interface StopQueryWorkloadInsightsTopContributorsCommandInput extends StopQueryWorkloadInsightsTopContributorsInput {}
 /**
  * @public
  *
  * The output of {@link StopQueryWorkloadInsightsTopContributorsCommand}.
  */
-export interface StopQueryWorkloadInsightsTopContributorsCommandOutput
-  extends StopQueryWorkloadInsightsTopContributorsOutput,
-    __MetadataBearer {}
+export interface StopQueryWorkloadInsightsTopContributorsCommandOutput extends StopQueryWorkloadInsightsTopContributorsOutput, __MetadataBearer {}
 
 /**
  * <p>Stop a top contributors query for workload insights. Specify the query that you want to stop by providing a query ID and a scope ID. </p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned.</p>

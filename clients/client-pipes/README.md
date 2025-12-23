@@ -14,10 +14,8 @@ source, add optional event filtering, define optional enrichment, and select the
 the event data. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pipes
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pipes`
 - `yarn add @aws-sdk/client-pipes`
 - `pnpm add @aws-sdk/client-pipes`
@@ -53,9 +51,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PipesClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListPipesCommand(params);
 ```
 
@@ -214,7 +210,6 @@ CreatePipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/CreatePipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/CreatePipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/CreatePipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -222,7 +217,6 @@ DeletePipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/DeletePipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/DeletePipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/DeletePipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ DescribePipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/DescribePipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/DescribePipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/DescribePipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ ListPipes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/ListPipesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/ListPipesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/ListPipesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ StartPipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/StartPipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/StartPipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/StartPipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ StopPipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/StopPipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/StopPipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/StopPipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,5 +273,4 @@ UpdatePipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pipes/command/UpdatePipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/UpdatePipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pipes/Interface/UpdatePipeCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface ListTargetedSentimentDetectionJobsCommandInput extends ListTarg
  *
  * The output of {@link ListTargetedSentimentDetectionJobsCommand}.
  */
-export interface ListTargetedSentimentDetectionJobsCommandOutput
-  extends ListTargetedSentimentDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListTargetedSentimentDetectionJobsCommandOutput extends ListTargetedSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>

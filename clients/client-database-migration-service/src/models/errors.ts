@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
+import {
+  DatabaseMigrationServiceServiceException as __BaseException,
+} from "./DatabaseMigrationServiceServiceException";
 
 /**
  * <p>DMS was denied access to the endpoint. Check that the

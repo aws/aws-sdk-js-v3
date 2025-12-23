@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchCreateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchCreateBillScenarioCommitmentModificationCommandInput
-  extends BatchCreateBillScenarioCommitmentModificationRequest {}
+export interface BatchCreateBillScenarioCommitmentModificationCommandInput extends BatchCreateBillScenarioCommitmentModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchCreateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchCreateBillScenarioCommitmentModificationCommandOutput
-  extends BatchCreateBillScenarioCommitmentModificationResponse,
-    __MetadataBearer {}
+export interface BatchCreateBillScenarioCommitmentModificationCommandOutput extends BatchCreateBillScenarioCommitmentModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Create Compute Savings Plans, EC2 Instance Savings Plans, or EC2 Reserved Instances commitments that you want to model in a Bill Scenario. </p> <note> <p>The <code>BatchCreateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:CreateBillScenarioCommitmentModification</code> in your policies.</p> </note>

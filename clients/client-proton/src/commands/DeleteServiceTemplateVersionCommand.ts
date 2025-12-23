@@ -24,9 +24,7 @@ export interface DeleteServiceTemplateVersionCommandInput extends DeleteServiceT
  *
  * The output of {@link DeleteServiceTemplateVersionCommand}.
  */
-export interface DeleteServiceTemplateVersionCommandOutput
-  extends DeleteServiceTemplateVersionOutput,
-    __MetadataBearer {}
+export interface DeleteServiceTemplateVersionCommandOutput extends DeleteServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>If no other minor versions of a service template exist, delete a major version of the

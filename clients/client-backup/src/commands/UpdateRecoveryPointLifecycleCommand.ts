@@ -24,9 +24,7 @@ export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecovery
  *
  * The output of {@link UpdateRecoveryPointLifecycleCommand}.
  */
-export interface UpdateRecoveryPointLifecycleCommandOutput
-  extends UpdateRecoveryPointLifecycleOutput,
-    __MetadataBearer {}
+export interface UpdateRecoveryPointLifecycleCommandOutput extends UpdateRecoveryPointLifecycleOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the transition lifecycle of a recovery point.</p>

@@ -24,9 +24,7 @@ export interface DeleteEksAnywhereSubscriptionCommandInput extends DeleteEksAnyw
  *
  * The output of {@link DeleteEksAnywhereSubscriptionCommand}.
  */
-export interface DeleteEksAnywhereSubscriptionCommandOutput
-  extends DeleteEksAnywhereSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteEksAnywhereSubscriptionCommandOutput extends DeleteEksAnywhereSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an expired or inactive subscription. Deleting inactive subscriptions removes

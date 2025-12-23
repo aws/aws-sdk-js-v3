@@ -27,9 +27,7 @@ export interface ListManagedPoliciesInPermissionSetCommandInput extends ListMana
  *
  * The output of {@link ListManagedPoliciesInPermissionSetCommand}.
  */
-export interface ListManagedPoliciesInPermissionSetCommandOutput
-  extends ListManagedPoliciesInPermissionSetResponse,
-    __MetadataBearer {}
+export interface ListManagedPoliciesInPermissionSetCommandOutput extends ListManagedPoliciesInPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>

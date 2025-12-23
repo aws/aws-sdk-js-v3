@@ -46,11 +46,9 @@ export const defaultAutoScalingPlansHttpAuthSchemeParametersProvider = async (
 ): Promise<AutoScalingPlansHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface AutoScalingPlansHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultAutoScalingPlansHttpAuthSchemeProvider: AutoScalingPlansHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultAutoScalingPlansHttpAuthSchemeProvider: AutoScalingPlansHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
-export interface DescribeDirectConnectGatewayAttachmentsCommandInput
-  extends DescribeDirectConnectGatewayAttachmentsRequest {}
+export interface DescribeDirectConnectGatewayAttachmentsCommandInput extends DescribeDirectConnectGatewayAttachmentsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
-export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
-  extends DescribeDirectConnectGatewayAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAttachmentsCommandOutput extends DescribeDirectConnectGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify

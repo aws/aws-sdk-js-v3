@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteIpamExternalResourceVerificationTokenCommand}.
  */
-export interface DeleteIpamExternalResourceVerificationTokenCommandInput
-  extends DeleteIpamExternalResourceVerificationTokenRequest {}
+export interface DeleteIpamExternalResourceVerificationTokenCommandInput extends DeleteIpamExternalResourceVerificationTokenRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteIpamExternalResourceVerificationTokenCommand}.
  */
-export interface DeleteIpamExternalResourceVerificationTokenCommandOutput
-  extends DeleteIpamExternalResourceVerificationTokenResult,
-    __MetadataBearer {}
+export interface DeleteIpamExternalResourceVerificationTokenCommandOutput extends DeleteIpamExternalResourceVerificationTokenResult, __MetadataBearer {}
 
 /**
  * <p>Delete a verification token.</p>

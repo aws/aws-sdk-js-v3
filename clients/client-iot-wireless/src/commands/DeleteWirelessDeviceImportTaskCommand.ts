@@ -24,9 +24,7 @@ export interface DeleteWirelessDeviceImportTaskCommandInput extends DeleteWirele
  *
  * The output of {@link DeleteWirelessDeviceImportTaskCommand}.
  */
-export interface DeleteWirelessDeviceImportTaskCommandOutput
-  extends DeleteWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface DeleteWirelessDeviceImportTaskCommandOutput extends DeleteWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an import task.</p>

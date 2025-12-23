@@ -24,9 +24,7 @@ export interface UpdateEncryptionConfigurationCommandInput extends UpdateEncrypt
  *
  * The output of {@link UpdateEncryptionConfigurationCommand}.
  */
-export interface UpdateEncryptionConfigurationCommandOutput
-  extends UpdateEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateEncryptionConfigurationCommandOutput extends UpdateEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the encryption configuration. By default, Amazon Web Services IoT Core encrypts your data at rest using Amazon Web Services owned keys. Amazon Web Services IoT Core also supports symmetric customer managed keys

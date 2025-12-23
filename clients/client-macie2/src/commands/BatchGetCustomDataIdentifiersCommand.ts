@@ -24,9 +24,7 @@ export interface BatchGetCustomDataIdentifiersCommandInput extends BatchGetCusto
  *
  * The output of {@link BatchGetCustomDataIdentifiersCommand}.
  */
-export interface BatchGetCustomDataIdentifiersCommandOutput
-  extends BatchGetCustomDataIdentifiersResponse,
-    __MetadataBearer {}
+export interface BatchGetCustomDataIdentifiersCommandOutput extends BatchGetCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about one or more custom data identifiers.</p>

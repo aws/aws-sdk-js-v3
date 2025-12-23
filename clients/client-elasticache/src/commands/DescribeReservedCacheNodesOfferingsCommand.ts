@@ -24,9 +24,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandInput extends Describ
  *
  * The output of {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
-export interface DescribeReservedCacheNodesOfferingsCommandOutput
-  extends ReservedCacheNodesOfferingMessage,
-    __MetadataBearer {}
+export interface DescribeReservedCacheNodesOfferingsCommandOutput extends ReservedCacheNodesOfferingMessage, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved cache node offerings.</p>

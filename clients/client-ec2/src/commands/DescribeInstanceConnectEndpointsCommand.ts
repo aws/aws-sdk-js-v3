@@ -27,9 +27,7 @@ export interface DescribeInstanceConnectEndpointsCommandInput extends DescribeIn
  *
  * The output of {@link DescribeInstanceConnectEndpointsCommand}.
  */
-export interface DescribeInstanceConnectEndpointsCommandOutput
-  extends DescribeInstanceConnectEndpointsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceConnectEndpointsCommandOutput extends DescribeInstanceConnectEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect Endpoints.</p>

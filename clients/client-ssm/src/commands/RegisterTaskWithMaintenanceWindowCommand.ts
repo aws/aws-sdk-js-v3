@@ -27,9 +27,7 @@ export interface RegisterTaskWithMaintenanceWindowCommandInput extends RegisterT
  *
  * The output of {@link RegisterTaskWithMaintenanceWindowCommand}.
  */
-export interface RegisterTaskWithMaintenanceWindowCommandOutput
-  extends RegisterTaskWithMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface RegisterTaskWithMaintenanceWindowCommandOutput extends RegisterTaskWithMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Adds a new task to a maintenance window.</p>

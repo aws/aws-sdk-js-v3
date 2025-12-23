@@ -324,7 +324,10 @@ export interface ServiceQuotas {
     args: GetServiceQuotaCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceQuotaCommandOutput>;
-  getServiceQuota(args: GetServiceQuotaCommandInput, cb: (err: any, data?: GetServiceQuotaCommandOutput) => void): void;
+  getServiceQuota(
+    args: GetServiceQuotaCommandInput,
+    cb: (err: any, data?: GetServiceQuotaCommandOutput) => void
+  ): void;
   getServiceQuota(
     args: GetServiceQuotaCommandInput,
     options: __HttpHandlerOptions,
@@ -439,8 +442,14 @@ export interface ServiceQuotas {
    * @see {@link ListServicesCommand}
    */
   listServices(): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -554,8 +563,14 @@ export interface ServiceQuotas {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +580,14 @@ export interface ServiceQuotas {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

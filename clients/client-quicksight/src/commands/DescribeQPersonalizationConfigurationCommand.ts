@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeQPersonalizationConfigurationCommand}.
  */
-export interface DescribeQPersonalizationConfigurationCommandInput
-  extends DescribeQPersonalizationConfigurationRequest {}
+export interface DescribeQPersonalizationConfigurationCommandInput extends DescribeQPersonalizationConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeQPersonalizationConfigurationCommand}.
  */
-export interface DescribeQPersonalizationConfigurationCommandOutput
-  extends DescribeQPersonalizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeQPersonalizationConfigurationCommandOutput extends DescribeQPersonalizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a personalization configuration.</p>

@@ -24,9 +24,7 @@ export interface UpdateWorkspaceConfigurationCommandInput extends UpdateWorkspac
  *
  * The output of {@link UpdateWorkspaceConfigurationCommand}.
  */
-export interface UpdateWorkspaceConfigurationCommandOutput
-  extends UpdateWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateWorkspaceConfigurationCommandOutput extends UpdateWorkspaceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to create or update the label sets, label set limits, and retention period of a workspace.</p> <p>You must specify at least one of <code>limitsPerLabelSet</code> or <code>retentionPeriodInDays</code> for the request to be valid.</p>

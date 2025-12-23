@@ -24,9 +24,7 @@ export interface GetCapacityManagerAttributesCommandInput extends GetCapacityMan
  *
  * The output of {@link GetCapacityManagerAttributesCommand}.
  */
-export interface GetCapacityManagerAttributesCommandOutput
-  extends GetCapacityManagerAttributesResult,
-    __MetadataBearer {}
+export interface GetCapacityManagerAttributesCommandOutput extends GetCapacityManagerAttributesResult, __MetadataBearer {}
 
 /**
  * <p>

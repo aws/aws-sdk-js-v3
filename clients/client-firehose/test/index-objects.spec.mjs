@@ -1,4 +1,5 @@
 import {
+  _Record$,
   AmazonOpenSearchServerlessBufferingHints$,
   AmazonOpenSearchServerlessDestinationConfiguration$,
   AmazonOpenSearchServerlessDestinationDescription$,
@@ -26,7 +27,6 @@ import {
   CreateDeliveryStreamCommand,
   CreateDeliveryStreamInput$,
   CreateDeliveryStreamOutput$,
-  DataFormatConversionConfiguration$,
   DatabaseColumnList$,
   DatabaseList$,
   DatabaseSnapshotInfo$,
@@ -36,6 +36,7 @@ import {
   DatabaseSourceVPCConfiguration$,
   DatabaseTableList$,
   DatabaseType,
+  DataFormatConversionConfiguration$,
   DefaultDocumentIdFormat,
   DeleteDeliveryStream$,
   DeleteDeliveryStreamCommand,
@@ -97,10 +98,10 @@ import {
   InvalidKMSResourceException$,
   InvalidSourceException,
   InvalidSourceException$,
-  KMSEncryptionConfig$,
   KeyType,
   KinesisStreamSourceConfiguration$,
   KinesisStreamSourceDescription$,
+  KMSEncryptionConfig$,
   LimitExceededException,
   LimitExceededException$,
   ListDeliveryStreams$,
@@ -152,7 +153,6 @@ import {
   S3DestinationConfiguration$,
   S3DestinationDescription$,
   S3DestinationUpdate$,
-  SSLMode,
   SchemaConfiguration$,
   SchemaEvolutionConfiguration$,
   SecretsManagerConfiguration$,
@@ -177,6 +177,7 @@ import {
   SplunkDestinationUpdate$,
   SplunkRetryOptions$,
   SplunkS3BackupMode,
+  SSLMode,
   StartDeliveryStreamEncryption$,
   StartDeliveryStreamEncryptionCommand,
   StartDeliveryStreamEncryptionInput$,
@@ -201,7 +202,6 @@ import {
   UpdateDestinationOutput$,
   VpcConfiguration$,
   VpcConfigurationDescription$,
-  _Record$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

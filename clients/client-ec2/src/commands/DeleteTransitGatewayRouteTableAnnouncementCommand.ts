@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput
-  extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
  */
-export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
-  extends DeleteTransitGatewayRouteTableAnnouncementResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput extends DeleteTransitGatewayRouteTableAnnouncementResult, __MetadataBearer {}
 
 /**
  * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>

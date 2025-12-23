@@ -58,6 +58,9 @@ import {
   MultiMeasureAttributeMapping$,
   MultiMeasureMappings$,
   NotificationConfiguration$,
+  paginateListScheduledQueries,
+  paginateListTagsForResource,
+  paginateQuery,
   ParameterMapping$,
   PrepareQuery$,
   PrepareQueryCommand,
@@ -132,9 +135,6 @@ import {
   UpdateScheduledQueryRequest$,
   ValidationException,
   ValidationException$,
-  paginateListScheduledQueries,
-  paginateListTagsForResource,
-  paginateQuery,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

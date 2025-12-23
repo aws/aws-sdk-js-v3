@@ -27,9 +27,7 @@ export interface ListDomainDeliverabilityCampaignsCommandInput extends ListDomai
  *
  * The output of {@link ListDomainDeliverabilityCampaignsCommand}.
  */
-export interface ListDomainDeliverabilityCampaignsCommandOutput
-  extends ListDomainDeliverabilityCampaignsResponse,
-    __MetadataBearer {}
+export interface ListDomainDeliverabilityCampaignsCommandOutput extends ListDomainDeliverabilityCampaignsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send

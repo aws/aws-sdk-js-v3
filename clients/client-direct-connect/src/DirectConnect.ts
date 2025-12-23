@@ -626,8 +626,14 @@ export interface DirectConnect {
    * @see {@link CreateBGPPeerCommand}
    */
   createBGPPeer(): Promise<CreateBGPPeerCommandOutput>;
-  createBGPPeer(args: CreateBGPPeerCommandInput, options?: __HttpHandlerOptions): Promise<CreateBGPPeerCommandOutput>;
-  createBGPPeer(args: CreateBGPPeerCommandInput, cb: (err: any, data?: CreateBGPPeerCommandOutput) => void): void;
+  createBGPPeer(
+    args: CreateBGPPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBGPPeerCommandOutput>;
+  createBGPPeer(
+    args: CreateBGPPeerCommandInput,
+    cb: (err: any, data?: CreateBGPPeerCommandOutput) => void
+  ): void;
   createBGPPeer(
     args: CreateBGPPeerCommandInput,
     options: __HttpHandlerOptions,
@@ -722,8 +728,14 @@ export interface DirectConnect {
   /**
    * @see {@link CreateLagCommand}
    */
-  createLag(args: CreateLagCommandInput, options?: __HttpHandlerOptions): Promise<CreateLagCommandOutput>;
-  createLag(args: CreateLagCommandInput, cb: (err: any, data?: CreateLagCommandOutput) => void): void;
+  createLag(
+    args: CreateLagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLagCommandOutput>;
+  createLag(
+    args: CreateLagCommandInput,
+    cb: (err: any, data?: CreateLagCommandOutput) => void
+  ): void;
   createLag(
     args: CreateLagCommandInput,
     options: __HttpHandlerOptions,
@@ -785,8 +797,14 @@ export interface DirectConnect {
    * @see {@link DeleteBGPPeerCommand}
    */
   deleteBGPPeer(): Promise<DeleteBGPPeerCommandOutput>;
-  deleteBGPPeer(args: DeleteBGPPeerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBGPPeerCommandOutput>;
-  deleteBGPPeer(args: DeleteBGPPeerCommandInput, cb: (err: any, data?: DeleteBGPPeerCommandOutput) => void): void;
+  deleteBGPPeer(
+    args: DeleteBGPPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBGPPeerCommandOutput>;
+  deleteBGPPeer(
+    args: DeleteBGPPeerCommandInput,
+    cb: (err: any, data?: DeleteBGPPeerCommandOutput) => void
+  ): void;
   deleteBGPPeer(
     args: DeleteBGPPeerCommandInput,
     options: __HttpHandlerOptions,
@@ -882,8 +900,14 @@ export interface DirectConnect {
   /**
    * @see {@link DeleteLagCommand}
    */
-  deleteLag(args: DeleteLagCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLagCommandOutput>;
-  deleteLag(args: DeleteLagCommandInput, cb: (err: any, data?: DeleteLagCommandOutput) => void): void;
+  deleteLag(
+    args: DeleteLagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLagCommandOutput>;
+  deleteLag(
+    args: DeleteLagCommandInput,
+    cb: (err: any, data?: DeleteLagCommandOutput) => void
+  ): void;
   deleteLag(
     args: DeleteLagCommandInput,
     options: __HttpHandlerOptions,
@@ -1105,8 +1129,14 @@ export interface DirectConnect {
    * @see {@link DescribeLagsCommand}
    */
   describeLags(): Promise<DescribeLagsCommandOutput>;
-  describeLags(args: DescribeLagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeLagsCommandOutput>;
-  describeLags(args: DescribeLagsCommandInput, cb: (err: any, data?: DescribeLagsCommandOutput) => void): void;
+  describeLags(
+    args: DescribeLagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLagsCommandOutput>;
+  describeLags(
+    args: DescribeLagsCommandInput,
+    cb: (err: any, data?: DescribeLagsCommandOutput) => void
+  ): void;
   describeLags(
     args: DescribeLagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1116,8 +1146,14 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeLoaCommand}
    */
-  describeLoa(args: DescribeLoaCommandInput, options?: __HttpHandlerOptions): Promise<DescribeLoaCommandOutput>;
-  describeLoa(args: DescribeLoaCommandInput, cb: (err: any, data?: DescribeLoaCommandOutput) => void): void;
+  describeLoa(
+    args: DescribeLoaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLoaCommandOutput>;
+  describeLoa(
+    args: DescribeLoaCommandInput,
+    cb: (err: any, data?: DescribeLoaCommandOutput) => void
+  ): void;
   describeLoa(
     args: DescribeLoaCommandInput,
     options: __HttpHandlerOptions,
@@ -1162,8 +1198,14 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1295,8 +1337,14 @@ export interface DirectConnect {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1306,8 +1354,14 @@ export interface DirectConnect {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1369,8 +1423,14 @@ export interface DirectConnect {
   /**
    * @see {@link UpdateLagCommand}
    */
-  updateLag(args: UpdateLagCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLagCommandOutput>;
-  updateLag(args: UpdateLagCommandInput, cb: (err: any, data?: UpdateLagCommandOutput) => void): void;
+  updateLag(
+    args: UpdateLagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLagCommandOutput>;
+  updateLag(
+    args: UpdateLagCommandInput,
+    cb: (err: any, data?: UpdateLagCommandOutput) => void
+  ): void;
   updateLag(
     args: UpdateLagCommandInput,
     options: __HttpHandlerOptions,

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateDirectConnectGatewayAssociationCommand}.
  */
-export interface CreateDirectConnectGatewayAssociationCommandInput
-  extends CreateDirectConnectGatewayAssociationRequest {}
+export interface CreateDirectConnectGatewayAssociationCommandInput extends CreateDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateDirectConnectGatewayAssociationCommand}.
  */
-export interface CreateDirectConnectGatewayAssociationCommandOutput
-  extends CreateDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface CreateDirectConnectGatewayAssociationCommandOutput extends CreateDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual

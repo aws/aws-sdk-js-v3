@@ -424,7 +424,7 @@ export interface DateOptions {
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
    *       A dynamic field's name defines a pattern that begins or ends with a wildcard.
-   *       Any document fields that don't map to a regular index field but do match a
+   *       Any document fields that don't map to a regular index field but do match a	
    *       dynamic field's pattern are configured with the dynamic field's indexing options.
    *     </p>
    *     <p>Regular field names begin with a letter and can contain the following characters:
@@ -635,7 +635,7 @@ export interface LatLonOptions {
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
    *       A dynamic field's name defines a pattern that begins or ends with a wildcard.
-   *       Any document fields that don't map to a regular index field but do match a
+   *       Any document fields that don't map to a regular index field but do match a	
    *       dynamic field's pattern are configured with the dynamic field's indexing options.
    *     </p>
    *     <p>Regular field names begin with a letter and can contain the following characters:
@@ -726,7 +726,7 @@ export interface LiteralOptions {
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
    *       A dynamic field's name defines a pattern that begins or ends with a wildcard.
-   *       Any document fields that don't map to a regular index field but do match a
+   *       Any document fields that don't map to a regular index field but do match a	
    *       dynamic field's pattern are configured with the dynamic field's indexing options.
    *     </p>
    *     <p>Regular field names begin with a letter and can contain the following characters:
@@ -817,7 +817,7 @@ export interface TextOptions {
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
    *       A dynamic field's name defines a pattern that begins or ends with a wildcard.
-   *       Any document fields that don't map to a regular index field but do match a
+   *       Any document fields that don't map to a regular index field but do match a	
    *       dynamic field's pattern are configured with the dynamic field's indexing options.
    *     </p>
    *     <p>Regular field names begin with a letter and can contain the following characters:
@@ -866,7 +866,7 @@ export interface IndexField {
   /**
    * <p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields.
    *       A dynamic field's name defines a pattern that begins or ends with a wildcard.
-   *       Any document fields that don't map to a regular index field but do match a
+   *       Any document fields that don't map to a regular index field but do match a	
    *       dynamic field's pattern are configured with the dynamic field's indexing options.
    *     </p>
    *     <p>Regular field names begin with a letter and can contain the following characters:

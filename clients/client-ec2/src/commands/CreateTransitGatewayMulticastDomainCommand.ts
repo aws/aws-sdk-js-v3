@@ -27,9 +27,7 @@ export interface CreateTransitGatewayMulticastDomainCommandInput extends CreateT
  *
  * The output of {@link CreateTransitGatewayMulticastDomainCommand}.
  */
-export interface CreateTransitGatewayMulticastDomainCommandOutput
-  extends CreateTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayMulticastDomainCommandOutput extends CreateTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Creates a multicast domain using the specified transit gateway.</p>

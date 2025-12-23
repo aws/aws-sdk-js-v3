@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
-export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
-  extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
 /**
  * @public
  *
  * The output of {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
  */
-export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-  extends ApplySecurityGroupsToClientVpnTargetNetworkResult,
-    __MetadataBearer {}
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput extends ApplySecurityGroupsToClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing

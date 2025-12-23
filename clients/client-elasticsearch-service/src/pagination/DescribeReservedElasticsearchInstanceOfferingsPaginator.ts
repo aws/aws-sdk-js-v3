@@ -21,10 +21,4 @@ export const paginateDescribeReservedElasticsearchInstanceOfferings: (
   ElasticsearchServicePaginationConfiguration,
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   DescribeReservedElasticsearchInstanceOfferingsCommandOutput
->(
-  ElasticsearchServiceClient,
-  DescribeReservedElasticsearchInstanceOfferingsCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(ElasticsearchServiceClient, DescribeReservedElasticsearchInstanceOfferingsCommand, "NextToken", "NextToken", "MaxResults");

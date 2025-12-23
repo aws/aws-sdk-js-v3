@@ -24,9 +24,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPriva
  *
  * The output of {@link ConfirmPrivateVirtualInterfaceCommand}.
  */
-export interface ConfirmPrivateVirtualInterfaceCommandOutput
-  extends ConfirmPrivateVirtualInterfaceResponse,
-    __MetadataBearer {}
+export interface ConfirmPrivateVirtualInterfaceCommandOutput extends ConfirmPrivateVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>

@@ -31,9 +31,7 @@ export interface DeleteApplicationReferenceDataSourceCommandInput extends Delete
  *
  * The output of {@link DeleteApplicationReferenceDataSourceCommand}.
  */
-export interface DeleteApplicationReferenceDataSourceCommandOutput
-  extends DeleteApplicationReferenceDataSourceResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationReferenceDataSourceCommandOutput extends DeleteApplicationReferenceDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>

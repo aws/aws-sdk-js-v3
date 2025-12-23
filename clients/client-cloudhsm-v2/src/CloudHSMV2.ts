@@ -120,8 +120,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -131,8 +137,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link CreateHsmCommand}
    */
-  createHsm(args: CreateHsmCommandInput, options?: __HttpHandlerOptions): Promise<CreateHsmCommandOutput>;
-  createHsm(args: CreateHsmCommandInput, cb: (err: any, data?: CreateHsmCommandOutput) => void): void;
+  createHsm(
+    args: CreateHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHsmCommandOutput>;
+  createHsm(
+    args: CreateHsmCommandInput,
+    cb: (err: any, data?: CreateHsmCommandOutput) => void
+  ): void;
   createHsm(
     args: CreateHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -142,8 +154,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link DeleteBackupCommand}
    */
-  deleteBackup(args: DeleteBackupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBackupCommandOutput>;
-  deleteBackup(args: DeleteBackupCommandInput, cb: (err: any, data?: DeleteBackupCommandOutput) => void): void;
+  deleteBackup(
+    args: DeleteBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBackupCommandOutput>;
+  deleteBackup(
+    args: DeleteBackupCommandInput,
+    cb: (err: any, data?: DeleteBackupCommandOutput) => void
+  ): void;
   deleteBackup(
     args: DeleteBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -153,8 +171,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -164,8 +188,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link DeleteHsmCommand}
    */
-  deleteHsm(args: DeleteHsmCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHsmCommandOutput>;
-  deleteHsm(args: DeleteHsmCommandInput, cb: (err: any, data?: DeleteHsmCommandOutput) => void): void;
+  deleteHsm(
+    args: DeleteHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHsmCommandOutput>;
+  deleteHsm(
+    args: DeleteHsmCommandInput,
+    cb: (err: any, data?: DeleteHsmCommandOutput) => void
+  ): void;
   deleteHsm(
     args: DeleteHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -198,7 +228,10 @@ export interface CloudHSMV2 {
     args: DescribeBackupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBackupsCommandOutput>;
-  describeBackups(args: DescribeBackupsCommandInput, cb: (err: any, data?: DescribeBackupsCommandOutput) => void): void;
+  describeBackups(
+    args: DescribeBackupsCommandInput,
+    cb: (err: any, data?: DescribeBackupsCommandOutput) => void
+  ): void;
   describeBackups(
     args: DescribeBackupsCommandInput,
     options: __HttpHandlerOptions,
@@ -261,8 +294,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -289,8 +328,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link ModifyClusterCommand}
    */
-  modifyCluster(args: ModifyClusterCommandInput, options?: __HttpHandlerOptions): Promise<ModifyClusterCommandOutput>;
-  modifyCluster(args: ModifyClusterCommandInput, cb: (err: any, data?: ModifyClusterCommandOutput) => void): void;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyClusterCommandOutput>;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    cb: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): void;
   modifyCluster(
     args: ModifyClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -318,8 +363,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link RestoreBackupCommand}
    */
-  restoreBackup(args: RestoreBackupCommandInput, options?: __HttpHandlerOptions): Promise<RestoreBackupCommandOutput>;
-  restoreBackup(args: RestoreBackupCommandInput, cb: (err: any, data?: RestoreBackupCommandOutput) => void): void;
+  restoreBackup(
+    args: RestoreBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreBackupCommandOutput>;
+  restoreBackup(
+    args: RestoreBackupCommandInput,
+    cb: (err: any, data?: RestoreBackupCommandOutput) => void
+  ): void;
   restoreBackup(
     args: RestoreBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -329,8 +380,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -340,8 +397,14 @@ export interface CloudHSMV2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

@@ -27,9 +27,7 @@ export interface GetDataQualityRuleRecommendationRunCommandInput extends GetData
  *
  * The output of {@link GetDataQualityRuleRecommendationRunCommand}.
  */
-export interface GetDataQualityRuleRecommendationRunCommandOutput
-  extends GetDataQualityRuleRecommendationRunResponse,
-    __MetadataBearer {}
+export interface GetDataQualityRuleRecommendationRunCommandOutput extends GetDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified recommendation run that was used to generate rules.</p>

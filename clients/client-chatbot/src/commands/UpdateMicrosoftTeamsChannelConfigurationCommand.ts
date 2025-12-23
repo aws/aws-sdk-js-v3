@@ -24,9 +24,7 @@ export interface UpdateMicrosoftTeamsChannelConfigurationCommandInput extends Up
  *
  * The output of {@link UpdateMicrosoftTeamsChannelConfigurationCommand}.
  */
-export interface UpdateMicrosoftTeamsChannelConfigurationCommandOutput
-  extends UpdateTeamsChannelConfigurationResult,
-    __MetadataBearer {}
+export interface UpdateMicrosoftTeamsChannelConfigurationCommandOutput extends UpdateTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates an Microsoft Teams channel configuration.</p>

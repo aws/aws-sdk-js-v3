@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
-export interface GetSensitiveDataOccurrencesAvailabilityCommandInput
-  extends GetSensitiveDataOccurrencesAvailabilityRequest {}
+export interface GetSensitiveDataOccurrencesAvailabilityCommandInput extends GetSensitiveDataOccurrencesAvailabilityRequest {}
 /**
  * @public
  *
  * The output of {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
-export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
-  extends GetSensitiveDataOccurrencesAvailabilityResponse,
-    __MetadataBearer {}
+export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput extends GetSensitiveDataOccurrencesAvailabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>

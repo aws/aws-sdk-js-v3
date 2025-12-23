@@ -34,9 +34,7 @@ export interface StartMedicalStreamTranscriptionCommandInput extends StartMedica
  *
  * The output of {@link StartMedicalStreamTranscriptionCommand}.
  */
-export interface StartMedicalStreamTranscriptionCommandOutput
-  extends StartMedicalStreamTranscriptionResponse,
-    __MetadataBearer {}
+export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedicalStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
@@ -222,7 +220,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amzn-transcribe-",
+        headerPrefix: 'x-amzn-transcribe-',
       }),
       getTranscribeStreamingPlugin(config),
     ];

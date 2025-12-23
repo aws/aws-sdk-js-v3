@@ -31,9 +31,7 @@ export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrg
  *
  * The output of {@link ListOrganizationServiceAccessStatusCommand}.
  */
-export interface ListOrganizationServiceAccessStatusCommandOutput
-  extends ListOrganizationServiceAccessStatusResponse,
-    __MetadataBearer {}
+export interface ListOrganizationServiceAccessStatusCommandOutput extends ListOrganizationServiceAccessStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>

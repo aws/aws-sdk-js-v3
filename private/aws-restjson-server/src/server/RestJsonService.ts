@@ -469,234 +469,121 @@ import {
   UnitInputAndOutputServerInput,
 } from "./operations/UnitInputAndOutput";
 
-export type RestJsonServiceOperations =
-  | "AllQueryStringTypes"
-  | "ConstantAndVariableQueryString"
-  | "ConstantQueryString"
-  | "ContentTypeParameters"
-  | "DatetimeOffsets"
-  | "DocumentType"
-  | "DocumentTypeAsMapValue"
-  | "DocumentTypeAsPayload"
-  | "DuplexStream"
-  | "DuplexStreamWithDistinctStreams"
-  | "DuplexStreamWithInitialMessages"
-  | "EmptyInputAndEmptyOutput"
-  | "EndpointOperation"
-  | "EndpointWithHostLabelOperation"
-  | "FractionalSeconds"
-  | "GreetingWithErrors"
-  | "HostWithPathOperation"
-  | "HttpChecksumRequired"
-  | "HttpEmptyPrefixHeaders"
-  | "HttpEnumPayload"
-  | "HttpPayloadTraits"
-  | "HttpPayloadTraitsWithMediaType"
-  | "HttpPayloadWithStructure"
-  | "HttpPayloadWithUnion"
-  | "HttpPrefixHeaders"
-  | "HttpPrefixHeadersInResponse"
-  | "HttpQueryParamsOnlyOperation"
-  | "HttpRequestWithFloatLabels"
-  | "HttpRequestWithGreedyLabelInPath"
-  | "HttpRequestWithLabels"
-  | "HttpRequestWithLabelsAndTimestampFormat"
-  | "HttpRequestWithRegexLiteral"
-  | "HttpResponseCode"
-  | "HttpStringPayload"
-  | "IgnoreQueryParamsInResponse"
-  | "InputAndOutputWithHeaders"
-  | "InputStream"
-  | "InputStreamWithInitialRequest"
-  | "JsonBlobs"
-  | "JsonEnums"
-  | "JsonIntEnums"
-  | "JsonLists"
-  | "JsonMaps"
-  | "JsonTimestamps"
-  | "JsonUnions"
-  | "MalformedAcceptWithBody"
-  | "MalformedAcceptWithGenericString"
-  | "MalformedAcceptWithPayload"
-  | "MalformedBlob"
-  | "MalformedBoolean"
-  | "MalformedByte"
-  | "MalformedContentTypeWithBody"
-  | "MalformedContentTypeWithGenericString"
-  | "MalformedContentTypeWithoutBody"
-  | "MalformedContentTypeWithoutBodyEmptyInput"
-  | "MalformedContentTypeWithPayload"
-  | "MalformedDouble"
-  | "MalformedFloat"
-  | "MalformedInteger"
-  | "MalformedList"
-  | "MalformedLong"
-  | "MalformedMap"
-  | "MalformedRequestBody"
-  | "MalformedShort"
-  | "MalformedString"
-  | "MalformedTimestampBodyDateTime"
-  | "MalformedTimestampBodyDefault"
-  | "MalformedTimestampBodyHttpDate"
-  | "MalformedTimestampHeaderDateTime"
-  | "MalformedTimestampHeaderDefault"
-  | "MalformedTimestampHeaderEpoch"
-  | "MalformedTimestampPathDefault"
-  | "MalformedTimestampPathEpoch"
-  | "MalformedTimestampPathHttpDate"
-  | "MalformedTimestampQueryDefault"
-  | "MalformedTimestampQueryEpoch"
-  | "MalformedTimestampQueryHttpDate"
-  | "MalformedUnion"
-  | "MediaTypeHeader"
-  | "NoInputAndNoOutput"
-  | "NoInputAndOutput"
-  | "NullAndEmptyHeadersClient"
-  | "NullAndEmptyHeadersServer"
-  | "OmitsNullSerializesEmptyString"
-  | "OmitsSerializingEmptyLists"
-  | "OperationWithDefaults"
-  | "OperationWithNestedStructure"
-  | "OutputStream"
-  | "OutputStreamWithInitialResponse"
-  | "PostPlayerAction"
-  | "PostUnionWithJsonName"
-  | "PutWithContentEncoding"
-  | "QueryIdempotencyTokenAutoFill"
-  | "QueryParamsAsStringListMap"
-  | "QueryPrecedence"
-  | "RecursiveShapes"
-  | "ResponseCodeHttpFallback"
-  | "ResponseCodeRequired"
-  | "SimpleScalarProperties"
-  | "SparseJsonLists"
-  | "SparseJsonMaps"
-  | "StreamingTraits"
-  | "StreamingTraitsRequireLength"
-  | "StreamingTraitsWithMediaType"
-  | "TestBodyStructure"
-  | "TestGetNoInputNoPayload"
-  | "TestGetNoPayload"
-  | "TestPayloadBlob"
-  | "TestPayloadStructure"
-  | "TestPostNoInputNoPayload"
-  | "TestPostNoPayload"
-  | "TimestampFormatHeaders"
-  | "UnitInputAndOutput";
+export type RestJsonServiceOperations = "AllQueryStringTypes" | "ConstantAndVariableQueryString" | "ConstantQueryString" | "ContentTypeParameters" | "DatetimeOffsets" | "DocumentType" | "DocumentTypeAsMapValue" | "DocumentTypeAsPayload" | "DuplexStream" | "DuplexStreamWithDistinctStreams" | "DuplexStreamWithInitialMessages" | "EmptyInputAndEmptyOutput" | "EndpointOperation" | "EndpointWithHostLabelOperation" | "FractionalSeconds" | "GreetingWithErrors" | "HostWithPathOperation" | "HttpChecksumRequired" | "HttpEmptyPrefixHeaders" | "HttpEnumPayload" | "HttpPayloadTraits" | "HttpPayloadTraitsWithMediaType" | "HttpPayloadWithStructure" | "HttpPayloadWithUnion" | "HttpPrefixHeaders" | "HttpPrefixHeadersInResponse" | "HttpQueryParamsOnlyOperation" | "HttpRequestWithFloatLabels" | "HttpRequestWithGreedyLabelInPath" | "HttpRequestWithLabels" | "HttpRequestWithLabelsAndTimestampFormat" | "HttpRequestWithRegexLiteral" | "HttpResponseCode" | "HttpStringPayload" | "IgnoreQueryParamsInResponse" | "InputAndOutputWithHeaders" | "InputStream" | "InputStreamWithInitialRequest" | "JsonBlobs" | "JsonEnums" | "JsonIntEnums" | "JsonLists" | "JsonMaps" | "JsonTimestamps" | "JsonUnions" | "MalformedAcceptWithBody" | "MalformedAcceptWithGenericString" | "MalformedAcceptWithPayload" | "MalformedBlob" | "MalformedBoolean" | "MalformedByte" | "MalformedContentTypeWithBody" | "MalformedContentTypeWithGenericString" | "MalformedContentTypeWithoutBody" | "MalformedContentTypeWithoutBodyEmptyInput" | "MalformedContentTypeWithPayload" | "MalformedDouble" | "MalformedFloat" | "MalformedInteger" | "MalformedList" | "MalformedLong" | "MalformedMap" | "MalformedRequestBody" | "MalformedShort" | "MalformedString" | "MalformedTimestampBodyDateTime" | "MalformedTimestampBodyDefault" | "MalformedTimestampBodyHttpDate" | "MalformedTimestampHeaderDateTime" | "MalformedTimestampHeaderDefault" | "MalformedTimestampHeaderEpoch" | "MalformedTimestampPathDefault" | "MalformedTimestampPathEpoch" | "MalformedTimestampPathHttpDate" | "MalformedTimestampQueryDefault" | "MalformedTimestampQueryEpoch" | "MalformedTimestampQueryHttpDate" | "MalformedUnion" | "MediaTypeHeader" | "NoInputAndNoOutput" | "NoInputAndOutput" | "NullAndEmptyHeadersClient" | "NullAndEmptyHeadersServer" | "OmitsNullSerializesEmptyString" | "OmitsSerializingEmptyLists" | "OperationWithDefaults" | "OperationWithNestedStructure" | "OutputStream" | "OutputStreamWithInitialResponse" | "PostPlayerAction" | "PostUnionWithJsonName" | "PutWithContentEncoding" | "QueryIdempotencyTokenAutoFill" | "QueryParamsAsStringListMap" | "QueryPrecedence" | "RecursiveShapes" | "ResponseCodeHttpFallback" | "ResponseCodeRequired" | "SimpleScalarProperties" | "SparseJsonLists" | "SparseJsonMaps" | "StreamingTraits" | "StreamingTraitsRequireLength" | "StreamingTraitsWithMediaType" | "TestBodyStructure" | "TestGetNoInputNoPayload" | "TestGetNoPayload" | "TestPayloadBlob" | "TestPayloadStructure" | "TestPostNoInputNoPayload" | "TestPostNoPayload" | "TimestampFormatHeaders" | "UnitInputAndOutput";
 export interface RestJsonService<Context> {
-  AllQueryStringTypes: AllQueryStringTypes<Context>;
-  ConstantAndVariableQueryString: ConstantAndVariableQueryString<Context>;
-  ConstantQueryString: ConstantQueryString<Context>;
-  ContentTypeParameters: ContentTypeParameters<Context>;
-  DatetimeOffsets: DatetimeOffsets<Context>;
-  DocumentType: DocumentType<Context>;
-  DocumentTypeAsMapValue: DocumentTypeAsMapValue<Context>;
-  DocumentTypeAsPayload: DocumentTypeAsPayload<Context>;
-  DuplexStream: DuplexStream<Context>;
-  DuplexStreamWithDistinctStreams: DuplexStreamWithDistinctStreams<Context>;
-  DuplexStreamWithInitialMessages: DuplexStreamWithInitialMessages<Context>;
-  EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
-  EndpointOperation: EndpointOperation<Context>;
-  EndpointWithHostLabelOperation: EndpointWithHostLabelOperation<Context>;
-  FractionalSeconds: FractionalSeconds<Context>;
-  GreetingWithErrors: GreetingWithErrors<Context>;
-  HostWithPathOperation: HostWithPathOperation<Context>;
-  HttpChecksumRequired: HttpChecksumRequired<Context>;
-  HttpEmptyPrefixHeaders: HttpEmptyPrefixHeaders<Context>;
-  HttpEnumPayload: HttpEnumPayload<Context>;
-  HttpPayloadTraits: HttpPayloadTraits<Context>;
-  HttpPayloadTraitsWithMediaType: HttpPayloadTraitsWithMediaType<Context>;
-  HttpPayloadWithStructure: HttpPayloadWithStructure<Context>;
-  HttpPayloadWithUnion: HttpPayloadWithUnion<Context>;
-  HttpPrefixHeaders: HttpPrefixHeaders<Context>;
-  HttpPrefixHeadersInResponse: HttpPrefixHeadersInResponse<Context>;
-  HttpQueryParamsOnlyOperation: HttpQueryParamsOnlyOperation<Context>;
-  HttpRequestWithFloatLabels: HttpRequestWithFloatLabels<Context>;
-  HttpRequestWithGreedyLabelInPath: HttpRequestWithGreedyLabelInPath<Context>;
-  HttpRequestWithLabels: HttpRequestWithLabels<Context>;
-  HttpRequestWithLabelsAndTimestampFormat: HttpRequestWithLabelsAndTimestampFormat<Context>;
-  HttpRequestWithRegexLiteral: HttpRequestWithRegexLiteral<Context>;
-  HttpResponseCode: HttpResponseCode<Context>;
-  HttpStringPayload: HttpStringPayload<Context>;
-  IgnoreQueryParamsInResponse: IgnoreQueryParamsInResponse<Context>;
-  InputAndOutputWithHeaders: InputAndOutputWithHeaders<Context>;
-  InputStream: InputStream<Context>;
-  InputStreamWithInitialRequest: InputStreamWithInitialRequest<Context>;
-  JsonBlobs: JsonBlobs<Context>;
-  JsonEnums: JsonEnums<Context>;
-  JsonIntEnums: JsonIntEnums<Context>;
-  JsonLists: JsonLists<Context>;
-  JsonMaps: JsonMaps<Context>;
-  JsonTimestamps: JsonTimestamps<Context>;
-  JsonUnions: JsonUnions<Context>;
-  MalformedAcceptWithBody: MalformedAcceptWithBody<Context>;
-  MalformedAcceptWithGenericString: MalformedAcceptWithGenericString<Context>;
-  MalformedAcceptWithPayload: MalformedAcceptWithPayload<Context>;
-  MalformedBlob: MalformedBlob<Context>;
-  MalformedBoolean: MalformedBoolean<Context>;
-  MalformedByte: MalformedByte<Context>;
-  MalformedContentTypeWithBody: MalformedContentTypeWithBody<Context>;
-  MalformedContentTypeWithGenericString: MalformedContentTypeWithGenericString<Context>;
-  MalformedContentTypeWithoutBody: MalformedContentTypeWithoutBody<Context>;
-  MalformedContentTypeWithoutBodyEmptyInput: MalformedContentTypeWithoutBodyEmptyInput<Context>;
-  MalformedContentTypeWithPayload: MalformedContentTypeWithPayload<Context>;
-  MalformedDouble: MalformedDouble<Context>;
-  MalformedFloat: MalformedFloat<Context>;
-  MalformedInteger: MalformedInteger<Context>;
-  MalformedList: MalformedList<Context>;
-  MalformedLong: MalformedLong<Context>;
-  MalformedMap: MalformedMap<Context>;
-  MalformedRequestBody: MalformedRequestBody<Context>;
-  MalformedShort: MalformedShort<Context>;
-  MalformedString: MalformedString<Context>;
-  MalformedTimestampBodyDateTime: MalformedTimestampBodyDateTime<Context>;
-  MalformedTimestampBodyDefault: MalformedTimestampBodyDefault<Context>;
-  MalformedTimestampBodyHttpDate: MalformedTimestampBodyHttpDate<Context>;
-  MalformedTimestampHeaderDateTime: MalformedTimestampHeaderDateTime<Context>;
-  MalformedTimestampHeaderDefault: MalformedTimestampHeaderDefault<Context>;
-  MalformedTimestampHeaderEpoch: MalformedTimestampHeaderEpoch<Context>;
-  MalformedTimestampPathDefault: MalformedTimestampPathDefault<Context>;
-  MalformedTimestampPathEpoch: MalformedTimestampPathEpoch<Context>;
-  MalformedTimestampPathHttpDate: MalformedTimestampPathHttpDate<Context>;
-  MalformedTimestampQueryDefault: MalformedTimestampQueryDefault<Context>;
-  MalformedTimestampQueryEpoch: MalformedTimestampQueryEpoch<Context>;
-  MalformedTimestampQueryHttpDate: MalformedTimestampQueryHttpDate<Context>;
-  MalformedUnion: MalformedUnion<Context>;
-  MediaTypeHeader: MediaTypeHeader<Context>;
-  NoInputAndNoOutput: NoInputAndNoOutput<Context>;
-  NoInputAndOutput: NoInputAndOutput<Context>;
-  NullAndEmptyHeadersClient: NullAndEmptyHeadersClient<Context>;
-  NullAndEmptyHeadersServer: NullAndEmptyHeadersServer<Context>;
-  OmitsNullSerializesEmptyString: OmitsNullSerializesEmptyString<Context>;
-  OmitsSerializingEmptyLists: OmitsSerializingEmptyLists<Context>;
-  OperationWithDefaults: OperationWithDefaults<Context>;
-  OperationWithNestedStructure: OperationWithNestedStructure<Context>;
-  OutputStream: OutputStream<Context>;
-  OutputStreamWithInitialResponse: OutputStreamWithInitialResponse<Context>;
-  PostPlayerAction: PostPlayerAction<Context>;
-  PostUnionWithJsonName: PostUnionWithJsonName<Context>;
-  PutWithContentEncoding: PutWithContentEncoding<Context>;
-  QueryIdempotencyTokenAutoFill: QueryIdempotencyTokenAutoFill<Context>;
-  QueryParamsAsStringListMap: QueryParamsAsStringListMap<Context>;
-  QueryPrecedence: QueryPrecedence<Context>;
-  RecursiveShapes: RecursiveShapes<Context>;
-  ResponseCodeHttpFallback: ResponseCodeHttpFallback<Context>;
-  ResponseCodeRequired: ResponseCodeRequired<Context>;
-  SimpleScalarProperties: SimpleScalarProperties<Context>;
-  SparseJsonLists: SparseJsonLists<Context>;
-  SparseJsonMaps: SparseJsonMaps<Context>;
-  StreamingTraits: StreamingTraits<Context>;
-  StreamingTraitsRequireLength: StreamingTraitsRequireLength<Context>;
-  StreamingTraitsWithMediaType: StreamingTraitsWithMediaType<Context>;
-  TestBodyStructure: TestBodyStructure<Context>;
-  TestGetNoInputNoPayload: TestGetNoInputNoPayload<Context>;
-  TestGetNoPayload: TestGetNoPayload<Context>;
-  TestPayloadBlob: TestPayloadBlob<Context>;
-  TestPayloadStructure: TestPayloadStructure<Context>;
-  TestPostNoInputNoPayload: TestPostNoInputNoPayload<Context>;
-  TestPostNoPayload: TestPostNoPayload<Context>;
-  TimestampFormatHeaders: TimestampFormatHeaders<Context>;
-  UnitInputAndOutput: UnitInputAndOutput<Context>;
+  AllQueryStringTypes: AllQueryStringTypes<Context>
+  ConstantAndVariableQueryString: ConstantAndVariableQueryString<Context>
+  ConstantQueryString: ConstantQueryString<Context>
+  ContentTypeParameters: ContentTypeParameters<Context>
+  DatetimeOffsets: DatetimeOffsets<Context>
+  DocumentType: DocumentType<Context>
+  DocumentTypeAsMapValue: DocumentTypeAsMapValue<Context>
+  DocumentTypeAsPayload: DocumentTypeAsPayload<Context>
+  DuplexStream: DuplexStream<Context>
+  DuplexStreamWithDistinctStreams: DuplexStreamWithDistinctStreams<Context>
+  DuplexStreamWithInitialMessages: DuplexStreamWithInitialMessages<Context>
+  EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>
+  EndpointOperation: EndpointOperation<Context>
+  EndpointWithHostLabelOperation: EndpointWithHostLabelOperation<Context>
+  FractionalSeconds: FractionalSeconds<Context>
+  GreetingWithErrors: GreetingWithErrors<Context>
+  HostWithPathOperation: HostWithPathOperation<Context>
+  HttpChecksumRequired: HttpChecksumRequired<Context>
+  HttpEmptyPrefixHeaders: HttpEmptyPrefixHeaders<Context>
+  HttpEnumPayload: HttpEnumPayload<Context>
+  HttpPayloadTraits: HttpPayloadTraits<Context>
+  HttpPayloadTraitsWithMediaType: HttpPayloadTraitsWithMediaType<Context>
+  HttpPayloadWithStructure: HttpPayloadWithStructure<Context>
+  HttpPayloadWithUnion: HttpPayloadWithUnion<Context>
+  HttpPrefixHeaders: HttpPrefixHeaders<Context>
+  HttpPrefixHeadersInResponse: HttpPrefixHeadersInResponse<Context>
+  HttpQueryParamsOnlyOperation: HttpQueryParamsOnlyOperation<Context>
+  HttpRequestWithFloatLabels: HttpRequestWithFloatLabels<Context>
+  HttpRequestWithGreedyLabelInPath: HttpRequestWithGreedyLabelInPath<Context>
+  HttpRequestWithLabels: HttpRequestWithLabels<Context>
+  HttpRequestWithLabelsAndTimestampFormat: HttpRequestWithLabelsAndTimestampFormat<Context>
+  HttpRequestWithRegexLiteral: HttpRequestWithRegexLiteral<Context>
+  HttpResponseCode: HttpResponseCode<Context>
+  HttpStringPayload: HttpStringPayload<Context>
+  IgnoreQueryParamsInResponse: IgnoreQueryParamsInResponse<Context>
+  InputAndOutputWithHeaders: InputAndOutputWithHeaders<Context>
+  InputStream: InputStream<Context>
+  InputStreamWithInitialRequest: InputStreamWithInitialRequest<Context>
+  JsonBlobs: JsonBlobs<Context>
+  JsonEnums: JsonEnums<Context>
+  JsonIntEnums: JsonIntEnums<Context>
+  JsonLists: JsonLists<Context>
+  JsonMaps: JsonMaps<Context>
+  JsonTimestamps: JsonTimestamps<Context>
+  JsonUnions: JsonUnions<Context>
+  MalformedAcceptWithBody: MalformedAcceptWithBody<Context>
+  MalformedAcceptWithGenericString: MalformedAcceptWithGenericString<Context>
+  MalformedAcceptWithPayload: MalformedAcceptWithPayload<Context>
+  MalformedBlob: MalformedBlob<Context>
+  MalformedBoolean: MalformedBoolean<Context>
+  MalformedByte: MalformedByte<Context>
+  MalformedContentTypeWithBody: MalformedContentTypeWithBody<Context>
+  MalformedContentTypeWithGenericString: MalformedContentTypeWithGenericString<Context>
+  MalformedContentTypeWithoutBody: MalformedContentTypeWithoutBody<Context>
+  MalformedContentTypeWithoutBodyEmptyInput: MalformedContentTypeWithoutBodyEmptyInput<Context>
+  MalformedContentTypeWithPayload: MalformedContentTypeWithPayload<Context>
+  MalformedDouble: MalformedDouble<Context>
+  MalformedFloat: MalformedFloat<Context>
+  MalformedInteger: MalformedInteger<Context>
+  MalformedList: MalformedList<Context>
+  MalformedLong: MalformedLong<Context>
+  MalformedMap: MalformedMap<Context>
+  MalformedRequestBody: MalformedRequestBody<Context>
+  MalformedShort: MalformedShort<Context>
+  MalformedString: MalformedString<Context>
+  MalformedTimestampBodyDateTime: MalformedTimestampBodyDateTime<Context>
+  MalformedTimestampBodyDefault: MalformedTimestampBodyDefault<Context>
+  MalformedTimestampBodyHttpDate: MalformedTimestampBodyHttpDate<Context>
+  MalformedTimestampHeaderDateTime: MalformedTimestampHeaderDateTime<Context>
+  MalformedTimestampHeaderDefault: MalformedTimestampHeaderDefault<Context>
+  MalformedTimestampHeaderEpoch: MalformedTimestampHeaderEpoch<Context>
+  MalformedTimestampPathDefault: MalformedTimestampPathDefault<Context>
+  MalformedTimestampPathEpoch: MalformedTimestampPathEpoch<Context>
+  MalformedTimestampPathHttpDate: MalformedTimestampPathHttpDate<Context>
+  MalformedTimestampQueryDefault: MalformedTimestampQueryDefault<Context>
+  MalformedTimestampQueryEpoch: MalformedTimestampQueryEpoch<Context>
+  MalformedTimestampQueryHttpDate: MalformedTimestampQueryHttpDate<Context>
+  MalformedUnion: MalformedUnion<Context>
+  MediaTypeHeader: MediaTypeHeader<Context>
+  NoInputAndNoOutput: NoInputAndNoOutput<Context>
+  NoInputAndOutput: NoInputAndOutput<Context>
+  NullAndEmptyHeadersClient: NullAndEmptyHeadersClient<Context>
+  NullAndEmptyHeadersServer: NullAndEmptyHeadersServer<Context>
+  OmitsNullSerializesEmptyString: OmitsNullSerializesEmptyString<Context>
+  OmitsSerializingEmptyLists: OmitsSerializingEmptyLists<Context>
+  OperationWithDefaults: OperationWithDefaults<Context>
+  OperationWithNestedStructure: OperationWithNestedStructure<Context>
+  OutputStream: OutputStream<Context>
+  OutputStreamWithInitialResponse: OutputStreamWithInitialResponse<Context>
+  PostPlayerAction: PostPlayerAction<Context>
+  PostUnionWithJsonName: PostUnionWithJsonName<Context>
+  PutWithContentEncoding: PutWithContentEncoding<Context>
+  QueryIdempotencyTokenAutoFill: QueryIdempotencyTokenAutoFill<Context>
+  QueryParamsAsStringListMap: QueryParamsAsStringListMap<Context>
+  QueryPrecedence: QueryPrecedence<Context>
+  RecursiveShapes: RecursiveShapes<Context>
+  ResponseCodeHttpFallback: ResponseCodeHttpFallback<Context>
+  ResponseCodeRequired: ResponseCodeRequired<Context>
+  SimpleScalarProperties: SimpleScalarProperties<Context>
+  SparseJsonLists: SparseJsonLists<Context>
+  SparseJsonMaps: SparseJsonMaps<Context>
+  StreamingTraits: StreamingTraits<Context>
+  StreamingTraitsRequireLength: StreamingTraitsRequireLength<Context>
+  StreamingTraitsWithMediaType: StreamingTraitsWithMediaType<Context>
+  TestBodyStructure: TestBodyStructure<Context>
+  TestGetNoInputNoPayload: TestGetNoInputNoPayload<Context>
+  TestGetNoPayload: TestGetNoPayload<Context>
+  TestPayloadBlob: TestPayloadBlob<Context>
+  TestPayloadStructure: TestPayloadStructure<Context>
+  TestPostNoInputNoPayload: TestPostNoInputNoPayload<Context>
+  TestPostNoPayload: TestPostNoPayload<Context>
+  TimestampFormatHeaders: TimestampFormatHeaders<Context>
+  UnitInputAndOutput: UnitInputAndOutput<Context>
 }
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -705,7 +592,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -720,43 +607,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context> {
   private readonly service: RestJsonService<Context>;
   private readonly mux: __Mux<"RestJson", RestJsonServiceOperations>;
-  private readonly serializerFactory: <T extends RestJsonServiceOperations>(
-    operation: T
-  ) => __OperationSerializer<RestJsonService<Context>, T, __ServiceException>;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializerFactory: <T extends RestJsonServiceOperations>(operation: T) => __OperationSerializer<RestJsonService<Context>, T, __ServiceException>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<RestJsonServiceOperations>;
   /**
    * Construct a RestJsonService handler.
@@ -770,9 +651,7 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
   constructor(
     service: RestJsonService<Context>,
     mux: __Mux<"RestJson", RestJsonServiceOperations>,
-    serializerFactory: <T extends RestJsonServiceOperations>(
-      op: T
-    ) => __OperationSerializer<RestJsonService<Context>, T, __ServiceException>,
+    serializerFactory:<T extends RestJsonServiceOperations>(op: T) => __OperationSerializer<RestJsonService<Context>, T, __ServiceException>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<RestJsonServiceOperations>
   ) {
@@ -788,2288 +667,1413 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
       return this.serializeFrameworkException(new __UnknownOperationException(), serdeContextBase);
     }
     switch (target.operation) {
-      case "AllQueryStringTypes": {
-        return handle(
-          request,
-          context,
-          "AllQueryStringTypes",
-          this.serializerFactory("AllQueryStringTypes"),
-          this.service.AllQueryStringTypes,
-          this.serializeFrameworkException,
-          AllQueryStringTypesServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "ConstantAndVariableQueryString": {
-        return handle(
-          request,
-          context,
-          "ConstantAndVariableQueryString",
-          this.serializerFactory("ConstantAndVariableQueryString"),
-          this.service.ConstantAndVariableQueryString,
-          this.serializeFrameworkException,
-          ConstantAndVariableQueryStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "ConstantQueryString": {
-        return handle(
-          request,
-          context,
-          "ConstantQueryString",
-          this.serializerFactory("ConstantQueryString"),
-          this.service.ConstantQueryString,
-          this.serializeFrameworkException,
-          ConstantQueryStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "ContentTypeParameters": {
-        return handle(
-          request,
-          context,
-          "ContentTypeParameters",
-          this.serializerFactory("ContentTypeParameters"),
-          this.service.ContentTypeParameters,
-          this.serializeFrameworkException,
-          ContentTypeParametersServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DatetimeOffsets": {
-        return handle(
-          request,
-          context,
-          "DatetimeOffsets",
-          this.serializerFactory("DatetimeOffsets"),
-          this.service.DatetimeOffsets,
-          this.serializeFrameworkException,
-          DatetimeOffsetsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DocumentType": {
-        return handle(
-          request,
-          context,
-          "DocumentType",
-          this.serializerFactory("DocumentType"),
-          this.service.DocumentType,
-          this.serializeFrameworkException,
-          DocumentTypeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DocumentTypeAsMapValue": {
-        return handle(
-          request,
-          context,
-          "DocumentTypeAsMapValue",
-          this.serializerFactory("DocumentTypeAsMapValue"),
-          this.service.DocumentTypeAsMapValue,
-          this.serializeFrameworkException,
-          DocumentTypeAsMapValueServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DocumentTypeAsPayload": {
-        return handle(
-          request,
-          context,
-          "DocumentTypeAsPayload",
-          this.serializerFactory("DocumentTypeAsPayload"),
-          this.service.DocumentTypeAsPayload,
-          this.serializeFrameworkException,
-          DocumentTypeAsPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DuplexStream": {
-        return handle(
-          request,
-          context,
-          "DuplexStream",
-          this.serializerFactory("DuplexStream"),
-          this.service.DuplexStream,
-          this.serializeFrameworkException,
-          DuplexStreamServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DuplexStreamWithDistinctStreams": {
-        return handle(
-          request,
-          context,
-          "DuplexStreamWithDistinctStreams",
-          this.serializerFactory("DuplexStreamWithDistinctStreams"),
-          this.service.DuplexStreamWithDistinctStreams,
-          this.serializeFrameworkException,
-          DuplexStreamWithDistinctStreamsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "DuplexStreamWithInitialMessages": {
-        return handle(
-          request,
-          context,
-          "DuplexStreamWithInitialMessages",
-          this.serializerFactory("DuplexStreamWithInitialMessages"),
-          this.service.DuplexStreamWithInitialMessages,
-          this.serializeFrameworkException,
-          DuplexStreamWithInitialMessagesServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "EmptyInputAndEmptyOutput": {
-        return handle(
-          request,
-          context,
-          "EmptyInputAndEmptyOutput",
-          this.serializerFactory("EmptyInputAndEmptyOutput"),
-          this.service.EmptyInputAndEmptyOutput,
-          this.serializeFrameworkException,
-          EmptyInputAndEmptyOutputServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "EndpointOperation": {
-        return handle(
-          request,
-          context,
-          "EndpointOperation",
-          this.serializerFactory("EndpointOperation"),
-          this.service.EndpointOperation,
-          this.serializeFrameworkException,
-          EndpointOperationServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "EndpointWithHostLabelOperation": {
-        return handle(
-          request,
-          context,
-          "EndpointWithHostLabelOperation",
-          this.serializerFactory("EndpointWithHostLabelOperation"),
-          this.service.EndpointWithHostLabelOperation,
-          this.serializeFrameworkException,
-          EndpointWithHostLabelOperationServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "FractionalSeconds": {
-        return handle(
-          request,
-          context,
-          "FractionalSeconds",
-          this.serializerFactory("FractionalSeconds"),
-          this.service.FractionalSeconds,
-          this.serializeFrameworkException,
-          FractionalSecondsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "GreetingWithErrors": {
-        return handle(
-          request,
-          context,
-          "GreetingWithErrors",
-          this.serializerFactory("GreetingWithErrors"),
-          this.service.GreetingWithErrors,
-          this.serializeFrameworkException,
-          GreetingWithErrorsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HostWithPathOperation": {
-        return handle(
-          request,
-          context,
-          "HostWithPathOperation",
-          this.serializerFactory("HostWithPathOperation"),
-          this.service.HostWithPathOperation,
-          this.serializeFrameworkException,
-          HostWithPathOperationServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpChecksumRequired": {
-        return handle(
-          request,
-          context,
-          "HttpChecksumRequired",
-          this.serializerFactory("HttpChecksumRequired"),
-          this.service.HttpChecksumRequired,
-          this.serializeFrameworkException,
-          HttpChecksumRequiredServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpEmptyPrefixHeaders": {
-        return handle(
-          request,
-          context,
-          "HttpEmptyPrefixHeaders",
-          this.serializerFactory("HttpEmptyPrefixHeaders"),
-          this.service.HttpEmptyPrefixHeaders,
-          this.serializeFrameworkException,
-          HttpEmptyPrefixHeadersServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpEnumPayload": {
-        return handle(
-          request,
-          context,
-          "HttpEnumPayload",
-          this.serializerFactory("HttpEnumPayload"),
-          this.service.HttpEnumPayload,
-          this.serializeFrameworkException,
-          HttpEnumPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPayloadTraits": {
-        return handle(
-          request,
-          context,
-          "HttpPayloadTraits",
-          this.serializerFactory("HttpPayloadTraits"),
-          this.service.HttpPayloadTraits,
-          this.serializeFrameworkException,
-          HttpPayloadTraitsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPayloadTraitsWithMediaType": {
-        return handle(
-          request,
-          context,
-          "HttpPayloadTraitsWithMediaType",
-          this.serializerFactory("HttpPayloadTraitsWithMediaType"),
-          this.service.HttpPayloadTraitsWithMediaType,
-          this.serializeFrameworkException,
-          HttpPayloadTraitsWithMediaTypeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPayloadWithStructure": {
-        return handle(
-          request,
-          context,
-          "HttpPayloadWithStructure",
-          this.serializerFactory("HttpPayloadWithStructure"),
-          this.service.HttpPayloadWithStructure,
-          this.serializeFrameworkException,
-          HttpPayloadWithStructureServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPayloadWithUnion": {
-        return handle(
-          request,
-          context,
-          "HttpPayloadWithUnion",
-          this.serializerFactory("HttpPayloadWithUnion"),
-          this.service.HttpPayloadWithUnion,
-          this.serializeFrameworkException,
-          HttpPayloadWithUnionServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPrefixHeaders": {
-        return handle(
-          request,
-          context,
-          "HttpPrefixHeaders",
-          this.serializerFactory("HttpPrefixHeaders"),
-          this.service.HttpPrefixHeaders,
-          this.serializeFrameworkException,
-          HttpPrefixHeadersServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpPrefixHeadersInResponse": {
-        return handle(
-          request,
-          context,
-          "HttpPrefixHeadersInResponse",
-          this.serializerFactory("HttpPrefixHeadersInResponse"),
-          this.service.HttpPrefixHeadersInResponse,
-          this.serializeFrameworkException,
-          HttpPrefixHeadersInResponseServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpQueryParamsOnlyOperation": {
-        return handle(
-          request,
-          context,
-          "HttpQueryParamsOnlyOperation",
-          this.serializerFactory("HttpQueryParamsOnlyOperation"),
-          this.service.HttpQueryParamsOnlyOperation,
-          this.serializeFrameworkException,
-          HttpQueryParamsOnlyOperationServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpRequestWithFloatLabels": {
-        return handle(
-          request,
-          context,
-          "HttpRequestWithFloatLabels",
-          this.serializerFactory("HttpRequestWithFloatLabels"),
-          this.service.HttpRequestWithFloatLabels,
-          this.serializeFrameworkException,
-          HttpRequestWithFloatLabelsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpRequestWithGreedyLabelInPath": {
-        return handle(
-          request,
-          context,
-          "HttpRequestWithGreedyLabelInPath",
-          this.serializerFactory("HttpRequestWithGreedyLabelInPath"),
-          this.service.HttpRequestWithGreedyLabelInPath,
-          this.serializeFrameworkException,
-          HttpRequestWithGreedyLabelInPathServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpRequestWithLabels": {
-        return handle(
-          request,
-          context,
-          "HttpRequestWithLabels",
-          this.serializerFactory("HttpRequestWithLabels"),
-          this.service.HttpRequestWithLabels,
-          this.serializeFrameworkException,
-          HttpRequestWithLabelsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpRequestWithLabelsAndTimestampFormat": {
-        return handle(
-          request,
-          context,
-          "HttpRequestWithLabelsAndTimestampFormat",
-          this.serializerFactory("HttpRequestWithLabelsAndTimestampFormat"),
-          this.service.HttpRequestWithLabelsAndTimestampFormat,
-          this.serializeFrameworkException,
-          HttpRequestWithLabelsAndTimestampFormatServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpRequestWithRegexLiteral": {
-        return handle(
-          request,
-          context,
-          "HttpRequestWithRegexLiteral",
-          this.serializerFactory("HttpRequestWithRegexLiteral"),
-          this.service.HttpRequestWithRegexLiteral,
-          this.serializeFrameworkException,
-          HttpRequestWithRegexLiteralServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpResponseCode": {
-        return handle(
-          request,
-          context,
-          "HttpResponseCode",
-          this.serializerFactory("HttpResponseCode"),
-          this.service.HttpResponseCode,
-          this.serializeFrameworkException,
-          HttpResponseCodeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "HttpStringPayload": {
-        return handle(
-          request,
-          context,
-          "HttpStringPayload",
-          this.serializerFactory("HttpStringPayload"),
-          this.service.HttpStringPayload,
-          this.serializeFrameworkException,
-          HttpStringPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "IgnoreQueryParamsInResponse": {
-        return handle(
-          request,
-          context,
-          "IgnoreQueryParamsInResponse",
-          this.serializerFactory("IgnoreQueryParamsInResponse"),
-          this.service.IgnoreQueryParamsInResponse,
-          this.serializeFrameworkException,
-          IgnoreQueryParamsInResponseServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "InputAndOutputWithHeaders": {
-        return handle(
-          request,
-          context,
-          "InputAndOutputWithHeaders",
-          this.serializerFactory("InputAndOutputWithHeaders"),
-          this.service.InputAndOutputWithHeaders,
-          this.serializeFrameworkException,
-          InputAndOutputWithHeadersServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "InputStream": {
-        return handle(
-          request,
-          context,
-          "InputStream",
-          this.serializerFactory("InputStream"),
-          this.service.InputStream,
-          this.serializeFrameworkException,
-          InputStreamServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "InputStreamWithInitialRequest": {
-        return handle(
-          request,
-          context,
-          "InputStreamWithInitialRequest",
-          this.serializerFactory("InputStreamWithInitialRequest"),
-          this.service.InputStreamWithInitialRequest,
-          this.serializeFrameworkException,
-          InputStreamWithInitialRequestServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonBlobs": {
-        return handle(
-          request,
-          context,
-          "JsonBlobs",
-          this.serializerFactory("JsonBlobs"),
-          this.service.JsonBlobs,
-          this.serializeFrameworkException,
-          JsonBlobsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonEnums": {
-        return handle(
-          request,
-          context,
-          "JsonEnums",
-          this.serializerFactory("JsonEnums"),
-          this.service.JsonEnums,
-          this.serializeFrameworkException,
-          JsonEnumsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonIntEnums": {
-        return handle(
-          request,
-          context,
-          "JsonIntEnums",
-          this.serializerFactory("JsonIntEnums"),
-          this.service.JsonIntEnums,
-          this.serializeFrameworkException,
-          JsonIntEnumsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonLists": {
-        return handle(
-          request,
-          context,
-          "JsonLists",
-          this.serializerFactory("JsonLists"),
-          this.service.JsonLists,
-          this.serializeFrameworkException,
-          JsonListsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonMaps": {
-        return handle(
-          request,
-          context,
-          "JsonMaps",
-          this.serializerFactory("JsonMaps"),
-          this.service.JsonMaps,
-          this.serializeFrameworkException,
-          JsonMapsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonTimestamps": {
-        return handle(
-          request,
-          context,
-          "JsonTimestamps",
-          this.serializerFactory("JsonTimestamps"),
-          this.service.JsonTimestamps,
-          this.serializeFrameworkException,
-          JsonTimestampsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "JsonUnions": {
-        return handle(
-          request,
-          context,
-          "JsonUnions",
-          this.serializerFactory("JsonUnions"),
-          this.service.JsonUnions,
-          this.serializeFrameworkException,
-          JsonUnionsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedAcceptWithBody": {
-        return handle(
-          request,
-          context,
-          "MalformedAcceptWithBody",
-          this.serializerFactory("MalformedAcceptWithBody"),
-          this.service.MalformedAcceptWithBody,
-          this.serializeFrameworkException,
-          MalformedAcceptWithBodyServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedAcceptWithGenericString": {
-        return handle(
-          request,
-          context,
-          "MalformedAcceptWithGenericString",
-          this.serializerFactory("MalformedAcceptWithGenericString"),
-          this.service.MalformedAcceptWithGenericString,
-          this.serializeFrameworkException,
-          MalformedAcceptWithGenericStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedAcceptWithPayload": {
-        return handle(
-          request,
-          context,
-          "MalformedAcceptWithPayload",
-          this.serializerFactory("MalformedAcceptWithPayload"),
-          this.service.MalformedAcceptWithPayload,
-          this.serializeFrameworkException,
-          MalformedAcceptWithPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedBlob": {
-        return handle(
-          request,
-          context,
-          "MalformedBlob",
-          this.serializerFactory("MalformedBlob"),
-          this.service.MalformedBlob,
-          this.serializeFrameworkException,
-          MalformedBlobServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedBoolean": {
-        return handle(
-          request,
-          context,
-          "MalformedBoolean",
-          this.serializerFactory("MalformedBoolean"),
-          this.service.MalformedBoolean,
-          this.serializeFrameworkException,
-          MalformedBooleanServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedByte": {
-        return handle(
-          request,
-          context,
-          "MalformedByte",
-          this.serializerFactory("MalformedByte"),
-          this.service.MalformedByte,
-          this.serializeFrameworkException,
-          MalformedByteServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedContentTypeWithBody": {
-        return handle(
-          request,
-          context,
-          "MalformedContentTypeWithBody",
-          this.serializerFactory("MalformedContentTypeWithBody"),
-          this.service.MalformedContentTypeWithBody,
-          this.serializeFrameworkException,
-          MalformedContentTypeWithBodyServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedContentTypeWithGenericString": {
-        return handle(
-          request,
-          context,
-          "MalformedContentTypeWithGenericString",
-          this.serializerFactory("MalformedContentTypeWithGenericString"),
-          this.service.MalformedContentTypeWithGenericString,
-          this.serializeFrameworkException,
-          MalformedContentTypeWithGenericStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedContentTypeWithoutBody": {
-        return handle(
-          request,
-          context,
-          "MalformedContentTypeWithoutBody",
-          this.serializerFactory("MalformedContentTypeWithoutBody"),
-          this.service.MalformedContentTypeWithoutBody,
-          this.serializeFrameworkException,
-          MalformedContentTypeWithoutBodyServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedContentTypeWithoutBodyEmptyInput": {
-        return handle(
-          request,
-          context,
-          "MalformedContentTypeWithoutBodyEmptyInput",
-          this.serializerFactory("MalformedContentTypeWithoutBodyEmptyInput"),
-          this.service.MalformedContentTypeWithoutBodyEmptyInput,
-          this.serializeFrameworkException,
-          MalformedContentTypeWithoutBodyEmptyInputServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedContentTypeWithPayload": {
-        return handle(
-          request,
-          context,
-          "MalformedContentTypeWithPayload",
-          this.serializerFactory("MalformedContentTypeWithPayload"),
-          this.service.MalformedContentTypeWithPayload,
-          this.serializeFrameworkException,
-          MalformedContentTypeWithPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedDouble": {
-        return handle(
-          request,
-          context,
-          "MalformedDouble",
-          this.serializerFactory("MalformedDouble"),
-          this.service.MalformedDouble,
-          this.serializeFrameworkException,
-          MalformedDoubleServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedFloat": {
-        return handle(
-          request,
-          context,
-          "MalformedFloat",
-          this.serializerFactory("MalformedFloat"),
-          this.service.MalformedFloat,
-          this.serializeFrameworkException,
-          MalformedFloatServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedInteger": {
-        return handle(
-          request,
-          context,
-          "MalformedInteger",
-          this.serializerFactory("MalformedInteger"),
-          this.service.MalformedInteger,
-          this.serializeFrameworkException,
-          MalformedIntegerServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedList": {
-        return handle(
-          request,
-          context,
-          "MalformedList",
-          this.serializerFactory("MalformedList"),
-          this.service.MalformedList,
-          this.serializeFrameworkException,
-          MalformedListServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedLong": {
-        return handle(
-          request,
-          context,
-          "MalformedLong",
-          this.serializerFactory("MalformedLong"),
-          this.service.MalformedLong,
-          this.serializeFrameworkException,
-          MalformedLongServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedMap": {
-        return handle(
-          request,
-          context,
-          "MalformedMap",
-          this.serializerFactory("MalformedMap"),
-          this.service.MalformedMap,
-          this.serializeFrameworkException,
-          MalformedMapServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedRequestBody": {
-        return handle(
-          request,
-          context,
-          "MalformedRequestBody",
-          this.serializerFactory("MalformedRequestBody"),
-          this.service.MalformedRequestBody,
-          this.serializeFrameworkException,
-          MalformedRequestBodyServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedShort": {
-        return handle(
-          request,
-          context,
-          "MalformedShort",
-          this.serializerFactory("MalformedShort"),
-          this.service.MalformedShort,
-          this.serializeFrameworkException,
-          MalformedShortServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedString": {
-        return handle(
-          request,
-          context,
-          "MalformedString",
-          this.serializerFactory("MalformedString"),
-          this.service.MalformedString,
-          this.serializeFrameworkException,
-          MalformedStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampBodyDateTime": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampBodyDateTime",
-          this.serializerFactory("MalformedTimestampBodyDateTime"),
-          this.service.MalformedTimestampBodyDateTime,
-          this.serializeFrameworkException,
-          MalformedTimestampBodyDateTimeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampBodyDefault": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampBodyDefault",
-          this.serializerFactory("MalformedTimestampBodyDefault"),
-          this.service.MalformedTimestampBodyDefault,
-          this.serializeFrameworkException,
-          MalformedTimestampBodyDefaultServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampBodyHttpDate": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampBodyHttpDate",
-          this.serializerFactory("MalformedTimestampBodyHttpDate"),
-          this.service.MalformedTimestampBodyHttpDate,
-          this.serializeFrameworkException,
-          MalformedTimestampBodyHttpDateServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampHeaderDateTime": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampHeaderDateTime",
-          this.serializerFactory("MalformedTimestampHeaderDateTime"),
-          this.service.MalformedTimestampHeaderDateTime,
-          this.serializeFrameworkException,
-          MalformedTimestampHeaderDateTimeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampHeaderDefault": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampHeaderDefault",
-          this.serializerFactory("MalformedTimestampHeaderDefault"),
-          this.service.MalformedTimestampHeaderDefault,
-          this.serializeFrameworkException,
-          MalformedTimestampHeaderDefaultServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampHeaderEpoch": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampHeaderEpoch",
-          this.serializerFactory("MalformedTimestampHeaderEpoch"),
-          this.service.MalformedTimestampHeaderEpoch,
-          this.serializeFrameworkException,
-          MalformedTimestampHeaderEpochServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampPathDefault": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampPathDefault",
-          this.serializerFactory("MalformedTimestampPathDefault"),
-          this.service.MalformedTimestampPathDefault,
-          this.serializeFrameworkException,
-          MalformedTimestampPathDefaultServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampPathEpoch": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampPathEpoch",
-          this.serializerFactory("MalformedTimestampPathEpoch"),
-          this.service.MalformedTimestampPathEpoch,
-          this.serializeFrameworkException,
-          MalformedTimestampPathEpochServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampPathHttpDate": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampPathHttpDate",
-          this.serializerFactory("MalformedTimestampPathHttpDate"),
-          this.service.MalformedTimestampPathHttpDate,
-          this.serializeFrameworkException,
-          MalformedTimestampPathHttpDateServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampQueryDefault": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampQueryDefault",
-          this.serializerFactory("MalformedTimestampQueryDefault"),
-          this.service.MalformedTimestampQueryDefault,
-          this.serializeFrameworkException,
-          MalformedTimestampQueryDefaultServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampQueryEpoch": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampQueryEpoch",
-          this.serializerFactory("MalformedTimestampQueryEpoch"),
-          this.service.MalformedTimestampQueryEpoch,
-          this.serializeFrameworkException,
-          MalformedTimestampQueryEpochServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedTimestampQueryHttpDate": {
-        return handle(
-          request,
-          context,
-          "MalformedTimestampQueryHttpDate",
-          this.serializerFactory("MalformedTimestampQueryHttpDate"),
-          this.service.MalformedTimestampQueryHttpDate,
-          this.serializeFrameworkException,
-          MalformedTimestampQueryHttpDateServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MalformedUnion": {
-        return handle(
-          request,
-          context,
-          "MalformedUnion",
-          this.serializerFactory("MalformedUnion"),
-          this.service.MalformedUnion,
-          this.serializeFrameworkException,
-          MalformedUnionServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "MediaTypeHeader": {
-        return handle(
-          request,
-          context,
-          "MediaTypeHeader",
-          this.serializerFactory("MediaTypeHeader"),
-          this.service.MediaTypeHeader,
-          this.serializeFrameworkException,
-          MediaTypeHeaderServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "NoInputAndNoOutput": {
-        return handle(
-          request,
-          context,
-          "NoInputAndNoOutput",
-          this.serializerFactory("NoInputAndNoOutput"),
-          this.service.NoInputAndNoOutput,
-          this.serializeFrameworkException,
-          NoInputAndNoOutputServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "NoInputAndOutput": {
-        return handle(
-          request,
-          context,
-          "NoInputAndOutput",
-          this.serializerFactory("NoInputAndOutput"),
-          this.service.NoInputAndOutput,
-          this.serializeFrameworkException,
-          NoInputAndOutputServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "NullAndEmptyHeadersClient": {
-        return handle(
-          request,
-          context,
-          "NullAndEmptyHeadersClient",
-          this.serializerFactory("NullAndEmptyHeadersClient"),
-          this.service.NullAndEmptyHeadersClient,
-          this.serializeFrameworkException,
-          NullAndEmptyHeadersClientServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "NullAndEmptyHeadersServer": {
-        return handle(
-          request,
-          context,
-          "NullAndEmptyHeadersServer",
-          this.serializerFactory("NullAndEmptyHeadersServer"),
-          this.service.NullAndEmptyHeadersServer,
-          this.serializeFrameworkException,
-          NullAndEmptyHeadersServerServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OmitsNullSerializesEmptyString": {
-        return handle(
-          request,
-          context,
-          "OmitsNullSerializesEmptyString",
-          this.serializerFactory("OmitsNullSerializesEmptyString"),
-          this.service.OmitsNullSerializesEmptyString,
-          this.serializeFrameworkException,
-          OmitsNullSerializesEmptyStringServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OmitsSerializingEmptyLists": {
-        return handle(
-          request,
-          context,
-          "OmitsSerializingEmptyLists",
-          this.serializerFactory("OmitsSerializingEmptyLists"),
-          this.service.OmitsSerializingEmptyLists,
-          this.serializeFrameworkException,
-          OmitsSerializingEmptyListsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OperationWithDefaults": {
-        return handle(
-          request,
-          context,
-          "OperationWithDefaults",
-          this.serializerFactory("OperationWithDefaults"),
-          this.service.OperationWithDefaults,
-          this.serializeFrameworkException,
-          OperationWithDefaultsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OperationWithNestedStructure": {
-        return handle(
-          request,
-          context,
-          "OperationWithNestedStructure",
-          this.serializerFactory("OperationWithNestedStructure"),
-          this.service.OperationWithNestedStructure,
-          this.serializeFrameworkException,
-          OperationWithNestedStructureServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OutputStream": {
-        return handle(
-          request,
-          context,
-          "OutputStream",
-          this.serializerFactory("OutputStream"),
-          this.service.OutputStream,
-          this.serializeFrameworkException,
-          OutputStreamServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "OutputStreamWithInitialResponse": {
-        return handle(
-          request,
-          context,
-          "OutputStreamWithInitialResponse",
-          this.serializerFactory("OutputStreamWithInitialResponse"),
-          this.service.OutputStreamWithInitialResponse,
-          this.serializeFrameworkException,
-          OutputStreamWithInitialResponseServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "PostPlayerAction": {
-        return handle(
-          request,
-          context,
-          "PostPlayerAction",
-          this.serializerFactory("PostPlayerAction"),
-          this.service.PostPlayerAction,
-          this.serializeFrameworkException,
-          PostPlayerActionServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "PostUnionWithJsonName": {
-        return handle(
-          request,
-          context,
-          "PostUnionWithJsonName",
-          this.serializerFactory("PostUnionWithJsonName"),
-          this.service.PostUnionWithJsonName,
-          this.serializeFrameworkException,
-          PostUnionWithJsonNameServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "PutWithContentEncoding": {
-        return handle(
-          request,
-          context,
-          "PutWithContentEncoding",
-          this.serializerFactory("PutWithContentEncoding"),
-          this.service.PutWithContentEncoding,
-          this.serializeFrameworkException,
-          PutWithContentEncodingServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "QueryIdempotencyTokenAutoFill": {
-        return handle(
-          request,
-          context,
-          "QueryIdempotencyTokenAutoFill",
-          this.serializerFactory("QueryIdempotencyTokenAutoFill"),
-          this.service.QueryIdempotencyTokenAutoFill,
-          this.serializeFrameworkException,
-          QueryIdempotencyTokenAutoFillServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "QueryParamsAsStringListMap": {
-        return handle(
-          request,
-          context,
-          "QueryParamsAsStringListMap",
-          this.serializerFactory("QueryParamsAsStringListMap"),
-          this.service.QueryParamsAsStringListMap,
-          this.serializeFrameworkException,
-          QueryParamsAsStringListMapServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "QueryPrecedence": {
-        return handle(
-          request,
-          context,
-          "QueryPrecedence",
-          this.serializerFactory("QueryPrecedence"),
-          this.service.QueryPrecedence,
-          this.serializeFrameworkException,
-          QueryPrecedenceServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "RecursiveShapes": {
-        return handle(
-          request,
-          context,
-          "RecursiveShapes",
-          this.serializerFactory("RecursiveShapes"),
-          this.service.RecursiveShapes,
-          this.serializeFrameworkException,
-          RecursiveShapesServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "ResponseCodeHttpFallback": {
-        return handle(
-          request,
-          context,
-          "ResponseCodeHttpFallback",
-          this.serializerFactory("ResponseCodeHttpFallback"),
-          this.service.ResponseCodeHttpFallback,
-          this.serializeFrameworkException,
-          ResponseCodeHttpFallbackServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "ResponseCodeRequired": {
-        return handle(
-          request,
-          context,
-          "ResponseCodeRequired",
-          this.serializerFactory("ResponseCodeRequired"),
-          this.service.ResponseCodeRequired,
-          this.serializeFrameworkException,
-          ResponseCodeRequiredServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "SimpleScalarProperties": {
-        return handle(
-          request,
-          context,
-          "SimpleScalarProperties",
-          this.serializerFactory("SimpleScalarProperties"),
-          this.service.SimpleScalarProperties,
-          this.serializeFrameworkException,
-          SimpleScalarPropertiesServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "SparseJsonLists": {
-        return handle(
-          request,
-          context,
-          "SparseJsonLists",
-          this.serializerFactory("SparseJsonLists"),
-          this.service.SparseJsonLists,
-          this.serializeFrameworkException,
-          SparseJsonListsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "SparseJsonMaps": {
-        return handle(
-          request,
-          context,
-          "SparseJsonMaps",
-          this.serializerFactory("SparseJsonMaps"),
-          this.service.SparseJsonMaps,
-          this.serializeFrameworkException,
-          SparseJsonMapsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "StreamingTraits": {
-        return handle(
-          request,
-          context,
-          "StreamingTraits",
-          this.serializerFactory("StreamingTraits"),
-          this.service.StreamingTraits,
-          this.serializeFrameworkException,
-          StreamingTraitsServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "StreamingTraitsRequireLength": {
-        return handle(
-          request,
-          context,
-          "StreamingTraitsRequireLength",
-          this.serializerFactory("StreamingTraitsRequireLength"),
-          this.service.StreamingTraitsRequireLength,
-          this.serializeFrameworkException,
-          StreamingTraitsRequireLengthServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "StreamingTraitsWithMediaType": {
-        return handle(
-          request,
-          context,
-          "StreamingTraitsWithMediaType",
-          this.serializerFactory("StreamingTraitsWithMediaType"),
-          this.service.StreamingTraitsWithMediaType,
-          this.serializeFrameworkException,
-          StreamingTraitsWithMediaTypeServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestBodyStructure": {
-        return handle(
-          request,
-          context,
-          "TestBodyStructure",
-          this.serializerFactory("TestBodyStructure"),
-          this.service.TestBodyStructure,
-          this.serializeFrameworkException,
-          TestBodyStructureServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestGetNoInputNoPayload": {
-        return handle(
-          request,
-          context,
-          "TestGetNoInputNoPayload",
-          this.serializerFactory("TestGetNoInputNoPayload"),
-          this.service.TestGetNoInputNoPayload,
-          this.serializeFrameworkException,
-          TestGetNoInputNoPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestGetNoPayload": {
-        return handle(
-          request,
-          context,
-          "TestGetNoPayload",
-          this.serializerFactory("TestGetNoPayload"),
-          this.service.TestGetNoPayload,
-          this.serializeFrameworkException,
-          TestGetNoPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestPayloadBlob": {
-        return handle(
-          request,
-          context,
-          "TestPayloadBlob",
-          this.serializerFactory("TestPayloadBlob"),
-          this.service.TestPayloadBlob,
-          this.serializeFrameworkException,
-          TestPayloadBlobServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestPayloadStructure": {
-        return handle(
-          request,
-          context,
-          "TestPayloadStructure",
-          this.serializerFactory("TestPayloadStructure"),
-          this.service.TestPayloadStructure,
-          this.serializeFrameworkException,
-          TestPayloadStructureServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestPostNoInputNoPayload": {
-        return handle(
-          request,
-          context,
-          "TestPostNoInputNoPayload",
-          this.serializerFactory("TestPostNoInputNoPayload"),
-          this.service.TestPostNoInputNoPayload,
-          this.serializeFrameworkException,
-          TestPostNoInputNoPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TestPostNoPayload": {
-        return handle(
-          request,
-          context,
-          "TestPostNoPayload",
-          this.serializerFactory("TestPostNoPayload"),
-          this.service.TestPostNoPayload,
-          this.serializeFrameworkException,
-          TestPostNoPayloadServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "TimestampFormatHeaders": {
-        return handle(
-          request,
-          context,
-          "TimestampFormatHeaders",
-          this.serializerFactory("TimestampFormatHeaders"),
-          this.service.TimestampFormatHeaders,
-          this.serializeFrameworkException,
-          TimestampFormatHeadersServerInput.validate,
-          this.validationCustomizer
-        );
-      }
-      case "UnitInputAndOutput": {
-        return handle(
-          request,
-          context,
-          "UnitInputAndOutput",
-          this.serializerFactory("UnitInputAndOutput"),
-          this.service.UnitInputAndOutput,
-          this.serializeFrameworkException,
-          UnitInputAndOutputServerInput.validate,
-          this.validationCustomizer
-        );
+      case "AllQueryStringTypes" : {
+        return handle(request, context, "AllQueryStringTypes", this.serializerFactory("AllQueryStringTypes"), this.service.AllQueryStringTypes, this.serializeFrameworkException, AllQueryStringTypesServerInput.validate, this.validationCustomizer);
+      }
+      case "ConstantAndVariableQueryString" : {
+        return handle(request, context, "ConstantAndVariableQueryString", this.serializerFactory("ConstantAndVariableQueryString"), this.service.ConstantAndVariableQueryString, this.serializeFrameworkException, ConstantAndVariableQueryStringServerInput.validate, this.validationCustomizer);
+      }
+      case "ConstantQueryString" : {
+        return handle(request, context, "ConstantQueryString", this.serializerFactory("ConstantQueryString"), this.service.ConstantQueryString, this.serializeFrameworkException, ConstantQueryStringServerInput.validate, this.validationCustomizer);
+      }
+      case "ContentTypeParameters" : {
+        return handle(request, context, "ContentTypeParameters", this.serializerFactory("ContentTypeParameters"), this.service.ContentTypeParameters, this.serializeFrameworkException, ContentTypeParametersServerInput.validate, this.validationCustomizer);
+      }
+      case "DatetimeOffsets" : {
+        return handle(request, context, "DatetimeOffsets", this.serializerFactory("DatetimeOffsets"), this.service.DatetimeOffsets, this.serializeFrameworkException, DatetimeOffsetsServerInput.validate, this.validationCustomizer);
+      }
+      case "DocumentType" : {
+        return handle(request, context, "DocumentType", this.serializerFactory("DocumentType"), this.service.DocumentType, this.serializeFrameworkException, DocumentTypeServerInput.validate, this.validationCustomizer);
+      }
+      case "DocumentTypeAsMapValue" : {
+        return handle(request, context, "DocumentTypeAsMapValue", this.serializerFactory("DocumentTypeAsMapValue"), this.service.DocumentTypeAsMapValue, this.serializeFrameworkException, DocumentTypeAsMapValueServerInput.validate, this.validationCustomizer);
+      }
+      case "DocumentTypeAsPayload" : {
+        return handle(request, context, "DocumentTypeAsPayload", this.serializerFactory("DocumentTypeAsPayload"), this.service.DocumentTypeAsPayload, this.serializeFrameworkException, DocumentTypeAsPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "DuplexStream" : {
+        return handle(request, context, "DuplexStream", this.serializerFactory("DuplexStream"), this.service.DuplexStream, this.serializeFrameworkException, DuplexStreamServerInput.validate, this.validationCustomizer);
+      }
+      case "DuplexStreamWithDistinctStreams" : {
+        return handle(request, context, "DuplexStreamWithDistinctStreams", this.serializerFactory("DuplexStreamWithDistinctStreams"), this.service.DuplexStreamWithDistinctStreams, this.serializeFrameworkException, DuplexStreamWithDistinctStreamsServerInput.validate, this.validationCustomizer);
+      }
+      case "DuplexStreamWithInitialMessages" : {
+        return handle(request, context, "DuplexStreamWithInitialMessages", this.serializerFactory("DuplexStreamWithInitialMessages"), this.service.DuplexStreamWithInitialMessages, this.serializeFrameworkException, DuplexStreamWithInitialMessagesServerInput.validate, this.validationCustomizer);
+      }
+      case "EmptyInputAndEmptyOutput" : {
+        return handle(request, context, "EmptyInputAndEmptyOutput", this.serializerFactory("EmptyInputAndEmptyOutput"), this.service.EmptyInputAndEmptyOutput, this.serializeFrameworkException, EmptyInputAndEmptyOutputServerInput.validate, this.validationCustomizer);
+      }
+      case "EndpointOperation" : {
+        return handle(request, context, "EndpointOperation", this.serializerFactory("EndpointOperation"), this.service.EndpointOperation, this.serializeFrameworkException, EndpointOperationServerInput.validate, this.validationCustomizer);
+      }
+      case "EndpointWithHostLabelOperation" : {
+        return handle(request, context, "EndpointWithHostLabelOperation", this.serializerFactory("EndpointWithHostLabelOperation"), this.service.EndpointWithHostLabelOperation, this.serializeFrameworkException, EndpointWithHostLabelOperationServerInput.validate, this.validationCustomizer);
+      }
+      case "FractionalSeconds" : {
+        return handle(request, context, "FractionalSeconds", this.serializerFactory("FractionalSeconds"), this.service.FractionalSeconds, this.serializeFrameworkException, FractionalSecondsServerInput.validate, this.validationCustomizer);
+      }
+      case "GreetingWithErrors" : {
+        return handle(request, context, "GreetingWithErrors", this.serializerFactory("GreetingWithErrors"), this.service.GreetingWithErrors, this.serializeFrameworkException, GreetingWithErrorsServerInput.validate, this.validationCustomizer);
+      }
+      case "HostWithPathOperation" : {
+        return handle(request, context, "HostWithPathOperation", this.serializerFactory("HostWithPathOperation"), this.service.HostWithPathOperation, this.serializeFrameworkException, HostWithPathOperationServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpChecksumRequired" : {
+        return handle(request, context, "HttpChecksumRequired", this.serializerFactory("HttpChecksumRequired"), this.service.HttpChecksumRequired, this.serializeFrameworkException, HttpChecksumRequiredServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpEmptyPrefixHeaders" : {
+        return handle(request, context, "HttpEmptyPrefixHeaders", this.serializerFactory("HttpEmptyPrefixHeaders"), this.service.HttpEmptyPrefixHeaders, this.serializeFrameworkException, HttpEmptyPrefixHeadersServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpEnumPayload" : {
+        return handle(request, context, "HttpEnumPayload", this.serializerFactory("HttpEnumPayload"), this.service.HttpEnumPayload, this.serializeFrameworkException, HttpEnumPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPayloadTraits" : {
+        return handle(request, context, "HttpPayloadTraits", this.serializerFactory("HttpPayloadTraits"), this.service.HttpPayloadTraits, this.serializeFrameworkException, HttpPayloadTraitsServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPayloadTraitsWithMediaType" : {
+        return handle(request, context, "HttpPayloadTraitsWithMediaType", this.serializerFactory("HttpPayloadTraitsWithMediaType"), this.service.HttpPayloadTraitsWithMediaType, this.serializeFrameworkException, HttpPayloadTraitsWithMediaTypeServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPayloadWithStructure" : {
+        return handle(request, context, "HttpPayloadWithStructure", this.serializerFactory("HttpPayloadWithStructure"), this.service.HttpPayloadWithStructure, this.serializeFrameworkException, HttpPayloadWithStructureServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPayloadWithUnion" : {
+        return handle(request, context, "HttpPayloadWithUnion", this.serializerFactory("HttpPayloadWithUnion"), this.service.HttpPayloadWithUnion, this.serializeFrameworkException, HttpPayloadWithUnionServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPrefixHeaders" : {
+        return handle(request, context, "HttpPrefixHeaders", this.serializerFactory("HttpPrefixHeaders"), this.service.HttpPrefixHeaders, this.serializeFrameworkException, HttpPrefixHeadersServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpPrefixHeadersInResponse" : {
+        return handle(request, context, "HttpPrefixHeadersInResponse", this.serializerFactory("HttpPrefixHeadersInResponse"), this.service.HttpPrefixHeadersInResponse, this.serializeFrameworkException, HttpPrefixHeadersInResponseServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpQueryParamsOnlyOperation" : {
+        return handle(request, context, "HttpQueryParamsOnlyOperation", this.serializerFactory("HttpQueryParamsOnlyOperation"), this.service.HttpQueryParamsOnlyOperation, this.serializeFrameworkException, HttpQueryParamsOnlyOperationServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpRequestWithFloatLabels" : {
+        return handle(request, context, "HttpRequestWithFloatLabels", this.serializerFactory("HttpRequestWithFloatLabels"), this.service.HttpRequestWithFloatLabels, this.serializeFrameworkException, HttpRequestWithFloatLabelsServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpRequestWithGreedyLabelInPath" : {
+        return handle(request, context, "HttpRequestWithGreedyLabelInPath", this.serializerFactory("HttpRequestWithGreedyLabelInPath"), this.service.HttpRequestWithGreedyLabelInPath, this.serializeFrameworkException, HttpRequestWithGreedyLabelInPathServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpRequestWithLabels" : {
+        return handle(request, context, "HttpRequestWithLabels", this.serializerFactory("HttpRequestWithLabels"), this.service.HttpRequestWithLabels, this.serializeFrameworkException, HttpRequestWithLabelsServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpRequestWithLabelsAndTimestampFormat" : {
+        return handle(request, context, "HttpRequestWithLabelsAndTimestampFormat", this.serializerFactory("HttpRequestWithLabelsAndTimestampFormat"), this.service.HttpRequestWithLabelsAndTimestampFormat, this.serializeFrameworkException, HttpRequestWithLabelsAndTimestampFormatServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpRequestWithRegexLiteral" : {
+        return handle(request, context, "HttpRequestWithRegexLiteral", this.serializerFactory("HttpRequestWithRegexLiteral"), this.service.HttpRequestWithRegexLiteral, this.serializeFrameworkException, HttpRequestWithRegexLiteralServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpResponseCode" : {
+        return handle(request, context, "HttpResponseCode", this.serializerFactory("HttpResponseCode"), this.service.HttpResponseCode, this.serializeFrameworkException, HttpResponseCodeServerInput.validate, this.validationCustomizer);
+      }
+      case "HttpStringPayload" : {
+        return handle(request, context, "HttpStringPayload", this.serializerFactory("HttpStringPayload"), this.service.HttpStringPayload, this.serializeFrameworkException, HttpStringPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "IgnoreQueryParamsInResponse" : {
+        return handle(request, context, "IgnoreQueryParamsInResponse", this.serializerFactory("IgnoreQueryParamsInResponse"), this.service.IgnoreQueryParamsInResponse, this.serializeFrameworkException, IgnoreQueryParamsInResponseServerInput.validate, this.validationCustomizer);
+      }
+      case "InputAndOutputWithHeaders" : {
+        return handle(request, context, "InputAndOutputWithHeaders", this.serializerFactory("InputAndOutputWithHeaders"), this.service.InputAndOutputWithHeaders, this.serializeFrameworkException, InputAndOutputWithHeadersServerInput.validate, this.validationCustomizer);
+      }
+      case "InputStream" : {
+        return handle(request, context, "InputStream", this.serializerFactory("InputStream"), this.service.InputStream, this.serializeFrameworkException, InputStreamServerInput.validate, this.validationCustomizer);
+      }
+      case "InputStreamWithInitialRequest" : {
+        return handle(request, context, "InputStreamWithInitialRequest", this.serializerFactory("InputStreamWithInitialRequest"), this.service.InputStreamWithInitialRequest, this.serializeFrameworkException, InputStreamWithInitialRequestServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonBlobs" : {
+        return handle(request, context, "JsonBlobs", this.serializerFactory("JsonBlobs"), this.service.JsonBlobs, this.serializeFrameworkException, JsonBlobsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonEnums" : {
+        return handle(request, context, "JsonEnums", this.serializerFactory("JsonEnums"), this.service.JsonEnums, this.serializeFrameworkException, JsonEnumsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonIntEnums" : {
+        return handle(request, context, "JsonIntEnums", this.serializerFactory("JsonIntEnums"), this.service.JsonIntEnums, this.serializeFrameworkException, JsonIntEnumsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonLists" : {
+        return handle(request, context, "JsonLists", this.serializerFactory("JsonLists"), this.service.JsonLists, this.serializeFrameworkException, JsonListsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonMaps" : {
+        return handle(request, context, "JsonMaps", this.serializerFactory("JsonMaps"), this.service.JsonMaps, this.serializeFrameworkException, JsonMapsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonTimestamps" : {
+        return handle(request, context, "JsonTimestamps", this.serializerFactory("JsonTimestamps"), this.service.JsonTimestamps, this.serializeFrameworkException, JsonTimestampsServerInput.validate, this.validationCustomizer);
+      }
+      case "JsonUnions" : {
+        return handle(request, context, "JsonUnions", this.serializerFactory("JsonUnions"), this.service.JsonUnions, this.serializeFrameworkException, JsonUnionsServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedAcceptWithBody" : {
+        return handle(request, context, "MalformedAcceptWithBody", this.serializerFactory("MalformedAcceptWithBody"), this.service.MalformedAcceptWithBody, this.serializeFrameworkException, MalformedAcceptWithBodyServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedAcceptWithGenericString" : {
+        return handle(request, context, "MalformedAcceptWithGenericString", this.serializerFactory("MalformedAcceptWithGenericString"), this.service.MalformedAcceptWithGenericString, this.serializeFrameworkException, MalformedAcceptWithGenericStringServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedAcceptWithPayload" : {
+        return handle(request, context, "MalformedAcceptWithPayload", this.serializerFactory("MalformedAcceptWithPayload"), this.service.MalformedAcceptWithPayload, this.serializeFrameworkException, MalformedAcceptWithPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedBlob" : {
+        return handle(request, context, "MalformedBlob", this.serializerFactory("MalformedBlob"), this.service.MalformedBlob, this.serializeFrameworkException, MalformedBlobServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedBoolean" : {
+        return handle(request, context, "MalformedBoolean", this.serializerFactory("MalformedBoolean"), this.service.MalformedBoolean, this.serializeFrameworkException, MalformedBooleanServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedByte" : {
+        return handle(request, context, "MalformedByte", this.serializerFactory("MalformedByte"), this.service.MalformedByte, this.serializeFrameworkException, MalformedByteServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedContentTypeWithBody" : {
+        return handle(request, context, "MalformedContentTypeWithBody", this.serializerFactory("MalformedContentTypeWithBody"), this.service.MalformedContentTypeWithBody, this.serializeFrameworkException, MalformedContentTypeWithBodyServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedContentTypeWithGenericString" : {
+        return handle(request, context, "MalformedContentTypeWithGenericString", this.serializerFactory("MalformedContentTypeWithGenericString"), this.service.MalformedContentTypeWithGenericString, this.serializeFrameworkException, MalformedContentTypeWithGenericStringServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedContentTypeWithoutBody" : {
+        return handle(request, context, "MalformedContentTypeWithoutBody", this.serializerFactory("MalformedContentTypeWithoutBody"), this.service.MalformedContentTypeWithoutBody, this.serializeFrameworkException, MalformedContentTypeWithoutBodyServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedContentTypeWithoutBodyEmptyInput" : {
+        return handle(request, context, "MalformedContentTypeWithoutBodyEmptyInput", this.serializerFactory("MalformedContentTypeWithoutBodyEmptyInput"), this.service.MalformedContentTypeWithoutBodyEmptyInput, this.serializeFrameworkException, MalformedContentTypeWithoutBodyEmptyInputServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedContentTypeWithPayload" : {
+        return handle(request, context, "MalformedContentTypeWithPayload", this.serializerFactory("MalformedContentTypeWithPayload"), this.service.MalformedContentTypeWithPayload, this.serializeFrameworkException, MalformedContentTypeWithPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedDouble" : {
+        return handle(request, context, "MalformedDouble", this.serializerFactory("MalformedDouble"), this.service.MalformedDouble, this.serializeFrameworkException, MalformedDoubleServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedFloat" : {
+        return handle(request, context, "MalformedFloat", this.serializerFactory("MalformedFloat"), this.service.MalformedFloat, this.serializeFrameworkException, MalformedFloatServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedInteger" : {
+        return handle(request, context, "MalformedInteger", this.serializerFactory("MalformedInteger"), this.service.MalformedInteger, this.serializeFrameworkException, MalformedIntegerServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedList" : {
+        return handle(request, context, "MalformedList", this.serializerFactory("MalformedList"), this.service.MalformedList, this.serializeFrameworkException, MalformedListServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedLong" : {
+        return handle(request, context, "MalformedLong", this.serializerFactory("MalformedLong"), this.service.MalformedLong, this.serializeFrameworkException, MalformedLongServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedMap" : {
+        return handle(request, context, "MalformedMap", this.serializerFactory("MalformedMap"), this.service.MalformedMap, this.serializeFrameworkException, MalformedMapServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedRequestBody" : {
+        return handle(request, context, "MalformedRequestBody", this.serializerFactory("MalformedRequestBody"), this.service.MalformedRequestBody, this.serializeFrameworkException, MalformedRequestBodyServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedShort" : {
+        return handle(request, context, "MalformedShort", this.serializerFactory("MalformedShort"), this.service.MalformedShort, this.serializeFrameworkException, MalformedShortServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedString" : {
+        return handle(request, context, "MalformedString", this.serializerFactory("MalformedString"), this.service.MalformedString, this.serializeFrameworkException, MalformedStringServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampBodyDateTime" : {
+        return handle(request, context, "MalformedTimestampBodyDateTime", this.serializerFactory("MalformedTimestampBodyDateTime"), this.service.MalformedTimestampBodyDateTime, this.serializeFrameworkException, MalformedTimestampBodyDateTimeServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampBodyDefault" : {
+        return handle(request, context, "MalformedTimestampBodyDefault", this.serializerFactory("MalformedTimestampBodyDefault"), this.service.MalformedTimestampBodyDefault, this.serializeFrameworkException, MalformedTimestampBodyDefaultServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampBodyHttpDate" : {
+        return handle(request, context, "MalformedTimestampBodyHttpDate", this.serializerFactory("MalformedTimestampBodyHttpDate"), this.service.MalformedTimestampBodyHttpDate, this.serializeFrameworkException, MalformedTimestampBodyHttpDateServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampHeaderDateTime" : {
+        return handle(request, context, "MalformedTimestampHeaderDateTime", this.serializerFactory("MalformedTimestampHeaderDateTime"), this.service.MalformedTimestampHeaderDateTime, this.serializeFrameworkException, MalformedTimestampHeaderDateTimeServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampHeaderDefault" : {
+        return handle(request, context, "MalformedTimestampHeaderDefault", this.serializerFactory("MalformedTimestampHeaderDefault"), this.service.MalformedTimestampHeaderDefault, this.serializeFrameworkException, MalformedTimestampHeaderDefaultServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampHeaderEpoch" : {
+        return handle(request, context, "MalformedTimestampHeaderEpoch", this.serializerFactory("MalformedTimestampHeaderEpoch"), this.service.MalformedTimestampHeaderEpoch, this.serializeFrameworkException, MalformedTimestampHeaderEpochServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampPathDefault" : {
+        return handle(request, context, "MalformedTimestampPathDefault", this.serializerFactory("MalformedTimestampPathDefault"), this.service.MalformedTimestampPathDefault, this.serializeFrameworkException, MalformedTimestampPathDefaultServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampPathEpoch" : {
+        return handle(request, context, "MalformedTimestampPathEpoch", this.serializerFactory("MalformedTimestampPathEpoch"), this.service.MalformedTimestampPathEpoch, this.serializeFrameworkException, MalformedTimestampPathEpochServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampPathHttpDate" : {
+        return handle(request, context, "MalformedTimestampPathHttpDate", this.serializerFactory("MalformedTimestampPathHttpDate"), this.service.MalformedTimestampPathHttpDate, this.serializeFrameworkException, MalformedTimestampPathHttpDateServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampQueryDefault" : {
+        return handle(request, context, "MalformedTimestampQueryDefault", this.serializerFactory("MalformedTimestampQueryDefault"), this.service.MalformedTimestampQueryDefault, this.serializeFrameworkException, MalformedTimestampQueryDefaultServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampQueryEpoch" : {
+        return handle(request, context, "MalformedTimestampQueryEpoch", this.serializerFactory("MalformedTimestampQueryEpoch"), this.service.MalformedTimestampQueryEpoch, this.serializeFrameworkException, MalformedTimestampQueryEpochServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedTimestampQueryHttpDate" : {
+        return handle(request, context, "MalformedTimestampQueryHttpDate", this.serializerFactory("MalformedTimestampQueryHttpDate"), this.service.MalformedTimestampQueryHttpDate, this.serializeFrameworkException, MalformedTimestampQueryHttpDateServerInput.validate, this.validationCustomizer);
+      }
+      case "MalformedUnion" : {
+        return handle(request, context, "MalformedUnion", this.serializerFactory("MalformedUnion"), this.service.MalformedUnion, this.serializeFrameworkException, MalformedUnionServerInput.validate, this.validationCustomizer);
+      }
+      case "MediaTypeHeader" : {
+        return handle(request, context, "MediaTypeHeader", this.serializerFactory("MediaTypeHeader"), this.service.MediaTypeHeader, this.serializeFrameworkException, MediaTypeHeaderServerInput.validate, this.validationCustomizer);
+      }
+      case "NoInputAndNoOutput" : {
+        return handle(request, context, "NoInputAndNoOutput", this.serializerFactory("NoInputAndNoOutput"), this.service.NoInputAndNoOutput, this.serializeFrameworkException, NoInputAndNoOutputServerInput.validate, this.validationCustomizer);
+      }
+      case "NoInputAndOutput" : {
+        return handle(request, context, "NoInputAndOutput", this.serializerFactory("NoInputAndOutput"), this.service.NoInputAndOutput, this.serializeFrameworkException, NoInputAndOutputServerInput.validate, this.validationCustomizer);
+      }
+      case "NullAndEmptyHeadersClient" : {
+        return handle(request, context, "NullAndEmptyHeadersClient", this.serializerFactory("NullAndEmptyHeadersClient"), this.service.NullAndEmptyHeadersClient, this.serializeFrameworkException, NullAndEmptyHeadersClientServerInput.validate, this.validationCustomizer);
+      }
+      case "NullAndEmptyHeadersServer" : {
+        return handle(request, context, "NullAndEmptyHeadersServer", this.serializerFactory("NullAndEmptyHeadersServer"), this.service.NullAndEmptyHeadersServer, this.serializeFrameworkException, NullAndEmptyHeadersServerServerInput.validate, this.validationCustomizer);
+      }
+      case "OmitsNullSerializesEmptyString" : {
+        return handle(request, context, "OmitsNullSerializesEmptyString", this.serializerFactory("OmitsNullSerializesEmptyString"), this.service.OmitsNullSerializesEmptyString, this.serializeFrameworkException, OmitsNullSerializesEmptyStringServerInput.validate, this.validationCustomizer);
+      }
+      case "OmitsSerializingEmptyLists" : {
+        return handle(request, context, "OmitsSerializingEmptyLists", this.serializerFactory("OmitsSerializingEmptyLists"), this.service.OmitsSerializingEmptyLists, this.serializeFrameworkException, OmitsSerializingEmptyListsServerInput.validate, this.validationCustomizer);
+      }
+      case "OperationWithDefaults" : {
+        return handle(request, context, "OperationWithDefaults", this.serializerFactory("OperationWithDefaults"), this.service.OperationWithDefaults, this.serializeFrameworkException, OperationWithDefaultsServerInput.validate, this.validationCustomizer);
+      }
+      case "OperationWithNestedStructure" : {
+        return handle(request, context, "OperationWithNestedStructure", this.serializerFactory("OperationWithNestedStructure"), this.service.OperationWithNestedStructure, this.serializeFrameworkException, OperationWithNestedStructureServerInput.validate, this.validationCustomizer);
+      }
+      case "OutputStream" : {
+        return handle(request, context, "OutputStream", this.serializerFactory("OutputStream"), this.service.OutputStream, this.serializeFrameworkException, OutputStreamServerInput.validate, this.validationCustomizer);
+      }
+      case "OutputStreamWithInitialResponse" : {
+        return handle(request, context, "OutputStreamWithInitialResponse", this.serializerFactory("OutputStreamWithInitialResponse"), this.service.OutputStreamWithInitialResponse, this.serializeFrameworkException, OutputStreamWithInitialResponseServerInput.validate, this.validationCustomizer);
+      }
+      case "PostPlayerAction" : {
+        return handle(request, context, "PostPlayerAction", this.serializerFactory("PostPlayerAction"), this.service.PostPlayerAction, this.serializeFrameworkException, PostPlayerActionServerInput.validate, this.validationCustomizer);
+      }
+      case "PostUnionWithJsonName" : {
+        return handle(request, context, "PostUnionWithJsonName", this.serializerFactory("PostUnionWithJsonName"), this.service.PostUnionWithJsonName, this.serializeFrameworkException, PostUnionWithJsonNameServerInput.validate, this.validationCustomizer);
+      }
+      case "PutWithContentEncoding" : {
+        return handle(request, context, "PutWithContentEncoding", this.serializerFactory("PutWithContentEncoding"), this.service.PutWithContentEncoding, this.serializeFrameworkException, PutWithContentEncodingServerInput.validate, this.validationCustomizer);
+      }
+      case "QueryIdempotencyTokenAutoFill" : {
+        return handle(request, context, "QueryIdempotencyTokenAutoFill", this.serializerFactory("QueryIdempotencyTokenAutoFill"), this.service.QueryIdempotencyTokenAutoFill, this.serializeFrameworkException, QueryIdempotencyTokenAutoFillServerInput.validate, this.validationCustomizer);
+      }
+      case "QueryParamsAsStringListMap" : {
+        return handle(request, context, "QueryParamsAsStringListMap", this.serializerFactory("QueryParamsAsStringListMap"), this.service.QueryParamsAsStringListMap, this.serializeFrameworkException, QueryParamsAsStringListMapServerInput.validate, this.validationCustomizer);
+      }
+      case "QueryPrecedence" : {
+        return handle(request, context, "QueryPrecedence", this.serializerFactory("QueryPrecedence"), this.service.QueryPrecedence, this.serializeFrameworkException, QueryPrecedenceServerInput.validate, this.validationCustomizer);
+      }
+      case "RecursiveShapes" : {
+        return handle(request, context, "RecursiveShapes", this.serializerFactory("RecursiveShapes"), this.service.RecursiveShapes, this.serializeFrameworkException, RecursiveShapesServerInput.validate, this.validationCustomizer);
+      }
+      case "ResponseCodeHttpFallback" : {
+        return handle(request, context, "ResponseCodeHttpFallback", this.serializerFactory("ResponseCodeHttpFallback"), this.service.ResponseCodeHttpFallback, this.serializeFrameworkException, ResponseCodeHttpFallbackServerInput.validate, this.validationCustomizer);
+      }
+      case "ResponseCodeRequired" : {
+        return handle(request, context, "ResponseCodeRequired", this.serializerFactory("ResponseCodeRequired"), this.service.ResponseCodeRequired, this.serializeFrameworkException, ResponseCodeRequiredServerInput.validate, this.validationCustomizer);
+      }
+      case "SimpleScalarProperties" : {
+        return handle(request, context, "SimpleScalarProperties", this.serializerFactory("SimpleScalarProperties"), this.service.SimpleScalarProperties, this.serializeFrameworkException, SimpleScalarPropertiesServerInput.validate, this.validationCustomizer);
+      }
+      case "SparseJsonLists" : {
+        return handle(request, context, "SparseJsonLists", this.serializerFactory("SparseJsonLists"), this.service.SparseJsonLists, this.serializeFrameworkException, SparseJsonListsServerInput.validate, this.validationCustomizer);
+      }
+      case "SparseJsonMaps" : {
+        return handle(request, context, "SparseJsonMaps", this.serializerFactory("SparseJsonMaps"), this.service.SparseJsonMaps, this.serializeFrameworkException, SparseJsonMapsServerInput.validate, this.validationCustomizer);
+      }
+      case "StreamingTraits" : {
+        return handle(request, context, "StreamingTraits", this.serializerFactory("StreamingTraits"), this.service.StreamingTraits, this.serializeFrameworkException, StreamingTraitsServerInput.validate, this.validationCustomizer);
+      }
+      case "StreamingTraitsRequireLength" : {
+        return handle(request, context, "StreamingTraitsRequireLength", this.serializerFactory("StreamingTraitsRequireLength"), this.service.StreamingTraitsRequireLength, this.serializeFrameworkException, StreamingTraitsRequireLengthServerInput.validate, this.validationCustomizer);
+      }
+      case "StreamingTraitsWithMediaType" : {
+        return handle(request, context, "StreamingTraitsWithMediaType", this.serializerFactory("StreamingTraitsWithMediaType"), this.service.StreamingTraitsWithMediaType, this.serializeFrameworkException, StreamingTraitsWithMediaTypeServerInput.validate, this.validationCustomizer);
+      }
+      case "TestBodyStructure" : {
+        return handle(request, context, "TestBodyStructure", this.serializerFactory("TestBodyStructure"), this.service.TestBodyStructure, this.serializeFrameworkException, TestBodyStructureServerInput.validate, this.validationCustomizer);
+      }
+      case "TestGetNoInputNoPayload" : {
+        return handle(request, context, "TestGetNoInputNoPayload", this.serializerFactory("TestGetNoInputNoPayload"), this.service.TestGetNoInputNoPayload, this.serializeFrameworkException, TestGetNoInputNoPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "TestGetNoPayload" : {
+        return handle(request, context, "TestGetNoPayload", this.serializerFactory("TestGetNoPayload"), this.service.TestGetNoPayload, this.serializeFrameworkException, TestGetNoPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "TestPayloadBlob" : {
+        return handle(request, context, "TestPayloadBlob", this.serializerFactory("TestPayloadBlob"), this.service.TestPayloadBlob, this.serializeFrameworkException, TestPayloadBlobServerInput.validate, this.validationCustomizer);
+      }
+      case "TestPayloadStructure" : {
+        return handle(request, context, "TestPayloadStructure", this.serializerFactory("TestPayloadStructure"), this.service.TestPayloadStructure, this.serializeFrameworkException, TestPayloadStructureServerInput.validate, this.validationCustomizer);
+      }
+      case "TestPostNoInputNoPayload" : {
+        return handle(request, context, "TestPostNoInputNoPayload", this.serializerFactory("TestPostNoInputNoPayload"), this.service.TestPostNoInputNoPayload, this.serializeFrameworkException, TestPostNoInputNoPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "TestPostNoPayload" : {
+        return handle(request, context, "TestPostNoPayload", this.serializerFactory("TestPostNoPayload"), this.service.TestPostNoPayload, this.serializeFrameworkException, TestPostNoPayloadServerInput.validate, this.validationCustomizer);
+      }
+      case "TimestampFormatHeaders" : {
+        return handle(request, context, "TimestampFormatHeaders", this.serializerFactory("TimestampFormatHeaders"), this.service.TimestampFormatHeaders, this.serializeFrameworkException, TimestampFormatHeadersServerInput.validate, this.validationCustomizer);
+      }
+      case "UnitInputAndOutput" : {
+        return handle(request, context, "UnitInputAndOutput", this.serializerFactory("UnitInputAndOutput"), this.service.UnitInputAndOutput, this.serializeFrameworkException, UnitInputAndOutputServerInput.validate, this.validationCustomizer);
       }
     }
   }
 }
 
-export const getRestJsonServiceHandler = <Context>(
-  service: RestJsonService<Context>,
-  customizer: __ValidationCustomizer<RestJsonServiceOperations>
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getRestJsonServiceHandler = <Context>(service: RestJsonService<Context>, customizer: __ValidationCustomizer<RestJsonServiceOperations>): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<Context>>([
     new httpbinding.UriSpec<"RestJson", "AllQueryStringTypes">(
-      "GET",
-      [{ type: "path_literal", value: "AllQueryStringTypesInput" }],
-      [],
-      { service: "RestJson", operation: "AllQueryStringTypes" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "AllQueryStringTypesInput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "AllQueryStringTypes" }),
     new httpbinding.UriSpec<"RestJson", "ConstantAndVariableQueryString">(
-      "GET",
-      [{ type: "path_literal", value: "ConstantAndVariableQueryString" }],
-      [{ type: "query_literal", key: "foo", value: "bar" }],
-      { service: "RestJson", operation: "ConstantAndVariableQueryString" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "ConstantAndVariableQueryString" },
+      ],
+      [
+        { type: 'query_literal', key: "foo", value: "bar" },
+      ],
+      { service: "RestJson", operation: "ConstantAndVariableQueryString" }),
     new httpbinding.UriSpec<"RestJson", "ConstantQueryString">(
-      "GET",
-      [{ type: "path_literal", value: "ConstantQueryString" }, { type: "path" }],
+      'GET',
       [
-        { type: "query_literal", key: "foo", value: "bar" },
-        { type: "query_literal", key: "hello", value: "" },
+        { type: 'path_literal', value: "ConstantQueryString" },
+        { type: 'path' },
       ],
-      { service: "RestJson", operation: "ConstantQueryString" }
-    ),
+      [
+        { type: 'query_literal', key: "foo", value: "bar" },
+        { type: 'query_literal', key: "hello", value: "" },
+      ],
+      { service: "RestJson", operation: "ConstantQueryString" }),
     new httpbinding.UriSpec<"RestJson", "ContentTypeParameters">(
-      "POST",
-      [{ type: "path_literal", value: "ContentTypeParameters" }],
-      [],
-      { service: "RestJson", operation: "ContentTypeParameters" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "ContentTypeParameters" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "ContentTypeParameters" }),
     new httpbinding.UriSpec<"RestJson", "DatetimeOffsets">(
-      "POST",
-      [{ type: "path_literal", value: "DatetimeOffsets" }],
-      [],
-      { service: "RestJson", operation: "DatetimeOffsets" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "DocumentType">("PUT", [{ type: "path_literal", value: "DocumentType" }], [], {
-      service: "RestJson",
-      operation: "DocumentType",
-    }),
+      'POST',
+      [
+        { type: 'path_literal', value: "DatetimeOffsets" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DatetimeOffsets" }),
+    new httpbinding.UriSpec<"RestJson", "DocumentType">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "DocumentType" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DocumentType" }),
     new httpbinding.UriSpec<"RestJson", "DocumentTypeAsMapValue">(
-      "PUT",
-      [{ type: "path_literal", value: "DocumentTypeAsMapValue" }],
-      [],
-      { service: "RestJson", operation: "DocumentTypeAsMapValue" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "DocumentTypeAsMapValue" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DocumentTypeAsMapValue" }),
     new httpbinding.UriSpec<"RestJson", "DocumentTypeAsPayload">(
-      "PUT",
-      [{ type: "path_literal", value: "DocumentTypeAsPayload" }],
-      [],
-      { service: "RestJson", operation: "DocumentTypeAsPayload" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "DuplexStream">("POST", [{ type: "path_literal", value: "DuplexStream" }], [], {
-      service: "RestJson",
-      operation: "DuplexStream",
-    }),
+      'PUT',
+      [
+        { type: 'path_literal', value: "DocumentTypeAsPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DocumentTypeAsPayload" }),
+    new httpbinding.UriSpec<"RestJson", "DuplexStream">(
+      'POST',
+      [
+        { type: 'path_literal', value: "DuplexStream" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DuplexStream" }),
     new httpbinding.UriSpec<"RestJson", "DuplexStreamWithDistinctStreams">(
-      "POST",
-      [{ type: "path_literal", value: "DuplexStreamWithDistinctStreams" }],
-      [],
-      { service: "RestJson", operation: "DuplexStreamWithDistinctStreams" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "DuplexStreamWithDistinctStreams" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DuplexStreamWithDistinctStreams" }),
     new httpbinding.UriSpec<"RestJson", "DuplexStreamWithInitialMessages">(
-      "POST",
-      [{ type: "path_literal", value: "DuplexStreamWithInitialMessages" }],
-      [],
-      { service: "RestJson", operation: "DuplexStreamWithInitialMessages" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "DuplexStreamWithInitialMessages" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "DuplexStreamWithInitialMessages" }),
     new httpbinding.UriSpec<"RestJson", "EmptyInputAndEmptyOutput">(
-      "POST",
-      [{ type: "path_literal", value: "EmptyInputAndEmptyOutput" }],
-      [],
-      { service: "RestJson", operation: "EmptyInputAndEmptyOutput" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "EmptyInputAndEmptyOutput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "EmptyInputAndEmptyOutput" }),
     new httpbinding.UriSpec<"RestJson", "EndpointOperation">(
-      "POST",
-      [{ type: "path_literal", value: "EndpointOperation" }],
-      [],
-      { service: "RestJson", operation: "EndpointOperation" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "EndpointOperation" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "EndpointOperation" }),
     new httpbinding.UriSpec<"RestJson", "EndpointWithHostLabelOperation">(
-      "POST",
-      [{ type: "path_literal", value: "EndpointWithHostLabelOperation" }],
-      [],
-      { service: "RestJson", operation: "EndpointWithHostLabelOperation" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "EndpointWithHostLabelOperation" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "EndpointWithHostLabelOperation" }),
     new httpbinding.UriSpec<"RestJson", "FractionalSeconds">(
-      "POST",
-      [{ type: "path_literal", value: "FractionalSeconds" }],
-      [],
-      { service: "RestJson", operation: "FractionalSeconds" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "FractionalSeconds" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "FractionalSeconds" }),
     new httpbinding.UriSpec<"RestJson", "GreetingWithErrors">(
-      "PUT",
-      [{ type: "path_literal", value: "GreetingWithErrors" }],
-      [],
-      { service: "RestJson", operation: "GreetingWithErrors" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "GreetingWithErrors" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "GreetingWithErrors" }),
     new httpbinding.UriSpec<"RestJson", "HostWithPathOperation">(
-      "GET",
-      [{ type: "path_literal", value: "HostWithPathOperation" }],
-      [],
-      { service: "RestJson", operation: "HostWithPathOperation" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "HostWithPathOperation" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HostWithPathOperation" }),
     new httpbinding.UriSpec<"RestJson", "HttpChecksumRequired">(
-      "POST",
-      [{ type: "path_literal", value: "HttpChecksumRequired" }],
-      [],
-      { service: "RestJson", operation: "HttpChecksumRequired" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "HttpChecksumRequired" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpChecksumRequired" }),
     new httpbinding.UriSpec<"RestJson", "HttpEmptyPrefixHeaders">(
-      "GET",
-      [{ type: "path_literal", value: "HttpEmptyPrefixHeaders" }],
-      [],
-      { service: "RestJson", operation: "HttpEmptyPrefixHeaders" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "HttpEmptyPrefixHeaders" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpEmptyPrefixHeaders" }),
     new httpbinding.UriSpec<"RestJson", "HttpEnumPayload">(
-      "POST",
-      [{ type: "path_literal", value: "EnumPayload" }],
-      [],
-      { service: "RestJson", operation: "HttpEnumPayload" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "EnumPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpEnumPayload" }),
     new httpbinding.UriSpec<"RestJson", "HttpPayloadTraits">(
-      "POST",
-      [{ type: "path_literal", value: "HttpPayloadTraits" }],
-      [],
-      { service: "RestJson", operation: "HttpPayloadTraits" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "HttpPayloadTraits" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPayloadTraits" }),
     new httpbinding.UriSpec<"RestJson", "HttpPayloadTraitsWithMediaType">(
-      "POST",
-      [{ type: "path_literal", value: "HttpPayloadTraitsWithMediaType" }],
-      [],
-      { service: "RestJson", operation: "HttpPayloadTraitsWithMediaType" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "HttpPayloadTraitsWithMediaType" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPayloadTraitsWithMediaType" }),
     new httpbinding.UriSpec<"RestJson", "HttpPayloadWithStructure">(
-      "PUT",
-      [{ type: "path_literal", value: "HttpPayloadWithStructure" }],
-      [],
-      { service: "RestJson", operation: "HttpPayloadWithStructure" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "HttpPayloadWithStructure" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPayloadWithStructure" }),
     new httpbinding.UriSpec<"RestJson", "HttpPayloadWithUnion">(
-      "PUT",
-      [{ type: "path_literal", value: "HttpPayloadWithUnion" }],
-      [],
-      { service: "RestJson", operation: "HttpPayloadWithUnion" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "HttpPayloadWithUnion" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPayloadWithUnion" }),
     new httpbinding.UriSpec<"RestJson", "HttpPrefixHeaders">(
-      "GET",
-      [{ type: "path_literal", value: "HttpPrefixHeaders" }],
-      [],
-      { service: "RestJson", operation: "HttpPrefixHeaders" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "HttpPrefixHeaders" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPrefixHeaders" }),
     new httpbinding.UriSpec<"RestJson", "HttpPrefixHeadersInResponse">(
-      "GET",
-      [{ type: "path_literal", value: "HttpPrefixHeadersResponse" }],
-      [],
-      { service: "RestJson", operation: "HttpPrefixHeadersInResponse" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "HttpPrefixHeadersResponse" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpPrefixHeadersInResponse" }),
     new httpbinding.UriSpec<"RestJson", "HttpQueryParamsOnlyOperation">(
-      "GET",
-      [{ type: "path_literal", value: "http-query-params-only" }],
-      [],
-      { service: "RestJson", operation: "HttpQueryParamsOnlyOperation" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "http-query-params-only" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpQueryParamsOnlyOperation" }),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithFloatLabels">(
-      "GET",
-      [{ type: "path_literal", value: "FloatHttpLabels" }, { type: "path" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithFloatLabels" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "FloatHttpLabels" },
+        { type: 'path' },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithFloatLabels" }),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithGreedyLabelInPath">(
-      "GET",
+      'GET',
       [
-        { type: "path_literal", value: "HttpRequestWithGreedyLabelInPath" },
-        { type: "path_literal", value: "foo" },
-        { type: "path" },
-        { type: "path_literal", value: "baz" },
-        { type: "greedy" },
+        { type: 'path_literal', value: "HttpRequestWithGreedyLabelInPath" },
+        { type: 'path_literal', value: "foo" },
+        { type: 'path' },
+        { type: 'path_literal', value: "baz" },
+        { type: 'greedy' },
       ],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithGreedyLabelInPath" }
-    ),
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithGreedyLabelInPath" }),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithLabels">(
-      "GET",
+      'GET',
       [
-        { type: "path_literal", value: "HttpRequestWithLabels" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
+        { type: 'path_literal', value: "HttpRequestWithLabels" },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
       ],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithLabels" }
-    ),
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithLabels" }),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithLabelsAndTimestampFormat">(
-      "GET",
+      'GET',
       [
-        { type: "path_literal", value: "HttpRequestWithLabelsAndTimestampFormat" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
-        { type: "path" },
+        { type: 'path_literal', value: "HttpRequestWithLabelsAndTimestampFormat" },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
+        { type: 'path' },
       ],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithLabelsAndTimestampFormat" }
-    ),
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithLabelsAndTimestampFormat" }),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithRegexLiteral">(
-      "GET",
-      [{ type: "path_literal", value: "ReDosLiteral" }, { type: "path" }, { type: "path_literal", value: "(a+)+" }],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithRegexLiteral" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "HttpResponseCode">(
-      "PUT",
-      [{ type: "path_literal", value: "HttpResponseCode" }],
-      [],
-      { service: "RestJson", operation: "HttpResponseCode" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "HttpStringPayload">(
-      "POST",
-      [{ type: "path_literal", value: "StringPayload" }],
-      [],
-      { service: "RestJson", operation: "HttpStringPayload" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "IgnoreQueryParamsInResponse">(
-      "GET",
-      [{ type: "path_literal", value: "IgnoreQueryParamsInResponse" }],
-      [],
-      { service: "RestJson", operation: "IgnoreQueryParamsInResponse" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "InputAndOutputWithHeaders">(
-      "POST",
-      [{ type: "path_literal", value: "InputAndOutputWithHeaders" }],
-      [],
-      { service: "RestJson", operation: "InputAndOutputWithHeaders" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "InputStream">("POST", [{ type: "path_literal", value: "InputStream" }], [], {
-      service: "RestJson",
-      operation: "InputStream",
-    }),
-    new httpbinding.UriSpec<"RestJson", "InputStreamWithInitialRequest">(
-      "POST",
-      [{ type: "path_literal", value: "InputStreamWithInitialRequest" }],
-      [],
-      { service: "RestJson", operation: "InputStreamWithInitialRequest" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "JsonBlobs">("POST", [{ type: "path_literal", value: "JsonBlobs" }], [], {
-      service: "RestJson",
-      operation: "JsonBlobs",
-    }),
-    new httpbinding.UriSpec<"RestJson", "JsonEnums">("PUT", [{ type: "path_literal", value: "JsonEnums" }], [], {
-      service: "RestJson",
-      operation: "JsonEnums",
-    }),
-    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">("PUT", [{ type: "path_literal", value: "JsonIntEnums" }], [], {
-      service: "RestJson",
-      operation: "JsonIntEnums",
-    }),
-    new httpbinding.UriSpec<"RestJson", "JsonLists">("PUT", [{ type: "path_literal", value: "JsonLists" }], [], {
-      service: "RestJson",
-      operation: "JsonLists",
-    }),
-    new httpbinding.UriSpec<"RestJson", "JsonMaps">("POST", [{ type: "path_literal", value: "JsonMaps" }], [], {
-      service: "RestJson",
-      operation: "JsonMaps",
-    }),
-    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">(
-      "POST",
-      [{ type: "path_literal", value: "JsonTimestamps" }],
-      [],
-      { service: "RestJson", operation: "JsonTimestamps" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "JsonUnions">("PUT", [{ type: "path_literal", value: "JsonUnions" }], [], {
-      service: "RestJson",
-      operation: "JsonUnions",
-    }),
-    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithBody">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedAcceptWithBody" }],
-      [],
-      { service: "RestJson", operation: "MalformedAcceptWithBody" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithGenericString">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedAcceptWithGenericString" }],
-      [],
-      { service: "RestJson", operation: "MalformedAcceptWithGenericString" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithPayload">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedAcceptWithPayload" }],
-      [],
-      { service: "RestJson", operation: "MalformedAcceptWithPayload" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedBlob">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedBlob" }],
-      [],
-      { service: "RestJson", operation: "MalformedBlob" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedBoolean">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedBoolean" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedBoolean" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedByte">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedByte" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedByte" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithBody">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithBody" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithBody" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithGenericString">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithGenericString" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithGenericString" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBody">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithoutBody" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithoutBody" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBodyEmptyInput">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithoutBodyEmptyInput" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithoutBodyEmptyInput" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithPayload">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithPayload" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithPayload" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedDouble">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedDouble" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedDouble" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedFloat">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedFloat" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedFloat" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedInteger">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedInteger" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedInteger" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedList">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedList" }],
-      [],
-      { service: "RestJson", operation: "MalformedList" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedLong">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedLong" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedLong" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedMap">("POST", [{ type: "path_literal", value: "MalformedMap" }], [], {
-      service: "RestJson",
-      operation: "MalformedMap",
-    }),
-    new httpbinding.UriSpec<"RestJson", "MalformedRequestBody">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedRequestBody" }],
-      [],
-      { service: "RestJson", operation: "MalformedRequestBody" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedShort">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedShort" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedShort" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedString">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedString" }],
-      [],
-      { service: "RestJson", operation: "MalformedString" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDateTime">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampBodyDateTime" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampBodyDateTime" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDefault">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampBodyDefault" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampBodyDefault" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyHttpDate">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampBodyHttpDate" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampBodyHttpDate" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDateTime">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampHeaderDateTime" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampHeaderDateTime" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDefault">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampHeaderDefault" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampHeaderDefault" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderEpoch">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampHeaderEpoch" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampHeaderEpoch" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathDefault">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampPathDefault" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampPathDefault" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathEpoch">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampPathEpoch" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampPathEpoch" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathHttpDate">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampPathHttpDate" }, { type: "path" }],
-      [],
-      { service: "RestJson", operation: "MalformedTimestampPathHttpDate" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryDefault">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampQueryDefault" }],
-      [{ type: "query", key: "timestamp" }],
-      { service: "RestJson", operation: "MalformedTimestampQueryDefault" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryEpoch">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampQueryEpoch" }],
-      [{ type: "query", key: "timestamp" }],
-      { service: "RestJson", operation: "MalformedTimestampQueryEpoch" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryHttpDate">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampQueryHttpDate" }],
-      [{ type: "query", key: "timestamp" }],
-      { service: "RestJson", operation: "MalformedTimestampQueryHttpDate" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MalformedUnion">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedUnion" }],
-      [],
-      { service: "RestJson", operation: "MalformedUnion" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "MediaTypeHeader">(
-      "GET",
-      [{ type: "path_literal", value: "MediaTypeHeader" }],
-      [],
-      { service: "RestJson", operation: "MediaTypeHeader" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "NoInputAndNoOutput">(
-      "POST",
-      [{ type: "path_literal", value: "NoInputAndNoOutput" }],
-      [],
-      { service: "RestJson", operation: "NoInputAndNoOutput" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "NoInputAndOutput">(
-      "POST",
-      [{ type: "path_literal", value: "NoInputAndOutputOutput" }],
-      [],
-      { service: "RestJson", operation: "NoInputAndOutput" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersClient">(
-      "GET",
-      [{ type: "path_literal", value: "NullAndEmptyHeadersClient" }],
-      [],
-      { service: "RestJson", operation: "NullAndEmptyHeadersClient" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersServer">(
-      "GET",
-      [{ type: "path_literal", value: "NullAndEmptyHeadersServer" }],
-      [],
-      { service: "RestJson", operation: "NullAndEmptyHeadersServer" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "OmitsNullSerializesEmptyString">(
-      "GET",
-      [{ type: "path_literal", value: "OmitsNullSerializesEmptyString" }],
-      [],
-      { service: "RestJson", operation: "OmitsNullSerializesEmptyString" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "OmitsSerializingEmptyLists">(
-      "POST",
-      [{ type: "path_literal", value: "OmitsSerializingEmptyLists" }],
-      [],
-      { service: "RestJson", operation: "OmitsSerializingEmptyLists" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "OperationWithDefaults">(
-      "POST",
-      [{ type: "path_literal", value: "OperationWithDefaults" }],
-      [],
-      { service: "RestJson", operation: "OperationWithDefaults" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">(
-      "POST",
-      [{ type: "path_literal", value: "OperationWithNestedStructure" }],
-      [],
-      { service: "RestJson", operation: "OperationWithNestedStructure" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "OutputStream">("POST", [{ type: "path_literal", value: "OutputStream" }], [], {
-      service: "RestJson",
-      operation: "OutputStream",
-    }),
-    new httpbinding.UriSpec<"RestJson", "OutputStreamWithInitialResponse">(
-      "POST",
-      [{ type: "path_literal", value: "OutputStreamWithInitialResponse" }],
-      [],
-      { service: "RestJson", operation: "OutputStreamWithInitialResponse" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
-      "POST",
-      [{ type: "path_literal", value: "PostPlayerAction" }],
-      [],
-      { service: "RestJson", operation: "PostPlayerAction" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "PostUnionWithJsonName">(
-      "POST",
-      [{ type: "path_literal", value: "PostUnionWithJsonName" }],
-      [],
-      { service: "RestJson", operation: "PostUnionWithJsonName" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "PutWithContentEncoding">(
-      "POST",
+      'GET',
       [
-        { type: "path_literal", value: "requestcompression" },
-        { type: "path_literal", value: "putcontentwithencoding" },
+        { type: 'path_literal', value: "ReDosLiteral" },
+        { type: 'path' },
+        { type: 'path_literal', value: "(a+)+" },
       ],
-      [],
-      { service: "RestJson", operation: "PutWithContentEncoding" }
-    ),
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithRegexLiteral" }),
+    new httpbinding.UriSpec<"RestJson", "HttpResponseCode">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "HttpResponseCode" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpResponseCode" }),
+    new httpbinding.UriSpec<"RestJson", "HttpStringPayload">(
+      'POST',
+      [
+        { type: 'path_literal', value: "StringPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpStringPayload" }),
+    new httpbinding.UriSpec<"RestJson", "IgnoreQueryParamsInResponse">(
+      'GET',
+      [
+        { type: 'path_literal', value: "IgnoreQueryParamsInResponse" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "IgnoreQueryParamsInResponse" }),
+    new httpbinding.UriSpec<"RestJson", "InputAndOutputWithHeaders">(
+      'POST',
+      [
+        { type: 'path_literal', value: "InputAndOutputWithHeaders" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "InputAndOutputWithHeaders" }),
+    new httpbinding.UriSpec<"RestJson", "InputStream">(
+      'POST',
+      [
+        { type: 'path_literal', value: "InputStream" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "InputStream" }),
+    new httpbinding.UriSpec<"RestJson", "InputStreamWithInitialRequest">(
+      'POST',
+      [
+        { type: 'path_literal', value: "InputStreamWithInitialRequest" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "InputStreamWithInitialRequest" }),
+    new httpbinding.UriSpec<"RestJson", "JsonBlobs">(
+      'POST',
+      [
+        { type: 'path_literal', value: "JsonBlobs" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonBlobs" }),
+    new httpbinding.UriSpec<"RestJson", "JsonEnums">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "JsonEnums" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonEnums" }),
+    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "JsonIntEnums" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonIntEnums" }),
+    new httpbinding.UriSpec<"RestJson", "JsonLists">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "JsonLists" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonLists" }),
+    new httpbinding.UriSpec<"RestJson", "JsonMaps">(
+      'POST',
+      [
+        { type: 'path_literal', value: "JsonMaps" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonMaps" }),
+    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">(
+      'POST',
+      [
+        { type: 'path_literal', value: "JsonTimestamps" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonTimestamps" }),
+    new httpbinding.UriSpec<"RestJson", "JsonUnions">(
+      'PUT',
+      [
+        { type: 'path_literal', value: "JsonUnions" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "JsonUnions" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithBody">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedAcceptWithBody" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedAcceptWithBody" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithGenericString">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedAcceptWithGenericString" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedAcceptWithGenericString" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithPayload">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedAcceptWithPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedAcceptWithPayload" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedBlob">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedBlob" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedBlob" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedBoolean">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedBoolean" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedBoolean" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedByte">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedByte" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedByte" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithBody">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithBody" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithBody" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithGenericString">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithGenericString" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithGenericString" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBody">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithoutBody" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithoutBody" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBodyEmptyInput">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithoutBodyEmptyInput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithoutBodyEmptyInput" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithPayload">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithPayload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithPayload" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedDouble">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedDouble" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedDouble" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedFloat">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedFloat" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedFloat" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedInteger">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedInteger" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedInteger" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedList">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedList" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedList" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedLong">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedLong" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedLong" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedMap">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedMap" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedMap" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedRequestBody">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedRequestBody" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedRequestBody" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedShort">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedShort" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedShort" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedString">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedString" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedString" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDateTime">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampBodyDateTime" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampBodyDateTime" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDefault">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampBodyDefault" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampBodyDefault" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyHttpDate">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampBodyHttpDate" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampBodyHttpDate" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDateTime">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampHeaderDateTime" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampHeaderDateTime" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDefault">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampHeaderDefault" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampHeaderDefault" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderEpoch">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampHeaderEpoch" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampHeaderEpoch" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathDefault">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampPathDefault" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampPathDefault" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathEpoch">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampPathEpoch" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampPathEpoch" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathHttpDate">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampPathHttpDate" },
+        { type: 'path' },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedTimestampPathHttpDate" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryDefault">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampQueryDefault" },
+      ],
+      [
+        { type: 'query', key: "timestamp" },
+      ],
+      { service: "RestJson", operation: "MalformedTimestampQueryDefault" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryEpoch">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampQueryEpoch" },
+      ],
+      [
+        { type: 'query', key: "timestamp" },
+      ],
+      { service: "RestJson", operation: "MalformedTimestampQueryEpoch" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryHttpDate">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampQueryHttpDate" },
+      ],
+      [
+        { type: 'query', key: "timestamp" },
+      ],
+      { service: "RestJson", operation: "MalformedTimestampQueryHttpDate" }),
+    new httpbinding.UriSpec<"RestJson", "MalformedUnion">(
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedUnion" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedUnion" }),
+    new httpbinding.UriSpec<"RestJson", "MediaTypeHeader">(
+      'GET',
+      [
+        { type: 'path_literal', value: "MediaTypeHeader" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MediaTypeHeader" }),
+    new httpbinding.UriSpec<"RestJson", "NoInputAndNoOutput">(
+      'POST',
+      [
+        { type: 'path_literal', value: "NoInputAndNoOutput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "NoInputAndNoOutput" }),
+    new httpbinding.UriSpec<"RestJson", "NoInputAndOutput">(
+      'POST',
+      [
+        { type: 'path_literal', value: "NoInputAndOutputOutput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "NoInputAndOutput" }),
+    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersClient">(
+      'GET',
+      [
+        { type: 'path_literal', value: "NullAndEmptyHeadersClient" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "NullAndEmptyHeadersClient" }),
+    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersServer">(
+      'GET',
+      [
+        { type: 'path_literal', value: "NullAndEmptyHeadersServer" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "NullAndEmptyHeadersServer" }),
+    new httpbinding.UriSpec<"RestJson", "OmitsNullSerializesEmptyString">(
+      'GET',
+      [
+        { type: 'path_literal', value: "OmitsNullSerializesEmptyString" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OmitsNullSerializesEmptyString" }),
+    new httpbinding.UriSpec<"RestJson", "OmitsSerializingEmptyLists">(
+      'POST',
+      [
+        { type: 'path_literal', value: "OmitsSerializingEmptyLists" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OmitsSerializingEmptyLists" }),
+    new httpbinding.UriSpec<"RestJson", "OperationWithDefaults">(
+      'POST',
+      [
+        { type: 'path_literal', value: "OperationWithDefaults" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OperationWithDefaults" }),
+    new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">(
+      'POST',
+      [
+        { type: 'path_literal', value: "OperationWithNestedStructure" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OperationWithNestedStructure" }),
+    new httpbinding.UriSpec<"RestJson", "OutputStream">(
+      'POST',
+      [
+        { type: 'path_literal', value: "OutputStream" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OutputStream" }),
+    new httpbinding.UriSpec<"RestJson", "OutputStreamWithInitialResponse">(
+      'POST',
+      [
+        { type: 'path_literal', value: "OutputStreamWithInitialResponse" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OutputStreamWithInitialResponse" }),
+    new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
+      'POST',
+      [
+        { type: 'path_literal', value: "PostPlayerAction" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "PostPlayerAction" }),
+    new httpbinding.UriSpec<"RestJson", "PostUnionWithJsonName">(
+      'POST',
+      [
+        { type: 'path_literal', value: "PostUnionWithJsonName" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "PostUnionWithJsonName" }),
+    new httpbinding.UriSpec<"RestJson", "PutWithContentEncoding">(
+      'POST',
+      [
+        { type: 'path_literal', value: "requestcompression" },
+        { type: 'path_literal', value: "putcontentwithencoding" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "PutWithContentEncoding" }),
     new httpbinding.UriSpec<"RestJson", "QueryIdempotencyTokenAutoFill">(
-      "POST",
-      [{ type: "path_literal", value: "QueryIdempotencyTokenAutoFill" }],
-      [],
-      { service: "RestJson", operation: "QueryIdempotencyTokenAutoFill" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "QueryIdempotencyTokenAutoFill" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "QueryIdempotencyTokenAutoFill" }),
     new httpbinding.UriSpec<"RestJson", "QueryParamsAsStringListMap">(
-      "POST",
-      [{ type: "path_literal", value: "StringListMap" }],
-      [],
-      { service: "RestJson", operation: "QueryParamsAsStringListMap" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "StringListMap" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "QueryParamsAsStringListMap" }),
     new httpbinding.UriSpec<"RestJson", "QueryPrecedence">(
-      "POST",
-      [{ type: "path_literal", value: "Precedence" }],
-      [],
-      { service: "RestJson", operation: "QueryPrecedence" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "Precedence" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "QueryPrecedence" }),
     new httpbinding.UriSpec<"RestJson", "RecursiveShapes">(
-      "PUT",
-      [{ type: "path_literal", value: "RecursiveShapes" }],
-      [],
-      { service: "RestJson", operation: "RecursiveShapes" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "RecursiveShapes" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "RecursiveShapes" }),
     new httpbinding.UriSpec<"RestJson", "ResponseCodeHttpFallback">(
-      "GET",
-      [{ type: "path_literal", value: "responseCodeHttpFallback" }],
-      [],
-      { service: "RestJson", operation: "ResponseCodeHttpFallback" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "responseCodeHttpFallback" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "ResponseCodeHttpFallback" }),
     new httpbinding.UriSpec<"RestJson", "ResponseCodeRequired">(
-      "GET",
-      [{ type: "path_literal", value: "responseCodeRequired" }],
-      [],
-      { service: "RestJson", operation: "ResponseCodeRequired" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "responseCodeRequired" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "ResponseCodeRequired" }),
     new httpbinding.UriSpec<"RestJson", "SimpleScalarProperties">(
-      "PUT",
-      [{ type: "path_literal", value: "SimpleScalarProperties" }],
-      [],
-      { service: "RestJson", operation: "SimpleScalarProperties" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "SimpleScalarProperties" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "SimpleScalarProperties" }),
     new httpbinding.UriSpec<"RestJson", "SparseJsonLists">(
-      "PUT",
-      [{ type: "path_literal", value: "SparseJsonLists" }],
-      [],
-      { service: "RestJson", operation: "SparseJsonLists" }
-    ),
+      'PUT',
+      [
+        { type: 'path_literal', value: "SparseJsonLists" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "SparseJsonLists" }),
     new httpbinding.UriSpec<"RestJson", "SparseJsonMaps">(
-      "POST",
-      [{ type: "path_literal", value: "SparseJsonMaps" }],
-      [],
-      { service: "RestJson", operation: "SparseJsonMaps" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "SparseJsonMaps" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "SparseJsonMaps" }),
     new httpbinding.UriSpec<"RestJson", "StreamingTraits">(
-      "POST",
-      [{ type: "path_literal", value: "StreamingTraits" }],
-      [],
-      { service: "RestJson", operation: "StreamingTraits" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "StreamingTraits" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "StreamingTraits" }),
     new httpbinding.UriSpec<"RestJson", "StreamingTraitsRequireLength">(
-      "POST",
-      [{ type: "path_literal", value: "StreamingTraitsRequireLength" }],
-      [],
-      { service: "RestJson", operation: "StreamingTraitsRequireLength" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "StreamingTraitsRequireLength" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "StreamingTraitsRequireLength" }),
     new httpbinding.UriSpec<"RestJson", "StreamingTraitsWithMediaType">(
-      "POST",
-      [{ type: "path_literal", value: "StreamingTraitsWithMediaType" }],
-      [],
-      { service: "RestJson", operation: "StreamingTraitsWithMediaType" }
-    ),
-    new httpbinding.UriSpec<"RestJson", "TestBodyStructure">("POST", [{ type: "path_literal", value: "body" }], [], {
-      service: "RestJson",
-      operation: "TestBodyStructure",
-    }),
+      'POST',
+      [
+        { type: 'path_literal', value: "StreamingTraitsWithMediaType" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "StreamingTraitsWithMediaType" }),
+    new httpbinding.UriSpec<"RestJson", "TestBodyStructure">(
+      'POST',
+      [
+        { type: 'path_literal', value: "body" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestBodyStructure" }),
     new httpbinding.UriSpec<"RestJson", "TestGetNoInputNoPayload">(
-      "GET",
-      [{ type: "path_literal", value: "no_input_no_payload" }],
-      [],
-      { service: "RestJson", operation: "TestGetNoInputNoPayload" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "no_input_no_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestGetNoInputNoPayload" }),
     new httpbinding.UriSpec<"RestJson", "TestGetNoPayload">(
-      "GET",
-      [{ type: "path_literal", value: "no_payload" }],
-      [],
-      { service: "RestJson", operation: "TestGetNoPayload" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "no_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestGetNoPayload" }),
     new httpbinding.UriSpec<"RestJson", "TestPayloadBlob">(
-      "POST",
-      [{ type: "path_literal", value: "blob_payload" }],
-      [],
-      { service: "RestJson", operation: "TestPayloadBlob" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "blob_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestPayloadBlob" }),
     new httpbinding.UriSpec<"RestJson", "TestPayloadStructure">(
-      "POST",
-      [{ type: "path_literal", value: "payload" }],
-      [],
-      { service: "RestJson", operation: "TestPayloadStructure" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestPayloadStructure" }),
     new httpbinding.UriSpec<"RestJson", "TestPostNoInputNoPayload">(
-      "POST",
-      [{ type: "path_literal", value: "no_input_no_payload" }],
-      [],
-      { service: "RestJson", operation: "TestPostNoInputNoPayload" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "no_input_no_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestPostNoInputNoPayload" }),
     new httpbinding.UriSpec<"RestJson", "TestPostNoPayload">(
-      "POST",
-      [{ type: "path_literal", value: "no_payload" }],
-      [],
-      { service: "RestJson", operation: "TestPostNoPayload" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "no_payload" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestPostNoPayload" }),
     new httpbinding.UriSpec<"RestJson", "TimestampFormatHeaders">(
-      "POST",
-      [{ type: "path_literal", value: "TimestampFormatHeaders" }],
-      [],
-      { service: "RestJson", operation: "TimestampFormatHeaders" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "TimestampFormatHeaders" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TimestampFormatHeaders" }),
     new httpbinding.UriSpec<"RestJson", "UnitInputAndOutput">(
-      "POST",
-      [{ type: "path_literal", value: "UnitInputAndOutput" }],
-      [],
-      { service: "RestJson", operation: "UnitInputAndOutput" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "UnitInputAndOutput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "UnitInputAndOutput" }),
   ]);
-  const serFn: (
-    op: RestJsonServiceOperations
-  ) => __OperationSerializer<RestJsonService<Context>, RestJsonServiceOperations, __ServiceException> = (op) => {
+  const serFn: (op: RestJsonServiceOperations) => __OperationSerializer<RestJsonService<Context>, RestJsonServiceOperations, __ServiceException> = (op) => {
     switch (op) {
-      case "AllQueryStringTypes":
-        return new AllQueryStringTypesSerializer();
-      case "ConstantAndVariableQueryString":
-        return new ConstantAndVariableQueryStringSerializer();
-      case "ConstantQueryString":
-        return new ConstantQueryStringSerializer();
-      case "ContentTypeParameters":
-        return new ContentTypeParametersSerializer();
-      case "DatetimeOffsets":
-        return new DatetimeOffsetsSerializer();
-      case "DocumentType":
-        return new DocumentTypeSerializer();
-      case "DocumentTypeAsMapValue":
-        return new DocumentTypeAsMapValueSerializer();
-      case "DocumentTypeAsPayload":
-        return new DocumentTypeAsPayloadSerializer();
-      case "DuplexStream":
-        return new DuplexStreamSerializer();
-      case "DuplexStreamWithDistinctStreams":
-        return new DuplexStreamWithDistinctStreamsSerializer();
-      case "DuplexStreamWithInitialMessages":
-        return new DuplexStreamWithInitialMessagesSerializer();
-      case "EmptyInputAndEmptyOutput":
-        return new EmptyInputAndEmptyOutputSerializer();
-      case "EndpointOperation":
-        return new EndpointOperationSerializer();
-      case "EndpointWithHostLabelOperation":
-        return new EndpointWithHostLabelOperationSerializer();
-      case "FractionalSeconds":
-        return new FractionalSecondsSerializer();
-      case "GreetingWithErrors":
-        return new GreetingWithErrorsSerializer();
-      case "HostWithPathOperation":
-        return new HostWithPathOperationSerializer();
-      case "HttpChecksumRequired":
-        return new HttpChecksumRequiredSerializer();
-      case "HttpEmptyPrefixHeaders":
-        return new HttpEmptyPrefixHeadersSerializer();
-      case "HttpEnumPayload":
-        return new HttpEnumPayloadSerializer();
-      case "HttpPayloadTraits":
-        return new HttpPayloadTraitsSerializer();
-      case "HttpPayloadTraitsWithMediaType":
-        return new HttpPayloadTraitsWithMediaTypeSerializer();
-      case "HttpPayloadWithStructure":
-        return new HttpPayloadWithStructureSerializer();
-      case "HttpPayloadWithUnion":
-        return new HttpPayloadWithUnionSerializer();
-      case "HttpPrefixHeaders":
-        return new HttpPrefixHeadersSerializer();
-      case "HttpPrefixHeadersInResponse":
-        return new HttpPrefixHeadersInResponseSerializer();
-      case "HttpQueryParamsOnlyOperation":
-        return new HttpQueryParamsOnlyOperationSerializer();
-      case "HttpRequestWithFloatLabels":
-        return new HttpRequestWithFloatLabelsSerializer();
-      case "HttpRequestWithGreedyLabelInPath":
-        return new HttpRequestWithGreedyLabelInPathSerializer();
-      case "HttpRequestWithLabels":
-        return new HttpRequestWithLabelsSerializer();
-      case "HttpRequestWithLabelsAndTimestampFormat":
-        return new HttpRequestWithLabelsAndTimestampFormatSerializer();
-      case "HttpRequestWithRegexLiteral":
-        return new HttpRequestWithRegexLiteralSerializer();
-      case "HttpResponseCode":
-        return new HttpResponseCodeSerializer();
-      case "HttpStringPayload":
-        return new HttpStringPayloadSerializer();
-      case "IgnoreQueryParamsInResponse":
-        return new IgnoreQueryParamsInResponseSerializer();
-      case "InputAndOutputWithHeaders":
-        return new InputAndOutputWithHeadersSerializer();
-      case "InputStream":
-        return new InputStreamSerializer();
-      case "InputStreamWithInitialRequest":
-        return new InputStreamWithInitialRequestSerializer();
-      case "JsonBlobs":
-        return new JsonBlobsSerializer();
-      case "JsonEnums":
-        return new JsonEnumsSerializer();
-      case "JsonIntEnums":
-        return new JsonIntEnumsSerializer();
-      case "JsonLists":
-        return new JsonListsSerializer();
-      case "JsonMaps":
-        return new JsonMapsSerializer();
-      case "JsonTimestamps":
-        return new JsonTimestampsSerializer();
-      case "JsonUnions":
-        return new JsonUnionsSerializer();
-      case "MalformedAcceptWithBody":
-        return new MalformedAcceptWithBodySerializer();
-      case "MalformedAcceptWithGenericString":
-        return new MalformedAcceptWithGenericStringSerializer();
-      case "MalformedAcceptWithPayload":
-        return new MalformedAcceptWithPayloadSerializer();
-      case "MalformedBlob":
-        return new MalformedBlobSerializer();
-      case "MalformedBoolean":
-        return new MalformedBooleanSerializer();
-      case "MalformedByte":
-        return new MalformedByteSerializer();
-      case "MalformedContentTypeWithBody":
-        return new MalformedContentTypeWithBodySerializer();
-      case "MalformedContentTypeWithGenericString":
-        return new MalformedContentTypeWithGenericStringSerializer();
-      case "MalformedContentTypeWithoutBody":
-        return new MalformedContentTypeWithoutBodySerializer();
-      case "MalformedContentTypeWithoutBodyEmptyInput":
-        return new MalformedContentTypeWithoutBodyEmptyInputSerializer();
-      case "MalformedContentTypeWithPayload":
-        return new MalformedContentTypeWithPayloadSerializer();
-      case "MalformedDouble":
-        return new MalformedDoubleSerializer();
-      case "MalformedFloat":
-        return new MalformedFloatSerializer();
-      case "MalformedInteger":
-        return new MalformedIntegerSerializer();
-      case "MalformedList":
-        return new MalformedListSerializer();
-      case "MalformedLong":
-        return new MalformedLongSerializer();
-      case "MalformedMap":
-        return new MalformedMapSerializer();
-      case "MalformedRequestBody":
-        return new MalformedRequestBodySerializer();
-      case "MalformedShort":
-        return new MalformedShortSerializer();
-      case "MalformedString":
-        return new MalformedStringSerializer();
-      case "MalformedTimestampBodyDateTime":
-        return new MalformedTimestampBodyDateTimeSerializer();
-      case "MalformedTimestampBodyDefault":
-        return new MalformedTimestampBodyDefaultSerializer();
-      case "MalformedTimestampBodyHttpDate":
-        return new MalformedTimestampBodyHttpDateSerializer();
-      case "MalformedTimestampHeaderDateTime":
-        return new MalformedTimestampHeaderDateTimeSerializer();
-      case "MalformedTimestampHeaderDefault":
-        return new MalformedTimestampHeaderDefaultSerializer();
-      case "MalformedTimestampHeaderEpoch":
-        return new MalformedTimestampHeaderEpochSerializer();
-      case "MalformedTimestampPathDefault":
-        return new MalformedTimestampPathDefaultSerializer();
-      case "MalformedTimestampPathEpoch":
-        return new MalformedTimestampPathEpochSerializer();
-      case "MalformedTimestampPathHttpDate":
-        return new MalformedTimestampPathHttpDateSerializer();
-      case "MalformedTimestampQueryDefault":
-        return new MalformedTimestampQueryDefaultSerializer();
-      case "MalformedTimestampQueryEpoch":
-        return new MalformedTimestampQueryEpochSerializer();
-      case "MalformedTimestampQueryHttpDate":
-        return new MalformedTimestampQueryHttpDateSerializer();
-      case "MalformedUnion":
-        return new MalformedUnionSerializer();
-      case "MediaTypeHeader":
-        return new MediaTypeHeaderSerializer();
-      case "NoInputAndNoOutput":
-        return new NoInputAndNoOutputSerializer();
-      case "NoInputAndOutput":
-        return new NoInputAndOutputSerializer();
-      case "NullAndEmptyHeadersClient":
-        return new NullAndEmptyHeadersClientSerializer();
-      case "NullAndEmptyHeadersServer":
-        return new NullAndEmptyHeadersServerSerializer();
-      case "OmitsNullSerializesEmptyString":
-        return new OmitsNullSerializesEmptyStringSerializer();
-      case "OmitsSerializingEmptyLists":
-        return new OmitsSerializingEmptyListsSerializer();
-      case "OperationWithDefaults":
-        return new OperationWithDefaultsSerializer();
-      case "OperationWithNestedStructure":
-        return new OperationWithNestedStructureSerializer();
-      case "OutputStream":
-        return new OutputStreamSerializer();
-      case "OutputStreamWithInitialResponse":
-        return new OutputStreamWithInitialResponseSerializer();
-      case "PostPlayerAction":
-        return new PostPlayerActionSerializer();
-      case "PostUnionWithJsonName":
-        return new PostUnionWithJsonNameSerializer();
-      case "PutWithContentEncoding":
-        return new PutWithContentEncodingSerializer();
-      case "QueryIdempotencyTokenAutoFill":
-        return new QueryIdempotencyTokenAutoFillSerializer();
-      case "QueryParamsAsStringListMap":
-        return new QueryParamsAsStringListMapSerializer();
-      case "QueryPrecedence":
-        return new QueryPrecedenceSerializer();
-      case "RecursiveShapes":
-        return new RecursiveShapesSerializer();
-      case "ResponseCodeHttpFallback":
-        return new ResponseCodeHttpFallbackSerializer();
-      case "ResponseCodeRequired":
-        return new ResponseCodeRequiredSerializer();
-      case "SimpleScalarProperties":
-        return new SimpleScalarPropertiesSerializer();
-      case "SparseJsonLists":
-        return new SparseJsonListsSerializer();
-      case "SparseJsonMaps":
-        return new SparseJsonMapsSerializer();
-      case "StreamingTraits":
-        return new StreamingTraitsSerializer();
-      case "StreamingTraitsRequireLength":
-        return new StreamingTraitsRequireLengthSerializer();
-      case "StreamingTraitsWithMediaType":
-        return new StreamingTraitsWithMediaTypeSerializer();
-      case "TestBodyStructure":
-        return new TestBodyStructureSerializer();
-      case "TestGetNoInputNoPayload":
-        return new TestGetNoInputNoPayloadSerializer();
-      case "TestGetNoPayload":
-        return new TestGetNoPayloadSerializer();
-      case "TestPayloadBlob":
-        return new TestPayloadBlobSerializer();
-      case "TestPayloadStructure":
-        return new TestPayloadStructureSerializer();
-      case "TestPostNoInputNoPayload":
-        return new TestPostNoInputNoPayloadSerializer();
-      case "TestPostNoPayload":
-        return new TestPostNoPayloadSerializer();
-      case "TimestampFormatHeaders":
-        return new TimestampFormatHeadersSerializer();
-      case "UnitInputAndOutput":
-        return new UnitInputAndOutputSerializer();
+      case "AllQueryStringTypes": return new AllQueryStringTypesSerializer();
+      case "ConstantAndVariableQueryString": return new ConstantAndVariableQueryStringSerializer();
+      case "ConstantQueryString": return new ConstantQueryStringSerializer();
+      case "ContentTypeParameters": return new ContentTypeParametersSerializer();
+      case "DatetimeOffsets": return new DatetimeOffsetsSerializer();
+      case "DocumentType": return new DocumentTypeSerializer();
+      case "DocumentTypeAsMapValue": return new DocumentTypeAsMapValueSerializer();
+      case "DocumentTypeAsPayload": return new DocumentTypeAsPayloadSerializer();
+      case "DuplexStream": return new DuplexStreamSerializer();
+      case "DuplexStreamWithDistinctStreams": return new DuplexStreamWithDistinctStreamsSerializer();
+      case "DuplexStreamWithInitialMessages": return new DuplexStreamWithInitialMessagesSerializer();
+      case "EmptyInputAndEmptyOutput": return new EmptyInputAndEmptyOutputSerializer();
+      case "EndpointOperation": return new EndpointOperationSerializer();
+      case "EndpointWithHostLabelOperation": return new EndpointWithHostLabelOperationSerializer();
+      case "FractionalSeconds": return new FractionalSecondsSerializer();
+      case "GreetingWithErrors": return new GreetingWithErrorsSerializer();
+      case "HostWithPathOperation": return new HostWithPathOperationSerializer();
+      case "HttpChecksumRequired": return new HttpChecksumRequiredSerializer();
+      case "HttpEmptyPrefixHeaders": return new HttpEmptyPrefixHeadersSerializer();
+      case "HttpEnumPayload": return new HttpEnumPayloadSerializer();
+      case "HttpPayloadTraits": return new HttpPayloadTraitsSerializer();
+      case "HttpPayloadTraitsWithMediaType": return new HttpPayloadTraitsWithMediaTypeSerializer();
+      case "HttpPayloadWithStructure": return new HttpPayloadWithStructureSerializer();
+      case "HttpPayloadWithUnion": return new HttpPayloadWithUnionSerializer();
+      case "HttpPrefixHeaders": return new HttpPrefixHeadersSerializer();
+      case "HttpPrefixHeadersInResponse": return new HttpPrefixHeadersInResponseSerializer();
+      case "HttpQueryParamsOnlyOperation": return new HttpQueryParamsOnlyOperationSerializer();
+      case "HttpRequestWithFloatLabels": return new HttpRequestWithFloatLabelsSerializer();
+      case "HttpRequestWithGreedyLabelInPath": return new HttpRequestWithGreedyLabelInPathSerializer();
+      case "HttpRequestWithLabels": return new HttpRequestWithLabelsSerializer();
+      case "HttpRequestWithLabelsAndTimestampFormat": return new HttpRequestWithLabelsAndTimestampFormatSerializer();
+      case "HttpRequestWithRegexLiteral": return new HttpRequestWithRegexLiteralSerializer();
+      case "HttpResponseCode": return new HttpResponseCodeSerializer();
+      case "HttpStringPayload": return new HttpStringPayloadSerializer();
+      case "IgnoreQueryParamsInResponse": return new IgnoreQueryParamsInResponseSerializer();
+      case "InputAndOutputWithHeaders": return new InputAndOutputWithHeadersSerializer();
+      case "InputStream": return new InputStreamSerializer();
+      case "InputStreamWithInitialRequest": return new InputStreamWithInitialRequestSerializer();
+      case "JsonBlobs": return new JsonBlobsSerializer();
+      case "JsonEnums": return new JsonEnumsSerializer();
+      case "JsonIntEnums": return new JsonIntEnumsSerializer();
+      case "JsonLists": return new JsonListsSerializer();
+      case "JsonMaps": return new JsonMapsSerializer();
+      case "JsonTimestamps": return new JsonTimestampsSerializer();
+      case "JsonUnions": return new JsonUnionsSerializer();
+      case "MalformedAcceptWithBody": return new MalformedAcceptWithBodySerializer();
+      case "MalformedAcceptWithGenericString": return new MalformedAcceptWithGenericStringSerializer();
+      case "MalformedAcceptWithPayload": return new MalformedAcceptWithPayloadSerializer();
+      case "MalformedBlob": return new MalformedBlobSerializer();
+      case "MalformedBoolean": return new MalformedBooleanSerializer();
+      case "MalformedByte": return new MalformedByteSerializer();
+      case "MalformedContentTypeWithBody": return new MalformedContentTypeWithBodySerializer();
+      case "MalformedContentTypeWithGenericString": return new MalformedContentTypeWithGenericStringSerializer();
+      case "MalformedContentTypeWithoutBody": return new MalformedContentTypeWithoutBodySerializer();
+      case "MalformedContentTypeWithoutBodyEmptyInput": return new MalformedContentTypeWithoutBodyEmptyInputSerializer();
+      case "MalformedContentTypeWithPayload": return new MalformedContentTypeWithPayloadSerializer();
+      case "MalformedDouble": return new MalformedDoubleSerializer();
+      case "MalformedFloat": return new MalformedFloatSerializer();
+      case "MalformedInteger": return new MalformedIntegerSerializer();
+      case "MalformedList": return new MalformedListSerializer();
+      case "MalformedLong": return new MalformedLongSerializer();
+      case "MalformedMap": return new MalformedMapSerializer();
+      case "MalformedRequestBody": return new MalformedRequestBodySerializer();
+      case "MalformedShort": return new MalformedShortSerializer();
+      case "MalformedString": return new MalformedStringSerializer();
+      case "MalformedTimestampBodyDateTime": return new MalformedTimestampBodyDateTimeSerializer();
+      case "MalformedTimestampBodyDefault": return new MalformedTimestampBodyDefaultSerializer();
+      case "MalformedTimestampBodyHttpDate": return new MalformedTimestampBodyHttpDateSerializer();
+      case "MalformedTimestampHeaderDateTime": return new MalformedTimestampHeaderDateTimeSerializer();
+      case "MalformedTimestampHeaderDefault": return new MalformedTimestampHeaderDefaultSerializer();
+      case "MalformedTimestampHeaderEpoch": return new MalformedTimestampHeaderEpochSerializer();
+      case "MalformedTimestampPathDefault": return new MalformedTimestampPathDefaultSerializer();
+      case "MalformedTimestampPathEpoch": return new MalformedTimestampPathEpochSerializer();
+      case "MalformedTimestampPathHttpDate": return new MalformedTimestampPathHttpDateSerializer();
+      case "MalformedTimestampQueryDefault": return new MalformedTimestampQueryDefaultSerializer();
+      case "MalformedTimestampQueryEpoch": return new MalformedTimestampQueryEpochSerializer();
+      case "MalformedTimestampQueryHttpDate": return new MalformedTimestampQueryHttpDateSerializer();
+      case "MalformedUnion": return new MalformedUnionSerializer();
+      case "MediaTypeHeader": return new MediaTypeHeaderSerializer();
+      case "NoInputAndNoOutput": return new NoInputAndNoOutputSerializer();
+      case "NoInputAndOutput": return new NoInputAndOutputSerializer();
+      case "NullAndEmptyHeadersClient": return new NullAndEmptyHeadersClientSerializer();
+      case "NullAndEmptyHeadersServer": return new NullAndEmptyHeadersServerSerializer();
+      case "OmitsNullSerializesEmptyString": return new OmitsNullSerializesEmptyStringSerializer();
+      case "OmitsSerializingEmptyLists": return new OmitsSerializingEmptyListsSerializer();
+      case "OperationWithDefaults": return new OperationWithDefaultsSerializer();
+      case "OperationWithNestedStructure": return new OperationWithNestedStructureSerializer();
+      case "OutputStream": return new OutputStreamSerializer();
+      case "OutputStreamWithInitialResponse": return new OutputStreamWithInitialResponseSerializer();
+      case "PostPlayerAction": return new PostPlayerActionSerializer();
+      case "PostUnionWithJsonName": return new PostUnionWithJsonNameSerializer();
+      case "PutWithContentEncoding": return new PutWithContentEncodingSerializer();
+      case "QueryIdempotencyTokenAutoFill": return new QueryIdempotencyTokenAutoFillSerializer();
+      case "QueryParamsAsStringListMap": return new QueryParamsAsStringListMapSerializer();
+      case "QueryPrecedence": return new QueryPrecedenceSerializer();
+      case "RecursiveShapes": return new RecursiveShapesSerializer();
+      case "ResponseCodeHttpFallback": return new ResponseCodeHttpFallbackSerializer();
+      case "ResponseCodeRequired": return new ResponseCodeRequiredSerializer();
+      case "SimpleScalarProperties": return new SimpleScalarPropertiesSerializer();
+      case "SparseJsonLists": return new SparseJsonListsSerializer();
+      case "SparseJsonMaps": return new SparseJsonMapsSerializer();
+      case "StreamingTraits": return new StreamingTraitsSerializer();
+      case "StreamingTraitsRequireLength": return new StreamingTraitsRequireLengthSerializer();
+      case "StreamingTraitsWithMediaType": return new StreamingTraitsWithMediaTypeSerializer();
+      case "TestBodyStructure": return new TestBodyStructureSerializer();
+      case "TestGetNoInputNoPayload": return new TestGetNoInputNoPayloadSerializer();
+      case "TestGetNoPayload": return new TestGetNoPayloadSerializer();
+      case "TestPayloadBlob": return new TestPayloadBlobSerializer();
+      case "TestPayloadStructure": return new TestPayloadStructureSerializer();
+      case "TestPostNoInputNoPayload": return new TestPostNoInputNoPayloadSerializer();
+      case "TestPostNoPayload": return new TestPostNoPayloadSerializer();
+      case "TimestampFormatHeaders": return new TimestampFormatHeadersSerializer();
+      case "UnitInputAndOutput": return new UnitInputAndOutputSerializer();
     }
   };
   return new RestJsonServiceHandler(service, mux, serFn, serializeFrameworkException, customizer);
-};
+}

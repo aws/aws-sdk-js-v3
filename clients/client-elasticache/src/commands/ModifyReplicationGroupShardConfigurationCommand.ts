@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandInput
-  extends ModifyReplicationGroupShardConfigurationMessage {}
+export interface ModifyReplicationGroupShardConfigurationCommandInput extends ModifyReplicationGroupShardConfigurationMessage {}
 /**
  * @public
  *
  * The output of {@link ModifyReplicationGroupShardConfigurationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandOutput
-  extends ModifyReplicationGroupShardConfigurationResult,
-    __MetadataBearer {}
+export interface ModifyReplicationGroupShardConfigurationCommandOutput extends ModifyReplicationGroupShardConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a replication group's shards (node groups) by allowing you to add shards,

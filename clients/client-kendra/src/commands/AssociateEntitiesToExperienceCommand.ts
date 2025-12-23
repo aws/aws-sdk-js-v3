@@ -24,9 +24,7 @@ export interface AssociateEntitiesToExperienceCommandInput extends AssociateEnti
  *
  * The output of {@link AssociateEntitiesToExperienceCommand}.
  */
-export interface AssociateEntitiesToExperienceCommandOutput
-  extends AssociateEntitiesToExperienceResponse,
-    __MetadataBearer {}
+export interface AssociateEntitiesToExperienceCommandOutput extends AssociateEntitiesToExperienceResponse, __MetadataBearer {}
 
 /**
  * <p>Grants users or groups in your IAM Identity Center identity source access

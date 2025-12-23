@@ -230,7 +230,13 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @public
  */
 export class SignCommand extends $Command
-  .classBuilder<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes>()
+  .classBuilder<
+    SignCommandInput,
+    SignCommandOutput,
+    KMSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

@@ -27,9 +27,7 @@ export interface DeleteProvisioningTemplateVersionCommandInput extends DeletePro
  *
  * The output of {@link DeleteProvisioningTemplateVersionCommand}.
  */
-export interface DeleteProvisioningTemplateVersionCommandOutput
-  extends DeleteProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface DeleteProvisioningTemplateVersionCommandOutput extends DeleteProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a provisioning template version.</p>

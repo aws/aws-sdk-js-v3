@@ -34,6 +34,7 @@ import {
   NotificationsContacts,
   NotificationsContactsClient,
   NotificationsContactsServiceException,
+  paginateListEmailContacts,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SendActivationCode$,
@@ -56,7 +57,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListEmailContacts,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

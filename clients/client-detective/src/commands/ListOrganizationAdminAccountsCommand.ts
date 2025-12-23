@@ -24,9 +24,7 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
  *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
-export interface ListOrganizationAdminAccountsCommandOutput
-  extends ListOrganizationAdminAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the Detective administrator account for an

@@ -28,9 +28,7 @@ export interface CreateCustomDomainAssociationCommandInput extends CreateCustomD
  *
  * The output of {@link CreateCustomDomainAssociationCommand}.
  */
-export interface CreateCustomDomainAssociationCommandOutput
-  extends CreateCustomDomainAssociationResponse,
-    __MetadataBearer {}
+export interface CreateCustomDomainAssociationCommandOutput extends CreateCustomDomainAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a custom domain association for Amazon Redshift Serverless.</p>

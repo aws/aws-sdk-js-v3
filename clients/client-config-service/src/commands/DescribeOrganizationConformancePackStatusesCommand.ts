@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
-export interface DescribeOrganizationConformancePackStatusesCommandInput
-  extends DescribeOrganizationConformancePackStatusesRequest {}
+export interface DescribeOrganizationConformancePackStatusesCommandInput extends DescribeOrganizationConformancePackStatusesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
-export interface DescribeOrganizationConformancePackStatusesCommandOutput
-  extends DescribeOrganizationConformancePackStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConformancePackStatusesCommandOutput extends DescribeOrganizationConformancePackStatusesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides organization conformance pack deployment status for an organization. </p>

@@ -27,9 +27,7 @@ export interface AssociateApplicationToEntitlementCommandInput extends Associate
  *
  * The output of {@link AssociateApplicationToEntitlementCommand}.
  */
-export interface AssociateApplicationToEntitlementCommandOutput
-  extends AssociateApplicationToEntitlementResult,
-    __MetadataBearer {}
+export interface AssociateApplicationToEntitlementCommandOutput extends AssociateApplicationToEntitlementResult, __MetadataBearer {}
 
 /**
  * <p>Associates an application to entitle.</p>

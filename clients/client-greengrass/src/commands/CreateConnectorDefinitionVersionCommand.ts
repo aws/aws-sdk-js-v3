@@ -27,9 +27,7 @@ export interface CreateConnectorDefinitionVersionCommandInput extends CreateConn
  *
  * The output of {@link CreateConnectorDefinitionVersionCommand}.
  */
-export interface CreateConnectorDefinitionVersionCommandOutput
-  extends CreateConnectorDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateConnectorDefinitionVersionCommandOutput extends CreateConnectorDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a connector definition which has already been defined.

@@ -32,9 +32,7 @@ export type GetSolNetworkPackageContentCommandOutputType = Omit<GetSolNetworkPac
  *
  * The output of {@link GetSolNetworkPackageContentCommand}.
  */
-export interface GetSolNetworkPackageContentCommandOutput
-  extends GetSolNetworkPackageContentCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkPackageContentCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of a network package.</p>

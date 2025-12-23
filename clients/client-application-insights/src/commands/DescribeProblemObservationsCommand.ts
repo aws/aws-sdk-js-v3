@@ -28,9 +28,7 @@ export interface DescribeProblemObservationsCommandInput extends DescribeProblem
  *
  * The output of {@link DescribeProblemObservationsCommand}.
  */
-export interface DescribeProblemObservationsCommandOutput
-  extends DescribeProblemObservationsResponse,
-    __MetadataBearer {}
+export interface DescribeProblemObservationsCommandOutput extends DescribeProblemObservationsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the anomalies or errors associated with the problem.</p>

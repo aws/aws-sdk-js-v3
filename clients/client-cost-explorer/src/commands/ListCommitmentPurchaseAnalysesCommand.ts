@@ -24,9 +24,7 @@ export interface ListCommitmentPurchaseAnalysesCommandInput extends ListCommitme
  *
  * The output of {@link ListCommitmentPurchaseAnalysesCommand}.
  */
-export interface ListCommitmentPurchaseAnalysesCommandOutput
-  extends ListCommitmentPurchaseAnalysesResponse,
-    __MetadataBearer {}
+export interface ListCommitmentPurchaseAnalysesCommandOutput extends ListCommitmentPurchaseAnalysesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the commitment purchase analyses for your account.</p>

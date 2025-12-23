@@ -27,9 +27,7 @@ export interface DisassociatePersonasFromEntitiesCommandInput extends Disassocia
  *
  * The output of {@link DisassociatePersonasFromEntitiesCommand}.
  */
-export interface DisassociatePersonasFromEntitiesCommandOutput
-  extends DisassociatePersonasFromEntitiesResponse,
-    __MetadataBearer {}
+export interface DisassociatePersonasFromEntitiesCommandOutput extends DisassociatePersonasFromEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specific permissions of users or groups in your IAM Identity Center

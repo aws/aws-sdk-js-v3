@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DisassociateApprovalRuleTemplateFromRepositoryCommand}.
  */
-export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput
-  extends DisassociateApprovalRuleTemplateFromRepositoryInput {}
+export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput extends DisassociateApprovalRuleTemplateFromRepositoryInput {}
 /**
  * @public
  *

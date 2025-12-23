@@ -28,9 +28,7 @@ export interface UpdateBandwidthRateLimitScheduleCommandInput extends UpdateBand
  *
  * The output of {@link UpdateBandwidthRateLimitScheduleCommand}.
  */
-export interface UpdateBandwidthRateLimitScheduleCommandOutput
-  extends UpdateBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface UpdateBandwidthRateLimitScheduleCommandOutput extends UpdateBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p> Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways

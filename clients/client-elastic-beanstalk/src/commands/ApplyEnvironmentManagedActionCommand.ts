@@ -28,9 +28,7 @@ export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironm
  *
  * The output of {@link ApplyEnvironmentManagedActionCommand}.
  */
-export interface ApplyEnvironmentManagedActionCommandOutput
-  extends ApplyEnvironmentManagedActionResult,
-    __MetadataBearer {}
+export interface ApplyEnvironmentManagedActionCommandOutput extends ApplyEnvironmentManagedActionResult, __MetadataBearer {}
 
 /**
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if

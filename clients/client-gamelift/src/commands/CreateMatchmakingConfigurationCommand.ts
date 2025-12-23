@@ -24,9 +24,7 @@ export interface CreateMatchmakingConfigurationCommandInput extends CreateMatchm
  *
  * The output of {@link CreateMatchmakingConfigurationCommand}.
  */
-export interface CreateMatchmakingConfigurationCommandOutput
-  extends CreateMatchmakingConfigurationOutput,
-    __MetadataBearer {}
+export interface CreateMatchmakingConfigurationCommandOutput extends CreateMatchmakingConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>

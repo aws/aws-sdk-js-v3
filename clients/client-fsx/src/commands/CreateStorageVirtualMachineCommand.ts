@@ -24,9 +24,7 @@ export interface CreateStorageVirtualMachineCommandInput extends CreateStorageVi
  *
  * The output of {@link CreateStorageVirtualMachineCommand}.
  */
-export interface CreateStorageVirtualMachineCommandOutput
-  extends CreateStorageVirtualMachineResponse,
-    __MetadataBearer {}
+export interface CreateStorageVirtualMachineCommandOutput extends CreateStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>

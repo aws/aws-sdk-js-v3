@@ -27,9 +27,7 @@ export interface CreatePushNotificationRegistrationCommandInput extends CreatePu
  *
  * The output of {@link CreatePushNotificationRegistrationCommand}.
  */
-export interface CreatePushNotificationRegistrationCommandOutput
-  extends CreatePushNotificationRegistrationResponse,
-    __MetadataBearer {}
+export interface CreatePushNotificationRegistrationCommandOutput extends CreatePushNotificationRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates registration for a device token and a chat contact to receive real-time push notifications. For more

@@ -27,9 +27,7 @@ export interface ListResourceGroupingRecommendationsCommandInput extends ListRes
  *
  * The output of {@link ListResourceGroupingRecommendationsCommand}.
  */
-export interface ListResourceGroupingRecommendationsCommandOutput
-  extends ListResourceGroupingRecommendationsResponse,
-    __MetadataBearer {}
+export interface ListResourceGroupingRecommendationsCommandOutput extends ListResourceGroupingRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource grouping recommendations suggested by Resilience Hub for your application.</p>

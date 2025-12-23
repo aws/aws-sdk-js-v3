@@ -412,8 +412,14 @@ export interface Resiliencehub {
   /**
    * @see {@link CreateAppCommand}
    */
-  createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
-  createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
+  createApp(
+    args: CreateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppCommandOutput>;
+  createApp(
+    args: CreateAppCommandInput,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
   createApp(
     args: CreateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -491,8 +497,14 @@ export interface Resiliencehub {
   /**
    * @see {@link DeleteAppCommand}
    */
-  deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
-  deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppCommandOutput>;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
   deleteApp(
     args: DeleteAppCommandInput,
     options: __HttpHandlerOptions,
@@ -604,8 +616,14 @@ export interface Resiliencehub {
   /**
    * @see {@link DescribeAppCommand}
    */
-  describeApp(args: DescribeAppCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAppCommandOutput>;
-  describeApp(args: DescribeAppCommandInput, cb: (err: any, data?: DescribeAppCommandOutput) => void): void;
+  describeApp(
+    args: DescribeAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppCommandOutput>;
+  describeApp(
+    args: DescribeAppCommandInput,
+    cb: (err: any, data?: DescribeAppCommandOutput) => void
+  ): void;
   describeApp(
     args: DescribeAppCommandInput,
     options: __HttpHandlerOptions,
@@ -923,8 +941,14 @@ export interface Resiliencehub {
    * @see {@link ListAppsCommand}
    */
   listApps(): Promise<ListAppsCommandOutput>;
-  listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
-  listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
+  listApps(
+    args: ListAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsCommandOutput>;
+  listApps(
+    args: ListAppsCommandInput,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
   listApps(
     args: ListAppsCommandInput,
     options: __HttpHandlerOptions,
@@ -989,7 +1013,10 @@ export interface Resiliencehub {
     args: ListAppVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAppVersionsCommandOutput>;
-  listAppVersions(args: ListAppVersionsCommandInput, cb: (err: any, data?: ListAppVersionsCommandOutput) => void): void;
+  listAppVersions(
+    args: ListAppVersionsCommandInput,
+    cb: (err: any, data?: ListAppVersionsCommandOutput) => void
+  ): void;
   listAppVersions(
     args: ListAppVersionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1000,8 +1027,14 @@ export interface Resiliencehub {
    * @see {@link ListMetricsCommand}
    */
   listMetrics(): Promise<ListMetricsCommandOutput>;
-  listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
-  listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
+  listMetrics(
+    args: ListMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricsCommandOutput>;
+  listMetrics(
+    args: ListMetricsCommandInput,
+    cb: (err: any, data?: ListMetricsCommandOutput) => void
+  ): void;
   listMetrics(
     args: ListMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -1288,8 +1321,14 @@ export interface Resiliencehub {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1299,8 +1338,14 @@ export interface Resiliencehub {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1310,8 +1355,14 @@ export interface Resiliencehub {
   /**
    * @see {@link UpdateAppCommand}
    */
-  updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
-  updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
+  updateApp(
+    args: UpdateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppCommandOutput>;
+  updateApp(
+    args: UpdateAppCommandInput,
+    cb: (err: any, data?: UpdateAppCommandOutput) => void
+  ): void;
   updateApp(
     args: UpdateAppCommandInput,
     options: __HttpHandlerOptions,

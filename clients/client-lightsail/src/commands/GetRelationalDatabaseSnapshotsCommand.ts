@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseSnapshotsCommandInput extends GetRelationa
  *
  * The output of {@link GetRelationalDatabaseSnapshotsCommand}.
  */
-export interface GetRelationalDatabaseSnapshotsCommandOutput
-  extends GetRelationalDatabaseSnapshotsResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseSnapshotsCommandOutput extends GetRelationalDatabaseSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>

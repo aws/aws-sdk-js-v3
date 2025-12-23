@@ -28,9 +28,7 @@ export interface RemoveRegionsFromReplicationCommandInput extends RemoveRegionsF
  *
  * The output of {@link RemoveRegionsFromReplicationCommand}.
  */
-export interface RemoveRegionsFromReplicationCommandOutput
-  extends RemoveRegionsFromReplicationResponse,
-    __MetadataBearer {}
+export interface RemoveRegionsFromReplicationCommandOutput extends RemoveRegionsFromReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the

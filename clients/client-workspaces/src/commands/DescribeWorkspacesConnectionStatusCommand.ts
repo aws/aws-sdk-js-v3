@@ -27,9 +27,7 @@ export interface DescribeWorkspacesConnectionStatusCommandInput extends Describe
  *
  * The output of {@link DescribeWorkspacesConnectionStatusCommand}.
  */
-export interface DescribeWorkspacesConnectionStatusCommandOutput
-  extends DescribeWorkspacesConnectionStatusResult,
-    __MetadataBearer {}
+export interface DescribeWorkspacesConnectionStatusCommandOutput extends DescribeWorkspacesConnectionStatusResult, __MetadataBearer {}
 
 /**
  * <p>Describes the connection status of the specified WorkSpaces.</p>

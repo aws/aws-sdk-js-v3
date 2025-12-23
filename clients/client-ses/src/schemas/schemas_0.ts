@@ -497,1363 +497,1349 @@ import {
 import { SESServiceException } from "../models/SESServiceException";
 
 /* eslint no-var: 0 */
-export var AccountSendingPausedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASPE,
+export var AccountSendingPausedException$: StaticErrorSchema = [-3, n0, _ASPE,
   { [_aQE]: [`AccountSendingPausedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(AccountSendingPausedException$, AccountSendingPausedException);
-export var AddHeaderAction$: StaticStructureSchema = [3, n0, _AHA, 0, [_HN, _HV], [0, 0]];
-export var AlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
+export var AddHeaderAction$: StaticStructureSchema = [3, n0, _AHA,
+  0,
+  [_HN, _HV],
+  [0, 0]
+];
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_aQE]: [`AlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
-export var Body$: StaticStructureSchema = [3, n0, _B, 0, [_T, _H], [() => Content$, () => Content$]];
-export var BounceAction$: StaticStructureSchema = [3, n0, _BA, 0, [_TA, _SRC, _SC, _M, _S], [0, 0, 0, 0, 0]];
-export var BouncedRecipientInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BRI,
+export var Body$: StaticStructureSchema = [3, n0, _B,
+  0,
+  [_T, _H],
+  [() => Content$, () => Content$]
+];
+export var BounceAction$: StaticStructureSchema = [3, n0, _BA,
+  0,
+  [_TA, _SRC, _SC, _M, _S],
+  [0, 0, 0, 0, 0]
+];
+export var BouncedRecipientInfo$: StaticStructureSchema = [3, n0, _BRI,
   0,
   [_R, _RA, _BT, _RDF],
-  [0, 0, 0, () => RecipientDsnFields$],
+  [0, 0, 0, () => RecipientDsnFields$]
 ];
-export var BulkEmailDestination$: StaticStructureSchema = [
-  3,
-  n0,
-  _BED,
+export var BulkEmailDestination$: StaticStructureSchema = [3, n0, _BED,
   0,
   [_D, _RT, _RTD],
-  [() => Destination$, () => MessageTagList, 0],
+  [() => Destination$, () => MessageTagList, 0]
 ];
-export var BulkEmailDestinationStatus$: StaticStructureSchema = [3, n0, _BEDS, 0, [_St, _E, _MI], [0, 0, 0]];
-export var CannotDeleteException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDE,
+export var BulkEmailDestinationStatus$: StaticStructureSchema = [3, n0, _BEDS,
+  0,
+  [_St, _E, _MI],
+  [0, 0, 0]
+];
+export var CannotDeleteException$: StaticErrorSchema = [-3, n0, _CDE,
   { [_aQE]: [`CannotDelete`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(CannotDeleteException$, CannotDeleteException);
-export var CloneReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _CRRSR, 0, [_RSN, _ORSN], [0, 0]];
-export var CloneReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _CRRSRl, 0, [], []];
-export var CloudWatchDestination$: StaticStructureSchema = [
-  3,
-  n0,
-  _CWD,
+export var CloneReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _CRRSR,
+  0,
+  [_RSN, _ORSN],
+  [0, 0]
+];
+export var CloneReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _CRRSRl,
+  0,
+  [],
+  []
+];
+export var CloudWatchDestination$: StaticStructureSchema = [3, n0, _CWD,
   0,
   [_DC],
-  [() => CloudWatchDimensionConfigurations],
+  [() => CloudWatchDimensionConfigurations]
 ];
-export var CloudWatchDimensionConfiguration$: StaticStructureSchema = [3, n0, _CWDC, 0, [_DN, _DVS, _DDV], [0, 0, 0]];
-export var ConfigurationSet$: StaticStructureSchema = [3, n0, _CS, 0, [_N], [0]];
-export var ConfigurationSetAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSAEE,
+export var CloudWatchDimensionConfiguration$: StaticStructureSchema = [3, n0, _CWDC,
+  0,
+  [_DN, _DVS, _DDV],
+  [0, 0, 0]
+];
+export var ConfigurationSet$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_N],
+  [0]
+];
+export var ConfigurationSetAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CSAEE,
   { [_aQE]: [`ConfigurationSetAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetAlreadyExistsException$, ConfigurationSetAlreadyExistsException);
-export var ConfigurationSetDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSDNEE,
+export var ConfigurationSetDoesNotExistException$: StaticErrorSchema = [-3, n0, _CSDNEE,
   { [_aQE]: [`ConfigurationSetDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetDoesNotExistException$, ConfigurationSetDoesNotExistException);
-export var ConfigurationSetSendingPausedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSSPE,
+export var ConfigurationSetSendingPausedException$: StaticErrorSchema = [-3, n0, _CSSPE,
   { [_aQE]: [`ConfigurationSetSendingPausedException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetSendingPausedException$, ConfigurationSetSendingPausedException);
-export var ConnectAction$: StaticStructureSchema = [3, n0, _CA, 0, [_IARN, _IAMRARN], [0, 0]];
-export var Content$: StaticStructureSchema = [3, n0, _C, 0, [_Da, _Ch], [0, 0]];
-export var CreateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSEDR,
+export var ConnectAction$: StaticStructureSchema = [3, n0, _CA,
+  0,
+  [_IARN, _IAMRARN],
+  [0, 0]
+];
+export var Content$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_Da, _Ch],
+  [0, 0]
+];
+export var CreateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _CCSEDR,
   0,
   [_CSN, _ED],
-  [0, () => EventDestination$],
+  [0, () => EventDestination$]
 ];
-export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _CCSEDRr, 0, [], []];
-export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR, 0, [_CS], [() => ConfigurationSet$]];
-export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCSRr, 0, [], []];
-export var CreateConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSTOR,
+export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _CCSEDRr,
+  0,
+  [],
+  []
+];
+export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
+  0,
+  [_CS],
+  [() => ConfigurationSet$]
+];
+export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCSRr,
+  0,
+  [],
+  []
+];
+export var CreateConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [3, n0, _CCSTOR,
   0,
   [_CSN, _TO],
-  [0, () => TrackingOptions$],
+  [0, () => TrackingOptions$]
 ];
-export var CreateConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _CCSTORr, 0, [], []];
-export var CreateCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCVETR,
+export var CreateConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _CCSTORr,
+  0,
+  [],
+  []
+];
+export var CreateCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _CCVETR,
   0,
   [_TN, _FEA, _TS, _TC, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var CreateReceiptFilterRequest$: StaticStructureSchema = [3, n0, _CRFR, 0, [_F], [() => ReceiptFilter$]];
-export var CreateReceiptFilterResponse$: StaticStructureSchema = [3, n0, _CRFRr, 0, [], []];
-export var CreateReceiptRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRRR,
+export var CreateReceiptFilterRequest$: StaticStructureSchema = [3, n0, _CRFR,
+  0,
+  [_F],
+  [() => ReceiptFilter$]
+];
+export var CreateReceiptFilterResponse$: StaticStructureSchema = [3, n0, _CRFRr,
+  0,
+  [],
+  []
+];
+export var CreateReceiptRuleRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
   [_RSN, _A, _Ru],
-  [0, 0, () => ReceiptRule$],
+  [0, 0, () => ReceiptRule$]
 ];
-export var CreateReceiptRuleResponse$: StaticStructureSchema = [3, n0, _CRRRr, 0, [], []];
-export var CreateReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _CRRSRr, 0, [_RSN], [0]];
-export var CreateReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _CRRSRre, 0, [], []];
-export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR, 0, [_Te], [() => Template$]];
-export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr, 0, [], []];
-export var CustomVerificationEmailInvalidContentException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVEICE,
+export var CreateReceiptRuleResponse$: StaticStructureSchema = [3, n0, _CRRRr,
+  0,
+  [],
+  []
+];
+export var CreateReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _CRRSRr,
+  0,
+  [_RSN],
+  [0]
+];
+export var CreateReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _CRRSRre,
+  0,
+  [],
+  []
+];
+export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
+  0,
+  [_Te],
+  [() => Template$]
+];
+export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
+  0,
+  [],
+  []
+];
+export var CustomVerificationEmailInvalidContentException$: StaticErrorSchema = [-3, n0, _CVEICE,
   { [_aQE]: [`CustomVerificationEmailInvalidContent`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  CustomVerificationEmailInvalidContentException$,
-  CustomVerificationEmailInvalidContentException
-);
-export var CustomVerificationEmailTemplate$: StaticStructureSchema = [
-  3,
-  n0,
-  _CVET,
+TypeRegistry.for(n0).registerError(CustomVerificationEmailInvalidContentException$, CustomVerificationEmailInvalidContentException);
+export var CustomVerificationEmailTemplate$: StaticStructureSchema = [3, n0, _CVET,
   0,
   [_TN, _FEA, _TS, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var CustomVerificationEmailTemplateAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVETAEE,
+export var CustomVerificationEmailTemplateAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CVETAEE,
   { [_aQE]: [`CustomVerificationEmailTemplateAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CVETN, _m],
-  [0, 0],
+  [0, 0]
 ];
-TypeRegistry.for(n0).registerError(
-  CustomVerificationEmailTemplateAlreadyExistsException$,
-  CustomVerificationEmailTemplateAlreadyExistsException
-);
-export var CustomVerificationEmailTemplateDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVETDNEE,
+TypeRegistry.for(n0).registerError(CustomVerificationEmailTemplateAlreadyExistsException$, CustomVerificationEmailTemplateAlreadyExistsException);
+export var CustomVerificationEmailTemplateDoesNotExistException$: StaticErrorSchema = [-3, n0, _CVETDNEE,
   { [_aQE]: [`CustomVerificationEmailTemplateDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CVETN, _m],
-  [0, 0],
+  [0, 0]
 ];
-TypeRegistry.for(n0).registerError(
-  CustomVerificationEmailTemplateDoesNotExistException$,
-  CustomVerificationEmailTemplateDoesNotExistException
-);
-export var DeleteConfigurationSetEventDestinationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSEDR,
+TypeRegistry.for(n0).registerError(CustomVerificationEmailTemplateDoesNotExistException$, CustomVerificationEmailTemplateDoesNotExistException);
+export var DeleteConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _DCSEDR,
   0,
   [_CSN, _EDN],
-  [0, 0],
+  [0, 0]
 ];
-export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _DCSEDRe, 0, [], []];
-export var DeleteConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSR, 0, [_CSN], [0]];
-export var DeleteConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCSRe, 0, [], []];
-export var DeleteConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [3, n0, _DCSTOR, 0, [_CSN], [0]];
-export var DeleteConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _DCSTORe, 0, [], []];
-export var DeleteCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _DCVETR, 0, [_TN], [0]];
-export var DeleteIdentityPolicyRequest$: StaticStructureSchema = [3, n0, _DIPR, 0, [_I, _PN], [0, 0]];
-export var DeleteIdentityPolicyResponse$: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
-export var DeleteIdentityRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_I], [0]];
-export var DeleteIdentityResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var DeleteReceiptFilterRequest$: StaticStructureSchema = [3, n0, _DRFR, 0, [_FN], [0]];
-export var DeleteReceiptFilterResponse$: StaticStructureSchema = [3, n0, _DRFRe, 0, [], []];
-export var DeleteReceiptRuleRequest$: StaticStructureSchema = [3, n0, _DRRR, 0, [_RSN, _RN], [0, 0]];
-export var DeleteReceiptRuleResponse$: StaticStructureSchema = [3, n0, _DRRRe, 0, [], []];
-export var DeleteReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DRRSR, 0, [_RSN], [0]];
-export var DeleteReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _DRRSRe, 0, [], []];
-export var DeleteTemplateRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_TN], [0]];
-export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
-export var DeleteVerifiedEmailAddressRequest$: StaticStructureSchema = [3, n0, _DVEAR, 0, [_EA], [0]];
-export var DeliveryOptions$: StaticStructureSchema = [3, n0, _DO, 0, [_TP], [0]];
-export var DescribeActiveReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DARRSR, 0, [], []];
-export var DescribeActiveReceiptRuleSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DARRSRe,
+export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _DCSEDRe,
+  0,
+  [],
+  []
+];
+export var DeleteConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
+  0,
+  [_CSN],
+  [0]
+];
+export var DeleteConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
+  0,
+  [],
+  []
+];
+export var DeleteConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [3, n0, _DCSTOR,
+  0,
+  [_CSN],
+  [0]
+];
+export var DeleteConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _DCSTORe,
+  0,
+  [],
+  []
+];
+export var DeleteCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _DCVETR,
+  0,
+  [_TN],
+  [0]
+];
+export var DeleteIdentityPolicyRequest$: StaticStructureSchema = [3, n0, _DIPR,
+  0,
+  [_I, _PN],
+  [0, 0]
+];
+export var DeleteIdentityPolicyResponse$: StaticStructureSchema = [3, n0, _DIPRe,
+  0,
+  [],
+  []
+];
+export var DeleteIdentityRequest$: StaticStructureSchema = [3, n0, _DIR,
+  0,
+  [_I],
+  [0]
+];
+export var DeleteIdentityResponse$: StaticStructureSchema = [3, n0, _DIRe,
+  0,
+  [],
+  []
+];
+export var DeleteReceiptFilterRequest$: StaticStructureSchema = [3, n0, _DRFR,
+  0,
+  [_FN],
+  [0]
+];
+export var DeleteReceiptFilterResponse$: StaticStructureSchema = [3, n0, _DRFRe,
+  0,
+  [],
+  []
+];
+export var DeleteReceiptRuleRequest$: StaticStructureSchema = [3, n0, _DRRR,
+  0,
+  [_RSN, _RN],
+  [0, 0]
+];
+export var DeleteReceiptRuleResponse$: StaticStructureSchema = [3, n0, _DRRRe,
+  0,
+  [],
+  []
+];
+export var DeleteReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DRRSR,
+  0,
+  [_RSN],
+  [0]
+];
+export var DeleteReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _DRRSRe,
+  0,
+  [],
+  []
+];
+export var DeleteTemplateRequest$: StaticStructureSchema = [3, n0, _DTR,
+  0,
+  [_TN],
+  [0]
+];
+export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe,
+  0,
+  [],
+  []
+];
+export var DeleteVerifiedEmailAddressRequest$: StaticStructureSchema = [3, n0, _DVEAR,
+  0,
+  [_EA],
+  [0]
+];
+export var DeliveryOptions$: StaticStructureSchema = [3, n0, _DO,
+  0,
+  [_TP],
+  [0]
+];
+export var DescribeActiveReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DARRSR,
+  0,
+  [],
+  []
+];
+export var DescribeActiveReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _DARRSRe,
   0,
   [_Me, _Rul],
-  [() => ReceiptRuleSetMetadata$, () => ReceiptRulesList],
+  [() => ReceiptRuleSetMetadata$, () => ReceiptRulesList]
 ];
-export var DescribeConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSRes, 0, [_CSN, _CSAN], [0, 64 | 0]];
-export var DescribeConfigurationSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSResc,
+export var DescribeConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSRes,
+  0,
+  [_CSN, _CSAN],
+  [0, 64 | 0]
+];
+export var DescribeConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCSResc,
   0,
   [_CS, _EDv, _TO, _DO, _RO],
-  [
-    () => ConfigurationSet$,
-    () => EventDestinations,
-    () => TrackingOptions$,
-    () => DeliveryOptions$,
-    () => ReputationOptions$,
-  ],
+  [() => ConfigurationSet$, () => EventDestinations, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$]
 ];
-export var DescribeReceiptRuleRequest$: StaticStructureSchema = [3, n0, _DRRRes, 0, [_RSN, _RN], [0, 0]];
-export var DescribeReceiptRuleResponse$: StaticStructureSchema = [3, n0, _DRRResc, 0, [_Ru], [() => ReceiptRule$]];
-export var DescribeReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DRRSRes, 0, [_RSN], [0]];
-export var DescribeReceiptRuleSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRRSResc,
+export var DescribeReceiptRuleRequest$: StaticStructureSchema = [3, n0, _DRRRes,
+  0,
+  [_RSN, _RN],
+  [0, 0]
+];
+export var DescribeReceiptRuleResponse$: StaticStructureSchema = [3, n0, _DRRResc,
+  0,
+  [_Ru],
+  [() => ReceiptRule$]
+];
+export var DescribeReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _DRRSRes,
+  0,
+  [_RSN],
+  [0]
+];
+export var DescribeReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _DRRSResc,
   0,
   [_Me, _Rul],
-  [() => ReceiptRuleSetMetadata$, () => ReceiptRulesList],
+  [() => ReceiptRuleSetMetadata$, () => ReceiptRulesList]
 ];
-export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_TAo, _CAc, _BAc], [64 | 0, 64 | 0, 64 | 0]];
-export var EventDestination$: StaticStructureSchema = [
-  3,
-  n0,
-  _ED,
+export var Destination$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_TAo, _CAc, _BAc],
+  [64 | 0, 64 | 0, 64 | 0]
+];
+export var EventDestination$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_N, _En, _MET, _KFD, _CWD, _SNSD],
-  [0, 2, 64 | 0, () => KinesisFirehoseDestination$, () => CloudWatchDestination$, () => SNSDestination$],
+  [0, 2, 64 | 0, () => KinesisFirehoseDestination$, () => CloudWatchDestination$, () => SNSDestination$]
 ];
-export var EventDestinationAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _EDAEE,
+export var EventDestinationAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EDAEE,
   { [_aQE]: [`EventDestinationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(EventDestinationAlreadyExistsException$, EventDestinationAlreadyExistsException);
-export var EventDestinationDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _EDDNEE,
+export var EventDestinationDoesNotExistException$: StaticErrorSchema = [-3, n0, _EDDNEE,
   { [_aQE]: [`EventDestinationDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(EventDestinationDoesNotExistException$, EventDestinationDoesNotExistException);
-export var ExtensionField$: StaticStructureSchema = [3, n0, _EF, 0, [_N, _V], [0, 0]];
-export var FromEmailAddressNotVerifiedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _FEANVE,
+export var ExtensionField$: StaticStructureSchema = [3, n0, _EF,
+  0,
+  [_N, _V],
+  [0, 0]
+];
+export var FromEmailAddressNotVerifiedException$: StaticErrorSchema = [-3, n0, _FEANVE,
   { [_aQE]: [`FromEmailAddressNotVerified`, 400], [_e]: _c, [_hE]: 400 },
   [_FEA, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(FromEmailAddressNotVerifiedException$, FromEmailAddressNotVerifiedException);
-export var GetAccountSendingEnabledResponse$: StaticStructureSchema = [3, n0, _GASER, 0, [_En], [2]];
-export var GetCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _GCVETR, 0, [_TN], [0]];
-export var GetCustomVerificationEmailTemplateResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCVETRe,
+export var GetAccountSendingEnabledResponse$: StaticStructureSchema = [3, n0, _GASER,
+  0,
+  [_En],
+  [2]
+];
+export var GetCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _GCVETR,
+  0,
+  [_TN],
+  [0]
+];
+export var GetCustomVerificationEmailTemplateResponse$: StaticStructureSchema = [3, n0, _GCVETRe,
   0,
   [_TN, _FEA, _TS, _TC, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var GetIdentityDkimAttributesRequest$: StaticStructureSchema = [3, n0, _GIDAR, 0, [_Id], [64 | 0]];
-export var GetIdentityDkimAttributesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIDARe,
+export var GetIdentityDkimAttributesRequest$: StaticStructureSchema = [3, n0, _GIDAR,
+  0,
+  [_Id],
+  [64 | 0]
+];
+export var GetIdentityDkimAttributesResponse$: StaticStructureSchema = [3, n0, _GIDARe,
   0,
   [_DA],
-  [() => DkimAttributes],
+  [() => DkimAttributes]
 ];
-export var GetIdentityMailFromDomainAttributesRequest$: StaticStructureSchema = [3, n0, _GIMFDAR, 0, [_Id], [64 | 0]];
-export var GetIdentityMailFromDomainAttributesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIMFDARe,
+export var GetIdentityMailFromDomainAttributesRequest$: StaticStructureSchema = [3, n0, _GIMFDAR,
+  0,
+  [_Id],
+  [64 | 0]
+];
+export var GetIdentityMailFromDomainAttributesResponse$: StaticStructureSchema = [3, n0, _GIMFDARe,
   0,
   [_MFDA],
-  [() => MailFromDomainAttributes],
+  [() => MailFromDomainAttributes]
 ];
-export var GetIdentityNotificationAttributesRequest$: StaticStructureSchema = [3, n0, _GINAR, 0, [_Id], [64 | 0]];
-export var GetIdentityNotificationAttributesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GINARe,
+export var GetIdentityNotificationAttributesRequest$: StaticStructureSchema = [3, n0, _GINAR,
+  0,
+  [_Id],
+  [64 | 0]
+];
+export var GetIdentityNotificationAttributesResponse$: StaticStructureSchema = [3, n0, _GINARe,
   0,
   [_NA],
-  [() => NotificationAttributes],
+  [() => NotificationAttributes]
 ];
-export var GetIdentityPoliciesRequest$: StaticStructureSchema = [3, n0, _GIPR, 0, [_I, _PNo], [0, 64 | 0]];
-export var GetIdentityPoliciesResponse$: StaticStructureSchema = [3, n0, _GIPRe, 0, [_P], [128 | 0]];
-export var GetIdentityVerificationAttributesRequest$: StaticStructureSchema = [3, n0, _GIVAR, 0, [_Id], [64 | 0]];
-export var GetIdentityVerificationAttributesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIVARe,
+export var GetIdentityPoliciesRequest$: StaticStructureSchema = [3, n0, _GIPR,
+  0,
+  [_I, _PNo],
+  [0, 64 | 0]
+];
+export var GetIdentityPoliciesResponse$: StaticStructureSchema = [3, n0, _GIPRe,
+  0,
+  [_P],
+  [128 | 0]
+];
+export var GetIdentityVerificationAttributesRequest$: StaticStructureSchema = [3, n0, _GIVAR,
+  0,
+  [_Id],
+  [64 | 0]
+];
+export var GetIdentityVerificationAttributesResponse$: StaticStructureSchema = [3, n0, _GIVARe,
   0,
   [_VA],
-  [() => VerificationAttributes],
+  [() => VerificationAttributes]
 ];
-export var GetSendQuotaResponse$: StaticStructureSchema = [3, n0, _GSQR, 0, [_MHS, _MSR, _SLH], [1, 1, 1]];
-export var GetSendStatisticsResponse$: StaticStructureSchema = [3, n0, _GSSR, 0, [_SDP], [() => SendDataPointList]];
-export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR, 0, [_TN], [0]];
-export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe, 0, [_Te], [() => Template$]];
-export var IdentityDkimAttributes$: StaticStructureSchema = [3, n0, _IDA, 0, [_DE, _DVSk, _DT], [2, 0, 64 | 0]];
-export var IdentityMailFromDomainAttributes$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMFDA,
+export var GetSendQuotaResponse$: StaticStructureSchema = [3, n0, _GSQR,
+  0,
+  [_MHS, _MSR, _SLH],
+  [1, 1, 1]
+];
+export var GetSendStatisticsResponse$: StaticStructureSchema = [3, n0, _GSSR,
+  0,
+  [_SDP],
+  [() => SendDataPointList]
+];
+export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
+  0,
+  [_TN],
+  [0]
+];
+export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
+  0,
+  [_Te],
+  [() => Template$]
+];
+export var IdentityDkimAttributes$: StaticStructureSchema = [3, n0, _IDA,
+  0,
+  [_DE, _DVSk, _DT],
+  [2, 0, 64 | 0]
+];
+export var IdentityMailFromDomainAttributes$: StaticStructureSchema = [3, n0, _IMFDA,
   0,
   [_MFD, _MFDS, _BOMXF],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var IdentityNotificationAttributes$: StaticStructureSchema = [
-  3,
-  n0,
-  _INA,
+export var IdentityNotificationAttributes$: StaticStructureSchema = [3, n0, _INA,
   0,
   [_BTo, _CT, _DTe, _FE, _HIBNE, _HICNE, _HIDNE],
-  [0, 0, 0, 2, 2, 2, 2],
+  [0, 0, 0, 2, 2, 2, 2]
 ];
-export var IdentityVerificationAttributes$: StaticStructureSchema = [3, n0, _IVA, 0, [_VS, _VT], [0, 0]];
-export var InvalidCloudWatchDestinationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICWDE,
+export var IdentityVerificationAttributes$: StaticStructureSchema = [3, n0, _IVA,
+  0,
+  [_VS, _VT],
+  [0, 0]
+];
+export var InvalidCloudWatchDestinationException$: StaticErrorSchema = [-3, n0, _ICWDE,
   { [_aQE]: [`InvalidCloudWatchDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidCloudWatchDestinationException$, InvalidCloudWatchDestinationException);
-export var InvalidConfigurationSetException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICSE,
+export var InvalidConfigurationSetException$: StaticErrorSchema = [-3, n0, _ICSE,
   { [_aQE]: [`InvalidConfigurationSet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidConfigurationSetException$, InvalidConfigurationSetException);
-export var InvalidDeliveryOptionsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDOE,
+export var InvalidDeliveryOptionsException$: StaticErrorSchema = [-3, n0, _IDOE,
   { [_aQE]: [`InvalidDeliveryOptions`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidDeliveryOptionsException$, InvalidDeliveryOptionsException);
-export var InvalidFirehoseDestinationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFDE,
+export var InvalidFirehoseDestinationException$: StaticErrorSchema = [-3, n0, _IFDE,
   { [_aQE]: [`InvalidFirehoseDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidFirehoseDestinationException$, InvalidFirehoseDestinationException);
-export var InvalidLambdaFunctionException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILFE,
+export var InvalidLambdaFunctionException$: StaticErrorSchema = [-3, n0, _ILFE,
   { [_aQE]: [`InvalidLambdaFunction`, 400], [_e]: _c, [_hE]: 400 },
   [_FA, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidLambdaFunctionException$, InvalidLambdaFunctionException);
-export var InvalidPolicyException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
+export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyException$, InvalidPolicyException);
-export var InvalidRenderingParameterException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRPE,
+export var InvalidRenderingParameterException$: StaticErrorSchema = [-3, n0, _IRPE,
   { [_aQE]: [`InvalidRenderingParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidRenderingParameterException$, InvalidRenderingParameterException);
-export var InvalidS3ConfigurationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISCE,
+export var InvalidS3ConfigurationException$: StaticErrorSchema = [-3, n0, _ISCE,
   { [_aQE]: [`InvalidS3Configuration`, 400], [_e]: _c, [_hE]: 400 },
   [_Bu, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidS3ConfigurationException$, InvalidS3ConfigurationException);
-export var InvalidSNSDestinationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISNSDE,
+export var InvalidSNSDestinationException$: StaticErrorSchema = [-3, n0, _ISNSDE,
   { [_aQE]: [`InvalidSNSDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidSNSDestinationException$, InvalidSNSDestinationException);
-export var InvalidSnsTopicException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISTE,
+export var InvalidSnsTopicException$: StaticErrorSchema = [-3, n0, _ISTE,
   { [_aQE]: [`InvalidSnsTopic`, 400], [_e]: _c, [_hE]: 400 },
   [_To, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidSnsTopicException$, InvalidSnsTopicException);
-export var InvalidTemplateException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
+export var InvalidTemplateException$: StaticErrorSchema = [-3, n0, _ITE,
   { [_aQE]: [`InvalidTemplate`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidTemplateException$, InvalidTemplateException);
-export var InvalidTrackingOptionsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITOE,
+export var InvalidTrackingOptionsException$: StaticErrorSchema = [-3, n0, _ITOE,
   { [_aQE]: [`InvalidTrackingOptions`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidTrackingOptionsException$, InvalidTrackingOptionsException);
-export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD, 0, [_IAMRARN, _DSARN], [0, 0]];
-export var LambdaAction$: StaticStructureSchema = [3, n0, _LA, 0, [_TA, _FA, _IT], [0, 0, 0]];
-export var LimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
+export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
+  0,
+  [_IAMRARN, _DSARN],
+  [0, 0]
+];
+export var LambdaAction$: StaticStructureSchema = [3, n0, _LA,
+  0,
+  [_TA, _FA, _IT],
+  [0, 0, 0]
+];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR, 0, [_NT, _MIa], [0, 1]];
-export var ListConfigurationSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCSRi,
+export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
+  0,
+  [_NT, _MIa],
+  [0, 1]
+];
+export var ListConfigurationSetsResponse$: StaticStructureSchema = [3, n0, _LCSRi,
   0,
   [_CSo, _NT],
-  [() => ConfigurationSets, 0],
+  [() => ConfigurationSets, 0]
 ];
-export var ListCustomVerificationEmailTemplatesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVETR,
+export var ListCustomVerificationEmailTemplatesRequest$: StaticStructureSchema = [3, n0, _LCVETR,
   0,
   [_NT, _MR],
-  [0, 1],
+  [0, 1]
 ];
-export var ListCustomVerificationEmailTemplatesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVETRi,
+export var ListCustomVerificationEmailTemplatesResponse$: StaticStructureSchema = [3, n0, _LCVETRi,
   0,
   [_CVETu, _NT],
-  [() => CustomVerificationEmailTemplates, 0],
+  [() => CustomVerificationEmailTemplates, 0]
 ];
-export var ListIdentitiesRequest$: StaticStructureSchema = [3, n0, _LIR, 0, [_ITd, _NT, _MIa], [0, 0, 1]];
-export var ListIdentitiesResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_Id, _NT], [64 | 0, 0]];
-export var ListIdentityPoliciesRequest$: StaticStructureSchema = [3, n0, _LIPR, 0, [_I], [0]];
-export var ListIdentityPoliciesResponse$: StaticStructureSchema = [3, n0, _LIPRi, 0, [_PNo], [64 | 0]];
-export var ListReceiptFiltersRequest$: StaticStructureSchema = [3, n0, _LRFR, 0, [], []];
-export var ListReceiptFiltersResponse$: StaticStructureSchema = [3, n0, _LRFRi, 0, [_Fi], [() => ReceiptFilterList]];
-export var ListReceiptRuleSetsRequest$: StaticStructureSchema = [3, n0, _LRRSR, 0, [_NT], [0]];
-export var ListReceiptRuleSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRSRi,
+export var ListIdentitiesRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_ITd, _NT, _MIa],
+  [0, 0, 1]
+];
+export var ListIdentitiesResponse$: StaticStructureSchema = [3, n0, _LIRi,
+  0,
+  [_Id, _NT],
+  [64 | 0, 0]
+];
+export var ListIdentityPoliciesRequest$: StaticStructureSchema = [3, n0, _LIPR,
+  0,
+  [_I],
+  [0]
+];
+export var ListIdentityPoliciesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
+  0,
+  [_PNo],
+  [64 | 0]
+];
+export var ListReceiptFiltersRequest$: StaticStructureSchema = [3, n0, _LRFR,
+  0,
+  [],
+  []
+];
+export var ListReceiptFiltersResponse$: StaticStructureSchema = [3, n0, _LRFRi,
+  0,
+  [_Fi],
+  [() => ReceiptFilterList]
+];
+export var ListReceiptRuleSetsRequest$: StaticStructureSchema = [3, n0, _LRRSR,
+  0,
+  [_NT],
+  [0]
+];
+export var ListReceiptRuleSetsResponse$: StaticStructureSchema = [3, n0, _LRRSRi,
   0,
   [_RS, _NT],
-  [() => ReceiptRuleSetsLists, 0],
+  [() => ReceiptRuleSetsLists, 0]
 ];
-export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_NT, _MIa], [0, 1]];
-export var ListTemplatesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTRi,
+export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
+  0,
+  [_NT, _MIa],
+  [0, 1]
+];
+export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_TM, _NT],
-  [() => TemplateMetadataList, 0],
+  [() => TemplateMetadataList, 0]
 ];
-export var ListVerifiedEmailAddressesResponse$: StaticStructureSchema = [3, n0, _LVEAR, 0, [_VEA], [64 | 0]];
-export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MFDNVE,
+export var ListVerifiedEmailAddressesResponse$: StaticStructureSchema = [3, n0, _LVEAR,
+  0,
+  [_VEA],
+  [64 | 0]
+];
+export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
   { [_aQE]: [`MailFromDomainNotVerifiedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException$, MailFromDomainNotVerifiedException);
-export var Message$: StaticStructureSchema = [3, n0, _M, 0, [_Su, _B], [() => Content$, () => Body$]];
-export var MessageDsn$: StaticStructureSchema = [3, n0, _MD, 0, [_RM, _AD, _EFx], [0, 4, () => ExtensionFieldList]];
-export var MessageRejected$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MRe,
+export var Message$: StaticStructureSchema = [3, n0, _M,
+  0,
+  [_Su, _B],
+  [() => Content$, () => Body$]
+];
+export var MessageDsn$: StaticStructureSchema = [3, n0, _MD,
+  0,
+  [_RM, _AD, _EFx],
+  [0, 4, () => ExtensionFieldList]
+];
+export var MessageRejected$: StaticErrorSchema = [-3, n0, _MRe,
   { [_aQE]: [`MessageRejected`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(MessageRejected$, MessageRejected);
-export var MessageTag$: StaticStructureSchema = [3, n0, _MT, 0, [_N, _V], [0, 0]];
-export var MissingRenderingAttributeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MRAE,
+export var MessageTag$: StaticStructureSchema = [3, n0, _MT,
+  0,
+  [_N, _V],
+  [0, 0]
+];
+export var MissingRenderingAttributeException$: StaticErrorSchema = [-3, n0, _MRAE,
   { [_aQE]: [`MissingRenderingAttribute`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(MissingRenderingAttributeException$, MissingRenderingAttributeException);
-export var ProductionAccessNotGrantedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PANGE,
+export var ProductionAccessNotGrantedException$: StaticErrorSchema = [-3, n0, _PANGE,
   { [_aQE]: [`ProductionAccessNotGranted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ProductionAccessNotGrantedException$, ProductionAccessNotGrantedException);
-export var PutConfigurationSetDeliveryOptionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PCSDOR,
+export var PutConfigurationSetDeliveryOptionsRequest$: StaticStructureSchema = [3, n0, _PCSDOR,
   0,
   [_CSN, _DO],
-  [0, () => DeliveryOptions$],
+  [0, () => DeliveryOptions$]
 ];
-export var PutConfigurationSetDeliveryOptionsResponse$: StaticStructureSchema = [3, n0, _PCSDORu, 0, [], []];
-export var PutIdentityPolicyRequest$: StaticStructureSchema = [3, n0, _PIPR, 0, [_I, _PN, _Po], [0, 0, 0]];
-export var PutIdentityPolicyResponse$: StaticStructureSchema = [3, n0, _PIPRu, 0, [], []];
-export var RawMessage$: StaticStructureSchema = [3, n0, _RMa, 0, [_Da], [21]];
-export var ReceiptAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _RAe,
+export var PutConfigurationSetDeliveryOptionsResponse$: StaticStructureSchema = [3, n0, _PCSDORu,
+  0,
+  [],
+  []
+];
+export var PutIdentityPolicyRequest$: StaticStructureSchema = [3, n0, _PIPR,
+  0,
+  [_I, _PN, _Po],
+  [0, 0, 0]
+];
+export var PutIdentityPolicyResponse$: StaticStructureSchema = [3, n0, _PIPRu,
+  0,
+  [],
+  []
+];
+export var RawMessage$: StaticStructureSchema = [3, n0, _RMa,
+  0,
+  [_Da],
+  [21]
+];
+export var ReceiptAction$: StaticStructureSchema = [3, n0, _RAe,
   0,
   [_SA, _BA, _WA, _LA, _SAt, _AHA, _SNSA, _CA],
-  [
-    () => S3Action$,
-    () => BounceAction$,
-    () => WorkmailAction$,
-    () => LambdaAction$,
-    () => StopAction$,
-    () => AddHeaderAction$,
-    () => SNSAction$,
-    () => ConnectAction$,
-  ],
+  [() => S3Action$, () => BounceAction$, () => WorkmailAction$, () => LambdaAction$, () => StopAction$, () => AddHeaderAction$, () => SNSAction$, () => ConnectAction$]
 ];
-export var ReceiptFilter$: StaticStructureSchema = [3, n0, _RF, 0, [_N, _IF], [0, () => ReceiptIpFilter$]];
-export var ReceiptIpFilter$: StaticStructureSchema = [3, n0, _RIF, 0, [_Po, _Ci], [0, 0]];
-export var ReceiptRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _RR,
+export var ReceiptFilter$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_N, _IF],
+  [0, () => ReceiptIpFilter$]
+];
+export var ReceiptIpFilter$: StaticStructureSchema = [3, n0, _RIF,
+  0,
+  [_Po, _Ci],
+  [0, 0]
+];
+export var ReceiptRule$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_N, _En, _TP, _Re, _Ac, _SE],
-  [0, 2, 0, 64 | 0, () => ReceiptActionsList, 2],
+  [0, 2, 0, 64 | 0, () => ReceiptActionsList, 2]
 ];
-export var ReceiptRuleSetMetadata$: StaticStructureSchema = [3, n0, _RRSM, 0, [_N, _CTr], [0, 4]];
-export var RecipientDsnFields$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDF,
+export var ReceiptRuleSetMetadata$: StaticStructureSchema = [3, n0, _RRSM,
+  0,
+  [_N, _CTr],
+  [0, 4]
+];
+export var RecipientDsnFields$: StaticStructureSchema = [3, n0, _RDF,
   0,
   [_FR, _Act, _RMe, _St, _DCi, _LAD, _EFx],
-  [0, 0, 0, 0, 0, 4, () => ExtensionFieldList],
+  [0, 0, 0, 0, 0, 4, () => ExtensionFieldList]
 ];
-export var ReorderReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _RRRSR, 0, [_RSN, _RNu], [0, 64 | 0]];
-export var ReorderReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _RRRSRe, 0, [], []];
-export var ReputationOptions$: StaticStructureSchema = [3, n0, _RO, 0, [_SEe, _RME, _LFS], [2, 2, 4]];
-export var RuleDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDNEE,
+export var ReorderReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _RRRSR,
+  0,
+  [_RSN, _RNu],
+  [0, 64 | 0]
+];
+export var ReorderReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _RRRSRe,
+  0,
+  [],
+  []
+];
+export var ReputationOptions$: StaticStructureSchema = [3, n0, _RO,
+  0,
+  [_SEe, _RME, _LFS],
+  [2, 2, 4]
+];
+export var RuleDoesNotExistException$: StaticErrorSchema = [-3, n0, _RDNEE,
   { [_aQE]: [`RuleDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(RuleDoesNotExistException$, RuleDoesNotExistException);
-export var RuleSetDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RSDNEE,
+export var RuleSetDoesNotExistException$: StaticErrorSchema = [-3, n0, _RSDNEE,
   { [_aQE]: [`RuleSetDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(RuleSetDoesNotExistException$, RuleSetDoesNotExistException);
-export var S3Action$: StaticStructureSchema = [3, n0, _SA, 0, [_TA, _BN, _OKP, _KKA, _IRA], [0, 0, 0, 0, 0]];
-export var SendBounceRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SBR,
+export var S3Action$: StaticStructureSchema = [3, n0, _SA,
+  0,
+  [_TA, _BN, _OKP, _KKA, _IRA],
+  [0, 0, 0, 0, 0]
+];
+export var SendBounceRequest$: StaticStructureSchema = [3, n0, _SBR,
   0,
   [_OMI, _BS, _Ex, _MD, _BRIL, _BSA],
-  [0, 0, 0, () => MessageDsn$, () => BouncedRecipientInfoList, 0],
+  [0, 0, 0, () => MessageDsn$, () => BouncedRecipientInfoList, 0]
 ];
-export var SendBounceResponse$: StaticStructureSchema = [3, n0, _SBRe, 0, [_MI], [0]];
-export var SendBulkTemplatedEmailRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SBTER,
+export var SendBounceResponse$: StaticStructureSchema = [3, n0, _SBRe,
+  0,
+  [_MI],
+  [0]
+];
+export var SendBulkTemplatedEmailRequest$: StaticStructureSchema = [3, n0, _SBTER,
   0,
   [_So, _SAo, _RTA, _RP, _RPA, _CSN, _DTef, _Te, _TAe, _DTD, _De],
-  [0, 0, 64 | 0, 0, 0, 0, () => MessageTagList, 0, 0, 0, () => BulkEmailDestinationList],
+  [0, 0, 64 | 0, 0, 0, 0, () => MessageTagList, 0, 0, 0, () => BulkEmailDestinationList]
 ];
-export var SendBulkTemplatedEmailResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SBTERe,
+export var SendBulkTemplatedEmailResponse$: StaticStructureSchema = [3, n0, _SBTERe,
   0,
   [_St],
-  [() => BulkEmailDestinationStatusList],
+  [() => BulkEmailDestinationStatusList]
 ];
-export var SendCustomVerificationEmailRequest$: StaticStructureSchema = [3, n0, _SCVER, 0, [_EA, _TN, _CSN], [0, 0, 0]];
-export var SendCustomVerificationEmailResponse$: StaticStructureSchema = [3, n0, _SCVERe, 0, [_MI], [0]];
-export var SendDataPoint$: StaticStructureSchema = [3, n0, _SDPe, 0, [_Ti, _DAe, _Bo, _Co, _Rej], [4, 1, 1, 1, 1]];
-export var SendEmailRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SER,
+export var SendCustomVerificationEmailRequest$: StaticStructureSchema = [3, n0, _SCVER,
+  0,
+  [_EA, _TN, _CSN],
+  [0, 0, 0]
+];
+export var SendCustomVerificationEmailResponse$: StaticStructureSchema = [3, n0, _SCVERe,
+  0,
+  [_MI],
+  [0]
+];
+export var SendDataPoint$: StaticStructureSchema = [3, n0, _SDPe,
+  0,
+  [_Ti, _DAe, _Bo, _Co, _Rej],
+  [4, 1, 1, 1, 1]
+];
+export var SendEmailRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_So, _D, _M, _RTA, _RP, _SAo, _RPA, _Ta, _CSN],
-  [0, () => Destination$, () => Message$, 64 | 0, 0, 0, 0, () => MessageTagList, 0],
+  [0, () => Destination$, () => Message$, 64 | 0, 0, 0, 0, () => MessageTagList, 0]
 ];
-export var SendEmailResponse$: StaticStructureSchema = [3, n0, _SERe, 0, [_MI], [0]];
-export var SendRawEmailRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRER,
+export var SendEmailResponse$: StaticStructureSchema = [3, n0, _SERe,
+  0,
+  [_MI],
+  [0]
+];
+export var SendRawEmailRequest$: StaticStructureSchema = [3, n0, _SRER,
   0,
   [_So, _De, _RMa, _FAr, _SAo, _RPA, _Ta, _CSN],
-  [0, 64 | 0, () => RawMessage$, 0, 0, 0, () => MessageTagList, 0],
+  [0, 64 | 0, () => RawMessage$, 0, 0, 0, () => MessageTagList, 0]
 ];
-export var SendRawEmailResponse$: StaticStructureSchema = [3, n0, _SRERe, 0, [_MI], [0]];
-export var SendTemplatedEmailRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _STER,
+export var SendRawEmailResponse$: StaticStructureSchema = [3, n0, _SRERe,
+  0,
+  [_MI],
+  [0]
+];
+export var SendTemplatedEmailRequest$: StaticStructureSchema = [3, n0, _STER,
   0,
   [_So, _D, _RTA, _RP, _SAo, _RPA, _Ta, _CSN, _Te, _TAe, _TD],
-  [0, () => Destination$, 64 | 0, 0, 0, 0, () => MessageTagList, 0, 0, 0, 0],
+  [0, () => Destination$, 64 | 0, 0, 0, 0, () => MessageTagList, 0, 0, 0, 0]
 ];
-export var SendTemplatedEmailResponse$: StaticStructureSchema = [3, n0, _STERe, 0, [_MI], [0]];
-export var SetActiveReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _SARRSR, 0, [_RSN], [0]];
-export var SetActiveReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _SARRSRe, 0, [], []];
-export var SetIdentityDkimEnabledRequest$: StaticStructureSchema = [3, n0, _SIDER, 0, [_I, _DE], [0, 2]];
-export var SetIdentityDkimEnabledResponse$: StaticStructureSchema = [3, n0, _SIDERe, 0, [], []];
-export var SetIdentityFeedbackForwardingEnabledRequest$: StaticStructureSchema = [3, n0, _SIFFER, 0, [_I, _FE], [0, 2]];
-export var SetIdentityFeedbackForwardingEnabledResponse$: StaticStructureSchema = [3, n0, _SIFFERe, 0, [], []];
-export var SetIdentityHeadersInNotificationsEnabledRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIHINER,
+export var SendTemplatedEmailResponse$: StaticStructureSchema = [3, n0, _STERe,
+  0,
+  [_MI],
+  [0]
+];
+export var SetActiveReceiptRuleSetRequest$: StaticStructureSchema = [3, n0, _SARRSR,
+  0,
+  [_RSN],
+  [0]
+];
+export var SetActiveReceiptRuleSetResponse$: StaticStructureSchema = [3, n0, _SARRSRe,
+  0,
+  [],
+  []
+];
+export var SetIdentityDkimEnabledRequest$: StaticStructureSchema = [3, n0, _SIDER,
+  0,
+  [_I, _DE],
+  [0, 2]
+];
+export var SetIdentityDkimEnabledResponse$: StaticStructureSchema = [3, n0, _SIDERe,
+  0,
+  [],
+  []
+];
+export var SetIdentityFeedbackForwardingEnabledRequest$: StaticStructureSchema = [3, n0, _SIFFER,
+  0,
+  [_I, _FE],
+  [0, 2]
+];
+export var SetIdentityFeedbackForwardingEnabledResponse$: StaticStructureSchema = [3, n0, _SIFFERe,
+  0,
+  [],
+  []
+];
+export var SetIdentityHeadersInNotificationsEnabledRequest$: StaticStructureSchema = [3, n0, _SIHINER,
   0,
   [_I, _NTo, _En],
-  [0, 0, 2],
+  [0, 0, 2]
 ];
-export var SetIdentityHeadersInNotificationsEnabledResponse$: StaticStructureSchema = [3, n0, _SIHINERe, 0, [], []];
-export var SetIdentityMailFromDomainRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIMFDR,
+export var SetIdentityHeadersInNotificationsEnabledResponse$: StaticStructureSchema = [3, n0, _SIHINERe,
+  0,
+  [],
+  []
+];
+export var SetIdentityMailFromDomainRequest$: StaticStructureSchema = [3, n0, _SIMFDR,
   0,
   [_I, _MFD, _BOMXF],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var SetIdentityMailFromDomainResponse$: StaticStructureSchema = [3, n0, _SIMFDRe, 0, [], []];
-export var SetIdentityNotificationTopicRequest$: StaticStructureSchema = [3, n0, _SINTR, 0, [_I, _NTo, _ST], [0, 0, 0]];
-export var SetIdentityNotificationTopicResponse$: StaticStructureSchema = [3, n0, _SINTRe, 0, [], []];
-export var SetReceiptRulePositionRequest$: StaticStructureSchema = [3, n0, _SRRPR, 0, [_RSN, _RN, _A], [0, 0, 0]];
-export var SetReceiptRulePositionResponse$: StaticStructureSchema = [3, n0, _SRRPRe, 0, [], []];
-export var SNSAction$: StaticStructureSchema = [3, n0, _SNSA, 0, [_TA, _Enc], [0, 0]];
-export var SNSDestination$: StaticStructureSchema = [3, n0, _SNSD, 0, [_TARN], [0]];
-export var StopAction$: StaticStructureSchema = [3, n0, _SAt, 0, [_Sc, _TA], [0, 0]];
-export var Template$: StaticStructureSchema = [3, n0, _Te, 0, [_TN, _SP, _TPe, _HP], [0, 0, 0, 0]];
-export var TemplateDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDNEE,
+export var SetIdentityMailFromDomainResponse$: StaticStructureSchema = [3, n0, _SIMFDRe,
+  0,
+  [],
+  []
+];
+export var SetIdentityNotificationTopicRequest$: StaticStructureSchema = [3, n0, _SINTR,
+  0,
+  [_I, _NTo, _ST],
+  [0, 0, 0]
+];
+export var SetIdentityNotificationTopicResponse$: StaticStructureSchema = [3, n0, _SINTRe,
+  0,
+  [],
+  []
+];
+export var SetReceiptRulePositionRequest$: StaticStructureSchema = [3, n0, _SRRPR,
+  0,
+  [_RSN, _RN, _A],
+  [0, 0, 0]
+];
+export var SetReceiptRulePositionResponse$: StaticStructureSchema = [3, n0, _SRRPRe,
+  0,
+  [],
+  []
+];
+export var SNSAction$: StaticStructureSchema = [3, n0, _SNSA,
+  0,
+  [_TA, _Enc],
+  [0, 0]
+];
+export var SNSDestination$: StaticStructureSchema = [3, n0, _SNSD,
+  0,
+  [_TARN],
+  [0]
+];
+export var StopAction$: StaticStructureSchema = [3, n0, _SAt,
+  0,
+  [_Sc, _TA],
+  [0, 0]
+];
+export var Template$: StaticStructureSchema = [3, n0, _Te,
+  0,
+  [_TN, _SP, _TPe, _HP],
+  [0, 0, 0, 0]
+];
+export var TemplateDoesNotExistException$: StaticErrorSchema = [-3, n0, _TDNEE,
   { [_aQE]: [`TemplateDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(TemplateDoesNotExistException$, TemplateDoesNotExistException);
-export var TemplateMetadata$: StaticStructureSchema = [3, n0, _TMe, 0, [_N, _CTr], [0, 4]];
-export var TestRenderTemplateRequest$: StaticStructureSchema = [3, n0, _TRTR, 0, [_TN, _TD], [0, 0]];
-export var TestRenderTemplateResponse$: StaticStructureSchema = [3, n0, _TRTRe, 0, [_RTe], [0]];
-export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO, 0, [_CRD], [0]];
-export var TrackingOptionsAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TOAEE,
+export var TemplateMetadata$: StaticStructureSchema = [3, n0, _TMe,
+  0,
+  [_N, _CTr],
+  [0, 4]
+];
+export var TestRenderTemplateRequest$: StaticStructureSchema = [3, n0, _TRTR,
+  0,
+  [_TN, _TD],
+  [0, 0]
+];
+export var TestRenderTemplateResponse$: StaticStructureSchema = [3, n0, _TRTRe,
+  0,
+  [_RTe],
+  [0]
+];
+export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO,
+  0,
+  [_CRD],
+  [0]
+];
+export var TrackingOptionsAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TOAEE,
   { [_aQE]: [`TrackingOptionsAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(TrackingOptionsAlreadyExistsException$, TrackingOptionsAlreadyExistsException);
-export var TrackingOptionsDoesNotExistException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TODNEE,
+export var TrackingOptionsDoesNotExistException$: StaticErrorSchema = [-3, n0, _TODNEE,
   { [_aQE]: [`TrackingOptionsDoesNotExistException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(TrackingOptionsDoesNotExistException$, TrackingOptionsDoesNotExistException);
-export var UpdateAccountSendingEnabledRequest$: StaticStructureSchema = [3, n0, _UASER, 0, [_En], [2]];
-export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCSEDR,
+export var UpdateAccountSendingEnabledRequest$: StaticStructureSchema = [3, n0, _UASER,
+  0,
+  [_En],
+  [2]
+];
+export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _UCSEDR,
   0,
   [_CSN, _ED],
-  [0, () => EventDestination$],
+  [0, () => EventDestination$]
 ];
-export var UpdateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _UCSEDRp, 0, [], []];
-export var UpdateConfigurationSetReputationMetricsEnabledRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCSRMER,
+export var UpdateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _UCSEDRp,
+  0,
+  [],
+  []
+];
+export var UpdateConfigurationSetReputationMetricsEnabledRequest$: StaticStructureSchema = [3, n0, _UCSRMER,
   0,
   [_CSN, _En],
-  [0, 2],
+  [0, 2]
 ];
-export var UpdateConfigurationSetSendingEnabledRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCSSER,
+export var UpdateConfigurationSetSendingEnabledRequest$: StaticStructureSchema = [3, n0, _UCSSER,
   0,
   [_CSN, _En],
-  [0, 2],
+  [0, 2]
 ];
-export var UpdateConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCSTOR,
+export var UpdateConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [3, n0, _UCSTOR,
   0,
   [_CSN, _TO],
-  [0, () => TrackingOptions$],
+  [0, () => TrackingOptions$]
 ];
-export var UpdateConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _UCSTORp, 0, [], []];
-export var UpdateCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCVETR,
+export var UpdateConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _UCSTORp,
+  0,
+  [],
+  []
+];
+export var UpdateCustomVerificationEmailTemplateRequest$: StaticStructureSchema = [3, n0, _UCVETR,
   0,
   [_TN, _FEA, _TS, _TC, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var UpdateReceiptRuleRequest$: StaticStructureSchema = [3, n0, _URRR, 0, [_RSN, _Ru], [0, () => ReceiptRule$]];
-export var UpdateReceiptRuleResponse$: StaticStructureSchema = [3, n0, _URRRp, 0, [], []];
-export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR, 0, [_Te], [() => Template$]];
-export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp, 0, [], []];
-export var VerifyDomainDkimRequest$: StaticStructureSchema = [3, n0, _VDDR, 0, [_Do], [0]];
-export var VerifyDomainDkimResponse$: StaticStructureSchema = [3, n0, _VDDRe, 0, [_DT], [64 | 0]];
-export var VerifyDomainIdentityRequest$: StaticStructureSchema = [3, n0, _VDIR, 0, [_Do], [0]];
-export var VerifyDomainIdentityResponse$: StaticStructureSchema = [3, n0, _VDIRe, 0, [_VT], [0]];
-export var VerifyEmailAddressRequest$: StaticStructureSchema = [3, n0, _VEAR, 0, [_EA], [0]];
-export var VerifyEmailIdentityRequest$: StaticStructureSchema = [3, n0, _VEIR, 0, [_EA], [0]];
-export var VerifyEmailIdentityResponse$: StaticStructureSchema = [3, n0, _VEIRe, 0, [], []];
-export var WorkmailAction$: StaticStructureSchema = [3, n0, _WA, 0, [_TA, _OA], [0, 0]];
+export var UpdateReceiptRuleRequest$: StaticStructureSchema = [3, n0, _URRR,
+  0,
+  [_RSN, _Ru],
+  [0, () => ReceiptRule$]
+];
+export var UpdateReceiptRuleResponse$: StaticStructureSchema = [3, n0, _URRRp,
+  0,
+  [],
+  []
+];
+export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
+  0,
+  [_Te],
+  [() => Template$]
+];
+export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
+  0,
+  [],
+  []
+];
+export var VerifyDomainDkimRequest$: StaticStructureSchema = [3, n0, _VDDR,
+  0,
+  [_Do],
+  [0]
+];
+export var VerifyDomainDkimResponse$: StaticStructureSchema = [3, n0, _VDDRe,
+  0,
+  [_DT],
+  [64 | 0]
+];
+export var VerifyDomainIdentityRequest$: StaticStructureSchema = [3, n0, _VDIR,
+  0,
+  [_Do],
+  [0]
+];
+export var VerifyDomainIdentityResponse$: StaticStructureSchema = [3, n0, _VDIRe,
+  0,
+  [_VT],
+  [0]
+];
+export var VerifyEmailAddressRequest$: StaticStructureSchema = [3, n0, _VEAR,
+  0,
+  [_EA],
+  [0]
+];
+export var VerifyEmailIdentityRequest$: StaticStructureSchema = [3, n0, _VEIR,
+  0,
+  [_EA],
+  [0]
+];
+export var VerifyEmailIdentityResponse$: StaticStructureSchema = [3, n0, _VEIRe,
+  0,
+  [],
+  []
+];
+export var WorkmailAction$: StaticStructureSchema = [3, n0, _WA,
+  0,
+  [_TA, _OA],
+  [0, 0]
+];
 var __Unit = "unit" as const;
 export var SESServiceException$: StaticErrorSchema = [-3, _s, "SESServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SESServiceException$, SESServiceException);
 var AddressList = 64 | 0;
-var BouncedRecipientInfoList: StaticListSchema = [1, n0, _BRIL, 0, () => BouncedRecipientInfo$];
-var BulkEmailDestinationList: StaticListSchema = [1, n0, _BEDL, 0, () => BulkEmailDestination$];
-var BulkEmailDestinationStatusList: StaticListSchema = [1, n0, _BEDSL, 0, () => BulkEmailDestinationStatus$];
-var CloudWatchDimensionConfigurations: StaticListSchema = [1, n0, _CWDCl, 0, () => CloudWatchDimensionConfiguration$];
+var BouncedRecipientInfoList: StaticListSchema = [1, n0, _BRIL,
+  0, () => BouncedRecipientInfo$
+];
+var BulkEmailDestinationList: StaticListSchema = [1, n0, _BEDL,
+  0, () => BulkEmailDestination$
+];
+var BulkEmailDestinationStatusList: StaticListSchema = [1, n0, _BEDSL,
+  0, () => BulkEmailDestinationStatus$
+];
+var CloudWatchDimensionConfigurations: StaticListSchema = [1, n0, _CWDCl,
+  0, () => CloudWatchDimensionConfiguration$
+];
 var ConfigurationSetAttributeList = 64 | 0;
-var ConfigurationSets: StaticListSchema = [1, n0, _CSo, 0, () => ConfigurationSet$];
-var CustomVerificationEmailTemplates: StaticListSchema = [1, n0, _CVETu, 0, () => CustomVerificationEmailTemplate$];
-var EventDestinations: StaticListSchema = [1, n0, _EDv, 0, () => EventDestination$];
+var ConfigurationSets: StaticListSchema = [1, n0, _CSo,
+  0, () => ConfigurationSet$
+];
+var CustomVerificationEmailTemplates: StaticListSchema = [1, n0, _CVETu,
+  0, () => CustomVerificationEmailTemplate$
+];
+var EventDestinations: StaticListSchema = [1, n0, _EDv,
+  0, () => EventDestination$
+];
 var EventTypes = 64 | 0;
-var ExtensionFieldList: StaticListSchema = [1, n0, _EFL, 0, () => ExtensionField$];
+var ExtensionFieldList: StaticListSchema = [1, n0, _EFL,
+  0, () => ExtensionField$
+];
 var IdentityList = 64 | 0;
-var MessageTagList: StaticListSchema = [1, n0, _MTL, 0, () => MessageTag$];
+var MessageTagList: StaticListSchema = [1, n0, _MTL,
+  0, () => MessageTag$
+];
 var PolicyNameList = 64 | 0;
-var ReceiptActionsList: StaticListSchema = [1, n0, _RAL, 0, () => ReceiptAction$];
-var ReceiptFilterList: StaticListSchema = [1, n0, _RFL, 0, () => ReceiptFilter$];
+var ReceiptActionsList: StaticListSchema = [1, n0, _RAL,
+  0, () => ReceiptAction$
+];
+var ReceiptFilterList: StaticListSchema = [1, n0, _RFL,
+  0, () => ReceiptFilter$
+];
 var ReceiptRuleNamesList = 64 | 0;
-var ReceiptRuleSetsLists: StaticListSchema = [1, n0, _RRSL, 0, () => ReceiptRuleSetMetadata$];
-var ReceiptRulesList: StaticListSchema = [1, n0, _RRL, 0, () => ReceiptRule$];
+var ReceiptRuleSetsLists: StaticListSchema = [1, n0, _RRSL,
+  0, () => ReceiptRuleSetMetadata$
+];
+var ReceiptRulesList: StaticListSchema = [1, n0, _RRL,
+  0, () => ReceiptRule$
+];
 var RecipientsList = 64 | 0;
-var SendDataPointList: StaticListSchema = [1, n0, _SDPL, 0, () => SendDataPoint$];
-var TemplateMetadataList: StaticListSchema = [1, n0, _TML, 0, () => TemplateMetadata$];
+var SendDataPointList: StaticListSchema = [1, n0, _SDPL,
+  0, () => SendDataPoint$
+];
+var TemplateMetadataList: StaticListSchema = [1, n0, _TML,
+  0, () => TemplateMetadata$
+];
 var VerificationTokenList = 64 | 0;
-var DkimAttributes: StaticMapSchema = [2, n0, _DA, 0, 0, () => IdentityDkimAttributes$];
-var MailFromDomainAttributes: StaticMapSchema = [2, n0, _MFDA, 0, 0, () => IdentityMailFromDomainAttributes$];
-var NotificationAttributes: StaticMapSchema = [2, n0, _NA, 0, 0, () => IdentityNotificationAttributes$];
+var DkimAttributes: StaticMapSchema = [2, n0, _DA,
+  0, 0, () => IdentityDkimAttributes$
+];
+var MailFromDomainAttributes: StaticMapSchema = [2, n0, _MFDA,
+  0, 0, () => IdentityMailFromDomainAttributes$
+];
+var NotificationAttributes: StaticMapSchema = [2, n0, _NA,
+  0, 0, () => IdentityNotificationAttributes$
+];
 var PolicyMap = 128 | 0;
-var VerificationAttributes: StaticMapSchema = [2, n0, _VA, 0, 0, () => IdentityVerificationAttributes$];
-export var CloneReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRRS,
-  0,
-  () => CloneReceiptRuleSetRequest$,
-  () => CloneReceiptRuleSetResponse$,
-];
-export var CreateConfigurationSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCS,
-  0,
-  () => CreateConfigurationSetRequest$,
-  () => CreateConfigurationSetResponse$,
-];
-export var CreateConfigurationSetEventDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCSED,
-  0,
-  () => CreateConfigurationSetEventDestinationRequest$,
-  () => CreateConfigurationSetEventDestinationResponse$,
-];
-export var CreateConfigurationSetTrackingOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCSTO,
-  0,
-  () => CreateConfigurationSetTrackingOptionsRequest$,
-  () => CreateConfigurationSetTrackingOptionsResponse$,
-];
-export var CreateCustomVerificationEmailTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCVET,
-  0,
-  () => CreateCustomVerificationEmailTemplateRequest$,
-  () => __Unit,
-];
-export var CreateReceiptFilter$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRF,
-  0,
-  () => CreateReceiptFilterRequest$,
-  () => CreateReceiptFilterResponse$,
-];
-export var CreateReceiptRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRR,
-  0,
-  () => CreateReceiptRuleRequest$,
-  () => CreateReceiptRuleResponse$,
-];
-export var CreateReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRRSr,
-  0,
-  () => CreateReceiptRuleSetRequest$,
-  () => CreateReceiptRuleSetResponse$,
-];
-export var CreateTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _CTre,
-  0,
-  () => CreateTemplateRequest$,
-  () => CreateTemplateResponse$,
-];
-export var DeleteConfigurationSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCS,
-  0,
-  () => DeleteConfigurationSetRequest$,
-  () => DeleteConfigurationSetResponse$,
-];
-export var DeleteConfigurationSetEventDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSED,
-  0,
-  () => DeleteConfigurationSetEventDestinationRequest$,
-  () => DeleteConfigurationSetEventDestinationResponse$,
-];
-export var DeleteConfigurationSetTrackingOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSTO,
-  0,
-  () => DeleteConfigurationSetTrackingOptionsRequest$,
-  () => DeleteConfigurationSetTrackingOptionsResponse$,
-];
-export var DeleteCustomVerificationEmailTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCVET,
-  0,
-  () => DeleteCustomVerificationEmailTemplateRequest$,
-  () => __Unit,
-];
-export var DeleteIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _DI,
-  0,
-  () => DeleteIdentityRequest$,
-  () => DeleteIdentityResponse$,
-];
-export var DeleteIdentityPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIP,
-  0,
-  () => DeleteIdentityPolicyRequest$,
-  () => DeleteIdentityPolicyResponse$,
-];
-export var DeleteReceiptFilter$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRF,
-  0,
-  () => DeleteReceiptFilterRequest$,
-  () => DeleteReceiptFilterResponse$,
-];
-export var DeleteReceiptRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRR,
-  0,
-  () => DeleteReceiptRuleRequest$,
-  () => DeleteReceiptRuleResponse$,
-];
-export var DeleteReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRRS,
-  0,
-  () => DeleteReceiptRuleSetRequest$,
-  () => DeleteReceiptRuleSetResponse$,
-];
-export var DeleteTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTel,
-  0,
-  () => DeleteTemplateRequest$,
-  () => DeleteTemplateResponse$,
-];
-export var DeleteVerifiedEmailAddress$: StaticOperationSchema = [
-  9,
-  n0,
-  _DVEA,
-  0,
-  () => DeleteVerifiedEmailAddressRequest$,
-  () => __Unit,
-];
-export var DescribeActiveReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DARRS,
-  0,
-  () => DescribeActiveReceiptRuleSetRequest$,
-  () => DescribeActiveReceiptRuleSetResponse$,
-];
-export var DescribeConfigurationSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSe,
-  0,
-  () => DescribeConfigurationSetRequest$,
-  () => DescribeConfigurationSetResponse$,
-];
-export var DescribeReceiptRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRRe,
-  0,
-  () => DescribeReceiptRuleRequest$,
-  () => DescribeReceiptRuleResponse$,
-];
-export var DescribeReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRRSe,
-  0,
-  () => DescribeReceiptRuleSetRequest$,
-  () => DescribeReceiptRuleSetResponse$,
-];
-export var GetAccountSendingEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _GASE,
-  0,
-  () => __Unit,
-  () => GetAccountSendingEnabledResponse$,
-];
-export var GetCustomVerificationEmailTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCVET,
-  0,
-  () => GetCustomVerificationEmailTemplateRequest$,
-  () => GetCustomVerificationEmailTemplateResponse$,
-];
-export var GetIdentityDkimAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIDA,
-  0,
-  () => GetIdentityDkimAttributesRequest$,
-  () => GetIdentityDkimAttributesResponse$,
-];
-export var GetIdentityMailFromDomainAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIMFDA,
-  0,
-  () => GetIdentityMailFromDomainAttributesRequest$,
-  () => GetIdentityMailFromDomainAttributesResponse$,
-];
-export var GetIdentityNotificationAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _GINA,
-  0,
-  () => GetIdentityNotificationAttributesRequest$,
-  () => GetIdentityNotificationAttributesResponse$,
-];
-export var GetIdentityPolicies$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIP,
-  0,
-  () => GetIdentityPoliciesRequest$,
-  () => GetIdentityPoliciesResponse$,
-];
-export var GetIdentityVerificationAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _GIVA,
-  0,
-  () => GetIdentityVerificationAttributesRequest$,
-  () => GetIdentityVerificationAttributesResponse$,
-];
-export var GetSendQuota$: StaticOperationSchema = [9, n0, _GSQ, 0, () => __Unit, () => GetSendQuotaResponse$];
-export var GetSendStatistics$: StaticOperationSchema = [9, n0, _GSS, 0, () => __Unit, () => GetSendStatisticsResponse$];
-export var GetTemplate$: StaticOperationSchema = [9, n0, _GT, 0, () => GetTemplateRequest$, () => GetTemplateResponse$];
-export var ListConfigurationSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCS,
-  0,
-  () => ListConfigurationSetsRequest$,
-  () => ListConfigurationSetsResponse$,
-];
-export var ListCustomVerificationEmailTemplates$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCVET,
-  0,
-  () => ListCustomVerificationEmailTemplatesRequest$,
-  () => ListCustomVerificationEmailTemplatesResponse$,
-];
-export var ListIdentities$: StaticOperationSchema = [
-  9,
-  n0,
-  _LI,
-  0,
-  () => ListIdentitiesRequest$,
-  () => ListIdentitiesResponse$,
-];
-export var ListIdentityPolicies$: StaticOperationSchema = [
-  9,
-  n0,
-  _LIP,
-  0,
-  () => ListIdentityPoliciesRequest$,
-  () => ListIdentityPoliciesResponse$,
-];
-export var ListReceiptFilters$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRF,
-  0,
-  () => ListReceiptFiltersRequest$,
-  () => ListReceiptFiltersResponse$,
-];
-export var ListReceiptRuleSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRRS,
-  0,
-  () => ListReceiptRuleSetsRequest$,
-  () => ListReceiptRuleSetsResponse$,
-];
-export var ListTemplates$: StaticOperationSchema = [
-  9,
-  n0,
-  _LT,
-  0,
-  () => ListTemplatesRequest$,
-  () => ListTemplatesResponse$,
-];
-export var ListVerifiedEmailAddresses$: StaticOperationSchema = [
-  9,
-  n0,
-  _LVEA,
-  0,
-  () => __Unit,
-  () => ListVerifiedEmailAddressesResponse$,
-];
-export var PutConfigurationSetDeliveryOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _PCSDO,
-  0,
-  () => PutConfigurationSetDeliveryOptionsRequest$,
-  () => PutConfigurationSetDeliveryOptionsResponse$,
-];
-export var PutIdentityPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PIP,
-  0,
-  () => PutIdentityPolicyRequest$,
-  () => PutIdentityPolicyResponse$,
-];
-export var ReorderReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _RRRS,
-  0,
-  () => ReorderReceiptRuleSetRequest$,
-  () => ReorderReceiptRuleSetResponse$,
-];
-export var SendBounce$: StaticOperationSchema = [9, n0, _SB, 0, () => SendBounceRequest$, () => SendBounceResponse$];
-export var SendBulkTemplatedEmail$: StaticOperationSchema = [
-  9,
-  n0,
-  _SBTE,
-  0,
-  () => SendBulkTemplatedEmailRequest$,
-  () => SendBulkTemplatedEmailResponse$,
-];
-export var SendCustomVerificationEmail$: StaticOperationSchema = [
-  9,
-  n0,
-  _SCVE,
-  0,
-  () => SendCustomVerificationEmailRequest$,
-  () => SendCustomVerificationEmailResponse$,
-];
-export var SendEmail$: StaticOperationSchema = [9, n0, _SEen, 0, () => SendEmailRequest$, () => SendEmailResponse$];
-export var SendRawEmail$: StaticOperationSchema = [
-  9,
-  n0,
-  _SRE,
-  0,
-  () => SendRawEmailRequest$,
-  () => SendRawEmailResponse$,
-];
-export var SendTemplatedEmail$: StaticOperationSchema = [
-  9,
-  n0,
-  _STE,
-  0,
-  () => SendTemplatedEmailRequest$,
-  () => SendTemplatedEmailResponse$,
-];
-export var SetActiveReceiptRuleSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _SARRS,
-  0,
-  () => SetActiveReceiptRuleSetRequest$,
-  () => SetActiveReceiptRuleSetResponse$,
-];
-export var SetIdentityDkimEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIDE,
-  0,
-  () => SetIdentityDkimEnabledRequest$,
-  () => SetIdentityDkimEnabledResponse$,
-];
-export var SetIdentityFeedbackForwardingEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIFFE,
-  0,
-  () => SetIdentityFeedbackForwardingEnabledRequest$,
-  () => SetIdentityFeedbackForwardingEnabledResponse$,
-];
-export var SetIdentityHeadersInNotificationsEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIHINE,
-  0,
-  () => SetIdentityHeadersInNotificationsEnabledRequest$,
-  () => SetIdentityHeadersInNotificationsEnabledResponse$,
-];
-export var SetIdentityMailFromDomain$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIMFD,
-  0,
-  () => SetIdentityMailFromDomainRequest$,
-  () => SetIdentityMailFromDomainResponse$,
-];
-export var SetIdentityNotificationTopic$: StaticOperationSchema = [
-  9,
-  n0,
-  _SINT,
-  0,
-  () => SetIdentityNotificationTopicRequest$,
-  () => SetIdentityNotificationTopicResponse$,
-];
-export var SetReceiptRulePosition$: StaticOperationSchema = [
-  9,
-  n0,
-  _SRRP,
-  0,
-  () => SetReceiptRulePositionRequest$,
-  () => SetReceiptRulePositionResponse$,
-];
-export var TestRenderTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _TRT,
-  0,
-  () => TestRenderTemplateRequest$,
-  () => TestRenderTemplateResponse$,
-];
-export var UpdateAccountSendingEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _UASE,
-  0,
-  () => UpdateAccountSendingEnabledRequest$,
-  () => __Unit,
-];
-export var UpdateConfigurationSetEventDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCSED,
-  0,
-  () => UpdateConfigurationSetEventDestinationRequest$,
-  () => UpdateConfigurationSetEventDestinationResponse$,
-];
-export var UpdateConfigurationSetReputationMetricsEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCSRME,
-  0,
-  () => UpdateConfigurationSetReputationMetricsEnabledRequest$,
-  () => __Unit,
-];
-export var UpdateConfigurationSetSendingEnabled$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCSSE,
-  0,
-  () => UpdateConfigurationSetSendingEnabledRequest$,
-  () => __Unit,
-];
-export var UpdateConfigurationSetTrackingOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCSTO,
-  0,
-  () => UpdateConfigurationSetTrackingOptionsRequest$,
-  () => UpdateConfigurationSetTrackingOptionsResponse$,
-];
-export var UpdateCustomVerificationEmailTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCVET,
-  0,
-  () => UpdateCustomVerificationEmailTemplateRequest$,
-  () => __Unit,
-];
-export var UpdateReceiptRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _URR,
-  0,
-  () => UpdateReceiptRuleRequest$,
-  () => UpdateReceiptRuleResponse$,
-];
-export var UpdateTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _UT,
-  0,
-  () => UpdateTemplateRequest$,
-  () => UpdateTemplateResponse$,
-];
-export var VerifyDomainDkim$: StaticOperationSchema = [
-  9,
-  n0,
-  _VDD,
-  0,
-  () => VerifyDomainDkimRequest$,
-  () => VerifyDomainDkimResponse$,
-];
-export var VerifyDomainIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _VDI,
-  0,
-  () => VerifyDomainIdentityRequest$,
-  () => VerifyDomainIdentityResponse$,
-];
-export var VerifyEmailAddress$: StaticOperationSchema = [
-  9,
-  n0,
-  _VEAe,
-  0,
-  () => VerifyEmailAddressRequest$,
-  () => __Unit,
-];
-export var VerifyEmailIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _VEI,
-  0,
-  () => VerifyEmailIdentityRequest$,
-  () => VerifyEmailIdentityResponse$,
+var VerificationAttributes: StaticMapSchema = [2, n0, _VA,
+  0, 0, () => IdentityVerificationAttributes$
+];
+export var CloneReceiptRuleSet$: StaticOperationSchema = [9, n0, _CRRS,
+  0, () => CloneReceiptRuleSetRequest$, () => CloneReceiptRuleSetResponse$
+];
+export var CreateConfigurationSet$: StaticOperationSchema = [9, n0, _CCS,
+  0, () => CreateConfigurationSetRequest$, () => CreateConfigurationSetResponse$
+];
+export var CreateConfigurationSetEventDestination$: StaticOperationSchema = [9, n0, _CCSED,
+  0, () => CreateConfigurationSetEventDestinationRequest$, () => CreateConfigurationSetEventDestinationResponse$
+];
+export var CreateConfigurationSetTrackingOptions$: StaticOperationSchema = [9, n0, _CCSTO,
+  0, () => CreateConfigurationSetTrackingOptionsRequest$, () => CreateConfigurationSetTrackingOptionsResponse$
+];
+export var CreateCustomVerificationEmailTemplate$: StaticOperationSchema = [9, n0, _CCVET,
+  0, () => CreateCustomVerificationEmailTemplateRequest$, () => __Unit
+];
+export var CreateReceiptFilter$: StaticOperationSchema = [9, n0, _CRF,
+  0, () => CreateReceiptFilterRequest$, () => CreateReceiptFilterResponse$
+];
+export var CreateReceiptRule$: StaticOperationSchema = [9, n0, _CRR,
+  0, () => CreateReceiptRuleRequest$, () => CreateReceiptRuleResponse$
+];
+export var CreateReceiptRuleSet$: StaticOperationSchema = [9, n0, _CRRSr,
+  0, () => CreateReceiptRuleSetRequest$, () => CreateReceiptRuleSetResponse$
+];
+export var CreateTemplate$: StaticOperationSchema = [9, n0, _CTre,
+  0, () => CreateTemplateRequest$, () => CreateTemplateResponse$
+];
+export var DeleteConfigurationSet$: StaticOperationSchema = [9, n0, _DCS,
+  0, () => DeleteConfigurationSetRequest$, () => DeleteConfigurationSetResponse$
+];
+export var DeleteConfigurationSetEventDestination$: StaticOperationSchema = [9, n0, _DCSED,
+  0, () => DeleteConfigurationSetEventDestinationRequest$, () => DeleteConfigurationSetEventDestinationResponse$
+];
+export var DeleteConfigurationSetTrackingOptions$: StaticOperationSchema = [9, n0, _DCSTO,
+  0, () => DeleteConfigurationSetTrackingOptionsRequest$, () => DeleteConfigurationSetTrackingOptionsResponse$
+];
+export var DeleteCustomVerificationEmailTemplate$: StaticOperationSchema = [9, n0, _DCVET,
+  0, () => DeleteCustomVerificationEmailTemplateRequest$, () => __Unit
+];
+export var DeleteIdentity$: StaticOperationSchema = [9, n0, _DI,
+  0, () => DeleteIdentityRequest$, () => DeleteIdentityResponse$
+];
+export var DeleteIdentityPolicy$: StaticOperationSchema = [9, n0, _DIP,
+  0, () => DeleteIdentityPolicyRequest$, () => DeleteIdentityPolicyResponse$
+];
+export var DeleteReceiptFilter$: StaticOperationSchema = [9, n0, _DRF,
+  0, () => DeleteReceiptFilterRequest$, () => DeleteReceiptFilterResponse$
+];
+export var DeleteReceiptRule$: StaticOperationSchema = [9, n0, _DRR,
+  0, () => DeleteReceiptRuleRequest$, () => DeleteReceiptRuleResponse$
+];
+export var DeleteReceiptRuleSet$: StaticOperationSchema = [9, n0, _DRRS,
+  0, () => DeleteReceiptRuleSetRequest$, () => DeleteReceiptRuleSetResponse$
+];
+export var DeleteTemplate$: StaticOperationSchema = [9, n0, _DTel,
+  0, () => DeleteTemplateRequest$, () => DeleteTemplateResponse$
+];
+export var DeleteVerifiedEmailAddress$: StaticOperationSchema = [9, n0, _DVEA,
+  0, () => DeleteVerifiedEmailAddressRequest$, () => __Unit
+];
+export var DescribeActiveReceiptRuleSet$: StaticOperationSchema = [9, n0, _DARRS,
+  0, () => DescribeActiveReceiptRuleSetRequest$, () => DescribeActiveReceiptRuleSetResponse$
+];
+export var DescribeConfigurationSet$: StaticOperationSchema = [9, n0, _DCSe,
+  0, () => DescribeConfigurationSetRequest$, () => DescribeConfigurationSetResponse$
+];
+export var DescribeReceiptRule$: StaticOperationSchema = [9, n0, _DRRe,
+  0, () => DescribeReceiptRuleRequest$, () => DescribeReceiptRuleResponse$
+];
+export var DescribeReceiptRuleSet$: StaticOperationSchema = [9, n0, _DRRSe,
+  0, () => DescribeReceiptRuleSetRequest$, () => DescribeReceiptRuleSetResponse$
+];
+export var GetAccountSendingEnabled$: StaticOperationSchema = [9, n0, _GASE,
+  0, () => __Unit, () => GetAccountSendingEnabledResponse$
+];
+export var GetCustomVerificationEmailTemplate$: StaticOperationSchema = [9, n0, _GCVET,
+  0, () => GetCustomVerificationEmailTemplateRequest$, () => GetCustomVerificationEmailTemplateResponse$
+];
+export var GetIdentityDkimAttributes$: StaticOperationSchema = [9, n0, _GIDA,
+  0, () => GetIdentityDkimAttributesRequest$, () => GetIdentityDkimAttributesResponse$
+];
+export var GetIdentityMailFromDomainAttributes$: StaticOperationSchema = [9, n0, _GIMFDA,
+  0, () => GetIdentityMailFromDomainAttributesRequest$, () => GetIdentityMailFromDomainAttributesResponse$
+];
+export var GetIdentityNotificationAttributes$: StaticOperationSchema = [9, n0, _GINA,
+  0, () => GetIdentityNotificationAttributesRequest$, () => GetIdentityNotificationAttributesResponse$
+];
+export var GetIdentityPolicies$: StaticOperationSchema = [9, n0, _GIP,
+  0, () => GetIdentityPoliciesRequest$, () => GetIdentityPoliciesResponse$
+];
+export var GetIdentityVerificationAttributes$: StaticOperationSchema = [9, n0, _GIVA,
+  0, () => GetIdentityVerificationAttributesRequest$, () => GetIdentityVerificationAttributesResponse$
+];
+export var GetSendQuota$: StaticOperationSchema = [9, n0, _GSQ,
+  0, () => __Unit, () => GetSendQuotaResponse$
+];
+export var GetSendStatistics$: StaticOperationSchema = [9, n0, _GSS,
+  0, () => __Unit, () => GetSendStatisticsResponse$
+];
+export var GetTemplate$: StaticOperationSchema = [9, n0, _GT,
+  0, () => GetTemplateRequest$, () => GetTemplateResponse$
+];
+export var ListConfigurationSets$: StaticOperationSchema = [9, n0, _LCS,
+  0, () => ListConfigurationSetsRequest$, () => ListConfigurationSetsResponse$
+];
+export var ListCustomVerificationEmailTemplates$: StaticOperationSchema = [9, n0, _LCVET,
+  0, () => ListCustomVerificationEmailTemplatesRequest$, () => ListCustomVerificationEmailTemplatesResponse$
+];
+export var ListIdentities$: StaticOperationSchema = [9, n0, _LI,
+  0, () => ListIdentitiesRequest$, () => ListIdentitiesResponse$
+];
+export var ListIdentityPolicies$: StaticOperationSchema = [9, n0, _LIP,
+  0, () => ListIdentityPoliciesRequest$, () => ListIdentityPoliciesResponse$
+];
+export var ListReceiptFilters$: StaticOperationSchema = [9, n0, _LRF,
+  0, () => ListReceiptFiltersRequest$, () => ListReceiptFiltersResponse$
+];
+export var ListReceiptRuleSets$: StaticOperationSchema = [9, n0, _LRRS,
+  0, () => ListReceiptRuleSetsRequest$, () => ListReceiptRuleSetsResponse$
+];
+export var ListTemplates$: StaticOperationSchema = [9, n0, _LT,
+  0, () => ListTemplatesRequest$, () => ListTemplatesResponse$
+];
+export var ListVerifiedEmailAddresses$: StaticOperationSchema = [9, n0, _LVEA,
+  0, () => __Unit, () => ListVerifiedEmailAddressesResponse$
+];
+export var PutConfigurationSetDeliveryOptions$: StaticOperationSchema = [9, n0, _PCSDO,
+  0, () => PutConfigurationSetDeliveryOptionsRequest$, () => PutConfigurationSetDeliveryOptionsResponse$
+];
+export var PutIdentityPolicy$: StaticOperationSchema = [9, n0, _PIP,
+  0, () => PutIdentityPolicyRequest$, () => PutIdentityPolicyResponse$
+];
+export var ReorderReceiptRuleSet$: StaticOperationSchema = [9, n0, _RRRS,
+  0, () => ReorderReceiptRuleSetRequest$, () => ReorderReceiptRuleSetResponse$
+];
+export var SendBounce$: StaticOperationSchema = [9, n0, _SB,
+  0, () => SendBounceRequest$, () => SendBounceResponse$
+];
+export var SendBulkTemplatedEmail$: StaticOperationSchema = [9, n0, _SBTE,
+  0, () => SendBulkTemplatedEmailRequest$, () => SendBulkTemplatedEmailResponse$
+];
+export var SendCustomVerificationEmail$: StaticOperationSchema = [9, n0, _SCVE,
+  0, () => SendCustomVerificationEmailRequest$, () => SendCustomVerificationEmailResponse$
+];
+export var SendEmail$: StaticOperationSchema = [9, n0, _SEen,
+  0, () => SendEmailRequest$, () => SendEmailResponse$
+];
+export var SendRawEmail$: StaticOperationSchema = [9, n0, _SRE,
+  0, () => SendRawEmailRequest$, () => SendRawEmailResponse$
+];
+export var SendTemplatedEmail$: StaticOperationSchema = [9, n0, _STE,
+  0, () => SendTemplatedEmailRequest$, () => SendTemplatedEmailResponse$
+];
+export var SetActiveReceiptRuleSet$: StaticOperationSchema = [9, n0, _SARRS,
+  0, () => SetActiveReceiptRuleSetRequest$, () => SetActiveReceiptRuleSetResponse$
+];
+export var SetIdentityDkimEnabled$: StaticOperationSchema = [9, n0, _SIDE,
+  0, () => SetIdentityDkimEnabledRequest$, () => SetIdentityDkimEnabledResponse$
+];
+export var SetIdentityFeedbackForwardingEnabled$: StaticOperationSchema = [9, n0, _SIFFE,
+  0, () => SetIdentityFeedbackForwardingEnabledRequest$, () => SetIdentityFeedbackForwardingEnabledResponse$
+];
+export var SetIdentityHeadersInNotificationsEnabled$: StaticOperationSchema = [9, n0, _SIHINE,
+  0, () => SetIdentityHeadersInNotificationsEnabledRequest$, () => SetIdentityHeadersInNotificationsEnabledResponse$
+];
+export var SetIdentityMailFromDomain$: StaticOperationSchema = [9, n0, _SIMFD,
+  0, () => SetIdentityMailFromDomainRequest$, () => SetIdentityMailFromDomainResponse$
+];
+export var SetIdentityNotificationTopic$: StaticOperationSchema = [9, n0, _SINT,
+  0, () => SetIdentityNotificationTopicRequest$, () => SetIdentityNotificationTopicResponse$
+];
+export var SetReceiptRulePosition$: StaticOperationSchema = [9, n0, _SRRP,
+  0, () => SetReceiptRulePositionRequest$, () => SetReceiptRulePositionResponse$
+];
+export var TestRenderTemplate$: StaticOperationSchema = [9, n0, _TRT,
+  0, () => TestRenderTemplateRequest$, () => TestRenderTemplateResponse$
+];
+export var UpdateAccountSendingEnabled$: StaticOperationSchema = [9, n0, _UASE,
+  0, () => UpdateAccountSendingEnabledRequest$, () => __Unit
+];
+export var UpdateConfigurationSetEventDestination$: StaticOperationSchema = [9, n0, _UCSED,
+  0, () => UpdateConfigurationSetEventDestinationRequest$, () => UpdateConfigurationSetEventDestinationResponse$
+];
+export var UpdateConfigurationSetReputationMetricsEnabled$: StaticOperationSchema = [9, n0, _UCSRME,
+  0, () => UpdateConfigurationSetReputationMetricsEnabledRequest$, () => __Unit
+];
+export var UpdateConfigurationSetSendingEnabled$: StaticOperationSchema = [9, n0, _UCSSE,
+  0, () => UpdateConfigurationSetSendingEnabledRequest$, () => __Unit
+];
+export var UpdateConfigurationSetTrackingOptions$: StaticOperationSchema = [9, n0, _UCSTO,
+  0, () => UpdateConfigurationSetTrackingOptionsRequest$, () => UpdateConfigurationSetTrackingOptionsResponse$
+];
+export var UpdateCustomVerificationEmailTemplate$: StaticOperationSchema = [9, n0, _UCVET,
+  0, () => UpdateCustomVerificationEmailTemplateRequest$, () => __Unit
+];
+export var UpdateReceiptRule$: StaticOperationSchema = [9, n0, _URR,
+  0, () => UpdateReceiptRuleRequest$, () => UpdateReceiptRuleResponse$
+];
+export var UpdateTemplate$: StaticOperationSchema = [9, n0, _UT,
+  0, () => UpdateTemplateRequest$, () => UpdateTemplateResponse$
+];
+export var VerifyDomainDkim$: StaticOperationSchema = [9, n0, _VDD,
+  0, () => VerifyDomainDkimRequest$, () => VerifyDomainDkimResponse$
+];
+export var VerifyDomainIdentity$: StaticOperationSchema = [9, n0, _VDI,
+  0, () => VerifyDomainIdentityRequest$, () => VerifyDomainIdentityResponse$
+];
+export var VerifyEmailAddress$: StaticOperationSchema = [9, n0, _VEAe,
+  0, () => VerifyEmailAddressRequest$, () => __Unit
+];
+export var VerifyEmailIdentity$: StaticOperationSchema = [9, n0, _VEI,
+  0, () => VerifyEmailIdentityRequest$, () => VerifyEmailIdentityResponse$
 ];

@@ -31,9 +31,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandInput extends DeleteL
  *
  * The output of {@link DeleteLicenseManagerReportGeneratorCommand}.
  */
-export interface DeleteLicenseManagerReportGeneratorCommandOutput
-  extends DeleteLicenseManagerReportGeneratorResponse,
-    __MetadataBearer {}
+export interface DeleteLicenseManagerReportGeneratorCommandOutput extends DeleteLicenseManagerReportGeneratorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified report generator.</p>

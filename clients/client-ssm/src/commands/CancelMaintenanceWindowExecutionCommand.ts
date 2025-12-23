@@ -27,9 +27,7 @@ export interface CancelMaintenanceWindowExecutionCommandInput extends CancelMain
  *
  * The output of {@link CancelMaintenanceWindowExecutionCommand}.
  */
-export interface CancelMaintenanceWindowExecutionCommandOutput
-  extends CancelMaintenanceWindowExecutionResult,
-    __MetadataBearer {}
+export interface CancelMaintenanceWindowExecutionCommandOutput extends CancelMaintenanceWindowExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in

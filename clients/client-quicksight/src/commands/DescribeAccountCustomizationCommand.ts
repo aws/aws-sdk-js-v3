@@ -24,9 +24,7 @@ export interface DescribeAccountCustomizationCommandInput extends DescribeAccoun
  *
  * The output of {@link DescribeAccountCustomizationCommand}.
  */
-export interface DescribeAccountCustomizationCommandOutput
-  extends DescribeAccountCustomizationResponse,
-    __MetadataBearer {}
+export interface DescribeAccountCustomizationCommandOutput extends DescribeAccountCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon

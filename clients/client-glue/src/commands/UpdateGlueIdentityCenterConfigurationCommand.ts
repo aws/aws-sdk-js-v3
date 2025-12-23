@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateGlueIdentityCenterConfigurationCommand}.
  */
-export interface UpdateGlueIdentityCenterConfigurationCommandInput
-  extends UpdateGlueIdentityCenterConfigurationRequest {}
+export interface UpdateGlueIdentityCenterConfigurationCommandInput extends UpdateGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateGlueIdentityCenterConfigurationCommand}.
  */
-export interface UpdateGlueIdentityCenterConfigurationCommandOutput
-  extends UpdateGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateGlueIdentityCenterConfigurationCommandOutput extends UpdateGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the existing Glue Identity Center configuration, allowing modification of scopes and permissions for the integration.</p>

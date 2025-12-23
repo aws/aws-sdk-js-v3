@@ -27,9 +27,7 @@ export interface DescribeRepositoryCreationTemplatesCommandInput extends Describ
  *
  * The output of {@link DescribeRepositoryCreationTemplatesCommand}.
  */
-export interface DescribeRepositoryCreationTemplatesCommandOutput
-  extends DescribeRepositoryCreationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeRepositoryCreationTemplatesCommandOutput extends DescribeRepositoryCreationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the repository creation templates in a registry. The

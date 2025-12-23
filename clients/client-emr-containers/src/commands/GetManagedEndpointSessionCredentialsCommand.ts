@@ -27,9 +27,7 @@ export interface GetManagedEndpointSessionCredentialsCommandInput extends GetMan
  *
  * The output of {@link GetManagedEndpointSessionCredentialsCommand}.
  */
-export interface GetManagedEndpointSessionCredentialsCommandOutput
-  extends GetManagedEndpointSessionCredentialsResponse,
-    __MetadataBearer {}
+export interface GetManagedEndpointSessionCredentialsCommandOutput extends GetManagedEndpointSessionCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Generate a session token to connect to a managed endpoint. </p>

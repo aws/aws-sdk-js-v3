@@ -24,9 +24,7 @@ export interface ListAvailabilityConfigurationsCommandInput extends ListAvailabi
  *
  * The output of {@link ListAvailabilityConfigurationsCommand}.
  */
-export interface ListAvailabilityConfigurationsCommandOutput
-  extends ListAvailabilityConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAvailabilityConfigurationsCommandOutput extends ListAvailabilityConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>

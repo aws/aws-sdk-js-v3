@@ -10,41 +10,41 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
     const result: any = await client.send(new GetHarvestJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "COMPLETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "CANCELLED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "QUEUED") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "IN_PROGRESS") {
         return { state: WaiterState.RETRY, reason };
       }

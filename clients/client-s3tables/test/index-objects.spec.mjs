@@ -157,6 +157,9 @@ import {
   NotFoundException,
   NotFoundException$,
   OpenTableFormat,
+  paginateListNamespaces,
+  paginateListTableBuckets,
+  paginateListTables,
   PutTableBucketEncryption$,
   PutTableBucketEncryptionCommand,
   PutTableBucketEncryptionRequest$,
@@ -199,8 +202,8 @@ import {
   S3Tables,
   S3TablesClient,
   S3TablesServiceException,
-  SSEAlgorithm,
   SchemaField$,
+  SSEAlgorithm,
   StorageClass,
   StorageClassConfiguration$,
   TableBucketMaintenanceConfigurationValue$,
@@ -239,9 +242,6 @@ import {
   UpdateTableMetadataLocationCommand,
   UpdateTableMetadataLocationRequest$,
   UpdateTableMetadataLocationResponse$,
-  paginateListNamespaces,
-  paginateListTableBuckets,
-  paginateListTables,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

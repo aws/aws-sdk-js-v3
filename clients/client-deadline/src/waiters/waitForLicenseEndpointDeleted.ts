@@ -10,9 +10,9 @@ const checkState = async (client: DeadlineClient, input: GetLicenseEndpointComma
     const result: any = await client.send(new GetLicenseEndpointCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "NOT_READY") {
         return { state: WaiterState.FAILURE, reason };
       }

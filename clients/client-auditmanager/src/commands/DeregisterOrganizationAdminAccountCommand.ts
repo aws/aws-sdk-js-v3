@@ -27,9 +27,7 @@ export interface DeregisterOrganizationAdminAccountCommandInput extends Deregist
  *
  * The output of {@link DeregisterOrganizationAdminAccountCommand}.
  */
-export interface DeregisterOrganizationAdminAccountCommandOutput
-  extends DeregisterOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface DeregisterOrganizationAdminAccountCommandOutput extends DeregisterOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified Amazon Web Services account as a delegated administrator for

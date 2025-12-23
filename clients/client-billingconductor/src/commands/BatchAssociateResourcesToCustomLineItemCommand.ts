@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
-export interface BatchAssociateResourcesToCustomLineItemCommandInput
-  extends BatchAssociateResourcesToCustomLineItemInput {}
+export interface BatchAssociateResourcesToCustomLineItemCommandInput extends BatchAssociateResourcesToCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateResourcesToCustomLineItemCommand}.
  */
-export interface BatchAssociateResourcesToCustomLineItemCommandOutput
-  extends BatchAssociateResourcesToCustomLineItemOutput,
-    __MetadataBearer {}
+export interface BatchAssociateResourcesToCustomLineItemCommandOutput extends BatchAssociateResourcesToCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> Associates a batch of resources to a percentage custom line item. </p>

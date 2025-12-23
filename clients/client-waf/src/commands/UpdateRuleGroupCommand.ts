@@ -38,8 +38,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *          <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
  * 	        <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
  *          <p>You can have a maximum of ten rules per rule group.</p>
- *
- *
+ * 	  	
+ *      	
  *          <p>To create and configure a <code>RuleGroup</code>, perform the following steps:</p>
  *          <ol>
  *             <li>
@@ -57,7 +57,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             </li>
  *          </ol>
  *          <p>If you want to replace one <code>Rule</code> with another, you delete the existing one and
- *          add the new one.</p>
+ *          add the new one.</p>		
  *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example

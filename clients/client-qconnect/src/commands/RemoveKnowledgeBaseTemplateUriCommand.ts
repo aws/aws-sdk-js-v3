@@ -24,9 +24,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandInput extends RemoveKnowle
  *
  * The output of {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
-export interface RemoveKnowledgeBaseTemplateUriCommandOutput
-  extends RemoveKnowledgeBaseTemplateUriResponse,
-    __MetadataBearer {}
+export interface RemoveKnowledgeBaseTemplateUriCommandOutput extends RemoveKnowledgeBaseTemplateUriResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a URI template from a knowledge base.</p>

@@ -117,6 +117,9 @@ import {
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
   MultiRegionKeyType,
+  paginateListAliases,
+  paginateListKeys,
+  paginateListTagsForResource,
   PaymentCryptography,
   PaymentCryptographyClient,
   PaymentCryptographyServiceException,
@@ -168,9 +171,6 @@ import {
   WrappedKey$,
   WrappedKeyMaterialFormat,
   WrappingKeySpec,
-  paginateListAliases,
-  paginateListKeys,
-  paginateListTagsForResource,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

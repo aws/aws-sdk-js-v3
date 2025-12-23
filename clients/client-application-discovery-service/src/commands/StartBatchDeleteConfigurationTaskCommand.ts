@@ -31,9 +31,7 @@ export interface StartBatchDeleteConfigurationTaskCommandInput extends StartBatc
  *
  * The output of {@link StartBatchDeleteConfigurationTaskCommand}.
  */
-export interface StartBatchDeleteConfigurationTaskCommandOutput
-  extends StartBatchDeleteConfigurationTaskResponse,
-    __MetadataBearer {}
+export interface StartBatchDeleteConfigurationTaskCommandOutput extends StartBatchDeleteConfigurationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface ListIntegrationAssociationsCommandInput extends ListIntegration
  *
  * The output of {@link ListIntegrationAssociationsCommand}.
  */
-export interface ListIntegrationAssociationsCommandOutput
-  extends ListIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListIntegrationAssociationsCommandOutput extends ListIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>

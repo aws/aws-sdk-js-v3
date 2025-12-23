@@ -27,9 +27,7 @@ export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaul
  *
  * The output of {@link PutDefaultEncryptionConfigurationCommand}.
  */
-export interface PutDefaultEncryptionConfigurationCommandOutput
-  extends PutDefaultEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface PutDefaultEncryptionConfigurationCommandOutput extends PutDefaultEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see

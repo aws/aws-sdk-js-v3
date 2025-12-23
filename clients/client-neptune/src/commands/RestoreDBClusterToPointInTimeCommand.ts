@@ -24,9 +24,7 @@ export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClus
  *
  * The output of {@link RestoreDBClusterToPointInTimeCommand}.
  */
-export interface RestoreDBClusterToPointInTimeCommandOutput
-  extends RestoreDBClusterToPointInTimeResult,
-    __MetadataBearer {}
+export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClusterToPointInTimeResult, __MetadataBearer {}
 
 /**
  * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in

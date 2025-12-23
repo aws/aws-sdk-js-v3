@@ -13,9 +13,9 @@ const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorComma
     const result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.anomalyDetector.status.statusCode;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }

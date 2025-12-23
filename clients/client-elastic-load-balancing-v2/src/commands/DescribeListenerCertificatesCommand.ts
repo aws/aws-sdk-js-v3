@@ -28,9 +28,7 @@ export interface DescribeListenerCertificatesCommandInput extends DescribeListen
  *
  * The output of {@link DescribeListenerCertificatesCommand}.
  */
-export interface DescribeListenerCertificatesCommandOutput
-  extends DescribeListenerCertificatesOutput,
-    __MetadataBearer {}
+export interface DescribeListenerCertificatesCommandOutput extends DescribeListenerCertificatesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS

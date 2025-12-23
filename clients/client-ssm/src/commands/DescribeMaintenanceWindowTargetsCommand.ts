@@ -27,9 +27,7 @@ export interface DescribeMaintenanceWindowTargetsCommandInput extends DescribeMa
  *
  * The output of {@link DescribeMaintenanceWindowTargetsCommand}.
  */
-export interface DescribeMaintenanceWindowTargetsCommandOutput
-  extends DescribeMaintenanceWindowTargetsResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowTargetsCommandOutput extends DescribeMaintenanceWindowTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the targets registered with the maintenance window.</p>

@@ -27,9 +27,7 @@ export interface StartConfigurationPolicyAssociationCommandInput extends StartCo
  *
  * The output of {@link StartConfigurationPolicyAssociationCommand}.
  */
-export interface StartConfigurationPolicyAssociationCommandOutput
-  extends StartConfigurationPolicyAssociationResponse,
-    __MetadataBearer {}
+export interface StartConfigurationPolicyAssociationCommandOutput extends StartConfigurationPolicyAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>

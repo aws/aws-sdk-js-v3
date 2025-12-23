@@ -28,9 +28,7 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandInput extends Rem
  *
  * The output of {@link DisableAvailabilityZonesForLoadBalancerCommand}.
  */
-export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
-  extends RemoveAvailabilityZonesOutput,
-    __MetadataBearer {}
+export interface DisableAvailabilityZonesForLoadBalancerCommandOutput extends RemoveAvailabilityZonesOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer

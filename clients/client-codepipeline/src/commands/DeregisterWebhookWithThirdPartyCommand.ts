@@ -24,9 +24,7 @@ export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterW
  *
  * The output of {@link DeregisterWebhookWithThirdPartyCommand}.
  */
-export interface DeregisterWebhookWithThirdPartyCommandOutput
-  extends DeregisterWebhookWithThirdPartyOutput,
-    __MetadataBearer {}
+export interface DeregisterWebhookWithThirdPartyCommandOutput extends DeregisterWebhookWithThirdPartyOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the connection between the webhook that was created by CodePipeline

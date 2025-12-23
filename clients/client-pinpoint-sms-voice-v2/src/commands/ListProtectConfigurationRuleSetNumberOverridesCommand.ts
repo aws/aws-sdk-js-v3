@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListProtectConfigurationRuleSetNumberOverridesCommand}.
  */
-export interface ListProtectConfigurationRuleSetNumberOverridesCommandInput
-  extends ListProtectConfigurationRuleSetNumberOverridesRequest {}
+export interface ListProtectConfigurationRuleSetNumberOverridesCommandInput extends ListProtectConfigurationRuleSetNumberOverridesRequest {}
 /**
  * @public
  *
  * The output of {@link ListProtectConfigurationRuleSetNumberOverridesCommand}.
  */
-export interface ListProtectConfigurationRuleSetNumberOverridesCommandOutput
-  extends ListProtectConfigurationRuleSetNumberOverridesResult,
-    __MetadataBearer {}
+export interface ListProtectConfigurationRuleSetNumberOverridesCommandOutput extends ListProtectConfigurationRuleSetNumberOverridesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve all of the protect configuration rule set number overrides that match the filters.</p>

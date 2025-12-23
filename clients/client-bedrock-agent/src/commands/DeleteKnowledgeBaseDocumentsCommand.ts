@@ -24,9 +24,7 @@ export interface DeleteKnowledgeBaseDocumentsCommandInput extends DeleteKnowledg
  *
  * The output of {@link DeleteKnowledgeBaseDocumentsCommand}.
  */
-export interface DeleteKnowledgeBaseDocumentsCommandOutput
-  extends DeleteKnowledgeBaseDocumentsResponse,
-    __MetadataBearer {}
+export interface DeleteKnowledgeBaseDocumentsCommandOutput extends DeleteKnowledgeBaseDocumentsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>

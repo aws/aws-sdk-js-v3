@@ -27,9 +27,7 @@ export interface ListProvisionedModelThroughputsCommandInput extends ListProvisi
  *
  * The output of {@link ListProvisionedModelThroughputsCommand}.
  */
-export interface ListProvisionedModelThroughputsCommandOutput
-  extends ListProvisionedModelThroughputsResponse,
-    __MetadataBearer {}
+export interface ListProvisionedModelThroughputsCommandOutput extends ListProvisionedModelThroughputsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Provisioned Throughputs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>

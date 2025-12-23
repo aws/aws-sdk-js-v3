@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
-export interface DisassociateWirelessDeviceFromFuotaTaskCommandInput
-  extends DisassociateWirelessDeviceFromFuotaTaskRequest {}
+export interface DisassociateWirelessDeviceFromFuotaTaskCommandInput extends DisassociateWirelessDeviceFromFuotaTaskRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
-export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
-  extends DisassociateWirelessDeviceFromFuotaTaskResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput extends DisassociateWirelessDeviceFromFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless device from a FUOTA task.</p>

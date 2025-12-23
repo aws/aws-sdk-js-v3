@@ -24,9 +24,7 @@ export interface UpdateChimeWebhookConfigurationCommandInput extends UpdateChime
  *
  * The output of {@link UpdateChimeWebhookConfigurationCommand}.
  */
-export interface UpdateChimeWebhookConfigurationCommandOutput
-  extends UpdateChimeWebhookConfigurationResult,
-    __MetadataBearer {}
+export interface UpdateChimeWebhookConfigurationCommandOutput extends UpdateChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates a Amazon Chime webhook configuration.</p>

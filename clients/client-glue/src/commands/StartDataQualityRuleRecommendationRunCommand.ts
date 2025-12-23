@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartDataQualityRuleRecommendationRunCommand}.
  */
-export interface StartDataQualityRuleRecommendationRunCommandInput
-  extends StartDataQualityRuleRecommendationRunRequest {}
+export interface StartDataQualityRuleRecommendationRunCommandInput extends StartDataQualityRuleRecommendationRunRequest {}
 /**
  * @public
  *
  * The output of {@link StartDataQualityRuleRecommendationRunCommand}.
  */
-export interface StartDataQualityRuleRecommendationRunCommandOutput
-  extends StartDataQualityRuleRecommendationRunResponse,
-    __MetadataBearer {}
+export interface StartDataQualityRuleRecommendationRunCommandOutput extends StartDataQualityRuleRecommendationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>

@@ -61,6 +61,9 @@ import {
   ListTagsForResourceResponse$,
   MaintenanceWindow$,
   MaintenanceWindowType,
+  paginateListDevices,
+  paginateListEnvironments,
+  paginateListSoftwareSets,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ServiceQuotaExceededException,
@@ -102,9 +105,6 @@ import {
   WorkSpacesThinClient,
   WorkSpacesThinClientClient,
   WorkSpacesThinClientServiceException,
-  paginateListDevices,
-  paginateListEnvironments,
-  paginateListSoftwareSets,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

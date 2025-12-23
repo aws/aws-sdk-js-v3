@@ -9,10 +9,8 @@ AWS SDK for JavaScript PinpointSMSVoice Client for Node.js, Browser and React Na
 Pinpoint SMS and Voice Messaging public facing APIs
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pinpoint-sms-voice`
 - `yarn add @aws-sdk/client-pinpoint-sms-voice`
 - `pnpm add @aws-sdk/client-pinpoint-sms-voice`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PinpointSMSVoiceClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConfigurationSetsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateConfigurationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/CreateConfigurationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/CreateConfigurationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/CreateConfigurationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateConfigurationSetEventDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/CreateConfigurationSetEventDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/CreateConfigurationSetEventDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/CreateConfigurationSetEventDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ DeleteConfigurationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/DeleteConfigurationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/DeleteConfigurationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/DeleteConfigurationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ DeleteConfigurationSetEventDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/DeleteConfigurationSetEventDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/DeleteConfigurationSetEventDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/DeleteConfigurationSetEventDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetConfigurationSetEventDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/GetConfigurationSetEventDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/GetConfigurationSetEventDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/GetConfigurationSetEventDestinationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ ListConfigurationSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/ListConfigurationSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/ListConfigurationSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/ListConfigurationSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ SendVoiceMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/SendVoiceMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/SendVoiceMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/SendVoiceMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,5 +254,4 @@ UpdateConfigurationSetEventDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice/command/UpdateConfigurationSetEventDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/UpdateConfigurationSetEventDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice/Interface/UpdateConfigurationSetEventDestinationCommandOutput/)
-
 </details>

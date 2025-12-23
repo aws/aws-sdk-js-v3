@@ -24,9 +24,7 @@ export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverab
  *
  * The output of {@link ListDeliverabilityTestReportsCommand}.
  */
-export interface ListDeliverabilityTestReportsCommandOutput
-  extends ListDeliverabilityTestReportsResponse,
-    __MetadataBearer {}
+export interface ListDeliverabilityTestReportsCommandOutput extends ListDeliverabilityTestReportsResponse, __MetadataBearer {}
 
 /**
  * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For

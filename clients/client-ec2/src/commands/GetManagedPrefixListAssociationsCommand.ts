@@ -27,9 +27,7 @@ export interface GetManagedPrefixListAssociationsCommandInput extends GetManaged
  *
  * The output of {@link GetManagedPrefixListAssociationsCommand}.
  */
-export interface GetManagedPrefixListAssociationsCommandOutput
-  extends GetManagedPrefixListAssociationsResult,
-    __MetadataBearer {}
+export interface GetManagedPrefixListAssociationsCommandOutput extends GetManagedPrefixListAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>

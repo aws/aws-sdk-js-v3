@@ -24,9 +24,7 @@ export interface ListSlackChannelConfigurationsCommandInput extends ListSlackCha
  *
  * The output of {@link ListSlackChannelConfigurationsCommand}.
  */
-export interface ListSlackChannelConfigurationsCommandOutput
-  extends ListSlackChannelConfigurationsResult,
-    __MetadataBearer {}
+export interface ListSlackChannelConfigurationsCommandOutput extends ListSlackChannelConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the Slack channel configurations for an Amazon Web Services account.</p>

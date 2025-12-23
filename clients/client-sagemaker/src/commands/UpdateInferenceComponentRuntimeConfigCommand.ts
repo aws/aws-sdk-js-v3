@@ -27,9 +27,7 @@ export interface UpdateInferenceComponentRuntimeConfigCommandInput extends Updat
  *
  * The output of {@link UpdateInferenceComponentRuntimeConfigCommand}.
  */
-export interface UpdateInferenceComponentRuntimeConfigCommandOutput
-  extends UpdateInferenceComponentRuntimeConfigOutput,
-    __MetadataBearer {}
+export interface UpdateInferenceComponentRuntimeConfigCommandOutput extends UpdateInferenceComponentRuntimeConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Runtime settings for a model that is deployed with an inference component.</p>

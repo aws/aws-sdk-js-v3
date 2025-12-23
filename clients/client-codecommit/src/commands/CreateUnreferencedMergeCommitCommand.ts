@@ -24,9 +24,7 @@ export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnrefer
  *
  * The output of {@link CreateUnreferencedMergeCommitCommand}.
  */
-export interface CreateUnreferencedMergeCommitCommandOutput
-  extends CreateUnreferencedMergeCommitOutput,
-    __MetadataBearer {}
+export interface CreateUnreferencedMergeCommitCommandOutput extends CreateUnreferencedMergeCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an unreferenced commit that represents the result of merging two branches

@@ -27,9 +27,7 @@ export interface ListCostAllocationTagBackfillHistoryCommandInput extends ListCo
  *
  * The output of {@link ListCostAllocationTagBackfillHistoryCommand}.
  */
-export interface ListCostAllocationTagBackfillHistoryCommandOutput
-  extends ListCostAllocationTagBackfillHistoryResponse,
-    __MetadataBearer {}
+export interface ListCostAllocationTagBackfillHistoryCommandOutput extends ListCostAllocationTagBackfillHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>

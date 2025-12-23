@@ -14,10 +14,8 @@ your own applications on top of the Catalog API to manage your products on AWS
 Marketplace.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-catalog
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-catalog`
 - `yarn add @aws-sdk/client-marketplace-catalog`
 - `pnpm add @aws-sdk/client-marketplace-catalog`
@@ -53,9 +51,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceCatalogClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListChangeSetsCommand(params);
 ```
 
@@ -214,7 +210,6 @@ BatchDescribeEntities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/BatchDescribeEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/BatchDescribeEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/BatchDescribeEntitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -222,7 +217,6 @@ CancelChangeSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/CancelChangeSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/CancelChangeSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/CancelChangeSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ DescribeChangeSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/DescribeChangeSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeChangeSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeChangeSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ DescribeEntity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/DescribeEntityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeEntityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeEntityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ ListChangeSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/ListChangeSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListChangeSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListChangeSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ ListEntities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/ListEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListEntitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +273,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +280,6 @@ StartChangeSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/StartChangeSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/StartChangeSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/StartChangeSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +287,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,5 +294,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/UntagResourceCommandOutput/)
-
 </details>

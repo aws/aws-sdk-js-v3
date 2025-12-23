@@ -10,9 +10,9 @@ const checkState = async (client: ProtonClient, input: GetComponentCommandInput)
     const result: any = await client.send(new GetComponentCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.component.deploymentStatus;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

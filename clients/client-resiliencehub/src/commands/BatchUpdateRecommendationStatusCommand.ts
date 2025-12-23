@@ -27,9 +27,7 @@ export interface BatchUpdateRecommendationStatusCommandInput extends BatchUpdate
  *
  * The output of {@link BatchUpdateRecommendationStatusCommand}.
  */
-export interface BatchUpdateRecommendationStatusCommandOutput
-  extends BatchUpdateRecommendationStatusResponse,
-    __MetadataBearer {}
+export interface BatchUpdateRecommendationStatusCommandOutput extends BatchUpdateRecommendationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Enables you to include or exclude one or more operational recommendations.</p>

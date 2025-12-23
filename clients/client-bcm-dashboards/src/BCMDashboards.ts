@@ -65,7 +65,10 @@ export interface BCMDashboards {
     args: CreateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDashboardCommandOutput>;
-  createDashboard(args: CreateDashboardCommandInput, cb: (err: any, data?: CreateDashboardCommandOutput) => void): void;
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    cb: (err: any, data?: CreateDashboardCommandOutput) => void
+  ): void;
   createDashboard(
     args: CreateDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -79,7 +82,10 @@ export interface BCMDashboards {
     args: DeleteDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDashboardCommandOutput>;
-  deleteDashboard(args: DeleteDashboardCommandInput, cb: (err: any, data?: DeleteDashboardCommandOutput) => void): void;
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -89,8 +95,14 @@ export interface BCMDashboards {
   /**
    * @see {@link GetDashboardCommand}
    */
-  getDashboard(args: GetDashboardCommandInput, options?: __HttpHandlerOptions): Promise<GetDashboardCommandOutput>;
-  getDashboard(args: GetDashboardCommandInput, cb: (err: any, data?: GetDashboardCommandOutput) => void): void;
+  getDashboard(
+    args: GetDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDashboardCommandOutput>;
+  getDashboard(
+    args: GetDashboardCommandInput,
+    cb: (err: any, data?: GetDashboardCommandOutput) => void
+  ): void;
   getDashboard(
     args: GetDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -122,7 +134,10 @@ export interface BCMDashboards {
     args: ListDashboardsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDashboardsCommandOutput>;
-  listDashboards(args: ListDashboardsCommandInput, cb: (err: any, data?: ListDashboardsCommandOutput) => void): void;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
   listDashboards(
     args: ListDashboardsCommandInput,
     options: __HttpHandlerOptions,
@@ -149,8 +164,14 @@ export interface BCMDashboards {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -160,8 +181,14 @@ export interface BCMDashboards {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -175,7 +202,10 @@ export interface BCMDashboards {
     args: UpdateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDashboardCommandOutput>;
-  updateDashboard(args: UpdateDashboardCommandInput, cb: (err: any, data?: UpdateDashboardCommandOutput) => void): void;
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
   updateDashboard(
     args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,

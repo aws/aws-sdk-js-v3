@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableOrganizationsRootCredentialsManagementCommand}.
  */
-export interface DisableOrganizationsRootCredentialsManagementCommandInput
-  extends DisableOrganizationsRootCredentialsManagementRequest {}
+export interface DisableOrganizationsRootCredentialsManagementCommandInput extends DisableOrganizationsRootCredentialsManagementRequest {}
 /**
  * @public
  *
  * The output of {@link DisableOrganizationsRootCredentialsManagementCommand}.
  */
-export interface DisableOrganizationsRootCredentialsManagementCommandOutput
-  extends DisableOrganizationsRootCredentialsManagementResponse,
-    __MetadataBearer {}
+export interface DisableOrganizationsRootCredentialsManagementCommandOutput extends DisableOrganizationsRootCredentialsManagementResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the management of privileged root user credentials across member accounts in

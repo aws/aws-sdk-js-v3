@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationTrainedModelInferenceJobsCommand}.
  */
-export interface ListCollaborationTrainedModelInferenceJobsCommandInput
-  extends ListCollaborationTrainedModelInferenceJobsRequest {}
+export interface ListCollaborationTrainedModelInferenceJobsCommandInput extends ListCollaborationTrainedModelInferenceJobsRequest {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationTrainedModelInferenceJobsCommand}.
  */
-export interface ListCollaborationTrainedModelInferenceJobsCommandOutput
-  extends ListCollaborationTrainedModelInferenceJobsResponse,
-    __MetadataBearer {}
+export interface ListCollaborationTrainedModelInferenceJobsCommandOutput extends ListCollaborationTrainedModelInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of trained model inference jobs in a specified collaboration.</p>

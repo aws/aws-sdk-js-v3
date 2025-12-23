@@ -29,10 +29,8 @@ attachment sharing, managing a participant's connection state and message events
 retrieving chat transcripts.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-connectparticipant
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-connectparticipant`
 - `yarn add @aws-sdk/client-connectparticipant`
 - `pnpm add @aws-sdk/client-connectparticipant`
@@ -68,9 +66,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ConnectParticipantClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetTranscriptCommand(params);
 ```
 
@@ -229,7 +225,6 @@ CancelParticipantAuthentication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/CancelParticipantAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CancelParticipantAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CancelParticipantAuthenticationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -237,7 +232,6 @@ CompleteAttachmentUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/CompleteAttachmentUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CompleteAttachmentUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CompleteAttachmentUploadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +239,6 @@ CreateParticipantConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/CreateParticipantConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CreateParticipantConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CreateParticipantConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +246,6 @@ DescribeView
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/DescribeViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/DescribeViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/DescribeViewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +253,6 @@ DisconnectParticipant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/DisconnectParticipantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/DisconnectParticipantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/DisconnectParticipantCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +260,6 @@ GetAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/GetAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAttachmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +267,6 @@ GetAuthenticationUrl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/GetAuthenticationUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAuthenticationUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAuthenticationUrlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +274,6 @@ GetTranscript
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/GetTranscriptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetTranscriptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetTranscriptCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +281,6 @@ SendEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/SendEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/SendEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/SendEventCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +288,6 @@ SendMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/SendMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/SendMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/SendMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,5 +295,4 @@ StartAttachmentUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/StartAttachmentUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/StartAttachmentUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/StartAttachmentUploadCommandOutput/)
-
 </details>

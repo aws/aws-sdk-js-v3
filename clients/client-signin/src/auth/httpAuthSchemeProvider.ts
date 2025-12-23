@@ -46,11 +46,9 @@ export const defaultSigninHttpAuthSchemeParametersProvider = async (
 ): Promise<SigninHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -93,7 +91,7 @@ export const defaultSigninHttpAuthSchemeProvider: SigninHttpAuthSchemeProvider =
     case "CreateOAuth2Token": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

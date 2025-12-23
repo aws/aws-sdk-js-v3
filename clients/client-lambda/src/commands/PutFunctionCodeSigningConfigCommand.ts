@@ -24,9 +24,7 @@ export interface PutFunctionCodeSigningConfigCommandInput extends PutFunctionCod
  *
  * The output of {@link PutFunctionCodeSigningConfigCommand}.
  */
-export interface PutFunctionCodeSigningConfigCommandOutput
-  extends PutFunctionCodeSigningConfigResponse,
-    __MetadataBearer {}
+export interface PutFunctionCodeSigningConfigCommandOutput extends PutFunctionCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>

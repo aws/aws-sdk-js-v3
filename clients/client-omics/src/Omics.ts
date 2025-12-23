@@ -540,8 +540,14 @@ export interface Omics {
   /**
    * @see {@link AcceptShareCommand}
    */
-  acceptShare(args: AcceptShareCommandInput, options?: __HttpHandlerOptions): Promise<AcceptShareCommandOutput>;
-  acceptShare(args: AcceptShareCommandInput, cb: (err: any, data?: AcceptShareCommandOutput) => void): void;
+  acceptShare(
+    args: AcceptShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptShareCommandOutput>;
+  acceptShare(
+    args: AcceptShareCommandInput,
+    cb: (err: any, data?: AcceptShareCommandOutput) => void
+  ): void;
   acceptShare(
     args: AcceptShareCommandInput,
     options: __HttpHandlerOptions,
@@ -585,8 +591,14 @@ export interface Omics {
   /**
    * @see {@link CancelRunCommand}
    */
-  cancelRun(args: CancelRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelRunCommandOutput>;
-  cancelRun(args: CancelRunCommandInput, cb: (err: any, data?: CancelRunCommandOutput) => void): void;
+  cancelRun(
+    args: CancelRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelRunCommandOutput>;
+  cancelRun(
+    args: CancelRunCommandInput,
+    cb: (err: any, data?: CancelRunCommandOutput) => void
+  ): void;
   cancelRun(
     args: CancelRunCommandInput,
     options: __HttpHandlerOptions,
@@ -702,7 +714,10 @@ export interface Omics {
     args: CreateRunCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRunCacheCommandOutput>;
-  createRunCache(args: CreateRunCacheCommandInput, cb: (err: any, data?: CreateRunCacheCommandOutput) => void): void;
+  createRunCache(
+    args: CreateRunCacheCommandInput,
+    cb: (err: any, data?: CreateRunCacheCommandOutput) => void
+  ): void;
   createRunCache(
     args: CreateRunCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -716,7 +731,10 @@ export interface Omics {
     args: CreateRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRunGroupCommandOutput>;
-  createRunGroup(args: CreateRunGroupCommandInput, cb: (err: any, data?: CreateRunGroupCommandOutput) => void): void;
+  createRunGroup(
+    args: CreateRunGroupCommandInput,
+    cb: (err: any, data?: CreateRunGroupCommandOutput) => void
+  ): void;
   createRunGroup(
     args: CreateRunGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -743,8 +761,14 @@ export interface Omics {
   /**
    * @see {@link CreateShareCommand}
    */
-  createShare(args: CreateShareCommandInput, options?: __HttpHandlerOptions): Promise<CreateShareCommandOutput>;
-  createShare(args: CreateShareCommandInput, cb: (err: any, data?: CreateShareCommandOutput) => void): void;
+  createShare(
+    args: CreateShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateShareCommandOutput>;
+  createShare(
+    args: CreateShareCommandInput,
+    cb: (err: any, data?: CreateShareCommandOutput) => void
+  ): void;
   createShare(
     args: CreateShareCommandInput,
     options: __HttpHandlerOptions,
@@ -775,7 +799,10 @@ export interface Omics {
     args: CreateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkflowCommandOutput>;
-  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -840,7 +867,10 @@ export interface Omics {
     args: DeleteReferenceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReferenceCommandOutput>;
-  deleteReference(args: DeleteReferenceCommandInput, cb: (err: any, data?: DeleteReferenceCommandOutput) => void): void;
+  deleteReference(
+    args: DeleteReferenceCommandInput,
+    cb: (err: any, data?: DeleteReferenceCommandOutput) => void
+  ): void;
   deleteReference(
     args: DeleteReferenceCommandInput,
     options: __HttpHandlerOptions,
@@ -867,8 +897,14 @@ export interface Omics {
   /**
    * @see {@link DeleteRunCommand}
    */
-  deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
-  deleteRun(args: DeleteRunCommandInput, cb: (err: any, data?: DeleteRunCommandOutput) => void): void;
+  deleteRun(
+    args: DeleteRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRunCommandOutput>;
+  deleteRun(
+    args: DeleteRunCommandInput,
+    cb: (err: any, data?: DeleteRunCommandOutput) => void
+  ): void;
   deleteRun(
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
@@ -882,7 +918,10 @@ export interface Omics {
     args: DeleteRunCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRunCacheCommandOutput>;
-  deleteRunCache(args: DeleteRunCacheCommandInput, cb: (err: any, data?: DeleteRunCacheCommandOutput) => void): void;
+  deleteRunCache(
+    args: DeleteRunCacheCommandInput,
+    cb: (err: any, data?: DeleteRunCacheCommandOutput) => void
+  ): void;
   deleteRunCache(
     args: DeleteRunCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -896,7 +935,10 @@ export interface Omics {
     args: DeleteRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRunGroupCommandOutput>;
-  deleteRunGroup(args: DeleteRunGroupCommandInput, cb: (err: any, data?: DeleteRunGroupCommandOutput) => void): void;
+  deleteRunGroup(
+    args: DeleteRunGroupCommandInput,
+    cb: (err: any, data?: DeleteRunGroupCommandOutput) => void
+  ): void;
   deleteRunGroup(
     args: DeleteRunGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -940,8 +982,14 @@ export interface Omics {
   /**
    * @see {@link DeleteShareCommand}
    */
-  deleteShare(args: DeleteShareCommandInput, options?: __HttpHandlerOptions): Promise<DeleteShareCommandOutput>;
-  deleteShare(args: DeleteShareCommandInput, cb: (err: any, data?: DeleteShareCommandOutput) => void): void;
+  deleteShare(
+    args: DeleteShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteShareCommandOutput>;
+  deleteShare(
+    args: DeleteShareCommandInput,
+    cb: (err: any, data?: DeleteShareCommandOutput) => void
+  ): void;
   deleteShare(
     args: DeleteShareCommandInput,
     options: __HttpHandlerOptions,
@@ -972,7 +1020,10 @@ export interface Omics {
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -1050,8 +1101,14 @@ export interface Omics {
   /**
    * @see {@link GetReadSetCommand}
    */
-  getReadSet(args: GetReadSetCommandInput, options?: __HttpHandlerOptions): Promise<GetReadSetCommandOutput>;
-  getReadSet(args: GetReadSetCommandInput, cb: (err: any, data?: GetReadSetCommandOutput) => void): void;
+  getReadSet(
+    args: GetReadSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReadSetCommandOutput>;
+  getReadSet(
+    args: GetReadSetCommandInput,
+    cb: (err: any, data?: GetReadSetCommandOutput) => void
+  ): void;
   getReadSet(
     args: GetReadSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1129,8 +1186,14 @@ export interface Omics {
   /**
    * @see {@link GetReferenceCommand}
    */
-  getReference(args: GetReferenceCommandInput, options?: __HttpHandlerOptions): Promise<GetReferenceCommandOutput>;
-  getReference(args: GetReferenceCommandInput, cb: (err: any, data?: GetReferenceCommandOutput) => void): void;
+  getReference(
+    args: GetReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReferenceCommandOutput>;
+  getReference(
+    args: GetReferenceCommandInput,
+    cb: (err: any, data?: GetReferenceCommandOutput) => void
+  ): void;
   getReference(
     args: GetReferenceCommandInput,
     options: __HttpHandlerOptions,
@@ -1191,8 +1254,14 @@ export interface Omics {
   /**
    * @see {@link GetRunCommand}
    */
-  getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
-  getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
+  getRun(
+    args: GetRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRunCommandOutput>;
+  getRun(
+    args: GetRunCommandInput,
+    cb: (err: any, data?: GetRunCommandOutput) => void
+  ): void;
   getRun(
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1202,8 +1271,14 @@ export interface Omics {
   /**
    * @see {@link GetRunCacheCommand}
    */
-  getRunCache(args: GetRunCacheCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCacheCommandOutput>;
-  getRunCache(args: GetRunCacheCommandInput, cb: (err: any, data?: GetRunCacheCommandOutput) => void): void;
+  getRunCache(
+    args: GetRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRunCacheCommandOutput>;
+  getRunCache(
+    args: GetRunCacheCommandInput,
+    cb: (err: any, data?: GetRunCacheCommandOutput) => void
+  ): void;
   getRunCache(
     args: GetRunCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1213,8 +1288,14 @@ export interface Omics {
   /**
    * @see {@link GetRunGroupCommand}
    */
-  getRunGroup(args: GetRunGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRunGroupCommandOutput>;
-  getRunGroup(args: GetRunGroupCommandInput, cb: (err: any, data?: GetRunGroupCommandOutput) => void): void;
+  getRunGroup(
+    args: GetRunGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRunGroupCommandOutput>;
+  getRunGroup(
+    args: GetRunGroupCommandInput,
+    cb: (err: any, data?: GetRunGroupCommandOutput) => void
+  ): void;
   getRunGroup(
     args: GetRunGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1224,8 +1305,14 @@ export interface Omics {
   /**
    * @see {@link GetRunTaskCommand}
    */
-  getRunTask(args: GetRunTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetRunTaskCommandOutput>;
-  getRunTask(args: GetRunTaskCommandInput, cb: (err: any, data?: GetRunTaskCommandOutput) => void): void;
+  getRunTask(
+    args: GetRunTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRunTaskCommandOutput>;
+  getRunTask(
+    args: GetRunTaskCommandInput,
+    cb: (err: any, data?: GetRunTaskCommandOutput) => void
+  ): void;
   getRunTask(
     args: GetRunTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1269,8 +1356,14 @@ export interface Omics {
   /**
    * @see {@link GetShareCommand}
    */
-  getShare(args: GetShareCommandInput, options?: __HttpHandlerOptions): Promise<GetShareCommandOutput>;
-  getShare(args: GetShareCommandInput, cb: (err: any, data?: GetShareCommandOutput) => void): void;
+  getShare(
+    args: GetShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetShareCommandOutput>;
+  getShare(
+    args: GetShareCommandInput,
+    cb: (err: any, data?: GetShareCommandOutput) => void
+  ): void;
   getShare(
     args: GetShareCommandInput,
     options: __HttpHandlerOptions,
@@ -1301,7 +1394,10 @@ export interface Omics {
     args: GetVariantStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVariantStoreCommandOutput>;
-  getVariantStore(args: GetVariantStoreCommandInput, cb: (err: any, data?: GetVariantStoreCommandOutput) => void): void;
+  getVariantStore(
+    args: GetVariantStoreCommandInput,
+    cb: (err: any, data?: GetVariantStoreCommandOutput) => void
+  ): void;
   getVariantStore(
     args: GetVariantStoreCommandInput,
     options: __HttpHandlerOptions,
@@ -1311,8 +1407,14 @@ export interface Omics {
   /**
    * @see {@link GetWorkflowCommand}
    */
-  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -1460,8 +1562,14 @@ export interface Omics {
   /**
    * @see {@link ListReadSetsCommand}
    */
-  listReadSets(args: ListReadSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListReadSetsCommandOutput>;
-  listReadSets(args: ListReadSetsCommandInput, cb: (err: any, data?: ListReadSetsCommandOutput) => void): void;
+  listReadSets(
+    args: ListReadSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReadSetsCommandOutput>;
+  listReadSets(
+    args: ListReadSetsCommandInput,
+    cb: (err: any, data?: ListReadSetsCommandOutput) => void
+  ): void;
   listReadSets(
     args: ListReadSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1509,7 +1617,10 @@ export interface Omics {
     args: ListReferencesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReferencesCommandOutput>;
-  listReferences(args: ListReferencesCommandInput, cb: (err: any, data?: ListReferencesCommandOutput) => void): void;
+  listReferences(
+    args: ListReferencesCommandInput,
+    cb: (err: any, data?: ListReferencesCommandOutput) => void
+  ): void;
   listReferences(
     args: ListReferencesCommandInput,
     options: __HttpHandlerOptions,
@@ -1538,8 +1649,14 @@ export interface Omics {
    * @see {@link ListRunCachesCommand}
    */
   listRunCaches(): Promise<ListRunCachesCommandOutput>;
-  listRunCaches(args: ListRunCachesCommandInput, options?: __HttpHandlerOptions): Promise<ListRunCachesCommandOutput>;
-  listRunCaches(args: ListRunCachesCommandInput, cb: (err: any, data?: ListRunCachesCommandOutput) => void): void;
+  listRunCaches(
+    args: ListRunCachesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunCachesCommandOutput>;
+  listRunCaches(
+    args: ListRunCachesCommandInput,
+    cb: (err: any, data?: ListRunCachesCommandOutput) => void
+  ): void;
   listRunCaches(
     args: ListRunCachesCommandInput,
     options: __HttpHandlerOptions,
@@ -1550,8 +1667,14 @@ export interface Omics {
    * @see {@link ListRunGroupsCommand}
    */
   listRunGroups(): Promise<ListRunGroupsCommandOutput>;
-  listRunGroups(args: ListRunGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunGroupsCommandOutput>;
-  listRunGroups(args: ListRunGroupsCommandInput, cb: (err: any, data?: ListRunGroupsCommandOutput) => void): void;
+  listRunGroups(
+    args: ListRunGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunGroupsCommandOutput>;
+  listRunGroups(
+    args: ListRunGroupsCommandInput,
+    cb: (err: any, data?: ListRunGroupsCommandOutput) => void
+  ): void;
   listRunGroups(
     args: ListRunGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1562,8 +1685,14 @@ export interface Omics {
    * @see {@link ListRunsCommand}
    */
   listRuns(): Promise<ListRunsCommandOutput>;
-  listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
-  listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
+  listRuns(
+    args: ListRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunsCommandOutput>;
+  listRuns(
+    args: ListRunsCommandInput,
+    cb: (err: any, data?: ListRunsCommandOutput) => void
+  ): void;
   listRuns(
     args: ListRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -1573,8 +1702,14 @@ export interface Omics {
   /**
    * @see {@link ListRunTasksCommand}
    */
-  listRunTasks(args: ListRunTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListRunTasksCommandOutput>;
-  listRunTasks(args: ListRunTasksCommandInput, cb: (err: any, data?: ListRunTasksCommandOutput) => void): void;
+  listRunTasks(
+    args: ListRunTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRunTasksCommandOutput>;
+  listRunTasks(
+    args: ListRunTasksCommandInput,
+    cb: (err: any, data?: ListRunTasksCommandOutput) => void
+  ): void;
   listRunTasks(
     args: ListRunTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -1602,8 +1737,14 @@ export interface Omics {
   /**
    * @see {@link ListSharesCommand}
    */
-  listShares(args: ListSharesCommandInput, options?: __HttpHandlerOptions): Promise<ListSharesCommandOutput>;
-  listShares(args: ListSharesCommandInput, cb: (err: any, data?: ListSharesCommandOutput) => void): void;
+  listShares(
+    args: ListSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharesCommandOutput>;
+  listShares(
+    args: ListSharesCommandInput,
+    cb: (err: any, data?: ListSharesCommandOutput) => void
+  ): void;
   listShares(
     args: ListSharesCommandInput,
     options: __HttpHandlerOptions,
@@ -1667,8 +1808,14 @@ export interface Omics {
    * @see {@link ListWorkflowsCommand}
    */
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -1797,8 +1944,14 @@ export interface Omics {
   /**
    * @see {@link StartRunCommand}
    */
-  startRun(args: StartRunCommandInput, options?: __HttpHandlerOptions): Promise<StartRunCommandOutput>;
-  startRun(args: StartRunCommandInput, cb: (err: any, data?: StartRunCommandOutput) => void): void;
+  startRun(
+    args: StartRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRunCommandOutput>;
+  startRun(
+    args: StartRunCommandInput,
+    cb: (err: any, data?: StartRunCommandOutput) => void
+  ): void;
   startRun(
     args: StartRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1825,8 +1978,14 @@ export interface Omics {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1836,8 +1995,14 @@ export interface Omics {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1885,7 +2050,10 @@ export interface Omics {
     args: UpdateRunCacheCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRunCacheCommandOutput>;
-  updateRunCache(args: UpdateRunCacheCommandInput, cb: (err: any, data?: UpdateRunCacheCommandOutput) => void): void;
+  updateRunCache(
+    args: UpdateRunCacheCommandInput,
+    cb: (err: any, data?: UpdateRunCacheCommandOutput) => void
+  ): void;
   updateRunCache(
     args: UpdateRunCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1899,7 +2067,10 @@ export interface Omics {
     args: UpdateRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRunGroupCommandOutput>;
-  updateRunGroup(args: UpdateRunGroupCommandInput, cb: (err: any, data?: UpdateRunGroupCommandOutput) => void): void;
+  updateRunGroup(
+    args: UpdateRunGroupCommandInput,
+    cb: (err: any, data?: UpdateRunGroupCommandOutput) => void
+  ): void;
   updateRunGroup(
     args: UpdateRunGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1947,7 +2118,10 @@ export interface Omics {
     args: UpdateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkflowCommandOutput>;
-  updateWorkflow(args: UpdateWorkflowCommandInput, cb: (err: any, data?: UpdateWorkflowCommandOutput) => void): void;
+  updateWorkflow(
+    args: UpdateWorkflowCommandInput,
+    cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
+  ): void;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
     options: __HttpHandlerOptions,

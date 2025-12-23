@@ -12,10 +12,8 @@ systems, without the need to manually identify and provision individual Amazon W
 resources.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-launch-wizard
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-launch-wizard`
 - `yarn add @aws-sdk/client-launch-wizard`
 - `pnpm add @aws-sdk/client-launch-wizard`
@@ -51,9 +49,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new LaunchWizardClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDeploymentsCommand(params);
 ```
 
@@ -212,7 +208,6 @@ CreateDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/CreateDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/CreateDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/CreateDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +215,6 @@ DeleteDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/DeleteDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/DeleteDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/DeleteDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ GetDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/GetDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +229,6 @@ GetWorkload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/GetWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetWorkloadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +236,6 @@ GetWorkloadDeploymentPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/GetWorkloadDeploymentPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetWorkloadDeploymentPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetWorkloadDeploymentPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +243,6 @@ ListDeploymentEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListDeploymentEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +250,6 @@ ListDeployments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +257,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +264,6 @@ ListWorkloadDeploymentPatterns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListWorkloadDeploymentPatternsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListWorkloadDeploymentPatternsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListWorkloadDeploymentPatternsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +271,6 @@ ListWorkloads
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListWorkloadsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListWorkloadsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListWorkloadsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +278,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,5 +285,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UntagResourceCommandOutput/)
-
 </details>

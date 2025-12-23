@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
-export interface DeregisterTargetFromMaintenanceWindowCommandInput
-  extends DeregisterTargetFromMaintenanceWindowRequest {}
+export interface DeregisterTargetFromMaintenanceWindowCommandInput extends DeregisterTargetFromMaintenanceWindowRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
-export interface DeregisterTargetFromMaintenanceWindowCommandOutput
-  extends DeregisterTargetFromMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface DeregisterTargetFromMaintenanceWindowCommandOutput extends DeregisterTargetFromMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Removes a target from a maintenance window.</p>

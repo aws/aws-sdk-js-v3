@@ -31,9 +31,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandInput extends SetLoadBa
  *
  * The output of {@link SetLoadBalancerPoliciesOfListenerCommand}.
  */
-export interface SetLoadBalancerPoliciesOfListenerCommandOutput
-  extends SetLoadBalancerPoliciesOfListenerOutput,
-    __MetadataBearer {}
+export interface SetLoadBalancerPoliciesOfListenerCommandOutput extends SetLoadBalancerPoliciesOfListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>

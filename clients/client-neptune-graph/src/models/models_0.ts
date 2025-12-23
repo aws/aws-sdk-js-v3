@@ -2157,7 +2157,9 @@ export interface NeptuneImportOptions {
  * <p>Options for how to perform an import.</p>
  * @public
  */
-export type ImportOptions = ImportOptions.NeptuneMember | ImportOptions.$UnknownMember;
+export type ImportOptions =
+  | ImportOptions.NeptuneMember
+  | ImportOptions.$UnknownMember;
 
 /**
  * @public

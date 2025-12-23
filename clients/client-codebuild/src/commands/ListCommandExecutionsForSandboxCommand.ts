@@ -24,9 +24,7 @@ export interface ListCommandExecutionsForSandboxCommandInput extends ListCommand
  *
  * The output of {@link ListCommandExecutionsForSandboxCommand}.
  */
-export interface ListCommandExecutionsForSandboxCommandOutput
-  extends ListCommandExecutionsForSandboxOutput,
-    __MetadataBearer {}
+export interface ListCommandExecutionsForSandboxCommandOutput extends ListCommandExecutionsForSandboxOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of command executions for a sandbox.</p>

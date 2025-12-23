@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface PutVoiceConnectorExternalSystemsConfigurationCommandInput
-  extends PutVoiceConnectorExternalSystemsConfigurationRequest {}
+export interface PutVoiceConnectorExternalSystemsConfigurationCommandInput extends PutVoiceConnectorExternalSystemsConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface PutVoiceConnectorExternalSystemsConfigurationCommandOutput
-  extends PutVoiceConnectorExternalSystemsConfigurationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorExternalSystemsConfigurationCommandOutput extends PutVoiceConnectorExternalSystemsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an external systems configuration to a Voice Connector.</p>

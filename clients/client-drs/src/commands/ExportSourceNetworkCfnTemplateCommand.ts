@@ -24,9 +24,7 @@ export interface ExportSourceNetworkCfnTemplateCommandInput extends ExportSource
  *
  * The output of {@link ExportSourceNetworkCfnTemplateCommand}.
  */
-export interface ExportSourceNetworkCfnTemplateCommandOutput
-  extends ExportSourceNetworkCfnTemplateResponse,
-    __MetadataBearer {}
+export interface ExportSourceNetworkCfnTemplateCommandOutput extends ExportSourceNetworkCfnTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Export the Source Network CloudFormation template to an S3 bucket.</p>

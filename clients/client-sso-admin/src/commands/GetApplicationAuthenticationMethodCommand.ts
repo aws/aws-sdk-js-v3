@@ -27,9 +27,7 @@ export interface GetApplicationAuthenticationMethodCommandInput extends GetAppli
  *
  * The output of {@link GetApplicationAuthenticationMethodCommand}.
  */
-export interface GetApplicationAuthenticationMethodCommandOutput
-  extends GetApplicationAuthenticationMethodResponse,
-    __MetadataBearer {}
+export interface GetApplicationAuthenticationMethodCommandOutput extends GetApplicationAuthenticationMethodResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an authentication method used by an application.</p>

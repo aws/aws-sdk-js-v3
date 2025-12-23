@@ -24,9 +24,7 @@ export interface ListMarketplaceModelEndpointsCommandInput extends ListMarketpla
  *
  * The output of {@link ListMarketplaceModelEndpointsCommand}.
  */
-export interface ListMarketplaceModelEndpointsCommandOutput
-  extends ListMarketplaceModelEndpointsResponse,
-    __MetadataBearer {}
+export interface ListMarketplaceModelEndpointsCommandOutput extends ListMarketplaceModelEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the endpoints for models from Amazon Bedrock Marketplace in your Amazon Web Services account.</p>

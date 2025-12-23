@@ -24,9 +24,7 @@ export interface GetMobileDeviceAccessOverrideCommandInput extends GetMobileDevi
  *
  * The output of {@link GetMobileDeviceAccessOverrideCommand}.
  */
-export interface GetMobileDeviceAccessOverrideCommandOutput
-  extends GetMobileDeviceAccessOverrideResponse,
-    __MetadataBearer {}
+export interface GetMobileDeviceAccessOverrideCommandOutput extends GetMobileDeviceAccessOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>

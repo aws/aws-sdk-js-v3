@@ -24,9 +24,7 @@ export interface DeleteAccessLogSubscriptionCommandInput extends DeleteAccessLog
  *
  * The output of {@link DeleteAccessLogSubscriptionCommand}.
  */
-export interface DeleteAccessLogSubscriptionCommandOutput
-  extends DeleteAccessLogSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteAccessLogSubscriptionCommandOutput extends DeleteAccessLogSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified access log subscription.</p>

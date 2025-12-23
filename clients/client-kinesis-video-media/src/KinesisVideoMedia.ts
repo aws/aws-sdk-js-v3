@@ -13,8 +13,14 @@ export interface KinesisVideoMedia {
   /**
    * @see {@link GetMediaCommand}
    */
-  getMedia(args: GetMediaCommandInput, options?: __HttpHandlerOptions): Promise<GetMediaCommandOutput>;
-  getMedia(args: GetMediaCommandInput, cb: (err: any, data?: GetMediaCommandOutput) => void): void;
+  getMedia(
+    args: GetMediaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaCommandOutput>;
+  getMedia(
+    args: GetMediaCommandInput,
+    cb: (err: any, data?: GetMediaCommandOutput) => void
+  ): void;
   getMedia(
     args: GetMediaCommandInput,
     options: __HttpHandlerOptions,

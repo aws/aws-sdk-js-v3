@@ -27,9 +27,7 @@ export interface UpdateAssessmentControlSetStatusCommandInput extends UpdateAsse
  *
  * The output of {@link UpdateAssessmentControlSetStatusCommand}.
  */
-export interface UpdateAssessmentControlSetStatusCommandOutput
-  extends UpdateAssessmentControlSetStatusResponse,
-    __MetadataBearer {}
+export interface UpdateAssessmentControlSetStatusCommandOutput extends UpdateAssessmentControlSetStatusResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the status of a control set in an Audit Manager assessment. </p>

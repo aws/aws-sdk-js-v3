@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
-  extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
-  extends GetVoiceConnectorEmergencyCallingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput extends GetVoiceConnectorEmergencyCallingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the emergency calling configuration details for the specified Voice Connector.</p>

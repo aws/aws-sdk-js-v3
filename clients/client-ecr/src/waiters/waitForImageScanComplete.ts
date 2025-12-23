@@ -13,17 +13,17 @@ const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCom
     const result: any = await client.send(new DescribeImageScanFindingsCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.imageScanStatus.status;
-      };
+      }
       if (returnComparator() === "COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.imageScanStatus.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

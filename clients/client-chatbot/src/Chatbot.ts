@@ -543,7 +543,10 @@ export interface Chatbot {
     args: GetCustomActionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCustomActionCommandOutput>;
-  getCustomAction(args: GetCustomActionCommandInput, cb: (err: any, data?: GetCustomActionCommandOutput) => void): void;
+  getCustomAction(
+    args: GetCustomActionCommandInput,
+    cb: (err: any, data?: GetCustomActionCommandOutput) => void
+  ): void;
   getCustomAction(
     args: GetCustomActionCommandInput,
     options: __HttpHandlerOptions,
@@ -676,8 +679,14 @@ export interface Chatbot {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -687,8 +696,14 @@ export interface Chatbot {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

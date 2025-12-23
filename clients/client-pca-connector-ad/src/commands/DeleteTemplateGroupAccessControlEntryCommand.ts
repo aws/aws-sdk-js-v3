@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteTemplateGroupAccessControlEntryCommand}.
  */
-export interface DeleteTemplateGroupAccessControlEntryCommandInput
-  extends DeleteTemplateGroupAccessControlEntryRequest {}
+export interface DeleteTemplateGroupAccessControlEntryCommandInput extends DeleteTemplateGroupAccessControlEntryRequest {}
 /**
  * @public
  *

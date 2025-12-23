@@ -35,6 +35,8 @@ import {
   ListSlackWorkspaceConfigurationsRequest$,
   ListSlackWorkspaceConfigurationsResult$,
   NotificationSeverityLevel,
+  paginateListSlackChannelConfigurations,
+  paginateListSlackWorkspaceConfigurations,
   PutAccountAlias$,
   PutAccountAliasCommand,
   PutAccountAliasRequest$,
@@ -58,8 +60,6 @@ import {
   UpdateSlackChannelConfigurationResult$,
   ValidationException,
   ValidationException$,
-  paginateListSlackChannelConfigurations,
-  paginateListSlackWorkspaceConfigurations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

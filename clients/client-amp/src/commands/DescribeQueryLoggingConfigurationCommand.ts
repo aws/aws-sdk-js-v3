@@ -27,9 +27,7 @@ export interface DescribeQueryLoggingConfigurationCommandInput extends DescribeQ
  *
  * The output of {@link DescribeQueryLoggingConfigurationCommand}.
  */
-export interface DescribeQueryLoggingConfigurationCommandOutput
-  extends DescribeQueryLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeQueryLoggingConfigurationCommandOutput extends DescribeQueryLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of the query logging configuration for the specified workspace.</p>

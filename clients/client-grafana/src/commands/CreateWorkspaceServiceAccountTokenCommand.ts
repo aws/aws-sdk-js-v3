@@ -27,9 +27,7 @@ export interface CreateWorkspaceServiceAccountTokenCommandInput extends CreateWo
  *
  * The output of {@link CreateWorkspaceServiceAccountTokenCommand}.
  */
-export interface CreateWorkspaceServiceAccountTokenCommandOutput
-  extends CreateWorkspaceServiceAccountTokenResponse,
-    __MetadataBearer {}
+export interface CreateWorkspaceServiceAccountTokenCommandOutput extends CreateWorkspaceServiceAccountTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a token that can be used to authenticate and authorize Grafana HTTP API

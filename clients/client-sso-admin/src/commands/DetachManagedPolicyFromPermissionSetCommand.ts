@@ -27,9 +27,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandInput extends Detach
  *
  * The output of {@link DetachManagedPolicyFromPermissionSetCommand}.
  */
-export interface DetachManagedPolicyFromPermissionSetCommandOutput
-  extends DetachManagedPolicyFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DetachManagedPolicyFromPermissionSetCommandOutput extends DetachManagedPolicyFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>

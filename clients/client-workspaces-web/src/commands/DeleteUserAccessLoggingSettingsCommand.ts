@@ -27,9 +27,7 @@ export interface DeleteUserAccessLoggingSettingsCommandInput extends DeleteUserA
  *
  * The output of {@link DeleteUserAccessLoggingSettingsCommand}.
  */
-export interface DeleteUserAccessLoggingSettingsCommandOutput
-  extends DeleteUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface DeleteUserAccessLoggingSettingsCommandOutput extends DeleteUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes user access logging settings.</p>

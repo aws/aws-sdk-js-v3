@@ -26,6 +26,7 @@ import {
   MediaStoreDataServiceException,
   ObjectNotFoundException,
   ObjectNotFoundException$,
+  paginateListItems,
   PutObject$,
   PutObjectCommand,
   PutObjectRequest$,
@@ -34,7 +35,6 @@ import {
   RequestedRangeNotSatisfiableException$,
   StorageClass,
   UploadAvailability,
-  paginateListItems,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

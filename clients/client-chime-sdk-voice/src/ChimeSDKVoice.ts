@@ -715,8 +715,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link CreateSipRuleCommand}
    */
-  createSipRule(args: CreateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateSipRuleCommandOutput>;
-  createSipRule(args: CreateSipRuleCommandInput, cb: (err: any, data?: CreateSipRuleCommandOutput) => void): void;
+  createSipRule(
+    args: CreateSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipRuleCommandOutput>;
+  createSipRule(
+    args: CreateSipRuleCommandInput,
+    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
+  ): void;
   createSipRule(
     args: CreateSipRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -845,8 +851,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link DeleteSipRuleCommand}
    */
-  deleteSipRule(args: DeleteSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSipRuleCommandOutput>;
-  deleteSipRule(args: DeleteSipRuleCommandInput, cb: (err: any, data?: DeleteSipRuleCommandOutput) => void): void;
+  deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSipRuleCommandOutput>;
+  deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
+  ): void;
   deleteSipRule(
     args: DeleteSipRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1099,7 +1111,10 @@ export interface ChimeSDKVoice {
     args: GetPhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPhoneNumberCommandOutput>;
-  getPhoneNumber(args: GetPhoneNumberCommandInput, cb: (err: any, data?: GetPhoneNumberCommandOutput) => void): void;
+  getPhoneNumber(
+    args: GetPhoneNumberCommandInput,
+    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
+  ): void;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
@@ -1148,7 +1163,10 @@ export interface ChimeSDKVoice {
     args: GetProxySessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetProxySessionCommandOutput>;
-  getProxySession(args: GetProxySessionCommandInput, cb: (err: any, data?: GetProxySessionCommandOutput) => void): void;
+  getProxySession(
+    args: GetProxySessionCommandInput,
+    cb: (err: any, data?: GetProxySessionCommandOutput) => void
+  ): void;
   getProxySession(
     args: GetProxySessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1209,8 +1227,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link GetSipRuleCommand}
    */
-  getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
-  getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
+  getSipRule(
+    args: GetSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSipRuleCommandOutput>;
+  getSipRule(
+    args: GetSipRuleCommandInput,
+    cb: (err: any, data?: GetSipRuleCommandOutput) => void
+  ): void;
   getSipRule(
     args: GetSipRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1411,7 +1435,10 @@ export interface ChimeSDKVoice {
     args: GetVoiceProfileCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceProfileCommandOutput>;
-  getVoiceProfile(args: GetVoiceProfileCommandInput, cb: (err: any, data?: GetVoiceProfileCommandOutput) => void): void;
+  getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    cb: (err: any, data?: GetVoiceProfileCommandOutput) => void
+  ): void;
   getVoiceProfile(
     args: GetVoiceProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -1545,8 +1572,14 @@ export interface ChimeSDKVoice {
    * @see {@link ListSipRulesCommand}
    */
   listSipRules(): Promise<ListSipRulesCommandOutput>;
-  listSipRules(args: ListSipRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSipRulesCommandOutput>;
-  listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
+  listSipRules(
+    args: ListSipRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSipRulesCommandOutput>;
+  listSipRules(
+    args: ListSipRulesCommandInput,
+    cb: (err: any, data?: ListSipRulesCommandOutput) => void
+  ): void;
   listSipRules(
     args: ListSipRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -1951,8 +1984,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1962,8 +2001,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2076,8 +2121,14 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link UpdateSipRuleCommand}
    */
-  updateSipRule(args: UpdateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSipRuleCommandOutput>;
-  updateSipRule(args: UpdateSipRuleCommandInput, cb: (err: any, data?: UpdateSipRuleCommandOutput) => void): void;
+  updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipRuleCommandOutput>;
+  updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
+  ): void;
   updateSipRule(
     args: UpdateSipRuleCommandInput,
     options: __HttpHandlerOptions,

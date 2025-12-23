@@ -9,10 +9,8 @@ AWS SDK for JavaScript GroundStation Client for Node.js, Browser and React Nativ
 <p>Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-groundstation
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-groundstation`
 - `yarn add @aws-sdk/client-groundstation`
 - `pnpm add @aws-sdk/client-groundstation`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new GroundStationClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConfigsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CancelContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CancelContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CancelContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CancelContactCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateDataflowEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateDataflowEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateDataflowEndpointGroupV2
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateDataflowEndpointGroupV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupV2CommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreateEphemeris
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateEphemerisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateEphemerisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateEphemerisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ CreateMissionProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateMissionProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateMissionProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateMissionProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DeleteConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DeleteDataflowEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DeleteDataflowEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteDataflowEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteDataflowEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ DeleteEphemeris
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DeleteEphemerisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteEphemerisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteEphemerisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ DeleteMissionProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DeleteMissionProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteMissionProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DeleteMissionProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ DescribeContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DescribeContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DescribeContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DescribeContactCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ DescribeEphemeris
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/DescribeEphemerisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DescribeEphemerisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/DescribeEphemerisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ GetAgentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetAgentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ GetAgentTaskResponseUrl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetAgentTaskResponseUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentTaskResponseUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentTaskResponseUrlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ GetConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ GetDataflowEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetDataflowEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetDataflowEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetDataflowEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ GetMinuteUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetMinuteUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetMinuteUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetMinuteUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ GetMissionProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetMissionProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetMissionProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetMissionProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ GetSatellite
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetSatelliteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetSatelliteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetSatelliteCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ ListConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ ListContacts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListContactsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ ListDataflowEndpointGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListDataflowEndpointGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListDataflowEndpointGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListDataflowEndpointGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ ListEphemerides
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListEphemeridesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListEphemeridesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListEphemeridesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ ListGroundStations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListGroundStationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListGroundStationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListGroundStationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ ListMissionProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListMissionProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListMissionProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListMissionProfilesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ ListSatellites
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListSatellitesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListSatellitesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListSatellitesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ RegisterAgent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/RegisterAgentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/RegisterAgentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/RegisterAgentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ ReserveContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/ReserveContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ReserveContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/ReserveContactCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +415,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +422,6 @@ UpdateAgentStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/UpdateAgentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateAgentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateAgentStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +429,6 @@ UpdateConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/UpdateConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +436,6 @@ UpdateEphemeris
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/UpdateEphemerisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateEphemerisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateEphemerisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,5 +443,4 @@ UpdateMissionProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/UpdateMissionProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateMissionProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/UpdateMissionProfileCommandOutput/)
-
 </details>

@@ -24,9 +24,7 @@ export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTabl
  *
  * The output of {@link RestoreTableFromClusterSnapshotCommand}.
  */
-export interface RestoreTableFromClusterSnapshotCommandOutput
-  extends RestoreTableFromClusterSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreTableFromClusterSnapshotCommandOutput extends RestoreTableFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must

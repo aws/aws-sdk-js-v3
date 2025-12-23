@@ -28,9 +28,7 @@ export interface GetDeliveryDestinationPolicyCommandInput extends GetDeliveryDes
  *
  * The output of {@link GetDeliveryDestinationPolicyCommand}.
  */
-export interface GetDeliveryDestinationPolicyCommandOutput
-  extends GetDeliveryDestinationPolicyResponse,
-    __MetadataBearer {}
+export interface GetDeliveryDestinationPolicyCommandOutput extends GetDeliveryDestinationPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the delivery destination policy assigned to the delivery destination that you

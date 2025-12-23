@@ -24,9 +24,7 @@ export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReser
  *
  * The output of {@link PurchaseReservedNodesOfferingCommand}.
  */
-export interface PurchaseReservedNodesOfferingCommandOutput
-  extends PurchaseReservedNodesOfferingResponse,
-    __MetadataBearer {}
+export interface PurchaseReservedNodesOfferingCommandOutput extends PurchaseReservedNodesOfferingResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>

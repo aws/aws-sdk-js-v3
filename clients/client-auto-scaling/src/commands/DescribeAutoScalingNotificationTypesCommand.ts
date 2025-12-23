@@ -24,9 +24,7 @@ export interface DescribeAutoScalingNotificationTypesCommandInput {}
  *
  * The output of {@link DescribeAutoScalingNotificationTypesCommand}.
  */
-export interface DescribeAutoScalingNotificationTypesCommandOutput
-  extends DescribeAutoScalingNotificationTypesAnswer,
-    __MetadataBearer {}
+export interface DescribeAutoScalingNotificationTypesCommandOutput extends DescribeAutoScalingNotificationTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>

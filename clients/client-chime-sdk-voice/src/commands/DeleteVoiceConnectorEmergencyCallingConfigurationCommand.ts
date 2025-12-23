@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
-  extends DeleteVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput extends DeleteVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
  * @public
  *

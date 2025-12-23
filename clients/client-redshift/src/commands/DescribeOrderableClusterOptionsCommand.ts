@@ -24,9 +24,7 @@ export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrd
  *
  * The output of {@link DescribeOrderableClusterOptionsCommand}.
  */
-export interface DescribeOrderableClusterOptionsCommandOutput
-  extends OrderableClusterOptionsMessage,
-    __MetadataBearer {}
+export interface DescribeOrderableClusterOptionsCommandOutput extends OrderableClusterOptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of orderable cluster options. Before you create a new cluster you

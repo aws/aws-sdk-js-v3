@@ -31,9 +31,7 @@ export interface UpdateDataIntegrationAssociationCommandInput extends UpdateData
  *
  * The output of {@link UpdateDataIntegrationAssociationCommand}.
  */
-export interface UpdateDataIntegrationAssociationCommandOutput
-  extends UpdateDataIntegrationAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateDataIntegrationAssociationCommandOutput extends UpdateDataIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates and persists a DataIntegrationAssociation resource.</p>

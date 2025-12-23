@@ -25,9 +25,7 @@ export interface SearchWorkspaceAssociationsCommandInput extends SearchWorkspace
  *
  * The output of {@link SearchWorkspaceAssociationsCommand}.
  */
-export interface SearchWorkspaceAssociationsCommandOutput
-  extends SearchWorkspaceAssociationsResponse,
-    __MetadataBearer {}
+export interface SearchWorkspaceAssociationsCommandOutput extends SearchWorkspaceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for workspace associations with users or routing profiles based on various criteria.</p>

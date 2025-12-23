@@ -31,9 +31,7 @@ export interface GetTrustStoreCaCertificatesBundleCommandInput extends GetTrustS
  *
  * The output of {@link GetTrustStoreCaCertificatesBundleCommand}.
  */
-export interface GetTrustStoreCaCertificatesBundleCommandOutput
-  extends GetTrustStoreCaCertificatesBundleOutput,
-    __MetadataBearer {}
+export interface GetTrustStoreCaCertificatesBundleCommandOutput extends GetTrustStoreCaCertificatesBundleOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the ca certificate bundle.</p>

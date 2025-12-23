@@ -8,7 +8,6 @@ AWS SDK for JavaScript WAFV2 Client for Node.js, Browser and React Native.
 
 <fullname>WAF </fullname>
 <note>
-
 <p>This is the latest version of the <b>WAF</b> API,
 released in November, 2019. The names of the entities that you use to access this API,
 like endpoints and namespaces, all have the versioning information added, like "V2" or
@@ -45,10 +44,8 @@ US East (N. Virginia): us-east-1.</p>
 programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-wafv2
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-wafv2`
 - `yarn add @aws-sdk/client-wafv2`
 - `pnpm add @aws-sdk/client-wafv2`
@@ -84,9 +81,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new WAFV2Client({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAPIKeysCommand(params);
 ```
 
@@ -245,7 +240,6 @@ AssociateWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/AssociateWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/AssociateWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/AssociateWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +247,6 @@ CheckCapacity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CheckCapacityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CheckCapacityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CheckCapacityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +254,6 @@ CreateAPIKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CreateAPIKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateAPIKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateAPIKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +261,6 @@ CreateIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CreateIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateIPSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +268,6 @@ CreateRegexPatternSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CreateRegexPatternSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateRegexPatternSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateRegexPatternSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +275,6 @@ CreateRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CreateRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +282,6 @@ CreateWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/CreateWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/CreateWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +289,6 @@ DeleteAPIKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteAPIKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteAPIKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteAPIKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +296,6 @@ DeleteFirewallManagerRuleGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteFirewallManagerRuleGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteFirewallManagerRuleGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteFirewallManagerRuleGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +303,6 @@ DeleteIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteIPSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +310,6 @@ DeleteLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteLoggingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +317,6 @@ DeletePermissionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeletePermissionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeletePermissionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeletePermissionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +324,6 @@ DeleteRegexPatternSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteRegexPatternSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteRegexPatternSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteRegexPatternSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +331,6 @@ DeleteRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +338,6 @@ DeleteWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +345,6 @@ DescribeAllManagedProducts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DescribeAllManagedProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeAllManagedProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeAllManagedProductsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +352,6 @@ DescribeManagedProductsByVendor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DescribeManagedProductsByVendorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeManagedProductsByVendorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeManagedProductsByVendorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +359,6 @@ DescribeManagedRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DescribeManagedRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeManagedRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DescribeManagedRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +366,6 @@ DisassociateWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DisassociateWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DisassociateWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DisassociateWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +373,6 @@ GenerateMobileSdkReleaseUrl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GenerateMobileSdkReleaseUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GenerateMobileSdkReleaseUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GenerateMobileSdkReleaseUrlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +380,6 @@ GetDecryptedAPIKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetDecryptedAPIKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetDecryptedAPIKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetDecryptedAPIKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,7 +387,6 @@ GetIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetIPSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -421,7 +394,6 @@ GetLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetLoggingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -429,7 +401,6 @@ GetManagedRuleSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetManagedRuleSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetManagedRuleSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetManagedRuleSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -437,7 +408,6 @@ GetMobileSdkRelease
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetMobileSdkReleaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetMobileSdkReleaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetMobileSdkReleaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -445,7 +415,6 @@ GetPermissionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetPermissionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetPermissionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetPermissionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -453,7 +422,6 @@ GetRateBasedStatementManagedKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetRateBasedStatementManagedKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRateBasedStatementManagedKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRateBasedStatementManagedKeysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -461,7 +429,6 @@ GetRegexPatternSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetRegexPatternSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRegexPatternSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRegexPatternSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -469,7 +436,6 @@ GetRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -477,7 +443,6 @@ GetSampledRequests
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetSampledRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetSampledRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetSampledRequestsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -485,7 +450,6 @@ GetWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -493,7 +457,6 @@ GetWebACLForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/GetWebACLForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetWebACLForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/GetWebACLForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -501,7 +464,6 @@ ListAPIKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListAPIKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAPIKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAPIKeysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -509,7 +471,6 @@ ListAvailableManagedRuleGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListAvailableManagedRuleGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -517,7 +478,6 @@ ListAvailableManagedRuleGroupVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListAvailableManagedRuleGroupVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListAvailableManagedRuleGroupVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -525,7 +485,6 @@ ListIPSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListIPSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListIPSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListIPSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -533,7 +492,6 @@ ListLoggingConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListLoggingConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListLoggingConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListLoggingConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -541,7 +499,6 @@ ListManagedRuleSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListManagedRuleSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListManagedRuleSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListManagedRuleSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -549,7 +506,6 @@ ListMobileSdkReleases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListMobileSdkReleasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListMobileSdkReleasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListMobileSdkReleasesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -557,7 +513,6 @@ ListRegexPatternSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListRegexPatternSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListRegexPatternSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListRegexPatternSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -565,7 +520,6 @@ ListResourcesForWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListResourcesForWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListResourcesForWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListResourcesForWebACLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -573,7 +527,6 @@ ListRuleGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListRuleGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListRuleGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListRuleGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -581,7 +534,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -589,7 +541,6 @@ ListWebACLs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/ListWebACLsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListWebACLsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/ListWebACLsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -597,7 +548,6 @@ PutLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/PutLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutLoggingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -605,7 +555,6 @@ PutManagedRuleSetVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/PutManagedRuleSetVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutManagedRuleSetVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutManagedRuleSetVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -613,7 +562,6 @@ PutPermissionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/PutPermissionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutPermissionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/PutPermissionPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -621,7 +569,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -629,7 +576,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -637,7 +583,6 @@ UpdateIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UpdateIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateIPSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -645,7 +590,6 @@ UpdateManagedRuleSetVersionExpiryDate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UpdateManagedRuleSetVersionExpiryDateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateManagedRuleSetVersionExpiryDateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateManagedRuleSetVersionExpiryDateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -653,7 +597,6 @@ UpdateRegexPatternSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UpdateRegexPatternSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateRegexPatternSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateRegexPatternSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -661,7 +604,6 @@ UpdateRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UpdateRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -669,5 +611,4 @@ UpdateWebACL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/UpdateWebACLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateWebACLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/UpdateWebACLCommandOutput/)
-
 </details>

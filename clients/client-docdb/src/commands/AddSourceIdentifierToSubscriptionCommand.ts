@@ -27,9 +27,7 @@ export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSource
  *
  * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
  */
-export interface AddSourceIdentifierToSubscriptionCommandOutput
-  extends AddSourceIdentifierToSubscriptionResult,
-    __MetadataBearer {}
+export interface AddSourceIdentifierToSubscriptionCommandOutput extends AddSourceIdentifierToSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Adds a source identifier to an existing event notification

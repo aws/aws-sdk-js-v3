@@ -31,9 +31,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandInput extends GetRecover
  *
  * The output of {@link GetRecoveryGroupReadinessSummaryCommand}.
  */
-export interface GetRecoveryGroupReadinessSummaryCommandOutput
-  extends GetRecoveryGroupReadinessSummaryResponse,
-    __MetadataBearer {}
+export interface GetRecoveryGroupReadinessSummaryCommandOutput extends GetRecoveryGroupReadinessSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>

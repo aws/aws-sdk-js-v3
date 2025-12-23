@@ -27,9 +27,7 @@ export interface CreateDistributionConfigurationCommandInput extends CreateDistr
  *
  * The output of {@link CreateDistributionConfigurationCommand}.
  */
-export interface CreateDistributionConfigurationCommandOutput
-  extends CreateDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateDistributionConfigurationCommandOutput extends CreateDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new distribution configuration. Distribution configurations define and

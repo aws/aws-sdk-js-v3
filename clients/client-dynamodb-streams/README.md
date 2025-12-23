@@ -7,17 +7,14 @@
 AWS SDK for JavaScript DynamoDBStreams Client for Node.js, Browser and React Native.
 
 <fullname>Amazon DynamoDB</fullname>
-
 <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing
 stream records. To learn more about application development with Streams, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">Capturing
 Table Activity with DynamoDB Streams</a> in the Amazon DynamoDB Developer
 Guide.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-dynamodb-streams
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-dynamodb-streams`
 - `yarn add @aws-sdk/client-dynamodb-streams`
 - `pnpm add @aws-sdk/client-dynamodb-streams`
@@ -53,9 +50,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DynamoDBStreamsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListStreamsCommand(params);
 ```
 
@@ -214,7 +209,6 @@ DescribeStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/DescribeStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/DescribeStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/DescribeStreamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -222,7 +216,6 @@ GetRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/GetRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +223,6 @@ GetShardIterator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/GetShardIteratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetShardIteratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetShardIteratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,5 +230,4 @@ ListStreams
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/ListStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/ListStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/ListStreamsCommandOutput/)
-
 </details>

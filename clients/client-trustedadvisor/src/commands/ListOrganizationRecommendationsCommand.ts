@@ -31,9 +31,7 @@ export interface ListOrganizationRecommendationsCommandInput extends ListOrganiz
  *
  * The output of {@link ListOrganizationRecommendationsCommand}.
  */
-export interface ListOrganizationRecommendationsCommandOutput
-  extends ListOrganizationRecommendationsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationRecommendationsCommandOutput extends ListOrganizationRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>List a filterable set of Recommendations within an Organization. This API only supports prioritized

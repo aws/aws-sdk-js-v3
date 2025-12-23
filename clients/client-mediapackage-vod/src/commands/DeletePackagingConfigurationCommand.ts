@@ -28,9 +28,7 @@ export interface DeletePackagingConfigurationCommandInput extends DeletePackagin
  *
  * The output of {@link DeletePackagingConfigurationCommand}.
  */
-export interface DeletePackagingConfigurationCommandOutput
-  extends DeletePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeletePackagingConfigurationCommandOutput extends DeletePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Deletes a MediaPackage VOD PackagingConfiguration resource.

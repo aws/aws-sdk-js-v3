@@ -27,9 +27,7 @@ export interface DeleteInfrastructureConfigurationCommandInput extends DeleteInf
  *
  * The output of {@link DeleteInfrastructureConfigurationCommand}.
  */
-export interface DeleteInfrastructureConfigurationCommandOutput
-  extends DeleteInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteInfrastructureConfigurationCommandOutput extends DeleteInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an infrastructure configuration.</p>

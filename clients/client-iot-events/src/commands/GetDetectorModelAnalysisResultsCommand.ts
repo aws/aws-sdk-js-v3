@@ -27,9 +27,7 @@ export interface GetDetectorModelAnalysisResultsCommandInput extends GetDetector
  *
  * The output of {@link GetDetectorModelAnalysisResultsCommand}.
  */
-export interface GetDetectorModelAnalysisResultsCommandOutput
-  extends GetDetectorModelAnalysisResultsResponse,
-    __MetadataBearer {}
+export interface GetDetectorModelAnalysisResultsCommandOutput extends GetDetectorModelAnalysisResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more analysis results of the detector model.</p>

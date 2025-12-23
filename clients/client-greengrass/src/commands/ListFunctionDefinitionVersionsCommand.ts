@@ -24,9 +24,7 @@ export interface ListFunctionDefinitionVersionsCommandInput extends ListFunction
  *
  * The output of {@link ListFunctionDefinitionVersionsCommand}.
  */
-export interface ListFunctionDefinitionVersionsCommandOutput
-  extends ListFunctionDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListFunctionDefinitionVersionsCommandOutput extends ListFunctionDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a Lambda function definition.

@@ -31,9 +31,7 @@ export interface TransferDomainToAnotherAwsAccountCommandInput extends TransferD
  *
  * The output of {@link TransferDomainToAnotherAwsAccountCommand}.
  */
-export interface TransferDomainToAnotherAwsAccountCommandOutput
-  extends TransferDomainToAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface TransferDomainToAnotherAwsAccountCommandOutput extends TransferDomainToAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>

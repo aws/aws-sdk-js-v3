@@ -271,6 +271,7 @@ export class ImportTableCommand extends $Command
   .ep({
     ...commonParams,
     ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

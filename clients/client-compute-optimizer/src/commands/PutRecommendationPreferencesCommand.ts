@@ -28,9 +28,7 @@ export interface PutRecommendationPreferencesCommandInput extends PutRecommendat
  *
  * The output of {@link PutRecommendationPreferencesCommand}.
  */
-export interface PutRecommendationPreferencesCommandOutput
-  extends PutRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface PutRecommendationPreferencesCommandOutput extends PutRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new recommendation preference or updates an existing recommendation

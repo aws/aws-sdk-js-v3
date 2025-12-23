@@ -28,9 +28,7 @@ export interface DeregisterSubscriptionProviderCommandInput extends DeregisterSu
  *
  * The output of {@link DeregisterSubscriptionProviderCommand}.
  */
-export interface DeregisterSubscriptionProviderCommandOutput
-  extends DeregisterSubscriptionProviderResponse,
-    __MetadataBearer {}
+export interface DeregisterSubscriptionProviderCommandOutput extends DeregisterSubscriptionProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Remove a third-party subscription provider from the Bring Your Own License (BYOL) subscriptions

@@ -24,9 +24,7 @@ export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMet
  *
  * The output of {@link BatchGetRumMetricDefinitionsCommand}.
  */
-export interface BatchGetRumMetricDefinitionsCommandOutput
-  extends BatchGetRumMetricDefinitionsResponse,
-    __MetadataBearer {}
+export interface BatchGetRumMetricDefinitionsCommandOutput extends BatchGetRumMetricDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>

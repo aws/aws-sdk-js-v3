@@ -139,7 +139,9 @@ export interface ActiveDirectoryIdentityProvider {
  * <p>Refers to an identity provider.</p>
  * @public
  */
-export type IdentityProvider = IdentityProvider.ActiveDirectoryIdentityProviderMember | IdentityProvider.$UnknownMember;
+export type IdentityProvider =
+  | IdentityProvider.ActiveDirectoryIdentityProviderMember
+  | IdentityProvider.$UnknownMember;
 
 /**
  * @public
@@ -294,7 +296,9 @@ export interface RdsSalSettings {
  * <p>Contains settings for a specific server.</p>
  * @public
  */
-export type ServerSettings = ServerSettings.RdsSalSettingsMember | ServerSettings.$UnknownMember;
+export type ServerSettings =
+  | ServerSettings.RdsSalSettingsMember
+  | ServerSettings.$UnknownMember;
 
 /**
  * @public

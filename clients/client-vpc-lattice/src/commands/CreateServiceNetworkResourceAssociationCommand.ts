@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateServiceNetworkResourceAssociationCommand}.
  */
-export interface CreateServiceNetworkResourceAssociationCommandInput
-  extends CreateServiceNetworkResourceAssociationRequest {}
+export interface CreateServiceNetworkResourceAssociationCommandInput extends CreateServiceNetworkResourceAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateServiceNetworkResourceAssociationCommand}.
  */
-export interface CreateServiceNetworkResourceAssociationCommandOutput
-  extends CreateServiceNetworkResourceAssociationResponse,
-    __MetadataBearer {}
+export interface CreateServiceNetworkResourceAssociationCommandOutput extends CreateServiceNetworkResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the specified service network with the specified resource configuration. This allows the resource configuration to receive connections through the service network, including through a service network VPC endpoint.</p>

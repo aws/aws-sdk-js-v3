@@ -12,10 +12,8 @@ The AWS Marketplace Deployment Service provides sellers with a secure method for
 API keys and external IDs, to buyers during the Quick Launch experience.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-deployment
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-deployment`
 - `yarn add @aws-sdk/client-marketplace-deployment`
 - `pnpm add @aws-sdk/client-marketplace-deployment`
@@ -51,9 +49,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceDeploymentClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTagsForResourceCommand(params);
 ```
 
@@ -212,7 +208,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +215,6 @@ PutDeploymentParameter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/PutDeploymentParameterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/PutDeploymentParameterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/PutDeploymentParameterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,5 +229,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-deployment/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-deployment/Interface/UntagResourceCommandOutput/)
-
 </details>

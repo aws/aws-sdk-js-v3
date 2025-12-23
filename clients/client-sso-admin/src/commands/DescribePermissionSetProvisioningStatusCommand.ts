@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribePermissionSetProvisioningStatusCommand}.
  */
-export interface DescribePermissionSetProvisioningStatusCommandInput
-  extends DescribePermissionSetProvisioningStatusRequest {}
+export interface DescribePermissionSetProvisioningStatusCommandInput extends DescribePermissionSetProvisioningStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribePermissionSetProvisioningStatusCommand}.
  */
-export interface DescribePermissionSetProvisioningStatusCommandOutput
-  extends DescribePermissionSetProvisioningStatusResponse,
-    __MetadataBearer {}
+export interface DescribePermissionSetProvisioningStatusCommandOutput extends DescribePermissionSetProvisioningStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status for the given permission set provisioning request.</p>

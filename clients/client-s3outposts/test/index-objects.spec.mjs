@@ -32,6 +32,9 @@ import {
   Outpost$,
   OutpostOfflineException,
   OutpostOfflineException$,
+  paginateListEndpoints,
+  paginateListOutpostsWithS3,
+  paginateListSharedEndpoints,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   S3Outposts,
@@ -41,9 +44,6 @@ import {
   ThrottlingException$,
   ValidationException,
   ValidationException$,
-  paginateListEndpoints,
-  paginateListOutpostsWithS3,
-  paginateListSharedEndpoints,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

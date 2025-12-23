@@ -457,1253 +457,1513 @@ import {
 import { WAFServiceException } from "../models/WAFServiceException";
 
 /* eslint no-var: 0 */
-export var ActivatedRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _AR,
+export var ActivatedRule$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_P, _RI, _A, _OA, _T, _ER],
-  [1, 0, () => WafAction$, () => WafOverrideAction$, 0, () => ExcludedRules],
+  [1, 0, () => WafAction$, () => WafOverrideAction$, 0, () => ExcludedRules]
 ];
-export var ByteMatchSet$: StaticStructureSchema = [3, n0, _BMS, 0, [_BMSI, _N, _BMT], [0, 0, () => ByteMatchTuples]];
-export var ByteMatchSetSummary$: StaticStructureSchema = [3, n0, _BMSS, 0, [_BMSI, _N], [0, 0]];
-export var ByteMatchSetUpdate$: StaticStructureSchema = [3, n0, _BMSU, 0, [_A, _BMTy], [0, () => ByteMatchTuple$]];
-export var ByteMatchTuple$: StaticStructureSchema = [
-  3,
-  n0,
-  _BMTy,
+export var ByteMatchSet$: StaticStructureSchema = [3, n0, _BMS,
+  0,
+  [_BMSI, _N, _BMT],
+  [0, 0, () => ByteMatchTuples]
+];
+export var ByteMatchSetSummary$: StaticStructureSchema = [3, n0, _BMSS,
+  0,
+  [_BMSI, _N],
+  [0, 0]
+];
+export var ByteMatchSetUpdate$: StaticStructureSchema = [3, n0, _BMSU,
+  0,
+  [_A, _BMTy],
+  [0, () => ByteMatchTuple$]
+];
+export var ByteMatchTuple$: StaticStructureSchema = [3, n0, _BMTy,
   0,
   [_FTM, _TS, _TT, _PC],
-  [() => FieldToMatch$, 21, 0, 0],
+  [() => FieldToMatch$, 21, 0, 0]
 ];
-export var CreateByteMatchSetRequest$: StaticStructureSchema = [3, n0, _CBMSR, 0, [_N, _CT], [0, 0]];
-export var CreateByteMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBMSRr,
+export var CreateByteMatchSetRequest$: StaticStructureSchema = [3, n0, _CBMSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateByteMatchSetResponse$: StaticStructureSchema = [3, n0, _CBMSRr,
   0,
   [_BMS, _CT],
-  [() => ByteMatchSet$, 0],
+  [() => ByteMatchSet$, 0]
 ];
-export var CreateGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _CGMSR, 0, [_N, _CT], [0, 0]];
-export var CreateGeoMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGMSRr,
+export var CreateGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _CGMSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _CGMSRr,
   0,
   [_GMS, _CT],
-  [() => GeoMatchSet$, 0],
+  [() => GeoMatchSet$, 0]
 ];
-export var CreateIPSetRequest$: StaticStructureSchema = [3, n0, _CIPSR, 0, [_N, _CT], [0, 0]];
-export var CreateIPSetResponse$: StaticStructureSchema = [3, n0, _CIPSRr, 0, [_IPS, _CT], [() => IPSet$, 0]];
-export var CreateRateBasedRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRBRR,
+export var CreateIPSetRequest$: StaticStructureSchema = [3, n0, _CIPSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateIPSetResponse$: StaticStructureSchema = [3, n0, _CIPSRr,
+  0,
+  [_IPS, _CT],
+  [() => IPSet$, 0]
+];
+export var CreateRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _CRBRR,
   0,
   [_N, _MN, _RK, _RL, _CT, _Ta],
-  [0, 0, 0, 1, 0, () => TagList],
+  [0, 0, 0, 1, 0, () => TagList]
 ];
-export var CreateRateBasedRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRBRRr,
+export var CreateRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _CRBRRr,
   0,
   [_R, _CT],
-  [() => RateBasedRule$, 0],
+  [() => RateBasedRule$, 0]
 ];
-export var CreateRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _CRMSR, 0, [_N, _CT], [0, 0]];
-export var CreateRegexMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRMSRr,
+export var CreateRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _CRMSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _CRMSRr,
   0,
   [_RMS, _CT],
-  [() => RegexMatchSet$, 0],
+  [() => RegexMatchSet$, 0]
 ];
-export var CreateRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _CRPSR, 0, [_N, _CT], [0, 0]];
-export var CreateRegexPatternSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRPSRr,
+export var CreateRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _CRPSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _CRPSRr,
   0,
   [_RPS, _CT],
-  [() => RegexPatternSet$, 0],
+  [() => RegexPatternSet$, 0]
 ];
-export var CreateRuleGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRGR,
+export var CreateRuleGroupRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
   [_N, _MN, _CT, _Ta],
-  [0, 0, 0, () => TagList],
+  [0, 0, 0, () => TagList]
 ];
-export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr, 0, [_RG, _CT], [() => RuleGroup$, 0]];
-export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR, 0, [_N, _MN, _CT, _Ta], [0, 0, 0, () => TagList]];
-export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_R, _CT], [() => Rule$, 0]];
-export var CreateSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _CSCSR, 0, [_N, _CT], [0, 0]];
-export var CreateSizeConstraintSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSCSRr,
+export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
+  0,
+  [_RG, _CT],
+  [() => RuleGroup$, 0]
+];
+export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
+  0,
+  [_N, _MN, _CT, _Ta],
+  [0, 0, 0, () => TagList]
+];
+export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
+  0,
+  [_R, _CT],
+  [() => Rule$, 0]
+];
+export var CreateSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _CSCSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _CSCSRr,
   0,
   [_SCS, _CT],
-  [() => SizeConstraintSet$, 0],
+  [() => SizeConstraintSet$, 0]
 ];
-export var CreateSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _CSIMSR, 0, [_N, _CT], [0, 0]];
-export var CreateSqlInjectionMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSIMSRr,
+export var CreateSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _CSIMSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _CSIMSRr,
   0,
   [_SIMS, _CT],
-  [() => SqlInjectionMatchSet$, 0],
+  [() => SqlInjectionMatchSet$, 0]
 ];
-export var CreateWebACLMigrationStackRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CWACLMSR,
+export var CreateWebACLMigrationStackRequest$: StaticStructureSchema = [3, n0, _CWACLMSR,
   0,
   [_WACLI, _SBN, _IUT],
-  [0, 0, 2],
+  [0, 0, 2]
 ];
-export var CreateWebACLMigrationStackResponse$: StaticStructureSchema = [3, n0, _CWACLMSRr, 0, [_SOU], [0]];
-export var CreateWebACLRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CWACLR,
+export var CreateWebACLMigrationStackResponse$: StaticStructureSchema = [3, n0, _CWACLMSRr,
+  0,
+  [_SOU],
+  [0]
+];
+export var CreateWebACLRequest$: StaticStructureSchema = [3, n0, _CWACLR,
   0,
   [_N, _MN, _DA, _CT, _Ta],
-  [0, 0, () => WafAction$, 0, () => TagList],
+  [0, 0, () => WafAction$, 0, () => TagList]
 ];
-export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr, 0, [_WACL, _CT], [() => WebACL$, 0]];
-export var CreateXssMatchSetRequest$: StaticStructureSchema = [3, n0, _CXMSR, 0, [_N, _CT], [0, 0]];
-export var CreateXssMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CXMSRr,
+export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr,
+  0,
+  [_WACL, _CT],
+  [() => WebACL$, 0]
+];
+export var CreateXssMatchSetRequest$: StaticStructureSchema = [3, n0, _CXMSR,
+  0,
+  [_N, _CT],
+  [0, 0]
+];
+export var CreateXssMatchSetResponse$: StaticStructureSchema = [3, n0, _CXMSRr,
   0,
   [_XMS, _CT],
-  [() => XssMatchSet$, 0],
+  [() => XssMatchSet$, 0]
 ];
-export var DeleteByteMatchSetRequest$: StaticStructureSchema = [3, n0, _DBMSR, 0, [_BMSI, _CT], [0, 0]];
-export var DeleteByteMatchSetResponse$: StaticStructureSchema = [3, n0, _DBMSRe, 0, [_CT], [0]];
-export var DeleteGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _DGMSR, 0, [_GMSI, _CT], [0, 0]];
-export var DeleteGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _DGMSRe, 0, [_CT], [0]];
-export var DeleteIPSetRequest$: StaticStructureSchema = [3, n0, _DIPSR, 0, [_IPSI, _CT], [0, 0]];
-export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe, 0, [_CT], [0]];
-export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR, 0, [_RA], [0]];
-export var DeleteLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DLCRe, 0, [], []];
-export var DeletePermissionPolicyRequest$: StaticStructureSchema = [3, n0, _DPPR, 0, [_RA], [0]];
-export var DeletePermissionPolicyResponse$: StaticStructureSchema = [3, n0, _DPPRe, 0, [], []];
-export var DeleteRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _DRBRR, 0, [_RI, _CT], [0, 0]];
-export var DeleteRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _DRBRRe, 0, [_CT], [0]];
-export var DeleteRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _DRMSR, 0, [_RMSI, _CT], [0, 0]];
-export var DeleteRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _DRMSRe, 0, [_CT], [0]];
-export var DeleteRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _DRPSR, 0, [_RPSI, _CT], [0, 0]];
-export var DeleteRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _DRPSRe, 0, [_CT], [0]];
-export var DeleteRuleGroupRequest$: StaticStructureSchema = [3, n0, _DRGR, 0, [_RGI, _CT], [0, 0]];
-export var DeleteRuleGroupResponse$: StaticStructureSchema = [3, n0, _DRGRe, 0, [_CT], [0]];
-export var DeleteRuleRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_RI, _CT], [0, 0]];
-export var DeleteRuleResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [_CT], [0]];
-export var DeleteSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _DSCSR, 0, [_SCSI, _CT], [0, 0]];
-export var DeleteSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _DSCSRe, 0, [_CT], [0]];
-export var DeleteSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _DSIMSR, 0, [_SIMSI, _CT], [0, 0]];
-export var DeleteSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _DSIMSRe, 0, [_CT], [0]];
-export var DeleteWebACLRequest$: StaticStructureSchema = [3, n0, _DWACLR, 0, [_WACLI, _CT], [0, 0]];
-export var DeleteWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRe, 0, [_CT], [0]];
-export var DeleteXssMatchSetRequest$: StaticStructureSchema = [3, n0, _DXMSR, 0, [_XMSI, _CT], [0, 0]];
-export var DeleteXssMatchSetResponse$: StaticStructureSchema = [3, n0, _DXMSRe, 0, [_CT], [0]];
-export var ExcludedRule$: StaticStructureSchema = [3, n0, _ERx, 0, [_RI], [0]];
-export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM, 0, [_T, _D], [0, 0]];
-export var GeoMatchConstraint$: StaticStructureSchema = [3, n0, _GMC, 0, [_T, _V], [0, 0]];
-export var GeoMatchSet$: StaticStructureSchema = [
-  3,
-  n0,
-  _GMS,
+export var DeleteByteMatchSetRequest$: StaticStructureSchema = [3, n0, _DBMSR,
+  0,
+  [_BMSI, _CT],
+  [0, 0]
+];
+export var DeleteByteMatchSetResponse$: StaticStructureSchema = [3, n0, _DBMSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _DGMSR,
+  0,
+  [_GMSI, _CT],
+  [0, 0]
+];
+export var DeleteGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _DGMSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteIPSetRequest$: StaticStructureSchema = [3, n0, _DIPSR,
+  0,
+  [_IPSI, _CT],
+  [0, 0]
+];
+export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR,
+  0,
+  [_RA],
+  [0]
+];
+export var DeleteLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DLCRe,
+  0,
+  [],
+  []
+];
+export var DeletePermissionPolicyRequest$: StaticStructureSchema = [3, n0, _DPPR,
+  0,
+  [_RA],
+  [0]
+];
+export var DeletePermissionPolicyResponse$: StaticStructureSchema = [3, n0, _DPPRe,
+  0,
+  [],
+  []
+];
+export var DeleteRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _DRBRR,
+  0,
+  [_RI, _CT],
+  [0, 0]
+];
+export var DeleteRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _DRBRRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _DRMSR,
+  0,
+  [_RMSI, _CT],
+  [0, 0]
+];
+export var DeleteRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _DRMSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _DRPSR,
+  0,
+  [_RPSI, _CT],
+  [0, 0]
+];
+export var DeleteRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _DRPSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteRuleGroupRequest$: StaticStructureSchema = [3, n0, _DRGR,
+  0,
+  [_RGI, _CT],
+  [0, 0]
+];
+export var DeleteRuleGroupResponse$: StaticStructureSchema = [3, n0, _DRGRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteRuleRequest$: StaticStructureSchema = [3, n0, _DRR,
+  0,
+  [_RI, _CT],
+  [0, 0]
+];
+export var DeleteRuleResponse$: StaticStructureSchema = [3, n0, _DRRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _DSCSR,
+  0,
+  [_SCSI, _CT],
+  [0, 0]
+];
+export var DeleteSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _DSCSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _DSIMSR,
+  0,
+  [_SIMSI, _CT],
+  [0, 0]
+];
+export var DeleteSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _DSIMSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteWebACLRequest$: StaticStructureSchema = [3, n0, _DWACLR,
+  0,
+  [_WACLI, _CT],
+  [0, 0]
+];
+export var DeleteWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRe,
+  0,
+  [_CT],
+  [0]
+];
+export var DeleteXssMatchSetRequest$: StaticStructureSchema = [3, n0, _DXMSR,
+  0,
+  [_XMSI, _CT],
+  [0, 0]
+];
+export var DeleteXssMatchSetResponse$: StaticStructureSchema = [3, n0, _DXMSRe,
+  0,
+  [_CT],
+  [0]
+];
+export var ExcludedRule$: StaticStructureSchema = [3, n0, _ERx,
+  0,
+  [_RI],
+  [0]
+];
+export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM,
+  0,
+  [_T, _D],
+  [0, 0]
+];
+export var GeoMatchConstraint$: StaticStructureSchema = [3, n0, _GMC,
+  0,
+  [_T, _V],
+  [0, 0]
+];
+export var GeoMatchSet$: StaticStructureSchema = [3, n0, _GMS,
   0,
   [_GMSI, _N, _GMCe],
-  [0, 0, () => GeoMatchConstraints],
+  [0, 0, () => GeoMatchConstraints]
 ];
-export var GeoMatchSetSummary$: StaticStructureSchema = [3, n0, _GMSS, 0, [_GMSI, _N], [0, 0]];
-export var GeoMatchSetUpdate$: StaticStructureSchema = [3, n0, _GMSU, 0, [_A, _GMC], [0, () => GeoMatchConstraint$]];
-export var GetByteMatchSetRequest$: StaticStructureSchema = [3, n0, _GBMSR, 0, [_BMSI], [0]];
-export var GetByteMatchSetResponse$: StaticStructureSchema = [3, n0, _GBMSRe, 0, [_BMS], [() => ByteMatchSet$]];
-export var GetChangeTokenRequest$: StaticStructureSchema = [3, n0, _GCTR, 0, [], []];
-export var GetChangeTokenResponse$: StaticStructureSchema = [3, n0, _GCTRe, 0, [_CT], [0]];
-export var GetChangeTokenStatusRequest$: StaticStructureSchema = [3, n0, _GCTSR, 0, [_CT], [0]];
-export var GetChangeTokenStatusResponse$: StaticStructureSchema = [3, n0, _GCTSRe, 0, [_CTS], [0]];
-export var GetGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _GGMSR, 0, [_GMSI], [0]];
-export var GetGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _GGMSRe, 0, [_GMS], [() => GeoMatchSet$]];
-export var GetIPSetRequest$: StaticStructureSchema = [3, n0, _GIPSR, 0, [_IPSI], [0]];
-export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe, 0, [_IPS], [() => IPSet$]];
-export var GetLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR, 0, [_RA], [0]];
-export var GetLoggingConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GLCRe,
+export var GeoMatchSetSummary$: StaticStructureSchema = [3, n0, _GMSS,
+  0,
+  [_GMSI, _N],
+  [0, 0]
+];
+export var GeoMatchSetUpdate$: StaticStructureSchema = [3, n0, _GMSU,
+  0,
+  [_A, _GMC],
+  [0, () => GeoMatchConstraint$]
+];
+export var GetByteMatchSetRequest$: StaticStructureSchema = [3, n0, _GBMSR,
+  0,
+  [_BMSI],
+  [0]
+];
+export var GetByteMatchSetResponse$: StaticStructureSchema = [3, n0, _GBMSRe,
+  0,
+  [_BMS],
+  [() => ByteMatchSet$]
+];
+export var GetChangeTokenRequest$: StaticStructureSchema = [3, n0, _GCTR,
+  0,
+  [],
+  []
+];
+export var GetChangeTokenResponse$: StaticStructureSchema = [3, n0, _GCTRe,
+  0,
+  [_CT],
+  [0]
+];
+export var GetChangeTokenStatusRequest$: StaticStructureSchema = [3, n0, _GCTSR,
+  0,
+  [_CT],
+  [0]
+];
+export var GetChangeTokenStatusResponse$: StaticStructureSchema = [3, n0, _GCTSRe,
+  0,
+  [_CTS],
+  [0]
+];
+export var GetGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _GGMSR,
+  0,
+  [_GMSI],
+  [0]
+];
+export var GetGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _GGMSRe,
+  0,
+  [_GMS],
+  [() => GeoMatchSet$]
+];
+export var GetIPSetRequest$: StaticStructureSchema = [3, n0, _GIPSR,
+  0,
+  [_IPSI],
+  [0]
+];
+export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe,
+  0,
+  [_IPS],
+  [() => IPSet$]
+];
+export var GetLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
+  0,
+  [_RA],
+  [0]
+];
+export var GetLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GLCRe,
   0,
   [_LC],
-  [() => LoggingConfiguration$],
+  [() => LoggingConfiguration$]
 ];
-export var GetPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _GPPR, 0, [_RA], [0]];
-export var GetPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _GPPRe, 0, [_Po], [0]];
-export var GetRateBasedRuleManagedKeysRequest$: StaticStructureSchema = [3, n0, _GRBRMKR, 0, [_RI, _NM], [0, 0]];
-export var GetRateBasedRuleManagedKeysResponse$: StaticStructureSchema = [3, n0, _GRBRMKRe, 0, [_MK, _NM], [64 | 0, 0]];
-export var GetRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _GRBRR, 0, [_RI], [0]];
-export var GetRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _GRBRRe, 0, [_R], [() => RateBasedRule$]];
-export var GetRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _GRMSR, 0, [_RMSI], [0]];
-export var GetRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _GRMSRe, 0, [_RMS], [() => RegexMatchSet$]];
-export var GetRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _GRPSR, 0, [_RPSI], [0]];
-export var GetRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _GRPSRe, 0, [_RPS], [() => RegexPatternSet$]];
-export var GetRuleGroupRequest$: StaticStructureSchema = [3, n0, _GRGR, 0, [_RGI], [0]];
-export var GetRuleGroupResponse$: StaticStructureSchema = [3, n0, _GRGRe, 0, [_RG], [() => RuleGroup$]];
-export var GetRuleRequest$: StaticStructureSchema = [3, n0, _GRR, 0, [_RI], [0]];
-export var GetRuleResponse$: StaticStructureSchema = [3, n0, _GRRe, 0, [_R], [() => Rule$]];
-export var GetSampledRequestsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSRR,
+export var GetPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _GPPR,
+  0,
+  [_RA],
+  [0]
+];
+export var GetPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _GPPRe,
+  0,
+  [_Po],
+  [0]
+];
+export var GetRateBasedRuleManagedKeysRequest$: StaticStructureSchema = [3, n0, _GRBRMKR,
+  0,
+  [_RI, _NM],
+  [0, 0]
+];
+export var GetRateBasedRuleManagedKeysResponse$: StaticStructureSchema = [3, n0, _GRBRMKRe,
+  0,
+  [_MK, _NM],
+  [64 | 0, 0]
+];
+export var GetRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _GRBRR,
+  0,
+  [_RI],
+  [0]
+];
+export var GetRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _GRBRRe,
+  0,
+  [_R],
+  [() => RateBasedRule$]
+];
+export var GetRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _GRMSR,
+  0,
+  [_RMSI],
+  [0]
+];
+export var GetRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _GRMSRe,
+  0,
+  [_RMS],
+  [() => RegexMatchSet$]
+];
+export var GetRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _GRPSR,
+  0,
+  [_RPSI],
+  [0]
+];
+export var GetRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _GRPSRe,
+  0,
+  [_RPS],
+  [() => RegexPatternSet$]
+];
+export var GetRuleGroupRequest$: StaticStructureSchema = [3, n0, _GRGR,
+  0,
+  [_RGI],
+  [0]
+];
+export var GetRuleGroupResponse$: StaticStructureSchema = [3, n0, _GRGRe,
+  0,
+  [_RG],
+  [() => RuleGroup$]
+];
+export var GetRuleRequest$: StaticStructureSchema = [3, n0, _GRR,
+  0,
+  [_RI],
+  [0]
+];
+export var GetRuleResponse$: StaticStructureSchema = [3, n0, _GRRe,
+  0,
+  [_R],
+  [() => Rule$]
+];
+export var GetSampledRequestsRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
   [_WAI, _RI, _TW, _MI],
-  [0, 0, () => TimeWindow$, 1],
+  [0, 0, () => TimeWindow$, 1]
 ];
-export var GetSampledRequestsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSRRe,
+export var GetSampledRequestsResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
   [_SR, _PS, _TW],
-  [() => SampledHTTPRequests, 1, () => TimeWindow$],
+  [() => SampledHTTPRequests, 1, () => TimeWindow$]
 ];
-export var GetSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _GSCSR, 0, [_SCSI], [0]];
-export var GetSizeConstraintSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSCSRe,
+export var GetSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _GSCSR,
+  0,
+  [_SCSI],
+  [0]
+];
+export var GetSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _GSCSRe,
   0,
   [_SCS],
-  [() => SizeConstraintSet$],
+  [() => SizeConstraintSet$]
 ];
-export var GetSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _GSIMSR, 0, [_SIMSI], [0]];
-export var GetSqlInjectionMatchSetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIMSRe,
+export var GetSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _GSIMSR,
+  0,
+  [_SIMSI],
+  [0]
+];
+export var GetSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _GSIMSRe,
   0,
   [_SIMS],
-  [() => SqlInjectionMatchSet$],
+  [() => SqlInjectionMatchSet$]
 ];
-export var GetWebACLRequest$: StaticStructureSchema = [3, n0, _GWACLR, 0, [_WACLI], [0]];
-export var GetWebACLResponse$: StaticStructureSchema = [3, n0, _GWACLRe, 0, [_WACL], [() => WebACL$]];
-export var GetXssMatchSetRequest$: StaticStructureSchema = [3, n0, _GXMSR, 0, [_XMSI], [0]];
-export var GetXssMatchSetResponse$: StaticStructureSchema = [3, n0, _GXMSRe, 0, [_XMS], [() => XssMatchSet$]];
-export var HTTPHeader$: StaticStructureSchema = [3, n0, _HTTPH, 0, [_N, _V], [0, 0]];
-export var HTTPRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _HTTPR,
+export var GetWebACLRequest$: StaticStructureSchema = [3, n0, _GWACLR,
+  0,
+  [_WACLI],
+  [0]
+];
+export var GetWebACLResponse$: StaticStructureSchema = [3, n0, _GWACLRe,
+  0,
+  [_WACL],
+  [() => WebACL$]
+];
+export var GetXssMatchSetRequest$: StaticStructureSchema = [3, n0, _GXMSR,
+  0,
+  [_XMSI],
+  [0]
+];
+export var GetXssMatchSetResponse$: StaticStructureSchema = [3, n0, _GXMSRe,
+  0,
+  [_XMS],
+  [() => XssMatchSet$]
+];
+export var HTTPHeader$: StaticStructureSchema = [3, n0, _HTTPH,
+  0,
+  [_N, _V],
+  [0, 0]
+];
+export var HTTPRequest$: StaticStructureSchema = [3, n0, _HTTPR,
   0,
   [_CIP, _C, _URI, _M, _HTTPV, _H],
-  [0, 0, 0, 0, 0, () => HTTPHeaders],
+  [0, 0, 0, 0, 0, () => HTTPHeaders]
 ];
-export var IPSet$: StaticStructureSchema = [3, n0, _IPS, 0, [_IPSI, _N, _IPSD], [0, 0, () => IPSetDescriptors]];
-export var IPSetDescriptor$: StaticStructureSchema = [3, n0, _IPSDe, 0, [_T, _V], [0, 0]];
-export var IPSetSummary$: StaticStructureSchema = [3, n0, _IPSS, 0, [_IPSI, _N], [0, 0]];
-export var IPSetUpdate$: StaticStructureSchema = [3, n0, _IPSU, 0, [_A, _IPSDe], [0, () => IPSetDescriptor$]];
-export var ListActivatedRulesInRuleGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LARIRGR,
+export var IPSet$: StaticStructureSchema = [3, n0, _IPS,
+  0,
+  [_IPSI, _N, _IPSD],
+  [0, 0, () => IPSetDescriptors]
+];
+export var IPSetDescriptor$: StaticStructureSchema = [3, n0, _IPSDe,
+  0,
+  [_T, _V],
+  [0, 0]
+];
+export var IPSetSummary$: StaticStructureSchema = [3, n0, _IPSS,
+  0,
+  [_IPSI, _N],
+  [0, 0]
+];
+export var IPSetUpdate$: StaticStructureSchema = [3, n0, _IPSU,
+  0,
+  [_A, _IPSDe],
+  [0, () => IPSetDescriptor$]
+];
+export var ListActivatedRulesInRuleGroupRequest$: StaticStructureSchema = [3, n0, _LARIRGR,
   0,
   [_RGI, _NM, _L],
-  [0, 0, 1],
+  [0, 0, 1]
 ];
-export var ListActivatedRulesInRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LARIRGRi,
+export var ListActivatedRulesInRuleGroupResponse$: StaticStructureSchema = [3, n0, _LARIRGRi,
   0,
   [_NM, _ARc],
-  [0, () => ActivatedRules],
+  [0, () => ActivatedRules]
 ];
-export var ListByteMatchSetsRequest$: StaticStructureSchema = [3, n0, _LBMSR, 0, [_NM, _L], [0, 1]];
-export var ListByteMatchSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LBMSRi,
+export var ListByteMatchSetsRequest$: StaticStructureSchema = [3, n0, _LBMSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListByteMatchSetsResponse$: StaticStructureSchema = [3, n0, _LBMSRi,
   0,
   [_NM, _BMSy],
-  [0, () => ByteMatchSetSummaries],
+  [0, () => ByteMatchSetSummaries]
 ];
-export var ListGeoMatchSetsRequest$: StaticStructureSchema = [3, n0, _LGMSR, 0, [_NM, _L], [0, 1]];
-export var ListGeoMatchSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGMSRi,
+export var ListGeoMatchSetsRequest$: StaticStructureSchema = [3, n0, _LGMSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListGeoMatchSetsResponse$: StaticStructureSchema = [3, n0, _LGMSRi,
   0,
   [_NM, _GMSe],
-  [0, () => GeoMatchSetSummaries],
+  [0, () => GeoMatchSetSummaries]
 ];
-export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR, 0, [_NM, _L], [0, 1]];
-export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi, 0, [_NM, _IPSe], [0, () => IPSetSummaries]];
-export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LLCR, 0, [_NM, _L], [0, 1]];
-export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LLCRi,
+export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
+  0,
+  [_NM, _IPSe],
+  [0, () => IPSetSummaries]
+];
+export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LLCR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _LLCRi,
   0,
   [_LCo, _NM],
-  [() => LoggingConfigurations, 0],
+  [() => LoggingConfigurations, 0]
 ];
-export var ListRateBasedRulesRequest$: StaticStructureSchema = [3, n0, _LRBRR, 0, [_NM, _L], [0, 1]];
-export var ListRateBasedRulesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRBRRi,
+export var ListRateBasedRulesRequest$: StaticStructureSchema = [3, n0, _LRBRR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListRateBasedRulesResponse$: StaticStructureSchema = [3, n0, _LRBRRi,
   0,
   [_NM, _Ru],
-  [0, () => RuleSummaries],
+  [0, () => RuleSummaries]
 ];
-export var ListRegexMatchSetsRequest$: StaticStructureSchema = [3, n0, _LRMSR, 0, [_NM, _L], [0, 1]];
-export var ListRegexMatchSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRMSRi,
+export var ListRegexMatchSetsRequest$: StaticStructureSchema = [3, n0, _LRMSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListRegexMatchSetsResponse$: StaticStructureSchema = [3, n0, _LRMSRi,
   0,
   [_NM, _RMSe],
-  [0, () => RegexMatchSetSummaries],
+  [0, () => RegexMatchSetSummaries]
 ];
-export var ListRegexPatternSetsRequest$: StaticStructureSchema = [3, n0, _LRPSR, 0, [_NM, _L], [0, 1]];
-export var ListRegexPatternSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRPSRi,
+export var ListRegexPatternSetsRequest$: StaticStructureSchema = [3, n0, _LRPSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListRegexPatternSetsResponse$: StaticStructureSchema = [3, n0, _LRPSRi,
   0,
   [_NM, _RPSe],
-  [0, () => RegexPatternSetSummaries],
+  [0, () => RegexPatternSetSummaries]
 ];
-export var ListRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LRGR, 0, [_NM, _L], [0, 1]];
-export var ListRuleGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRGRi,
+export var ListRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LRGR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi,
   0,
   [_NM, _RGu],
-  [0, () => RuleGroupSummaries],
+  [0, () => RuleGroupSummaries]
 ];
-export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRR, 0, [_NM, _L], [0, 1]];
-export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_NM, _Ru], [0, () => RuleSummaries]];
-export var ListSizeConstraintSetsRequest$: StaticStructureSchema = [3, n0, _LSCSR, 0, [_NM, _L], [0, 1]];
-export var ListSizeConstraintSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSCSRi,
+export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi,
+  0,
+  [_NM, _Ru],
+  [0, () => RuleSummaries]
+];
+export var ListSizeConstraintSetsRequest$: StaticStructureSchema = [3, n0, _LSCSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListSizeConstraintSetsResponse$: StaticStructureSchema = [3, n0, _LSCSRi,
   0,
   [_NM, _SCSi],
-  [0, () => SizeConstraintSetSummaries],
+  [0, () => SizeConstraintSetSummaries]
 ];
-export var ListSqlInjectionMatchSetsRequest$: StaticStructureSchema = [3, n0, _LSIMSR, 0, [_NM, _L], [0, 1]];
-export var ListSqlInjectionMatchSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSIMSRi,
+export var ListSqlInjectionMatchSetsRequest$: StaticStructureSchema = [3, n0, _LSIMSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListSqlInjectionMatchSetsResponse$: StaticStructureSchema = [3, n0, _LSIMSRi,
   0,
   [_NM, _SIMSq],
-  [0, () => SqlInjectionMatchSetSummaries],
+  [0, () => SqlInjectionMatchSetSummaries]
 ];
-export var ListSubscribedRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LSRGR, 0, [_NM, _L], [0, 1]];
-export var ListSubscribedRuleGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSRGRi,
+export var ListSubscribedRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LSRGR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListSubscribedRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LSRGRi,
   0,
   [_NM, _RGu],
-  [0, () => SubscribedRuleGroupSummaries],
+  [0, () => SubscribedRuleGroupSummaries]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_NM, _L, _RARN], [0, 1, 0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_NM, _L, _RARN],
+  [0, 1, 0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_NM, _TIFR],
-  [0, () => TagInfoForResource$],
+  [0, () => TagInfoForResource$]
 ];
-export var ListWebACLsRequest$: StaticStructureSchema = [3, n0, _LWACLR, 0, [_NM, _L], [0, 1]];
-export var ListWebACLsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LWACLRi,
+export var ListWebACLsRequest$: StaticStructureSchema = [3, n0, _LWACLR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListWebACLsResponse$: StaticStructureSchema = [3, n0, _LWACLRi,
   0,
   [_NM, _WACLe],
-  [0, () => WebACLSummaries],
+  [0, () => WebACLSummaries]
 ];
-export var ListXssMatchSetsRequest$: StaticStructureSchema = [3, n0, _LXMSR, 0, [_NM, _L], [0, 1]];
-export var ListXssMatchSetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LXMSRi,
+export var ListXssMatchSetsRequest$: StaticStructureSchema = [3, n0, _LXMSR,
+  0,
+  [_NM, _L],
+  [0, 1]
+];
+export var ListXssMatchSetsResponse$: StaticStructureSchema = [3, n0, _LXMSRi,
   0,
   [_NM, _XMSs],
-  [0, () => XssMatchSetSummaries],
+  [0, () => XssMatchSetSummaries]
 ];
-export var LoggingConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _LC,
+export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_RA, _LDC, _RF],
-  [0, 64 | 0, () => RedactedFields],
+  [0, 64 | 0, () => RedactedFields]
 ];
-export var Predicate$: StaticStructureSchema = [3, n0, _Pr, 0, [_Ne, _T, _DI], [2, 0, 0]];
-export var PutLoggingConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PLCR,
+export var Predicate$: StaticStructureSchema = [3, n0, _Pr,
+  0,
+  [_Ne, _T, _DI],
+  [2, 0, 0]
+];
+export var PutLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _PLCR,
   0,
   [_LC],
-  [() => LoggingConfiguration$],
+  [() => LoggingConfiguration$]
 ];
-export var PutLoggingConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PLCRu,
+export var PutLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PLCRu,
   0,
   [_LC],
-  [() => LoggingConfiguration$],
+  [() => LoggingConfiguration$]
 ];
-export var PutPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _PPPR, 0, [_RA, _Po], [0, 0]];
-export var PutPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _PPPRu, 0, [], []];
-export var RateBasedRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _RBR,
+export var PutPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _PPPR,
+  0,
+  [_RA, _Po],
+  [0, 0]
+];
+export var PutPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _PPPRu,
+  0,
+  [],
+  []
+];
+export var RateBasedRule$: StaticStructureSchema = [3, n0, _RBR,
   0,
   [_RI, _N, _MN, _MP, _RK, _RL],
-  [0, 0, 0, () => Predicates, 0, 1],
+  [0, 0, 0, () => Predicates, 0, 1]
 ];
-export var RegexMatchSet$: StaticStructureSchema = [3, n0, _RMS, 0, [_RMSI, _N, _RMT], [0, 0, () => RegexMatchTuples]];
-export var RegexMatchSetSummary$: StaticStructureSchema = [3, n0, _RMSS, 0, [_RMSI, _N], [0, 0]];
-export var RegexMatchSetUpdate$: StaticStructureSchema = [3, n0, _RMSU, 0, [_A, _RMTe], [0, () => RegexMatchTuple$]];
-export var RegexMatchTuple$: StaticStructureSchema = [3, n0, _RMTe, 0, [_FTM, _TT, _RPSI], [() => FieldToMatch$, 0, 0]];
-export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS, 0, [_RPSI, _N, _RPSeg], [0, 0, 64 | 0]];
-export var RegexPatternSetSummary$: StaticStructureSchema = [3, n0, _RPSS, 0, [_RPSI, _N], [0, 0]];
-export var RegexPatternSetUpdate$: StaticStructureSchema = [3, n0, _RPSU, 0, [_A, _RPSege], [0, 0]];
-export var Rule$: StaticStructureSchema = [3, n0, _R, 0, [_RI, _N, _MN, _Pre], [0, 0, 0, () => Predicates]];
-export var RuleGroup$: StaticStructureSchema = [3, n0, _RG, 0, [_RGI, _N, _MN], [0, 0, 0]];
-export var RuleGroupSummary$: StaticStructureSchema = [3, n0, _RGS, 0, [_RGI, _N], [0, 0]];
-export var RuleGroupUpdate$: StaticStructureSchema = [3, n0, _RGU, 0, [_A, _AR], [0, () => ActivatedRule$]];
-export var RuleSummary$: StaticStructureSchema = [3, n0, _RS, 0, [_RI, _N], [0, 0]];
-export var RuleUpdate$: StaticStructureSchema = [3, n0, _RU, 0, [_A, _Pr], [0, () => Predicate$]];
-export var SampledHTTPRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SHTTPR,
+export var RegexMatchSet$: StaticStructureSchema = [3, n0, _RMS,
+  0,
+  [_RMSI, _N, _RMT],
+  [0, 0, () => RegexMatchTuples]
+];
+export var RegexMatchSetSummary$: StaticStructureSchema = [3, n0, _RMSS,
+  0,
+  [_RMSI, _N],
+  [0, 0]
+];
+export var RegexMatchSetUpdate$: StaticStructureSchema = [3, n0, _RMSU,
+  0,
+  [_A, _RMTe],
+  [0, () => RegexMatchTuple$]
+];
+export var RegexMatchTuple$: StaticStructureSchema = [3, n0, _RMTe,
+  0,
+  [_FTM, _TT, _RPSI],
+  [() => FieldToMatch$, 0, 0]
+];
+export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS,
+  0,
+  [_RPSI, _N, _RPSeg],
+  [0, 0, 64 | 0]
+];
+export var RegexPatternSetSummary$: StaticStructureSchema = [3, n0, _RPSS,
+  0,
+  [_RPSI, _N],
+  [0, 0]
+];
+export var RegexPatternSetUpdate$: StaticStructureSchema = [3, n0, _RPSU,
+  0,
+  [_A, _RPSege],
+  [0, 0]
+];
+export var Rule$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_RI, _N, _MN, _Pre],
+  [0, 0, 0, () => Predicates]
+];
+export var RuleGroup$: StaticStructureSchema = [3, n0, _RG,
+  0,
+  [_RGI, _N, _MN],
+  [0, 0, 0]
+];
+export var RuleGroupSummary$: StaticStructureSchema = [3, n0, _RGS,
+  0,
+  [_RGI, _N],
+  [0, 0]
+];
+export var RuleGroupUpdate$: StaticStructureSchema = [3, n0, _RGU,
+  0,
+  [_A, _AR],
+  [0, () => ActivatedRule$]
+];
+export var RuleSummary$: StaticStructureSchema = [3, n0, _RS,
+  0,
+  [_RI, _N],
+  [0, 0]
+];
+export var RuleUpdate$: StaticStructureSchema = [3, n0, _RU,
+  0,
+  [_A, _Pr],
+  [0, () => Predicate$]
+];
+export var SampledHTTPRequest$: StaticStructureSchema = [3, n0, _SHTTPR,
   0,
   [_Re, _W, _Ti, _A, _RWRG],
-  [() => HTTPRequest$, 1, 4, 0, 0],
+  [() => HTTPRequest$, 1, 4, 0, 0]
 ];
-export var SizeConstraint$: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
+export var SizeConstraint$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_FTM, _TT, _CO, _S],
-  [() => FieldToMatch$, 0, 0, 1],
+  [() => FieldToMatch$, 0, 0, 1]
 ];
-export var SizeConstraintSet$: StaticStructureSchema = [
-  3,
-  n0,
-  _SCS,
+export var SizeConstraintSet$: StaticStructureSchema = [3, n0, _SCS,
   0,
   [_SCSI, _N, _SCi],
-  [0, 0, () => SizeConstraints],
+  [0, 0, () => SizeConstraints]
 ];
-export var SizeConstraintSetSummary$: StaticStructureSchema = [3, n0, _SCSS, 0, [_SCSI, _N], [0, 0]];
-export var SizeConstraintSetUpdate$: StaticStructureSchema = [3, n0, _SCSU, 0, [_A, _SC], [0, () => SizeConstraint$]];
-export var SqlInjectionMatchSet$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIMS,
+export var SizeConstraintSetSummary$: StaticStructureSchema = [3, n0, _SCSS,
+  0,
+  [_SCSI, _N],
+  [0, 0]
+];
+export var SizeConstraintSetUpdate$: StaticStructureSchema = [3, n0, _SCSU,
+  0,
+  [_A, _SC],
+  [0, () => SizeConstraint$]
+];
+export var SqlInjectionMatchSet$: StaticStructureSchema = [3, n0, _SIMS,
   0,
   [_SIMSI, _N, _SIMT],
-  [0, 0, () => SqlInjectionMatchTuples],
+  [0, 0, () => SqlInjectionMatchTuples]
 ];
-export var SqlInjectionMatchSetSummary$: StaticStructureSchema = [3, n0, _SIMSS, 0, [_SIMSI, _N], [0, 0]];
-export var SqlInjectionMatchSetUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIMSU,
+export var SqlInjectionMatchSetSummary$: StaticStructureSchema = [3, n0, _SIMSS,
+  0,
+  [_SIMSI, _N],
+  [0, 0]
+];
+export var SqlInjectionMatchSetUpdate$: StaticStructureSchema = [3, n0, _SIMSU,
   0,
   [_A, _SIMTq],
-  [0, () => SqlInjectionMatchTuple$],
+  [0, () => SqlInjectionMatchTuple$]
 ];
-export var SqlInjectionMatchTuple$: StaticStructureSchema = [3, n0, _SIMTq, 0, [_FTM, _TT], [() => FieldToMatch$, 0]];
-export var SubscribedRuleGroupSummary$: StaticStructureSchema = [3, n0, _SRGS, 0, [_RGI, _N, _MN], [0, 0, 0]];
-export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagInfoForResource$: StaticStructureSchema = [3, n0, _TIFR, 0, [_RARN, _TL], [0, () => TagList]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TimeWindow$: StaticStructureSchema = [3, n0, _TW, 0, [_ST, _ET], [4, 4]];
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateByteMatchSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBMSR,
+export var SqlInjectionMatchTuple$: StaticStructureSchema = [3, n0, _SIMTq,
+  0,
+  [_FTM, _TT],
+  [() => FieldToMatch$, 0]
+];
+export var SubscribedRuleGroupSummary$: StaticStructureSchema = [3, n0, _SRGS,
+  0,
+  [_RGI, _N, _MN],
+  [0, 0, 0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagInfoForResource$: StaticStructureSchema = [3, n0, _TIFR,
+  0,
+  [_RARN, _TL],
+  [0, () => TagList]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_RARN, _Ta],
+  [0, () => TagList]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
+  0,
+  [_ST, _ET],
+  [4, 4]
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_RARN, _TK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateByteMatchSetRequest$: StaticStructureSchema = [3, n0, _UBMSR,
   0,
   [_BMSI, _CT, _U],
-  [0, 0, () => ByteMatchSetUpdates],
+  [0, 0, () => ByteMatchSetUpdates]
 ];
-export var UpdateByteMatchSetResponse$: StaticStructureSchema = [3, n0, _UBMSRp, 0, [_CT], [0]];
-export var UpdateGeoMatchSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGMSR,
+export var UpdateByteMatchSetResponse$: StaticStructureSchema = [3, n0, _UBMSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateGeoMatchSetRequest$: StaticStructureSchema = [3, n0, _UGMSR,
   0,
   [_GMSI, _CT, _U],
-  [0, 0, () => GeoMatchSetUpdates],
+  [0, 0, () => GeoMatchSetUpdates]
 ];
-export var UpdateGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _UGMSRp, 0, [_CT], [0]];
-export var UpdateIPSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UIPSR,
+export var UpdateGeoMatchSetResponse$: StaticStructureSchema = [3, n0, _UGMSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateIPSetRequest$: StaticStructureSchema = [3, n0, _UIPSR,
   0,
   [_IPSI, _CT, _U],
-  [0, 0, () => IPSetUpdates],
+  [0, 0, () => IPSetUpdates]
 ];
-export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp, 0, [_CT], [0]];
-export var UpdateRateBasedRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URBRR,
+export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateRateBasedRuleRequest$: StaticStructureSchema = [3, n0, _URBRR,
   0,
   [_RI, _CT, _U, _RL],
-  [0, 0, () => RuleUpdates, 1],
+  [0, 0, () => RuleUpdates, 1]
 ];
-export var UpdateRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _URBRRp, 0, [_CT], [0]];
-export var UpdateRegexMatchSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URMSR,
+export var UpdateRateBasedRuleResponse$: StaticStructureSchema = [3, n0, _URBRRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateRegexMatchSetRequest$: StaticStructureSchema = [3, n0, _URMSR,
   0,
   [_RMSI, _U, _CT],
-  [0, () => RegexMatchSetUpdates, 0],
+  [0, () => RegexMatchSetUpdates, 0]
 ];
-export var UpdateRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _URMSRp, 0, [_CT], [0]];
-export var UpdateRegexPatternSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URPSR,
+export var UpdateRegexMatchSetResponse$: StaticStructureSchema = [3, n0, _URMSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _URPSR,
   0,
   [_RPSI, _U, _CT],
-  [0, () => RegexPatternSetUpdates, 0],
+  [0, () => RegexPatternSetUpdates, 0]
 ];
-export var UpdateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _URPSRp, 0, [_CT], [0]];
-export var UpdateRuleGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URGR,
+export var UpdateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _URPSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateRuleGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
   [_RGI, _U, _CT],
-  [0, () => RuleGroupUpdates, 0],
+  [0, () => RuleGroupUpdates, 0]
 ];
-export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp, 0, [_CT], [0]];
-export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp, 0, [_RI, _CT, _U], [0, 0, () => RuleUpdates]];
-export var UpdateRuleResponse$: StaticStructureSchema = [3, n0, _URRpd, 0, [_CT], [0]];
-export var UpdateSizeConstraintSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _USCSR,
+export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp,
+  0,
+  [_RI, _CT, _U],
+  [0, 0, () => RuleUpdates]
+];
+export var UpdateRuleResponse$: StaticStructureSchema = [3, n0, _URRpd,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateSizeConstraintSetRequest$: StaticStructureSchema = [3, n0, _USCSR,
   0,
   [_SCSI, _CT, _U],
-  [0, 0, () => SizeConstraintSetUpdates],
+  [0, 0, () => SizeConstraintSetUpdates]
 ];
-export var UpdateSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _USCSRp, 0, [_CT], [0]];
-export var UpdateSqlInjectionMatchSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _USIMSR,
+export var UpdateSizeConstraintSetResponse$: StaticStructureSchema = [3, n0, _USCSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateSqlInjectionMatchSetRequest$: StaticStructureSchema = [3, n0, _USIMSR,
   0,
   [_SIMSI, _CT, _U],
-  [0, 0, () => SqlInjectionMatchSetUpdates],
+  [0, 0, () => SqlInjectionMatchSetUpdates]
 ];
-export var UpdateSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _USIMSRp, 0, [_CT], [0]];
-export var UpdateWebACLRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UWACLR,
+export var UpdateSqlInjectionMatchSetResponse$: StaticStructureSchema = [3, n0, _USIMSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateWebACLRequest$: StaticStructureSchema = [3, n0, _UWACLR,
   0,
   [_WACLI, _CT, _U, _DA],
-  [0, 0, () => WebACLUpdates, () => WafAction$],
+  [0, 0, () => WebACLUpdates, () => WafAction$]
 ];
-export var UpdateWebACLResponse$: StaticStructureSchema = [3, n0, _UWACLRp, 0, [_CT], [0]];
-export var UpdateXssMatchSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UXMSR,
+export var UpdateWebACLResponse$: StaticStructureSchema = [3, n0, _UWACLRp,
+  0,
+  [_CT],
+  [0]
+];
+export var UpdateXssMatchSetRequest$: StaticStructureSchema = [3, n0, _UXMSR,
   0,
   [_XMSI, _CT, _U],
-  [0, 0, () => XssMatchSetUpdates],
+  [0, 0, () => XssMatchSetUpdates]
 ];
-export var UpdateXssMatchSetResponse$: StaticStructureSchema = [3, n0, _UXMSRp, 0, [_CT], [0]];
-export var WafAction$: StaticStructureSchema = [3, n0, _WA, 0, [_T], [0]];
-export var WAFBadRequestException$: StaticErrorSchema = [-3, n0, _WAFBRE, { [_e]: _c }, [_m], [0]];
+export var UpdateXssMatchSetResponse$: StaticStructureSchema = [3, n0, _UXMSRp,
+  0,
+  [_CT],
+  [0]
+];
+export var WafAction$: StaticStructureSchema = [3, n0, _WA,
+  0,
+  [_T],
+  [0]
+];
+export var WAFBadRequestException$: StaticErrorSchema = [-3, n0, _WAFBRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFBadRequestException$, WAFBadRequestException);
-export var WAFDisallowedNameException$: StaticErrorSchema = [-3, n0, _WAFDNE, { [_e]: _c }, [_m], [0]];
+export var WAFDisallowedNameException$: StaticErrorSchema = [-3, n0, _WAFDNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFDisallowedNameException$, WAFDisallowedNameException);
-export var WAFEntityMigrationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFEME,
+export var WAFEntityMigrationException$: StaticErrorSchema = [-3, n0, _WAFEME,
   { [_e]: _c },
   [_m, _MET, _MER],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(WAFEntityMigrationException$, WAFEntityMigrationException);
-export var WAFInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFIEE, { [_e]: _s }, [_m], [0]];
+export var WAFInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFIEE,
+  { [_e]: _s },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFInternalErrorException$, WAFInternalErrorException);
-export var WAFInvalidAccountException$: StaticErrorSchema = [-3, n0, _WAFIAE, { [_e]: _c }, [], []];
+export var WAFInvalidAccountException$: StaticErrorSchema = [-3, n0, _WAFIAE,
+  { [_e]: _c },
+  [],
+  []
+];
 TypeRegistry.for(n0).registerError(WAFInvalidAccountException$, WAFInvalidAccountException);
-export var WAFInvalidOperationException$: StaticErrorSchema = [-3, n0, _WAFIOE, { [_e]: _c }, [_m], [0]];
+export var WAFInvalidOperationException$: StaticErrorSchema = [-3, n0, _WAFIOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFInvalidOperationException$, WAFInvalidOperationException);
-export var WAFInvalidParameterException$: StaticErrorSchema = [-3, n0, _WAFIPE, { [_e]: _c }, [_f, _p, _r], [0, 0, 0]];
+export var WAFInvalidParameterException$: StaticErrorSchema = [-3, n0, _WAFIPE,
+  { [_e]: _c },
+  [_f, _p, _r],
+  [0, 0, 0]
+];
 TypeRegistry.for(n0).registerError(WAFInvalidParameterException$, WAFInvalidParameterException);
-export var WAFInvalidPermissionPolicyException$: StaticErrorSchema = [-3, n0, _WAFIPPE, { [_e]: _c }, [_m], [0]];
+export var WAFInvalidPermissionPolicyException$: StaticErrorSchema = [-3, n0, _WAFIPPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFInvalidPermissionPolicyException$, WAFInvalidPermissionPolicyException);
-export var WAFInvalidRegexPatternException$: StaticErrorSchema = [-3, n0, _WAFIRPE, { [_e]: _c }, [_m], [0]];
+export var WAFInvalidRegexPatternException$: StaticErrorSchema = [-3, n0, _WAFIRPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFInvalidRegexPatternException$, WAFInvalidRegexPatternException);
-export var WAFLimitsExceededException$: StaticErrorSchema = [-3, n0, _WAFLEE, { [_e]: _c }, [_m], [0]];
+export var WAFLimitsExceededException$: StaticErrorSchema = [-3, n0, _WAFLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFLimitsExceededException$, WAFLimitsExceededException);
-export var WAFNonEmptyEntityException$: StaticErrorSchema = [-3, n0, _WAFNEEE, { [_e]: _c }, [_m], [0]];
+export var WAFNonEmptyEntityException$: StaticErrorSchema = [-3, n0, _WAFNEEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFNonEmptyEntityException$, WAFNonEmptyEntityException);
-export var WAFNonexistentContainerException$: StaticErrorSchema = [-3, n0, _WAFNCE, { [_e]: _c }, [_m], [0]];
+export var WAFNonexistentContainerException$: StaticErrorSchema = [-3, n0, _WAFNCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFNonexistentContainerException$, WAFNonexistentContainerException);
-export var WAFNonexistentItemException$: StaticErrorSchema = [-3, n0, _WAFNIE, { [_e]: _c }, [_m], [0]];
+export var WAFNonexistentItemException$: StaticErrorSchema = [-3, n0, _WAFNIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFNonexistentItemException$, WAFNonexistentItemException);
-export var WafOverrideAction$: StaticStructureSchema = [3, n0, _WOA, 0, [_T], [0]];
-export var WAFReferencedItemException$: StaticErrorSchema = [-3, n0, _WAFRIE, { [_e]: _c }, [_m], [0]];
+export var WafOverrideAction$: StaticStructureSchema = [3, n0, _WOA,
+  0,
+  [_T],
+  [0]
+];
+export var WAFReferencedItemException$: StaticErrorSchema = [-3, n0, _WAFRIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFReferencedItemException$, WAFReferencedItemException);
-export var WAFServiceLinkedRoleErrorException$: StaticErrorSchema = [-3, n0, _WAFSLREE, { [_e]: _c }, [_m], [0]];
+export var WAFServiceLinkedRoleErrorException$: StaticErrorSchema = [-3, n0, _WAFSLREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFServiceLinkedRoleErrorException$, WAFServiceLinkedRoleErrorException);
-export var WAFStaleDataException$: StaticErrorSchema = [-3, n0, _WAFSDE, { [_e]: _c }, [_m], [0]];
+export var WAFStaleDataException$: StaticErrorSchema = [-3, n0, _WAFSDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFStaleDataException$, WAFStaleDataException);
-export var WAFSubscriptionNotFoundException$: StaticErrorSchema = [-3, n0, _WAFSNFE, { [_e]: _c }, [_m], [0]];
+export var WAFSubscriptionNotFoundException$: StaticErrorSchema = [-3, n0, _WAFSNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFSubscriptionNotFoundException$, WAFSubscriptionNotFoundException);
-export var WAFTagOperationException$: StaticErrorSchema = [-3, n0, _WAFTOE, { [_e]: _c }, [_m], [0]];
+export var WAFTagOperationException$: StaticErrorSchema = [-3, n0, _WAFTOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFTagOperationException$, WAFTagOperationException);
-export var WAFTagOperationInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFTOIEE, { [_e]: _s }, [_m], [0]];
+export var WAFTagOperationInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFTOIEE,
+  { [_e]: _s },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(WAFTagOperationInternalErrorException$, WAFTagOperationInternalErrorException);
-export var WebACL$: StaticStructureSchema = [
-  3,
-  n0,
-  _WACL,
+export var WebACL$: StaticStructureSchema = [3, n0, _WACL,
   0,
   [_WACLI, _N, _MN, _DA, _Ru, _WACLA],
-  [0, 0, 0, () => WafAction$, () => ActivatedRules, 0],
+  [0, 0, 0, () => WafAction$, () => ActivatedRules, 0]
 ];
-export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS, 0, [_WACLI, _N], [0, 0]];
-export var WebACLUpdate$: StaticStructureSchema = [3, n0, _WACLU, 0, [_A, _AR], [0, () => ActivatedRule$]];
-export var XssMatchSet$: StaticStructureSchema = [3, n0, _XMS, 0, [_XMSI, _N, _XMT], [0, 0, () => XssMatchTuples]];
-export var XssMatchSetSummary$: StaticStructureSchema = [3, n0, _XMSS, 0, [_XMSI, _N], [0, 0]];
-export var XssMatchSetUpdate$: StaticStructureSchema = [3, n0, _XMSU, 0, [_A, _XMTs], [0, () => XssMatchTuple$]];
-export var XssMatchTuple$: StaticStructureSchema = [3, n0, _XMTs, 0, [_FTM, _TT], [() => FieldToMatch$, 0]];
+export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
+  0,
+  [_WACLI, _N],
+  [0, 0]
+];
+export var WebACLUpdate$: StaticStructureSchema = [3, n0, _WACLU,
+  0,
+  [_A, _AR],
+  [0, () => ActivatedRule$]
+];
+export var XssMatchSet$: StaticStructureSchema = [3, n0, _XMS,
+  0,
+  [_XMSI, _N, _XMT],
+  [0, 0, () => XssMatchTuples]
+];
+export var XssMatchSetSummary$: StaticStructureSchema = [3, n0, _XMSS,
+  0,
+  [_XMSI, _N],
+  [0, 0]
+];
+export var XssMatchSetUpdate$: StaticStructureSchema = [3, n0, _XMSU,
+  0,
+  [_A, _XMTs],
+  [0, () => XssMatchTuple$]
+];
+export var XssMatchTuple$: StaticStructureSchema = [3, n0, _XMTs,
+  0,
+  [_FTM, _TT],
+  [() => FieldToMatch$, 0]
+];
 export var WAFServiceException$: StaticErrorSchema = [-3, _sm, "WAFServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WAFServiceException$, WAFServiceException);
-var ActivatedRules: StaticListSchema = [1, n0, _ARc, 0, () => ActivatedRule$];
-var ByteMatchSetSummaries: StaticListSchema = [1, n0, _BMSSy, 0, () => ByteMatchSetSummary$];
-var ByteMatchSetUpdates: StaticListSchema = [1, n0, _BMSUy, 0, () => ByteMatchSetUpdate$];
-var ByteMatchTuples: StaticListSchema = [1, n0, _BMT, 0, () => ByteMatchTuple$];
-var ExcludedRules: StaticListSchema = [1, n0, _ER, 0, () => ExcludedRule$];
-var GeoMatchConstraints: StaticListSchema = [1, n0, _GMCe, 0, () => GeoMatchConstraint$];
-var GeoMatchSetSummaries: StaticListSchema = [1, n0, _GMSSe, 0, () => GeoMatchSetSummary$];
-var GeoMatchSetUpdates: StaticListSchema = [1, n0, _GMSUe, 0, () => GeoMatchSetUpdate$];
-var HTTPHeaders: StaticListSchema = [1, n0, _HTTPHe, 0, () => HTTPHeader$];
-var IPSetDescriptors: StaticListSchema = [1, n0, _IPSD, 0, () => IPSetDescriptor$];
-var IPSetSummaries: StaticListSchema = [1, n0, _IPSSe, 0, () => IPSetSummary$];
-var IPSetUpdates: StaticListSchema = [1, n0, _IPSUe, 0, () => IPSetUpdate$];
+var ActivatedRules: StaticListSchema = [1, n0, _ARc,
+  0, () => ActivatedRule$
+];
+var ByteMatchSetSummaries: StaticListSchema = [1, n0, _BMSSy,
+  0, () => ByteMatchSetSummary$
+];
+var ByteMatchSetUpdates: StaticListSchema = [1, n0, _BMSUy,
+  0, () => ByteMatchSetUpdate$
+];
+var ByteMatchTuples: StaticListSchema = [1, n0, _BMT,
+  0, () => ByteMatchTuple$
+];
+var ExcludedRules: StaticListSchema = [1, n0, _ER,
+  0, () => ExcludedRule$
+];
+var GeoMatchConstraints: StaticListSchema = [1, n0, _GMCe,
+  0, () => GeoMatchConstraint$
+];
+var GeoMatchSetSummaries: StaticListSchema = [1, n0, _GMSSe,
+  0, () => GeoMatchSetSummary$
+];
+var GeoMatchSetUpdates: StaticListSchema = [1, n0, _GMSUe,
+  0, () => GeoMatchSetUpdate$
+];
+var HTTPHeaders: StaticListSchema = [1, n0, _HTTPHe,
+  0, () => HTTPHeader$
+];
+var IPSetDescriptors: StaticListSchema = [1, n0, _IPSD,
+  0, () => IPSetDescriptor$
+];
+var IPSetSummaries: StaticListSchema = [1, n0, _IPSSe,
+  0, () => IPSetSummary$
+];
+var IPSetUpdates: StaticListSchema = [1, n0, _IPSUe,
+  0, () => IPSetUpdate$
+];
 var LogDestinationConfigs = 64 | 0;
-var LoggingConfigurations: StaticListSchema = [1, n0, _LCo, 0, () => LoggingConfiguration$];
+var LoggingConfigurations: StaticListSchema = [1, n0, _LCo,
+  0, () => LoggingConfiguration$
+];
 var ManagedKeys = 64 | 0;
-var Predicates: StaticListSchema = [1, n0, _Pre, 0, () => Predicate$];
-var RedactedFields: StaticListSchema = [1, n0, _RF, 0, () => FieldToMatch$];
-var RegexMatchSetSummaries: StaticListSchema = [1, n0, _RMSSe, 0, () => RegexMatchSetSummary$];
-var RegexMatchSetUpdates: StaticListSchema = [1, n0, _RMSUe, 0, () => RegexMatchSetUpdate$];
-var RegexMatchTuples: StaticListSchema = [1, n0, _RMT, 0, () => RegexMatchTuple$];
-var RegexPatternSetSummaries: StaticListSchema = [1, n0, _RPSSe, 0, () => RegexPatternSetSummary$];
-var RegexPatternSetUpdates: StaticListSchema = [1, n0, _RPSUe, 0, () => RegexPatternSetUpdate$];
+var Predicates: StaticListSchema = [1, n0, _Pre,
+  0, () => Predicate$
+];
+var RedactedFields: StaticListSchema = [1, n0, _RF,
+  0, () => FieldToMatch$
+];
+var RegexMatchSetSummaries: StaticListSchema = [1, n0, _RMSSe,
+  0, () => RegexMatchSetSummary$
+];
+var RegexMatchSetUpdates: StaticListSchema = [1, n0, _RMSUe,
+  0, () => RegexMatchSetUpdate$
+];
+var RegexMatchTuples: StaticListSchema = [1, n0, _RMT,
+  0, () => RegexMatchTuple$
+];
+var RegexPatternSetSummaries: StaticListSchema = [1, n0, _RPSSe,
+  0, () => RegexPatternSetSummary$
+];
+var RegexPatternSetUpdates: StaticListSchema = [1, n0, _RPSUe,
+  0, () => RegexPatternSetUpdate$
+];
 var RegexPatternStrings = 64 | 0;
-var RuleGroupSummaries: StaticListSchema = [1, n0, _RGSu, 0, () => RuleGroupSummary$];
-var RuleGroupUpdates: StaticListSchema = [1, n0, _RGUu, 0, () => RuleGroupUpdate$];
-var RuleSummaries: StaticListSchema = [1, n0, _RSu, 0, () => RuleSummary$];
-var RuleUpdates: StaticListSchema = [1, n0, _RUu, 0, () => RuleUpdate$];
-var SampledHTTPRequests: StaticListSchema = [1, n0, _SHTTPRa, 0, () => SampledHTTPRequest$];
-var SizeConstraints: StaticListSchema = [1, n0, _SCi, 0, () => SizeConstraint$];
-var SizeConstraintSetSummaries: StaticListSchema = [1, n0, _SCSSi, 0, () => SizeConstraintSetSummary$];
-var SizeConstraintSetUpdates: StaticListSchema = [1, n0, _SCSUi, 0, () => SizeConstraintSetUpdate$];
-var SqlInjectionMatchSetSummaries: StaticListSchema = [1, n0, _SIMSSq, 0, () => SqlInjectionMatchSetSummary$];
-var SqlInjectionMatchSetUpdates: StaticListSchema = [1, n0, _SIMSUq, 0, () => SqlInjectionMatchSetUpdate$];
-var SqlInjectionMatchTuples: StaticListSchema = [1, n0, _SIMT, 0, () => SqlInjectionMatchTuple$];
-var SubscribedRuleGroupSummaries: StaticListSchema = [1, n0, _SRGSu, 0, () => SubscribedRuleGroupSummary$];
+var RuleGroupSummaries: StaticListSchema = [1, n0, _RGSu,
+  0, () => RuleGroupSummary$
+];
+var RuleGroupUpdates: StaticListSchema = [1, n0, _RGUu,
+  0, () => RuleGroupUpdate$
+];
+var RuleSummaries: StaticListSchema = [1, n0, _RSu,
+  0, () => RuleSummary$
+];
+var RuleUpdates: StaticListSchema = [1, n0, _RUu,
+  0, () => RuleUpdate$
+];
+var SampledHTTPRequests: StaticListSchema = [1, n0, _SHTTPRa,
+  0, () => SampledHTTPRequest$
+];
+var SizeConstraints: StaticListSchema = [1, n0, _SCi,
+  0, () => SizeConstraint$
+];
+var SizeConstraintSetSummaries: StaticListSchema = [1, n0, _SCSSi,
+  0, () => SizeConstraintSetSummary$
+];
+var SizeConstraintSetUpdates: StaticListSchema = [1, n0, _SCSUi,
+  0, () => SizeConstraintSetUpdate$
+];
+var SqlInjectionMatchSetSummaries: StaticListSchema = [1, n0, _SIMSSq,
+  0, () => SqlInjectionMatchSetSummary$
+];
+var SqlInjectionMatchSetUpdates: StaticListSchema = [1, n0, _SIMSUq,
+  0, () => SqlInjectionMatchSetUpdate$
+];
+var SqlInjectionMatchTuples: StaticListSchema = [1, n0, _SIMT,
+  0, () => SqlInjectionMatchTuple$
+];
+var SubscribedRuleGroupSummaries: StaticListSchema = [1, n0, _SRGSu,
+  0, () => SubscribedRuleGroupSummary$
+];
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var WebACLSummaries: StaticListSchema = [1, n0, _WACLSe, 0, () => WebACLSummary$];
-var WebACLUpdates: StaticListSchema = [1, n0, _WACLUe, 0, () => WebACLUpdate$];
-var XssMatchSetSummaries: StaticListSchema = [1, n0, _XMSSs, 0, () => XssMatchSetSummary$];
-var XssMatchSetUpdates: StaticListSchema = [1, n0, _XMSUs, 0, () => XssMatchSetUpdate$];
-var XssMatchTuples: StaticListSchema = [1, n0, _XMT, 0, () => XssMatchTuple$];
-export var CreateByteMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CBMS,
-  0,
-  () => CreateByteMatchSetRequest$,
-  () => CreateByteMatchSetResponse$,
-];
-export var CreateGeoMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CGMS,
-  0,
-  () => CreateGeoMatchSetRequest$,
-  () => CreateGeoMatchSetResponse$,
-];
-export var CreateIPSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CIPS,
-  0,
-  () => CreateIPSetRequest$,
-  () => CreateIPSetResponse$,
-];
-export var CreateRateBasedRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRBR,
-  0,
-  () => CreateRateBasedRuleRequest$,
-  () => CreateRateBasedRuleResponse$,
-];
-export var CreateRegexMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRMS,
-  0,
-  () => CreateRegexMatchSetRequest$,
-  () => CreateRegexMatchSetResponse$,
-];
-export var CreateRegexPatternSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRPS,
-  0,
-  () => CreateRegexPatternSetRequest$,
-  () => CreateRegexPatternSetResponse$,
-];
-export var CreateRule$: StaticOperationSchema = [9, n0, _CR, 0, () => CreateRuleRequest$, () => CreateRuleResponse$];
-export var CreateRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRG,
-  0,
-  () => CreateRuleGroupRequest$,
-  () => CreateRuleGroupResponse$,
-];
-export var CreateSizeConstraintSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSCS,
-  0,
-  () => CreateSizeConstraintSetRequest$,
-  () => CreateSizeConstraintSetResponse$,
-];
-export var CreateSqlInjectionMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSIMS,
-  0,
-  () => CreateSqlInjectionMatchSetRequest$,
-  () => CreateSqlInjectionMatchSetResponse$,
-];
-export var CreateWebACL$: StaticOperationSchema = [
-  9,
-  n0,
-  _CWACL,
-  0,
-  () => CreateWebACLRequest$,
-  () => CreateWebACLResponse$,
-];
-export var CreateWebACLMigrationStack$: StaticOperationSchema = [
-  9,
-  n0,
-  _CWACLMS,
-  0,
-  () => CreateWebACLMigrationStackRequest$,
-  () => CreateWebACLMigrationStackResponse$,
-];
-export var CreateXssMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CXMS,
-  0,
-  () => CreateXssMatchSetRequest$,
-  () => CreateXssMatchSetResponse$,
-];
-export var DeleteByteMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DBMS,
-  0,
-  () => DeleteByteMatchSetRequest$,
-  () => DeleteByteMatchSetResponse$,
-];
-export var DeleteGeoMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGMS,
-  0,
-  () => DeleteGeoMatchSetRequest$,
-  () => DeleteGeoMatchSetResponse$,
-];
-export var DeleteIPSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIPS,
-  0,
-  () => DeleteIPSetRequest$,
-  () => DeleteIPSetResponse$,
-];
-export var DeleteLoggingConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DLC,
-  0,
-  () => DeleteLoggingConfigurationRequest$,
-  () => DeleteLoggingConfigurationResponse$,
-];
-export var DeletePermissionPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPP,
-  0,
-  () => DeletePermissionPolicyRequest$,
-  () => DeletePermissionPolicyResponse$,
-];
-export var DeleteRateBasedRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRBR,
-  0,
-  () => DeleteRateBasedRuleRequest$,
-  () => DeleteRateBasedRuleResponse$,
-];
-export var DeleteRegexMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRMS,
-  0,
-  () => DeleteRegexMatchSetRequest$,
-  () => DeleteRegexMatchSetResponse$,
-];
-export var DeleteRegexPatternSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRPS,
-  0,
-  () => DeleteRegexPatternSetRequest$,
-  () => DeleteRegexPatternSetResponse$,
-];
-export var DeleteRule$: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteRuleRequest$, () => DeleteRuleResponse$];
-export var DeleteRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRG,
-  0,
-  () => DeleteRuleGroupRequest$,
-  () => DeleteRuleGroupResponse$,
-];
-export var DeleteSizeConstraintSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSCS,
-  0,
-  () => DeleteSizeConstraintSetRequest$,
-  () => DeleteSizeConstraintSetResponse$,
-];
-export var DeleteSqlInjectionMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSIMS,
-  0,
-  () => DeleteSqlInjectionMatchSetRequest$,
-  () => DeleteSqlInjectionMatchSetResponse$,
-];
-export var DeleteWebACL$: StaticOperationSchema = [
-  9,
-  n0,
-  _DWACL,
-  0,
-  () => DeleteWebACLRequest$,
-  () => DeleteWebACLResponse$,
-];
-export var DeleteXssMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DXMS,
-  0,
-  () => DeleteXssMatchSetRequest$,
-  () => DeleteXssMatchSetResponse$,
-];
-export var GetByteMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GBMS,
-  0,
-  () => GetByteMatchSetRequest$,
-  () => GetByteMatchSetResponse$,
-];
-export var GetChangeToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCT,
-  0,
-  () => GetChangeTokenRequest$,
-  () => GetChangeTokenResponse$,
-];
-export var GetChangeTokenStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCTS,
-  0,
-  () => GetChangeTokenStatusRequest$,
-  () => GetChangeTokenStatusResponse$,
-];
-export var GetGeoMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GGMS,
-  0,
-  () => GetGeoMatchSetRequest$,
-  () => GetGeoMatchSetResponse$,
-];
-export var GetIPSet$: StaticOperationSchema = [9, n0, _GIPS, 0, () => GetIPSetRequest$, () => GetIPSetResponse$];
-export var GetLoggingConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _GLC,
-  0,
-  () => GetLoggingConfigurationRequest$,
-  () => GetLoggingConfigurationResponse$,
-];
-export var GetPermissionPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GPP,
-  0,
-  () => GetPermissionPolicyRequest$,
-  () => GetPermissionPolicyResponse$,
-];
-export var GetRateBasedRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRBR,
-  0,
-  () => GetRateBasedRuleRequest$,
-  () => GetRateBasedRuleResponse$,
-];
-export var GetRateBasedRuleManagedKeys$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRBRMK,
-  0,
-  () => GetRateBasedRuleManagedKeysRequest$,
-  () => GetRateBasedRuleManagedKeysResponse$,
-];
-export var GetRegexMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRMS,
-  0,
-  () => GetRegexMatchSetRequest$,
-  () => GetRegexMatchSetResponse$,
-];
-export var GetRegexPatternSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRPS,
-  0,
-  () => GetRegexPatternSetRequest$,
-  () => GetRegexPatternSetResponse$,
-];
-export var GetRule$: StaticOperationSchema = [9, n0, _GR, 0, () => GetRuleRequest$, () => GetRuleResponse$];
-export var GetRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRG,
-  0,
-  () => GetRuleGroupRequest$,
-  () => GetRuleGroupResponse$,
-];
-export var GetSampledRequests$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSR,
-  0,
-  () => GetSampledRequestsRequest$,
-  () => GetSampledRequestsResponse$,
-];
-export var GetSizeConstraintSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSCS,
-  0,
-  () => GetSizeConstraintSetRequest$,
-  () => GetSizeConstraintSetResponse$,
-];
-export var GetSqlInjectionMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSIMS,
-  0,
-  () => GetSqlInjectionMatchSetRequest$,
-  () => GetSqlInjectionMatchSetResponse$,
-];
-export var GetWebACL$: StaticOperationSchema = [9, n0, _GWACL, 0, () => GetWebACLRequest$, () => GetWebACLResponse$];
-export var GetXssMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GXMS,
-  0,
-  () => GetXssMatchSetRequest$,
-  () => GetXssMatchSetResponse$,
-];
-export var ListActivatedRulesInRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _LARIRG,
-  0,
-  () => ListActivatedRulesInRuleGroupRequest$,
-  () => ListActivatedRulesInRuleGroupResponse$,
-];
-export var ListByteMatchSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LBMS,
-  0,
-  () => ListByteMatchSetsRequest$,
-  () => ListByteMatchSetsResponse$,
-];
-export var ListGeoMatchSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LGMS,
-  0,
-  () => ListGeoMatchSetsRequest$,
-  () => ListGeoMatchSetsResponse$,
-];
-export var ListIPSets$: StaticOperationSchema = [9, n0, _LIPS, 0, () => ListIPSetsRequest$, () => ListIPSetsResponse$];
-export var ListLoggingConfigurations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LLC,
-  0,
-  () => ListLoggingConfigurationsRequest$,
-  () => ListLoggingConfigurationsResponse$,
-];
-export var ListRateBasedRules$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRBR,
-  0,
-  () => ListRateBasedRulesRequest$,
-  () => ListRateBasedRulesResponse$,
-];
-export var ListRegexMatchSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRMS,
-  0,
-  () => ListRegexMatchSetsRequest$,
-  () => ListRegexMatchSetsResponse$,
-];
-export var ListRegexPatternSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRPS,
-  0,
-  () => ListRegexPatternSetsRequest$,
-  () => ListRegexPatternSetsResponse$,
-];
-export var ListRuleGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRG,
-  0,
-  () => ListRuleGroupsRequest$,
-  () => ListRuleGroupsResponse$,
-];
-export var ListRules$: StaticOperationSchema = [9, n0, _LR, 0, () => ListRulesRequest$, () => ListRulesResponse$];
-export var ListSizeConstraintSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSCS,
-  0,
-  () => ListSizeConstraintSetsRequest$,
-  () => ListSizeConstraintSetsResponse$,
-];
-export var ListSqlInjectionMatchSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSIMS,
-  0,
-  () => ListSqlInjectionMatchSetsRequest$,
-  () => ListSqlInjectionMatchSetsResponse$,
-];
-export var ListSubscribedRuleGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSRG,
-  0,
-  () => ListSubscribedRuleGroupsRequest$,
-  () => ListSubscribedRuleGroupsResponse$,
-];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
-];
-export var ListWebACLs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LWACL,
-  0,
-  () => ListWebACLsRequest$,
-  () => ListWebACLsResponse$,
-];
-export var ListXssMatchSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LXMS,
-  0,
-  () => ListXssMatchSetsRequest$,
-  () => ListXssMatchSetsResponse$,
-];
-export var PutLoggingConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _PLC,
-  0,
-  () => PutLoggingConfigurationRequest$,
-  () => PutLoggingConfigurationResponse$,
-];
-export var PutPermissionPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PPP,
-  0,
-  () => PutPermissionPolicyRequest$,
-  () => PutPermissionPolicyResponse$,
-];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  0,
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
-];
-export var UpdateByteMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _UBMS,
-  0,
-  () => UpdateByteMatchSetRequest$,
-  () => UpdateByteMatchSetResponse$,
-];
-export var UpdateGeoMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _UGMS,
-  0,
-  () => UpdateGeoMatchSetRequest$,
-  () => UpdateGeoMatchSetResponse$,
-];
-export var UpdateIPSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _UIPS,
-  0,
-  () => UpdateIPSetRequest$,
-  () => UpdateIPSetResponse$,
-];
-export var UpdateRateBasedRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _URBR,
-  0,
-  () => UpdateRateBasedRuleRequest$,
-  () => UpdateRateBasedRuleResponse$,
-];
-export var UpdateRegexMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _URMS,
-  0,
-  () => UpdateRegexMatchSetRequest$,
-  () => UpdateRegexMatchSetResponse$,
-];
-export var UpdateRegexPatternSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _URPS,
-  0,
-  () => UpdateRegexPatternSetRequest$,
-  () => UpdateRegexPatternSetResponse$,
-];
-export var UpdateRule$: StaticOperationSchema = [9, n0, _URp, 0, () => UpdateRuleRequest$, () => UpdateRuleResponse$];
-export var UpdateRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _URG,
-  0,
-  () => UpdateRuleGroupRequest$,
-  () => UpdateRuleGroupResponse$,
-];
-export var UpdateSizeConstraintSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _USCS,
-  0,
-  () => UpdateSizeConstraintSetRequest$,
-  () => UpdateSizeConstraintSetResponse$,
-];
-export var UpdateSqlInjectionMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _USIMS,
-  0,
-  () => UpdateSqlInjectionMatchSetRequest$,
-  () => UpdateSqlInjectionMatchSetResponse$,
-];
-export var UpdateWebACL$: StaticOperationSchema = [
-  9,
-  n0,
-  _UWACL,
-  0,
-  () => UpdateWebACLRequest$,
-  () => UpdateWebACLResponse$,
-];
-export var UpdateXssMatchSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _UXMS,
-  0,
-  () => UpdateXssMatchSetRequest$,
-  () => UpdateXssMatchSetResponse$,
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var WebACLSummaries: StaticListSchema = [1, n0, _WACLSe,
+  0, () => WebACLSummary$
+];
+var WebACLUpdates: StaticListSchema = [1, n0, _WACLUe,
+  0, () => WebACLUpdate$
+];
+var XssMatchSetSummaries: StaticListSchema = [1, n0, _XMSSs,
+  0, () => XssMatchSetSummary$
+];
+var XssMatchSetUpdates: StaticListSchema = [1, n0, _XMSUs,
+  0, () => XssMatchSetUpdate$
+];
+var XssMatchTuples: StaticListSchema = [1, n0, _XMT,
+  0, () => XssMatchTuple$
+];
+export var CreateByteMatchSet$: StaticOperationSchema = [9, n0, _CBMS,
+  0, () => CreateByteMatchSetRequest$, () => CreateByteMatchSetResponse$
+];
+export var CreateGeoMatchSet$: StaticOperationSchema = [9, n0, _CGMS,
+  0, () => CreateGeoMatchSetRequest$, () => CreateGeoMatchSetResponse$
+];
+export var CreateIPSet$: StaticOperationSchema = [9, n0, _CIPS,
+  0, () => CreateIPSetRequest$, () => CreateIPSetResponse$
+];
+export var CreateRateBasedRule$: StaticOperationSchema = [9, n0, _CRBR,
+  0, () => CreateRateBasedRuleRequest$, () => CreateRateBasedRuleResponse$
+];
+export var CreateRegexMatchSet$: StaticOperationSchema = [9, n0, _CRMS,
+  0, () => CreateRegexMatchSetRequest$, () => CreateRegexMatchSetResponse$
+];
+export var CreateRegexPatternSet$: StaticOperationSchema = [9, n0, _CRPS,
+  0, () => CreateRegexPatternSetRequest$, () => CreateRegexPatternSetResponse$
+];
+export var CreateRule$: StaticOperationSchema = [9, n0, _CR,
+  0, () => CreateRuleRequest$, () => CreateRuleResponse$
+];
+export var CreateRuleGroup$: StaticOperationSchema = [9, n0, _CRG,
+  0, () => CreateRuleGroupRequest$, () => CreateRuleGroupResponse$
+];
+export var CreateSizeConstraintSet$: StaticOperationSchema = [9, n0, _CSCS,
+  0, () => CreateSizeConstraintSetRequest$, () => CreateSizeConstraintSetResponse$
+];
+export var CreateSqlInjectionMatchSet$: StaticOperationSchema = [9, n0, _CSIMS,
+  0, () => CreateSqlInjectionMatchSetRequest$, () => CreateSqlInjectionMatchSetResponse$
+];
+export var CreateWebACL$: StaticOperationSchema = [9, n0, _CWACL,
+  0, () => CreateWebACLRequest$, () => CreateWebACLResponse$
+];
+export var CreateWebACLMigrationStack$: StaticOperationSchema = [9, n0, _CWACLMS,
+  0, () => CreateWebACLMigrationStackRequest$, () => CreateWebACLMigrationStackResponse$
+];
+export var CreateXssMatchSet$: StaticOperationSchema = [9, n0, _CXMS,
+  0, () => CreateXssMatchSetRequest$, () => CreateXssMatchSetResponse$
+];
+export var DeleteByteMatchSet$: StaticOperationSchema = [9, n0, _DBMS,
+  0, () => DeleteByteMatchSetRequest$, () => DeleteByteMatchSetResponse$
+];
+export var DeleteGeoMatchSet$: StaticOperationSchema = [9, n0, _DGMS,
+  0, () => DeleteGeoMatchSetRequest$, () => DeleteGeoMatchSetResponse$
+];
+export var DeleteIPSet$: StaticOperationSchema = [9, n0, _DIPS,
+  0, () => DeleteIPSetRequest$, () => DeleteIPSetResponse$
+];
+export var DeleteLoggingConfiguration$: StaticOperationSchema = [9, n0, _DLC,
+  0, () => DeleteLoggingConfigurationRequest$, () => DeleteLoggingConfigurationResponse$
+];
+export var DeletePermissionPolicy$: StaticOperationSchema = [9, n0, _DPP,
+  0, () => DeletePermissionPolicyRequest$, () => DeletePermissionPolicyResponse$
+];
+export var DeleteRateBasedRule$: StaticOperationSchema = [9, n0, _DRBR,
+  0, () => DeleteRateBasedRuleRequest$, () => DeleteRateBasedRuleResponse$
+];
+export var DeleteRegexMatchSet$: StaticOperationSchema = [9, n0, _DRMS,
+  0, () => DeleteRegexMatchSetRequest$, () => DeleteRegexMatchSetResponse$
+];
+export var DeleteRegexPatternSet$: StaticOperationSchema = [9, n0, _DRPS,
+  0, () => DeleteRegexPatternSetRequest$, () => DeleteRegexPatternSetResponse$
+];
+export var DeleteRule$: StaticOperationSchema = [9, n0, _DR,
+  0, () => DeleteRuleRequest$, () => DeleteRuleResponse$
+];
+export var DeleteRuleGroup$: StaticOperationSchema = [9, n0, _DRG,
+  0, () => DeleteRuleGroupRequest$, () => DeleteRuleGroupResponse$
+];
+export var DeleteSizeConstraintSet$: StaticOperationSchema = [9, n0, _DSCS,
+  0, () => DeleteSizeConstraintSetRequest$, () => DeleteSizeConstraintSetResponse$
+];
+export var DeleteSqlInjectionMatchSet$: StaticOperationSchema = [9, n0, _DSIMS,
+  0, () => DeleteSqlInjectionMatchSetRequest$, () => DeleteSqlInjectionMatchSetResponse$
+];
+export var DeleteWebACL$: StaticOperationSchema = [9, n0, _DWACL,
+  0, () => DeleteWebACLRequest$, () => DeleteWebACLResponse$
+];
+export var DeleteXssMatchSet$: StaticOperationSchema = [9, n0, _DXMS,
+  0, () => DeleteXssMatchSetRequest$, () => DeleteXssMatchSetResponse$
+];
+export var GetByteMatchSet$: StaticOperationSchema = [9, n0, _GBMS,
+  0, () => GetByteMatchSetRequest$, () => GetByteMatchSetResponse$
+];
+export var GetChangeToken$: StaticOperationSchema = [9, n0, _GCT,
+  0, () => GetChangeTokenRequest$, () => GetChangeTokenResponse$
+];
+export var GetChangeTokenStatus$: StaticOperationSchema = [9, n0, _GCTS,
+  0, () => GetChangeTokenStatusRequest$, () => GetChangeTokenStatusResponse$
+];
+export var GetGeoMatchSet$: StaticOperationSchema = [9, n0, _GGMS,
+  0, () => GetGeoMatchSetRequest$, () => GetGeoMatchSetResponse$
+];
+export var GetIPSet$: StaticOperationSchema = [9, n0, _GIPS,
+  0, () => GetIPSetRequest$, () => GetIPSetResponse$
+];
+export var GetLoggingConfiguration$: StaticOperationSchema = [9, n0, _GLC,
+  0, () => GetLoggingConfigurationRequest$, () => GetLoggingConfigurationResponse$
+];
+export var GetPermissionPolicy$: StaticOperationSchema = [9, n0, _GPP,
+  0, () => GetPermissionPolicyRequest$, () => GetPermissionPolicyResponse$
+];
+export var GetRateBasedRule$: StaticOperationSchema = [9, n0, _GRBR,
+  0, () => GetRateBasedRuleRequest$, () => GetRateBasedRuleResponse$
+];
+export var GetRateBasedRuleManagedKeys$: StaticOperationSchema = [9, n0, _GRBRMK,
+  0, () => GetRateBasedRuleManagedKeysRequest$, () => GetRateBasedRuleManagedKeysResponse$
+];
+export var GetRegexMatchSet$: StaticOperationSchema = [9, n0, _GRMS,
+  0, () => GetRegexMatchSetRequest$, () => GetRegexMatchSetResponse$
+];
+export var GetRegexPatternSet$: StaticOperationSchema = [9, n0, _GRPS,
+  0, () => GetRegexPatternSetRequest$, () => GetRegexPatternSetResponse$
+];
+export var GetRule$: StaticOperationSchema = [9, n0, _GR,
+  0, () => GetRuleRequest$, () => GetRuleResponse$
+];
+export var GetRuleGroup$: StaticOperationSchema = [9, n0, _GRG,
+  0, () => GetRuleGroupRequest$, () => GetRuleGroupResponse$
+];
+export var GetSampledRequests$: StaticOperationSchema = [9, n0, _GSR,
+  0, () => GetSampledRequestsRequest$, () => GetSampledRequestsResponse$
+];
+export var GetSizeConstraintSet$: StaticOperationSchema = [9, n0, _GSCS,
+  0, () => GetSizeConstraintSetRequest$, () => GetSizeConstraintSetResponse$
+];
+export var GetSqlInjectionMatchSet$: StaticOperationSchema = [9, n0, _GSIMS,
+  0, () => GetSqlInjectionMatchSetRequest$, () => GetSqlInjectionMatchSetResponse$
+];
+export var GetWebACL$: StaticOperationSchema = [9, n0, _GWACL,
+  0, () => GetWebACLRequest$, () => GetWebACLResponse$
+];
+export var GetXssMatchSet$: StaticOperationSchema = [9, n0, _GXMS,
+  0, () => GetXssMatchSetRequest$, () => GetXssMatchSetResponse$
+];
+export var ListActivatedRulesInRuleGroup$: StaticOperationSchema = [9, n0, _LARIRG,
+  0, () => ListActivatedRulesInRuleGroupRequest$, () => ListActivatedRulesInRuleGroupResponse$
+];
+export var ListByteMatchSets$: StaticOperationSchema = [9, n0, _LBMS,
+  0, () => ListByteMatchSetsRequest$, () => ListByteMatchSetsResponse$
+];
+export var ListGeoMatchSets$: StaticOperationSchema = [9, n0, _LGMS,
+  0, () => ListGeoMatchSetsRequest$, () => ListGeoMatchSetsResponse$
+];
+export var ListIPSets$: StaticOperationSchema = [9, n0, _LIPS,
+  0, () => ListIPSetsRequest$, () => ListIPSetsResponse$
+];
+export var ListLoggingConfigurations$: StaticOperationSchema = [9, n0, _LLC,
+  0, () => ListLoggingConfigurationsRequest$, () => ListLoggingConfigurationsResponse$
+];
+export var ListRateBasedRules$: StaticOperationSchema = [9, n0, _LRBR,
+  0, () => ListRateBasedRulesRequest$, () => ListRateBasedRulesResponse$
+];
+export var ListRegexMatchSets$: StaticOperationSchema = [9, n0, _LRMS,
+  0, () => ListRegexMatchSetsRequest$, () => ListRegexMatchSetsResponse$
+];
+export var ListRegexPatternSets$: StaticOperationSchema = [9, n0, _LRPS,
+  0, () => ListRegexPatternSetsRequest$, () => ListRegexPatternSetsResponse$
+];
+export var ListRuleGroups$: StaticOperationSchema = [9, n0, _LRG,
+  0, () => ListRuleGroupsRequest$, () => ListRuleGroupsResponse$
+];
+export var ListRules$: StaticOperationSchema = [9, n0, _LR,
+  0, () => ListRulesRequest$, () => ListRulesResponse$
+];
+export var ListSizeConstraintSets$: StaticOperationSchema = [9, n0, _LSCS,
+  0, () => ListSizeConstraintSetsRequest$, () => ListSizeConstraintSetsResponse$
+];
+export var ListSqlInjectionMatchSets$: StaticOperationSchema = [9, n0, _LSIMS,
+  0, () => ListSqlInjectionMatchSetsRequest$, () => ListSqlInjectionMatchSetsResponse$
+];
+export var ListSubscribedRuleGroups$: StaticOperationSchema = [9, n0, _LSRG,
+  0, () => ListSubscribedRuleGroupsRequest$, () => ListSubscribedRuleGroupsResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var ListWebACLs$: StaticOperationSchema = [9, n0, _LWACL,
+  0, () => ListWebACLsRequest$, () => ListWebACLsResponse$
+];
+export var ListXssMatchSets$: StaticOperationSchema = [9, n0, _LXMS,
+  0, () => ListXssMatchSetsRequest$, () => ListXssMatchSetsResponse$
+];
+export var PutLoggingConfiguration$: StaticOperationSchema = [9, n0, _PLC,
+  0, () => PutLoggingConfigurationRequest$, () => PutLoggingConfigurationResponse$
+];
+export var PutPermissionPolicy$: StaticOperationSchema = [9, n0, _PPP,
+  0, () => PutPermissionPolicyRequest$, () => PutPermissionPolicyResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  0, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateByteMatchSet$: StaticOperationSchema = [9, n0, _UBMS,
+  0, () => UpdateByteMatchSetRequest$, () => UpdateByteMatchSetResponse$
+];
+export var UpdateGeoMatchSet$: StaticOperationSchema = [9, n0, _UGMS,
+  0, () => UpdateGeoMatchSetRequest$, () => UpdateGeoMatchSetResponse$
+];
+export var UpdateIPSet$: StaticOperationSchema = [9, n0, _UIPS,
+  0, () => UpdateIPSetRequest$, () => UpdateIPSetResponse$
+];
+export var UpdateRateBasedRule$: StaticOperationSchema = [9, n0, _URBR,
+  0, () => UpdateRateBasedRuleRequest$, () => UpdateRateBasedRuleResponse$
+];
+export var UpdateRegexMatchSet$: StaticOperationSchema = [9, n0, _URMS,
+  0, () => UpdateRegexMatchSetRequest$, () => UpdateRegexMatchSetResponse$
+];
+export var UpdateRegexPatternSet$: StaticOperationSchema = [9, n0, _URPS,
+  0, () => UpdateRegexPatternSetRequest$, () => UpdateRegexPatternSetResponse$
+];
+export var UpdateRule$: StaticOperationSchema = [9, n0, _URp,
+  0, () => UpdateRuleRequest$, () => UpdateRuleResponse$
+];
+export var UpdateRuleGroup$: StaticOperationSchema = [9, n0, _URG,
+  0, () => UpdateRuleGroupRequest$, () => UpdateRuleGroupResponse$
+];
+export var UpdateSizeConstraintSet$: StaticOperationSchema = [9, n0, _USCS,
+  0, () => UpdateSizeConstraintSetRequest$, () => UpdateSizeConstraintSetResponse$
+];
+export var UpdateSqlInjectionMatchSet$: StaticOperationSchema = [9, n0, _USIMS,
+  0, () => UpdateSqlInjectionMatchSetRequest$, () => UpdateSqlInjectionMatchSetResponse$
+];
+export var UpdateWebACL$: StaticOperationSchema = [9, n0, _UWACL,
+  0, () => UpdateWebACLRequest$, () => UpdateWebACLResponse$
+];
+export var UpdateXssMatchSet$: StaticOperationSchema = [9, n0, _UXMS,
+  0, () => UpdateXssMatchSetRequest$, () => UpdateXssMatchSetResponse$
 ];

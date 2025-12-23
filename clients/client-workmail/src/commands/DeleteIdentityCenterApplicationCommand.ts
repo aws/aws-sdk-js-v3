@@ -27,9 +27,7 @@ export interface DeleteIdentityCenterApplicationCommandInput extends DeleteIdent
  *
  * The output of {@link DeleteIdentityCenterApplicationCommand}.
  */
-export interface DeleteIdentityCenterApplicationCommandOutput
-  extends DeleteIdentityCenterApplicationResponse,
-    __MetadataBearer {}
+export interface DeleteIdentityCenterApplicationCommandOutput extends DeleteIdentityCenterApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>

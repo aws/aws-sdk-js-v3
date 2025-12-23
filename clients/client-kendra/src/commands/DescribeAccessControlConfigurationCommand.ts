@@ -27,9 +27,7 @@ export interface DescribeAccessControlConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeAccessControlConfigurationCommand}.
  */
-export interface DescribeAccessControlConfigurationCommandOutput
-  extends DescribeAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAccessControlConfigurationCommandOutput extends DescribeAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about an access control configuration that you created for your

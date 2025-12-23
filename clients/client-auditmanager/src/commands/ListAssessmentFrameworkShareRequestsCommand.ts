@@ -27,9 +27,7 @@ export interface ListAssessmentFrameworkShareRequestsCommandInput extends ListAs
  *
  * The output of {@link ListAssessmentFrameworkShareRequestsCommand}.
  */
-export interface ListAssessmentFrameworkShareRequestsCommandOutput
-  extends ListAssessmentFrameworkShareRequestsResponse,
-    __MetadataBearer {}
+export interface ListAssessmentFrameworkShareRequestsCommandOutput extends ListAssessmentFrameworkShareRequestsResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>

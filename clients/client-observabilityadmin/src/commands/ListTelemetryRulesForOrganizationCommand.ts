@@ -31,9 +31,7 @@ export interface ListTelemetryRulesForOrganizationCommandInput extends ListTelem
  *
  * The output of {@link ListTelemetryRulesForOrganizationCommand}.
  */
-export interface ListTelemetryRulesForOrganizationCommandOutput
-  extends ListTelemetryRulesForOrganizationOutput,
-    __MetadataBearer {}
+export interface ListTelemetryRulesForOrganizationCommandOutput extends ListTelemetryRulesForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Lists all telemetry rules in your organization. This operation can only be called by the organization's management account or a delegated administrator account. </p>

@@ -28,9 +28,7 @@ export interface UpdateOauth2CredentialProviderCommandInput extends UpdateOauth2
  *
  * The output of {@link UpdateOauth2CredentialProviderCommand}.
  */
-export interface UpdateOauth2CredentialProviderCommandOutput
-  extends UpdateOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing OAuth2 credential provider.</p>

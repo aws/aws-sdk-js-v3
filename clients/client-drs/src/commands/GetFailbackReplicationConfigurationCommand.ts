@@ -27,9 +27,7 @@ export interface GetFailbackReplicationConfigurationCommandInput extends GetFail
  *
  * The output of {@link GetFailbackReplicationConfigurationCommand}.
  */
-export interface GetFailbackReplicationConfigurationCommandOutput
-  extends GetFailbackReplicationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetFailbackReplicationConfigurationCommandOutput extends GetFailbackReplicationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>

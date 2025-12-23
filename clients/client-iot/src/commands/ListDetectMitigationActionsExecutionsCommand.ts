@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDetectMitigationActionsExecutionsCommand}.
  */
-export interface ListDetectMitigationActionsExecutionsCommandInput
-  extends ListDetectMitigationActionsExecutionsRequest {}
+export interface ListDetectMitigationActionsExecutionsCommandInput extends ListDetectMitigationActionsExecutionsRequest {}
 /**
  * @public
  *
  * The output of {@link ListDetectMitigationActionsExecutionsCommand}.
  */
-export interface ListDetectMitigationActionsExecutionsCommandOutput
-  extends ListDetectMitigationActionsExecutionsResponse,
-    __MetadataBearer {}
+export interface ListDetectMitigationActionsExecutionsCommandOutput extends ListDetectMitigationActionsExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>

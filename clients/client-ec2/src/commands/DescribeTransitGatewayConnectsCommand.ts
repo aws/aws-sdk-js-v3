@@ -24,9 +24,7 @@ export interface DescribeTransitGatewayConnectsCommandInput extends DescribeTran
  *
  * The output of {@link DescribeTransitGatewayConnectsCommand}.
  */
-export interface DescribeTransitGatewayConnectsCommandOutput
-  extends DescribeTransitGatewayConnectsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayConnectsCommandOutput extends DescribeTransitGatewayConnectsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Connect attachments.</p>

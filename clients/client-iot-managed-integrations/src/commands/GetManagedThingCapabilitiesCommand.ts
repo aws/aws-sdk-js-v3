@@ -28,9 +28,7 @@ export interface GetManagedThingCapabilitiesCommandInput extends GetManagedThing
  *
  * The output of {@link GetManagedThingCapabilitiesCommand}.
  */
-export interface GetManagedThingCapabilitiesCommandOutput
-  extends GetManagedThingCapabilitiesResponse,
-    __MetadataBearer {}
+export interface GetManagedThingCapabilitiesCommandOutput extends GetManagedThingCapabilitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Get the capabilities for a managed thing using the device ID.</p>

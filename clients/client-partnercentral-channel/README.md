@@ -9,10 +9,8 @@ AWS SDK for JavaScript PartnerCentralChannel Client for Node.js, Browser and Rea
 <p>AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-partnercentral-channel
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-partnercentral-channel`
 - `yarn add @aws-sdk/client-partnercentral-channel`
 - `pnpm add @aws-sdk/client-partnercentral-channel`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PartnerCentralChannelClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRelationshipsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ AcceptChannelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/AcceptChannelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/AcceptChannelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/AcceptChannelHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CancelChannelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CancelChannelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateChannelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CreateChannelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateChannelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateChannelHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateProgramManagementAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CreateProgramManagementAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateProgramManagementAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateProgramManagementAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreateRelationship
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CreateRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateRelationshipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ DeleteProgramManagementAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/DeleteProgramManagementAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/DeleteProgramManagementAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/DeleteProgramManagementAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteRelationship
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/DeleteRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/DeleteRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/DeleteRelationshipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ GetRelationship
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/GetRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetRelationshipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListChannelHandshakes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/ListChannelHandshakesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListChannelHandshakesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListChannelHandshakesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListProgramManagementAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/ListProgramManagementAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListProgramManagementAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListProgramManagementAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ ListRelationships
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/ListRelationshipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListRelationshipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListRelationshipsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ RejectChannelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/RejectChannelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/RejectChannelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/RejectChannelHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ UpdateProgramManagementAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/UpdateProgramManagementAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UpdateProgramManagementAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UpdateProgramManagementAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,5 +317,4 @@ UpdateRelationship
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/UpdateRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UpdateRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/UpdateRelationshipCommandOutput/)
-
 </details>

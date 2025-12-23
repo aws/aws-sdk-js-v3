@@ -24,9 +24,7 @@ export interface CreateTrafficDistributionGroupCommandInput extends CreateTraffi
  *
  * The output of {@link CreateTrafficDistributionGroupCommand}.
  */
-export interface CreateTrafficDistributionGroupCommandOutput
-  extends CreateTrafficDistributionGroupResponse,
-    __MetadataBearer {}
+export interface CreateTrafficDistributionGroupCommandOutput extends CreateTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated.</p>

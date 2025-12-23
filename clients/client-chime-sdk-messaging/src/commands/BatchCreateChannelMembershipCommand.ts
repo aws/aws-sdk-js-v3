@@ -28,9 +28,7 @@ export interface BatchCreateChannelMembershipCommandInput extends BatchCreateCha
  *
  * The output of {@link BatchCreateChannelMembershipCommand}.
  */
-export interface BatchCreateChannelMembershipCommandOutput
-  extends BatchCreateChannelMembershipResponse,
-    __MetadataBearer {}
+export interface BatchCreateChannelMembershipCommandOutput extends BatchCreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a specified number of users and bots to a channel. </p>

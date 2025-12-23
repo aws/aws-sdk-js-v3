@@ -28,9 +28,7 @@ export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRou
  *
  * The output of {@link CreateCustomRoutingListenerCommand}.
  */
-export interface CreateCustomRoutingListenerCommandOutput
-  extends CreateCustomRoutingListenerResponse,
-    __MetadataBearer {}
+export interface CreateCustomRoutingListenerCommandOutput extends CreateCustomRoutingListenerResponse, __MetadataBearer {}
 
 /**
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.

@@ -34,12 +34,12 @@ import {
   GetCredentialsForIdentityResponse$,
   GetId$,
   GetIdCommand,
-  GetIdInput$,
-  GetIdResponse$,
   GetIdentityPoolRoles$,
   GetIdentityPoolRolesCommand,
   GetIdentityPoolRolesInput$,
   GetIdentityPoolRolesResponse$,
+  GetIdInput$,
+  GetIdResponse$,
   GetOpenIdToken$,
   GetOpenIdTokenCommand,
   GetOpenIdTokenForDeveloperIdentity$,
@@ -87,6 +87,7 @@ import {
   MergeDeveloperIdentitiesResponse$,
   NotAuthorizedException,
   NotAuthorizedException$,
+  paginateListIdentityPools,
   ResourceConflictException,
   ResourceConflictException$,
   ResourceNotFoundException,
@@ -120,7 +121,6 @@ import {
   UntagResourceResponse$,
   UpdateIdentityPool$,
   UpdateIdentityPoolCommand,
-  paginateListIdentityPools,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

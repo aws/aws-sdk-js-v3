@@ -105,7 +105,10 @@ export class PredictCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getPredictEndpointPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getPredictEndpointPlugin(config),
+    ];
   })
   .s("AmazonML_20141212", "Predict", {})
   .n("MachineLearningClient", "PredictCommand")

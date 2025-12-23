@@ -28,9 +28,7 @@ export interface ListProfileObjectTypeTemplatesCommandInput extends ListProfileO
  *
  * The output of {@link ListProfileObjectTypeTemplatesCommand}.
  */
-export interface ListProfileObjectTypeTemplatesCommandOutput
-  extends ListProfileObjectTypeTemplatesResponse,
-    __MetadataBearer {}
+export interface ListProfileObjectTypeTemplatesCommandOutput extends ListProfileObjectTypeTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the template information for object types.</p>

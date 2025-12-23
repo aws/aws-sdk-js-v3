@@ -27,9 +27,7 @@ export interface GetPortalServiceProviderMetadataCommandInput extends GetPortalS
  *
  * The output of {@link GetPortalServiceProviderMetadataCommand}.
  */
-export interface GetPortalServiceProviderMetadataCommandOutput
-  extends GetPortalServiceProviderMetadataResponse,
-    __MetadataBearer {}
+export interface GetPortalServiceProviderMetadataCommandOutput extends GetPortalServiceProviderMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the service provider metadata.</p>

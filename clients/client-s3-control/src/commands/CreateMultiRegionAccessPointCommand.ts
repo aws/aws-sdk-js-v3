@@ -26,9 +26,7 @@ export interface CreateMultiRegionAccessPointCommandInput extends CreateMultiReg
  *
  * The output of {@link CreateMultiRegionAccessPointCommand}.
  */
-export interface CreateMultiRegionAccessPointCommandOutput
-  extends CreateMultiRegionAccessPointResult,
-    __MetadataBearer {}
+export interface CreateMultiRegionAccessPointCommandOutput extends CreateMultiRegionAccessPointResult, __MetadataBearer {}
 
 /**
  * <note>

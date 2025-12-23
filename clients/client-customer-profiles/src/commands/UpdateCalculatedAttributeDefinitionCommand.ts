@@ -31,9 +31,7 @@ export interface UpdateCalculatedAttributeDefinitionCommandInput extends UpdateC
  *
  * The output of {@link UpdateCalculatedAttributeDefinitionCommand}.
  */
-export interface UpdateCalculatedAttributeDefinitionCommandOutput
-  extends UpdateCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface UpdateCalculatedAttributeDefinitionCommandOutput extends UpdateCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing calculated attribute definition. When updating the Conditions, note

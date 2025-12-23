@@ -24,9 +24,7 @@ export interface ListIdentityProviderConfigsCommandInput extends ListIdentityPro
  *
  * The output of {@link ListIdentityProviderConfigsCommand}.
  */
-export interface ListIdentityProviderConfigsCommandOutput
-  extends ListIdentityProviderConfigsResponse,
-    __MetadataBearer {}
+export interface ListIdentityProviderConfigsCommandOutput extends ListIdentityProviderConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the identity provider configurations for your cluster.</p>

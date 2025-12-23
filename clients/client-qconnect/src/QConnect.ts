@@ -550,8 +550,14 @@ export interface QConnect {
   /**
    * @see {@link CreateAIAgentCommand}
    */
-  createAIAgent(args: CreateAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAIAgentCommandOutput>;
-  createAIAgent(args: CreateAIAgentCommandInput, cb: (err: any, data?: CreateAIAgentCommandOutput) => void): void;
+  createAIAgent(
+    args: CreateAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIAgentCommandOutput>;
+  createAIAgent(
+    args: CreateAIAgentCommandInput,
+    cb: (err: any, data?: CreateAIAgentCommandOutput) => void
+  ): void;
   createAIAgent(
     args: CreateAIAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -616,7 +622,10 @@ export interface QConnect {
     args: CreateAIPromptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAIPromptCommandOutput>;
-  createAIPrompt(args: CreateAIPromptCommandInput, cb: (err: any, data?: CreateAIPromptCommandOutput) => void): void;
+  createAIPrompt(
+    args: CreateAIPromptCommandInput,
+    cb: (err: any, data?: CreateAIPromptCommandOutput) => void
+  ): void;
   createAIPrompt(
     args: CreateAIPromptCommandInput,
     options: __HttpHandlerOptions,
@@ -647,7 +656,10 @@ export interface QConnect {
     args: CreateAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAssistantCommandOutput>;
-  createAssistant(args: CreateAssistantCommandInput, cb: (err: any, data?: CreateAssistantCommandOutput) => void): void;
+  createAssistant(
+    args: CreateAssistantCommandInput,
+    cb: (err: any, data?: CreateAssistantCommandOutput) => void
+  ): void;
   createAssistant(
     args: CreateAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -674,8 +686,14 @@ export interface QConnect {
   /**
    * @see {@link CreateContentCommand}
    */
-  createContent(args: CreateContentCommandInput, options?: __HttpHandlerOptions): Promise<CreateContentCommandOutput>;
-  createContent(args: CreateContentCommandInput, cb: (err: any, data?: CreateContentCommandOutput) => void): void;
+  createContent(
+    args: CreateContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContentCommandOutput>;
+  createContent(
+    args: CreateContentCommandInput,
+    cb: (err: any, data?: CreateContentCommandOutput) => void
+  ): void;
   createContent(
     args: CreateContentCommandInput,
     options: __HttpHandlerOptions,
@@ -787,8 +805,14 @@ export interface QConnect {
   /**
    * @see {@link CreateSessionCommand}
    */
-  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
   createSession(
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -815,8 +839,14 @@ export interface QConnect {
   /**
    * @see {@link DeleteAIAgentCommand}
    */
-  deleteAIAgent(args: DeleteAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAIAgentCommandOutput>;
-  deleteAIAgent(args: DeleteAIAgentCommandInput, cb: (err: any, data?: DeleteAIAgentCommandOutput) => void): void;
+  deleteAIAgent(
+    args: DeleteAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIAgentCommandOutput>;
+  deleteAIAgent(
+    args: DeleteAIAgentCommandInput,
+    cb: (err: any, data?: DeleteAIAgentCommandOutput) => void
+  ): void;
   deleteAIAgent(
     args: DeleteAIAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -881,7 +911,10 @@ export interface QConnect {
     args: DeleteAIPromptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAIPromptCommandOutput>;
-  deleteAIPrompt(args: DeleteAIPromptCommandInput, cb: (err: any, data?: DeleteAIPromptCommandOutput) => void): void;
+  deleteAIPrompt(
+    args: DeleteAIPromptCommandInput,
+    cb: (err: any, data?: DeleteAIPromptCommandOutput) => void
+  ): void;
   deleteAIPrompt(
     args: DeleteAIPromptCommandInput,
     options: __HttpHandlerOptions,
@@ -912,7 +945,10 @@ export interface QConnect {
     args: DeleteAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAssistantCommandOutput>;
-  deleteAssistant(args: DeleteAssistantCommandInput, cb: (err: any, data?: DeleteAssistantCommandOutput) => void): void;
+  deleteAssistant(
+    args: DeleteAssistantCommandInput,
+    cb: (err: any, data?: DeleteAssistantCommandOutput) => void
+  ): void;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -939,8 +975,14 @@ export interface QConnect {
   /**
    * @see {@link DeleteContentCommand}
    */
-  deleteContent(args: DeleteContentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteContentCommandOutput>;
-  deleteContent(args: DeleteContentCommandInput, cb: (err: any, data?: DeleteContentCommandOutput) => void): void;
+  deleteContent(
+    args: DeleteContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContentCommandOutput>;
+  deleteContent(
+    args: DeleteContentCommandInput,
+    cb: (err: any, data?: DeleteContentCommandOutput) => void
+  ): void;
   deleteContent(
     args: DeleteContentCommandInput,
     options: __HttpHandlerOptions,
@@ -971,7 +1013,10 @@ export interface QConnect {
     args: DeleteImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteImportJobCommandOutput>;
-  deleteImportJob(args: DeleteImportJobCommandInput, cb: (err: any, data?: DeleteImportJobCommandOutput) => void): void;
+  deleteImportJob(
+    args: DeleteImportJobCommandInput,
+    cb: (err: any, data?: DeleteImportJobCommandOutput) => void
+  ): void;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1049,8 +1094,14 @@ export interface QConnect {
   /**
    * @see {@link GetAIAgentCommand}
    */
-  getAIAgent(args: GetAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<GetAIAgentCommandOutput>;
-  getAIAgent(args: GetAIAgentCommandInput, cb: (err: any, data?: GetAIAgentCommandOutput) => void): void;
+  getAIAgent(
+    args: GetAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAIAgentCommandOutput>;
+  getAIAgent(
+    args: GetAIAgentCommandInput,
+    cb: (err: any, data?: GetAIAgentCommandOutput) => void
+  ): void;
   getAIAgent(
     args: GetAIAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -1064,7 +1115,10 @@ export interface QConnect {
     args: GetAIGuardrailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAIGuardrailCommandOutput>;
-  getAIGuardrail(args: GetAIGuardrailCommandInput, cb: (err: any, data?: GetAIGuardrailCommandOutput) => void): void;
+  getAIGuardrail(
+    args: GetAIGuardrailCommandInput,
+    cb: (err: any, data?: GetAIGuardrailCommandOutput) => void
+  ): void;
   getAIGuardrail(
     args: GetAIGuardrailCommandInput,
     options: __HttpHandlerOptions,
@@ -1074,8 +1128,14 @@ export interface QConnect {
   /**
    * @see {@link GetAIPromptCommand}
    */
-  getAIPrompt(args: GetAIPromptCommandInput, options?: __HttpHandlerOptions): Promise<GetAIPromptCommandOutput>;
-  getAIPrompt(args: GetAIPromptCommandInput, cb: (err: any, data?: GetAIPromptCommandOutput) => void): void;
+  getAIPrompt(
+    args: GetAIPromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAIPromptCommandOutput>;
+  getAIPrompt(
+    args: GetAIPromptCommandInput,
+    cb: (err: any, data?: GetAIPromptCommandOutput) => void
+  ): void;
   getAIPrompt(
     args: GetAIPromptCommandInput,
     options: __HttpHandlerOptions,
@@ -1085,8 +1145,14 @@ export interface QConnect {
   /**
    * @see {@link GetAssistantCommand}
    */
-  getAssistant(args: GetAssistantCommandInput, options?: __HttpHandlerOptions): Promise<GetAssistantCommandOutput>;
-  getAssistant(args: GetAssistantCommandInput, cb: (err: any, data?: GetAssistantCommandOutput) => void): void;
+  getAssistant(
+    args: GetAssistantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssistantCommandOutput>;
+  getAssistant(
+    args: GetAssistantCommandInput,
+    cb: (err: any, data?: GetAssistantCommandOutput) => void
+  ): void;
   getAssistant(
     args: GetAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -1113,8 +1179,14 @@ export interface QConnect {
   /**
    * @see {@link GetContentCommand}
    */
-  getContent(args: GetContentCommandInput, options?: __HttpHandlerOptions): Promise<GetContentCommandOutput>;
-  getContent(args: GetContentCommandInput, cb: (err: any, data?: GetContentCommandOutput) => void): void;
+  getContent(
+    args: GetContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContentCommandOutput>;
+  getContent(
+    args: GetContentCommandInput,
+    cb: (err: any, data?: GetContentCommandOutput) => void
+  ): void;
   getContent(
     args: GetContentCommandInput,
     options: __HttpHandlerOptions,
@@ -1158,8 +1230,14 @@ export interface QConnect {
   /**
    * @see {@link GetImportJobCommand}
    */
-  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
-  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
   getImportJob(
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1207,7 +1285,10 @@ export interface QConnect {
     args: GetNextMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetNextMessageCommandOutput>;
-  getNextMessage(args: GetNextMessageCommandInput, cb: (err: any, data?: GetNextMessageCommandOutput) => void): void;
+  getNextMessage(
+    args: GetNextMessageCommandInput,
+    cb: (err: any, data?: GetNextMessageCommandOutput) => void
+  ): void;
   getNextMessage(
     args: GetNextMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -1251,8 +1332,14 @@ export interface QConnect {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1262,8 +1349,14 @@ export interface QConnect {
   /**
    * @see {@link ListAIAgentsCommand}
    */
-  listAIAgents(args: ListAIAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAIAgentsCommandOutput>;
-  listAIAgents(args: ListAIAgentsCommandInput, cb: (err: any, data?: ListAIAgentsCommandOutput) => void): void;
+  listAIAgents(
+    args: ListAIAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIAgentsCommandOutput>;
+  listAIAgents(
+    args: ListAIAgentsCommandInput,
+    cb: (err: any, data?: ListAIAgentsCommandOutput) => void
+  ): void;
   listAIAgents(
     args: ListAIAgentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1324,8 +1417,14 @@ export interface QConnect {
   /**
    * @see {@link ListAIPromptsCommand}
    */
-  listAIPrompts(args: ListAIPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListAIPromptsCommandOutput>;
-  listAIPrompts(args: ListAIPromptsCommandInput, cb: (err: any, data?: ListAIPromptsCommandOutput) => void): void;
+  listAIPrompts(
+    args: ListAIPromptsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIPromptsCommandOutput>;
+  listAIPrompts(
+    args: ListAIPromptsCommandInput,
+    cb: (err: any, data?: ListAIPromptsCommandOutput) => void
+  ): void;
   listAIPrompts(
     args: ListAIPromptsCommandInput,
     options: __HttpHandlerOptions,
@@ -1374,7 +1473,10 @@ export interface QConnect {
     args: ListAssistantsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAssistantsCommandOutput>;
-  listAssistants(args: ListAssistantsCommandInput, cb: (err: any, data?: ListAssistantsCommandOutput) => void): void;
+  listAssistants(
+    args: ListAssistantsCommandInput,
+    cb: (err: any, data?: ListAssistantsCommandOutput) => void
+  ): void;
   listAssistants(
     args: ListAssistantsCommandInput,
     options: __HttpHandlerOptions,
@@ -1401,8 +1503,14 @@ export interface QConnect {
   /**
    * @see {@link ListContentsCommand}
    */
-  listContents(args: ListContentsCommandInput, options?: __HttpHandlerOptions): Promise<ListContentsCommandOutput>;
-  listContents(args: ListContentsCommandInput, cb: (err: any, data?: ListContentsCommandOutput) => void): void;
+  listContents(
+    args: ListContentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContentsCommandOutput>;
+  listContents(
+    args: ListContentsCommandInput,
+    cb: (err: any, data?: ListContentsCommandOutput) => void
+  ): void;
   listContents(
     args: ListContentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1416,7 +1524,10 @@ export interface QConnect {
     args: ListImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListImportJobsCommandOutput>;
-  listImportJobs(args: ListImportJobsCommandInput, cb: (err: any, data?: ListImportJobsCommandOutput) => void): void;
+  listImportJobs(
+    args: ListImportJobsCommandInput,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
   listImportJobs(
     args: ListImportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1444,8 +1555,14 @@ export interface QConnect {
   /**
    * @see {@link ListMessagesCommand}
    */
-  listMessages(args: ListMessagesCommandInput, options?: __HttpHandlerOptions): Promise<ListMessagesCommandOutput>;
-  listMessages(args: ListMessagesCommandInput, cb: (err: any, data?: ListMessagesCommandOutput) => void): void;
+  listMessages(
+    args: ListMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMessagesCommandOutput>;
+  listMessages(
+    args: ListMessagesCommandInput,
+    cb: (err: any, data?: ListMessagesCommandOutput) => void
+  ): void;
   listMessages(
     args: ListMessagesCommandInput,
     options: __HttpHandlerOptions,
@@ -1506,8 +1623,14 @@ export interface QConnect {
   /**
    * @see {@link ListSpansCommand}
    */
-  listSpans(args: ListSpansCommandInput, options?: __HttpHandlerOptions): Promise<ListSpansCommandOutput>;
-  listSpans(args: ListSpansCommandInput, cb: (err: any, data?: ListSpansCommandOutput) => void): void;
+  listSpans(
+    args: ListSpansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpansCommandOutput>;
+  listSpans(
+    args: ListSpansCommandInput,
+    cb: (err: any, data?: ListSpansCommandOutput) => void
+  ): void;
   listSpans(
     args: ListSpansCommandInput,
     options: __HttpHandlerOptions,
@@ -1551,8 +1674,14 @@ export interface QConnect {
   /**
    * @see {@link PutFeedbackCommand}
    */
-  putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
-  putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
+  putFeedback(
+    args: PutFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFeedbackCommandOutput>;
+  putFeedback(
+    args: PutFeedbackCommandInput,
+    cb: (err: any, data?: PutFeedbackCommandOutput) => void
+  ): void;
   putFeedback(
     args: PutFeedbackCommandInput,
     options: __HttpHandlerOptions,
@@ -1566,7 +1695,10 @@ export interface QConnect {
     args: QueryAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<QueryAssistantCommandOutput>;
-  queryAssistant(args: QueryAssistantCommandInput, cb: (err: any, data?: QueryAssistantCommandOutput) => void): void;
+  queryAssistant(
+    args: QueryAssistantCommandInput,
+    cb: (err: any, data?: QueryAssistantCommandOutput) => void
+  ): void;
   queryAssistant(
     args: QueryAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -1627,8 +1759,14 @@ export interface QConnect {
   /**
    * @see {@link RetrieveCommand}
    */
-  retrieve(args: RetrieveCommandInput, options?: __HttpHandlerOptions): Promise<RetrieveCommandOutput>;
-  retrieve(args: RetrieveCommandInput, cb: (err: any, data?: RetrieveCommandOutput) => void): void;
+  retrieve(
+    args: RetrieveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetrieveCommandOutput>;
+  retrieve(
+    args: RetrieveCommandInput,
+    cb: (err: any, data?: RetrieveCommandOutput) => void
+  ): void;
   retrieve(
     args: RetrieveCommandInput,
     options: __HttpHandlerOptions,
@@ -1638,8 +1776,14 @@ export interface QConnect {
   /**
    * @see {@link SearchContentCommand}
    */
-  searchContent(args: SearchContentCommandInput, options?: __HttpHandlerOptions): Promise<SearchContentCommandOutput>;
-  searchContent(args: SearchContentCommandInput, cb: (err: any, data?: SearchContentCommandOutput) => void): void;
+  searchContent(
+    args: SearchContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContentCommandOutput>;
+  searchContent(
+    args: SearchContentCommandInput,
+    cb: (err: any, data?: SearchContentCommandOutput) => void
+  ): void;
   searchContent(
     args: SearchContentCommandInput,
     options: __HttpHandlerOptions,
@@ -1687,7 +1831,10 @@ export interface QConnect {
     args: SearchSessionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchSessionsCommandOutput>;
-  searchSessions(args: SearchSessionsCommandInput, cb: (err: any, data?: SearchSessionsCommandOutput) => void): void;
+  searchSessions(
+    args: SearchSessionsCommandInput,
+    cb: (err: any, data?: SearchSessionsCommandOutput) => void
+  ): void;
   searchSessions(
     args: SearchSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1697,8 +1844,14 @@ export interface QConnect {
   /**
    * @see {@link SendMessageCommand}
    */
-  sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
-  sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
+  sendMessage(
+    args: SendMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendMessageCommandOutput>;
+  sendMessage(
+    args: SendMessageCommandInput,
+    cb: (err: any, data?: SendMessageCommandOutput) => void
+  ): void;
   sendMessage(
     args: SendMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -1729,7 +1882,10 @@ export interface QConnect {
     args: StartImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartImportJobCommandOutput>;
-  startImportJob(args: StartImportJobCommandInput, cb: (err: any, data?: StartImportJobCommandOutput) => void): void;
+  startImportJob(
+    args: StartImportJobCommandInput,
+    cb: (err: any, data?: StartImportJobCommandOutput) => void
+  ): void;
   startImportJob(
     args: StartImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1739,8 +1895,14 @@ export interface QConnect {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1750,8 +1912,14 @@ export interface QConnect {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1761,8 +1929,14 @@ export interface QConnect {
   /**
    * @see {@link UpdateAIAgentCommand}
    */
-  updateAIAgent(args: UpdateAIAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAIAgentCommandOutput>;
-  updateAIAgent(args: UpdateAIAgentCommandInput, cb: (err: any, data?: UpdateAIAgentCommandOutput) => void): void;
+  updateAIAgent(
+    args: UpdateAIAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAIAgentCommandOutput>;
+  updateAIAgent(
+    args: UpdateAIAgentCommandInput,
+    cb: (err: any, data?: UpdateAIAgentCommandOutput) => void
+  ): void;
   updateAIAgent(
     args: UpdateAIAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -1793,7 +1967,10 @@ export interface QConnect {
     args: UpdateAIPromptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAIPromptCommandOutput>;
-  updateAIPrompt(args: UpdateAIPromptCommandInput, cb: (err: any, data?: UpdateAIPromptCommandOutput) => void): void;
+  updateAIPrompt(
+    args: UpdateAIPromptCommandInput,
+    cb: (err: any, data?: UpdateAIPromptCommandOutput) => void
+  ): void;
   updateAIPrompt(
     args: UpdateAIPromptCommandInput,
     options: __HttpHandlerOptions,
@@ -1820,8 +1997,14 @@ export interface QConnect {
   /**
    * @see {@link UpdateContentCommand}
    */
-  updateContent(args: UpdateContentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContentCommandOutput>;
-  updateContent(args: UpdateContentCommandInput, cb: (err: any, data?: UpdateContentCommandOutput) => void): void;
+  updateContent(
+    args: UpdateContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContentCommandOutput>;
+  updateContent(
+    args: UpdateContentCommandInput,
+    cb: (err: any, data?: UpdateContentCommandOutput) => void
+  ): void;
   updateContent(
     args: UpdateContentCommandInput,
     options: __HttpHandlerOptions,
@@ -1899,8 +2082,14 @@ export interface QConnect {
   /**
    * @see {@link UpdateSessionCommand}
    */
-  updateSession(args: UpdateSessionCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSessionCommandOutput>;
-  updateSession(args: UpdateSessionCommandInput, cb: (err: any, data?: UpdateSessionCommandOutput) => void): void;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSessionCommandOutput>;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    cb: (err: any, data?: UpdateSessionCommandOutput) => void
+  ): void;
   updateSession(
     args: UpdateSessionCommandInput,
     options: __HttpHandlerOptions,

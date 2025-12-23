@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
-export interface GetAssociatedEnclaveCertificateIamRolesCommandInput
-  extends GetAssociatedEnclaveCertificateIamRolesRequest {}
+export interface GetAssociatedEnclaveCertificateIamRolesCommandInput extends GetAssociatedEnclaveCertificateIamRolesRequest {}
 /**
  * @public
  *
  * The output of {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
  */
-export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
-  extends GetAssociatedEnclaveCertificateIamRolesResult,
-    __MetadataBearer {}
+export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput extends GetAssociatedEnclaveCertificateIamRolesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.

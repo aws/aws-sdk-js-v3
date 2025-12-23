@@ -27,9 +27,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandInput extends Authoriz
  *
  * The output of {@link AuthorizeCacheSecurityGroupIngressCommand}.
  */
-export interface AuthorizeCacheSecurityGroupIngressCommandOutput
-  extends AuthorizeCacheSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeCacheSecurityGroupIngressCommandOutput extends AuthorizeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Allows network ingress to a cache security group. Applications using ElastiCache must

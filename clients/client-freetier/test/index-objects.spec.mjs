@@ -35,6 +35,8 @@ import {
   ListAccountActivitiesResponse$,
   MatchOption,
   MonetaryAmount$,
+  paginateGetFreeTierUsage,
+  paginateListAccountActivities,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ThrottlingException,
@@ -45,8 +47,6 @@ import {
   UpgradeAccountPlanResponse$,
   ValidationException,
   ValidationException$,
-  paginateGetFreeTierUsage,
-  paginateListAccountActivities,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

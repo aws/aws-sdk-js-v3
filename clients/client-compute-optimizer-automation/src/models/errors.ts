@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ComputeOptimizerAutomationServiceException as __BaseException } from "./ComputeOptimizerAutomationServiceException";
+import {
+  ComputeOptimizerAutomationServiceException as __BaseException,
+} from "./ComputeOptimizerAutomationServiceException";
 
 /**
  * <p> You do not have sufficient permissions to perform this action. </p>

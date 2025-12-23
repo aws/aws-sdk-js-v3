@@ -24,9 +24,7 @@ export interface PutRemediationConfigurationsCommandInput extends PutRemediation
  *
  * The output of {@link PutRemediationConfigurationsCommand}.
  */
-export interface PutRemediationConfigurationsCommandOutput
-  extends PutRemediationConfigurationsResponse,
-    __MetadataBearer {}
+export interface PutRemediationConfigurationsCommandOutput extends PutRemediationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates the remediation configuration with a specific Config rule with the

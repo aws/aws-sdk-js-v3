@@ -28,9 +28,7 @@ export interface DescribeManagedLoginBrandingCommandInput extends DescribeManage
  *
  * The output of {@link DescribeManagedLoginBrandingCommand}.
  */
-export interface DescribeManagedLoginBrandingCommandOutput
-  extends DescribeManagedLoginBrandingResponse,
-    __MetadataBearer {}
+export interface DescribeManagedLoginBrandingCommandOutput extends DescribeManagedLoginBrandingResponse, __MetadataBearer {}
 
 /**
  * <p>Given the ID of a managed login branding style, returns detailed information about the

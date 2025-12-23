@@ -24,9 +24,7 @@ export interface DescribeFastSnapshotRestoresCommandInput extends DescribeFastSn
  *
  * The output of {@link DescribeFastSnapshotRestoresCommand}.
  */
-export interface DescribeFastSnapshotRestoresCommandOutput
-  extends DescribeFastSnapshotRestoresResult,
-    __MetadataBearer {}
+export interface DescribeFastSnapshotRestoresCommandOutput extends DescribeFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
  * <p>Describes the state of fast snapshot restores for your snapshots.</p>

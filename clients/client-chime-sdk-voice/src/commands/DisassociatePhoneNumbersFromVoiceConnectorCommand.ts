@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorCommandInput
-  extends DisassociatePhoneNumbersFromVoiceConnectorRequest {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorCommandInput extends DisassociatePhoneNumbersFromVoiceConnectorRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-  extends DisassociatePhoneNumbersFromVoiceConnectorResponse,
-    __MetadataBearer {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput extends DisassociatePhoneNumbersFromVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified phone numbers from the specified

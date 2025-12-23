@@ -120,6 +120,12 @@ import {
   OptOutSpeakerRequest$,
   OptOutSpeakerResponse$,
   OutputDataConfig$,
+  paginateListDomains,
+  paginateListFraudsterRegistrationJobs,
+  paginateListFraudsters,
+  paginateListSpeakerEnrollmentJobs,
+  paginateListSpeakers,
+  paginateListWatchlists,
   RegistrationConfig$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -172,12 +178,6 @@ import {
   Watchlist$,
   WatchlistDetails$,
   WatchlistSummary$,
-  paginateListDomains,
-  paginateListFraudsterRegistrationJobs,
-  paginateListFraudsters,
-  paginateListSpeakerEnrollmentJobs,
-  paginateListSpeakers,
-  paginateListWatchlists,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

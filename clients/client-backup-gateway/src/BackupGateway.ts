@@ -170,8 +170,14 @@ export interface BackupGateway {
   /**
    * @see {@link CreateGatewayCommand}
    */
-  createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
-  createGateway(args: CreateGatewayCommandInput, cb: (err: any, data?: CreateGatewayCommandOutput) => void): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayCommandOutput>;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
   createGateway(
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -181,8 +187,14 @@ export interface BackupGateway {
   /**
    * @see {@link DeleteGatewayCommand}
    */
-  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
-  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -243,8 +255,14 @@ export interface BackupGateway {
   /**
    * @see {@link GetGatewayCommand}
    */
-  getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
-  getGateway(args: GetGatewayCommandInput, cb: (err: any, data?: GetGatewayCommandOutput) => void): void;
+  getGateway(
+    args: GetGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGatewayCommandOutput>;
+  getGateway(
+    args: GetGatewayCommandInput,
+    cb: (err: any, data?: GetGatewayCommandOutput) => void
+  ): void;
   getGateway(
     args: GetGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +272,14 @@ export interface BackupGateway {
   /**
    * @see {@link GetHypervisorCommand}
    */
-  getHypervisor(args: GetHypervisorCommandInput, options?: __HttpHandlerOptions): Promise<GetHypervisorCommandOutput>;
-  getHypervisor(args: GetHypervisorCommandInput, cb: (err: any, data?: GetHypervisorCommandOutput) => void): void;
+  getHypervisor(
+    args: GetHypervisorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHypervisorCommandOutput>;
+  getHypervisor(
+    args: GetHypervisorCommandInput,
+    cb: (err: any, data?: GetHypervisorCommandOutput) => void
+  ): void;
   getHypervisor(
     args: GetHypervisorCommandInput,
     options: __HttpHandlerOptions,
@@ -317,8 +341,14 @@ export interface BackupGateway {
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
   listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -333,7 +363,10 @@ export interface BackupGateway {
     args: ListHypervisorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListHypervisorsCommandOutput>;
-  listHypervisors(args: ListHypervisorsCommandInput, cb: (err: any, data?: ListHypervisorsCommandOutput) => void): void;
+  listHypervisors(
+    args: ListHypervisorsCommandInput,
+    cb: (err: any, data?: ListHypervisorsCommandOutput) => void
+  ): void;
   listHypervisors(
     args: ListHypervisorsCommandInput,
     options: __HttpHandlerOptions,
@@ -446,8 +479,14 @@ export interface BackupGateway {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -474,8 +513,14 @@ export interface BackupGateway {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

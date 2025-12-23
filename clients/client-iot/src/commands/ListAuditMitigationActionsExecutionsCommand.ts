@@ -27,9 +27,7 @@ export interface ListAuditMitigationActionsExecutionsCommandInput extends ListAu
  *
  * The output of {@link ListAuditMitigationActionsExecutionsCommand}.
  */
-export interface ListAuditMitigationActionsExecutionsCommandOutput
-  extends ListAuditMitigationActionsExecutionsResponse,
-    __MetadataBearer {}
+export interface ListAuditMitigationActionsExecutionsCommandOutput extends ListAuditMitigationActionsExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of audit mitigation action tasks that were

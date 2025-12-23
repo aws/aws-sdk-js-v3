@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CodeCommit Client for Node.js, Browser and React Native.
 
 <fullname>CodeCommit</fullname>
-
 <p>This is the <i>CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
 CodeCommit API along with usage examples.</p>
 <p>You can use the CodeCommit API to work with the following objects:</p>
@@ -395,10 +394,8 @@ by sending data to the trigger target.</p>
 <p>For information about how to use CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit User Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codecommit
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codecommit`
 - `yarn add @aws-sdk/client-codecommit`
 - `pnpm add @aws-sdk/client-codecommit`
@@ -434,9 +431,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeCommitClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRepositoriesCommand(params);
 ```
 
@@ -595,7 +590,6 @@ AssociateApprovalRuleTemplateWithRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/AssociateApprovalRuleTemplateWithRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/AssociateApprovalRuleTemplateWithRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/AssociateApprovalRuleTemplateWithRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +597,6 @@ BatchAssociateApprovalRuleTemplateWithRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,7 +604,6 @@ BatchDescribeMergeConflicts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/BatchDescribeMergeConflictsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchDescribeMergeConflictsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchDescribeMergeConflictsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -619,7 +611,6 @@ BatchDisassociateApprovalRuleTemplateFromRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -627,7 +618,6 @@ BatchGetCommits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/BatchGetCommitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchGetCommitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchGetCommitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -635,7 +625,6 @@ BatchGetRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/BatchGetRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchGetRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/BatchGetRepositoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -643,7 +632,6 @@ CreateApprovalRuleTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreateApprovalRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateApprovalRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateApprovalRuleTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -651,7 +639,6 @@ CreateBranch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreateBranchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateBranchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateBranchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -659,7 +646,6 @@ CreateCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreateCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -667,7 +653,6 @@ CreatePullRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreatePullRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreatePullRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreatePullRequestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -675,7 +660,6 @@ CreatePullRequestApprovalRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreatePullRequestApprovalRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreatePullRequestApprovalRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreatePullRequestApprovalRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -683,7 +667,6 @@ CreateRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreateRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -691,7 +674,6 @@ CreateUnreferencedMergeCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/CreateUnreferencedMergeCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateUnreferencedMergeCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/CreateUnreferencedMergeCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -699,7 +681,6 @@ DeleteApprovalRuleTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeleteApprovalRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteApprovalRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteApprovalRuleTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -707,7 +688,6 @@ DeleteBranch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeleteBranchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteBranchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteBranchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -715,7 +695,6 @@ DeleteCommentContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeleteCommentContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteCommentContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteCommentContentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -723,7 +702,6 @@ DeleteFile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeleteFileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteFileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteFileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -731,7 +709,6 @@ DeletePullRequestApprovalRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeletePullRequestApprovalRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeletePullRequestApprovalRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeletePullRequestApprovalRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -739,7 +716,6 @@ DeleteRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DeleteRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DeleteRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -747,7 +723,6 @@ DescribeMergeConflicts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DescribeMergeConflictsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DescribeMergeConflictsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DescribeMergeConflictsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -755,7 +730,6 @@ DescribePullRequestEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DescribePullRequestEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DescribePullRequestEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DescribePullRequestEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -763,7 +737,6 @@ DisassociateApprovalRuleTemplateFromRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/DisassociateApprovalRuleTemplateFromRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DisassociateApprovalRuleTemplateFromRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/DisassociateApprovalRuleTemplateFromRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -771,7 +744,6 @@ EvaluatePullRequestApprovalRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/EvaluatePullRequestApprovalRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/EvaluatePullRequestApprovalRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/EvaluatePullRequestApprovalRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -779,7 +751,6 @@ GetApprovalRuleTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetApprovalRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetApprovalRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetApprovalRuleTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -787,7 +758,6 @@ GetBlob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetBlobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -795,7 +765,6 @@ GetBranch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetBranchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBranchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBranchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -803,7 +772,6 @@ GetComment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetCommentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -811,7 +779,6 @@ GetCommentReactions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetCommentReactionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentReactionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentReactionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -819,7 +786,6 @@ GetCommentsForComparedCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetCommentsForComparedCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentsForComparedCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentsForComparedCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -827,7 +793,6 @@ GetCommentsForPullRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetCommentsForPullRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentsForPullRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommentsForPullRequestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -835,7 +800,6 @@ GetCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -843,7 +807,6 @@ GetDifferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetDifferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetDifferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetDifferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -851,7 +814,6 @@ GetFile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetFileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetFileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetFileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -859,7 +821,6 @@ GetFolder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetFolderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -867,7 +828,6 @@ GetMergeCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetMergeCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -875,7 +835,6 @@ GetMergeConflicts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetMergeConflictsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeConflictsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeConflictsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -883,7 +842,6 @@ GetMergeOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetMergeOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetMergeOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -891,7 +849,6 @@ GetPullRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetPullRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -899,7 +856,6 @@ GetPullRequestApprovalStates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetPullRequestApprovalStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestApprovalStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestApprovalStatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -907,7 +863,6 @@ GetPullRequestOverrideState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetPullRequestOverrideStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestOverrideStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetPullRequestOverrideStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -915,7 +870,6 @@ GetRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -923,7 +877,6 @@ GetRepositoryTriggers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetRepositoryTriggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetRepositoryTriggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetRepositoryTriggersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -931,7 +884,6 @@ ListApprovalRuleTemplates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListApprovalRuleTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListApprovalRuleTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListApprovalRuleTemplatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -939,7 +891,6 @@ ListAssociatedApprovalRuleTemplatesForRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListAssociatedApprovalRuleTemplatesForRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -947,7 +898,6 @@ ListBranches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListBranchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListBranchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListBranchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -955,7 +905,6 @@ ListFileCommitHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListFileCommitHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListFileCommitHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListFileCommitHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -963,7 +912,6 @@ ListPullRequests
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListPullRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListPullRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListPullRequestsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -971,7 +919,6 @@ ListRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListRepositoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -979,7 +926,6 @@ ListRepositoriesForApprovalRuleTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListRepositoriesForApprovalRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListRepositoriesForApprovalRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListRepositoriesForApprovalRuleTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -987,7 +933,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -995,7 +940,6 @@ MergeBranchesByFastForward
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergeBranchesByFastForwardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesByFastForwardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesByFastForwardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1003,7 +947,6 @@ MergeBranchesBySquash
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergeBranchesBySquashCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesBySquashCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesBySquashCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1011,7 +954,6 @@ MergeBranchesByThreeWay
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergeBranchesByThreeWayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesByThreeWayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergeBranchesByThreeWayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1019,7 +961,6 @@ MergePullRequestByFastForward
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergePullRequestByFastForwardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestByFastForwardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestByFastForwardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1027,7 +968,6 @@ MergePullRequestBySquash
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergePullRequestBySquashCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestBySquashCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestBySquashCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1035,7 +975,6 @@ MergePullRequestByThreeWay
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/MergePullRequestByThreeWayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestByThreeWayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/MergePullRequestByThreeWayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1043,7 +982,6 @@ OverridePullRequestApprovalRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/OverridePullRequestApprovalRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/OverridePullRequestApprovalRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/OverridePullRequestApprovalRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1051,7 +989,6 @@ PostCommentForComparedCommit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PostCommentForComparedCommitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentForComparedCommitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentForComparedCommitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1059,7 +996,6 @@ PostCommentForPullRequest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PostCommentForPullRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentForPullRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentForPullRequestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1067,7 +1003,6 @@ PostCommentReply
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PostCommentReplyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentReplyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PostCommentReplyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1075,7 +1010,6 @@ PutCommentReaction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PutCommentReactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutCommentReactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutCommentReactionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1083,7 +1017,6 @@ PutFile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PutFileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutFileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutFileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1091,7 +1024,6 @@ PutRepositoryTriggers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/PutRepositoryTriggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutRepositoryTriggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/PutRepositoryTriggersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1099,7 +1031,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1107,7 +1038,6 @@ TestRepositoryTriggers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/TestRepositoryTriggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/TestRepositoryTriggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/TestRepositoryTriggersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1115,7 +1045,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1123,7 +1052,6 @@ UpdateApprovalRuleTemplateContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateApprovalRuleTemplateContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateContentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1131,7 +1059,6 @@ UpdateApprovalRuleTemplateDescription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateApprovalRuleTemplateDescriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateDescriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateDescriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1139,7 +1066,6 @@ UpdateApprovalRuleTemplateName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateApprovalRuleTemplateNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateApprovalRuleTemplateNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1147,7 +1073,6 @@ UpdateComment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateCommentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateCommentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateCommentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1155,7 +1080,6 @@ UpdateDefaultBranch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateDefaultBranchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateDefaultBranchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateDefaultBranchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1163,7 +1087,6 @@ UpdatePullRequestApprovalRuleContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdatePullRequestApprovalRuleContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestApprovalRuleContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestApprovalRuleContentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1171,7 +1094,6 @@ UpdatePullRequestApprovalState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdatePullRequestApprovalStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestApprovalStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestApprovalStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1179,7 +1101,6 @@ UpdatePullRequestDescription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdatePullRequestDescriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestDescriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestDescriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1187,7 +1108,6 @@ UpdatePullRequestStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdatePullRequestStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1195,7 +1115,6 @@ UpdatePullRequestTitle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdatePullRequestTitleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestTitleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdatePullRequestTitleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1203,7 +1122,6 @@ UpdateRepositoryDescription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateRepositoryDescriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryDescriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryDescriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1211,7 +1129,6 @@ UpdateRepositoryEncryptionKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateRepositoryEncryptionKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryEncryptionKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryEncryptionKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1219,5 +1136,4 @@ UpdateRepositoryName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateRepositoryNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryNameCommandOutput/)
-
 </details>

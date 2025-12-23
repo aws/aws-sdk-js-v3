@@ -24,9 +24,7 @@ export interface DescribeAssessmentTemplatesCommandInput extends DescribeAssessm
  *
  * The output of {@link DescribeAssessmentTemplatesCommand}.
  */
-export interface DescribeAssessmentTemplatesCommandOutput
-  extends DescribeAssessmentTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeAssessmentTemplatesCommandOutput extends DescribeAssessmentTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the assessment templates that are specified by the ARNs of the assessment

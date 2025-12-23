@@ -27,9 +27,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandInput extends Describ
  *
  * The output of {@link DescribeMaintenanceWindowsForTargetCommand}.
  */
-export interface DescribeMaintenanceWindowsForTargetCommandOutput
-  extends DescribeMaintenanceWindowsForTargetResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowsForTargetCommandOutput extends DescribeMaintenanceWindowsForTargetResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the maintenance window targets or tasks that a managed node is

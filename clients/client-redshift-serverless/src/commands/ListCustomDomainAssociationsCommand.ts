@@ -28,9 +28,7 @@ export interface ListCustomDomainAssociationsCommandInput extends ListCustomDoma
  *
  * The output of {@link ListCustomDomainAssociationsCommand}.
  */
-export interface ListCustomDomainAssociationsCommandOutput
-  extends ListCustomDomainAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCustomDomainAssociationsCommandOutput extends ListCustomDomainAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists custom domain associations for Amazon Redshift Serverless.</p>

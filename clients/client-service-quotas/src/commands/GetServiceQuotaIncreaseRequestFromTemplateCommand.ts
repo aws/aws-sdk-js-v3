@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput
-  extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
+export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  extends GetServiceQuotaIncreaseRequestFromTemplateResponse,
-    __MetadataBearer {}
+export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput extends GetServiceQuotaIncreaseRequestFromTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified quota increase request in your quota request

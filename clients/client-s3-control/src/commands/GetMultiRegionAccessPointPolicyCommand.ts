@@ -26,9 +26,7 @@ export interface GetMultiRegionAccessPointPolicyCommandInput extends GetMultiReg
  *
  * The output of {@link GetMultiRegionAccessPointPolicyCommand}.
  */
-export interface GetMultiRegionAccessPointPolicyCommandOutput
-  extends GetMultiRegionAccessPointPolicyResult,
-    __MetadataBearer {}
+export interface GetMultiRegionAccessPointPolicyCommandOutput extends GetMultiRegionAccessPointPolicyResult, __MetadataBearer {}
 
 /**
  * <note>

@@ -8,7 +8,6 @@ AWS SDK for JavaScript StorageGateway Client for Node.js, Browser and React Nati
 
 <fullname>Storage Gateway Service</fullname>
 <important>
-
 <p>Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For
 capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
@@ -73,10 +72,8 @@ Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
 </important>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-storage-gateway
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-storage-gateway`
 - `yarn add @aws-sdk/client-storage-gateway`
 - `pnpm add @aws-sdk/client-storage-gateway`
@@ -112,9 +109,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new StorageGatewayClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTapesCommand(params);
 ```
 
@@ -273,7 +268,6 @@ ActivateGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ActivateGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ActivateGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ActivateGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +275,6 @@ AddCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AddCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +282,6 @@ AddTagsToResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AddTagsToResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddTagsToResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddTagsToResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +289,6 @@ AddUploadBuffer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AddUploadBufferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddUploadBufferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddUploadBufferCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +296,6 @@ AddWorkingStorage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AddWorkingStorageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddWorkingStorageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AddWorkingStorageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +303,6 @@ AssignTapePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AssignTapePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AssignTapePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AssignTapePoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +310,6 @@ AssociateFileSystem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AssociateFileSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AssociateFileSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AssociateFileSystemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +317,6 @@ AttachVolume
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/AttachVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AttachVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/AttachVolumeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +324,6 @@ CancelArchival
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CancelArchivalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelArchivalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelArchivalCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +331,6 @@ CancelCacheReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CancelCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelCacheReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +338,6 @@ CancelRetrieval
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CancelRetrievalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelRetrievalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelRetrievalCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +345,6 @@ CreateCachediSCSIVolume
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateCachediSCSIVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateCachediSCSIVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateCachediSCSIVolumeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +352,6 @@ CreateNFSFileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateNFSFileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateNFSFileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateNFSFileShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +359,6 @@ CreateSMBFileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateSMBFileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSMBFileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSMBFileShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +366,6 @@ CreateSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +373,6 @@ CreateSnapshotFromVolumeRecoveryPoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateSnapshotFromVolumeRecoveryPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSnapshotFromVolumeRecoveryPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateSnapshotFromVolumeRecoveryPointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +380,6 @@ CreateStorediSCSIVolume
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateStorediSCSIVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateStorediSCSIVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateStorediSCSIVolumeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +387,6 @@ CreateTapePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateTapePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapePoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +394,6 @@ CreateTapes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateTapesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +401,6 @@ CreateTapeWithBarcode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CreateTapeWithBarcodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapeWithBarcodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CreateTapeWithBarcodeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +408,6 @@ DeleteAutomaticTapeCreationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteAutomaticTapeCreationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteAutomaticTapeCreationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteAutomaticTapeCreationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +415,6 @@ DeleteBandwidthRateLimit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteBandwidthRateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteBandwidthRateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteBandwidthRateLimitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +422,6 @@ DeleteCacheReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteCacheReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +429,6 @@ DeleteChapCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteChapCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteChapCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteChapCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +436,6 @@ DeleteFileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteFileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteFileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteFileShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +443,6 @@ DeleteGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,7 +450,6 @@ DeleteSnapshotSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteSnapshotScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteSnapshotScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteSnapshotScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -489,7 +457,6 @@ DeleteTape
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteTapeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -497,7 +464,6 @@ DeleteTapeArchive
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteTapeArchiveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapeArchiveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapeArchiveCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -505,7 +471,6 @@ DeleteTapePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteTapePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteTapePoolCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -513,7 +478,6 @@ DeleteVolume
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteVolumeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -521,7 +485,6 @@ DescribeAvailabilityMonitorTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeAvailabilityMonitorTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeAvailabilityMonitorTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeAvailabilityMonitorTestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -529,7 +492,6 @@ DescribeBandwidthRateLimit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeBandwidthRateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeBandwidthRateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeBandwidthRateLimitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -537,7 +499,6 @@ DescribeBandwidthRateLimitSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeBandwidthRateLimitScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeBandwidthRateLimitScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeBandwidthRateLimitScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -545,7 +506,6 @@ DescribeCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -553,7 +513,6 @@ DescribeCachediSCSIVolumes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeCachediSCSIVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCachediSCSIVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCachediSCSIVolumesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -561,7 +520,6 @@ DescribeCacheReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -569,7 +527,6 @@ DescribeChapCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeChapCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeChapCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeChapCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -577,7 +534,6 @@ DescribeFileSystemAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeFileSystemAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeFileSystemAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeFileSystemAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -585,7 +541,6 @@ DescribeGatewayInformation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeGatewayInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeGatewayInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeGatewayInformationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -593,7 +548,6 @@ DescribeMaintenanceStartTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeMaintenanceStartTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeMaintenanceStartTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeMaintenanceStartTimeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -601,7 +555,6 @@ DescribeNFSFileShares
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeNFSFileSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeNFSFileSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeNFSFileSharesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -609,7 +562,6 @@ DescribeSMBFileShares
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeSMBFileSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSMBFileSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSMBFileSharesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -617,7 +569,6 @@ DescribeSMBSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeSMBSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSMBSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSMBSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -625,7 +576,6 @@ DescribeSnapshotSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeSnapshotScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSnapshotScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeSnapshotScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -633,7 +583,6 @@ DescribeStorediSCSIVolumes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeStorediSCSIVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeStorediSCSIVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeStorediSCSIVolumesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -641,7 +590,6 @@ DescribeTapeArchives
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeTapeArchivesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapeArchivesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapeArchivesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -649,7 +597,6 @@ DescribeTapeRecoveryPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeTapeRecoveryPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapeRecoveryPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapeRecoveryPointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -657,7 +604,6 @@ DescribeTapes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeTapesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeTapesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -665,7 +611,6 @@ DescribeUploadBuffer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeUploadBufferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeUploadBufferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeUploadBufferCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -673,7 +618,6 @@ DescribeVTLDevices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeVTLDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeVTLDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeVTLDevicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -681,7 +625,6 @@ DescribeWorkingStorage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeWorkingStorageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeWorkingStorageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeWorkingStorageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -689,7 +632,6 @@ DetachVolume
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DetachVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DetachVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DetachVolumeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -697,7 +639,6 @@ DisableGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DisableGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DisableGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DisableGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -705,7 +646,6 @@ DisassociateFileSystem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DisassociateFileSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DisassociateFileSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DisassociateFileSystemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -713,7 +653,6 @@ EvictFilesFailingUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/EvictFilesFailingUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -721,7 +660,6 @@ JoinDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/JoinDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/JoinDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/JoinDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -729,7 +667,6 @@ ListAutomaticTapeCreationPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListAutomaticTapeCreationPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListAutomaticTapeCreationPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListAutomaticTapeCreationPoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -737,7 +674,6 @@ ListCacheReports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListCacheReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListCacheReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListCacheReportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -745,7 +681,6 @@ ListFileShares
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListFileSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListFileSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListFileSharesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -753,7 +688,6 @@ ListFileSystemAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListFileSystemAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListFileSystemAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListFileSystemAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -761,7 +695,6 @@ ListGateways
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListGatewaysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -769,7 +702,6 @@ ListLocalDisks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListLocalDisksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListLocalDisksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListLocalDisksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -777,7 +709,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -785,7 +716,6 @@ ListTapePools
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListTapePoolsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTapePoolsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTapePoolsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -793,7 +723,6 @@ ListTapes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListTapesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTapesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListTapesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -801,7 +730,6 @@ ListVolumeInitiators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListVolumeInitiatorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumeInitiatorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumeInitiatorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -809,7 +737,6 @@ ListVolumeRecoveryPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListVolumeRecoveryPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumeRecoveryPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumeRecoveryPointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -817,7 +744,6 @@ ListVolumes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListVolumesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -825,7 +751,6 @@ NotifyWhenUploaded
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/NotifyWhenUploadedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/NotifyWhenUploadedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/NotifyWhenUploadedCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -833,7 +758,6 @@ RefreshCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/RefreshCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RefreshCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RefreshCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -841,7 +765,6 @@ RemoveTagsFromResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/RemoveTagsFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RemoveTagsFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RemoveTagsFromResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -849,7 +772,6 @@ ResetCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ResetCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ResetCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ResetCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -857,7 +779,6 @@ RetrieveTapeArchive
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/RetrieveTapeArchiveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RetrieveTapeArchiveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RetrieveTapeArchiveCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -865,7 +786,6 @@ RetrieveTapeRecoveryPoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/RetrieveTapeRecoveryPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RetrieveTapeRecoveryPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/RetrieveTapeRecoveryPointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -873,7 +793,6 @@ SetLocalConsolePassword
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/SetLocalConsolePasswordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/SetLocalConsolePasswordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/SetLocalConsolePasswordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -881,7 +800,6 @@ SetSMBGuestPassword
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/SetSMBGuestPasswordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/SetSMBGuestPasswordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/SetSMBGuestPasswordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -889,7 +807,6 @@ ShutdownGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ShutdownGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ShutdownGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ShutdownGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -897,7 +814,6 @@ StartAvailabilityMonitorTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/StartAvailabilityMonitorTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartAvailabilityMonitorTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartAvailabilityMonitorTestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -905,7 +821,6 @@ StartCacheReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/StartCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartCacheReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -913,7 +828,6 @@ StartGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/StartGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -921,7 +835,6 @@ UpdateAutomaticTapeCreationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateAutomaticTapeCreationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateAutomaticTapeCreationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateAutomaticTapeCreationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -929,7 +842,6 @@ UpdateBandwidthRateLimit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateBandwidthRateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateBandwidthRateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateBandwidthRateLimitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -937,7 +849,6 @@ UpdateBandwidthRateLimitSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateBandwidthRateLimitScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateBandwidthRateLimitScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateBandwidthRateLimitScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -945,7 +856,6 @@ UpdateChapCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateChapCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateChapCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateChapCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -953,7 +863,6 @@ UpdateFileSystemAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateFileSystemAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateFileSystemAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateFileSystemAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -961,7 +870,6 @@ UpdateGatewayInformation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateGatewayInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateGatewayInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateGatewayInformationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -969,7 +877,6 @@ UpdateGatewaySoftwareNow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateGatewaySoftwareNowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateGatewaySoftwareNowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateGatewaySoftwareNowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -977,7 +884,6 @@ UpdateMaintenanceStartTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateMaintenanceStartTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateMaintenanceStartTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateMaintenanceStartTimeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -985,7 +891,6 @@ UpdateNFSFileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateNFSFileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateNFSFileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateNFSFileShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -993,7 +898,6 @@ UpdateSMBFileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateSMBFileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBFileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBFileShareCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1001,7 +905,6 @@ UpdateSMBFileShareVisibility
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateSMBFileShareVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBFileShareVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBFileShareVisibilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1009,7 +912,6 @@ UpdateSMBLocalGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateSMBLocalGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBLocalGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBLocalGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1017,7 +919,6 @@ UpdateSMBSecurityStrategy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateSMBSecurityStrategyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBSecurityStrategyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSMBSecurityStrategyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1025,7 +926,6 @@ UpdateSnapshotSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateSnapshotScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSnapshotScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateSnapshotScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -1033,5 +933,4 @@ UpdateVTLDeviceType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/UpdateVTLDeviceTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateVTLDeviceTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/UpdateVTLDeviceTypeCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface DescribeAccountAuditConfigurationCommandInput extends DescribeA
  *
  * The output of {@link DescribeAccountAuditConfigurationCommand}.
  */
-export interface DescribeAccountAuditConfigurationCommandOutput
-  extends DescribeAccountAuditConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAccountAuditConfigurationCommandOutput extends DescribeAccountAuditConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the Device Defender audit settings for this account.

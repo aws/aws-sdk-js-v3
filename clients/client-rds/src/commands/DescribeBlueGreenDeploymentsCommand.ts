@@ -24,9 +24,7 @@ export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGr
  *
  * The output of {@link DescribeBlueGreenDeploymentsCommand}.
  */
-export interface DescribeBlueGreenDeploymentsCommandOutput
-  extends DescribeBlueGreenDeploymentsResponse,
-    __MetadataBearer {}
+export interface DescribeBlueGreenDeploymentsCommandOutput extends DescribeBlueGreenDeploymentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more blue/green deployments.</p>

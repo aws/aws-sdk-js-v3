@@ -27,9 +27,7 @@ export interface AssociateWirelessGatewayWithThingCommandInput extends Associate
  *
  * The output of {@link AssociateWirelessGatewayWithThingCommand}.
  */
-export interface AssociateWirelessGatewayWithThingCommandOutput
-  extends AssociateWirelessGatewayWithThingResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessGatewayWithThingCommandOutput extends AssociateWirelessGatewayWithThingResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a wireless gateway with a thing.</p>

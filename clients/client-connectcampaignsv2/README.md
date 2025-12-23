@@ -9,10 +9,8 @@ AWS SDK for JavaScript ConnectCampaignsV2 Client for Node.js, Browser and React 
 Provide APIs to create and manage Amazon Connect Campaigns.
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-connectcampaignsv2
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-connectcampaignsv2`
 - `yarn add @aws-sdk/client-connectcampaignsv2`
 - `pnpm add @aws-sdk/client-connectcampaignsv2`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ConnectCampaignsV2Client({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListCampaignsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/CreateCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/CreateCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/CreateCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ DeleteCampaignChannelSubtypeConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteCampaignChannelSubtypeConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignChannelSubtypeConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignChannelSubtypeConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ DeleteCampaignCommunicationLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteCampaignCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommunicationLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ DeleteCampaignCommunicationTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteCampaignCommunicationTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommunicationTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignCommunicationTimeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ DeleteConnectInstanceConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteConnectInstanceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteConnectInstanceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteConnectInstanceConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteConnectInstanceIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteConnectInstanceIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteConnectInstanceIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteConnectInstanceIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DeleteInstanceOnboardingJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteInstanceOnboardingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteInstanceOnboardingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteInstanceOnboardingJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ DescribeCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DescribeCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DescribeCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DescribeCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ GetCampaignState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetCampaignStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetCampaignStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetCampaignStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ GetCampaignStateBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetCampaignStateBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetCampaignStateBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetCampaignStateBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ GetConnectInstanceConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetConnectInstanceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetConnectInstanceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetConnectInstanceConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ GetInstanceCommunicationLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetInstanceCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceCommunicationLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ GetInstanceOnboardingJobStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/GetInstanceOnboardingJobStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceOnboardingJobStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/GetInstanceOnboardingJobStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ ListCampaigns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/ListCampaignsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListCampaignsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListCampaignsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ ListConnectInstanceIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/ListConnectInstanceIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListConnectInstanceIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListConnectInstanceIntegrationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ PauseCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PauseCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PauseCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PauseCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ PutConnectInstanceIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutConnectInstanceIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutConnectInstanceIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutConnectInstanceIntegrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ PutInstanceCommunicationLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutInstanceCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutInstanceCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutInstanceCommunicationLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ PutOutboundRequestBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutOutboundRequestBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutOutboundRequestBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutOutboundRequestBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ PutProfileOutboundRequestBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutProfileOutboundRequestBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutProfileOutboundRequestBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutProfileOutboundRequestBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ ResumeCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/ResumeCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ResumeCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/ResumeCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ StartCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/StartCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StartCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StartCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ StartInstanceOnboardingJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/StartInstanceOnboardingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StartInstanceOnboardingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StartInstanceOnboardingJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ StopCampaign
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/StopCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StopCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/StopCampaignCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ UpdateCampaignChannelSubtypeConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignChannelSubtypeConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignChannelSubtypeConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignChannelSubtypeConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ UpdateCampaignCommunicationLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignCommunicationLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +415,6 @@ UpdateCampaignCommunicationTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignCommunicationTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationTimeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +422,6 @@ UpdateCampaignFlowAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignFlowAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignFlowAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignFlowAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +429,6 @@ UpdateCampaignName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignNameCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +436,6 @@ UpdateCampaignSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,5 +443,4 @@ UpdateCampaignSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignSourceCommandOutput/)
-
 </details>

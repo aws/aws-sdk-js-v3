@@ -69,8 +69,14 @@ export interface Artifact {
   /**
    * @see {@link GetReportCommand}
    */
-  getReport(args: GetReportCommandInput, options?: __HttpHandlerOptions): Promise<GetReportCommandOutput>;
-  getReport(args: GetReportCommandInput, cb: (err: any, data?: GetReportCommandOutput) => void): void;
+  getReport(
+    args: GetReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReportCommandOutput>;
+  getReport(
+    args: GetReportCommandInput,
+    cb: (err: any, data?: GetReportCommandOutput) => void
+  ): void;
   getReport(
     args: GetReportCommandInput,
     options: __HttpHandlerOptions,
@@ -133,8 +139,14 @@ export interface Artifact {
    * @see {@link ListReportsCommand}
    */
   listReports(): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
+  listReports(
+    args: ListReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportsCommandOutput>;
+  listReports(
+    args: ListReportsCommandInput,
+    cb: (err: any, data?: ListReportsCommandOutput) => void
+  ): void;
   listReports(
     args: ListReportsCommandInput,
     options: __HttpHandlerOptions,

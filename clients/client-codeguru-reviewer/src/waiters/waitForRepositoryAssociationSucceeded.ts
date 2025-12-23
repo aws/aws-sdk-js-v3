@@ -7,34 +7,31 @@ import {
   DescribeRepositoryAssociationCommandInput,
 } from "../commands/DescribeRepositoryAssociationCommand";
 
-const checkState = async (
-  client: CodeGuruReviewerClient,
-  input: DescribeRepositoryAssociationCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Associated") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RepositoryAssociation.State;
-      };
+      }
       if (returnComparator() === "Associating") {
         return { state: WaiterState.RETRY, reason };
       }

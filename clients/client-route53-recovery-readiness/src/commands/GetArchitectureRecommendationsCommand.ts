@@ -28,9 +28,7 @@ export interface GetArchitectureRecommendationsCommandInput extends GetArchitect
  *
  * The output of {@link GetArchitectureRecommendationsCommand}.
  */
-export interface GetArchitectureRecommendationsCommandOutput
-  extends GetArchitectureRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetArchitectureRecommendationsCommandOutput extends GetArchitectureRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets recommendations about architecture designs for improving resiliency for an application, based on a recovery group.</p>

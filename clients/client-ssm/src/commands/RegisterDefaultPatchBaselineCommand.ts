@@ -24,9 +24,7 @@ export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaul
  *
  * The output of {@link RegisterDefaultPatchBaselineCommand}.
  */
-export interface RegisterDefaultPatchBaselineCommandOutput
-  extends RegisterDefaultPatchBaselineResult,
-    __MetadataBearer {}
+export interface RegisterDefaultPatchBaselineCommandOutput extends RegisterDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Defines the default patch baseline for the relevant operating system.</p>

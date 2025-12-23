@@ -27,9 +27,7 @@ export interface ListPredictorBacktestExportJobsCommandInput extends ListPredict
  *
  * The output of {@link ListPredictorBacktestExportJobsCommand}.
  */
-export interface ListPredictorBacktestExportJobsCommandOutput
-  extends ListPredictorBacktestExportJobsResponse,
-    __MetadataBearer {}
+export interface ListPredictorBacktestExportJobsCommandOutput extends ListPredictorBacktestExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a

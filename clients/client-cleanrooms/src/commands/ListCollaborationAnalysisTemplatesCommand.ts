@@ -27,9 +27,7 @@ export interface ListCollaborationAnalysisTemplatesCommandInput extends ListColl
  *
  * The output of {@link ListCollaborationAnalysisTemplatesCommand}.
  */
-export interface ListCollaborationAnalysisTemplatesCommandOutput
-  extends ListCollaborationAnalysisTemplatesOutput,
-    __MetadataBearer {}
+export interface ListCollaborationAnalysisTemplatesCommandOutput extends ListCollaborationAnalysisTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists analysis templates within a collaboration.</p>

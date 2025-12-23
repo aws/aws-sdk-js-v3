@@ -27,9 +27,7 @@ export interface CreateChatResponseConfigurationCommandInput extends CreateChatR
  *
  * The output of {@link CreateChatResponseConfigurationCommand}.
  */
-export interface CreateChatResponseConfigurationCommandOutput
-  extends CreateChatResponseConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateChatResponseConfigurationCommandOutput extends CreateChatResponseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new chat response configuration for an Amazon Q Business application. This operation establishes a set of parameters that define how the system generates and formats responses to user queries in chat interactions.</p>

@@ -27,9 +27,7 @@ export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpo
  *
  * The output of {@link DescribeSpotFleetRequestHistoryCommand}.
  */
-export interface DescribeSpotFleetRequestHistoryCommandOutput
-  extends DescribeSpotFleetRequestHistoryResponse,
-    __MetadataBearer {}
+export interface DescribeSpotFleetRequestHistoryCommandOutput extends DescribeSpotFleetRequestHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified Spot Fleet request during the specified

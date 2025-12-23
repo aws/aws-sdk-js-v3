@@ -24,9 +24,7 @@ export interface StartAssessmentFrameworkShareCommandInput extends StartAssessme
  *
  * The output of {@link StartAssessmentFrameworkShareCommand}.
  */
-export interface StartAssessmentFrameworkShareCommandOutput
-  extends StartAssessmentFrameworkShareResponse,
-    __MetadataBearer {}
+export interface StartAssessmentFrameworkShareCommandOutput extends StartAssessmentFrameworkShareResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a share request for a custom framework in Audit Manager. </p>

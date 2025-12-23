@@ -23,6 +23,7 @@ import {
   ListReportDefinitionsCommand,
   ListReportDefinitionsRequest$,
   ListReportDefinitionsResult$,
+  paginateListReportDefinitions,
   PutReportDefinition$,
   PutReportDefinitionCommand,
   PutReportDefinitionRequest$,
@@ -42,7 +43,6 @@ import {
   UpdateReportDefinitionResult$,
   ValidationException,
   ValidationException$,
-  paginateListReportDefinitions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

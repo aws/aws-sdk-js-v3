@@ -2,9 +2,9 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../../../package.json"; // eslint-disable-line
 
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core";
 
-import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
+import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -44,7 +44,7 @@ export const getRuntimeConfig = (config: SigninClientConfig) => {
     authSchemePreference:
       config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    
+
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),

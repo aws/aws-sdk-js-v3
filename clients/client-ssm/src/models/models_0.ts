@@ -9969,7 +9969,9 @@ export interface AutomationExecutionPreview {
  * <p>Information about the changes that would be made if an execution were run.</p>
  * @public
  */
-export type ExecutionPreview = ExecutionPreview.AutomationMember | ExecutionPreview.$UnknownMember;
+export type ExecutionPreview =
+  | ExecutionPreview.AutomationMember
+  | ExecutionPreview.$UnknownMember;
 
 /**
  * @public

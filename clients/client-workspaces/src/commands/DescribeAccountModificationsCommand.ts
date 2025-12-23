@@ -24,9 +24,7 @@ export interface DescribeAccountModificationsCommandInput extends DescribeAccoun
  *
  * The output of {@link DescribeAccountModificationsCommand}.
  */
-export interface DescribeAccountModificationsCommandOutput
-  extends DescribeAccountModificationsResult,
-    __MetadataBearer {}
+export interface DescribeAccountModificationsCommandOutput extends DescribeAccountModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own

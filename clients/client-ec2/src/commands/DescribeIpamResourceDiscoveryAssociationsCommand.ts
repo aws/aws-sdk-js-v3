@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
-export interface DescribeIpamResourceDiscoveryAssociationsCommandInput
-  extends DescribeIpamResourceDiscoveryAssociationsRequest {}
+export interface DescribeIpamResourceDiscoveryAssociationsCommandInput extends DescribeIpamResourceDiscoveryAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIpamResourceDiscoveryAssociationsCommand}.
  */
-export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
-  extends DescribeIpamResourceDiscoveryAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput extends DescribeIpamResourceDiscoveryAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>

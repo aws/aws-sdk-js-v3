@@ -24,9 +24,7 @@ export interface DescribeMetricCollectionTypesCommandInput {}
  *
  * The output of {@link DescribeMetricCollectionTypesCommand}.
  */
-export interface DescribeMetricCollectionTypesCommandOutput
-  extends DescribeMetricCollectionTypesAnswer,
-    __MetadataBearer {}
+export interface DescribeMetricCollectionTypesCommandOutput extends DescribeMetricCollectionTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>

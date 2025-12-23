@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
  */
-export interface DisassociateMulticastGroupFromFuotaTaskCommandInput
-  extends DisassociateMulticastGroupFromFuotaTaskRequest {}
+export interface DisassociateMulticastGroupFromFuotaTaskCommandInput extends DisassociateMulticastGroupFromFuotaTaskRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
  */
-export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
-  extends DisassociateMulticastGroupFromFuotaTaskResponse,
-    __MetadataBearer {}
+export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput extends DisassociateMulticastGroupFromFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a multicast group from a FUOTA task.</p>

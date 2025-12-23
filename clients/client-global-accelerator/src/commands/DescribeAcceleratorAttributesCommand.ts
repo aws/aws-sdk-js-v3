@@ -28,9 +28,7 @@ export interface DescribeAcceleratorAttributesCommandInput extends DescribeAccel
  *
  * The output of {@link DescribeAcceleratorAttributesCommand}.
  */
-export interface DescribeAcceleratorAttributesCommandOutput
-  extends DescribeAcceleratorAttributesResponse,
-    __MetadataBearer {}
+export interface DescribeAcceleratorAttributesCommandOutput extends DescribeAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Describe the attributes of an accelerator.

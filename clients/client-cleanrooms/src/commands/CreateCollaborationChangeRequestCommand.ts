@@ -24,9 +24,7 @@ export interface CreateCollaborationChangeRequestCommandInput extends CreateColl
  *
  * The output of {@link CreateCollaborationChangeRequestCommand}.
  */
-export interface CreateCollaborationChangeRequestCommandOutput
-  extends CreateCollaborationChangeRequestOutput,
-    __MetadataBearer {}
+export interface CreateCollaborationChangeRequestCommandOutput extends CreateCollaborationChangeRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new change request to modify an existing collaboration. This enables post-creation modifications to collaborations through a structured API-driven approach.</p>

@@ -24,9 +24,7 @@ export interface ListAnalyticsDataAssociationsCommandInput extends ListAnalytics
  *
  * The output of {@link ListAnalyticsDataAssociationsCommand}.
  */
-export interface ListAnalyticsDataAssociationsCommandOutput
-  extends ListAnalyticsDataAssociationsResponse,
-    __MetadataBearer {}
+export interface ListAnalyticsDataAssociationsCommandOutput extends ListAnalyticsDataAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the association status of requested dataset ID for a given Amazon Connect instance.</p>

@@ -13,30 +13,30 @@ const checkState = async (client: EC2Client, input: DescribeVpnConnectionsComman
     const result: any = await client.send(new DescribeVpnConnectionsCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.VpnConnections);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.VpnConnections);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "deleted";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "deleted")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.VpnConnections);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.VpnConnections);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "pending") {
           return { state: WaiterState.FAILURE, reason };
         }

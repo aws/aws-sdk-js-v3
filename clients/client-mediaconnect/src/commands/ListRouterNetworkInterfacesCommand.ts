@@ -24,9 +24,7 @@ export interface ListRouterNetworkInterfacesCommandInput extends ListRouterNetwo
  *
  * The output of {@link ListRouterNetworkInterfacesCommand}.
  */
-export interface ListRouterNetworkInterfacesCommandOutput
-  extends ListRouterNetworkInterfacesResponse,
-    __MetadataBearer {}
+export interface ListRouterNetworkInterfacesCommandOutput extends ListRouterNetworkInterfacesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of router network interfaces in AWS Elemental MediaConnect.</p>

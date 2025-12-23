@@ -27,9 +27,7 @@ export interface CreateLoadBalancerTlsCertificateCommandInput extends CreateLoad
  *
  * The output of {@link CreateLoadBalancerTlsCertificateCommand}.
  */
-export interface CreateLoadBalancerTlsCertificateCommandOutput
-  extends CreateLoadBalancerTlsCertificateResult,
-    __MetadataBearer {}
+export interface CreateLoadBalancerTlsCertificateCommandOutput extends CreateLoadBalancerTlsCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>

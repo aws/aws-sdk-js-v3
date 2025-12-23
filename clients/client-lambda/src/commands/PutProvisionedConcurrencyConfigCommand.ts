@@ -27,9 +27,7 @@ export interface PutProvisionedConcurrencyConfigCommandInput extends PutProvisio
  *
  * The output of {@link PutProvisionedConcurrencyConfigCommand}.
  */
-export interface PutProvisionedConcurrencyConfigCommandOutput
-  extends PutProvisionedConcurrencyConfigResponse,
-    __MetadataBearer {}
+export interface PutProvisionedConcurrencyConfigCommandOutput extends PutProvisionedConcurrencyConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>

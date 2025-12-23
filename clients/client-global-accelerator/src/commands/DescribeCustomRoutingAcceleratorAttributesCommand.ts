@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
-export interface DescribeCustomRoutingAcceleratorAttributesCommandInput
-  extends DescribeCustomRoutingAcceleratorAttributesRequest {}
+export interface DescribeCustomRoutingAcceleratorAttributesCommandInput extends DescribeCustomRoutingAcceleratorAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
-export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
-  extends DescribeCustomRoutingAcceleratorAttributesResponse,
-    __MetadataBearer {}
+export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput extends DescribeCustomRoutingAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Describe the attributes of a custom routing accelerator. </p>

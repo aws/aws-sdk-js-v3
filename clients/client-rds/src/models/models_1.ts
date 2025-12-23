@@ -11,7 +11,6 @@ import {
   MasterUserAuthenticationType,
   ReplicaMode,
 } from "./enums";
-
 import {
   type BlueGreenDeployment,
   type Certificate,

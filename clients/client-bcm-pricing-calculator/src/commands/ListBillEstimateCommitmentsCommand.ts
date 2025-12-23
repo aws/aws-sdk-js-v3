@@ -28,9 +28,7 @@ export interface ListBillEstimateCommitmentsCommandInput extends ListBillEstimat
  *
  * The output of {@link ListBillEstimateCommitmentsCommand}.
  */
-export interface ListBillEstimateCommitmentsCommandOutput
-  extends ListBillEstimateCommitmentsResponse,
-    __MetadataBearer {}
+export interface ListBillEstimateCommitmentsCommandOutput extends ListBillEstimateCommitmentsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the commitments associated with a bill estimate. </p>

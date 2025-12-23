@@ -49,17 +49,13 @@ export const defaultPartnerCentralBenefitsHttpAuthSchemeParametersProvider = asy
 ): Promise<PartnerCentralBenefitsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: PartnerCentralBenefitsHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: PartnerCentralBenefitsHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface PartnerCentralBenefitsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultPartnerCentralBenefitsHttpAuthSchemeProvider: PartnerCentralBenefitsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultPartnerCentralBenefitsHttpAuthSchemeProvider: PartnerCentralBenefitsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

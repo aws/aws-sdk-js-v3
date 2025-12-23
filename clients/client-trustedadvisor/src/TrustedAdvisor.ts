@@ -125,8 +125,14 @@ export interface TrustedAdvisor {
    * @see {@link ListChecksCommand}
    */
   listChecks(): Promise<ListChecksCommandOutput>;
-  listChecks(args: ListChecksCommandInput, options?: __HttpHandlerOptions): Promise<ListChecksCommandOutput>;
-  listChecks(args: ListChecksCommandInput, cb: (err: any, data?: ListChecksCommandOutput) => void): void;
+  listChecks(
+    args: ListChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChecksCommandOutput>;
+  listChecks(
+    args: ListChecksCommandInput,
+    cb: (err: any, data?: ListChecksCommandOutput) => void
+  ): void;
   listChecks(
     args: ListChecksCommandInput,
     options: __HttpHandlerOptions,

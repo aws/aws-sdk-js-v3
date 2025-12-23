@@ -27,9 +27,7 @@ export interface DescribeCustomWorkspaceImageImportCommandInput extends Describe
  *
  * The output of {@link DescribeCustomWorkspaceImageImportCommand}.
  */
-export interface DescribeCustomWorkspaceImageImportCommandOutput
-  extends DescribeCustomWorkspaceImageImportResult,
-    __MetadataBearer {}
+export interface DescribeCustomWorkspaceImageImportCommandOutput extends DescribeCustomWorkspaceImageImportResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.</p>

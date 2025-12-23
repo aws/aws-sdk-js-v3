@@ -28,9 +28,7 @@ export interface UpdateEnrollmentConfigurationCommandInput extends UpdateEnrollm
  *
  * The output of {@link UpdateEnrollmentConfigurationCommand}.
  */
-export interface UpdateEnrollmentConfigurationCommandOutput
-  extends UpdateEnrollmentConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateEnrollmentConfigurationCommandOutput extends UpdateEnrollmentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates your account’s Compute Optimizer Automation enrollment configuration. </p>

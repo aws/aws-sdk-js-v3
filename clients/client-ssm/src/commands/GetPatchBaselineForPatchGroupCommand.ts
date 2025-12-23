@@ -24,9 +24,7 @@ export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBasel
  *
  * The output of {@link GetPatchBaselineForPatchGroupCommand}.
  */
-export interface GetPatchBaselineForPatchGroupCommandOutput
-  extends GetPatchBaselineForPatchGroupResult,
-    __MetadataBearer {}
+export interface GetPatchBaselineForPatchGroupCommandOutput extends GetPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>

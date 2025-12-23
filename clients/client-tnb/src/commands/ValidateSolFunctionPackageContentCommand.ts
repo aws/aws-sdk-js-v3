@@ -28,16 +28,13 @@ export type ValidateSolFunctionPackageContentCommandInputType = Omit<ValidateSol
  *
  * The input for {@link ValidateSolFunctionPackageContentCommand}.
  */
-export interface ValidateSolFunctionPackageContentCommandInput
-  extends ValidateSolFunctionPackageContentCommandInputType {}
+export interface ValidateSolFunctionPackageContentCommandInput extends ValidateSolFunctionPackageContentCommandInputType {}
 /**
  * @public
  *
  * The output of {@link ValidateSolFunctionPackageContentCommand}.
  */
-export interface ValidateSolFunctionPackageContentCommandOutput
-  extends ValidateSolFunctionPackageContentOutput,
-    __MetadataBearer {}
+export interface ValidateSolFunctionPackageContentCommandOutput extends ValidateSolFunctionPackageContentOutput, __MetadataBearer {}
 
 /**
  * <p>Validates function package content. This can be used as a dry run before uploading

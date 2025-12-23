@@ -28,9 +28,7 @@ export interface CreateCloudFormationTemplateCommandInput extends CreateCloudFor
  *
  * The output of {@link CreateCloudFormationTemplateCommand}.
  */
-export interface CreateCloudFormationTemplateCommandOutput
-  extends CreateCloudFormationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateCloudFormationTemplateCommandOutput extends CreateCloudFormationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation template.</p>

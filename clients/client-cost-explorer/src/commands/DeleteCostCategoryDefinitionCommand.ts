@@ -24,9 +24,7 @@ export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCate
  *
  * The output of {@link DeleteCostCategoryDefinitionCommand}.
  */
-export interface DeleteCostCategoryDefinitionCommandOutput
-  extends DeleteCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteCostCategoryDefinitionCommandOutput extends DeleteCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a cost category. Expenses from this month going forward will no longer be

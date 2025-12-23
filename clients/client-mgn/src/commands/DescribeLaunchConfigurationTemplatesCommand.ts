@@ -27,9 +27,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandInput extends Descri
  *
  * The output of {@link DescribeLaunchConfigurationTemplatesCommand}.
  */
-export interface DescribeLaunchConfigurationTemplatesCommandOutput
-  extends DescribeLaunchConfigurationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeLaunchConfigurationTemplatesCommandOutput extends DescribeLaunchConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>

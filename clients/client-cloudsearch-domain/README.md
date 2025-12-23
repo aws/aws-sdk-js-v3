@@ -12,10 +12,8 @@ AWS SDK for JavaScript CloudSearchDomain Client for Node.js, Browser and React N
 <p>For more information, see the <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide">Amazon CloudSearch Developer Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudsearch-domain
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudsearch-domain`
 - `yarn add @aws-sdk/client-cloudsearch-domain`
 - `pnpm add @aws-sdk/client-cloudsearch-domain`
@@ -51,9 +49,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudSearchDomainClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new SearchCommand(params);
 ```
 
@@ -212,7 +208,6 @@ Search
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudsearch-domain/command/SearchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/SearchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/SearchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +215,6 @@ Suggest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudsearch-domain/command/SuggestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/SuggestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/SuggestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,5 +222,4 @@ UploadDocuments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudsearch-domain/command/UploadDocumentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/UploadDocumentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudsearch-domain/Interface/UploadDocumentsCommandOutput/)
-
 </details>

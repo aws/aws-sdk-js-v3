@@ -25,9 +25,7 @@ export interface GetManagedCertificateDetailsCommandInput extends GetManagedCert
  *
  * The output of {@link GetManagedCertificateDetailsCommand}.
  */
-export interface GetManagedCertificateDetailsCommandOutput
-  extends GetManagedCertificateDetailsResult,
-    __MetadataBearer {}
+export interface GetManagedCertificateDetailsCommandOutput extends GetManagedCertificateDetailsResult, __MetadataBearer {}
 
 /**
  * <p>Gets details about the CloudFront managed ACM certificate.</p>

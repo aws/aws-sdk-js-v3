@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandInput
-  extends AddApplicationCloudWatchLoggingOptionRequest {}
+export interface AddApplicationCloudWatchLoggingOptionCommandInput extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface AddApplicationCloudWatchLoggingOptionCommandOutput
-  extends AddApplicationCloudWatchLoggingOptionResponse,
-    __MetadataBearer {}
+export interface AddApplicationCloudWatchLoggingOptionCommandOutput extends AddApplicationCloudWatchLoggingOptionResponse, __MetadataBearer {}
 
 /**
  * <note>

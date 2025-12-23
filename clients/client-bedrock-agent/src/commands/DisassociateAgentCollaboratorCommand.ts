@@ -24,9 +24,7 @@ export interface DisassociateAgentCollaboratorCommandInput extends DisassociateA
  *
  * The output of {@link DisassociateAgentCollaboratorCommand}.
  */
-export interface DisassociateAgentCollaboratorCommandOutput
-  extends DisassociateAgentCollaboratorResponse,
-    __MetadataBearer {}
+export interface DisassociateAgentCollaboratorCommandOutput extends DisassociateAgentCollaboratorResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an agent collaborator.</p>

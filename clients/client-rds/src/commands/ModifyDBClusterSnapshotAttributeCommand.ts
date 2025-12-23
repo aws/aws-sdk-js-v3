@@ -27,9 +27,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBCl
  *
  * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
  */
-export interface ModifyDBClusterSnapshotAttributeCommandOutput
-  extends ModifyDBClusterSnapshotAttributeResult,
-    __MetadataBearer {}
+export interface ModifyDBClusterSnapshotAttributeCommandOutput extends ModifyDBClusterSnapshotAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>

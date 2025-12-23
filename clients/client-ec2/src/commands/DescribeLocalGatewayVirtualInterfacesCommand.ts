@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
-export interface DescribeLocalGatewayVirtualInterfacesCommandInput
-  extends DescribeLocalGatewayVirtualInterfacesRequest {}
+export interface DescribeLocalGatewayVirtualInterfacesCommandInput extends DescribeLocalGatewayVirtualInterfacesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
-export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
-  extends DescribeLocalGatewayVirtualInterfacesResult,
-    __MetadataBearer {}
+export interface DescribeLocalGatewayVirtualInterfacesCommandOutput extends DescribeLocalGatewayVirtualInterfacesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified local gateway virtual interfaces.</p>

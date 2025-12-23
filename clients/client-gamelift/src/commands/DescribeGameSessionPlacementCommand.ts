@@ -24,9 +24,7 @@ export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSe
  *
  * The output of {@link DescribeGameSessionPlacementCommand}.
  */
-export interface DescribeGameSessionPlacementCommandOutput
-  extends DescribeGameSessionPlacementOutput,
-    __MetadataBearer {}
+export interface DescribeGameSessionPlacementCommandOutput extends DescribeGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
  * <p>

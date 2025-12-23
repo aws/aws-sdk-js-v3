@@ -28,9 +28,7 @@ export interface StartEntitiesDetectionV2JobCommandInput extends StartEntitiesDe
  *
  * The output of {@link StartEntitiesDetectionV2JobCommand}.
  */
-export interface StartEntitiesDetectionV2JobCommandOutput
-  extends StartEntitiesDetectionV2JobResponse,
-    __MetadataBearer {}
+export interface StartEntitiesDetectionV2JobCommandOutput extends StartEntitiesDetectionV2JobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the

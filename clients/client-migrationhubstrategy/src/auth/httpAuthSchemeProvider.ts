@@ -49,17 +49,13 @@ export const defaultMigrationHubStrategyHttpAuthSchemeParametersProvider = async
 ): Promise<MigrationHubStrategyHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: MigrationHubStrategyHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: MigrationHubStrategyHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface MigrationHubStrategyHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultMigrationHubStrategyHttpAuthSchemeProvider: MigrationHubStrategyHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultMigrationHubStrategyHttpAuthSchemeProvider: MigrationHubStrategyHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

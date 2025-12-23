@@ -28,9 +28,7 @@ export interface CreateRegistrationAttachmentCommandInput extends CreateRegistra
  *
  * The output of {@link CreateRegistrationAttachmentCommand}.
  */
-export interface CreateRegistrationAttachmentCommandOutput
-  extends CreateRegistrationAttachmentResult,
-    __MetadataBearer {}
+export interface CreateRegistrationAttachmentCommandOutput extends CreateRegistrationAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Create a new registration attachment to use for uploading a file or a URL to a file. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG. For example, many sender ID registrations require a signed “letter of authorization” (LOA) to be submitted.</p> <p>Use either <code>AttachmentUrl</code> or <code>AttachmentBody</code> to upload your attachment. If both are specified then an exception is returned.</p>

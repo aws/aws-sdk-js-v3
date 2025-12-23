@@ -27,9 +27,7 @@ export interface CreateQueryLoggingConfigurationCommandInput extends CreateQuery
  *
  * The output of {@link CreateQueryLoggingConfigurationCommand}.
  */
-export interface CreateQueryLoggingConfigurationCommandOutput
-  extends CreateQueryLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateQueryLoggingConfigurationCommandOutput extends CreateQueryLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a query logging configuration for the specified workspace. This operation enables logging of queries that exceed the specified QSP threshold.</p>

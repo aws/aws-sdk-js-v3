@@ -112,6 +112,10 @@ import {
   OutboundEdiOptions$,
   OutputConversion$,
   OutputSampleFileSource$,
+  paginateListCapabilities,
+  paginateListPartnerships,
+  paginateListProfiles,
+  paginateListTransformers,
   PartnershipSummary$,
   ProfileSummary$,
   ResourceNotFoundException,
@@ -169,6 +173,8 @@ import {
   UpdateTransformerResponse$,
   ValidationException,
   ValidationException$,
+  waitForTransformerJobSucceeded,
+  waitUntilTransformerJobSucceeded,
   WrapFormat,
   WrapOptions$,
   X12AcknowledgmentOptions$,
@@ -193,12 +199,6 @@ import {
   X12ValidationOptions$,
   X12ValidationRule$,
   X12Version,
-  paginateListCapabilities,
-  paginateListPartnerships,
-  paginateListProfiles,
-  paginateListTransformers,
-  waitForTransformerJobSucceeded,
-  waitUntilTransformerJobSucceeded,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -27,9 +27,7 @@ export interface GetComplianceSummaryByResourceTypeCommandInput extends GetCompl
  *
  * The output of {@link GetComplianceSummaryByResourceTypeCommand}.
  */
-export interface GetComplianceSummaryByResourceTypeCommandOutput
-  extends GetComplianceSummaryByResourceTypeResponse,
-    __MetadataBearer {}
+export interface GetComplianceSummaryByResourceTypeCommandOutput extends GetComplianceSummaryByResourceTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of resources that are compliant and the

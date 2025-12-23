@@ -24,9 +24,7 @@ export interface DescribeQuerySuggestionsConfigCommandInput extends DescribeQuer
  *
  * The output of {@link DescribeQuerySuggestionsConfigCommand}.
  */
-export interface DescribeQuerySuggestionsConfigCommandOutput
-  extends DescribeQuerySuggestionsConfigResponse,
-    __MetadataBearer {}
+export interface DescribeQuerySuggestionsConfigCommandOutput extends DescribeQuerySuggestionsConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information on the settings of query suggestions for an index.</p>

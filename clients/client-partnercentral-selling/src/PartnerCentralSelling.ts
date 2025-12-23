@@ -463,8 +463,14 @@ export interface PartnerCentralSelling {
   /**
    * @see {@link GetEngagementCommand}
    */
-  getEngagement(args: GetEngagementCommandInput, options?: __HttpHandlerOptions): Promise<GetEngagementCommandOutput>;
-  getEngagement(args: GetEngagementCommandInput, cb: (err: any, data?: GetEngagementCommandOutput) => void): void;
+  getEngagement(
+    args: GetEngagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEngagementCommandOutput>;
+  getEngagement(
+    args: GetEngagementCommandInput,
+    cb: (err: any, data?: GetEngagementCommandOutput) => void
+  ): void;
   getEngagement(
     args: GetEngagementCommandInput,
     options: __HttpHandlerOptions,
@@ -495,7 +501,10 @@ export interface PartnerCentralSelling {
     args: GetOpportunityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetOpportunityCommandOutput>;
-  getOpportunity(args: GetOpportunityCommandInput, cb: (err: any, data?: GetOpportunityCommandOutput) => void): void;
+  getOpportunity(
+    args: GetOpportunityCommandInput,
+    cb: (err: any, data?: GetOpportunityCommandOutput) => void
+  ): void;
   getOpportunity(
     args: GetOpportunityCommandInput,
     options: __HttpHandlerOptions,
@@ -645,7 +654,10 @@ export interface PartnerCentralSelling {
     args: ListEngagementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEngagementsCommandOutput>;
-  listEngagements(args: ListEngagementsCommandInput, cb: (err: any, data?: ListEngagementsCommandOutput) => void): void;
+  listEngagements(
+    args: ListEngagementsCommandInput,
+    cb: (err: any, data?: ListEngagementsCommandOutput) => void
+  ): void;
   listEngagements(
     args: ListEngagementsCommandInput,
     options: __HttpHandlerOptions,
@@ -723,8 +735,14 @@ export interface PartnerCentralSelling {
   /**
    * @see {@link ListSolutionsCommand}
    */
-  listSolutions(args: ListSolutionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSolutionsCommandOutput>;
-  listSolutions(args: ListSolutionsCommandInput, cb: (err: any, data?: ListSolutionsCommandOutput) => void): void;
+  listSolutions(
+    args: ListSolutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSolutionsCommandOutput>;
+  listSolutions(
+    args: ListSolutionsCommandInput,
+    cb: (err: any, data?: ListSolutionsCommandOutput) => void
+  ): void;
   listSolutions(
     args: ListSolutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -887,8 +905,14 @@ export interface PartnerCentralSelling {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -898,8 +922,14 @@ export interface PartnerCentralSelling {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

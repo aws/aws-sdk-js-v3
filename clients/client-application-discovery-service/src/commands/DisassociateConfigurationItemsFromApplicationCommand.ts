@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
-export interface DisassociateConfigurationItemsFromApplicationCommandInput
-  extends DisassociateConfigurationItemsFromApplicationRequest {}
+export interface DisassociateConfigurationItemsFromApplicationCommandInput extends DisassociateConfigurationItemsFromApplicationRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
-export interface DisassociateConfigurationItemsFromApplicationCommandOutput
-  extends DisassociateConfigurationItemsFromApplicationResponse,
-    __MetadataBearer {}
+export interface DisassociateConfigurationItemsFromApplicationCommandOutput extends DisassociateConfigurationItemsFromApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more configuration items from an application.</p>

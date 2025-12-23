@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
-export interface GetInstanceTypesFromInstanceRequirementsCommandInput
-  extends GetInstanceTypesFromInstanceRequirementsRequest {}
+export interface GetInstanceTypesFromInstanceRequirementsCommandInput extends GetInstanceTypesFromInstanceRequirementsRequest {}
 /**
  * @public
  *
  * The output of {@link GetInstanceTypesFromInstanceRequirementsCommand}.
  */
-export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
-  extends GetInstanceTypesFromInstanceRequirementsResult,
-    __MetadataBearer {}
+export interface GetInstanceTypesFromInstanceRequirementsCommandOutput extends GetInstanceTypesFromInstanceRequirementsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of instance types with the specified instance attributes. You can

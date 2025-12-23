@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
-export interface GetThirdPartyFirewallAssociationStatusCommandInput
-  extends GetThirdPartyFirewallAssociationStatusRequest {}
+export interface GetThirdPartyFirewallAssociationStatusCommandInput extends GetThirdPartyFirewallAssociationStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
-export interface GetThirdPartyFirewallAssociationStatusCommandOutput
-  extends GetThirdPartyFirewallAssociationStatusResponse,
-    __MetadataBearer {}
+export interface GetThirdPartyFirewallAssociationStatusCommandOutput extends GetThirdPartyFirewallAssociationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>

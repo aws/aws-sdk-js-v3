@@ -24,9 +24,7 @@ export interface ListLoggerDefinitionVersionsCommandInput extends ListLoggerDefi
  *
  * The output of {@link ListLoggerDefinitionVersionsCommand}.
  */
-export interface ListLoggerDefinitionVersionsCommandOutput
-  extends ListLoggerDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListLoggerDefinitionVersionsCommandOutput extends ListLoggerDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a logger definition.

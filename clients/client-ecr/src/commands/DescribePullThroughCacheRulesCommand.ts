@@ -24,9 +24,7 @@ export interface DescribePullThroughCacheRulesCommandInput extends DescribePullT
  *
  * The output of {@link DescribePullThroughCacheRulesCommand}.
  */
-export interface DescribePullThroughCacheRulesCommandOutput
-  extends DescribePullThroughCacheRulesResponse,
-    __MetadataBearer {}
+export interface DescribePullThroughCacheRulesCommandOutput extends DescribePullThroughCacheRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the pull through cache rules for a registry.</p>

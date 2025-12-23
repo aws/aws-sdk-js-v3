@@ -28,9 +28,7 @@ export interface CreateEventLogConfigurationCommandInput extends CreateEventLogC
  *
  * The output of {@link CreateEventLogConfigurationCommand}.
  */
-export interface CreateEventLogConfigurationCommandOutput
-  extends CreateEventLogConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateEventLogConfigurationCommandOutput extends CreateEventLogConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Set the event log configuration for the account, resource type, or specific resource.</p>

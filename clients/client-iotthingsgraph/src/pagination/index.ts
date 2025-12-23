@@ -1,8 +1,7 @@
-export * from "./GetFlowTemplateRevisionsPaginator";
-
-export * from "./GetSystemTemplateRevisionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetFlowTemplateRevisionsPaginator";
+export * from "./GetSystemTemplateRevisionsPaginator";
 export * from "./ListFlowExecutionMessagesPaginator";
 export * from "./ListTagsForResourcePaginator";
 export * from "./SearchEntitiesPaginator";

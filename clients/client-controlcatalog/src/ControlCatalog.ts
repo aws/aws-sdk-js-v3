@@ -39,8 +39,14 @@ export interface ControlCatalog {
   /**
    * @see {@link GetControlCommand}
    */
-  getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
-  getControl(args: GetControlCommandInput, cb: (err: any, data?: GetControlCommandOutput) => void): void;
+  getControl(
+    args: GetControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetControlCommandOutput>;
+  getControl(
+    args: GetControlCommandInput,
+    cb: (err: any, data?: GetControlCommandOutput) => void
+  ): void;
   getControl(
     args: GetControlCommandInput,
     options: __HttpHandlerOptions,
@@ -87,8 +93,14 @@ export interface ControlCatalog {
    * @see {@link ListControlsCommand}
    */
   listControls(): Promise<ListControlsCommandOutput>;
-  listControls(args: ListControlsCommandInput, options?: __HttpHandlerOptions): Promise<ListControlsCommandOutput>;
-  listControls(args: ListControlsCommandInput, cb: (err: any, data?: ListControlsCommandOutput) => void): void;
+  listControls(
+    args: ListControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListControlsCommandOutput>;
+  listControls(
+    args: ListControlsCommandInput,
+    cb: (err: any, data?: ListControlsCommandOutput) => void
+  ): void;
   listControls(
     args: ListControlsCommandInput,
     options: __HttpHandlerOptions,
@@ -99,8 +111,14 @@ export interface ControlCatalog {
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -115,7 +133,10 @@ export interface ControlCatalog {
     args: ListObjectivesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListObjectivesCommandOutput>;
-  listObjectives(args: ListObjectivesCommandInput, cb: (err: any, data?: ListObjectivesCommandOutput) => void): void;
+  listObjectives(
+    args: ListObjectivesCommandInput,
+    cb: (err: any, data?: ListObjectivesCommandOutput) => void
+  ): void;
   listObjectives(
     args: ListObjectivesCommandInput,
     options: __HttpHandlerOptions,

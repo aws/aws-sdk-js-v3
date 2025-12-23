@@ -109,8 +109,14 @@ export interface LaunchWizard {
   /**
    * @see {@link GetDeploymentCommand}
    */
-  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
-  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentCommandOutput>;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -120,8 +126,14 @@ export interface LaunchWizard {
   /**
    * @see {@link GetWorkloadCommand}
    */
-  getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
-  getWorkload(args: GetWorkloadCommandInput, cb: (err: any, data?: GetWorkloadCommandOutput) => void): void;
+  getWorkload(
+    args: GetWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkloadCommandOutput>;
+  getWorkload(
+    args: GetWorkloadCommandInput,
+    cb: (err: any, data?: GetWorkloadCommandOutput) => void
+  ): void;
   getWorkload(
     args: GetWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -170,7 +182,10 @@ export interface LaunchWizard {
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
-  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -215,8 +230,14 @@ export interface LaunchWizard {
    * @see {@link ListWorkloadsCommand}
    */
   listWorkloads(): Promise<ListWorkloadsCommandOutput>;
-  listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
-  listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkloadsCommandOutput>;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
   listWorkloads(
     args: ListWorkloadsCommandInput,
     options: __HttpHandlerOptions,
@@ -226,8 +247,14 @@ export interface LaunchWizard {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -237,8 +264,14 @@ export interface LaunchWizard {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

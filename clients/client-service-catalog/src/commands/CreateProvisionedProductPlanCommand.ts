@@ -28,9 +28,7 @@ export interface CreateProvisionedProductPlanCommandInput extends CreateProvisio
  *
  * The output of {@link CreateProvisionedProductPlanCommand}.
  */
-export interface CreateProvisionedProductPlanCommandOutput
-  extends CreateProvisionedProductPlanOutput,
-    __MetadataBearer {}
+export interface CreateProvisionedProductPlanCommandOutput extends CreateProvisionedProductPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a plan.</p>

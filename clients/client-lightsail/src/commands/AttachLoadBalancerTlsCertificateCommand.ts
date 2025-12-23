@@ -27,9 +27,7 @@ export interface AttachLoadBalancerTlsCertificateCommandInput extends AttachLoad
  *
  * The output of {@link AttachLoadBalancerTlsCertificateCommand}.
  */
-export interface AttachLoadBalancerTlsCertificateCommandOutput
-  extends AttachLoadBalancerTlsCertificateResult,
-    __MetadataBearer {}
+export interface AttachLoadBalancerTlsCertificateCommandOutput extends AttachLoadBalancerTlsCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just

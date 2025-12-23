@@ -27,9 +27,7 @@ export interface DescribeEmailMonitoringConfigurationCommandInput extends Descri
  *
  * The output of {@link DescribeEmailMonitoringConfigurationCommand}.
  */
-export interface DescribeEmailMonitoringConfigurationCommandOutput
-  extends DescribeEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeEmailMonitoringConfigurationCommandOutput extends DescribeEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the current email monitoring configuration for a specified organization.</p>

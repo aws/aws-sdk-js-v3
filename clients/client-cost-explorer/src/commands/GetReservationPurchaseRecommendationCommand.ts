@@ -27,9 +27,7 @@ export interface GetReservationPurchaseRecommendationCommandInput extends GetRes
  *
  * The output of {@link GetReservationPurchaseRecommendationCommand}.
  */
-export interface GetReservationPurchaseRecommendationCommandOutput
-  extends GetReservationPurchaseRecommendationResponse,
-    __MetadataBearer {}
+export interface GetReservationPurchaseRecommendationCommandOutput extends GetReservationPurchaseRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to

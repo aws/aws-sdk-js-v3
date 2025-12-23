@@ -27,9 +27,7 @@ export interface UpdateAvailabilityConfigurationCommandInput extends UpdateAvail
  *
  * The output of {@link UpdateAvailabilityConfigurationCommand}.
  */
-export interface UpdateAvailabilityConfigurationCommandOutput
-  extends UpdateAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAvailabilityConfigurationCommandOutput extends UpdateAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail

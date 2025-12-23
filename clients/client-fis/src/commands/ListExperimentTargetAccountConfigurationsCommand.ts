@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListExperimentTargetAccountConfigurationsCommand}.
  */
-export interface ListExperimentTargetAccountConfigurationsCommandInput
-  extends ListExperimentTargetAccountConfigurationsRequest {}
+export interface ListExperimentTargetAccountConfigurationsCommandInput extends ListExperimentTargetAccountConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListExperimentTargetAccountConfigurationsCommand}.
  */
-export interface ListExperimentTargetAccountConfigurationsCommandOutput
-  extends ListExperimentTargetAccountConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListExperimentTargetAccountConfigurationsCommandOutput extends ListExperimentTargetAccountConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the target account configurations of the specified experiment.</p>

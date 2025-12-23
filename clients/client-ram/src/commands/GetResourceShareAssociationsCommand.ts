@@ -24,9 +24,7 @@ export interface GetResourceShareAssociationsCommandInput extends GetResourceSha
  *
  * The output of {@link GetResourceShareAssociationsCommand}.
  */
-export interface GetResourceShareAssociationsCommandOutput
-  extends GetResourceShareAssociationsResponse,
-    __MetadataBearer {}
+export interface GetResourceShareAssociationsCommandOutput extends GetResourceShareAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the lists of resources and principals that associated for resource shares that you

@@ -27,9 +27,7 @@ export interface GetSnapshotBlockPublicAccessStateCommandInput extends GetSnapsh
  *
  * The output of {@link GetSnapshotBlockPublicAccessStateCommand}.
  */
-export interface GetSnapshotBlockPublicAccessStateCommandOutput
-  extends GetSnapshotBlockPublicAccessStateResult,
-    __MetadataBearer {}
+export interface GetSnapshotBlockPublicAccessStateCommandOutput extends GetSnapshotBlockPublicAccessStateResult, __MetadataBearer {}
 
 /**
  * <p>Gets the current state of <i>block public access for snapshots</i> setting

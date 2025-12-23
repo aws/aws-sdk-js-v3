@@ -27,9 +27,7 @@ export interface ListConfigurationCheckDefinitionsCommandInput extends ListConfi
  *
  * The output of {@link ListConfigurationCheckDefinitionsCommand}.
  */
-export interface ListConfigurationCheckDefinitionsCommandOutput
-  extends ListConfigurationCheckDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListConfigurationCheckDefinitionsCommandOutput extends ListConfigurationCheckDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all configuration check types supported by AWS Systems Manager for SAP.</p>

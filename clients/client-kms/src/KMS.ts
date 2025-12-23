@@ -279,8 +279,14 @@ export interface KMS {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -307,8 +313,14 @@ export interface KMS {
   /**
    * @see {@link CreateGrantCommand}
    */
-  createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
-  createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
+  createGrant(
+    args: CreateGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGrantCommandOutput>;
+  createGrant(
+    args: CreateGrantCommandInput,
+    cb: (err: any, data?: CreateGrantCommandOutput) => void
+  ): void;
   createGrant(
     args: CreateGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -319,8 +331,14 @@ export interface KMS {
    * @see {@link CreateKeyCommand}
    */
   createKey(): Promise<CreateKeyCommandOutput>;
-  createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
-  createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
+  createKey(
+    args: CreateKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyCommandOutput>;
+  createKey(
+    args: CreateKeyCommandInput,
+    cb: (err: any, data?: CreateKeyCommandOutput) => void
+  ): void;
   createKey(
     args: CreateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -330,8 +348,14 @@ export interface KMS {
   /**
    * @see {@link DecryptCommand}
    */
-  decrypt(args: DecryptCommandInput, options?: __HttpHandlerOptions): Promise<DecryptCommandOutput>;
-  decrypt(args: DecryptCommandInput, cb: (err: any, data?: DecryptCommandOutput) => void): void;
+  decrypt(
+    args: DecryptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DecryptCommandOutput>;
+  decrypt(
+    args: DecryptCommandInput,
+    cb: (err: any, data?: DecryptCommandOutput) => void
+  ): void;
   decrypt(
     args: DecryptCommandInput,
     options: __HttpHandlerOptions,
@@ -341,8 +365,14 @@ export interface KMS {
   /**
    * @see {@link DeleteAliasCommand}
    */
-  deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
-  deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAliasCommandOutput>;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -421,8 +451,14 @@ export interface KMS {
   /**
    * @see {@link DescribeKeyCommand}
    */
-  describeKey(args: DescribeKeyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeKeyCommandOutput>;
-  describeKey(args: DescribeKeyCommandInput, cb: (err: any, data?: DescribeKeyCommandOutput) => void): void;
+  describeKey(
+    args: DescribeKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKeyCommandOutput>;
+  describeKey(
+    args: DescribeKeyCommandInput,
+    cb: (err: any, data?: DescribeKeyCommandOutput) => void
+  ): void;
   describeKey(
     args: DescribeKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -432,8 +468,14 @@ export interface KMS {
   /**
    * @see {@link DisableKeyCommand}
    */
-  disableKey(args: DisableKeyCommandInput, options?: __HttpHandlerOptions): Promise<DisableKeyCommandOutput>;
-  disableKey(args: DisableKeyCommandInput, cb: (err: any, data?: DisableKeyCommandOutput) => void): void;
+  disableKey(
+    args: DisableKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableKeyCommandOutput>;
+  disableKey(
+    args: DisableKeyCommandInput,
+    cb: (err: any, data?: DisableKeyCommandOutput) => void
+  ): void;
   disableKey(
     args: DisableKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -477,8 +519,14 @@ export interface KMS {
   /**
    * @see {@link EnableKeyCommand}
    */
-  enableKey(args: EnableKeyCommandInput, options?: __HttpHandlerOptions): Promise<EnableKeyCommandOutput>;
-  enableKey(args: EnableKeyCommandInput, cb: (err: any, data?: EnableKeyCommandOutput) => void): void;
+  enableKey(
+    args: EnableKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableKeyCommandOutput>;
+  enableKey(
+    args: EnableKeyCommandInput,
+    cb: (err: any, data?: EnableKeyCommandOutput) => void
+  ): void;
   enableKey(
     args: EnableKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -505,8 +553,14 @@ export interface KMS {
   /**
    * @see {@link EncryptCommand}
    */
-  encrypt(args: EncryptCommandInput, options?: __HttpHandlerOptions): Promise<EncryptCommandOutput>;
-  encrypt(args: EncryptCommandInput, cb: (err: any, data?: EncryptCommandOutput) => void): void;
+  encrypt(
+    args: EncryptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EncryptCommandOutput>;
+  encrypt(
+    args: EncryptCommandInput,
+    cb: (err: any, data?: EncryptCommandOutput) => void
+  ): void;
   encrypt(
     args: EncryptCommandInput,
     options: __HttpHandlerOptions,
@@ -520,7 +574,10 @@ export interface KMS {
     args: GenerateDataKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GenerateDataKeyCommandOutput>;
-  generateDataKey(args: GenerateDataKeyCommandInput, cb: (err: any, data?: GenerateDataKeyCommandOutput) => void): void;
+  generateDataKey(
+    args: GenerateDataKeyCommandInput,
+    cb: (err: any, data?: GenerateDataKeyCommandOutput) => void
+  ): void;
   generateDataKey(
     args: GenerateDataKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -581,8 +638,14 @@ export interface KMS {
   /**
    * @see {@link GenerateMacCommand}
    */
-  generateMac(args: GenerateMacCommandInput, options?: __HttpHandlerOptions): Promise<GenerateMacCommandOutput>;
-  generateMac(args: GenerateMacCommandInput, cb: (err: any, data?: GenerateMacCommandOutput) => void): void;
+  generateMac(
+    args: GenerateMacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMacCommandOutput>;
+  generateMac(
+    args: GenerateMacCommandInput,
+    cb: (err: any, data?: GenerateMacCommandOutput) => void
+  ): void;
   generateMac(
     args: GenerateMacCommandInput,
     options: __HttpHandlerOptions,
@@ -597,7 +660,10 @@ export interface KMS {
     args: GenerateRandomCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GenerateRandomCommandOutput>;
-  generateRandom(args: GenerateRandomCommandInput, cb: (err: any, data?: GenerateRandomCommandOutput) => void): void;
+  generateRandom(
+    args: GenerateRandomCommandInput,
+    cb: (err: any, data?: GenerateRandomCommandOutput) => void
+  ): void;
   generateRandom(
     args: GenerateRandomCommandInput,
     options: __HttpHandlerOptions,
@@ -607,8 +673,14 @@ export interface KMS {
   /**
    * @see {@link GetKeyPolicyCommand}
    */
-  getKeyPolicy(args: GetKeyPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPolicyCommandOutput>;
-  getKeyPolicy(args: GetKeyPolicyCommandInput, cb: (err: any, data?: GetKeyPolicyCommandOutput) => void): void;
+  getKeyPolicy(
+    args: GetKeyPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyPolicyCommandOutput>;
+  getKeyPolicy(
+    args: GetKeyPolicyCommandInput,
+    cb: (err: any, data?: GetKeyPolicyCommandOutput) => void
+  ): void;
   getKeyPolicy(
     args: GetKeyPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -652,8 +724,14 @@ export interface KMS {
   /**
    * @see {@link GetPublicKeyCommand}
    */
-  getPublicKey(args: GetPublicKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetPublicKeyCommandOutput>;
-  getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicKeyCommandOutput>;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+  ): void;
   getPublicKey(
     args: GetPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -681,8 +759,14 @@ export interface KMS {
    * @see {@link ListAliasesCommand}
    */
   listAliases(): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  listAliases(
+    args: ListAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAliasesCommandOutput>;
+  listAliases(
+    args: ListAliasesCommandInput,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
   listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -692,8 +776,14 @@ export interface KMS {
   /**
    * @see {@link ListGrantsCommand}
    */
-  listGrants(args: ListGrantsCommandInput, options?: __HttpHandlerOptions): Promise<ListGrantsCommandOutput>;
-  listGrants(args: ListGrantsCommandInput, cb: (err: any, data?: ListGrantsCommandOutput) => void): void;
+  listGrants(
+    args: ListGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGrantsCommandOutput>;
+  listGrants(
+    args: ListGrantsCommandInput,
+    cb: (err: any, data?: ListGrantsCommandOutput) => void
+  ): void;
   listGrants(
     args: ListGrantsCommandInput,
     options: __HttpHandlerOptions,
@@ -707,7 +797,10 @@ export interface KMS {
     args: ListKeyPoliciesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListKeyPoliciesCommandOutput>;
-  listKeyPolicies(args: ListKeyPoliciesCommandInput, cb: (err: any, data?: ListKeyPoliciesCommandOutput) => void): void;
+  listKeyPolicies(
+    args: ListKeyPoliciesCommandInput,
+    cb: (err: any, data?: ListKeyPoliciesCommandOutput) => void
+  ): void;
   listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -735,8 +828,14 @@ export interface KMS {
    * @see {@link ListKeysCommand}
    */
   listKeys(): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
+  listKeys(
+    args: ListKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeysCommandOutput>;
+  listKeys(
+    args: ListKeysCommandInput,
+    cb: (err: any, data?: ListKeysCommandOutput) => void
+  ): void;
   listKeys(
     args: ListKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -780,8 +879,14 @@ export interface KMS {
   /**
    * @see {@link PutKeyPolicyCommand}
    */
-  putKeyPolicy(args: PutKeyPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutKeyPolicyCommandOutput>;
-  putKeyPolicy(args: PutKeyPolicyCommandInput, cb: (err: any, data?: PutKeyPolicyCommandOutput) => void): void;
+  putKeyPolicy(
+    args: PutKeyPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutKeyPolicyCommandOutput>;
+  putKeyPolicy(
+    args: PutKeyPolicyCommandInput,
+    cb: (err: any, data?: PutKeyPolicyCommandOutput) => void
+  ): void;
   putKeyPolicy(
     args: PutKeyPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -791,8 +896,14 @@ export interface KMS {
   /**
    * @see {@link ReEncryptCommand}
    */
-  reEncrypt(args: ReEncryptCommandInput, options?: __HttpHandlerOptions): Promise<ReEncryptCommandOutput>;
-  reEncrypt(args: ReEncryptCommandInput, cb: (err: any, data?: ReEncryptCommandOutput) => void): void;
+  reEncrypt(
+    args: ReEncryptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReEncryptCommandOutput>;
+  reEncrypt(
+    args: ReEncryptCommandInput,
+    cb: (err: any, data?: ReEncryptCommandOutput) => void
+  ): void;
   reEncrypt(
     args: ReEncryptCommandInput,
     options: __HttpHandlerOptions,
@@ -802,8 +913,14 @@ export interface KMS {
   /**
    * @see {@link ReplicateKeyCommand}
    */
-  replicateKey(args: ReplicateKeyCommandInput, options?: __HttpHandlerOptions): Promise<ReplicateKeyCommandOutput>;
-  replicateKey(args: ReplicateKeyCommandInput, cb: (err: any, data?: ReplicateKeyCommandOutput) => void): void;
+  replicateKey(
+    args: ReplicateKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplicateKeyCommandOutput>;
+  replicateKey(
+    args: ReplicateKeyCommandInput,
+    cb: (err: any, data?: ReplicateKeyCommandOutput) => void
+  ): void;
   replicateKey(
     args: ReplicateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -814,8 +931,14 @@ export interface KMS {
    * @see {@link RetireGrantCommand}
    */
   retireGrant(): Promise<RetireGrantCommandOutput>;
-  retireGrant(args: RetireGrantCommandInput, options?: __HttpHandlerOptions): Promise<RetireGrantCommandOutput>;
-  retireGrant(args: RetireGrantCommandInput, cb: (err: any, data?: RetireGrantCommandOutput) => void): void;
+  retireGrant(
+    args: RetireGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetireGrantCommandOutput>;
+  retireGrant(
+    args: RetireGrantCommandInput,
+    cb: (err: any, data?: RetireGrantCommandOutput) => void
+  ): void;
   retireGrant(
     args: RetireGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -825,8 +948,14 @@ export interface KMS {
   /**
    * @see {@link RevokeGrantCommand}
    */
-  revokeGrant(args: RevokeGrantCommandInput, options?: __HttpHandlerOptions): Promise<RevokeGrantCommandOutput>;
-  revokeGrant(args: RevokeGrantCommandInput, cb: (err: any, data?: RevokeGrantCommandOutput) => void): void;
+  revokeGrant(
+    args: RevokeGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeGrantCommandOutput>;
+  revokeGrant(
+    args: RevokeGrantCommandInput,
+    cb: (err: any, data?: RevokeGrantCommandOutput) => void
+  ): void;
   revokeGrant(
     args: RevokeGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -870,15 +999,31 @@ export interface KMS {
   /**
    * @see {@link SignCommand}
    */
-  sign(args: SignCommandInput, options?: __HttpHandlerOptions): Promise<SignCommandOutput>;
-  sign(args: SignCommandInput, cb: (err: any, data?: SignCommandOutput) => void): void;
-  sign(args: SignCommandInput, options: __HttpHandlerOptions, cb: (err: any, data?: SignCommandOutput) => void): void;
+  sign(
+    args: SignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SignCommandOutput>;
+  sign(
+    args: SignCommandInput,
+    cb: (err: any, data?: SignCommandOutput) => void
+  ): void;
+  sign(
+    args: SignCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SignCommandOutput) => void
+  ): void;
 
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -888,8 +1033,14 @@ export interface KMS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -899,8 +1050,14 @@ export interface KMS {
   /**
    * @see {@link UpdateAliasCommand}
    */
-  updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
-  updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAliasCommandOutput>;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    cb: (err: any, data?: UpdateAliasCommandOutput) => void
+  ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -961,8 +1118,14 @@ export interface KMS {
   /**
    * @see {@link VerifyCommand}
    */
-  verify(args: VerifyCommandInput, options?: __HttpHandlerOptions): Promise<VerifyCommandOutput>;
-  verify(args: VerifyCommandInput, cb: (err: any, data?: VerifyCommandOutput) => void): void;
+  verify(
+    args: VerifyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyCommandOutput>;
+  verify(
+    args: VerifyCommandInput,
+    cb: (err: any, data?: VerifyCommandOutput) => void
+  ): void;
   verify(
     args: VerifyCommandInput,
     options: __HttpHandlerOptions,
@@ -972,8 +1135,14 @@ export interface KMS {
   /**
    * @see {@link VerifyMacCommand}
    */
-  verifyMac(args: VerifyMacCommandInput, options?: __HttpHandlerOptions): Promise<VerifyMacCommandOutput>;
-  verifyMac(args: VerifyMacCommandInput, cb: (err: any, data?: VerifyMacCommandOutput) => void): void;
+  verifyMac(
+    args: VerifyMacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyMacCommandOutput>;
+  verifyMac(
+    args: VerifyMacCommandInput,
+    cb: (err: any, data?: VerifyMacCommandOutput) => void
+  ): void;
   verifyMac(
     args: VerifyMacCommandInput,
     options: __HttpHandlerOptions,

@@ -3730,7 +3730,9 @@ export interface SageMakerEndpoint {
  * <p>Specifies the configuration for the endpoint.</p>
  * @public
  */
-export type EndpointConfig = EndpointConfig.SageMakerMember | EndpointConfig.$UnknownMember;
+export type EndpointConfig =
+  | EndpointConfig.SageMakerMember
+  | EndpointConfig.$UnknownMember;
 
 /**
  * @public
@@ -4391,7 +4393,9 @@ export interface S3DataSource {
  * <p>The data source of the model to import.</p>
  * @public
  */
-export type ModelDataSource = ModelDataSource.S3DataSourceMember | ModelDataSource.$UnknownMember;
+export type ModelDataSource =
+  | ModelDataSource.S3DataSourceMember
+  | ModelDataSource.$UnknownMember;
 
 /**
  * @public
@@ -4549,7 +4553,9 @@ export interface LambdaGraderConfig {
  * <p> Configuration for the grader used in reinforcement fine-tuning to evaluate model responses and provide reward signals. </p>
  * @public
  */
-export type GraderConfig = GraderConfig.LambdaGraderMember | GraderConfig.$UnknownMember;
+export type GraderConfig =
+  | GraderConfig.LambdaGraderMember
+  | GraderConfig.$UnknownMember;
 
 /**
  * @public
@@ -4723,7 +4729,9 @@ export interface OutputDataConfig {
  * <p>A storage location for invocation logs.</p>
  * @public
  */
-export type InvocationLogSource = InvocationLogSource.S3UriMember | InvocationLogSource.$UnknownMember;
+export type InvocationLogSource =
+  | InvocationLogSource.S3UriMember
+  | InvocationLogSource.$UnknownMember;
 
 /**
  * @public

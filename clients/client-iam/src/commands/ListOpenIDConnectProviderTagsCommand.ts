@@ -24,9 +24,7 @@ export interface ListOpenIDConnectProviderTagsCommandInput extends ListOpenIDCon
  *
  * The output of {@link ListOpenIDConnectProviderTagsCommand}.
  */
-export interface ListOpenIDConnectProviderTagsCommandOutput
-  extends ListOpenIDConnectProviderTagsResponse,
-    __MetadataBearer {}
+export interface ListOpenIDConnectProviderTagsCommandOutput extends ListOpenIDConnectProviderTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible

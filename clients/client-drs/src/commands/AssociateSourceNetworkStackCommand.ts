@@ -24,9 +24,7 @@ export interface AssociateSourceNetworkStackCommandInput extends AssociateSource
  *
  * The output of {@link AssociateSourceNetworkStackCommand}.
  */
-export interface AssociateSourceNetworkStackCommandOutput
-  extends AssociateSourceNetworkStackResponse,
-    __MetadataBearer {}
+export interface AssociateSourceNetworkStackCommandOutput extends AssociateSourceNetworkStackResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks.</p>

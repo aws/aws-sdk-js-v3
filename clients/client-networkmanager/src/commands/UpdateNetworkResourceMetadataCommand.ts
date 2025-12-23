@@ -28,9 +28,7 @@ export interface UpdateNetworkResourceMetadataCommandInput extends UpdateNetwork
  *
  * The output of {@link UpdateNetworkResourceMetadataCommand}.
  */
-export interface UpdateNetworkResourceMetadataCommandOutput
-  extends UpdateNetworkResourceMetadataResponse,
-    __MetadataBearer {}
+export interface UpdateNetworkResourceMetadataCommandOutput extends UpdateNetworkResourceMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the resource metadata for the specified global network.</p>

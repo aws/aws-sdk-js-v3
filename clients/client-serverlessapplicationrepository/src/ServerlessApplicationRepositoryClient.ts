@@ -323,24 +323,22 @@ export interface ServerlessApplicationRepositoryClientConfig extends ServerlessA
 /**
  * @public
  */
-export type ServerlessApplicationRepositoryClientResolvedConfigType =
-  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-    Required<ClientDefaults> &
-    RuntimeExtensionsConfig &
-    UserAgentResolvedConfig &
-    RetryResolvedConfig &
-    RegionResolvedConfig &
-    HostHeaderResolvedConfig &
-    EndpointResolvedConfig<EndpointParameters> &
-    HttpAuthSchemeResolvedConfig &
-    ClientResolvedEndpointParameters;
+export type ServerlessApplicationRepositoryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+  Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
  *  The resolved configuration interface of ServerlessApplicationRepositoryClient class. This is resolved and normalized from the {@link ServerlessApplicationRepositoryClientConfig | constructor configuration interface}.
  */
-export interface ServerlessApplicationRepositoryClientResolvedConfig
-  extends ServerlessApplicationRepositoryClientResolvedConfigType {}
+export interface ServerlessApplicationRepositoryClientResolvedConfig extends ServerlessApplicationRepositoryClientResolvedConfigType {}
 
 /**
  * <p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find

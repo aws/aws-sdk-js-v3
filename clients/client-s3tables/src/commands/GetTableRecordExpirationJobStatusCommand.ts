@@ -27,9 +27,7 @@ export interface GetTableRecordExpirationJobStatusCommandInput extends GetTableR
  *
  * The output of {@link GetTableRecordExpirationJobStatusCommand}.
  */
-export interface GetTableRecordExpirationJobStatusCommandOutput
-  extends GetTableRecordExpirationJobStatusResponse,
-    __MetadataBearer {}
+export interface GetTableRecordExpirationJobStatusCommandOutput extends GetTableRecordExpirationJobStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status, metrics, and details of the latest record expiration job for a table. This includes when the job ran, and whether it succeeded or failed. If the job ran successfully, this also includes statistics about the records that were removed.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableRecordExpirationJobStatus</code> permission to use this operation.</p> </dd> </dl>

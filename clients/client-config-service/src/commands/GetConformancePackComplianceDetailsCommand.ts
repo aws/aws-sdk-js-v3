@@ -27,9 +27,7 @@ export interface GetConformancePackComplianceDetailsCommandInput extends GetConf
  *
  * The output of {@link GetConformancePackComplianceDetailsCommand}.
  */
-export interface GetConformancePackComplianceDetailsCommandOutput
-  extends GetConformancePackComplianceDetailsResponse,
-    __MetadataBearer {}
+export interface GetConformancePackComplianceDetailsCommandOutput extends GetConformancePackComplianceDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.</p>

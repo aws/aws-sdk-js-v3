@@ -21,10 +21,4 @@ export const paginateDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociat
   EC2PaginationConfiguration,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
->(
-  EC2Client,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(EC2Client, DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand, "NextToken", "NextToken", "MaxResults");

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { Gender, LayoutType, PartyType, ProfileType, ReadinessStatus, Statistic } from "./enums";
-
 import {
   type AttributeDetails,
   type Conditions,

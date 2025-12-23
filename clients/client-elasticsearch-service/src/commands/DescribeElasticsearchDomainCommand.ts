@@ -28,9 +28,7 @@ export interface DescribeElasticsearchDomainCommandInput extends DescribeElastic
  *
  * The output of {@link DescribeElasticsearchDomainCommand}.
  */
-export interface DescribeElasticsearchDomainCommandOutput
-  extends DescribeElasticsearchDomainResponse,
-    __MetadataBearer {}
+export interface DescribeElasticsearchDomainCommandOutput extends DescribeElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>

@@ -28,9 +28,7 @@ export interface ListAggregateLogGroupSummariesCommandInput extends ListAggregat
  *
  * The output of {@link ListAggregateLogGroupSummariesCommand}.
  */
-export interface ListAggregateLogGroupSummariesCommandOutput
-  extends ListAggregateLogGroupSummariesResponse,
-    __MetadataBearer {}
+export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggregateLogGroupSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an aggregate summary of all log groups in the Region grouped by specified data

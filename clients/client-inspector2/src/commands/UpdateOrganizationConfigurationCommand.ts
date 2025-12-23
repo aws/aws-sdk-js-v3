@@ -27,9 +27,7 @@ export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrgan
  *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
-export interface UpdateOrganizationConfigurationCommandOutput
-  extends UpdateOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configurations for your Amazon Inspector organization.</p>

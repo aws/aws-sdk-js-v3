@@ -28,9 +28,7 @@ export interface DescribeRepositoryAssociationCommandInput extends DescribeRepos
  *
  * The output of {@link DescribeRepositoryAssociationCommand}.
  */
-export interface DescribeRepositoryAssociationCommandOutput
-  extends DescribeRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface DescribeRepositoryAssociationCommandOutput extends DescribeRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested

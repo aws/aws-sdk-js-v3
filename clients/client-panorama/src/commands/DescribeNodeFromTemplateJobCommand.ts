@@ -24,9 +24,7 @@ export interface DescribeNodeFromTemplateJobCommandInput extends DescribeNodeFro
  *
  * The output of {@link DescribeNodeFromTemplateJobCommand}.
  */
-export interface DescribeNodeFromTemplateJobCommandOutput
-  extends DescribeNodeFromTemplateJobResponse,
-    __MetadataBearer {}
+export interface DescribeNodeFromTemplateJobCommandOutput extends DescribeNodeFromTemplateJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a job to create a camera stream node.</p>

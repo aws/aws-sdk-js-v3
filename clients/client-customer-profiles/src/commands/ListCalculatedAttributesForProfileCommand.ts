@@ -31,9 +31,7 @@ export interface ListCalculatedAttributesForProfileCommandInput extends ListCalc
  *
  * The output of {@link ListCalculatedAttributesForProfileCommand}.
  */
-export interface ListCalculatedAttributesForProfileCommandOutput
-  extends ListCalculatedAttributesForProfileResponse,
-    __MetadataBearer {}
+export interface ListCalculatedAttributesForProfileCommandOutput extends ListCalculatedAttributesForProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of calculated attributes for a customer profile.</p>

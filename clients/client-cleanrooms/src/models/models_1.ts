@@ -16,7 +16,6 @@ import {
   TargetProtectedJobStatus,
   TargetProtectedQueryStatus,
 } from "./enums";
-
 import {
   type ComputeConfiguration,
   type DifferentialPrivacyParameters,
@@ -1091,7 +1090,9 @@ export interface DifferentialPrivacyPrivacyImpact {
  * <p>Provides an estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters.</p>
  * @public
  */
-export type PrivacyImpact = PrivacyImpact.DifferentialPrivacyMember | PrivacyImpact.$UnknownMember;
+export type PrivacyImpact =
+  | PrivacyImpact.DifferentialPrivacyMember
+  | PrivacyImpact.$UnknownMember;
 
 /**
  * @public

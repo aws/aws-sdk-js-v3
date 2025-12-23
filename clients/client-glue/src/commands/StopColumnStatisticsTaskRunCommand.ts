@@ -24,9 +24,7 @@ export interface StopColumnStatisticsTaskRunCommandInput extends StopColumnStati
  *
  * The output of {@link StopColumnStatisticsTaskRunCommand}.
  */
-export interface StopColumnStatisticsTaskRunCommandOutput
-  extends StopColumnStatisticsTaskRunResponse,
-    __MetadataBearer {}
+export interface StopColumnStatisticsTaskRunCommandOutput extends StopColumnStatisticsTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a task run for the specified table.</p>

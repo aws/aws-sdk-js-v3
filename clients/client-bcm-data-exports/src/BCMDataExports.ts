@@ -63,8 +63,14 @@ export interface BCMDataExports {
   /**
    * @see {@link CreateExportCommand}
    */
-  createExport(args: CreateExportCommandInput, options?: __HttpHandlerOptions): Promise<CreateExportCommandOutput>;
-  createExport(args: CreateExportCommandInput, cb: (err: any, data?: CreateExportCommandOutput) => void): void;
+  createExport(
+    args: CreateExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExportCommandOutput>;
+  createExport(
+    args: CreateExportCommandInput,
+    cb: (err: any, data?: CreateExportCommandOutput) => void
+  ): void;
   createExport(
     args: CreateExportCommandInput,
     options: __HttpHandlerOptions,
@@ -74,8 +80,14 @@ export interface BCMDataExports {
   /**
    * @see {@link DeleteExportCommand}
    */
-  deleteExport(args: DeleteExportCommandInput, options?: __HttpHandlerOptions): Promise<DeleteExportCommandOutput>;
-  deleteExport(args: DeleteExportCommandInput, cb: (err: any, data?: DeleteExportCommandOutput) => void): void;
+  deleteExport(
+    args: DeleteExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExportCommandOutput>;
+  deleteExport(
+    args: DeleteExportCommandInput,
+    cb: (err: any, data?: DeleteExportCommandOutput) => void
+  ): void;
   deleteExport(
     args: DeleteExportCommandInput,
     options: __HttpHandlerOptions,
@@ -85,8 +97,14 @@ export interface BCMDataExports {
   /**
    * @see {@link GetExecutionCommand}
    */
-  getExecution(args: GetExecutionCommandInput, options?: __HttpHandlerOptions): Promise<GetExecutionCommandOutput>;
-  getExecution(args: GetExecutionCommandInput, cb: (err: any, data?: GetExecutionCommandOutput) => void): void;
+  getExecution(
+    args: GetExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExecutionCommandOutput>;
+  getExecution(
+    args: GetExecutionCommandInput,
+    cb: (err: any, data?: GetExecutionCommandOutput) => void
+  ): void;
   getExecution(
     args: GetExecutionCommandInput,
     options: __HttpHandlerOptions,
@@ -96,8 +114,14 @@ export interface BCMDataExports {
   /**
    * @see {@link GetExportCommand}
    */
-  getExport(args: GetExportCommandInput, options?: __HttpHandlerOptions): Promise<GetExportCommandOutput>;
-  getExport(args: GetExportCommandInput, cb: (err: any, data?: GetExportCommandOutput) => void): void;
+  getExport(
+    args: GetExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportCommandOutput>;
+  getExport(
+    args: GetExportCommandInput,
+    cb: (err: any, data?: GetExportCommandOutput) => void
+  ): void;
   getExport(
     args: GetExportCommandInput,
     options: __HttpHandlerOptions,
@@ -107,8 +131,14 @@ export interface BCMDataExports {
   /**
    * @see {@link GetTableCommand}
    */
-  getTable(args: GetTableCommandInput, options?: __HttpHandlerOptions): Promise<GetTableCommandOutput>;
-  getTable(args: GetTableCommandInput, cb: (err: any, data?: GetTableCommandOutput) => void): void;
+  getTable(
+    args: GetTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableCommandOutput>;
+  getTable(
+    args: GetTableCommandInput,
+    cb: (err: any, data?: GetTableCommandOutput) => void
+  ): void;
   getTable(
     args: GetTableCommandInput,
     options: __HttpHandlerOptions,
@@ -122,7 +152,10 @@ export interface BCMDataExports {
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExecutionsCommandOutput>;
-  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -133,8 +166,14 @@ export interface BCMDataExports {
    * @see {@link ListExportsCommand}
    */
   listExports(): Promise<ListExportsCommandOutput>;
-  listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
-  listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  listExports(
+    args: ListExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportsCommandOutput>;
+  listExports(
+    args: ListExportsCommandInput,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
   listExports(
     args: ListExportsCommandInput,
     options: __HttpHandlerOptions,
@@ -145,8 +184,14 @@ export interface BCMDataExports {
    * @see {@link ListTablesCommand}
    */
   listTables(): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
+  listTables(
+    args: ListTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTablesCommandOutput>;
+  listTables(
+    args: ListTablesCommandInput,
+    cb: (err: any, data?: ListTablesCommandOutput) => void
+  ): void;
   listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -173,8 +218,14 @@ export interface BCMDataExports {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -184,8 +235,14 @@ export interface BCMDataExports {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -195,8 +252,14 @@ export interface BCMDataExports {
   /**
    * @see {@link UpdateExportCommand}
    */
-  updateExport(args: UpdateExportCommandInput, options?: __HttpHandlerOptions): Promise<UpdateExportCommandOutput>;
-  updateExport(args: UpdateExportCommandInput, cb: (err: any, data?: UpdateExportCommandOutput) => void): void;
+  updateExport(
+    args: UpdateExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExportCommandOutput>;
+  updateExport(
+    args: UpdateExportCommandInput,
+    cb: (err: any, data?: UpdateExportCommandOutput) => void
+  ): void;
   updateExport(
     args: UpdateExportCommandInput,
     options: __HttpHandlerOptions,

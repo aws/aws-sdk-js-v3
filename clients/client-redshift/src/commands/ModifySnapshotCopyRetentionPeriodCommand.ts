@@ -27,9 +27,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySna
  *
  * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
-export interface ModifySnapshotCopyRetentionPeriodCommandOutput
-  extends ModifySnapshotCopyRetentionPeriodResult,
-    __MetadataBearer {}
+export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySnapshotCopyRetentionPeriodResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after

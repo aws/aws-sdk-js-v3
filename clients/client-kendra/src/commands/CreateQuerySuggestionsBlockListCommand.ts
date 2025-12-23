@@ -27,9 +27,7 @@ export interface CreateQuerySuggestionsBlockListCommandInput extends CreateQuery
  *
  * The output of {@link CreateQuerySuggestionsBlockListCommand}.
  */
-export interface CreateQuerySuggestionsBlockListCommandOutput
-  extends CreateQuerySuggestionsBlockListResponse,
-    __MetadataBearer {}
+export interface CreateQuerySuggestionsBlockListCommandOutput extends CreateQuerySuggestionsBlockListResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>

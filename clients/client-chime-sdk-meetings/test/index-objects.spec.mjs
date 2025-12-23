@@ -66,11 +66,12 @@ import {
   MediaPlacement$,
   MediaPlacementNetworkType,
   Meeting$,
-  MeetingFeatureStatus,
   MeetingFeaturesConfiguration$,
+  MeetingFeatureStatus,
   NotFoundException,
   NotFoundException$,
   NotificationsConfiguration$,
+  paginateListAttendees,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ServiceFailureException,
@@ -118,7 +119,6 @@ import {
   UpdateAttendeeCapabilitiesResponse$,
   VideoFeatures$,
   VideoResolution,
-  paginateListAttendees,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

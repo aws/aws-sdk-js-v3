@@ -24,9 +24,7 @@ export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIden
  *
  * The output of {@link PutEmailIdentityDkimAttributesCommand}.
  */
-export interface PutEmailIdentityDkimAttributesCommandOutput
-  extends PutEmailIdentityDkimAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityDkimAttributesCommandOutput extends PutEmailIdentityDkimAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>

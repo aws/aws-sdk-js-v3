@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
-export interface UpdateApplicationMaintenanceConfigurationCommandInput
-  extends UpdateApplicationMaintenanceConfigurationRequest {}
+export interface UpdateApplicationMaintenanceConfigurationCommandInput extends UpdateApplicationMaintenanceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateApplicationMaintenanceConfigurationCommand}.
  */
-export interface UpdateApplicationMaintenanceConfigurationCommandOutput
-  extends UpdateApplicationMaintenanceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationMaintenanceConfigurationCommandOutput extends UpdateApplicationMaintenanceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p>

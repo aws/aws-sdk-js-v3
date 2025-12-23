@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTransitGatewayMeteringPoliciesCommand}.
  */
-export interface DescribeTransitGatewayMeteringPoliciesCommandInput
-  extends DescribeTransitGatewayMeteringPoliciesRequest {}
+export interface DescribeTransitGatewayMeteringPoliciesCommandInput extends DescribeTransitGatewayMeteringPoliciesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTransitGatewayMeteringPoliciesCommand}.
  */
-export interface DescribeTransitGatewayMeteringPoliciesCommandOutput
-  extends DescribeTransitGatewayMeteringPoliciesResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayMeteringPoliciesCommandOutput extends DescribeTransitGatewayMeteringPoliciesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway metering policies.</p>

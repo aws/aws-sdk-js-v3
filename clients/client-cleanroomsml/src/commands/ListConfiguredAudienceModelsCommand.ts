@@ -24,9 +24,7 @@ export interface ListConfiguredAudienceModelsCommandInput extends ListConfigured
  *
  * The output of {@link ListConfiguredAudienceModelsCommand}.
  */
-export interface ListConfiguredAudienceModelsCommandOutput
-  extends ListConfiguredAudienceModelsResponse,
-    __MetadataBearer {}
+export interface ListConfiguredAudienceModelsCommandOutput extends ListConfiguredAudienceModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the configured audience models.</p>

@@ -24,9 +24,7 @@ export interface UpdateSubscriptionGrantStatusCommandInput extends UpdateSubscri
  *
  * The output of {@link UpdateSubscriptionGrantStatusCommand}.
  */
-export interface UpdateSubscriptionGrantStatusCommandOutput
-  extends UpdateSubscriptionGrantStatusOutput,
-    __MetadataBearer {}
+export interface UpdateSubscriptionGrantStatusCommandOutput extends UpdateSubscriptionGrantStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the status of the specified subscription grant status in Amazon DataZone.</p>

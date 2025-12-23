@@ -28,9 +28,7 @@ export interface UpdateDeliveryConfigurationCommandInput extends UpdateDeliveryC
  *
  * The output of {@link UpdateDeliveryConfigurationCommand}.
  */
-export interface UpdateDeliveryConfigurationCommandOutput
-  extends UpdateDeliveryConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateDeliveryConfigurationCommandOutput extends UpdateDeliveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to update the configuration of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> to change

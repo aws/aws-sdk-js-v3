@@ -27,9 +27,7 @@ export interface ListProtectedResourcesByBackupVaultCommandInput extends ListPro
  *
  * The output of {@link ListProtectedResourcesByBackupVaultCommand}.
  */
-export interface ListProtectedResourcesByBackupVaultCommandOutput
-  extends ListProtectedResourcesByBackupVaultOutput,
-    __MetadataBearer {}
+export interface ListProtectedResourcesByBackupVaultCommandOutput extends ListProtectedResourcesByBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>This request lists the protected resources corresponding to each backup vault.</p>

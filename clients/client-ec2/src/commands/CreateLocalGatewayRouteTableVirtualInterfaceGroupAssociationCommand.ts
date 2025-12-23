@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
-  extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
-  extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -1,8 +1,7 @@
-export * from "./GetFindingRecommendationPaginator";
-
-export * from "./GetFindingV2Paginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetFindingRecommendationPaginator";
+export * from "./GetFindingV2Paginator";
 export * from "./ListAccessPreviewFindingsPaginator";
 export * from "./ListAccessPreviewsPaginator";
 export * from "./ListAnalyzedResourcesPaginator";

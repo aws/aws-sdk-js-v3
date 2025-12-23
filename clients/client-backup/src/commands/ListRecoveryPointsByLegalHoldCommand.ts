@@ -24,9 +24,7 @@ export interface ListRecoveryPointsByLegalHoldCommandInput extends ListRecoveryP
  *
  * The output of {@link ListRecoveryPointsByLegalHoldCommand}.
  */
-export interface ListRecoveryPointsByLegalHoldCommandOutput
-  extends ListRecoveryPointsByLegalHoldOutput,
-    __MetadataBearer {}
+export interface ListRecoveryPointsByLegalHoldCommandOutput extends ListRecoveryPointsByLegalHoldOutput, __MetadataBearer {}
 
 /**
  * <p>This action returns recovery point ARNs (Amazon Resource Names) of the

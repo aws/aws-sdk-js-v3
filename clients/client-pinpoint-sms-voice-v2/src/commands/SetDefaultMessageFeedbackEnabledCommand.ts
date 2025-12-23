@@ -31,9 +31,7 @@ export interface SetDefaultMessageFeedbackEnabledCommandInput extends SetDefault
  *
  * The output of {@link SetDefaultMessageFeedbackEnabledCommand}.
  */
-export interface SetDefaultMessageFeedbackEnabledCommandOutput
-  extends SetDefaultMessageFeedbackEnabledResult,
-    __MetadataBearer {}
+export interface SetDefaultMessageFeedbackEnabledCommandOutput extends SetDefaultMessageFeedbackEnabledResult, __MetadataBearer {}
 
 /**
  * <p>Sets a configuration set's default for message feedback. </p>

@@ -25,9 +25,7 @@ export interface DisassociateVPCFromHostedZoneCommandInput extends DisassociateV
  *
  * The output of {@link DisassociateVPCFromHostedZoneCommand}.
  */
-export interface DisassociateVPCFromHostedZoneCommandOutput
-  extends DisassociateVPCFromHostedZoneResponse,
-    __MetadataBearer {}
+export interface DisassociateVPCFromHostedZoneCommandOutput extends DisassociateVPCFromHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
@@ -148,7 +146,10 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DisassociateVPCFromHostedZone", {})
   .n("Route53Client", "DisassociateVPCFromHostedZoneCommand")

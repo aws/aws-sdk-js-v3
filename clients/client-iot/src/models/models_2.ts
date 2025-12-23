@@ -29,7 +29,6 @@ import {
   VerificationState,
   ViolationEventType,
 } from "./enums";
-
 import {
   type AbortConfig,
   type AggregationType,
@@ -64,7 +63,6 @@ import {
   StreamFile,
   Tag,
 } from "./models_0";
-
 import {
   type DetectMitigationActionsTaskTarget,
   type RegistrationConfig,

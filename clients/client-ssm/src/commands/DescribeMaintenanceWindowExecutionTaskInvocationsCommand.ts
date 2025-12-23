@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
-  extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-  extends DescribeMaintenanceWindowExecutionTaskInvocationsResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput extends DescribeMaintenanceWindowExecutionTaskInvocationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
-export interface UpdateEventConfigurationByResourceTypesCommandInput
-  extends UpdateEventConfigurationByResourceTypesRequest {}
+export interface UpdateEventConfigurationByResourceTypesCommandInput extends UpdateEventConfigurationByResourceTypesRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
-export interface UpdateEventConfigurationByResourceTypesCommandOutput
-  extends UpdateEventConfigurationByResourceTypesResponse,
-    __MetadataBearer {}
+export interface UpdateEventConfigurationByResourceTypesCommandOutput extends UpdateEventConfigurationByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Update the event configuration based on resource types.</p>

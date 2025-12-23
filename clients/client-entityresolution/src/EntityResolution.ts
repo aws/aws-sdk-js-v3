@@ -414,7 +414,10 @@ export interface EntityResolution {
     args: GenerateMatchIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GenerateMatchIdCommandOutput>;
-  generateMatchId(args: GenerateMatchIdCommandInput, cb: (err: any, data?: GenerateMatchIdCommandOutput) => void): void;
+  generateMatchId(
+    args: GenerateMatchIdCommandInput,
+    cb: (err: any, data?: GenerateMatchIdCommandOutput) => void
+  ): void;
   generateMatchId(
     args: GenerateMatchIdCommandInput,
     options: __HttpHandlerOptions,
@@ -428,7 +431,10 @@ export interface EntityResolution {
     args: GetIdMappingJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIdMappingJobCommandOutput>;
-  getIdMappingJob(args: GetIdMappingJobCommandInput, cb: (err: any, data?: GetIdMappingJobCommandOutput) => void): void;
+  getIdMappingJob(
+    args: GetIdMappingJobCommandInput,
+    cb: (err: any, data?: GetIdMappingJobCommandOutput) => void
+  ): void;
   getIdMappingJob(
     args: GetIdMappingJobCommandInput,
     options: __HttpHandlerOptions,
@@ -459,7 +465,10 @@ export interface EntityResolution {
     args: GetIdNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIdNamespaceCommandOutput>;
-  getIdNamespace(args: GetIdNamespaceCommandInput, cb: (err: any, data?: GetIdNamespaceCommandOutput) => void): void;
+  getIdNamespace(
+    args: GetIdNamespaceCommandInput,
+    cb: (err: any, data?: GetIdNamespaceCommandOutput) => void
+  ): void;
   getIdNamespace(
     args: GetIdNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -469,8 +478,14 @@ export interface EntityResolution {
   /**
    * @see {@link GetMatchIdCommand}
    */
-  getMatchId(args: GetMatchIdCommandInput, options?: __HttpHandlerOptions): Promise<GetMatchIdCommandOutput>;
-  getMatchId(args: GetMatchIdCommandInput, cb: (err: any, data?: GetMatchIdCommandOutput) => void): void;
+  getMatchId(
+    args: GetMatchIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMatchIdCommandOutput>;
+  getMatchId(
+    args: GetMatchIdCommandInput,
+    cb: (err: any, data?: GetMatchIdCommandOutput) => void
+  ): void;
   getMatchId(
     args: GetMatchIdCommandInput,
     options: __HttpHandlerOptions,
@@ -484,7 +499,10 @@ export interface EntityResolution {
     args: GetMatchingJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMatchingJobCommandOutput>;
-  getMatchingJob(args: GetMatchingJobCommandInput, cb: (err: any, data?: GetMatchingJobCommandOutput) => void): void;
+  getMatchingJob(
+    args: GetMatchingJobCommandInput,
+    cb: (err: any, data?: GetMatchingJobCommandOutput) => void
+  ): void;
   getMatchingJob(
     args: GetMatchingJobCommandInput,
     options: __HttpHandlerOptions,
@@ -511,8 +529,14 @@ export interface EntityResolution {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -697,8 +721,14 @@ export interface EntityResolution {
   /**
    * @see {@link PutPolicyCommand}
    */
-  putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
-  putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPolicyCommandOutput>;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
   putPolicy(
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -742,8 +772,14 @@ export interface EntityResolution {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -753,8 +789,14 @@ export interface EntityResolution {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

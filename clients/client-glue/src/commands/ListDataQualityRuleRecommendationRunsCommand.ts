@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
-export interface ListDataQualityRuleRecommendationRunsCommandInput
-  extends ListDataQualityRuleRecommendationRunsRequest {}
+export interface ListDataQualityRuleRecommendationRunsCommandInput extends ListDataQualityRuleRecommendationRunsRequest {}
 /**
  * @public
  *
  * The output of {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
-export interface ListDataQualityRuleRecommendationRunsCommandOutput
-  extends ListDataQualityRuleRecommendationRunsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityRuleRecommendationRunsCommandOutput extends ListDataQualityRuleRecommendationRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recommendation runs meeting the filter criteria.</p>

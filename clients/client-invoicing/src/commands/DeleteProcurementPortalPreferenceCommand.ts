@@ -27,9 +27,7 @@ export interface DeleteProcurementPortalPreferenceCommandInput extends DeletePro
  *
  * The output of {@link DeleteProcurementPortalPreferenceCommand}.
  */
-export interface DeleteProcurementPortalPreferenceCommandOutput
-  extends DeleteProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface DeleteProcurementPortalPreferenceCommandOutput extends DeleteProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing procurement portal preference. This action cannot be undone. Active e-invoice delivery and PO retrieval configurations will be terminated.</p>

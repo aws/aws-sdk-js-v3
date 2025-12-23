@@ -61,8 +61,14 @@ export interface OAM {
   /**
    * @see {@link CreateLinkCommand}
    */
-  createLink(args: CreateLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateLinkCommandOutput>;
-  createLink(args: CreateLinkCommandInput, cb: (err: any, data?: CreateLinkCommandOutput) => void): void;
+  createLink(
+    args: CreateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLinkCommandOutput>;
+  createLink(
+    args: CreateLinkCommandInput,
+    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
   createLink(
     args: CreateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -72,8 +78,14 @@ export interface OAM {
   /**
    * @see {@link CreateSinkCommand}
    */
-  createSink(args: CreateSinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateSinkCommandOutput>;
-  createSink(args: CreateSinkCommandInput, cb: (err: any, data?: CreateSinkCommandOutput) => void): void;
+  createSink(
+    args: CreateSinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSinkCommandOutput>;
+  createSink(
+    args: CreateSinkCommandInput,
+    cb: (err: any, data?: CreateSinkCommandOutput) => void
+  ): void;
   createSink(
     args: CreateSinkCommandInput,
     options: __HttpHandlerOptions,
@@ -83,8 +95,14 @@ export interface OAM {
   /**
    * @see {@link DeleteLinkCommand}
    */
-  deleteLink(args: DeleteLinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLinkCommandOutput>;
-  deleteLink(args: DeleteLinkCommandInput, cb: (err: any, data?: DeleteLinkCommandOutput) => void): void;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLinkCommandOutput>;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    cb: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -94,8 +112,14 @@ export interface OAM {
   /**
    * @see {@link DeleteSinkCommand}
    */
-  deleteSink(args: DeleteSinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSinkCommandOutput>;
-  deleteSink(args: DeleteSinkCommandInput, cb: (err: any, data?: DeleteSinkCommandOutput) => void): void;
+  deleteSink(
+    args: DeleteSinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSinkCommandOutput>;
+  deleteSink(
+    args: DeleteSinkCommandInput,
+    cb: (err: any, data?: DeleteSinkCommandOutput) => void
+  ): void;
   deleteSink(
     args: DeleteSinkCommandInput,
     options: __HttpHandlerOptions,
@@ -105,8 +129,14 @@ export interface OAM {
   /**
    * @see {@link GetLinkCommand}
    */
-  getLink(args: GetLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetLinkCommandOutput>;
-  getLink(args: GetLinkCommandInput, cb: (err: any, data?: GetLinkCommandOutput) => void): void;
+  getLink(
+    args: GetLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinkCommandOutput>;
+  getLink(
+    args: GetLinkCommandInput,
+    cb: (err: any, data?: GetLinkCommandOutput) => void
+  ): void;
   getLink(
     args: GetLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -116,8 +146,14 @@ export interface OAM {
   /**
    * @see {@link GetSinkCommand}
    */
-  getSink(args: GetSinkCommandInput, options?: __HttpHandlerOptions): Promise<GetSinkCommandOutput>;
-  getSink(args: GetSinkCommandInput, cb: (err: any, data?: GetSinkCommandOutput) => void): void;
+  getSink(
+    args: GetSinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSinkCommandOutput>;
+  getSink(
+    args: GetSinkCommandInput,
+    cb: (err: any, data?: GetSinkCommandOutput) => void
+  ): void;
   getSink(
     args: GetSinkCommandInput,
     options: __HttpHandlerOptions,
@@ -127,8 +163,14 @@ export interface OAM {
   /**
    * @see {@link GetSinkPolicyCommand}
    */
-  getSinkPolicy(args: GetSinkPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetSinkPolicyCommandOutput>;
-  getSinkPolicy(args: GetSinkPolicyCommandInput, cb: (err: any, data?: GetSinkPolicyCommandOutput) => void): void;
+  getSinkPolicy(
+    args: GetSinkPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSinkPolicyCommandOutput>;
+  getSinkPolicy(
+    args: GetSinkPolicyCommandInput,
+    cb: (err: any, data?: GetSinkPolicyCommandOutput) => void
+  ): void;
   getSinkPolicy(
     args: GetSinkPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -156,8 +198,14 @@ export interface OAM {
    * @see {@link ListLinksCommand}
    */
   listLinks(): Promise<ListLinksCommandOutput>;
-  listLinks(args: ListLinksCommandInput, options?: __HttpHandlerOptions): Promise<ListLinksCommandOutput>;
-  listLinks(args: ListLinksCommandInput, cb: (err: any, data?: ListLinksCommandOutput) => void): void;
+  listLinks(
+    args: ListLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLinksCommandOutput>;
+  listLinks(
+    args: ListLinksCommandInput,
+    cb: (err: any, data?: ListLinksCommandOutput) => void
+  ): void;
   listLinks(
     args: ListLinksCommandInput,
     options: __HttpHandlerOptions,
@@ -168,8 +216,14 @@ export interface OAM {
    * @see {@link ListSinksCommand}
    */
   listSinks(): Promise<ListSinksCommandOutput>;
-  listSinks(args: ListSinksCommandInput, options?: __HttpHandlerOptions): Promise<ListSinksCommandOutput>;
-  listSinks(args: ListSinksCommandInput, cb: (err: any, data?: ListSinksCommandOutput) => void): void;
+  listSinks(
+    args: ListSinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSinksCommandOutput>;
+  listSinks(
+    args: ListSinksCommandInput,
+    cb: (err: any, data?: ListSinksCommandOutput) => void
+  ): void;
   listSinks(
     args: ListSinksCommandInput,
     options: __HttpHandlerOptions,
@@ -196,8 +250,14 @@ export interface OAM {
   /**
    * @see {@link PutSinkPolicyCommand}
    */
-  putSinkPolicy(args: PutSinkPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutSinkPolicyCommandOutput>;
-  putSinkPolicy(args: PutSinkPolicyCommandInput, cb: (err: any, data?: PutSinkPolicyCommandOutput) => void): void;
+  putSinkPolicy(
+    args: PutSinkPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSinkPolicyCommandOutput>;
+  putSinkPolicy(
+    args: PutSinkPolicyCommandInput,
+    cb: (err: any, data?: PutSinkPolicyCommandOutput) => void
+  ): void;
   putSinkPolicy(
     args: PutSinkPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -207,8 +267,14 @@ export interface OAM {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -218,8 +284,14 @@ export interface OAM {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -229,8 +301,14 @@ export interface OAM {
   /**
    * @see {@link UpdateLinkCommand}
    */
-  updateLink(args: UpdateLinkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLinkCommandOutput>;
-  updateLink(args: UpdateLinkCommandInput, cb: (err: any, data?: UpdateLinkCommandOutput) => void): void;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLinkCommandOutput>;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    cb: (err: any, data?: UpdateLinkCommandOutput) => void
+  ): void;
   updateLink(
     args: UpdateLinkCommandInput,
     options: __HttpHandlerOptions,

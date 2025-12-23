@@ -187,7 +187,10 @@ export interface NoBidAction {
  * <p>Describes a bid action.</p>
  * @public
  */
-export type Action = Action.HeaderTagMember | Action.NoBidMember | Action.$UnknownMember;
+export type Action =
+  | Action.HeaderTagMember
+  | Action.NoBidMember
+  | Action.$UnknownMember;
 
 /**
  * @public

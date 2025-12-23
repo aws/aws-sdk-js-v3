@@ -24,9 +24,7 @@ export interface DeleteLocalGatewayRouteTableCommandInput extends DeleteLocalGat
  *
  * The output of {@link DeleteLocalGatewayRouteTableCommand}.
  */
-export interface DeleteLocalGatewayRouteTableCommandOutput
-  extends DeleteLocalGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayRouteTableCommandOutput extends DeleteLocalGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>

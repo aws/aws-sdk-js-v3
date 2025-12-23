@@ -24,9 +24,7 @@ export interface DescribeThingRegistrationTaskCommandInput extends DescribeThing
  *
  * The output of {@link DescribeThingRegistrationTaskCommand}.
  */
-export interface DescribeThingRegistrationTaskCommandOutput
-  extends DescribeThingRegistrationTaskResponse,
-    __MetadataBearer {}
+export interface DescribeThingRegistrationTaskCommandOutput extends DescribeThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a bulk thing provisioning task.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
-export interface DescribeScheduledInstanceAvailabilityCommandInput
-  extends DescribeScheduledInstanceAvailabilityRequest {}
+export interface DescribeScheduledInstanceAvailabilityCommandInput extends DescribeScheduledInstanceAvailabilityRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeScheduledInstanceAvailabilityCommand}.
  */
-export interface DescribeScheduledInstanceAvailabilityCommandOutput
-  extends DescribeScheduledInstanceAvailabilityResult,
-    __MetadataBearer {}
+export interface DescribeScheduledInstanceAvailabilityCommandOutput extends DescribeScheduledInstanceAvailabilityResult, __MetadataBearer {}
 
 /**
  * <p>Finds available schedules that meet the specified criteria.</p>

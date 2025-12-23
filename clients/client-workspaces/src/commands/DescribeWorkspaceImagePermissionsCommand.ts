@@ -27,9 +27,7 @@ export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeW
  *
  * The output of {@link DescribeWorkspaceImagePermissionsCommand}.
  */
-export interface DescribeWorkspaceImagePermissionsCommandOutput
-  extends DescribeWorkspaceImagePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceImagePermissionsCommandOutput extends DescribeWorkspaceImagePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>

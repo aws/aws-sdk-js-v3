@@ -24,9 +24,7 @@ export interface DescribeConformancePackStatusCommandInput extends DescribeConfo
  *
  * The output of {@link DescribeConformancePackStatusCommand}.
  */
-export interface DescribeConformancePackStatusCommandOutput
-  extends DescribeConformancePackStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConformancePackStatusCommandOutput extends DescribeConformancePackStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Provides one or more conformance packs deployment status.</p>

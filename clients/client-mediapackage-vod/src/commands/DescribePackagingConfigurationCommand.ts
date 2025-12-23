@@ -28,9 +28,7 @@ export interface DescribePackagingConfigurationCommandInput extends DescribePack
  *
  * The output of {@link DescribePackagingConfigurationCommand}.
  */
-export interface DescribePackagingConfigurationCommandOutput
-  extends DescribePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribePackagingConfigurationCommandOutput extends DescribePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Returns a description of a MediaPackage VOD PackagingConfiguration resource.

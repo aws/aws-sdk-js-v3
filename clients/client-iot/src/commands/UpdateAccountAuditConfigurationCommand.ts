@@ -27,9 +27,7 @@ export interface UpdateAccountAuditConfigurationCommandInput extends UpdateAccou
  *
  * The output of {@link UpdateAccountAuditConfigurationCommand}.
  */
-export interface UpdateAccountAuditConfigurationCommandOutput
-  extends UpdateAccountAuditConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAccountAuditConfigurationCommandOutput extends UpdateAccountAuditConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configures or reconfigures the Device Defender audit settings for this account.

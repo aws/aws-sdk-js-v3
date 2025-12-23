@@ -28,9 +28,7 @@ export interface StartReplicationTaskAssessmentCommandInput extends StartReplica
  *
  * The output of {@link StartReplicationTaskAssessmentCommand}.
  */
-export interface StartReplicationTaskAssessmentCommandOutput
-  extends StartReplicationTaskAssessmentResponse,
-    __MetadataBearer {}
+export interface StartReplicationTaskAssessmentCommandOutput extends StartReplicationTaskAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Starts the replication task assessment for unsupported data types in the source

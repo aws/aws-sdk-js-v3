@@ -24,9 +24,7 @@ export interface DescribeVpcEndpointAssociationsCommandInput extends DescribeVpc
  *
  * The output of {@link DescribeVpcEndpointAssociationsCommand}.
  */
-export interface DescribeVpcEndpointAssociationsCommandOutput
-  extends DescribeVpcEndpointAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointAssociationsCommandOutput extends DescribeVpcEndpointAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the VPC resources, VPC endpoint services, Amazon Lattice services, or service networks

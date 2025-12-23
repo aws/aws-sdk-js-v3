@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface EnableTransitGatewayRouteTablePropagationCommandInput
-  extends EnableTransitGatewayRouteTablePropagationRequest {}
+export interface EnableTransitGatewayRouteTablePropagationCommandInput extends EnableTransitGatewayRouteTablePropagationRequest {}
 /**
  * @public
  *
  * The output of {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
-export interface EnableTransitGatewayRouteTablePropagationCommandOutput
-  extends EnableTransitGatewayRouteTablePropagationResult,
-    __MetadataBearer {}
+export interface EnableTransitGatewayRouteTablePropagationCommandOutput extends EnableTransitGatewayRouteTablePropagationResult, __MetadataBearer {}
 
 /**
  * <p>Enables the specified attachment to propagate routes to the specified

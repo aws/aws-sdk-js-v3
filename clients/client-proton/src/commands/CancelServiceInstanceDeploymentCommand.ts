@@ -24,9 +24,7 @@ export interface CancelServiceInstanceDeploymentCommandInput extends CancelServi
  *
  * The output of {@link CancelServiceInstanceDeploymentCommand}.
  */
-export interface CancelServiceInstanceDeploymentCommandOutput
-  extends CancelServiceInstanceDeploymentOutput,
-    __MetadataBearer {}
+export interface CancelServiceInstanceDeploymentCommandOutput extends CancelServiceInstanceDeploymentOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>. For

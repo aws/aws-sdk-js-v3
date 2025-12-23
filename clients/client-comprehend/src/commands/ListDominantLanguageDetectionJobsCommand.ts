@@ -27,9 +27,7 @@ export interface ListDominantLanguageDetectionJobsCommandInput extends ListDomin
  *
  * The output of {@link ListDominantLanguageDetectionJobsCommand}.
  */
-export interface ListDominantLanguageDetectionJobsCommandOutput
-  extends ListDominantLanguageDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListDominantLanguageDetectionJobsCommandOutput extends ListDominantLanguageDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>

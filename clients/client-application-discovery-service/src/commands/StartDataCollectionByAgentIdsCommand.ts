@@ -28,9 +28,7 @@ export interface StartDataCollectionByAgentIdsCommandInput extends StartDataColl
  *
  * The output of {@link StartDataCollectionByAgentIdsCommand}.
  */
-export interface StartDataCollectionByAgentIdsCommandOutput
-  extends StartDataCollectionByAgentIdsResponse,
-    __MetadataBearer {}
+export interface StartDataCollectionByAgentIdsCommandOutput extends StartDataCollectionByAgentIdsResponse, __MetadataBearer {}
 
 /**
  * <p>Instructs the specified agents to start collecting data.</p>

@@ -25,9 +25,7 @@ export interface CreateTrafficPolicyInstanceCommandInput extends CreateTrafficPo
  *
  * The output of {@link CreateTrafficPolicyInstanceCommand}.
  */
-export interface CreateTrafficPolicyInstanceCommandOutput
-  extends CreateTrafficPolicyInstanceResponse,
-    __MetadataBearer {}
+export interface CreateTrafficPolicyInstanceCommandOutput extends CreateTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates resource record sets in a specified hosted zone based on the settings in a
@@ -121,7 +119,10 @@ export class CreateTrafficPolicyInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "CreateTrafficPolicyInstance", {})
   .n("Route53Client", "CreateTrafficPolicyInstanceCommand")

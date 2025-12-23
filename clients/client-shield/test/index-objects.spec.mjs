@@ -161,6 +161,10 @@ import {
   NoAssociatedRoleException$,
   OptimisticLockException,
   OptimisticLockException$,
+  paginateListAttacks,
+  paginateListProtectionGroups,
+  paginateListProtections,
+  paginateListResourcesInProtectionGroup,
   ProactiveEngagementStatus,
   ProtectedResourceType,
   Protection$,
@@ -215,10 +219,6 @@ import {
   UpdateSubscriptionResponse$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListAttacks,
-  paginateListProtectionGroups,
-  paginateListProtections,
-  paginateListResourcesInProtectionGroup,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

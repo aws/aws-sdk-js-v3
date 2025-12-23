@@ -27,9 +27,7 @@ export interface ListResourceEndpointAssociationsCommandInput extends ListResour
  *
  * The output of {@link ListResourceEndpointAssociationsCommand}.
  */
-export interface ListResourceEndpointAssociationsCommandOutput
-  extends ListResourceEndpointAssociationsResponse,
-    __MetadataBearer {}
+export interface ListResourceEndpointAssociationsCommandOutput extends ListResourceEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations for the specified VPC endpoint.</p>

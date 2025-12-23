@@ -150,471 +150,327 @@ var SearchString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var StringAttributeValue: StaticSimpleSchema = [0, n0, _SAV, 8, 0];
 var Surname: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var UserPrincipalName: StaticSimpleSchema = [0, n0, _UPN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _R],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AddGroupMemberRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AGMR,
+export var AddGroupMemberRequest$: StaticStructureSchema = [3, n0, _AGMR,
   0,
   [_DI, _GNr, _MN, _MR, _CT],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [0, 4]]
 ];
-export var AddGroupMemberResult$: StaticStructureSchema = [3, n0, _AGMRd, 0, [], []];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+export var AddGroupMemberResult$: StaticStructureSchema = [3, n0, _AGMRd,
+  0,
+  [],
+  []
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGR,
+export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_DI, _SAMAN, _GT, _GS, _OA, _CT],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => Attributes, 0], [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => Attributes, 0], [0, 4]]
 ];
-export var CreateGroupResult$: StaticStructureSchema = [3, n0, _CGRr, 0, [_DI, _SAMAN, _SID], [0, 0, 0]];
-export var CreateUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CUR,
+export var CreateGroupResult$: StaticStructureSchema = [3, n0, _CGRr,
+  0,
+  [_DI, _SAMAN, _SID],
+  [0, 0, 0]
+];
+export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_DI, _SAMAN, _EA, _GN, _S, _OA, _CT],
-  [
-    [0, { [_hQ]: _DI }],
-    0,
-    [() => EmailAddress, 0],
-    [() => GivenName, 0],
-    [() => Surname, 0],
-    [() => Attributes, 0],
-    [0, 4],
-  ],
+  [[0, { [_hQ]: _DI }], 0, [() => EmailAddress, 0], [() => GivenName, 0], [() => Surname, 0], [() => Attributes, 0], [0, 4]]
 ];
-export var CreateUserResult$: StaticStructureSchema = [3, n0, _CURr, 0, [_DI, _SID, _SAMAN], [0, 0, 0]];
-export var DeleteGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGR,
+export var CreateUserResult$: StaticStructureSchema = [3, n0, _CURr,
+  0,
+  [_DI, _SID, _SAMAN],
+  [0, 0, 0]
+];
+export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_DI, _SAMAN, _CT],
-  [[0, { [_hQ]: _DI }], 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, [0, 4]]
 ];
-export var DeleteGroupResult$: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
-export var DeleteUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DUR,
+export var DeleteGroupResult$: StaticStructureSchema = [3, n0, _DGRe,
+  0,
+  [],
+  []
+];
+export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_DI, _SAMAN, _CT],
-  [[0, { [_hQ]: _DI }], 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, [0, 4]]
 ];
-export var DeleteUserResult$: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
-export var DescribeGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGRes,
+export var DeleteUserResult$: StaticStructureSchema = [3, n0, _DURe,
+  0,
+  [],
+  []
+];
+export var DescribeGroupRequest$: StaticStructureSchema = [3, n0, _DGRes,
   0,
   [_DI, _Re, _SAMAN, _OA],
-  [[0, { [_hQ]: _DI }], 0, 0, 64 | 0],
+  [[0, { [_hQ]: _DI }], 0, 0, 64 | 0]
 ];
-export var DescribeGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGResc,
+export var DescribeGroupResult$: StaticStructureSchema = [3, n0, _DGResc,
   0,
   [_DI, _Re, _SID, _SAMAN, _DN, _GT, _GS, _OA],
-  [0, 0, 0, 0, [() => DistinguishedName, 0], 0, 0, [() => Attributes, 0]],
+  [0, 0, 0, 0, [() => DistinguishedName, 0], 0, 0, [() => Attributes, 0]]
 ];
-export var DescribeUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DURes,
+export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_DI, _SAMAN, _OA, _Re],
-  [[0, { [_hQ]: _DI }], 0, 64 | 0, 0],
+  [[0, { [_hQ]: _DI }], 0, 64 | 0, 0]
 ];
-export var DescribeUserResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DUResc,
+export var DescribeUserResult$: StaticStructureSchema = [3, n0, _DUResc,
   0,
   [_DI, _Re, _SID, _SAMAN, _DN, _UPN, _EA, _GN, _S, _E, _OA],
-  [
-    0,
-    0,
-    0,
-    0,
-    [() => DistinguishedName, 0],
-    [() => UserPrincipalName, 0],
-    [() => EmailAddress, 0],
-    [() => GivenName, 0],
-    [() => Surname, 0],
-    2,
-    [() => Attributes, 0],
-  ],
+  [0, 0, 0, 0, [() => DistinguishedName, 0], [() => UserPrincipalName, 0], [() => EmailAddress, 0], [() => GivenName, 0], [() => Surname, 0], 2, [() => Attributes, 0]]
 ];
-export var DirectoryUnavailableException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUE,
+export var DirectoryUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(DirectoryUnavailableException$, DirectoryUnavailableException);
-export var DisableUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DURi,
+export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DURi,
   0,
   [_DI, _SAMAN, _CT],
-  [[0, { [_hQ]: _DI }], 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, [0, 4]]
 ];
-export var DisableUserResult$: StaticStructureSchema = [3, n0, _DURis, 0, [], []];
-export var Group$: StaticStructureSchema = [
-  3,
-  n0,
-  _G,
+export var DisableUserResult$: StaticStructureSchema = [3, n0, _DURis,
+  0,
+  [],
+  []
+];
+export var Group$: StaticStructureSchema = [3, n0, _G,
   0,
   [_SID, _SAMAN, _DN, _GT, _GS, _OA],
-  [0, 0, [() => DistinguishedName, 0], 0, 0, [() => Attributes, 0]],
+  [0, 0, [() => DistinguishedName, 0], 0, 0, [() => Attributes, 0]]
 ];
-export var GroupSummary$: StaticStructureSchema = [3, n0, _GSr, 0, [_SID, _SAMAN, _GT, _GS], [0, 0, 0, 0]];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+export var GroupSummary$: StaticStructureSchema = [3, n0, _GSr,
+  0,
+  [_SID, _SAMAN, _GT, _GS],
+  [0, 0, 0, 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListGroupMembersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGMR,
+export var ListGroupMembersRequest$: StaticStructureSchema = [3, n0, _LGMR,
   0,
   [_DI, _Re, _MR, _SAMAN, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => NextToken, 0], 1]
 ];
-export var ListGroupMembersResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGMRi,
+export var ListGroupMembersResult$: StaticStructureSchema = [3, n0, _LGMRi,
   0,
   [_DI, _Re, _MR, _Me, _NT],
-  [0, 0, 0, () => MemberList, [() => NextToken, 0]],
+  [0, 0, 0, () => MemberList, [() => NextToken, 0]]
 ];
-export var ListGroupsForMemberRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGFMR,
+export var ListGroupsForMemberRequest$: StaticStructureSchema = [3, n0, _LGFMR,
   0,
   [_DI, _Re, _MR, _SAMAN, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => NextToken, 0], 1]
 ];
-export var ListGroupsForMemberResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGFMRi,
+export var ListGroupsForMemberResult$: StaticStructureSchema = [3, n0, _LGFMRi,
   0,
   [_DI, _Re, _MR, _Gr, _NT],
-  [0, 0, 0, () => GroupSummaryList, [() => NextToken, 0]],
+  [0, 0, 0, () => GroupSummaryList, [() => NextToken, 0]]
 ];
-export var ListGroupsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGR,
+export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
   [_DI, _Re, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], 0, [() => NextToken, 0], 1]
 ];
-export var ListGroupsResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGRi,
+export var ListGroupsResult$: StaticStructureSchema = [3, n0, _LGRi,
   0,
   [_DI, _Re, _Gr, _NT],
-  [0, 0, () => GroupSummaryList, [() => NextToken, 0]],
+  [0, 0, () => GroupSummaryList, [() => NextToken, 0]]
 ];
-export var ListUsersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LUR,
+export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_DI, _Re, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], 0, [() => NextToken, 0], 1]
 ];
-export var ListUsersResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _LURi,
+export var ListUsersResult$: StaticStructureSchema = [3, n0, _LURi,
   0,
   [_DI, _Re, _U, _NT],
-  [0, 0, [() => UserSummaryList, 0], [() => NextToken, 0]],
+  [0, 0, [() => UserSummaryList, 0], [() => NextToken, 0]]
 ];
-export var Member$: StaticStructureSchema = [3, n0, _Mem, 0, [_SID, _SAMAN, _MT], [0, 0, 0]];
-export var RemoveGroupMemberRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGMR,
+export var Member$: StaticStructureSchema = [3, n0, _Mem,
+  0,
+  [_SID, _SAMAN, _MT],
+  [0, 0, 0]
+];
+export var RemoveGroupMemberRequest$: StaticStructureSchema = [3, n0, _RGMR,
   0,
   [_DI, _GNr, _MN, _MR, _CT],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [0, 4]]
 ];
-export var RemoveGroupMemberResult$: StaticStructureSchema = [3, n0, _RGMRe, 0, [], []];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+export var RemoveGroupMemberResult$: StaticStructureSchema = [3, n0, _RGMRe,
+  0,
+  [],
+  []
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SearchGroupsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SGR,
+export var SearchGroupsRequest$: StaticStructureSchema = [3, n0, _SGR,
   0,
   [_DI, _SS, _SA, _Re, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], [() => SearchString, 0], 64 | 0, 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], [() => SearchString, 0], 64 | 0, 0, [() => NextToken, 0], 1]
 ];
-export var SearchGroupsResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _SGRe,
+export var SearchGroupsResult$: StaticStructureSchema = [3, n0, _SGRe,
   0,
   [_DI, _Re, _Gr, _NT],
-  [0, 0, [() => GroupList, 0], [() => NextToken, 0]],
+  [0, 0, [() => GroupList, 0], [() => NextToken, 0]]
 ];
-export var SearchUsersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SUR,
+export var SearchUsersRequest$: StaticStructureSchema = [3, n0, _SUR,
   0,
   [_DI, _Re, _SS, _SA, _NT, _MRa],
-  [[0, { [_hQ]: _DI }], 0, [() => SearchString, 0], 64 | 0, [() => NextToken, 0], 1],
+  [[0, { [_hQ]: _DI }], 0, [() => SearchString, 0], 64 | 0, [() => NextToken, 0], 1]
 ];
-export var SearchUsersResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _SURe,
+export var SearchUsersResult$: StaticStructureSchema = [3, n0, _SURe,
   0,
   [_DI, _Re, _U, _NT],
-  [0, 0, [() => UserList, 0], [() => NextToken, 0]],
+  [0, 0, [() => UserList, 0], [() => NextToken, 0]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UpdateGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGR,
+export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_DI, _SAMAN, _GT, _GS, _OA, _UT, _CT],
-  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => Attributes, 0], 0, [0, 4]],
+  [[0, { [_hQ]: _DI }], 0, 0, 0, [() => Attributes, 0], 0, [0, 4]]
 ];
-export var UpdateGroupResult$: StaticStructureSchema = [3, n0, _UGRp, 0, [], []];
-export var UpdateUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UUR,
+export var UpdateGroupResult$: StaticStructureSchema = [3, n0, _UGRp,
+  0,
+  [],
+  []
+];
+export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_DI, _SAMAN, _EA, _GN, _S, _OA, _UT, _CT],
-  [
-    [0, { [_hQ]: _DI }],
-    0,
-    [() => EmailAddress, 0],
-    [() => GivenName, 0],
-    [() => Surname, 0],
-    [() => Attributes, 0],
-    0,
-    [0, 4],
-  ],
+  [[0, { [_hQ]: _DI }], 0, [() => EmailAddress, 0], [() => GivenName, 0], [() => Surname, 0], [() => Attributes, 0], 0, [0, 4]]
 ];
-export var UpdateUserResult$: StaticStructureSchema = [3, n0, _UURp, 0, [], []];
-export var User$: StaticStructureSchema = [
-  3,
-  n0,
-  _Us,
+export var UpdateUserResult$: StaticStructureSchema = [3, n0, _UURp,
+  0,
+  [],
+  []
+];
+export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
   [_SID, _SAMAN, _DN, _UPN, _EA, _GN, _S, _E, _OA],
-  [
-    0,
-    0,
-    [() => DistinguishedName, 0],
-    [() => UserPrincipalName, 0],
-    [() => EmailAddress, 0],
-    [() => GivenName, 0],
-    [() => Surname, 0],
-    2,
-    [() => Attributes, 0],
-  ],
+  [0, 0, [() => DistinguishedName, 0], [() => UserPrincipalName, 0], [() => EmailAddress, 0], [() => GivenName, 0], [() => Surname, 0], 2, [() => Attributes, 0]]
 ];
-export var UserSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _US,
+export var UserSummary$: StaticStructureSchema = [3, n0, _US,
   0,
   [_SID, _SAMAN, _GN, _S, _E],
-  [0, 0, [() => GivenName, 0], [() => Surname, 0], 2],
+  [0, 0, [() => GivenName, 0], [() => Surname, 0], 2]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var DirectoryServiceDataServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "DirectoryServiceDataServiceException",
-  0,
-  [],
-  [],
-];
+export var DirectoryServiceDataServiceException$: StaticErrorSchema = [-3, _sm, "DirectoryServiceDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DirectoryServiceDataServiceException$, DirectoryServiceDataServiceException);
-var GroupList: StaticListSchema = [1, n0, _GL, 0, [() => Group$, 0]];
-var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSummary$];
+var GroupList: StaticListSchema = [1, n0, _GL,
+  0, [() => Group$,
+    0]
+];
+var GroupSummaryList: StaticListSchema = [1, n0, _GSL,
+  0, () => GroupSummary$
+];
 var LdapDisplayNameList = 64 | 0;
-var MemberList: StaticListSchema = [1, n0, _ML, 0, () => Member$];
-var StringSetAttributeValue: StaticListSchema = [1, n0, _SSAV, 8, [() => StringAttributeValue, 0]];
-var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User$, 0]];
-var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, [() => UserSummary$, 0]];
-var Attributes: StaticMapSchema = [2, n0, _A, 0, [0, 0], [() => AttributeValue$, 0]];
-export var AttributeValue$: StaticUnionSchema = [
-  4,
-  n0,
-  _AV,
+var MemberList: StaticListSchema = [1, n0, _ML,
+  0, () => Member$
+];
+var StringSetAttributeValue: StaticListSchema = [1, n0, _SSAV,
+  8, [() => StringAttributeValue,
+    0]
+];
+var UserList: StaticListSchema = [1, n0, _UL,
+  0, [() => User$,
+    0]
+];
+var UserSummaryList: StaticListSchema = [1, n0, _USL,
+  0, [() => UserSummary$,
+    0]
+];
+var Attributes: StaticMapSchema = [2, n0, _A,
+  0, [0,
+    0]
+  , [() => AttributeValue$,
+    0]
+];
+export var AttributeValue$: StaticUnionSchema = [4, n0, _AV,
   0,
   [_S_, _N, _BOOL, _SS_],
-  [
-    [() => StringAttributeValue, 0],
-    [() => NumberAttributeValue, 0],
-    [() => BooleanAttributeValue, 0],
-    [() => StringSetAttributeValue, 0],
-  ],
+  [[() => StringAttributeValue, 0], [() => NumberAttributeValue, 0], [() => BooleanAttributeValue, 0], [() => StringSetAttributeValue, 0]]
 ];
-export var AddGroupMember$: StaticOperationSchema = [
-  9,
-  n0,
-  _AGM,
-  { [_h]: ["POST", "/GroupMemberships/AddGroupMember", 200] },
-  () => AddGroupMemberRequest$,
-  () => AddGroupMemberResult$,
+export var AddGroupMember$: StaticOperationSchema = [9, n0, _AGM,
+  { [_h]: ["POST", "/GroupMemberships/AddGroupMember", 200] }, () => AddGroupMemberRequest$, () => AddGroupMemberResult$
 ];
-export var CreateGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CG,
-  { [_h]: ["POST", "/Groups/CreateGroup", 200] },
-  () => CreateGroupRequest$,
-  () => CreateGroupResult$,
+export var CreateGroup$: StaticOperationSchema = [9, n0, _CG,
+  { [_h]: ["POST", "/Groups/CreateGroup", 200] }, () => CreateGroupRequest$, () => CreateGroupResult$
 ];
-export var CreateUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _CU,
-  { [_h]: ["POST", "/Users/CreateUser", 200] },
-  () => CreateUserRequest$,
-  () => CreateUserResult$,
+export var CreateUser$: StaticOperationSchema = [9, n0, _CU,
+  { [_h]: ["POST", "/Users/CreateUser", 200] }, () => CreateUserRequest$, () => CreateUserResult$
 ];
-export var DeleteGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DG,
-  { [_h]: ["POST", "/Groups/DeleteGroup", 200] },
-  () => DeleteGroupRequest$,
-  () => DeleteGroupResult$,
+export var DeleteGroup$: StaticOperationSchema = [9, n0, _DG,
+  { [_h]: ["POST", "/Groups/DeleteGroup", 200] }, () => DeleteGroupRequest$, () => DeleteGroupResult$
 ];
-export var DeleteUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _DU,
-  { [_h]: ["POST", "/Users/DeleteUser", 200] },
-  () => DeleteUserRequest$,
-  () => DeleteUserResult$,
+export var DeleteUser$: StaticOperationSchema = [9, n0, _DU,
+  { [_h]: ["POST", "/Users/DeleteUser", 200] }, () => DeleteUserRequest$, () => DeleteUserResult$
 ];
-export var DescribeGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGe,
-  { [_h]: ["POST", "/Groups/DescribeGroup", 200] },
-  () => DescribeGroupRequest$,
-  () => DescribeGroupResult$,
+export var DescribeGroup$: StaticOperationSchema = [9, n0, _DGe,
+  { [_h]: ["POST", "/Groups/DescribeGroup", 200] }, () => DescribeGroupRequest$, () => DescribeGroupResult$
 ];
-export var DescribeUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _DUe,
-  { [_h]: ["POST", "/Users/DescribeUser", 200] },
-  () => DescribeUserRequest$,
-  () => DescribeUserResult$,
+export var DescribeUser$: StaticOperationSchema = [9, n0, _DUe,
+  { [_h]: ["POST", "/Users/DescribeUser", 200] }, () => DescribeUserRequest$, () => DescribeUserResult$
 ];
-export var DisableUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _DUi,
-  { [_h]: ["POST", "/Users/DisableUser", 200] },
-  () => DisableUserRequest$,
-  () => DisableUserResult$,
+export var DisableUser$: StaticOperationSchema = [9, n0, _DUi,
+  { [_h]: ["POST", "/Users/DisableUser", 200] }, () => DisableUserRequest$, () => DisableUserResult$
 ];
-export var ListGroupMembers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LGM,
-  { [_h]: ["POST", "/GroupMemberships/ListGroupMembers", 200] },
-  () => ListGroupMembersRequest$,
-  () => ListGroupMembersResult$,
+export var ListGroupMembers$: StaticOperationSchema = [9, n0, _LGM,
+  { [_h]: ["POST", "/GroupMemberships/ListGroupMembers", 200] }, () => ListGroupMembersRequest$, () => ListGroupMembersResult$
 ];
-export var ListGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LG,
-  { [_h]: ["POST", "/Groups/ListGroups", 200] },
-  () => ListGroupsRequest$,
-  () => ListGroupsResult$,
+export var ListGroups$: StaticOperationSchema = [9, n0, _LG,
+  { [_h]: ["POST", "/Groups/ListGroups", 200] }, () => ListGroupsRequest$, () => ListGroupsResult$
 ];
-export var ListGroupsForMember$: StaticOperationSchema = [
-  9,
-  n0,
-  _LGFM,
-  { [_h]: ["POST", "/GroupMemberships/ListGroupsForMember", 200] },
-  () => ListGroupsForMemberRequest$,
-  () => ListGroupsForMemberResult$,
+export var ListGroupsForMember$: StaticOperationSchema = [9, n0, _LGFM,
+  { [_h]: ["POST", "/GroupMemberships/ListGroupsForMember", 200] }, () => ListGroupsForMemberRequest$, () => ListGroupsForMemberResult$
 ];
-export var ListUsers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LU,
-  { [_h]: ["POST", "/Users/ListUsers", 200] },
-  () => ListUsersRequest$,
-  () => ListUsersResult$,
+export var ListUsers$: StaticOperationSchema = [9, n0, _LU,
+  { [_h]: ["POST", "/Users/ListUsers", 200] }, () => ListUsersRequest$, () => ListUsersResult$
 ];
-export var RemoveGroupMember$: StaticOperationSchema = [
-  9,
-  n0,
-  _RGM,
-  { [_h]: ["POST", "/GroupMemberships/RemoveGroupMember", 200] },
-  () => RemoveGroupMemberRequest$,
-  () => RemoveGroupMemberResult$,
+export var RemoveGroupMember$: StaticOperationSchema = [9, n0, _RGM,
+  { [_h]: ["POST", "/GroupMemberships/RemoveGroupMember", 200] }, () => RemoveGroupMemberRequest$, () => RemoveGroupMemberResult$
 ];
-export var SearchGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _SG,
-  { [_h]: ["POST", "/Groups/SearchGroups", 200] },
-  () => SearchGroupsRequest$,
-  () => SearchGroupsResult$,
+export var SearchGroups$: StaticOperationSchema = [9, n0, _SG,
+  { [_h]: ["POST", "/Groups/SearchGroups", 200] }, () => SearchGroupsRequest$, () => SearchGroupsResult$
 ];
-export var SearchUsers$: StaticOperationSchema = [
-  9,
-  n0,
-  _SU,
-  { [_h]: ["POST", "/Users/SearchUsers", 200] },
-  () => SearchUsersRequest$,
-  () => SearchUsersResult$,
+export var SearchUsers$: StaticOperationSchema = [9, n0, _SU,
+  { [_h]: ["POST", "/Users/SearchUsers", 200] }, () => SearchUsersRequest$, () => SearchUsersResult$
 ];
-export var UpdateGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _UG,
-  { [_h]: ["POST", "/Groups/UpdateGroup", 200] },
-  () => UpdateGroupRequest$,
-  () => UpdateGroupResult$,
+export var UpdateGroup$: StaticOperationSchema = [9, n0, _UG,
+  { [_h]: ["POST", "/Groups/UpdateGroup", 200] }, () => UpdateGroupRequest$, () => UpdateGroupResult$
 ];
-export var UpdateUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _UU,
-  { [_h]: ["POST", "/Users/UpdateUser", 200] },
-  () => UpdateUserRequest$,
-  () => UpdateUserResult$,
+export var UpdateUser$: StaticOperationSchema = [9, n0, _UU,
+  { [_h]: ["POST", "/Users/UpdateUser", 200] }, () => UpdateUserRequest$, () => UpdateUserResult$
 ];

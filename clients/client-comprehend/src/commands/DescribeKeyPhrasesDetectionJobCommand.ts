@@ -24,9 +24,7 @@ export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyP
  *
  * The output of {@link DescribeKeyPhrasesDetectionJobCommand}.
  */
-export interface DescribeKeyPhrasesDetectionJobCommandOutput
-  extends DescribeKeyPhrasesDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeKeyPhrasesDetectionJobCommandOutput extends DescribeKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get

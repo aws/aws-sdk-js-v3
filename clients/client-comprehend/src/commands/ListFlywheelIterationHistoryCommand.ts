@@ -24,9 +24,7 @@ export interface ListFlywheelIterationHistoryCommandInput extends ListFlywheelIt
  *
  * The output of {@link ListFlywheelIterationHistoryCommand}.
  */
-export interface ListFlywheelIterationHistoryCommandOutput
-  extends ListFlywheelIterationHistoryResponse,
-    __MetadataBearer {}
+export interface ListFlywheelIterationHistoryCommandOutput extends ListFlywheelIterationHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Information about the history of a flywheel iteration.

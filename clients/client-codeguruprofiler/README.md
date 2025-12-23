@@ -31,10 +31,8 @@ the <i>Amazon CodeGuru Profiler User Guide</i>.
 </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codeguruprofiler
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codeguruprofiler`
 - `yarn add @aws-sdk/client-codeguruprofiler`
 - `pnpm add @aws-sdk/client-codeguruprofiler`
@@ -70,9 +68,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeGuruProfilerClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListProfilingGroupsCommand(params);
 ```
 
@@ -231,7 +227,6 @@ AddNotificationChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/AddNotificationChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/AddNotificationChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/AddNotificationChannelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -239,7 +234,6 @@ BatchGetFrameMetricData
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/BatchGetFrameMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/BatchGetFrameMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/BatchGetFrameMetricDataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -247,7 +241,6 @@ ConfigureAgent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/ConfigureAgentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ConfigureAgentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ConfigureAgentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +248,6 @@ CreateProfilingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/CreateProfilingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/CreateProfilingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/CreateProfilingGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +255,6 @@ DeleteProfilingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/DeleteProfilingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/DeleteProfilingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/DeleteProfilingGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,7 +262,6 @@ DescribeProfilingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/DescribeProfilingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/DescribeProfilingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/DescribeProfilingGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -279,7 +269,6 @@ GetFindingsReportAccountSummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/GetFindingsReportAccountSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetFindingsReportAccountSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetFindingsReportAccountSummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +276,6 @@ GetNotificationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/GetNotificationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetNotificationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetNotificationConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +283,6 @@ GetPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/GetPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +290,6 @@ GetProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +297,6 @@ GetRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/GetRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/GetRecommendationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +304,6 @@ ListFindingsReports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/ListFindingsReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListFindingsReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListFindingsReportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,7 +311,6 @@ ListProfileTimes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/ListProfileTimesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListProfileTimesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListProfileTimesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -335,7 +318,6 @@ ListProfilingGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/ListProfilingGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListProfilingGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListProfilingGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -343,7 +325,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -351,7 +332,6 @@ PostAgentProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/PostAgentProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/PostAgentProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/PostAgentProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -359,7 +339,6 @@ PutPermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/PutPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/PutPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/PutPermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -367,7 +346,6 @@ RemoveNotificationChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/RemoveNotificationChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/RemoveNotificationChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/RemoveNotificationChannelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -375,7 +353,6 @@ RemovePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/RemovePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/RemovePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/RemovePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -383,7 +360,6 @@ SubmitFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/SubmitFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/SubmitFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/SubmitFeedbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +367,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +374,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,5 +381,4 @@ UpdateProfilingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguruprofiler/command/UpdateProfilingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/UpdateProfilingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguruprofiler/Interface/UpdateProfilingGroupCommandOutput/)
-
 </details>

@@ -3059,7 +3059,9 @@ export interface GetDecoderManifestResponse {
  * <p>Specifications for defining a vehicle network.</p>
  * @public
  */
-export type NetworkFileDefinition = NetworkFileDefinition.CanDbcMember | NetworkFileDefinition.$UnknownMember;
+export type NetworkFileDefinition =
+  | NetworkFileDefinition.CanDbcMember
+  | NetworkFileDefinition.$UnknownMember;
 
 /**
  * @public
@@ -3752,7 +3754,9 @@ export interface ListVehiclesInFleetResponse {
  *             a VSS format.</p>
  * @public
  */
-export type FormattedVss = FormattedVss.VssJsonMember | FormattedVss.$UnknownMember;
+export type FormattedVss =
+  | FormattedVss.VssJsonMember
+  | FormattedVss.$UnknownMember;
 
 /**
  * @public

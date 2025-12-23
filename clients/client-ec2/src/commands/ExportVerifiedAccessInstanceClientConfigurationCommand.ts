@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ExportVerifiedAccessInstanceClientConfigurationCommand}.
  */
-export interface ExportVerifiedAccessInstanceClientConfigurationCommandInput
-  extends ExportVerifiedAccessInstanceClientConfigurationRequest {}
+export interface ExportVerifiedAccessInstanceClientConfigurationCommandInput extends ExportVerifiedAccessInstanceClientConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ExportVerifiedAccessInstanceClientConfigurationCommand}.
  */
-export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput
-  extends ExportVerifiedAccessInstanceClientConfigurationResult,
-    __MetadataBearer {}
+export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput extends ExportVerifiedAccessInstanceClientConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Exports the client configuration for a Verified Access instance.</p>

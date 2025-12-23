@@ -28,9 +28,7 @@ export interface ListPackagingConfigurationsCommandInput extends ListPackagingCo
  *
  * The output of {@link ListPackagingConfigurationsCommand}.
  */
-export interface ListPackagingConfigurationsCommandOutput
-  extends ListPackagingConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListPackagingConfigurationsCommandOutput extends ListPackagingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * Returns a collection of MediaPackage VOD PackagingConfiguration resources.

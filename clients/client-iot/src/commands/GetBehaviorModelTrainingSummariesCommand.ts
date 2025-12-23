@@ -27,9 +27,7 @@ export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehavi
  *
  * The output of {@link GetBehaviorModelTrainingSummariesCommand}.
  */
-export interface GetBehaviorModelTrainingSummariesCommandOutput
-  extends GetBehaviorModelTrainingSummariesResponse,
-    __MetadataBearer {}
+export interface GetBehaviorModelTrainingSummariesCommandOutput extends GetBehaviorModelTrainingSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface RestoreSnapshotFromRecycleBinCommandInput extends RestoreSnapsh
  *
  * The output of {@link RestoreSnapshotFromRecycleBinCommand}.
  */
-export interface RestoreSnapshotFromRecycleBinCommandOutput
-  extends RestoreSnapshotFromRecycleBinResult,
-    __MetadataBearer {}
+export interface RestoreSnapshotFromRecycleBinCommandOutput extends RestoreSnapshotFromRecycleBinResult, __MetadataBearer {}
 
 /**
  * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore

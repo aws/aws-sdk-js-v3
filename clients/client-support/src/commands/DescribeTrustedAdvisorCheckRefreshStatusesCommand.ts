@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
-  extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
+export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-  extends DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput extends DescribeTrustedAdvisorCheckRefreshStatusesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check

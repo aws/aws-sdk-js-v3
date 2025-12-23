@@ -28,9 +28,7 @@ export interface UpdateCrossAccountAttachmentCommandInput extends UpdateCrossAcc
  *
  * The output of {@link UpdateCrossAccountAttachmentCommand}.
  */
-export interface UpdateCrossAccountAttachmentCommandOutput
-  extends UpdateCrossAccountAttachmentResponse,
-    __MetadataBearer {}
+export interface UpdateCrossAccountAttachmentCommandOutput extends UpdateCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Update a cross-account attachment to add or remove principals or resources. When you update

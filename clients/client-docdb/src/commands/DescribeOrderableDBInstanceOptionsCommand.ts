@@ -24,9 +24,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandInput extends Describe
  *
  * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
-export interface DescribeOrderableDBInstanceOptionsCommandOutput
-  extends OrderableDBInstanceOptionsMessage,
-    __MetadataBearer {}
+export interface DescribeOrderableDBInstanceOptionsCommandOutput extends OrderableDBInstanceOptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of orderable instance options for the specified engine.</p>

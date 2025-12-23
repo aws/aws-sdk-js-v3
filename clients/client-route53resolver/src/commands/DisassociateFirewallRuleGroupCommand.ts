@@ -28,9 +28,7 @@ export interface DisassociateFirewallRuleGroupCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFirewallRuleGroupCommand}.
  */
-export interface DisassociateFirewallRuleGroupCommandOutput
-  extends DisassociateFirewallRuleGroupResponse,
-    __MetadataBearer {}
+export interface DisassociateFirewallRuleGroupCommandOutput extends DisassociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>

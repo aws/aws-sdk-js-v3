@@ -24,9 +24,7 @@ export interface ListInstanceProfilesForRoleCommandInput extends ListInstancePro
  *
  * The output of {@link ListInstanceProfilesForRoleCommand}.
  */
-export interface ListInstanceProfilesForRoleCommandOutput
-  extends ListInstanceProfilesForRoleResponse,
-    __MetadataBearer {}
+export interface ListInstanceProfilesForRoleCommandOutput extends ListInstanceProfilesForRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the instance profiles that have the specified associated IAM role. If there

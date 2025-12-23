@@ -9,10 +9,8 @@ AWS SDK for JavaScript FinspaceData Client for Node.js, Browser and React Native
 <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-finspace-data
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-finspace-data`
 - `yarn add @aws-sdk/client-finspace-data`
 - `pnpm add @aws-sdk/client-finspace-data`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new FinspaceDataClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDatasetsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ AssociateUserToPermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/AssociateUserToPermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/AssociateUserToPermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/AssociateUserToPermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateChangeset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/CreateChangesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateChangesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateChangesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/CreateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateDataView
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/CreateDataViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateDataViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateDataViewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreatePermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/CreatePermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreatePermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreatePermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ CreateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/CreateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/CreateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DeleteDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DeletePermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/DeletePermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DeletePermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DeletePermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ DisableUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/DisableUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DisableUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DisableUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ DisassociateUserFromPermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/DisassociateUserFromPermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DisassociateUserFromPermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/DisassociateUserFromPermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ EnableUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/EnableUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/EnableUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/EnableUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ GetChangeset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetChangesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetChangesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetChangesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ GetDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ GetDataView
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetDataViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetDataViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetDataViewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ GetExternalDataViewAccessDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetExternalDataViewAccessDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetExternalDataViewAccessDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetExternalDataViewAccessDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ GetPermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetPermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetPermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetPermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ GetProgrammaticAccessCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetProgrammaticAccessCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetProgrammaticAccessCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetProgrammaticAccessCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ GetUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ GetWorkingLocation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/GetWorkingLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetWorkingLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/GetWorkingLocationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ ListChangesets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListChangesetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListChangesetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListChangesetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ ListDatasets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListDatasetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ ListDataViews
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListDataViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListDataViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListDataViewsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ ListPermissionGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListPermissionGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListPermissionGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListPermissionGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ ListPermissionGroupsByUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListPermissionGroupsByUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListPermissionGroupsByUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListPermissionGroupsByUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ ListUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListUsersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ ListUsersByPermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ListUsersByPermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListUsersByPermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ListUsersByPermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ ResetUserPassword
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/ResetUserPasswordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ResetUserPasswordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/ResetUserPasswordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ UpdateChangeset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/UpdateChangesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateChangesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateChangesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ UpdateDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/UpdateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ UpdatePermissionGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/UpdatePermissionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdatePermissionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdatePermissionGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,5 +415,4 @@ UpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace-data/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace-data/Interface/UpdateUserCommandOutput/)
-
 </details>

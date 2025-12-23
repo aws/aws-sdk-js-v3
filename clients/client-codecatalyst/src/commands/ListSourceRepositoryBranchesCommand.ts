@@ -24,9 +24,7 @@ export interface ListSourceRepositoryBranchesCommandInput extends ListSourceRepo
  *
  * The output of {@link ListSourceRepositoryBranchesCommand}.
  */
-export interface ListSourceRepositoryBranchesCommandOutput
-  extends ListSourceRepositoryBranchesResponse,
-    __MetadataBearer {}
+export interface ListSourceRepositoryBranchesCommandOutput extends ListSourceRepositoryBranchesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of branches in a specified source repository.</p>

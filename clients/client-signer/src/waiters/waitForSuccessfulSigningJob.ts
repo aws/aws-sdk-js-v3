@@ -10,17 +10,17 @@ const checkState = async (client: SignerClient, input: DescribeSigningJobCommand
     const result: any = await client.send(new DescribeSigningJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "Succeeded") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateCapacityReservationBillingOwnerCommand}.
  */
-export interface DisassociateCapacityReservationBillingOwnerCommandInput
-  extends DisassociateCapacityReservationBillingOwnerRequest {}
+export interface DisassociateCapacityReservationBillingOwnerCommandInput extends DisassociateCapacityReservationBillingOwnerRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateCapacityReservationBillingOwnerCommand}.
  */
-export interface DisassociateCapacityReservationBillingOwnerCommandOutput
-  extends DisassociateCapacityReservationBillingOwnerResult,
-    __MetadataBearer {}
+export interface DisassociateCapacityReservationBillingOwnerCommandOutput extends DisassociateCapacityReservationBillingOwnerResult, __MetadataBearer {}
 
 /**
  * <p>Cancels a pending request to assign billing of the unused capacity of a Capacity

@@ -24,9 +24,7 @@ export interface DeleteQueueFleetAssociationCommandInput extends DeleteQueueFlee
  *
  * The output of {@link DeleteQueueFleetAssociationCommand}.
  */
-export interface DeleteQueueFleetAssociationCommandOutput
-  extends DeleteQueueFleetAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteQueueFleetAssociationCommandOutput extends DeleteQueueFleetAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a queue-fleet association.</p>

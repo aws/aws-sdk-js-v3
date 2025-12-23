@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAffectedEntitiesForOrganizationCommand}.
  */
-export interface DescribeAffectedEntitiesForOrganizationCommandInput
-  extends DescribeAffectedEntitiesForOrganizationRequest {}
+export interface DescribeAffectedEntitiesForOrganizationCommandInput extends DescribeAffectedEntitiesForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAffectedEntitiesForOrganizationCommand}.
  */
-export interface DescribeAffectedEntitiesForOrganizationCommandOutput
-  extends DescribeAffectedEntitiesForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeAffectedEntitiesForOrganizationCommandOutput extends DescribeAffectedEntitiesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of entities that have been affected by one or more events for one or more

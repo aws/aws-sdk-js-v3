@@ -179,6 +179,10 @@ import {
   MeetingEventsConcatenationConfiguration$,
   NotFoundException,
   NotFoundException$,
+  paginateListMediaCapturePipelines,
+  paginateListMediaInsightsPipelineConfigurations,
+  paginateListMediaPipelineKinesisVideoStreamPools,
+  paginateListMediaPipelines,
   PartialResultsStability,
   ParticipantRole,
   PostCallAnalyticsSettings$,
@@ -262,10 +266,6 @@ import {
   VoiceAnalyticsProcessorConfiguration$,
   VoiceEnhancementSinkConfiguration$,
   VoiceToneAnalysisTask$,
-  paginateListMediaCapturePipelines,
-  paginateListMediaInsightsPipelineConfigurations,
-  paginateListMediaPipelineKinesisVideoStreamPools,
-  paginateListMediaPipelines,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

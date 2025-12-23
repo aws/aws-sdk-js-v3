@@ -10,9 +10,9 @@ const checkState = async (client: KinesisClient, input: DescribeStreamCommandInp
     const result: any = await client.send(new DescribeStreamCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.StreamDescription.StreamStatus;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

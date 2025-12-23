@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
-export interface GetDeployablePatchSnapshotForInstanceCommandInput
-  extends GetDeployablePatchSnapshotForInstanceRequest {}
+export interface GetDeployablePatchSnapshotForInstanceCommandInput extends GetDeployablePatchSnapshotForInstanceRequest {}
 /**
  * @public
  *
  * The output of {@link GetDeployablePatchSnapshotForInstanceCommand}.
  */
-export interface GetDeployablePatchSnapshotForInstanceCommandOutput
-  extends GetDeployablePatchSnapshotForInstanceResult,
-    __MetadataBearer {}
+export interface GetDeployablePatchSnapshotForInstanceCommandOutput extends GetDeployablePatchSnapshotForInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is

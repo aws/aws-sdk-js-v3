@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
-export interface DeleteVpcEndpointServiceConfigurationsCommandInput
-  extends DeleteVpcEndpointServiceConfigurationsRequest {}
+export interface DeleteVpcEndpointServiceConfigurationsCommandInput extends DeleteVpcEndpointServiceConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
-export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
-  extends DeleteVpcEndpointServiceConfigurationsResult,
-    __MetadataBearer {}
+export interface DeleteVpcEndpointServiceConfigurationsCommandOutput extends DeleteVpcEndpointServiceConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPC endpoint service configurations. Before you can delete

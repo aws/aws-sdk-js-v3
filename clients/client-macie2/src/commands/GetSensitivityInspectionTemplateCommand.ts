@@ -27,9 +27,7 @@ export interface GetSensitivityInspectionTemplateCommandInput extends GetSensiti
  *
  * The output of {@link GetSensitivityInspectionTemplateCommand}.
  */
-export interface GetSensitivityInspectionTemplateCommandOutput
-  extends GetSensitivityInspectionTemplateResponse,
-    __MetadataBearer {}
+export interface GetSensitivityInspectionTemplateCommandOutput extends GetSensitivityInspectionTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the settings for the sensitivity inspection template for an account.</p>

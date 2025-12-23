@@ -24,9 +24,7 @@ export interface GetVerifiedAccessEndpointPolicyCommandInput extends GetVerified
  *
  * The output of {@link GetVerifiedAccessEndpointPolicyCommand}.
  */
-export interface GetVerifiedAccessEndpointPolicyCommandOutput
-  extends GetVerifiedAccessEndpointPolicyResult,
-    __MetadataBearer {}
+export interface GetVerifiedAccessEndpointPolicyCommandOutput extends GetVerifiedAccessEndpointPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Get the Verified Access policy associated with the endpoint.</p>

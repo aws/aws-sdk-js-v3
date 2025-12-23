@@ -28,9 +28,7 @@ export interface CreateLicenseServerEndpointCommandInput extends CreateLicenseSe
  *
  * The output of {@link CreateLicenseServerEndpointCommand}.
  */
-export interface CreateLicenseServerEndpointCommandOutput
-  extends CreateLicenseServerEndpointResponse,
-    __MetadataBearer {}
+export interface CreateLicenseServerEndpointCommandOutput extends CreateLicenseServerEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a network endpoint for the Remote Desktop Services (RDS) license server.</p>

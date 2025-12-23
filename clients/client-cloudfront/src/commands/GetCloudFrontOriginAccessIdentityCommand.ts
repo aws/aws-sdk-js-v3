@@ -27,9 +27,7 @@ export interface GetCloudFrontOriginAccessIdentityCommandInput extends GetCloudF
  *
  * The output of {@link GetCloudFrontOriginAccessIdentityCommand}.
  */
-export interface GetCloudFrontOriginAccessIdentityCommandOutput
-  extends GetCloudFrontOriginAccessIdentityResult,
-    __MetadataBearer {}
+export interface GetCloudFrontOriginAccessIdentityCommandOutput extends GetCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
  * <p>Get the information about an origin access identity.</p>

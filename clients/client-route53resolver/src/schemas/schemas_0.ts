@@ -393,1304 +393,1168 @@ import {
 import { Route53ResolverServiceException } from "../models/Route53ResolverServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AssociateFirewallRuleGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AFRGR,
+export var AssociateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _AFRGR,
   0,
   [_CRI, _FRGI, _VI, _P, _N, _MP, _T],
-  [[0, 4], 0, 0, 1, 0, 0, () => TagList],
+  [[0, 4], 0, 0, 1, 0, 0, () => TagList]
 ];
-export var AssociateFirewallRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _AFRGRs,
+export var AssociateFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _AFRGRs,
   0,
   [_FRGA],
-  [() => FirewallRuleGroupAssociation$],
+  [() => FirewallRuleGroupAssociation$]
 ];
-export var AssociateResolverEndpointIpAddressRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AREIAR,
+export var AssociateResolverEndpointIpAddressRequest$: StaticStructureSchema = [3, n0, _AREIAR,
   0,
   [_REI, _IA],
-  [0, () => IpAddressUpdate$],
+  [0, () => IpAddressUpdate$]
 ];
-export var AssociateResolverEndpointIpAddressResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _AREIARs,
+export var AssociateResolverEndpointIpAddressResponse$: StaticStructureSchema = [3, n0, _AREIARs,
   0,
   [_RE],
-  [() => ResolverEndpoint$],
+  [() => ResolverEndpoint$]
 ];
-export var AssociateResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _ARQLCR, 0, [_RQLCI, _RI], [0, 0]];
-export var AssociateResolverQueryLogConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARQLCRs,
-  0,
-  [_RQLCA],
-  [() => ResolverQueryLogConfigAssociation$],
-];
-export var AssociateResolverRuleRequest$: StaticStructureSchema = [3, n0, _ARRR, 0, [_RRI, _N, _VPCI], [0, 0, 0]];
-export var AssociateResolverRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARRRs,
-  0,
-  [_RRA],
-  [() => ResolverRuleAssociation$],
-];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateFirewallDomainListRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFDLR,
-  0,
-  [_CRI, _N, _T],
-  [[0, 4], 0, () => TagList],
-];
-export var CreateFirewallDomainListResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFDLRr,
-  0,
-  [_FDL],
-  [() => FirewallDomainList$],
-];
-export var CreateFirewallRuleGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRGR,
-  0,
-  [_CRI, _N, _T],
-  [[0, 4], 0, () => TagList],
-];
-export var CreateFirewallRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRGRr,
-  0,
-  [_FRG],
-  [() => FirewallRuleGroup$],
-];
-export var CreateFirewallRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFRR,
-  0,
-  [_CRI, _FRGI, _FDLI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT],
-  [[0, 4], 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-];
-export var CreateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _CFRRr, 0, [_FR], [() => FirewallRule$]];
-export var CreateOutpostResolverRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CORR,
-  0,
-  [_CRI, _N, _IC, _PIT, _OA, _T],
-  [0, 0, 1, 0, 0, () => TagList],
-];
-export var CreateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _CORRr, 0, [_OR], [() => OutpostResolver$]];
-export var CreateResolverEndpointRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRER,
-  0,
-  [_CRI, _N, _SGI, _D, _IAp, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME],
-  [0, 0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, () => TagList, 0, 64 | 0, 2, 2],
-];
-export var CreateResolverEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRERr,
-  0,
-  [_RE],
-  [() => ResolverEndpoint$],
-];
-export var CreateResolverQueryLogConfigRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRQLCR,
-  0,
-  [_N, _DA, _CRI, _T],
-  [0, 0, [0, 4], () => TagList],
-];
-export var CreateResolverQueryLogConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRQLCRr,
-  0,
-  [_RQLC],
-  [() => ResolverQueryLogConfig$],
-];
-export var CreateResolverRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRRR,
-  0,
-  [_CRI, _N, _RT, _DN, _TI, _REI, _T, _DR],
-  [0, 0, 0, 0, () => TargetList, 0, () => TagList, 0],
-];
-export var CreateResolverRuleResponse$: StaticStructureSchema = [3, n0, _CRRRr, 0, [_RR], [() => ResolverRule$]];
-export var DeleteFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _DFDLR, 0, [_FDLI], [0]];
-export var DeleteFirewallDomainListResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DFDLRe,
-  0,
-  [_FDL],
-  [() => FirewallDomainList$],
-];
-export var DeleteFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _DFRGR, 0, [_FRGI], [0]];
-export var DeleteFirewallRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRGRe,
-  0,
-  [_FRG],
-  [() => FirewallRuleGroup$],
-];
-export var DeleteFirewallRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRR,
-  0,
-  [_FRGI, _FDLI, _FTPI, _Q],
-  [0, 0, 0, 0],
-];
-export var DeleteFirewallRuleResponse$: StaticStructureSchema = [3, n0, _DFRRe, 0, [_FR], [() => FirewallRule$]];
-export var DeleteOutpostResolverRequest$: StaticStructureSchema = [3, n0, _DORR, 0, [_I], [0]];
-export var DeleteOutpostResolverResponse$: StaticStructureSchema = [3, n0, _DORRe, 0, [_OR], [() => OutpostResolver$]];
-export var DeleteResolverEndpointRequest$: StaticStructureSchema = [3, n0, _DRER, 0, [_REI], [0]];
-export var DeleteResolverEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRERe,
-  0,
-  [_RE],
-  [() => ResolverEndpoint$],
-];
-export var DeleteResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _DRQLCR, 0, [_RQLCI], [0]];
-export var DeleteResolverQueryLogConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRQLCRe,
-  0,
-  [_RQLC],
-  [() => ResolverQueryLogConfig$],
-];
-export var DeleteResolverRuleRequest$: StaticStructureSchema = [3, n0, _DRRR, 0, [_RRI], [0]];
-export var DeleteResolverRuleResponse$: StaticStructureSchema = [3, n0, _DRRRe, 0, [_RR], [() => ResolverRule$]];
-export var DisassociateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _DFRGRi, 0, [_FRGAI], [0]];
-export var DisassociateFirewallRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DFRGRis,
-  0,
-  [_FRGA],
-  [() => FirewallRuleGroupAssociation$],
-];
-export var DisassociateResolverEndpointIpAddressRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DREIAR,
-  0,
-  [_REI, _IA],
-  [0, () => IpAddressUpdate$],
-];
-export var DisassociateResolverEndpointIpAddressResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DREIARi,
-  0,
-  [_RE],
-  [() => ResolverEndpoint$],
-];
-export var DisassociateResolverQueryLogConfigRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRQLCRi,
+export var AssociateResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _ARQLCR,
   0,
   [_RQLCI, _RI],
-  [0, 0],
+  [0, 0]
 ];
-export var DisassociateResolverQueryLogConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRQLCRis,
+export var AssociateResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0, _ARQLCRs,
   0,
   [_RQLCA],
-  [() => ResolverQueryLogConfigAssociation$],
+  [() => ResolverQueryLogConfigAssociation$]
 ];
-export var DisassociateResolverRuleRequest$: StaticStructureSchema = [3, n0, _DRRRi, 0, [_VPCI, _RRI], [0, 0]];
-export var DisassociateResolverRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRRRis,
+export var AssociateResolverRuleRequest$: StaticStructureSchema = [3, n0, _ARRR,
+  0,
+  [_RRI, _N, _VPCI],
+  [0, 0, 0]
+];
+export var AssociateResolverRuleResponse$: StaticStructureSchema = [3, n0, _ARRRs,
   0,
   [_RRA],
-  [() => ResolverRuleAssociation$],
+  [() => ResolverRuleAssociation$]
 ];
-export var Filter$: StaticStructureSchema = [3, n0, _F, 0, [_N, _V], [0, 64 | 0]];
-export var FirewallConfig$: StaticStructureSchema = [3, n0, _FC, 0, [_I, _RI, _OI, _FFO], [0, 0, 0, 0]];
-export var FirewallDomainList$: StaticStructureSchema = [
-  3,
-  n0,
-  _FDL,
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _CFDLR,
   0,
-  [_I, _Ar, _N, _DC, _S, _SM, _MON, _CRI, _CTr, _MT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+  [_CRI, _N, _T],
+  [[0, 4], 0, () => TagList]
 ];
-export var FirewallDomainListMetadata$: StaticStructureSchema = [
-  3,
-  n0,
-  _FDLM,
-  0,
-  [_I, _Ar, _N, _CRI, _MON],
-  [0, 0, 0, 0, 0],
-];
-export var FirewallRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _FR,
-  0,
-  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-];
-export var FirewallRuleGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _FRG,
-  0,
-  [_I, _Ar, _N, _RC, _S, _SM, _OI, _CRI, _SS, _CTr, _MT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-];
-export var FirewallRuleGroupAssociation$: StaticStructureSchema = [
-  3,
-  n0,
-  _FRGA,
-  0,
-  [_I, _Ar, _FRGI, _VI, _N, _P, _MP, _MON, _S, _SM, _CRI, _CTr, _MT],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-];
-export var FirewallRuleGroupMetadata$: StaticStructureSchema = [
-  3,
-  n0,
-  _FRGM,
-  0,
-  [_I, _Ar, _N, _OI, _CRI, _SS],
-  [0, 0, 0, 0, 0, 0],
-];
-export var GetFirewallConfigRequest$: StaticStructureSchema = [3, n0, _GFCR, 0, [_RI], [0]];
-export var GetFirewallConfigResponse$: StaticStructureSchema = [3, n0, _GFCRe, 0, [_FC], [() => FirewallConfig$]];
-export var GetFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _GFDLR, 0, [_FDLI], [0]];
-export var GetFirewallDomainListResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GFDLRe,
+export var CreateFirewallDomainListResponse$: StaticStructureSchema = [3, n0, _CFDLRr,
   0,
   [_FDL],
-  [() => FirewallDomainList$],
+  [() => FirewallDomainList$]
 ];
-export var GetFirewallRuleGroupAssociationRequest$: StaticStructureSchema = [3, n0, _GFRGAR, 0, [_FRGAI], [0]];
-export var GetFirewallRuleGroupAssociationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRGARe,
+export var CreateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _CFRGR,
   0,
-  [_FRGA],
-  [() => FirewallRuleGroupAssociation$],
+  [_CRI, _N, _T],
+  [[0, 4], 0, () => TagList]
 ];
-export var GetFirewallRuleGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GFRGPR, 0, [_Ar], [0]];
-export var GetFirewallRuleGroupPolicyResponse$: StaticStructureSchema = [3, n0, _GFRGPRe, 0, [_FRGP], [0]];
-export var GetFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _GFRGR, 0, [_FRGI], [0]];
-export var GetFirewallRuleGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GFRGRe,
+export var CreateFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _CFRGRr,
   0,
   [_FRG],
-  [() => FirewallRuleGroup$],
+  [() => FirewallRuleGroup$]
 ];
-export var GetOutpostResolverRequest$: StaticStructureSchema = [3, n0, _GORR, 0, [_I], [0]];
-export var GetOutpostResolverResponse$: StaticStructureSchema = [3, n0, _GORRe, 0, [_OR], [() => OutpostResolver$]];
-export var GetResolverConfigRequest$: StaticStructureSchema = [3, n0, _GRCR, 0, [_RI], [0]];
-export var GetResolverConfigResponse$: StaticStructureSchema = [3, n0, _GRCRe, 0, [_RCe], [() => ResolverConfig$]];
-export var GetResolverDnssecConfigRequest$: StaticStructureSchema = [3, n0, _GRDCR, 0, [_RI], [0]];
-export var GetResolverDnssecConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRDCRe,
+export var CreateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _CFRR,
   0,
-  [_RDNSSECC],
-  [() => ResolverDnssecConfig$],
+  [_CRI, _FRGI, _FDLI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT],
+  [[0, 4], 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
 ];
-export var GetResolverEndpointRequest$: StaticStructureSchema = [3, n0, _GRER, 0, [_REI], [0]];
-export var GetResolverEndpointResponse$: StaticStructureSchema = [3, n0, _GRERe, 0, [_RE], [() => ResolverEndpoint$]];
-export var GetResolverQueryLogConfigAssociationRequest$: StaticStructureSchema = [3, n0, _GRQLCAR, 0, [_RQLCAI], [0]];
-export var GetResolverQueryLogConfigAssociationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRQLCARe,
+export var CreateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _CFRRr,
   0,
-  [_RQLCA],
-  [() => ResolverQueryLogConfigAssociation$],
+  [_FR],
+  [() => FirewallRule$]
 ];
-export var GetResolverQueryLogConfigPolicyRequest$: StaticStructureSchema = [3, n0, _GRQLCPR, 0, [_Ar], [0]];
-export var GetResolverQueryLogConfigPolicyResponse$: StaticStructureSchema = [3, n0, _GRQLCPRe, 0, [_RQLCP], [0]];
-export var GetResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _GRQLCR, 0, [_RQLCI], [0]];
-export var GetResolverQueryLogConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRQLCRe,
+export var CreateOutpostResolverRequest$: StaticStructureSchema = [3, n0, _CORR,
   0,
-  [_RQLC],
-  [() => ResolverQueryLogConfig$],
+  [_CRI, _N, _IC, _PIT, _OA, _T],
+  [0, 0, 1, 0, 0, () => TagList]
 ];
-export var GetResolverRuleAssociationRequest$: StaticStructureSchema = [3, n0, _GRRAR, 0, [_RRAI], [0]];
-export var GetResolverRuleAssociationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRRARe,
+export var CreateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _CORRr,
   0,
-  [_RRA],
-  [() => ResolverRuleAssociation$],
+  [_OR],
+  [() => OutpostResolver$]
 ];
-export var GetResolverRulePolicyRequest$: StaticStructureSchema = [3, n0, _GRRPR, 0, [_Ar], [0]];
-export var GetResolverRulePolicyResponse$: StaticStructureSchema = [3, n0, _GRRPRe, 0, [_RRP], [0]];
-export var GetResolverRuleRequest$: StaticStructureSchema = [3, n0, _GRRR, 0, [_RRI], [0]];
-export var GetResolverRuleResponse$: StaticStructureSchema = [3, n0, _GRRRe, 0, [_RR], [() => ResolverRule$]];
-export var ImportFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _IFDR, 0, [_FDLI, _O, _DFU], [0, 0, 0]];
-export var ImportFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _IFDRm, 0, [_I, _N, _S, _SM], [0, 0, 0, 0]];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M, _FN], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPolicyDocument$: StaticErrorSchema = [-3, n0, _IPD, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidPolicyDocument$, InvalidPolicyDocument);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
-export var IpAddressRequest$: StaticStructureSchema = [3, n0, _IAR, 0, [_SI, _Ip, _Ipv], [0, 0, 0]];
-export var IpAddressResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _IARp,
+export var CreateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _CRER,
   0,
-  [_II, _SI, _Ip, _Ipv, _S, _SM, _CTr, _MT],
-  [0, 0, 0, 0, 0, 0, 0, 0],
+  [_CRI, _N, _SGI, _D, _IAp, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME],
+  [0, 0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, () => TagList, 0, 64 | 0, 2, 2]
 ];
-export var IpAddressUpdate$: StaticStructureSchema = [3, n0, _IAU, 0, [_II, _SI, _Ip, _Ipv], [0, 0, 0, 0]];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M, _RTe], [0, 0]];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListFirewallConfigsRequest$: StaticStructureSchema = [3, n0, _LFCR, 0, [_MR, _NT], [1, 0]];
-export var ListFirewallConfigsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFCRi,
-  0,
-  [_NT, _FCi],
-  [0, () => FirewallConfigList],
-];
-export var ListFirewallDomainListsRequest$: StaticStructureSchema = [3, n0, _LFDLR, 0, [_MR, _NT], [1, 0]];
-export var ListFirewallDomainListsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFDLRi,
-  0,
-  [_NT, _FDLi],
-  [0, () => FirewallDomainListMetadataList],
-];
-export var ListFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _LFDR, 0, [_FDLI, _MR, _NT], [0, 1, 0]];
-export var ListFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _LFDRi, 0, [_NT, _Do], [0, 64 | 0]];
-export var ListFirewallRuleGroupAssociationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRGAR,
-  0,
-  [_FRGI, _VI, _P, _S, _MR, _NT],
-  [0, 0, 1, 0, 1, 0],
-];
-export var ListFirewallRuleGroupAssociationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRGARi,
-  0,
-  [_NT, _FRGAi],
-  [0, () => FirewallRuleGroupAssociations],
-];
-export var ListFirewallRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LFRGR, 0, [_MR, _NT], [1, 0]];
-export var ListFirewallRuleGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRGRi,
-  0,
-  [_NT, _FRGi],
-  [0, () => FirewallRuleGroupMetadataList],
-];
-export var ListFirewallRulesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRR,
-  0,
-  [_FRGI, _P, _A, _MR, _NT],
-  [0, 1, 0, 1, 0],
-];
-export var ListFirewallRulesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LFRRi,
-  0,
-  [_NT, _FRi],
-  [0, () => FirewallRules],
-];
-export var ListOutpostResolversRequest$: StaticStructureSchema = [3, n0, _LORR, 0, [_OA, _MR, _NT], [0, 1, 0]];
-export var ListOutpostResolversResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LORRi,
-  0,
-  [_ORu, _NT],
-  [() => OutpostResolverList, 0],
-];
-export var ListResolverConfigsRequest$: StaticStructureSchema = [3, n0, _LRCR, 0, [_MR, _NT], [1, 0]];
-export var ListResolverConfigsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRCRi,
-  0,
-  [_NT, _RCes],
-  [0, () => ResolverConfigList],
-];
-export var ListResolverDnssecConfigsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDCR,
-  0,
-  [_MR, _NT, _Fi],
-  [1, 0, () => Filters],
-];
-export var ListResolverDnssecConfigsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRDCRi,
-  0,
-  [_NT, _RDC],
-  [0, () => ResolverDnssecConfigList],
-];
-export var ListResolverEndpointIpAddressesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LREIAR,
-  0,
-  [_REI, _MR, _NT],
-  [0, 1, 0],
-];
-export var ListResolverEndpointIpAddressesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LREIARi,
-  0,
-  [_NT, _MR, _IAp],
-  [0, 1, () => IpAddressesResponse],
-];
-export var ListResolverEndpointsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRER,
-  0,
-  [_MR, _NT, _Fi],
-  [1, 0, () => Filters],
-];
-export var ListResolverEndpointsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRERi,
-  0,
-  [_NT, _MR, _REe],
-  [0, 1, () => ResolverEndpoints],
-];
-export var ListResolverQueryLogConfigAssociationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRQLCAR,
-  0,
-  [_MR, _NT, _Fi, _SB, _SO],
-  [1, 0, () => Filters, 0, 0],
-];
-export var ListResolverQueryLogConfigAssociationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRQLCARi,
-  0,
-  [_NT, _TC, _TFC, _RQLCAe],
-  [0, 1, 1, () => ResolverQueryLogConfigAssociationList],
-];
-export var ListResolverQueryLogConfigsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRQLCR,
-  0,
-  [_MR, _NT, _Fi, _SB, _SO],
-  [1, 0, () => Filters, 0, 0],
-];
-export var ListResolverQueryLogConfigsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRQLCRi,
-  0,
-  [_NT, _TC, _TFC, _RQLCe],
-  [0, 1, 1, () => ResolverQueryLogConfigList],
-];
-export var ListResolverRuleAssociationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRAR,
-  0,
-  [_MR, _NT, _Fi],
-  [1, 0, () => Filters],
-];
-export var ListResolverRuleAssociationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRARi,
-  0,
-  [_NT, _MR, _RRAe],
-  [0, 1, () => ResolverRuleAssociations],
-];
-export var ListResolverRulesRequest$: StaticStructureSchema = [3, n0, _LRRR, 0, [_MR, _NT, _Fi], [1, 0, () => Filters]];
-export var ListResolverRulesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRRi,
-  0,
-  [_NT, _MR, _RRe],
-  [0, 1, () => ResolverRules],
-];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA, _MR, _NT], [0, 1, 0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T, _NT], [() => TagList, 0]];
-export var OutpostResolver$: StaticStructureSchema = [
-  3,
-  n0,
-  _OR,
-  0,
-  [_Ar, _CTr, _MT, _CRI, _I, _IC, _PIT, _N, _S, _SM, _OA],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-];
-export var PutFirewallRuleGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PFRGPR, 0, [_Ar, _FRGP], [0, 0]];
-export var PutFirewallRuleGroupPolicyResponse$: StaticStructureSchema = [3, n0, _PFRGPRu, 0, [_RV], [2]];
-export var PutResolverQueryLogConfigPolicyRequest$: StaticStructureSchema = [3, n0, _PRQLCPR, 0, [_Ar, _RQLCP], [0, 0]];
-export var PutResolverQueryLogConfigPolicyResponse$: StaticStructureSchema = [3, n0, _PRQLCPRu, 0, [_RV], [2]];
-export var PutResolverRulePolicyRequest$: StaticStructureSchema = [3, n0, _PRRPR, 0, [_Ar, _RRP], [0, 0]];
-export var PutResolverRulePolicyResponse$: StaticStructureSchema = [3, n0, _PRRPRu, 0, [_RV], [2]];
-export var ResolverConfig$: StaticStructureSchema = [3, n0, _RCe, 0, [_I, _RI, _OI, _AR], [0, 0, 0, 0]];
-export var ResolverDnssecConfig$: StaticStructureSchema = [3, n0, _RDCe, 0, [_I, _OI, _RI, _VS], [0, 0, 0, 0]];
-export var ResolverEndpoint$: StaticStructureSchema = [
-  3,
-  n0,
-  _RE,
-  0,
-  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME],
-  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2],
-];
-export var ResolverQueryLogConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _RQLC,
-  0,
-  [_I, _OI, _S, _SS, _AC, _Ar, _N, _DA, _CRI, _CTr],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-];
-export var ResolverQueryLogConfigAssociation$: StaticStructureSchema = [
-  3,
-  n0,
-  _RQLCA,
-  0,
-  [_I, _RQLCI, _RI, _S, _E, _EM, _CTr],
-  [0, 0, 0, 0, 0, 0, 0],
-];
-export var ResolverRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _RR,
-  0,
-  [_I, _CRI, _Ar, _DN, _S, _SM, _RT, _N, _TI, _REI, _OI, _SS, _CTr, _MT, _DR],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => TargetList, 0, 0, 0, 0, 0, 0],
-];
-export var ResolverRuleAssociation$: StaticStructureSchema = [
-  3,
-  n0,
-  _RRA,
-  0,
-  [_I, _RRI, _N, _VPCI, _S, _SM],
-  [0, 0, 0, 0, 0, 0],
-];
-export var ResolverRuleConfig$: StaticStructureSchema = [3, n0, _RRC, 0, [_N, _TI, _REI], [0, () => TargetList, 0]];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE, { [_e]: _c }, [_M, _RTe], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_M, _RTe], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RTe], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c }, [_M, _RTe], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TargetAddress$: StaticStructureSchema = [3, n0, _TA, 0, [_Ip, _Po, _Ipv, _Pro, _SNI], [0, 1, 0, 0, 0]];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnknownResourceException$, UnknownResourceException);
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateFirewallConfigRequest$: StaticStructureSchema = [3, n0, _UFCR, 0, [_RI, _FFO], [0, 0]];
-export var UpdateFirewallConfigResponse$: StaticStructureSchema = [3, n0, _UFCRp, 0, [_FC], [() => FirewallConfig$]];
-export var UpdateFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _UFDR, 0, [_FDLI, _O, _Do], [0, 0, 64 | 0]];
-export var UpdateFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _UFDRp, 0, [_I, _N, _S, _SM], [0, 0, 0, 0]];
-export var UpdateFirewallRuleGroupAssociationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRGAR,
-  0,
-  [_FRGAI, _P, _MP, _N],
-  [0, 1, 0, 0],
-];
-export var UpdateFirewallRuleGroupAssociationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRGARp,
-  0,
-  [_FRGA],
-  [() => FirewallRuleGroupAssociation$],
-];
-export var UpdateFirewallRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UFRR,
-  0,
-  [_FRGI, _FDLI, _FTPI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-];
-export var UpdateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _UFRRp, 0, [_FR], [() => FirewallRule$]];
-export var UpdateIpAddress$: StaticStructureSchema = [3, n0, _UIA, 0, [_II, _Ipv], [0, 0]];
-export var UpdateOutpostResolverRequest$: StaticStructureSchema = [3, n0, _UORR, 0, [_I, _N, _IC, _PIT], [0, 0, 1, 0]];
-export var UpdateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _UORRp, 0, [_OR], [() => OutpostResolver$]];
-export var UpdateResolverConfigRequest$: StaticStructureSchema = [3, n0, _URCR, 0, [_RI, _ARF], [0, 0]];
-export var UpdateResolverConfigResponse$: StaticStructureSchema = [3, n0, _URCRp, 0, [_RCe], [() => ResolverConfig$]];
-export var UpdateResolverDnssecConfigRequest$: StaticStructureSchema = [3, n0, _URDCR, 0, [_RI, _Val], [0, 0]];
-export var UpdateResolverDnssecConfigResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _URDCRp,
-  0,
-  [_RDNSSECC],
-  [() => ResolverDnssecConfig$],
-];
-export var UpdateResolverEndpointRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URER,
-  0,
-  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME],
-  [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2],
-];
-export var UpdateResolverEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _URERp,
+export var CreateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _CRERr,
   0,
   [_RE],
-  [() => ResolverEndpoint$],
+  [() => ResolverEndpoint$]
 ];
-export var UpdateResolverRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URRR,
+export var CreateResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _CRQLCR,
+  0,
+  [_N, _DA, _CRI, _T],
+  [0, 0, [0, 4], () => TagList]
+];
+export var CreateResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0, _CRQLCRr,
+  0,
+  [_RQLC],
+  [() => ResolverQueryLogConfig$]
+];
+export var CreateResolverRuleRequest$: StaticStructureSchema = [3, n0, _CRRR,
+  0,
+  [_CRI, _N, _RT, _DN, _TI, _REI, _T, _DR],
+  [0, 0, 0, 0, () => TargetList, 0, () => TagList, 0]
+];
+export var CreateResolverRuleResponse$: StaticStructureSchema = [3, n0, _CRRRr,
+  0,
+  [_RR],
+  [() => ResolverRule$]
+];
+export var DeleteFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _DFDLR,
+  0,
+  [_FDLI],
+  [0]
+];
+export var DeleteFirewallDomainListResponse$: StaticStructureSchema = [3, n0, _DFDLRe,
+  0,
+  [_FDL],
+  [() => FirewallDomainList$]
+];
+export var DeleteFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _DFRGR,
+  0,
+  [_FRGI],
+  [0]
+];
+export var DeleteFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _DFRGRe,
+  0,
+  [_FRG],
+  [() => FirewallRuleGroup$]
+];
+export var DeleteFirewallRuleRequest$: StaticStructureSchema = [3, n0, _DFRR,
+  0,
+  [_FRGI, _FDLI, _FTPI, _Q],
+  [0, 0, 0, 0]
+];
+export var DeleteFirewallRuleResponse$: StaticStructureSchema = [3, n0, _DFRRe,
+  0,
+  [_FR],
+  [() => FirewallRule$]
+];
+export var DeleteOutpostResolverRequest$: StaticStructureSchema = [3, n0, _DORR,
+  0,
+  [_I],
+  [0]
+];
+export var DeleteOutpostResolverResponse$: StaticStructureSchema = [3, n0, _DORRe,
+  0,
+  [_OR],
+  [() => OutpostResolver$]
+];
+export var DeleteResolverEndpointRequest$: StaticStructureSchema = [3, n0, _DRER,
+  0,
+  [_REI],
+  [0]
+];
+export var DeleteResolverEndpointResponse$: StaticStructureSchema = [3, n0, _DRERe,
+  0,
+  [_RE],
+  [() => ResolverEndpoint$]
+];
+export var DeleteResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _DRQLCR,
+  0,
+  [_RQLCI],
+  [0]
+];
+export var DeleteResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0, _DRQLCRe,
+  0,
+  [_RQLC],
+  [() => ResolverQueryLogConfig$]
+];
+export var DeleteResolverRuleRequest$: StaticStructureSchema = [3, n0, _DRRR,
+  0,
+  [_RRI],
+  [0]
+];
+export var DeleteResolverRuleResponse$: StaticStructureSchema = [3, n0, _DRRRe,
+  0,
+  [_RR],
+  [() => ResolverRule$]
+];
+export var DisassociateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _DFRGRi,
+  0,
+  [_FRGAI],
+  [0]
+];
+export var DisassociateFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _DFRGRis,
+  0,
+  [_FRGA],
+  [() => FirewallRuleGroupAssociation$]
+];
+export var DisassociateResolverEndpointIpAddressRequest$: StaticStructureSchema = [3, n0, _DREIAR,
+  0,
+  [_REI, _IA],
+  [0, () => IpAddressUpdate$]
+];
+export var DisassociateResolverEndpointIpAddressResponse$: StaticStructureSchema = [3, n0, _DREIARi,
+  0,
+  [_RE],
+  [() => ResolverEndpoint$]
+];
+export var DisassociateResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _DRQLCRi,
+  0,
+  [_RQLCI, _RI],
+  [0, 0]
+];
+export var DisassociateResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0, _DRQLCRis,
+  0,
+  [_RQLCA],
+  [() => ResolverQueryLogConfigAssociation$]
+];
+export var DisassociateResolverRuleRequest$: StaticStructureSchema = [3, n0, _DRRRi,
+  0,
+  [_VPCI, _RRI],
+  [0, 0]
+];
+export var DisassociateResolverRuleResponse$: StaticStructureSchema = [3, n0, _DRRRis,
+  0,
+  [_RRA],
+  [() => ResolverRuleAssociation$]
+];
+export var Filter$: StaticStructureSchema = [3, n0, _F,
+  0,
+  [_N, _V],
+  [0, 64 | 0]
+];
+export var FirewallConfig$: StaticStructureSchema = [3, n0, _FC,
+  0,
+  [_I, _RI, _OI, _FFO],
+  [0, 0, 0, 0]
+];
+export var FirewallDomainList$: StaticStructureSchema = [3, n0, _FDL,
+  0,
+  [_I, _Ar, _N, _DC, _S, _SM, _MON, _CRI, _CTr, _MT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+];
+export var FirewallDomainListMetadata$: StaticStructureSchema = [3, n0, _FDLM,
+  0,
+  [_I, _Ar, _N, _CRI, _MON],
+  [0, 0, 0, 0, 0]
+];
+export var FirewallRule$: StaticStructureSchema = [3, n0, _FR,
+  0,
+  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT],
+  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+];
+export var FirewallRuleGroup$: StaticStructureSchema = [3, n0, _FRG,
+  0,
+  [_I, _Ar, _N, _RC, _S, _SM, _OI, _CRI, _SS, _CTr, _MT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+];
+export var FirewallRuleGroupAssociation$: StaticStructureSchema = [3, n0, _FRGA,
+  0,
+  [_I, _Ar, _FRGI, _VI, _N, _P, _MP, _MON, _S, _SM, _CRI, _CTr, _MT],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+];
+export var FirewallRuleGroupMetadata$: StaticStructureSchema = [3, n0, _FRGM,
+  0,
+  [_I, _Ar, _N, _OI, _CRI, _SS],
+  [0, 0, 0, 0, 0, 0]
+];
+export var GetFirewallConfigRequest$: StaticStructureSchema = [3, n0, _GFCR,
+  0,
+  [_RI],
+  [0]
+];
+export var GetFirewallConfigResponse$: StaticStructureSchema = [3, n0, _GFCRe,
+  0,
+  [_FC],
+  [() => FirewallConfig$]
+];
+export var GetFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _GFDLR,
+  0,
+  [_FDLI],
+  [0]
+];
+export var GetFirewallDomainListResponse$: StaticStructureSchema = [3, n0, _GFDLRe,
+  0,
+  [_FDL],
+  [() => FirewallDomainList$]
+];
+export var GetFirewallRuleGroupAssociationRequest$: StaticStructureSchema = [3, n0, _GFRGAR,
+  0,
+  [_FRGAI],
+  [0]
+];
+export var GetFirewallRuleGroupAssociationResponse$: StaticStructureSchema = [3, n0, _GFRGARe,
+  0,
+  [_FRGA],
+  [() => FirewallRuleGroupAssociation$]
+];
+export var GetFirewallRuleGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GFRGPR,
+  0,
+  [_Ar],
+  [0]
+];
+export var GetFirewallRuleGroupPolicyResponse$: StaticStructureSchema = [3, n0, _GFRGPRe,
+  0,
+  [_FRGP],
+  [0]
+];
+export var GetFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _GFRGR,
+  0,
+  [_FRGI],
+  [0]
+];
+export var GetFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _GFRGRe,
+  0,
+  [_FRG],
+  [() => FirewallRuleGroup$]
+];
+export var GetOutpostResolverRequest$: StaticStructureSchema = [3, n0, _GORR,
+  0,
+  [_I],
+  [0]
+];
+export var GetOutpostResolverResponse$: StaticStructureSchema = [3, n0, _GORRe,
+  0,
+  [_OR],
+  [() => OutpostResolver$]
+];
+export var GetResolverConfigRequest$: StaticStructureSchema = [3, n0, _GRCR,
+  0,
+  [_RI],
+  [0]
+];
+export var GetResolverConfigResponse$: StaticStructureSchema = [3, n0, _GRCRe,
+  0,
+  [_RCe],
+  [() => ResolverConfig$]
+];
+export var GetResolverDnssecConfigRequest$: StaticStructureSchema = [3, n0, _GRDCR,
+  0,
+  [_RI],
+  [0]
+];
+export var GetResolverDnssecConfigResponse$: StaticStructureSchema = [3, n0, _GRDCRe,
+  0,
+  [_RDNSSECC],
+  [() => ResolverDnssecConfig$]
+];
+export var GetResolverEndpointRequest$: StaticStructureSchema = [3, n0, _GRER,
+  0,
+  [_REI],
+  [0]
+];
+export var GetResolverEndpointResponse$: StaticStructureSchema = [3, n0, _GRERe,
+  0,
+  [_RE],
+  [() => ResolverEndpoint$]
+];
+export var GetResolverQueryLogConfigAssociationRequest$: StaticStructureSchema = [3, n0, _GRQLCAR,
+  0,
+  [_RQLCAI],
+  [0]
+];
+export var GetResolverQueryLogConfigAssociationResponse$: StaticStructureSchema = [3, n0, _GRQLCARe,
+  0,
+  [_RQLCA],
+  [() => ResolverQueryLogConfigAssociation$]
+];
+export var GetResolverQueryLogConfigPolicyRequest$: StaticStructureSchema = [3, n0, _GRQLCPR,
+  0,
+  [_Ar],
+  [0]
+];
+export var GetResolverQueryLogConfigPolicyResponse$: StaticStructureSchema = [3, n0, _GRQLCPRe,
+  0,
+  [_RQLCP],
+  [0]
+];
+export var GetResolverQueryLogConfigRequest$: StaticStructureSchema = [3, n0, _GRQLCR,
+  0,
+  [_RQLCI],
+  [0]
+];
+export var GetResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0, _GRQLCRe,
+  0,
+  [_RQLC],
+  [() => ResolverQueryLogConfig$]
+];
+export var GetResolverRuleAssociationRequest$: StaticStructureSchema = [3, n0, _GRRAR,
+  0,
+  [_RRAI],
+  [0]
+];
+export var GetResolverRuleAssociationResponse$: StaticStructureSchema = [3, n0, _GRRARe,
+  0,
+  [_RRA],
+  [() => ResolverRuleAssociation$]
+];
+export var GetResolverRulePolicyRequest$: StaticStructureSchema = [3, n0, _GRRPR,
+  0,
+  [_Ar],
+  [0]
+];
+export var GetResolverRulePolicyResponse$: StaticStructureSchema = [3, n0, _GRRPRe,
+  0,
+  [_RRP],
+  [0]
+];
+export var GetResolverRuleRequest$: StaticStructureSchema = [3, n0, _GRRR,
+  0,
+  [_RRI],
+  [0]
+];
+export var GetResolverRuleResponse$: StaticStructureSchema = [3, n0, _GRRRe,
+  0,
+  [_RR],
+  [() => ResolverRule$]
+];
+export var ImportFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _IFDR,
+  0,
+  [_FDLI, _O, _DFU],
+  [0, 0, 0]
+];
+export var ImportFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _IFDRm,
+  0,
+  [_I, _N, _S, _SM],
+  [0, 0, 0, 0]
+];
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M, _FN],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPolicyDocument$: StaticErrorSchema = [-3, n0, _IPD,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidPolicyDocument$, InvalidPolicyDocument);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
+export var IpAddressRequest$: StaticStructureSchema = [3, n0, _IAR,
+  0,
+  [_SI, _Ip, _Ipv],
+  [0, 0, 0]
+];
+export var IpAddressResponse$: StaticStructureSchema = [3, n0, _IARp,
+  0,
+  [_II, _SI, _Ip, _Ipv, _S, _SM, _CTr, _MT],
+  [0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var IpAddressUpdate$: StaticStructureSchema = [3, n0, _IAU,
+  0,
+  [_II, _SI, _Ip, _Ipv],
+  [0, 0, 0, 0]
+];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M, _RTe],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListFirewallConfigsRequest$: StaticStructureSchema = [3, n0, _LFCR,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListFirewallConfigsResponse$: StaticStructureSchema = [3, n0, _LFCRi,
+  0,
+  [_NT, _FCi],
+  [0, () => FirewallConfigList]
+];
+export var ListFirewallDomainListsRequest$: StaticStructureSchema = [3, n0, _LFDLR,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListFirewallDomainListsResponse$: StaticStructureSchema = [3, n0, _LFDLRi,
+  0,
+  [_NT, _FDLi],
+  [0, () => FirewallDomainListMetadataList]
+];
+export var ListFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _LFDR,
+  0,
+  [_FDLI, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _LFDRi,
+  0,
+  [_NT, _Do],
+  [0, 64 | 0]
+];
+export var ListFirewallRuleGroupAssociationsRequest$: StaticStructureSchema = [3, n0, _LFRGAR,
+  0,
+  [_FRGI, _VI, _P, _S, _MR, _NT],
+  [0, 0, 1, 0, 1, 0]
+];
+export var ListFirewallRuleGroupAssociationsResponse$: StaticStructureSchema = [3, n0, _LFRGARi,
+  0,
+  [_NT, _FRGAi],
+  [0, () => FirewallRuleGroupAssociations]
+];
+export var ListFirewallRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LFRGR,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListFirewallRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LFRGRi,
+  0,
+  [_NT, _FRGi],
+  [0, () => FirewallRuleGroupMetadataList]
+];
+export var ListFirewallRulesRequest$: StaticStructureSchema = [3, n0, _LFRR,
+  0,
+  [_FRGI, _P, _A, _MR, _NT],
+  [0, 1, 0, 1, 0]
+];
+export var ListFirewallRulesResponse$: StaticStructureSchema = [3, n0, _LFRRi,
+  0,
+  [_NT, _FRi],
+  [0, () => FirewallRules]
+];
+export var ListOutpostResolversRequest$: StaticStructureSchema = [3, n0, _LORR,
+  0,
+  [_OA, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListOutpostResolversResponse$: StaticStructureSchema = [3, n0, _LORRi,
+  0,
+  [_ORu, _NT],
+  [() => OutpostResolverList, 0]
+];
+export var ListResolverConfigsRequest$: StaticStructureSchema = [3, n0, _LRCR,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListResolverConfigsResponse$: StaticStructureSchema = [3, n0, _LRCRi,
+  0,
+  [_NT, _RCes],
+  [0, () => ResolverConfigList]
+];
+export var ListResolverDnssecConfigsRequest$: StaticStructureSchema = [3, n0, _LRDCR,
+  0,
+  [_MR, _NT, _Fi],
+  [1, 0, () => Filters]
+];
+export var ListResolverDnssecConfigsResponse$: StaticStructureSchema = [3, n0, _LRDCRi,
+  0,
+  [_NT, _RDC],
+  [0, () => ResolverDnssecConfigList]
+];
+export var ListResolverEndpointIpAddressesRequest$: StaticStructureSchema = [3, n0, _LREIAR,
+  0,
+  [_REI, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListResolverEndpointIpAddressesResponse$: StaticStructureSchema = [3, n0, _LREIARi,
+  0,
+  [_NT, _MR, _IAp],
+  [0, 1, () => IpAddressesResponse]
+];
+export var ListResolverEndpointsRequest$: StaticStructureSchema = [3, n0, _LRER,
+  0,
+  [_MR, _NT, _Fi],
+  [1, 0, () => Filters]
+];
+export var ListResolverEndpointsResponse$: StaticStructureSchema = [3, n0, _LRERi,
+  0,
+  [_NT, _MR, _REe],
+  [0, 1, () => ResolverEndpoints]
+];
+export var ListResolverQueryLogConfigAssociationsRequest$: StaticStructureSchema = [3, n0, _LRQLCAR,
+  0,
+  [_MR, _NT, _Fi, _SB, _SO],
+  [1, 0, () => Filters, 0, 0]
+];
+export var ListResolverQueryLogConfigAssociationsResponse$: StaticStructureSchema = [3, n0, _LRQLCARi,
+  0,
+  [_NT, _TC, _TFC, _RQLCAe],
+  [0, 1, 1, () => ResolverQueryLogConfigAssociationList]
+];
+export var ListResolverQueryLogConfigsRequest$: StaticStructureSchema = [3, n0, _LRQLCR,
+  0,
+  [_MR, _NT, _Fi, _SB, _SO],
+  [1, 0, () => Filters, 0, 0]
+];
+export var ListResolverQueryLogConfigsResponse$: StaticStructureSchema = [3, n0, _LRQLCRi,
+  0,
+  [_NT, _TC, _TFC, _RQLCe],
+  [0, 1, 1, () => ResolverQueryLogConfigList]
+];
+export var ListResolverRuleAssociationsRequest$: StaticStructureSchema = [3, n0, _LRRAR,
+  0,
+  [_MR, _NT, _Fi],
+  [1, 0, () => Filters]
+];
+export var ListResolverRuleAssociationsResponse$: StaticStructureSchema = [3, n0, _LRRARi,
+  0,
+  [_NT, _MR, _RRAe],
+  [0, 1, () => ResolverRuleAssociations]
+];
+export var ListResolverRulesRequest$: StaticStructureSchema = [3, n0, _LRRR,
+  0,
+  [_MR, _NT, _Fi],
+  [1, 0, () => Filters]
+];
+export var ListResolverRulesResponse$: StaticStructureSchema = [3, n0, _LRRRi,
+  0,
+  [_NT, _MR, _RRe],
+  [0, 1, () => ResolverRules]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_RA, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_T, _NT],
+  [() => TagList, 0]
+];
+export var OutpostResolver$: StaticStructureSchema = [3, n0, _OR,
+  0,
+  [_Ar, _CTr, _MT, _CRI, _I, _IC, _PIT, _N, _S, _SM, _OA],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+];
+export var PutFirewallRuleGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PFRGPR,
+  0,
+  [_Ar, _FRGP],
+  [0, 0]
+];
+export var PutFirewallRuleGroupPolicyResponse$: StaticStructureSchema = [3, n0, _PFRGPRu,
+  0,
+  [_RV],
+  [2]
+];
+export var PutResolverQueryLogConfigPolicyRequest$: StaticStructureSchema = [3, n0, _PRQLCPR,
+  0,
+  [_Ar, _RQLCP],
+  [0, 0]
+];
+export var PutResolverQueryLogConfigPolicyResponse$: StaticStructureSchema = [3, n0, _PRQLCPRu,
+  0,
+  [_RV],
+  [2]
+];
+export var PutResolverRulePolicyRequest$: StaticStructureSchema = [3, n0, _PRRPR,
+  0,
+  [_Ar, _RRP],
+  [0, 0]
+];
+export var PutResolverRulePolicyResponse$: StaticStructureSchema = [3, n0, _PRRPRu,
+  0,
+  [_RV],
+  [2]
+];
+export var ResolverConfig$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_I, _RI, _OI, _AR],
+  [0, 0, 0, 0]
+];
+export var ResolverDnssecConfig$: StaticStructureSchema = [3, n0, _RDCe,
+  0,
+  [_I, _OI, _RI, _VS],
+  [0, 0, 0, 0]
+];
+export var ResolverEndpoint$: StaticStructureSchema = [3, n0, _RE,
+  0,
+  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME],
+  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2]
+];
+export var ResolverQueryLogConfig$: StaticStructureSchema = [3, n0, _RQLC,
+  0,
+  [_I, _OI, _S, _SS, _AC, _Ar, _N, _DA, _CRI, _CTr],
+  [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+];
+export var ResolverQueryLogConfigAssociation$: StaticStructureSchema = [3, n0, _RQLCA,
+  0,
+  [_I, _RQLCI, _RI, _S, _E, _EM, _CTr],
+  [0, 0, 0, 0, 0, 0, 0]
+];
+export var ResolverRule$: StaticStructureSchema = [3, n0, _RR,
+  0,
+  [_I, _CRI, _Ar, _DN, _S, _SM, _RT, _N, _TI, _REI, _OI, _SS, _CTr, _MT, _DR],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => TargetList, 0, 0, 0, 0, 0, 0]
+];
+export var ResolverRuleAssociation$: StaticStructureSchema = [3, n0, _RRA,
+  0,
+  [_I, _RRI, _N, _VPCI, _S, _SM],
+  [0, 0, 0, 0, 0, 0]
+];
+export var ResolverRuleConfig$: StaticStructureSchema = [3, n0, _RRC,
+  0,
+  [_N, _TI, _REI],
+  [0, () => TargetList, 0]
+];
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c },
+  [_M, _RTe],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_M, _RTe],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _RTe],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c },
+  [_M, _RTe],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _Va],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_RA, _T],
+  [0, () => TagList]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TargetAddress$: StaticStructureSchema = [3, n0, _TA,
+  0,
+  [_Ip, _Po, _Ipv, _Pro, _SNI],
+  [0, 1, 0, 0, 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnknownResourceException$, UnknownResourceException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_RA, _TK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateFirewallConfigRequest$: StaticStructureSchema = [3, n0, _UFCR,
+  0,
+  [_RI, _FFO],
+  [0, 0]
+];
+export var UpdateFirewallConfigResponse$: StaticStructureSchema = [3, n0, _UFCRp,
+  0,
+  [_FC],
+  [() => FirewallConfig$]
+];
+export var UpdateFirewallDomainsRequest$: StaticStructureSchema = [3, n0, _UFDR,
+  0,
+  [_FDLI, _O, _Do],
+  [0, 0, 64 | 0]
+];
+export var UpdateFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _UFDRp,
+  0,
+  [_I, _N, _S, _SM],
+  [0, 0, 0, 0]
+];
+export var UpdateFirewallRuleGroupAssociationRequest$: StaticStructureSchema = [3, n0, _UFRGAR,
+  0,
+  [_FRGAI, _P, _MP, _N],
+  [0, 1, 0, 0]
+];
+export var UpdateFirewallRuleGroupAssociationResponse$: StaticStructureSchema = [3, n0, _UFRGARp,
+  0,
+  [_FRGA],
+  [() => FirewallRuleGroupAssociation$]
+];
+export var UpdateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _UFRR,
+  0,
+  [_FRGI, _FDLI, _FTPI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+];
+export var UpdateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _UFRRp,
+  0,
+  [_FR],
+  [() => FirewallRule$]
+];
+export var UpdateIpAddress$: StaticStructureSchema = [3, n0, _UIA,
+  0,
+  [_II, _Ipv],
+  [0, 0]
+];
+export var UpdateOutpostResolverRequest$: StaticStructureSchema = [3, n0, _UORR,
+  0,
+  [_I, _N, _IC, _PIT],
+  [0, 0, 1, 0]
+];
+export var UpdateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _UORRp,
+  0,
+  [_OR],
+  [() => OutpostResolver$]
+];
+export var UpdateResolverConfigRequest$: StaticStructureSchema = [3, n0, _URCR,
+  0,
+  [_RI, _ARF],
+  [0, 0]
+];
+export var UpdateResolverConfigResponse$: StaticStructureSchema = [3, n0, _URCRp,
+  0,
+  [_RCe],
+  [() => ResolverConfig$]
+];
+export var UpdateResolverDnssecConfigRequest$: StaticStructureSchema = [3, n0, _URDCR,
+  0,
+  [_RI, _Val],
+  [0, 0]
+];
+export var UpdateResolverDnssecConfigResponse$: StaticStructureSchema = [3, n0, _URDCRp,
+  0,
+  [_RDNSSECC],
+  [() => ResolverDnssecConfig$]
+];
+export var UpdateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _URER,
+  0,
+  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME],
+  [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2]
+];
+export var UpdateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _URERp,
+  0,
+  [_RE],
+  [() => ResolverEndpoint$]
+];
+export var UpdateResolverRuleRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
   [_RRI, _C],
-  [0, () => ResolverRuleConfig$],
+  [0, () => ResolverRuleConfig$]
 ];
-export var UpdateResolverRuleResponse$: StaticStructureSchema = [3, n0, _URRRp, 0, [_RR], [() => ResolverRule$]];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
+export var UpdateResolverRuleResponse$: StaticStructureSchema = [3, n0, _URRRp,
+  0,
+  [_RR],
+  [() => ResolverRule$]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Route53ResolverServiceException$: StaticErrorSchema = [-3, _s, "Route53ResolverServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(Route53ResolverServiceException$, Route53ResolverServiceException);
-var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter$];
-var FilterValues = 64 | 0;
-var FirewallConfigList: StaticListSchema = [1, n0, _FCL, 0, () => FirewallConfig$];
-var FirewallDomainListMetadataList: StaticListSchema = [1, n0, _FDLML, 0, () => FirewallDomainListMetadata$];
-var FirewallDomains = 64 | 0;
-var FirewallRuleGroupAssociations: StaticListSchema = [1, n0, _FRGAi, 0, () => FirewallRuleGroupAssociation$];
-var FirewallRuleGroupMetadataList: StaticListSchema = [1, n0, _FRGML, 0, () => FirewallRuleGroupMetadata$];
-var FirewallRules: StaticListSchema = [1, n0, _FRi, 0, () => FirewallRule$];
-var IpAddressesRequest: StaticListSchema = [1, n0, _IARpd, 0, () => IpAddressRequest$];
-var IpAddressesResponse: StaticListSchema = [1, n0, _IARpdd, 0, () => IpAddressResponse$];
-var OutpostResolverList: StaticListSchema = [1, n0, _ORL, 0, () => OutpostResolver$];
-var ProtocolList = 64 | 0;
-var ResolverConfigList: StaticListSchema = [1, n0, _RCL, 0, () => ResolverConfig$];
-var ResolverDnssecConfigList: StaticListSchema = [1, n0, _RDCL, 0, () => ResolverDnssecConfig$];
-var ResolverEndpoints: StaticListSchema = [1, n0, _REe, 0, () => ResolverEndpoint$];
-var ResolverQueryLogConfigAssociationList: StaticListSchema = [
-  1,
-  n0,
-  _RQLCAL,
-  0,
-  () => ResolverQueryLogConfigAssociation$,
+var Filters: StaticListSchema = [1, n0, _Fi,
+  0, () => Filter$
 ];
-var ResolverQueryLogConfigList: StaticListSchema = [1, n0, _RQLCL, 0, () => ResolverQueryLogConfig$];
-var ResolverRuleAssociations: StaticListSchema = [1, n0, _RRAe, 0, () => ResolverRuleAssociation$];
-var ResolverRules: StaticListSchema = [1, n0, _RRe, 0, () => ResolverRule$];
+var FilterValues = 64 | 0;
+var FirewallConfigList: StaticListSchema = [1, n0, _FCL,
+  0, () => FirewallConfig$
+];
+var FirewallDomainListMetadataList: StaticListSchema = [1, n0, _FDLML,
+  0, () => FirewallDomainListMetadata$
+];
+var FirewallDomains = 64 | 0;
+var FirewallRuleGroupAssociations: StaticListSchema = [1, n0, _FRGAi,
+  0, () => FirewallRuleGroupAssociation$
+];
+var FirewallRuleGroupMetadataList: StaticListSchema = [1, n0, _FRGML,
+  0, () => FirewallRuleGroupMetadata$
+];
+var FirewallRules: StaticListSchema = [1, n0, _FRi,
+  0, () => FirewallRule$
+];
+var IpAddressesRequest: StaticListSchema = [1, n0, _IARpd,
+  0, () => IpAddressRequest$
+];
+var IpAddressesResponse: StaticListSchema = [1, n0, _IARpdd,
+  0, () => IpAddressResponse$
+];
+var OutpostResolverList: StaticListSchema = [1, n0, _ORL,
+  0, () => OutpostResolver$
+];
+var ProtocolList = 64 | 0;
+var ResolverConfigList: StaticListSchema = [1, n0, _RCL,
+  0, () => ResolverConfig$
+];
+var ResolverDnssecConfigList: StaticListSchema = [1, n0, _RDCL,
+  0, () => ResolverDnssecConfig$
+];
+var ResolverEndpoints: StaticListSchema = [1, n0, _REe,
+  0, () => ResolverEndpoint$
+];
+var ResolverQueryLogConfigAssociationList: StaticListSchema = [1, n0, _RQLCAL,
+  0, () => ResolverQueryLogConfigAssociation$
+];
+var ResolverQueryLogConfigList: StaticListSchema = [1, n0, _RQLCL,
+  0, () => ResolverQueryLogConfig$
+];
+var ResolverRuleAssociations: StaticListSchema = [1, n0, _RRAe,
+  0, () => ResolverRuleAssociation$
+];
+var ResolverRules: StaticListSchema = [1, n0, _RRe,
+  0, () => ResolverRule$
+];
 var SecurityGroupIds = 64 | 0;
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => TargetAddress$];
-var UpdateIpAddresses: StaticListSchema = [1, n0, _UIAp, 0, () => UpdateIpAddress$];
-export var AssociateFirewallRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _AFRG,
-  0,
-  () => AssociateFirewallRuleGroupRequest$,
-  () => AssociateFirewallRuleGroupResponse$,
-];
-export var AssociateResolverEndpointIpAddress$: StaticOperationSchema = [
-  9,
-  n0,
-  _AREIA,
-  0,
-  () => AssociateResolverEndpointIpAddressRequest$,
-  () => AssociateResolverEndpointIpAddressResponse$,
-];
-export var AssociateResolverQueryLogConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARQLC,
-  0,
-  () => AssociateResolverQueryLogConfigRequest$,
-  () => AssociateResolverQueryLogConfigResponse$,
-];
-export var AssociateResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARR,
-  0,
-  () => AssociateResolverRuleRequest$,
-  () => AssociateResolverRuleResponse$,
-];
-export var CreateFirewallDomainList$: StaticOperationSchema = [
-  9,
-  n0,
-  _CFDL,
-  0,
-  () => CreateFirewallDomainListRequest$,
-  () => CreateFirewallDomainListResponse$,
-];
-export var CreateFirewallRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _CFR,
-  0,
-  () => CreateFirewallRuleRequest$,
-  () => CreateFirewallRuleResponse$,
-];
-export var CreateFirewallRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CFRG,
-  0,
-  () => CreateFirewallRuleGroupRequest$,
-  () => CreateFirewallRuleGroupResponse$,
-];
-export var CreateOutpostResolver$: StaticOperationSchema = [
-  9,
-  n0,
-  _COR,
-  0,
-  () => CreateOutpostResolverRequest$,
-  () => CreateOutpostResolverResponse$,
-];
-export var CreateResolverEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRE,
-  0,
-  () => CreateResolverEndpointRequest$,
-  () => CreateResolverEndpointResponse$,
-];
-export var CreateResolverQueryLogConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRQLC,
-  0,
-  () => CreateResolverQueryLogConfigRequest$,
-  () => CreateResolverQueryLogConfigResponse$,
-];
-export var CreateResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRR,
-  0,
-  () => CreateResolverRuleRequest$,
-  () => CreateResolverRuleResponse$,
-];
-export var DeleteFirewallDomainList$: StaticOperationSchema = [
-  9,
-  n0,
-  _DFDL,
-  0,
-  () => DeleteFirewallDomainListRequest$,
-  () => DeleteFirewallDomainListResponse$,
-];
-export var DeleteFirewallRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DFR,
-  0,
-  () => DeleteFirewallRuleRequest$,
-  () => DeleteFirewallRuleResponse$,
-];
-export var DeleteFirewallRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DFRG,
-  0,
-  () => DeleteFirewallRuleGroupRequest$,
-  () => DeleteFirewallRuleGroupResponse$,
-];
-export var DeleteOutpostResolver$: StaticOperationSchema = [
-  9,
-  n0,
-  _DOR,
-  0,
-  () => DeleteOutpostResolverRequest$,
-  () => DeleteOutpostResolverResponse$,
-];
-export var DeleteResolverEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRE,
-  0,
-  () => DeleteResolverEndpointRequest$,
-  () => DeleteResolverEndpointResponse$,
-];
-export var DeleteResolverQueryLogConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRQLC,
-  0,
-  () => DeleteResolverQueryLogConfigRequest$,
-  () => DeleteResolverQueryLogConfigResponse$,
-];
-export var DeleteResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRR,
-  0,
-  () => DeleteResolverRuleRequest$,
-  () => DeleteResolverRuleResponse$,
-];
-export var DisassociateFirewallRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DFRGi,
-  0,
-  () => DisassociateFirewallRuleGroupRequest$,
-  () => DisassociateFirewallRuleGroupResponse$,
-];
-export var DisassociateResolverEndpointIpAddress$: StaticOperationSchema = [
-  9,
-  n0,
-  _DREIA,
-  0,
-  () => DisassociateResolverEndpointIpAddressRequest$,
-  () => DisassociateResolverEndpointIpAddressResponse$,
-];
-export var DisassociateResolverQueryLogConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRQLCi,
-  0,
-  () => DisassociateResolverQueryLogConfigRequest$,
-  () => DisassociateResolverQueryLogConfigResponse$,
-];
-export var DisassociateResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRRi,
-  0,
-  () => DisassociateResolverRuleRequest$,
-  () => DisassociateResolverRuleResponse$,
-];
-export var GetFirewallConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFC,
-  0,
-  () => GetFirewallConfigRequest$,
-  () => GetFirewallConfigResponse$,
-];
-export var GetFirewallDomainList$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFDL,
-  0,
-  () => GetFirewallDomainListRequest$,
-  () => GetFirewallDomainListResponse$,
-];
-export var GetFirewallRuleGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFRG,
-  0,
-  () => GetFirewallRuleGroupRequest$,
-  () => GetFirewallRuleGroupResponse$,
-];
-export var GetFirewallRuleGroupAssociation$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFRGA,
-  0,
-  () => GetFirewallRuleGroupAssociationRequest$,
-  () => GetFirewallRuleGroupAssociationResponse$,
-];
-export var GetFirewallRuleGroupPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFRGP,
-  0,
-  () => GetFirewallRuleGroupPolicyRequest$,
-  () => GetFirewallRuleGroupPolicyResponse$,
-];
-export var GetOutpostResolver$: StaticOperationSchema = [
-  9,
-  n0,
-  _GOR,
-  0,
-  () => GetOutpostResolverRequest$,
-  () => GetOutpostResolverResponse$,
-];
-export var GetResolverConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRC,
-  0,
-  () => GetResolverConfigRequest$,
-  () => GetResolverConfigResponse$,
-];
-export var GetResolverDnssecConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRDC,
-  0,
-  () => GetResolverDnssecConfigRequest$,
-  () => GetResolverDnssecConfigResponse$,
-];
-export var GetResolverEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRE,
-  0,
-  () => GetResolverEndpointRequest$,
-  () => GetResolverEndpointResponse$,
-];
-export var GetResolverQueryLogConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRQLC,
-  0,
-  () => GetResolverQueryLogConfigRequest$,
-  () => GetResolverQueryLogConfigResponse$,
-];
-export var GetResolverQueryLogConfigAssociation$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRQLCA,
-  0,
-  () => GetResolverQueryLogConfigAssociationRequest$,
-  () => GetResolverQueryLogConfigAssociationResponse$,
-];
-export var GetResolverQueryLogConfigPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRQLCP,
-  0,
-  () => GetResolverQueryLogConfigPolicyRequest$,
-  () => GetResolverQueryLogConfigPolicyResponse$,
-];
-export var GetResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRR,
-  0,
-  () => GetResolverRuleRequest$,
-  () => GetResolverRuleResponse$,
-];
-export var GetResolverRuleAssociation$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRRA,
-  0,
-  () => GetResolverRuleAssociationRequest$,
-  () => GetResolverRuleAssociationResponse$,
-];
-export var GetResolverRulePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRRP,
-  0,
-  () => GetResolverRulePolicyRequest$,
-  () => GetResolverRulePolicyResponse$,
-];
-export var ImportFirewallDomains$: StaticOperationSchema = [
-  9,
-  n0,
-  _IFD,
-  0,
-  () => ImportFirewallDomainsRequest$,
-  () => ImportFirewallDomainsResponse$,
-];
-export var ListFirewallConfigs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFC,
-  0,
-  () => ListFirewallConfigsRequest$,
-  () => ListFirewallConfigsResponse$,
-];
-export var ListFirewallDomainLists$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFDL,
-  0,
-  () => ListFirewallDomainListsRequest$,
-  () => ListFirewallDomainListsResponse$,
-];
-export var ListFirewallDomains$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFD,
-  0,
-  () => ListFirewallDomainsRequest$,
-  () => ListFirewallDomainsResponse$,
-];
-export var ListFirewallRuleGroupAssociations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFRGA,
-  0,
-  () => ListFirewallRuleGroupAssociationsRequest$,
-  () => ListFirewallRuleGroupAssociationsResponse$,
-];
-export var ListFirewallRuleGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFRG,
-  0,
-  () => ListFirewallRuleGroupsRequest$,
-  () => ListFirewallRuleGroupsResponse$,
-];
-export var ListFirewallRules$: StaticOperationSchema = [
-  9,
-  n0,
-  _LFR,
-  0,
-  () => ListFirewallRulesRequest$,
-  () => ListFirewallRulesResponse$,
-];
-export var ListOutpostResolvers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LOR,
-  0,
-  () => ListOutpostResolversRequest$,
-  () => ListOutpostResolversResponse$,
-];
-export var ListResolverConfigs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRC,
-  0,
-  () => ListResolverConfigsRequest$,
-  () => ListResolverConfigsResponse$,
-];
-export var ListResolverDnssecConfigs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRDC,
-  0,
-  () => ListResolverDnssecConfigsRequest$,
-  () => ListResolverDnssecConfigsResponse$,
-];
-export var ListResolverEndpointIpAddresses$: StaticOperationSchema = [
-  9,
-  n0,
-  _LREIA,
-  0,
-  () => ListResolverEndpointIpAddressesRequest$,
-  () => ListResolverEndpointIpAddressesResponse$,
-];
-export var ListResolverEndpoints$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRE,
-  0,
-  () => ListResolverEndpointsRequest$,
-  () => ListResolverEndpointsResponse$,
-];
-export var ListResolverQueryLogConfigAssociations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRQLCA,
-  0,
-  () => ListResolverQueryLogConfigAssociationsRequest$,
-  () => ListResolverQueryLogConfigAssociationsResponse$,
-];
-export var ListResolverQueryLogConfigs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRQLC,
-  0,
-  () => ListResolverQueryLogConfigsRequest$,
-  () => ListResolverQueryLogConfigsResponse$,
-];
-export var ListResolverRuleAssociations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRRA,
-  0,
-  () => ListResolverRuleAssociationsRequest$,
-  () => ListResolverRuleAssociationsResponse$,
-];
-export var ListResolverRules$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRR,
-  0,
-  () => ListResolverRulesRequest$,
-  () => ListResolverRulesResponse$,
-];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
-];
-export var PutFirewallRuleGroupPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PFRGP,
-  0,
-  () => PutFirewallRuleGroupPolicyRequest$,
-  () => PutFirewallRuleGroupPolicyResponse$,
-];
-export var PutResolverQueryLogConfigPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRQLCP,
-  0,
-  () => PutResolverQueryLogConfigPolicyRequest$,
-  () => PutResolverQueryLogConfigPolicyResponse$,
-];
-export var PutResolverRulePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRRP,
-  0,
-  () => PutResolverRulePolicyRequest$,
-  () => PutResolverRulePolicyResponse$,
-];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  0,
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
-];
-export var UpdateFirewallConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _UFC,
-  0,
-  () => UpdateFirewallConfigRequest$,
-  () => UpdateFirewallConfigResponse$,
-];
-export var UpdateFirewallDomains$: StaticOperationSchema = [
-  9,
-  n0,
-  _UFD,
-  0,
-  () => UpdateFirewallDomainsRequest$,
-  () => UpdateFirewallDomainsResponse$,
-];
-export var UpdateFirewallRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _UFR,
-  0,
-  () => UpdateFirewallRuleRequest$,
-  () => UpdateFirewallRuleResponse$,
-];
-export var UpdateFirewallRuleGroupAssociation$: StaticOperationSchema = [
-  9,
-  n0,
-  _UFRGA,
-  0,
-  () => UpdateFirewallRuleGroupAssociationRequest$,
-  () => UpdateFirewallRuleGroupAssociationResponse$,
-];
-export var UpdateOutpostResolver$: StaticOperationSchema = [
-  9,
-  n0,
-  _UOR,
-  0,
-  () => UpdateOutpostResolverRequest$,
-  () => UpdateOutpostResolverResponse$,
-];
-export var UpdateResolverConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _URC,
-  0,
-  () => UpdateResolverConfigRequest$,
-  () => UpdateResolverConfigResponse$,
-];
-export var UpdateResolverDnssecConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _URDC,
-  0,
-  () => UpdateResolverDnssecConfigRequest$,
-  () => UpdateResolverDnssecConfigResponse$,
-];
-export var UpdateResolverEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _UREp,
-  0,
-  () => UpdateResolverEndpointRequest$,
-  () => UpdateResolverEndpointResponse$,
-];
-export var UpdateResolverRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _URRp,
-  0,
-  () => UpdateResolverRuleRequest$,
-  () => UpdateResolverRuleResponse$,
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var TargetList: StaticListSchema = [1, n0, _TLa,
+  0, () => TargetAddress$
+];
+var UpdateIpAddresses: StaticListSchema = [1, n0, _UIAp,
+  0, () => UpdateIpAddress$
+];
+export var AssociateFirewallRuleGroup$: StaticOperationSchema = [9, n0, _AFRG,
+  0, () => AssociateFirewallRuleGroupRequest$, () => AssociateFirewallRuleGroupResponse$
+];
+export var AssociateResolverEndpointIpAddress$: StaticOperationSchema = [9, n0, _AREIA,
+  0, () => AssociateResolverEndpointIpAddressRequest$, () => AssociateResolverEndpointIpAddressResponse$
+];
+export var AssociateResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _ARQLC,
+  0, () => AssociateResolverQueryLogConfigRequest$, () => AssociateResolverQueryLogConfigResponse$
+];
+export var AssociateResolverRule$: StaticOperationSchema = [9, n0, _ARR,
+  0, () => AssociateResolverRuleRequest$, () => AssociateResolverRuleResponse$
+];
+export var CreateFirewallDomainList$: StaticOperationSchema = [9, n0, _CFDL,
+  0, () => CreateFirewallDomainListRequest$, () => CreateFirewallDomainListResponse$
+];
+export var CreateFirewallRule$: StaticOperationSchema = [9, n0, _CFR,
+  0, () => CreateFirewallRuleRequest$, () => CreateFirewallRuleResponse$
+];
+export var CreateFirewallRuleGroup$: StaticOperationSchema = [9, n0, _CFRG,
+  0, () => CreateFirewallRuleGroupRequest$, () => CreateFirewallRuleGroupResponse$
+];
+export var CreateOutpostResolver$: StaticOperationSchema = [9, n0, _COR,
+  0, () => CreateOutpostResolverRequest$, () => CreateOutpostResolverResponse$
+];
+export var CreateResolverEndpoint$: StaticOperationSchema = [9, n0, _CRE,
+  0, () => CreateResolverEndpointRequest$, () => CreateResolverEndpointResponse$
+];
+export var CreateResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _CRQLC,
+  0, () => CreateResolverQueryLogConfigRequest$, () => CreateResolverQueryLogConfigResponse$
+];
+export var CreateResolverRule$: StaticOperationSchema = [9, n0, _CRR,
+  0, () => CreateResolverRuleRequest$, () => CreateResolverRuleResponse$
+];
+export var DeleteFirewallDomainList$: StaticOperationSchema = [9, n0, _DFDL,
+  0, () => DeleteFirewallDomainListRequest$, () => DeleteFirewallDomainListResponse$
+];
+export var DeleteFirewallRule$: StaticOperationSchema = [9, n0, _DFR,
+  0, () => DeleteFirewallRuleRequest$, () => DeleteFirewallRuleResponse$
+];
+export var DeleteFirewallRuleGroup$: StaticOperationSchema = [9, n0, _DFRG,
+  0, () => DeleteFirewallRuleGroupRequest$, () => DeleteFirewallRuleGroupResponse$
+];
+export var DeleteOutpostResolver$: StaticOperationSchema = [9, n0, _DOR,
+  0, () => DeleteOutpostResolverRequest$, () => DeleteOutpostResolverResponse$
+];
+export var DeleteResolverEndpoint$: StaticOperationSchema = [9, n0, _DRE,
+  0, () => DeleteResolverEndpointRequest$, () => DeleteResolverEndpointResponse$
+];
+export var DeleteResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _DRQLC,
+  0, () => DeleteResolverQueryLogConfigRequest$, () => DeleteResolverQueryLogConfigResponse$
+];
+export var DeleteResolverRule$: StaticOperationSchema = [9, n0, _DRR,
+  0, () => DeleteResolverRuleRequest$, () => DeleteResolverRuleResponse$
+];
+export var DisassociateFirewallRuleGroup$: StaticOperationSchema = [9, n0, _DFRGi,
+  0, () => DisassociateFirewallRuleGroupRequest$, () => DisassociateFirewallRuleGroupResponse$
+];
+export var DisassociateResolverEndpointIpAddress$: StaticOperationSchema = [9, n0, _DREIA,
+  0, () => DisassociateResolverEndpointIpAddressRequest$, () => DisassociateResolverEndpointIpAddressResponse$
+];
+export var DisassociateResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _DRQLCi,
+  0, () => DisassociateResolverQueryLogConfigRequest$, () => DisassociateResolverQueryLogConfigResponse$
+];
+export var DisassociateResolverRule$: StaticOperationSchema = [9, n0, _DRRi,
+  0, () => DisassociateResolverRuleRequest$, () => DisassociateResolverRuleResponse$
+];
+export var GetFirewallConfig$: StaticOperationSchema = [9, n0, _GFC,
+  0, () => GetFirewallConfigRequest$, () => GetFirewallConfigResponse$
+];
+export var GetFirewallDomainList$: StaticOperationSchema = [9, n0, _GFDL,
+  0, () => GetFirewallDomainListRequest$, () => GetFirewallDomainListResponse$
+];
+export var GetFirewallRuleGroup$: StaticOperationSchema = [9, n0, _GFRG,
+  0, () => GetFirewallRuleGroupRequest$, () => GetFirewallRuleGroupResponse$
+];
+export var GetFirewallRuleGroupAssociation$: StaticOperationSchema = [9, n0, _GFRGA,
+  0, () => GetFirewallRuleGroupAssociationRequest$, () => GetFirewallRuleGroupAssociationResponse$
+];
+export var GetFirewallRuleGroupPolicy$: StaticOperationSchema = [9, n0, _GFRGP,
+  0, () => GetFirewallRuleGroupPolicyRequest$, () => GetFirewallRuleGroupPolicyResponse$
+];
+export var GetOutpostResolver$: StaticOperationSchema = [9, n0, _GOR,
+  0, () => GetOutpostResolverRequest$, () => GetOutpostResolverResponse$
+];
+export var GetResolverConfig$: StaticOperationSchema = [9, n0, _GRC,
+  0, () => GetResolverConfigRequest$, () => GetResolverConfigResponse$
+];
+export var GetResolverDnssecConfig$: StaticOperationSchema = [9, n0, _GRDC,
+  0, () => GetResolverDnssecConfigRequest$, () => GetResolverDnssecConfigResponse$
+];
+export var GetResolverEndpoint$: StaticOperationSchema = [9, n0, _GRE,
+  0, () => GetResolverEndpointRequest$, () => GetResolverEndpointResponse$
+];
+export var GetResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _GRQLC,
+  0, () => GetResolverQueryLogConfigRequest$, () => GetResolverQueryLogConfigResponse$
+];
+export var GetResolverQueryLogConfigAssociation$: StaticOperationSchema = [9, n0, _GRQLCA,
+  0, () => GetResolverQueryLogConfigAssociationRequest$, () => GetResolverQueryLogConfigAssociationResponse$
+];
+export var GetResolverQueryLogConfigPolicy$: StaticOperationSchema = [9, n0, _GRQLCP,
+  0, () => GetResolverQueryLogConfigPolicyRequest$, () => GetResolverQueryLogConfigPolicyResponse$
+];
+export var GetResolverRule$: StaticOperationSchema = [9, n0, _GRR,
+  0, () => GetResolverRuleRequest$, () => GetResolverRuleResponse$
+];
+export var GetResolverRuleAssociation$: StaticOperationSchema = [9, n0, _GRRA,
+  0, () => GetResolverRuleAssociationRequest$, () => GetResolverRuleAssociationResponse$
+];
+export var GetResolverRulePolicy$: StaticOperationSchema = [9, n0, _GRRP,
+  0, () => GetResolverRulePolicyRequest$, () => GetResolverRulePolicyResponse$
+];
+export var ImportFirewallDomains$: StaticOperationSchema = [9, n0, _IFD,
+  0, () => ImportFirewallDomainsRequest$, () => ImportFirewallDomainsResponse$
+];
+export var ListFirewallConfigs$: StaticOperationSchema = [9, n0, _LFC,
+  0, () => ListFirewallConfigsRequest$, () => ListFirewallConfigsResponse$
+];
+export var ListFirewallDomainLists$: StaticOperationSchema = [9, n0, _LFDL,
+  0, () => ListFirewallDomainListsRequest$, () => ListFirewallDomainListsResponse$
+];
+export var ListFirewallDomains$: StaticOperationSchema = [9, n0, _LFD,
+  0, () => ListFirewallDomainsRequest$, () => ListFirewallDomainsResponse$
+];
+export var ListFirewallRuleGroupAssociations$: StaticOperationSchema = [9, n0, _LFRGA,
+  0, () => ListFirewallRuleGroupAssociationsRequest$, () => ListFirewallRuleGroupAssociationsResponse$
+];
+export var ListFirewallRuleGroups$: StaticOperationSchema = [9, n0, _LFRG,
+  0, () => ListFirewallRuleGroupsRequest$, () => ListFirewallRuleGroupsResponse$
+];
+export var ListFirewallRules$: StaticOperationSchema = [9, n0, _LFR,
+  0, () => ListFirewallRulesRequest$, () => ListFirewallRulesResponse$
+];
+export var ListOutpostResolvers$: StaticOperationSchema = [9, n0, _LOR,
+  0, () => ListOutpostResolversRequest$, () => ListOutpostResolversResponse$
+];
+export var ListResolverConfigs$: StaticOperationSchema = [9, n0, _LRC,
+  0, () => ListResolverConfigsRequest$, () => ListResolverConfigsResponse$
+];
+export var ListResolverDnssecConfigs$: StaticOperationSchema = [9, n0, _LRDC,
+  0, () => ListResolverDnssecConfigsRequest$, () => ListResolverDnssecConfigsResponse$
+];
+export var ListResolverEndpointIpAddresses$: StaticOperationSchema = [9, n0, _LREIA,
+  0, () => ListResolverEndpointIpAddressesRequest$, () => ListResolverEndpointIpAddressesResponse$
+];
+export var ListResolverEndpoints$: StaticOperationSchema = [9, n0, _LRE,
+  0, () => ListResolverEndpointsRequest$, () => ListResolverEndpointsResponse$
+];
+export var ListResolverQueryLogConfigAssociations$: StaticOperationSchema = [9, n0, _LRQLCA,
+  0, () => ListResolverQueryLogConfigAssociationsRequest$, () => ListResolverQueryLogConfigAssociationsResponse$
+];
+export var ListResolverQueryLogConfigs$: StaticOperationSchema = [9, n0, _LRQLC,
+  0, () => ListResolverQueryLogConfigsRequest$, () => ListResolverQueryLogConfigsResponse$
+];
+export var ListResolverRuleAssociations$: StaticOperationSchema = [9, n0, _LRRA,
+  0, () => ListResolverRuleAssociationsRequest$, () => ListResolverRuleAssociationsResponse$
+];
+export var ListResolverRules$: StaticOperationSchema = [9, n0, _LRR,
+  0, () => ListResolverRulesRequest$, () => ListResolverRulesResponse$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var PutFirewallRuleGroupPolicy$: StaticOperationSchema = [9, n0, _PFRGP,
+  0, () => PutFirewallRuleGroupPolicyRequest$, () => PutFirewallRuleGroupPolicyResponse$
+];
+export var PutResolverQueryLogConfigPolicy$: StaticOperationSchema = [9, n0, _PRQLCP,
+  0, () => PutResolverQueryLogConfigPolicyRequest$, () => PutResolverQueryLogConfigPolicyResponse$
+];
+export var PutResolverRulePolicy$: StaticOperationSchema = [9, n0, _PRRP,
+  0, () => PutResolverRulePolicyRequest$, () => PutResolverRulePolicyResponse$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  0, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateFirewallConfig$: StaticOperationSchema = [9, n0, _UFC,
+  0, () => UpdateFirewallConfigRequest$, () => UpdateFirewallConfigResponse$
+];
+export var UpdateFirewallDomains$: StaticOperationSchema = [9, n0, _UFD,
+  0, () => UpdateFirewallDomainsRequest$, () => UpdateFirewallDomainsResponse$
+];
+export var UpdateFirewallRule$: StaticOperationSchema = [9, n0, _UFR,
+  0, () => UpdateFirewallRuleRequest$, () => UpdateFirewallRuleResponse$
+];
+export var UpdateFirewallRuleGroupAssociation$: StaticOperationSchema = [9, n0, _UFRGA,
+  0, () => UpdateFirewallRuleGroupAssociationRequest$, () => UpdateFirewallRuleGroupAssociationResponse$
+];
+export var UpdateOutpostResolver$: StaticOperationSchema = [9, n0, _UOR,
+  0, () => UpdateOutpostResolverRequest$, () => UpdateOutpostResolverResponse$
+];
+export var UpdateResolverConfig$: StaticOperationSchema = [9, n0, _URC,
+  0, () => UpdateResolverConfigRequest$, () => UpdateResolverConfigResponse$
+];
+export var UpdateResolverDnssecConfig$: StaticOperationSchema = [9, n0, _URDC,
+  0, () => UpdateResolverDnssecConfigRequest$, () => UpdateResolverDnssecConfigResponse$
+];
+export var UpdateResolverEndpoint$: StaticOperationSchema = [9, n0, _UREp,
+  0, () => UpdateResolverEndpointRequest$, () => UpdateResolverEndpointResponse$
+];
+export var UpdateResolverRule$: StaticOperationSchema = [9, n0, _URRp,
+  0, () => UpdateResolverRuleRequest$, () => UpdateResolverRuleResponse$
 ];

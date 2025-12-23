@@ -24,9 +24,7 @@ export interface DescribeAssociationExecutionsCommandInput extends DescribeAssoc
  *
  * The output of {@link DescribeAssociationExecutionsCommand}.
  */
-export interface DescribeAssociationExecutionsCommandOutput
-  extends DescribeAssociationExecutionsResult,
-    __MetadataBearer {}
+export interface DescribeAssociationExecutionsCommandOutput extends DescribeAssociationExecutionsResult, __MetadataBearer {}
 
 /**
  * <p>Views all executions for a specific association ID. </p>

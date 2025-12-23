@@ -27,9 +27,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchT
  *
  * The output of {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
-export interface SearchTransitGatewayMulticastGroupsCommandOutput
-  extends SearchTransitGatewayMulticastGroupsResult,
-    __MetadataBearer {}
+export interface SearchTransitGatewayMulticastGroupsCommandOutput extends SearchTransitGatewayMulticastGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListEngagementByAcceptingInvitationTasksCommand}.
  */
-export interface ListEngagementByAcceptingInvitationTasksCommandInput
-  extends ListEngagementByAcceptingInvitationTasksRequest {}
+export interface ListEngagementByAcceptingInvitationTasksCommandInput extends ListEngagementByAcceptingInvitationTasksRequest {}
 /**
  * @public
  *
  * The output of {@link ListEngagementByAcceptingInvitationTasksCommand}.
  */
-export interface ListEngagementByAcceptingInvitationTasksCommandOutput
-  extends ListEngagementByAcceptingInvitationTasksResponse,
-    __MetadataBearer {}
+export interface ListEngagementByAcceptingInvitationTasksCommandOutput extends ListEngagementByAcceptingInvitationTasksResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask tasks that were initiated by the caller's account. </p>

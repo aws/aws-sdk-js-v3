@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAssetModelInterfaceRelationshipCommand}.
  */
-export interface DescribeAssetModelInterfaceRelationshipCommandInput
-  extends DescribeAssetModelInterfaceRelationshipRequest {}
+export interface DescribeAssetModelInterfaceRelationshipCommandInput extends DescribeAssetModelInterfaceRelationshipRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAssetModelInterfaceRelationshipCommand}.
  */
-export interface DescribeAssetModelInterfaceRelationshipCommandOutput
-  extends DescribeAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface DescribeAssetModelInterfaceRelationshipCommandOutput extends DescribeAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an interface relationship between an asset model and an

@@ -31,9 +31,7 @@ export interface ListLicenseSpecificationsForResourceCommandInput extends ListLi
  *
  * The output of {@link ListLicenseSpecificationsForResourceCommand}.
  */
-export interface ListLicenseSpecificationsForResourceCommandOutput
-  extends ListLicenseSpecificationsForResourceResponse,
-    __MetadataBearer {}
+export interface ListLicenseSpecificationsForResourceCommandOutput extends ListLicenseSpecificationsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the license configurations for the specified resource.</p>

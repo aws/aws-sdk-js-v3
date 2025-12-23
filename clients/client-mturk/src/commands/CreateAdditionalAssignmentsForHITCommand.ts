@@ -27,9 +27,7 @@ export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdd
  *
  * The output of {@link CreateAdditionalAssignmentsForHITCommand}.
  */
-export interface CreateAdditionalAssignmentsForHITCommandOutput
-  extends CreateAdditionalAssignmentsForHITResponse,
-    __MetadataBearer {}
+export interface CreateAdditionalAssignmentsForHITCommandOutput extends CreateAdditionalAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoSc
  *
  * The output of {@link DeleteAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandOutput
-  extends DeleteAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAutoScalingConfigurationCommandOutput extends DeleteAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a top level auto scaling configuration, a specific revision of one, or all

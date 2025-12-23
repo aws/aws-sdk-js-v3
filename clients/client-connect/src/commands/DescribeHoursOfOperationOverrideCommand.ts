@@ -27,9 +27,7 @@ export interface DescribeHoursOfOperationOverrideCommandInput extends DescribeHo
  *
  * The output of {@link DescribeHoursOfOperationOverrideCommand}.
  */
-export interface DescribeHoursOfOperationOverrideCommandOutput
-  extends DescribeHoursOfOperationOverrideResponse,
-    __MetadataBearer {}
+export interface DescribeHoursOfOperationOverrideCommandOutput extends DescribeHoursOfOperationOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the hours of operation override.</p>

@@ -45,7 +45,6 @@ import {
   VpcEncryptionControlMode,
   VpcTenancy,
 } from "./enums";
-
 import {
   type AddressAttribute,
   type ByoipCidr,
@@ -66,7 +65,6 @@ import {
   TagSpecification,
   UnsuccessfulItem,
 } from "./models_0";
-
 import {
   type CreditSpecificationRequest,
   type IcmpTypeCode,
@@ -78,7 +76,6 @@ import {
   InstanceIpv6Address,
   LocalGatewayRoute,
 } from "./models_1";
-
 import {
   type DnsOptionsSpecification,
   type VerifiedAccessSseSpecificationRequest,
@@ -95,7 +92,6 @@ import {
   SubnetConfiguration,
   TransitGatewayRoute,
 } from "./models_2";
-
 import {
   type AttributeBooleanValue,
   type Byoasn,
@@ -108,7 +104,6 @@ import {
   CapacityBlockExtension,
   Filter,
 } from "./models_3";
-
 import {
   type NetworkInsightsAccessScopeAnalysis,
   type NetworkInsightsAnalysis,
@@ -120,9 +115,7 @@ import {
   ScheduledInstance,
   SpotInstanceRequest,
 } from "./models_4";
-
 import { type VolumeModification, type VpcBlockPublicAccessOptions, Purchase } from "./models_5";
-
 import type {
   CapacityReservationSpecification,
   ModifyVerifiedAccessNativeApplicationOidcOptions,

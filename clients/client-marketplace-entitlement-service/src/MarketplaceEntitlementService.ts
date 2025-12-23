@@ -21,7 +21,10 @@ export interface MarketplaceEntitlementService {
     args: GetEntitlementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEntitlementsCommandOutput>;
-  getEntitlements(args: GetEntitlementsCommandInput, cb: (err: any, data?: GetEntitlementsCommandOutput) => void): void;
+  getEntitlements(
+    args: GetEntitlementsCommandInput,
+    cb: (err: any, data?: GetEntitlementsCommandOutput) => void
+  ): void;
   getEntitlements(
     args: GetEntitlementsCommandInput,
     options: __HttpHandlerOptions,
@@ -49,7 +52,5 @@ export interface MarketplaceEntitlementService {
  *          </ul>
  * @public
  */
-export class MarketplaceEntitlementService
-  extends MarketplaceEntitlementServiceClient
-  implements MarketplaceEntitlementService {}
+export class MarketplaceEntitlementService extends MarketplaceEntitlementServiceClient implements MarketplaceEntitlementService {}
 createAggregatedClient(commands, MarketplaceEntitlementService);

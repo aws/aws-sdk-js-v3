@@ -27,9 +27,7 @@ export interface ListComponentProvisionedResourcesCommandInput extends ListCompo
  *
  * The output of {@link ListComponentProvisionedResourcesCommand}.
  */
-export interface ListComponentProvisionedResourcesCommandOutput
-  extends ListComponentProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListComponentProvisionedResourcesCommandOutput extends ListComponentProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List provisioned resources for a component with details.</p>

@@ -262,753 +262,584 @@ var PermissionGroupDescription: StaticSimpleSchema = [0, n0, _PGD, 8, 0];
 var PermissionGroupName: StaticSimpleSchema = [0, n0, _PGN, 8, 0];
 var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AssociateUserToPermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AUTPGR,
+export var AssociateUserToPermissionGroupRequest$: StaticStructureSchema = [3, n0, _AUTPGR,
   0,
   [_pGI, _uI, _cT],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 4],
-  ],
+  [[0, 1], [0, 1], [0, 4]]
 ];
-export var AssociateUserToPermissionGroupResponse$: StaticStructureSchema = [3, n0, _AUTPGRs, 0, [_sC], [[1, 32]]];
-export var AwsCredentials$: StaticStructureSchema = [
-  3,
-  n0,
-  _AC,
+export var AssociateUserToPermissionGroupResponse$: StaticStructureSchema = [3, n0, _AUTPGRs,
+  0,
+  [_sC],
+  [[1, 32]]
+];
+export var AwsCredentials$: StaticStructureSchema = [3, n0, _AC,
   8,
   [_aKI, _sAK, _sT, _ex],
-  [0, [() => SecretAccessKey, 0], [() => SessionToken, 0], 1],
+  [0, [() => SecretAccessKey, 0], [() => SessionToken, 0], 1]
 ];
-export var ChangesetErrorInfo$: StaticStructureSchema = [3, n0, _CEI, 0, [_eM, _eC], [0, 0]];
-export var ChangesetSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _CS,
+export var ChangesetErrorInfo$: StaticStructureSchema = [3, n0, _CEI,
+  0,
+  [_eM, _eC],
+  [0, 0]
+];
+export var ChangesetSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _s, _eI, _aUT, _aFT, _uCI, _uBCI],
-  [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0],
+  [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0]
 ];
-export var ColumnDefinition$: StaticStructureSchema = [3, n0, _CD, 0, [_dT, _cN, _cD], [0, 0, 0]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
+export var ColumnDefinition$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_dT, _cN, _cD],
+  [0, 0, 0]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _r],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateChangesetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCR,
+export var CreateChangesetRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_cT, _dI, _cTh, _sP, _fP],
-  [[0, 4], [0, 1], 0, 128 | 0, 128 | 0],
+  [[0, 4], [0, 1], 0, 128 | 0, 128 | 0]
 ];
-export var CreateChangesetResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_dI, _cI], [0, 0]];
-export var CreateDatasetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDR,
-  0,
-  [_cT, _dTa, _k, _dD, _oI, _pGP, _a, _sD],
-  [[0, 4], 0, 0, 0, [() => DatasetOwnerInfo$, 0], () => PermissionGroupParams$, 0, () => SchemaUnion$],
-];
-export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr, 0, [_dI], [0]];
-export var CreateDataViewRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDVR,
-  0,
-  [_cT, _dI, _aU, _sCo, _pC, _aOT, _dTP],
-  [[0, 4], [0, 1], 2, 64 | 0, 64 | 0, 1, () => DataViewDestinationTypeParams$],
-];
-export var CreateDataViewResponse$: StaticStructureSchema = [3, n0, _CDVRr, 0, [_dI, _dVI], [0, 0]];
-export var CreatePermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPGR,
-  0,
-  [_n, _d, _aP, _cT],
-  [[() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]],
-];
-export var CreatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr, 0, [_pGI], [0]];
-export var CreateUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CUR,
-  0,
-  [_eA, _t, _fN, _lN, _aA, _aAPA, _cT],
-  [[() => Email, 0], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]],
-];
-export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [_uI], [0]];
-export var Credentials$: StaticStructureSchema = [3, n0, _C, 8, [_aKI, _sAK, _sT], [0, 0, 0]];
-export var Dataset$: StaticStructureSchema = [
-  3,
-  n0,
-  _D,
-  0,
-  [_dI, _dA, _dTa, _k, _dD, _oI, _cTr, _lMT, _sD, _a],
-  [0, 0, 0, 0, 0, [() => DatasetOwnerInfo$, 0], 1, 1, () => SchemaUnion$, 0],
-];
-export var DatasetOwnerInfo$: StaticStructureSchema = [3, n0, _DOI, 0, [_n, _pN, _em], [0, 0, [() => Email, 0]]];
-export var DataViewDestinationTypeParams$: StaticStructureSchema = [
-  3,
-  n0,
-  _DVDTP,
-  0,
-  [_dTe, _sDEFF, _sDEFFO],
-  [0, 0, 128 | 0],
-];
-export var DataViewErrorInfo$: StaticStructureSchema = [3, n0, _DVEI, 0, [_eM, _eC], [0, 0]];
-export var DataViewSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DVS,
-  0,
-  [_dVI, _dVA, _dI, _aOT, _pC, _sCo, _s, _eI, _dTPe, _aU, _cTr, _lMT],
-  [0, 0, 0, 1, 64 | 0, 64 | 0, 0, () => DataViewErrorInfo$, () => DataViewDestinationTypeParams$, 2, 1, 1],
-];
-export var DeleteDatasetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDR,
-  0,
-  [_cT, _dI],
-  [
-    [0, { [_hQ]: _cT, [_iT]: 1 }],
-    [0, 1],
-  ],
-];
-export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [_dI], [0]];
-export var DeletePermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DPGR,
-  0,
-  [_pGI, _cT],
-  [
-    [0, 1],
-    [0, { [_hQ]: _cT, [_iT]: 1 }],
-  ],
-];
-export var DeletePermissionGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe, 0, [_pGI], [0]];
-export var DisableUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DUR,
-  0,
-  [_uI, _cT],
-  [
-    [0, 1],
-    [0, 4],
-  ],
-];
-export var DisableUserResponse$: StaticStructureSchema = [3, n0, _DURi, 0, [_uI], [0]];
-export var DisassociateUserFromPermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DUFPGR,
-  0,
-  [_pGI, _uI, _cT],
-  [
-    [0, 1],
-    [0, 1],
-    [0, { [_hQ]: _cT, [_iT]: 1 }],
-  ],
-];
-export var DisassociateUserFromPermissionGroupResponse$: StaticStructureSchema = [3, n0, _DUFPGRi, 0, [_sC], [[1, 32]]];
-export var EnableUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _EUR,
-  0,
-  [_uI, _cT],
-  [
-    [0, 1],
-    [0, 4],
-  ],
-];
-export var EnableUserResponse$: StaticStructureSchema = [3, n0, _EURn, 0, [_uI], [0]];
-export var GetChangesetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCR,
+export var CreateChangesetResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_dI, _cI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [0, 0]
 ];
-export var GetChangesetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCRe,
+export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _s, _eI, _aUT, _aFT, _uCI, _uBCI],
-  [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0],
+  [_cT, _dTa, _k, _dD, _oI, _pGP, _a, _sD],
+  [[0, 4], 0, 0, 0, [() => DatasetOwnerInfo$, 0], () => PermissionGroupParams$, 0, () => SchemaUnion$]
 ];
-export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR, 0, [_dI], [[0, 1]]];
-export var GetDatasetResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDRe,
+export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_dI, _dA, _dTa, _k, _dD, _cTr, _lMT, _sD, _a, _s],
-  [0, 0, 0, 0, 0, 1, 1, () => SchemaUnion$, 0, 0],
+  [_dI],
+  [0]
 ];
-export var GetDataViewRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDVR,
+export var CreateDataViewRequest$: StaticStructureSchema = [3, n0, _CDVR,
   0,
-  [_dVI, _dI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [_cT, _dI, _aU, _sCo, _pC, _aOT, _dTP],
+  [[0, 4], [0, 1], 2, 64 | 0, 64 | 0, 1, () => DataViewDestinationTypeParams$]
 ];
-export var GetDataViewResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDVRe,
+export var CreateDataViewResponse$: StaticStructureSchema = [3, n0, _CDVRr,
   0,
-  [_aU, _pC, _dI, _aOT, _eI, _lMT, _cTr, _sCo, _dVI, _dVA, _dTP, _s],
-  [2, 64 | 0, 0, 1, () => DataViewErrorInfo$, 1, 1, 64 | 0, 0, 0, () => DataViewDestinationTypeParams$, 0],
+  [_dI, _dVI],
+  [0, 0]
 ];
-export var GetExternalDataViewAccessDetailsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GEDVADR,
+export var CreatePermissionGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
-  [_dVI, _dI],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [_n, _d, _aP, _cT],
+  [[() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]]
 ];
-export var GetExternalDataViewAccessDetailsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GEDVADRe,
+export var CreatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
-  [_cr, _sL],
-  [[() => AwsCredentials$, 0], () => S3Location$],
+  [_pGI],
+  [0]
 ];
-export var GetPermissionGroupRequest$: StaticStructureSchema = [3, n0, _GPGR, 0, [_pGI], [[0, 1]]];
-export var GetPermissionGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GPGRe,
+export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_pG],
-  [[() => PermissionGroup$, 0]],
+  [_eA, _t, _fN, _lN, _aA, _aAPA, _cT],
+  [[() => Email, 0], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]]
 ];
-export var GetProgrammaticAccessCredentialsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GPACR,
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
-  [_dIM, _eIn],
-  [
-    [1, { [_hQ]: _dIM }],
-    [0, { [_hQ]: _eIn }],
-  ],
+  [_uI],
+  [0]
 ];
-export var GetProgrammaticAccessCredentialsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GPACRe,
+export var Credentials$: StaticStructureSchema = [3, n0, _C,
+  8,
+  [_aKI, _sAK, _sT],
+  [0, 0, 0]
+];
+export var Dataset$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_cr, _dIM],
-  [[() => Credentials$, 0], 1],
+  [_dI, _dA, _dTa, _k, _dD, _oI, _cTr, _lMT, _sD, _a],
+  [0, 0, 0, 0, 0, [() => DatasetOwnerInfo$, 0], 1, 1, () => SchemaUnion$, 0]
 ];
-export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR, 0, [_uI], [[0, 1]]];
-export var GetUserResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GURe,
+export var DatasetOwnerInfo$: StaticStructureSchema = [3, n0, _DOI,
   0,
-  [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
-  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1],
+  [_n, _pN, _em],
+  [0, 0, [() => Email, 0]]
 ];
-export var GetWorkingLocationRequest$: StaticStructureSchema = [3, n0, _GWLR, 0, [_lT], [0]];
-export var GetWorkingLocationResponse$: StaticStructureSchema = [3, n0, _GWLRe, 0, [_sU, _sPa, _sB], [0, 0, 0]];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListChangesetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCR,
+export var DataViewDestinationTypeParams$: StaticStructureSchema = [3, n0, _DVDTP,
   0,
-  [_dI, _mR, _nT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [_dTe, _sDEFF, _sDEFFO],
+  [0, 0, 128 | 0]
 ];
-export var ListChangesetsResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_ch, _nT], [() => ChangesetList, 0]];
-export var ListDatasetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDR,
+export var DataViewErrorInfo$: StaticStructureSchema = [3, n0, _DVEI,
   0,
-  [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [_eM, _eC],
+  [0, 0]
 ];
-export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_da, _nT], [[() => DatasetList, 0], 0]];
-export var ListDataViewsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDVR,
+export var DataViewSummary$: StaticStructureSchema = [3, n0, _DVS,
   0,
-  [_dI, _nT, _mR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [_dVI, _dVA, _dI, _aOT, _pC, _sCo, _s, _eI, _dTPe, _aU, _cTr, _lMT],
+  [0, 0, 0, 1, 64 | 0, 64 | 0, 0, () => DataViewErrorInfo$, () => DataViewDestinationTypeParams$, 2, 1, 1]
 ];
-export var ListDataViewsResponse$: StaticStructureSchema = [3, n0, _LDVRi, 0, [_nT, _dV], [0, () => DataViewList]];
-export var ListPermissionGroupsByUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGBUR,
+export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
-  [_uI, _nT, _mR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [_cT, _dI],
+  [[0, { [_hQ]: _cT, [_iT]: 1 }], [0, 1]]
 ];
-export var ListPermissionGroupsByUserResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGBURi,
+export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
-  [_pGe, _nT],
-  [[() => PermissionGroupByUserList, 0], 0],
+  [_dI],
+  [0]
 ];
-export var ListPermissionGroupsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGR,
+export var DeletePermissionGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
-  [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [_pGI, _cT],
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
 ];
-export var ListPermissionGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPGRi,
+export var DeletePermissionGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
-  [_pGe, _nT],
-  [[() => PermissionGroupList, 0], 0],
+  [_pGI],
+  [0]
 ];
-export var ListUsersByPermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LUBPGR,
-  0,
-  [_pGI, _nT, _mR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListUsersByPermissionGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LUBPGRi,
-  0,
-  [_u, _nT],
-  [[() => UserByPermissionGroupList, 0], 0],
-];
-export var ListUsersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LUR,
-  0,
-  [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
-];
-export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi, 0, [_u, _nT], [[() => UserList, 0], 0]];
-export var PermissionGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _PG,
-  0,
-  [_pGI, _n, _d, _aP, _cTr, _lMT, _mS],
-  [0, [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, 1, 1, 0],
-];
-export var PermissionGroupByUser$: StaticStructureSchema = [
-  3,
-  n0,
-  _PGBU,
-  0,
-  [_pGI, _n, _mS],
-  [0, [() => PermissionGroupName, 0], 0],
-];
-export var PermissionGroupParams$: StaticStructureSchema = [
-  3,
-  n0,
-  _PGP,
-  0,
-  [_pGI, _dP],
-  [0, () => ResourcePermissionsList],
-];
-export var ResetUserPasswordRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RUPR,
+export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_uI, _cT],
-  [
-    [0, 1],
-    [0, 4],
-  ],
+  [[0, 1], [0, 4]]
 ];
-export var ResetUserPasswordResponse$: StaticStructureSchema = [3, n0, _RUPRe, 0, [_uI, _tP], [0, [() => Password, 0]]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _r], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourcePermission$: StaticStructureSchema = [3, n0, _RP, 0, [_p], [0]];
-export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_b, _ke], [0, 0]];
-export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD, 0, [_co, _pKC], [() => ColumnList, 64 | 0]];
-export var SchemaUnion$: StaticStructureSchema = [3, n0, _SU, 0, [_tSC], [() => SchemaDefinition$]];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [], []];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UpdateChangesetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCR,
+export var DisableUserResponse$: StaticStructureSchema = [3, n0, _DURi,
   0,
-  [_cT, _dI, _cI, _sP, _fP],
-  [[0, 4], [0, 1], [0, 1], 128 | 0, 128 | 0],
+  [_uI],
+  [0]
 ];
-export var UpdateChangesetResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [_cI, _dI], [0, 0]];
-export var UpdateDatasetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDR,
+export var DisassociateUserFromPermissionGroupRequest$: StaticStructureSchema = [3, n0, _DUFPGR,
   0,
-  [_cT, _dI, _dTa, _k, _dD, _a, _sD],
-  [[0, 4], [0, 1], 0, 0, 0, 0, () => SchemaUnion$],
+  [_pGI, _uI, _cT],
+  [[0, 1], [0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
 ];
-export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp, 0, [_dI], [0]];
-export var UpdatePermissionGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UPGR,
+export var DisassociateUserFromPermissionGroupResponse$: StaticStructureSchema = [3, n0, _DUFPGRi,
   0,
-  [_pGI, _n, _d, _aP, _cT],
-  [[0, 1], [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]],
+  [_sC],
+  [[1, 32]]
 ];
-export var UpdatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp, 0, [_pGI], [0]];
-export var UpdateUserRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UUR,
+export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR,
   0,
-  [_uI, _t, _fN, _lN, _aA, _aAPA, _cT],
-  [[0, 1], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]],
+  [_uI, _cT],
+  [[0, 1], [0, 4]]
 ];
-export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp, 0, [_uI], [0]];
-export var User$: StaticStructureSchema = [
-  3,
-  n0,
-  _U,
+export var EnableUserResponse$: StaticStructureSchema = [3, n0, _EURn,
+  0,
+  [_uI],
+  [0]
+];
+export var GetChangesetRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_dI, _cI],
+  [[0, 1], [0, 1]]
+];
+export var GetChangesetResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _s, _eI, _aUT, _aFT, _uCI, _uBCI],
+  [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0]
+];
+export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
+  0,
+  [_dI],
+  [[0, 1]]
+];
+export var GetDatasetResponse$: StaticStructureSchema = [3, n0, _GDRe,
+  0,
+  [_dI, _dA, _dTa, _k, _dD, _cTr, _lMT, _sD, _a, _s],
+  [0, 0, 0, 0, 0, 1, 1, () => SchemaUnion$, 0, 0]
+];
+export var GetDataViewRequest$: StaticStructureSchema = [3, n0, _GDVR,
+  0,
+  [_dVI, _dI],
+  [[0, 1], [0, 1]]
+];
+export var GetDataViewResponse$: StaticStructureSchema = [3, n0, _GDVRe,
+  0,
+  [_aU, _pC, _dI, _aOT, _eI, _lMT, _cTr, _sCo, _dVI, _dVA, _dTP, _s],
+  [2, 64 | 0, 0, 1, () => DataViewErrorInfo$, 1, 1, 64 | 0, 0, 0, () => DataViewDestinationTypeParams$, 0]
+];
+export var GetExternalDataViewAccessDetailsRequest$: StaticStructureSchema = [3, n0, _GEDVADR,
+  0,
+  [_dVI, _dI],
+  [[0, 1], [0, 1]]
+];
+export var GetExternalDataViewAccessDetailsResponse$: StaticStructureSchema = [3, n0, _GEDVADRe,
+  0,
+  [_cr, _sL],
+  [[() => AwsCredentials$, 0], () => S3Location$]
+];
+export var GetPermissionGroupRequest$: StaticStructureSchema = [3, n0, _GPGR,
+  0,
+  [_pGI],
+  [[0, 1]]
+];
+export var GetPermissionGroupResponse$: StaticStructureSchema = [3, n0, _GPGRe,
+  0,
+  [_pG],
+  [[() => PermissionGroup$, 0]]
+];
+export var GetProgrammaticAccessCredentialsRequest$: StaticStructureSchema = [3, n0, _GPACR,
+  0,
+  [_dIM, _eIn],
+  [[1, { [_hQ]: _dIM }], [0, { [_hQ]: _eIn }]]
+];
+export var GetProgrammaticAccessCredentialsResponse$: StaticStructureSchema = [3, n0, _GPACRe,
+  0,
+  [_cr, _dIM],
+  [[() => Credentials$, 0], 1]
+];
+export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
+  0,
+  [_uI],
+  [[0, 1]]
+];
+export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
   [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
-  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1]
 ];
-export var UserByPermissionGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBPG,
+export var GetWorkingLocationRequest$: StaticStructureSchema = [3, n0, _GWLR,
+  0,
+  [_lT],
+  [0]
+];
+export var GetWorkingLocationResponse$: StaticStructureSchema = [3, n0, _GWLRe,
+  0,
+  [_sU, _sPa, _sB],
+  [0, 0, 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListChangesetsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_dI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListChangesetsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_ch, _nT],
+  [() => ChangesetList, 0]
+];
+export var ListDatasetsRequest$: StaticStructureSchema = [3, n0, _LDR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi,
+  0,
+  [_da, _nT],
+  [[() => DatasetList, 0], 0]
+];
+export var ListDataViewsRequest$: StaticStructureSchema = [3, n0, _LDVR,
+  0,
+  [_dI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListDataViewsResponse$: StaticStructureSchema = [3, n0, _LDVRi,
+  0,
+  [_nT, _dV],
+  [0, () => DataViewList]
+];
+export var ListPermissionGroupsByUserRequest$: StaticStructureSchema = [3, n0, _LPGBUR,
+  0,
+  [_uI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListPermissionGroupsByUserResponse$: StaticStructureSchema = [3, n0, _LPGBURi,
+  0,
+  [_pGe, _nT],
+  [[() => PermissionGroupByUserList, 0], 0]
+];
+export var ListPermissionGroupsRequest$: StaticStructureSchema = [3, n0, _LPGR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListPermissionGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
+  0,
+  [_pGe, _nT],
+  [[() => PermissionGroupList, 0], 0]
+];
+export var ListUsersByPermissionGroupRequest$: StaticStructureSchema = [3, n0, _LUBPGR,
+  0,
+  [_pGI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListUsersByPermissionGroupResponse$: StaticStructureSchema = [3, n0, _LUBPGRi,
+  0,
+  [_u, _nT],
+  [[() => UserByPermissionGroupList, 0], 0]
+];
+export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
+  0,
+  [_nT, _mR],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+];
+export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
+  0,
+  [_u, _nT],
+  [[() => UserList, 0], 0]
+];
+export var PermissionGroup$: StaticStructureSchema = [3, n0, _PG,
+  0,
+  [_pGI, _n, _d, _aP, _cTr, _lMT, _mS],
+  [0, [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, 1, 1, 0]
+];
+export var PermissionGroupByUser$: StaticStructureSchema = [3, n0, _PGBU,
+  0,
+  [_pGI, _n, _mS],
+  [0, [() => PermissionGroupName, 0], 0]
+];
+export var PermissionGroupParams$: StaticStructureSchema = [3, n0, _PGP,
+  0,
+  [_pGI, _dP],
+  [0, () => ResourcePermissionsList]
+];
+export var ResetUserPasswordRequest$: StaticStructureSchema = [3, n0, _RUPR,
+  0,
+  [_uI, _cT],
+  [[0, 1], [0, 4]]
+];
+export var ResetUserPasswordResponse$: StaticStructureSchema = [3, n0, _RUPRe,
+  0,
+  [_uI, _tP],
+  [0, [() => Password, 0]]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _r],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourcePermission$: StaticStructureSchema = [3, n0, _RP,
+  0,
+  [_p],
+  [0]
+];
+export var S3Location$: StaticStructureSchema = [3, n0, _SL,
+  0,
+  [_b, _ke],
+  [0, 0]
+];
+export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_co, _pKC],
+  [() => ColumnList, 64 | 0]
+];
+export var SchemaUnion$: StaticStructureSchema = [3, n0, _SU,
+  0,
+  [_tSC],
+  [() => SchemaDefinition$]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [],
+  []
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UpdateChangesetRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_cT, _dI, _cI, _sP, _fP],
+  [[0, 4], [0, 1], [0, 1], 128 | 0, 128 | 0]
+];
+export var UpdateChangesetResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_cI, _dI],
+  [0, 0]
+];
+export var UpdateDatasetRequest$: StaticStructureSchema = [3, n0, _UDR,
+  0,
+  [_cT, _dI, _dTa, _k, _dD, _a, _sD],
+  [[0, 4], [0, 1], 0, 0, 0, 0, () => SchemaUnion$]
+];
+export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp,
+  0,
+  [_dI],
+  [0]
+];
+export var UpdatePermissionGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
+  0,
+  [_pGI, _n, _d, _aP, _cT],
+  [[0, 1], [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]]
+];
+export var UpdatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
+  0,
+  [_pGI],
+  [0]
+];
+export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
+  0,
+  [_uI, _t, _fN, _lN, _aA, _aAPA, _cT],
+  [[0, 1], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]]
+];
+export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
+  0,
+  [_uI],
+  [0]
+];
+export var User$: StaticStructureSchema = [3, n0, _U,
+  0,
+  [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
+  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1]
+];
+export var UserByPermissionGroup$: StaticStructureSchema = [3, n0, _UBPG,
   0,
   [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _mS],
-  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 0],
+  [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var FinspaceDataServiceException$: StaticErrorSchema = [-3, _sm, "FinspaceDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FinspaceDataServiceException$, FinspaceDataServiceException);
 var ApplicationPermissionList = 64 | 0;
-var ChangesetList: StaticListSchema = [1, n0, _CL, 0, () => ChangesetSummary$];
-var ColumnList: StaticListSchema = [1, n0, _CLo, 0, () => ColumnDefinition$];
+var ChangesetList: StaticListSchema = [1, n0, _CL,
+  0, () => ChangesetSummary$
+];
+var ColumnList: StaticListSchema = [1, n0, _CLo,
+  0, () => ColumnDefinition$
+];
 var ColumnNameList = 64 | 0;
-var DatasetList: StaticListSchema = [1, n0, _DL, 0, [() => Dataset$, 0]];
-var DataViewList: StaticListSchema = [1, n0, _DVL, 0, () => DataViewSummary$];
+var DatasetList: StaticListSchema = [1, n0, _DL,
+  0, [() => Dataset$,
+    0]
+];
+var DataViewList: StaticListSchema = [1, n0, _DVL,
+  0, () => DataViewSummary$
+];
 var PartitionColumnList = 64 | 0;
-var PermissionGroupByUserList: StaticListSchema = [1, n0, _PGBUL, 0, [() => PermissionGroupByUser$, 0]];
-var PermissionGroupList: StaticListSchema = [1, n0, _PGL, 0, [() => PermissionGroup$, 0]];
-var ResourcePermissionsList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePermission$];
+var PermissionGroupByUserList: StaticListSchema = [1, n0, _PGBUL,
+  0, [() => PermissionGroupByUser$,
+    0]
+];
+var PermissionGroupList: StaticListSchema = [1, n0, _PGL,
+  0, [() => PermissionGroup$,
+    0]
+];
+var ResourcePermissionsList: StaticListSchema = [1, n0, _RPL,
+  0, () => ResourcePermission$
+];
 var SortColumnList = 64 | 0;
-var UserByPermissionGroupList: StaticListSchema = [1, n0, _UBPGL, 0, [() => UserByPermissionGroup$, 0]];
-var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User$, 0]];
+var UserByPermissionGroupList: StaticListSchema = [1, n0, _UBPGL,
+  0, [() => UserByPermissionGroup$,
+    0]
+];
+var UserList: StaticListSchema = [1, n0, _UL,
+  0, [() => User$,
+    0]
+];
 var FormatParams = 128 | 0;
 var S3DestinationFormatOptions = 128 | 0;
 var SourceParams = 128 | 0;
-export var AssociateUserToPermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _AUTPG,
-  { [_h]: ["POST", "/permission-group/{permissionGroupId}/users/{userId}", 200] },
-  () => AssociateUserToPermissionGroupRequest$,
-  () => AssociateUserToPermissionGroupResponse$,
+export var AssociateUserToPermissionGroup$: StaticOperationSchema = [9, n0, _AUTPG,
+  { [_h]: ["POST", "/permission-group/{permissionGroupId}/users/{userId}", 200] }, () => AssociateUserToPermissionGroupRequest$, () => AssociateUserToPermissionGroupResponse$
 ];
-export var CreateChangeset$: StaticOperationSchema = [
-  9,
-  n0,
-  _CC,
-  { [_h]: ["POST", "/datasets/{datasetId}/changesetsv2", 200] },
-  () => CreateChangesetRequest$,
-  () => CreateChangesetResponse$,
+export var CreateChangeset$: StaticOperationSchema = [9, n0, _CC,
+  { [_h]: ["POST", "/datasets/{datasetId}/changesetsv2", 200] }, () => CreateChangesetRequest$, () => CreateChangesetResponse$
 ];
-export var CreateDataset$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDr,
-  { [_h]: ["POST", "/datasetsv2", 200] },
-  () => CreateDatasetRequest$,
-  () => CreateDatasetResponse$,
+export var CreateDataset$: StaticOperationSchema = [9, n0, _CDr,
+  { [_h]: ["POST", "/datasetsv2", 200] }, () => CreateDatasetRequest$, () => CreateDatasetResponse$
 ];
-export var CreateDataView$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDV,
-  { [_h]: ["POST", "/datasets/{datasetId}/dataviewsv2", 200] },
-  () => CreateDataViewRequest$,
-  () => CreateDataViewResponse$,
+export var CreateDataView$: StaticOperationSchema = [9, n0, _CDV,
+  { [_h]: ["POST", "/datasets/{datasetId}/dataviewsv2", 200] }, () => CreateDataViewRequest$, () => CreateDataViewResponse$
 ];
-export var CreatePermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CPG,
-  { [_h]: ["POST", "/permission-group", 200] },
-  () => CreatePermissionGroupRequest$,
-  () => CreatePermissionGroupResponse$,
+export var CreatePermissionGroup$: StaticOperationSchema = [9, n0, _CPG,
+  { [_h]: ["POST", "/permission-group", 200] }, () => CreatePermissionGroupRequest$, () => CreatePermissionGroupResponse$
 ];
-export var CreateUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _CU,
-  { [_h]: ["POST", "/user", 200] },
-  () => CreateUserRequest$,
-  () => CreateUserResponse$,
+export var CreateUser$: StaticOperationSchema = [9, n0, _CU,
+  { [_h]: ["POST", "/user", 200] }, () => CreateUserRequest$, () => CreateUserResponse$
 ];
-export var DeleteDataset$: StaticOperationSchema = [
-  9,
-  n0,
-  _DD,
-  { [_h]: ["DELETE", "/datasetsv2/{datasetId}", 200] },
-  () => DeleteDatasetRequest$,
-  () => DeleteDatasetResponse$,
+export var DeleteDataset$: StaticOperationSchema = [9, n0, _DD,
+  { [_h]: ["DELETE", "/datasetsv2/{datasetId}", 200] }, () => DeleteDatasetRequest$, () => DeleteDatasetResponse$
 ];
-export var DeletePermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPG,
-  { [_h]: ["DELETE", "/permission-group/{permissionGroupId}", 200] },
-  () => DeletePermissionGroupRequest$,
-  () => DeletePermissionGroupResponse$,
+export var DeletePermissionGroup$: StaticOperationSchema = [9, n0, _DPG,
+  { [_h]: ["DELETE", "/permission-group/{permissionGroupId}", 200] }, () => DeletePermissionGroupRequest$, () => DeletePermissionGroupResponse$
 ];
-export var DisableUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _DU,
-  { [_h]: ["POST", "/user/{userId}/disable", 200] },
-  () => DisableUserRequest$,
-  () => DisableUserResponse$,
+export var DisableUser$: StaticOperationSchema = [9, n0, _DU,
+  { [_h]: ["POST", "/user/{userId}/disable", 200] }, () => DisableUserRequest$, () => DisableUserResponse$
 ];
-export var DisassociateUserFromPermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DUFPG,
-  { [_h]: ["DELETE", "/permission-group/{permissionGroupId}/users/{userId}", 200] },
-  () => DisassociateUserFromPermissionGroupRequest$,
-  () => DisassociateUserFromPermissionGroupResponse$,
+export var DisassociateUserFromPermissionGroup$: StaticOperationSchema = [9, n0, _DUFPG,
+  { [_h]: ["DELETE", "/permission-group/{permissionGroupId}/users/{userId}", 200] }, () => DisassociateUserFromPermissionGroupRequest$, () => DisassociateUserFromPermissionGroupResponse$
 ];
-export var EnableUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _EU,
-  { [_h]: ["POST", "/user/{userId}/enable", 200] },
-  () => EnableUserRequest$,
-  () => EnableUserResponse$,
+export var EnableUser$: StaticOperationSchema = [9, n0, _EU,
+  { [_h]: ["POST", "/user/{userId}/enable", 200] }, () => EnableUserRequest$, () => EnableUserResponse$
 ];
-export var GetChangeset$: StaticOperationSchema = [
-  9,
-  n0,
-  _GC,
-  { [_h]: ["GET", "/datasets/{datasetId}/changesetsv2/{changesetId}", 200] },
-  () => GetChangesetRequest$,
-  () => GetChangesetResponse$,
+export var GetChangeset$: StaticOperationSchema = [9, n0, _GC,
+  { [_h]: ["GET", "/datasets/{datasetId}/changesetsv2/{changesetId}", 200] }, () => GetChangesetRequest$, () => GetChangesetResponse$
 ];
-export var GetDataset$: StaticOperationSchema = [
-  9,
-  n0,
-  _GD,
-  { [_h]: ["GET", "/datasetsv2/{datasetId}", 200] },
-  () => GetDatasetRequest$,
-  () => GetDatasetResponse$,
+export var GetDataset$: StaticOperationSchema = [9, n0, _GD,
+  { [_h]: ["GET", "/datasetsv2/{datasetId}", 200] }, () => GetDatasetRequest$, () => GetDatasetResponse$
 ];
-export var GetDataView$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDV,
-  { [_h]: ["GET", "/datasets/{datasetId}/dataviewsv2/{dataViewId}", 200] },
-  () => GetDataViewRequest$,
-  () => GetDataViewResponse$,
+export var GetDataView$: StaticOperationSchema = [9, n0, _GDV,
+  { [_h]: ["GET", "/datasets/{datasetId}/dataviewsv2/{dataViewId}", 200] }, () => GetDataViewRequest$, () => GetDataViewResponse$
 ];
-export var GetExternalDataViewAccessDetails$: StaticOperationSchema = [
-  9,
-  n0,
-  _GEDVAD,
-  { [_h]: ["POST", "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details", 200] },
-  () => GetExternalDataViewAccessDetailsRequest$,
-  () => GetExternalDataViewAccessDetailsResponse$,
+export var GetExternalDataViewAccessDetails$: StaticOperationSchema = [9, n0, _GEDVAD,
+  { [_h]: ["POST", "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details", 200] }, () => GetExternalDataViewAccessDetailsRequest$, () => GetExternalDataViewAccessDetailsResponse$
 ];
-export var GetPermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _GPG,
-  { [_h]: ["GET", "/permission-group/{permissionGroupId}", 200] },
-  () => GetPermissionGroupRequest$,
-  () => GetPermissionGroupResponse$,
+export var GetPermissionGroup$: StaticOperationSchema = [9, n0, _GPG,
+  { [_h]: ["GET", "/permission-group/{permissionGroupId}", 200] }, () => GetPermissionGroupRequest$, () => GetPermissionGroupResponse$
 ];
-export var GetProgrammaticAccessCredentials$: StaticOperationSchema = [
-  9,
-  n0,
-  _GPAC,
-  { [_h]: ["GET", "/credentials/programmatic", 200] },
-  () => GetProgrammaticAccessCredentialsRequest$,
-  () => GetProgrammaticAccessCredentialsResponse$,
+export var GetProgrammaticAccessCredentials$: StaticOperationSchema = [9, n0, _GPAC,
+  { [_h]: ["GET", "/credentials/programmatic", 200] }, () => GetProgrammaticAccessCredentialsRequest$, () => GetProgrammaticAccessCredentialsResponse$
 ];
-export var GetUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _GU,
-  { [_h]: ["GET", "/user/{userId}", 200] },
-  () => GetUserRequest$,
-  () => GetUserResponse$,
+export var GetUser$: StaticOperationSchema = [9, n0, _GU,
+  { [_h]: ["GET", "/user/{userId}", 200] }, () => GetUserRequest$, () => GetUserResponse$
 ];
-export var GetWorkingLocation$: StaticOperationSchema = [
-  9,
-  n0,
-  _GWL,
-  { [_h]: ["POST", "/workingLocationV1", 200] },
-  () => GetWorkingLocationRequest$,
-  () => GetWorkingLocationResponse$,
+export var GetWorkingLocation$: StaticOperationSchema = [9, n0, _GWL,
+  { [_h]: ["POST", "/workingLocationV1", 200] }, () => GetWorkingLocationRequest$, () => GetWorkingLocationResponse$
 ];
-export var ListChangesets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_h]: ["GET", "/datasets/{datasetId}/changesetsv2", 200] },
-  () => ListChangesetsRequest$,
-  () => ListChangesetsResponse$,
+export var ListChangesets$: StaticOperationSchema = [9, n0, _LC,
+  { [_h]: ["GET", "/datasets/{datasetId}/changesetsv2", 200] }, () => ListChangesetsRequest$, () => ListChangesetsResponse$
 ];
-export var ListDatasets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LD,
-  { [_h]: ["GET", "/datasetsv2", 200] },
-  () => ListDatasetsRequest$,
-  () => ListDatasetsResponse$,
+export var ListDatasets$: StaticOperationSchema = [9, n0, _LD,
+  { [_h]: ["GET", "/datasetsv2", 200] }, () => ListDatasetsRequest$, () => ListDatasetsResponse$
 ];
-export var ListDataViews$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDV,
-  { [_h]: ["GET", "/datasets/{datasetId}/dataviewsv2", 200] },
-  () => ListDataViewsRequest$,
-  () => ListDataViewsResponse$,
+export var ListDataViews$: StaticOperationSchema = [9, n0, _LDV,
+  { [_h]: ["GET", "/datasets/{datasetId}/dataviewsv2", 200] }, () => ListDataViewsRequest$, () => ListDataViewsResponse$
 ];
-export var ListPermissionGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LPG,
-  { [_h]: ["GET", "/permission-group", 200] },
-  () => ListPermissionGroupsRequest$,
-  () => ListPermissionGroupsResponse$,
+export var ListPermissionGroups$: StaticOperationSchema = [9, n0, _LPG,
+  { [_h]: ["GET", "/permission-group", 200] }, () => ListPermissionGroupsRequest$, () => ListPermissionGroupsResponse$
 ];
-export var ListPermissionGroupsByUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _LPGBU,
-  { [_h]: ["GET", "/user/{userId}/permission-groups", 200] },
-  () => ListPermissionGroupsByUserRequest$,
-  () => ListPermissionGroupsByUserResponse$,
+export var ListPermissionGroupsByUser$: StaticOperationSchema = [9, n0, _LPGBU,
+  { [_h]: ["GET", "/user/{userId}/permission-groups", 200] }, () => ListPermissionGroupsByUserRequest$, () => ListPermissionGroupsByUserResponse$
 ];
-export var ListUsers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LU,
-  { [_h]: ["GET", "/user", 200] },
-  () => ListUsersRequest$,
-  () => ListUsersResponse$,
+export var ListUsers$: StaticOperationSchema = [9, n0, _LU,
+  { [_h]: ["GET", "/user", 200] }, () => ListUsersRequest$, () => ListUsersResponse$
 ];
-export var ListUsersByPermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _LUBPG,
-  { [_h]: ["GET", "/permission-group/{permissionGroupId}/users", 200] },
-  () => ListUsersByPermissionGroupRequest$,
-  () => ListUsersByPermissionGroupResponse$,
+export var ListUsersByPermissionGroup$: StaticOperationSchema = [9, n0, _LUBPG,
+  { [_h]: ["GET", "/permission-group/{permissionGroupId}/users", 200] }, () => ListUsersByPermissionGroupRequest$, () => ListUsersByPermissionGroupResponse$
 ];
-export var ResetUserPassword$: StaticOperationSchema = [
-  9,
-  n0,
-  _RUP,
-  { [_h]: ["POST", "/user/{userId}/password", 200] },
-  () => ResetUserPasswordRequest$,
-  () => ResetUserPasswordResponse$,
+export var ResetUserPassword$: StaticOperationSchema = [9, n0, _RUP,
+  { [_h]: ["POST", "/user/{userId}/password", 200] }, () => ResetUserPasswordRequest$, () => ResetUserPasswordResponse$
 ];
-export var UpdateChangeset$: StaticOperationSchema = [
-  9,
-  n0,
-  _UC,
-  { [_h]: ["PUT", "/datasets/{datasetId}/changesetsv2/{changesetId}", 200] },
-  () => UpdateChangesetRequest$,
-  () => UpdateChangesetResponse$,
+export var UpdateChangeset$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["PUT", "/datasets/{datasetId}/changesetsv2/{changesetId}", 200] }, () => UpdateChangesetRequest$, () => UpdateChangesetResponse$
 ];
-export var UpdateDataset$: StaticOperationSchema = [
-  9,
-  n0,
-  _UD,
-  { [_h]: ["PUT", "/datasetsv2/{datasetId}", 200] },
-  () => UpdateDatasetRequest$,
-  () => UpdateDatasetResponse$,
+export var UpdateDataset$: StaticOperationSchema = [9, n0, _UD,
+  { [_h]: ["PUT", "/datasetsv2/{datasetId}", 200] }, () => UpdateDatasetRequest$, () => UpdateDatasetResponse$
 ];
-export var UpdatePermissionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _UPG,
-  { [_h]: ["PUT", "/permission-group/{permissionGroupId}", 200] },
-  () => UpdatePermissionGroupRequest$,
-  () => UpdatePermissionGroupResponse$,
+export var UpdatePermissionGroup$: StaticOperationSchema = [9, n0, _UPG,
+  { [_h]: ["PUT", "/permission-group/{permissionGroupId}", 200] }, () => UpdatePermissionGroupRequest$, () => UpdatePermissionGroupResponse$
 ];
-export var UpdateUser$: StaticOperationSchema = [
-  9,
-  n0,
-  _UU,
-  { [_h]: ["PUT", "/user/{userId}", 200] },
-  () => UpdateUserRequest$,
-  () => UpdateUserResponse$,
+export var UpdateUser$: StaticOperationSchema = [9, n0, _UU,
+  { [_h]: ["PUT", "/user/{userId}", 200] }, () => UpdateUserRequest$, () => UpdateUserResponse$
 ];

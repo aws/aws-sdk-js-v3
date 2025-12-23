@@ -24,9 +24,7 @@ export interface GetFunctionDefinitionVersionCommandInput extends GetFunctionDef
  *
  * The output of {@link GetFunctionDefinitionVersionCommand}.
  */
-export interface GetFunctionDefinitionVersionCommandOutput
-  extends GetFunctionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetFunctionDefinitionVersionCommandOutput extends GetFunctionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.

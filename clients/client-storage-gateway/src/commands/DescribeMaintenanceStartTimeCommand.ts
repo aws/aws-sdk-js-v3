@@ -28,9 +28,7 @@ export interface DescribeMaintenanceStartTimeCommandInput extends DescribeMainte
  *
  * The output of {@link DescribeMaintenanceStartTimeCommand}.
  */
-export interface DescribeMaintenanceStartTimeCommandOutput
-  extends DescribeMaintenanceStartTimeOutput,
-    __MetadataBearer {}
+export interface DescribeMaintenanceStartTimeCommandOutput extends DescribeMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
  * <p>Returns your gateway's maintenance window schedule information, with values for

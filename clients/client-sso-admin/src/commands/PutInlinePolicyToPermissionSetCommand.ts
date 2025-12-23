@@ -24,9 +24,7 @@ export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePol
  *
  * The output of {@link PutInlinePolicyToPermissionSetCommand}.
  */
-export interface PutInlinePolicyToPermissionSetCommandOutput
-  extends PutInlinePolicyToPermissionSetResponse,
-    __MetadataBearer {}
+export interface PutInlinePolicyToPermissionSetCommandOutput extends PutInlinePolicyToPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches an inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>

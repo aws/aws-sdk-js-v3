@@ -4,18 +4,15 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
-const checkState = async (
-  client: Route53RecoveryControlConfigClient,
-  input: DescribeClusterCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Cluster.Status;
-      };
+      }
       if (returnComparator() === "PENDING_DELETION") {
         return { state: WaiterState.RETRY, reason };
       }

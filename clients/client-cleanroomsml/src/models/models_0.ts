@@ -371,7 +371,9 @@ export interface WorkerComputeConfiguration {
  * <p>Provides configuration information for the instances that will perform the compute work.</p>
  * @public
  */
-export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+export type ComputeConfiguration =
+  | ComputeConfiguration.WorkerMember
+  | ComputeConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -2325,9 +2327,7 @@ export interface ListCollaborationConfiguredModelAlgorithmAssociationsResponse {
    * <p>The configured model algorithm associations that belong to this collaboration.</p>
    * @public
    */
-  collaborationConfiguredModelAlgorithmAssociations:
-    | CollaborationConfiguredModelAlgorithmAssociationSummary[]
-    | undefined;
+  collaborationConfiguredModelAlgorithmAssociations: CollaborationConfiguredModelAlgorithmAssociationSummary[] | undefined;
 }
 
 /**
@@ -3225,7 +3225,9 @@ export interface GetCollaborationMLInputChannelRequest {
  * <p>The privacy budget information that controls access to Clean Rooms ML input channels.</p>
  * @public
  */
-export type PrivacyBudgets = PrivacyBudgets.AccessBudgetsMember | PrivacyBudgets.$UnknownMember;
+export type PrivacyBudgets =
+  | PrivacyBudgets.AccessBudgetsMember
+  | PrivacyBudgets.$UnknownMember;
 
 /**
  * @public

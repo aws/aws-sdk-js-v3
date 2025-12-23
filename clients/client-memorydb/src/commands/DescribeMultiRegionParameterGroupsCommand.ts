@@ -27,9 +27,7 @@ export interface DescribeMultiRegionParameterGroupsCommandInput extends Describe
  *
  * The output of {@link DescribeMultiRegionParameterGroupsCommand}.
  */
-export interface DescribeMultiRegionParameterGroupsCommandOutput
-  extends DescribeMultiRegionParameterGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeMultiRegionParameterGroupsCommandOutput extends DescribeMultiRegionParameterGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of multi-region parameter groups.</p>

@@ -1,8 +1,7 @@
-export * from "./ForecastGeofenceEventsPaginator";
-
-export * from "./GetDevicePositionHistoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ForecastGeofenceEventsPaginator";
+export * from "./GetDevicePositionHistoryPaginator";
 export * from "./ListDevicePositionsPaginator";
 export * from "./ListGeofenceCollectionsPaginator";
 export * from "./ListGeofencesPaginator";

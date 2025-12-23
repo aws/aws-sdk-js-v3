@@ -24,9 +24,7 @@ export interface ListDistributionsByVpcOriginIdCommandInput extends ListDistribu
  *
  * The output of {@link ListDistributionsByVpcOriginIdCommand}.
  */
-export interface ListDistributionsByVpcOriginIdCommandOutput
-  extends ListDistributionsByVpcOriginIdResult,
-    __MetadataBearer {}
+export interface ListDistributionsByVpcOriginIdCommandOutput extends ListDistributionsByVpcOriginIdResult, __MetadataBearer {}
 
 /**
  * <p>List CloudFront distributions by their VPC origin ID.</p>

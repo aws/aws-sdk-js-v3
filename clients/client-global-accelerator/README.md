@@ -7,7 +7,6 @@
 AWS SDK for JavaScript GlobalAccelerator Client for Node.js, Browser and React Native.
 
 <fullname>Global Accelerator</fullname>
-
 <p>This is the <i>Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
 Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the
 <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html">Global Accelerator Developer Guide</a>.</p>
@@ -57,10 +56,8 @@ directed to healthy endpoints.</p>
 <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html">Global Accelerator Developer Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-global-accelerator
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-global-accelerator`
 - `yarn add @aws-sdk/client-global-accelerator`
 - `pnpm add @aws-sdk/client-global-accelerator`
@@ -96,9 +93,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new GlobalAcceleratorClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAcceleratorsCommand(params);
 ```
 
@@ -257,7 +252,6 @@ AddCustomRoutingEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/AddCustomRoutingEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AddCustomRoutingEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AddCustomRoutingEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +259,6 @@ AddEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/AddEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AddEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AddEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +266,6 @@ AdvertiseByoipCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/AdvertiseByoipCidrCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AdvertiseByoipCidrCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AdvertiseByoipCidrCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +273,6 @@ AllowCustomRoutingTraffic
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/AllowCustomRoutingTrafficCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AllowCustomRoutingTrafficCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/AllowCustomRoutingTrafficCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +280,6 @@ CreateAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +287,6 @@ CreateCrossAccountAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateCrossAccountAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCrossAccountAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCrossAccountAttachmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +294,6 @@ CreateCustomRoutingAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateCustomRoutingAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +301,6 @@ CreateCustomRoutingEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateCustomRoutingEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +308,6 @@ CreateCustomRoutingListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateCustomRoutingListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateCustomRoutingListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +315,6 @@ CreateEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +322,6 @@ CreateListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/CreateListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/CreateListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +329,6 @@ DeleteAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +336,6 @@ DeleteCrossAccountAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteCrossAccountAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCrossAccountAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCrossAccountAttachmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +343,6 @@ DeleteCustomRoutingAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteCustomRoutingAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +350,6 @@ DeleteCustomRoutingEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteCustomRoutingEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +357,6 @@ DeleteCustomRoutingListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteCustomRoutingListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteCustomRoutingListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +364,6 @@ DeleteEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +371,6 @@ DeleteListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeleteListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeleteListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +378,6 @@ DenyCustomRoutingTraffic
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DenyCustomRoutingTrafficCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DenyCustomRoutingTrafficCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DenyCustomRoutingTrafficCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +385,6 @@ DeprovisionByoipCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DeprovisionByoipCidrCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeprovisionByoipCidrCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DeprovisionByoipCidrCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +392,6 @@ DescribeAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +399,6 @@ DescribeAcceleratorAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeAcceleratorAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeAcceleratorAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeAcceleratorAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +406,6 @@ DescribeCrossAccountAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeCrossAccountAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCrossAccountAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCrossAccountAttachmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +413,6 @@ DescribeCustomRoutingAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeCustomRoutingAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +420,6 @@ DescribeCustomRoutingAcceleratorAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeCustomRoutingAcceleratorAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingAcceleratorAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingAcceleratorAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +427,6 @@ DescribeCustomRoutingEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeCustomRoutingEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +434,6 @@ DescribeCustomRoutingListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeCustomRoutingListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeCustomRoutingListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +441,6 @@ DescribeEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,7 +448,6 @@ DescribeListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/DescribeListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/DescribeListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -489,7 +455,6 @@ ListAccelerators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListAcceleratorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListAcceleratorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListAcceleratorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -497,7 +462,6 @@ ListByoipCidrs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListByoipCidrsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListByoipCidrsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListByoipCidrsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -505,7 +469,6 @@ ListCrossAccountAttachments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCrossAccountAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountAttachmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -513,7 +476,6 @@ ListCrossAccountResourceAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCrossAccountResourceAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountResourceAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountResourceAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -521,7 +483,6 @@ ListCrossAccountResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCrossAccountResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCrossAccountResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -529,7 +490,6 @@ ListCustomRoutingAccelerators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCustomRoutingAcceleratorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingAcceleratorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingAcceleratorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -537,7 +497,6 @@ ListCustomRoutingEndpointGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCustomRoutingEndpointGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingEndpointGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingEndpointGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -545,7 +504,6 @@ ListCustomRoutingListeners
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCustomRoutingListenersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingListenersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingListenersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -553,7 +511,6 @@ ListCustomRoutingPortMappings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCustomRoutingPortMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingPortMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingPortMappingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -561,7 +518,6 @@ ListCustomRoutingPortMappingsByDestination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListCustomRoutingPortMappingsByDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingPortMappingsByDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListCustomRoutingPortMappingsByDestinationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -569,7 +525,6 @@ ListEndpointGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListEndpointGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListEndpointGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListEndpointGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -577,7 +532,6 @@ ListListeners
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListListenersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListListenersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListListenersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -585,7 +539,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -593,7 +546,6 @@ ProvisionByoipCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/ProvisionByoipCidrCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ProvisionByoipCidrCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/ProvisionByoipCidrCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -601,7 +553,6 @@ RemoveCustomRoutingEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/RemoveCustomRoutingEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/RemoveCustomRoutingEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/RemoveCustomRoutingEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -609,7 +560,6 @@ RemoveEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/RemoveEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/RemoveEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/RemoveEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -617,7 +567,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -625,7 +574,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -633,7 +581,6 @@ UpdateAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -641,7 +588,6 @@ UpdateAcceleratorAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateAcceleratorAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateAcceleratorAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateAcceleratorAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -649,7 +595,6 @@ UpdateCrossAccountAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateCrossAccountAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCrossAccountAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCrossAccountAttachmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -657,7 +602,6 @@ UpdateCustomRoutingAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateCustomRoutingAcceleratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingAcceleratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingAcceleratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -665,7 +609,6 @@ UpdateCustomRoutingAcceleratorAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateCustomRoutingAcceleratorAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingAcceleratorAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingAcceleratorAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -673,7 +616,6 @@ UpdateCustomRoutingListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateCustomRoutingListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateCustomRoutingListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -681,7 +623,6 @@ UpdateEndpointGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateEndpointGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateEndpointGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateEndpointGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -689,7 +630,6 @@ UpdateListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/UpdateListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/UpdateListenerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -697,5 +637,4 @@ WithdrawByoipCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/global-accelerator/command/WithdrawByoipCidrCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/WithdrawByoipCidrCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-global-accelerator/Interface/WithdrawByoipCidrCommandOutput/)
-
 </details>

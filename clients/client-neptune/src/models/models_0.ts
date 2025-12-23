@@ -1076,7 +1076,7 @@ export interface CreateDBClusterMessage {
    *                <p>
    *                   <b>
    *                      <code>standard</code>
-   *                   </b>   –
+   *                   </b>   –  
    *         ( <i>the default</i> ) Configures cost-effective database storage for applications
    *         with moderate to small I/O usage. When set to <code>standard</code>, the storage type
    *         is not returned in the response.</p>
@@ -1085,7 +1085,7 @@ export interface CreateDBClusterMessage {
    *                <p>
    *                   <b>
    *                      <code>iopt1</code>
-   *                   </b>   –
+   *                   </b>   –  
    *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
    *           that's designed to meet the needs of I/O-intensive graph workloads that
    *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
@@ -1263,7 +1263,7 @@ export interface ClusterPendingModifiedValues {
    *                <p>
    *                   <b>
    *                      <code>standard</code>
-   *                   </b>   –
+   *                   </b>   –  
    *         ( <i>the default</i> ) Configures cost-effective database storage for applications
    *         with moderate to small I/O usage.</p>
    *             </li>
@@ -1271,7 +1271,7 @@ export interface ClusterPendingModifiedValues {
    *                <p>
    *                   <b>
    *                      <code>iopt1</code>
-   *                   </b>   –
+   *                   </b>   –  
    *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
    *           that's designed to meet the needs of I/O-intensive graph workloads that
    *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
@@ -1652,7 +1652,7 @@ export interface DBCluster {
    *                <p>
    *                   <b>
    *                      <code>standard</code>
-   *                   </b>   –
+   *                   </b>   –  
    *         ( <i>the default</i> ) Provides cost-effective database storage for applications
    *         with moderate to small I/O usage.</p>
    *             </li>
@@ -1660,7 +1660,7 @@ export interface DBCluster {
    *                <p>
    *                   <b>
    *                      <code>iopt1</code>
-   *                   </b>   –
+   *                   </b>   –  
    *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
    *           that's designed to meet the needs of I/O-intensive graph workloads that
    *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>
@@ -6289,7 +6289,7 @@ export interface ModifyDBClusterMessage {
    *                <p>
    *                   <b>
    *                      <code>standard</code>
-   *                   </b>   –
+   *                   </b>   –  
    *         ( <i>the default</i> ) Configures cost-effective database storage for applications
    *         with moderate to small I/O usage.</p>
    *             </li>
@@ -6297,7 +6297,7 @@ export interface ModifyDBClusterMessage {
    *                <p>
    *                   <b>
    *                      <code>iopt1</code>
-   *                   </b>   –
+   *                   </b>   –  
    *           Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized storage</a>
    *           that's designed to meet the needs of I/O-intensive graph workloads that
    *           require predictable pricing with low I/O latency and consistent I/O throughput.</p>

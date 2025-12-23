@@ -28,9 +28,7 @@ export interface ExecuteCoreNetworkChangeSetCommandInput extends ExecuteCoreNetw
  *
  * The output of {@link ExecuteCoreNetworkChangeSetCommand}.
  */
-export interface ExecuteCoreNetworkChangeSetCommandOutput
-  extends ExecuteCoreNetworkChangeSetResponse,
-    __MetadataBearer {}
+export interface ExecuteCoreNetworkChangeSetCommandOutput extends ExecuteCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>

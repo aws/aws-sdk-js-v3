@@ -41,7 +41,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *             <code>Rule</code>, a request must match all of the specifications to be allowed,
  *          blocked, or counted. For example, suppose
  *          that
- *          you add the following to a <code>Rule</code>: </p>
+ *          you add the following to a <code>Rule</code>: </p>		
  * 		       <ul>
  *             <li>
  *                <p>A <code>ByteMatchSet</code> that matches the value <code>BadBot</code> in the <code>User-Agent</code> header</p>
@@ -50,10 +50,10 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *                <p>An <code>IPSet</code> that matches the IP address <code>192.0.2.44</code>
  *                </p>
  *             </li>
- *          </ul>
+ *          </ul>		
  * 		       <p>You then add the <code>Rule</code> to a <code>WebACL</code> and specify that you want to block requests that satisfy the <code>Rule</code>.
  * 			For a request to be blocked, the <code>User-Agent</code> header in the request must contain the value <code>BadBot</code>
- * 			         <i>and</i> the request must originate from the IP address 192.0.2.44.</p>
+ * 			         <i>and</i> the request must originate from the IP address 192.0.2.44.</p>		
  * 		       <p>To create and configure a <code>Rule</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -74,7 +74,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *             </li>
  *          </ol>
  * 		       <p>If you want to replace one <code>ByteMatchSet</code> or <code>IPSet</code> with another, you delete the existing one and
- * 			add the new one.</p>
+ * 			add the new one.</p>		
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example

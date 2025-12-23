@@ -49,17 +49,13 @@ export const defaultBedrockAgentCoreControlHttpAuthSchemeParametersProvider = as
 ): Promise<BedrockAgentCoreControlHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: BedrockAgentCoreControlHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: BedrockAgentCoreControlHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface BedrockAgentCoreControlHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultBedrockAgentCoreControlHttpAuthSchemeProvider: BedrockAgentCoreControlHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultBedrockAgentCoreControlHttpAuthSchemeProvider: BedrockAgentCoreControlHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

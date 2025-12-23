@@ -563,7 +563,10 @@ export interface StorageGateway {
     args: ActivateGatewayCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ActivateGatewayCommandOutput>;
-  activateGateway(args: ActivateGatewayCommandInput, cb: (err: any, data?: ActivateGatewayCommandOutput) => void): void;
+  activateGateway(
+    args: ActivateGatewayCommandInput,
+    cb: (err: any, data?: ActivateGatewayCommandOutput) => void
+  ): void;
   activateGateway(
     args: ActivateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -573,8 +576,14 @@ export interface StorageGateway {
   /**
    * @see {@link AddCacheCommand}
    */
-  addCache(args: AddCacheCommandInput, options?: __HttpHandlerOptions): Promise<AddCacheCommandOutput>;
-  addCache(args: AddCacheCommandInput, cb: (err: any, data?: AddCacheCommandOutput) => void): void;
+  addCache(
+    args: AddCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddCacheCommandOutput>;
+  addCache(
+    args: AddCacheCommandInput,
+    cb: (err: any, data?: AddCacheCommandOutput) => void
+  ): void;
   addCache(
     args: AddCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -605,7 +614,10 @@ export interface StorageGateway {
     args: AddUploadBufferCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddUploadBufferCommandOutput>;
-  addUploadBuffer(args: AddUploadBufferCommandInput, cb: (err: any, data?: AddUploadBufferCommandOutput) => void): void;
+  addUploadBuffer(
+    args: AddUploadBufferCommandInput,
+    cb: (err: any, data?: AddUploadBufferCommandOutput) => void
+  ): void;
   addUploadBuffer(
     args: AddUploadBufferCommandInput,
     options: __HttpHandlerOptions,
@@ -636,7 +648,10 @@ export interface StorageGateway {
     args: AssignTapePoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssignTapePoolCommandOutput>;
-  assignTapePool(args: AssignTapePoolCommandInput, cb: (err: any, data?: AssignTapePoolCommandOutput) => void): void;
+  assignTapePool(
+    args: AssignTapePoolCommandInput,
+    cb: (err: any, data?: AssignTapePoolCommandOutput) => void
+  ): void;
   assignTapePool(
     args: AssignTapePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -663,8 +678,14 @@ export interface StorageGateway {
   /**
    * @see {@link AttachVolumeCommand}
    */
-  attachVolume(args: AttachVolumeCommandInput, options?: __HttpHandlerOptions): Promise<AttachVolumeCommandOutput>;
-  attachVolume(args: AttachVolumeCommandInput, cb: (err: any, data?: AttachVolumeCommandOutput) => void): void;
+  attachVolume(
+    args: AttachVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachVolumeCommandOutput>;
+  attachVolume(
+    args: AttachVolumeCommandInput,
+    cb: (err: any, data?: AttachVolumeCommandOutput) => void
+  ): void;
   attachVolume(
     args: AttachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -678,7 +699,10 @@ export interface StorageGateway {
     args: CancelArchivalCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelArchivalCommandOutput>;
-  cancelArchival(args: CancelArchivalCommandInput, cb: (err: any, data?: CancelArchivalCommandOutput) => void): void;
+  cancelArchival(
+    args: CancelArchivalCommandInput,
+    cb: (err: any, data?: CancelArchivalCommandOutput) => void
+  ): void;
   cancelArchival(
     args: CancelArchivalCommandInput,
     options: __HttpHandlerOptions,
@@ -709,7 +733,10 @@ export interface StorageGateway {
     args: CancelRetrievalCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelRetrievalCommandOutput>;
-  cancelRetrieval(args: CancelRetrievalCommandInput, cb: (err: any, data?: CancelRetrievalCommandOutput) => void): void;
+  cancelRetrieval(
+    args: CancelRetrievalCommandInput,
+    cb: (err: any, data?: CancelRetrievalCommandOutput) => void
+  ): void;
   cancelRetrieval(
     args: CancelRetrievalCommandInput,
     options: __HttpHandlerOptions,
@@ -774,7 +801,10 @@ export interface StorageGateway {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -822,7 +852,10 @@ export interface StorageGateway {
     args: CreateTapePoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTapePoolCommandOutput>;
-  createTapePool(args: CreateTapePoolCommandInput, cb: (err: any, data?: CreateTapePoolCommandOutput) => void): void;
+  createTapePool(
+    args: CreateTapePoolCommandInput,
+    cb: (err: any, data?: CreateTapePoolCommandOutput) => void
+  ): void;
   createTapePool(
     args: CreateTapePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -832,8 +865,14 @@ export interface StorageGateway {
   /**
    * @see {@link CreateTapesCommand}
    */
-  createTapes(args: CreateTapesCommandInput, options?: __HttpHandlerOptions): Promise<CreateTapesCommandOutput>;
-  createTapes(args: CreateTapesCommandInput, cb: (err: any, data?: CreateTapesCommandOutput) => void): void;
+  createTapes(
+    args: CreateTapesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTapesCommandOutput>;
+  createTapes(
+    args: CreateTapesCommandInput,
+    cb: (err: any, data?: CreateTapesCommandOutput) => void
+  ): void;
   createTapes(
     args: CreateTapesCommandInput,
     options: __HttpHandlerOptions,
@@ -932,7 +971,10 @@ export interface StorageGateway {
     args: DeleteFileShareCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFileShareCommandOutput>;
-  deleteFileShare(args: DeleteFileShareCommandInput, cb: (err: any, data?: DeleteFileShareCommandOutput) => void): void;
+  deleteFileShare(
+    args: DeleteFileShareCommandInput,
+    cb: (err: any, data?: DeleteFileShareCommandOutput) => void
+  ): void;
   deleteFileShare(
     args: DeleteFileShareCommandInput,
     options: __HttpHandlerOptions,
@@ -942,8 +984,14 @@ export interface StorageGateway {
   /**
    * @see {@link DeleteGatewayCommand}
    */
-  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
-  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -970,8 +1018,14 @@ export interface StorageGateway {
   /**
    * @see {@link DeleteTapeCommand}
    */
-  deleteTape(args: DeleteTapeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTapeCommandOutput>;
-  deleteTape(args: DeleteTapeCommandInput, cb: (err: any, data?: DeleteTapeCommandOutput) => void): void;
+  deleteTape(
+    args: DeleteTapeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTapeCommandOutput>;
+  deleteTape(
+    args: DeleteTapeCommandInput,
+    cb: (err: any, data?: DeleteTapeCommandOutput) => void
+  ): void;
   deleteTape(
     args: DeleteTapeCommandInput,
     options: __HttpHandlerOptions,
@@ -1002,7 +1056,10 @@ export interface StorageGateway {
     args: DeleteTapePoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTapePoolCommandOutput>;
-  deleteTapePool(args: DeleteTapePoolCommandInput, cb: (err: any, data?: DeleteTapePoolCommandOutput) => void): void;
+  deleteTapePool(
+    args: DeleteTapePoolCommandInput,
+    cb: (err: any, data?: DeleteTapePoolCommandOutput) => void
+  ): void;
   deleteTapePool(
     args: DeleteTapePoolCommandInput,
     options: __HttpHandlerOptions,
@@ -1012,8 +1069,14 @@ export interface StorageGateway {
   /**
    * @see {@link DeleteVolumeCommand}
    */
-  deleteVolume(args: DeleteVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVolumeCommandOutput>;
-  deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -1074,8 +1137,14 @@ export interface StorageGateway {
   /**
    * @see {@link DescribeCacheCommand}
    */
-  describeCache(args: DescribeCacheCommandInput, options?: __HttpHandlerOptions): Promise<DescribeCacheCommandOutput>;
-  describeCache(args: DescribeCacheCommandInput, cb: (err: any, data?: DescribeCacheCommandOutput) => void): void;
+  describeCache(
+    args: DescribeCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCacheCommandOutput>;
+  describeCache(
+    args: DescribeCacheCommandInput,
+    cb: (err: any, data?: DescribeCacheCommandOutput) => void
+  ): void;
   describeCache(
     args: DescribeCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1307,8 +1376,14 @@ export interface StorageGateway {
   /**
    * @see {@link DescribeTapesCommand}
    */
-  describeTapes(args: DescribeTapesCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTapesCommandOutput>;
-  describeTapes(args: DescribeTapesCommandInput, cb: (err: any, data?: DescribeTapesCommandOutput) => void): void;
+  describeTapes(
+    args: DescribeTapesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTapesCommandOutput>;
+  describeTapes(
+    args: DescribeTapesCommandInput,
+    cb: (err: any, data?: DescribeTapesCommandOutput) => void
+  ): void;
   describeTapes(
     args: DescribeTapesCommandInput,
     options: __HttpHandlerOptions,
@@ -1369,8 +1444,14 @@ export interface StorageGateway {
   /**
    * @see {@link DetachVolumeCommand}
    */
-  detachVolume(args: DetachVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DetachVolumeCommandOutput>;
-  detachVolume(args: DetachVolumeCommandInput, cb: (err: any, data?: DetachVolumeCommandOutput) => void): void;
+  detachVolume(
+    args: DetachVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachVolumeCommandOutput>;
+  detachVolume(
+    args: DetachVolumeCommandInput,
+    cb: (err: any, data?: DetachVolumeCommandOutput) => void
+  ): void;
   detachVolume(
     args: DetachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -1384,7 +1465,10 @@ export interface StorageGateway {
     args: DisableGatewayCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableGatewayCommandOutput>;
-  disableGateway(args: DisableGatewayCommandInput, cb: (err: any, data?: DisableGatewayCommandOutput) => void): void;
+  disableGateway(
+    args: DisableGatewayCommandInput,
+    cb: (err: any, data?: DisableGatewayCommandOutput) => void
+  ): void;
   disableGateway(
     args: DisableGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,8 +1512,14 @@ export interface StorageGateway {
   /**
    * @see {@link JoinDomainCommand}
    */
-  joinDomain(args: JoinDomainCommandInput, options?: __HttpHandlerOptions): Promise<JoinDomainCommandOutput>;
-  joinDomain(args: JoinDomainCommandInput, cb: (err: any, data?: JoinDomainCommandOutput) => void): void;
+  joinDomain(
+    args: JoinDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JoinDomainCommandOutput>;
+  joinDomain(
+    args: JoinDomainCommandInput,
+    cb: (err: any, data?: JoinDomainCommandOutput) => void
+  ): void;
   joinDomain(
     args: JoinDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1480,7 +1570,10 @@ export interface StorageGateway {
     args: ListFileSharesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFileSharesCommandOutput>;
-  listFileShares(args: ListFileSharesCommandInput, cb: (err: any, data?: ListFileSharesCommandOutput) => void): void;
+  listFileShares(
+    args: ListFileSharesCommandInput,
+    cb: (err: any, data?: ListFileSharesCommandOutput) => void
+  ): void;
   listFileShares(
     args: ListFileSharesCommandInput,
     options: __HttpHandlerOptions,
@@ -1509,8 +1602,14 @@ export interface StorageGateway {
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
   listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -1524,7 +1623,10 @@ export interface StorageGateway {
     args: ListLocalDisksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLocalDisksCommandOutput>;
-  listLocalDisks(args: ListLocalDisksCommandInput, cb: (err: any, data?: ListLocalDisksCommandOutput) => void): void;
+  listLocalDisks(
+    args: ListLocalDisksCommandInput,
+    cb: (err: any, data?: ListLocalDisksCommandOutput) => void
+  ): void;
   listLocalDisks(
     args: ListLocalDisksCommandInput,
     options: __HttpHandlerOptions,
@@ -1552,8 +1654,14 @@ export interface StorageGateway {
    * @see {@link ListTapePoolsCommand}
    */
   listTapePools(): Promise<ListTapePoolsCommandOutput>;
-  listTapePools(args: ListTapePoolsCommandInput, options?: __HttpHandlerOptions): Promise<ListTapePoolsCommandOutput>;
-  listTapePools(args: ListTapePoolsCommandInput, cb: (err: any, data?: ListTapePoolsCommandOutput) => void): void;
+  listTapePools(
+    args: ListTapePoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTapePoolsCommandOutput>;
+  listTapePools(
+    args: ListTapePoolsCommandInput,
+    cb: (err: any, data?: ListTapePoolsCommandOutput) => void
+  ): void;
   listTapePools(
     args: ListTapePoolsCommandInput,
     options: __HttpHandlerOptions,
@@ -1564,8 +1672,14 @@ export interface StorageGateway {
    * @see {@link ListTapesCommand}
    */
   listTapes(): Promise<ListTapesCommandOutput>;
-  listTapes(args: ListTapesCommandInput, options?: __HttpHandlerOptions): Promise<ListTapesCommandOutput>;
-  listTapes(args: ListTapesCommandInput, cb: (err: any, data?: ListTapesCommandOutput) => void): void;
+  listTapes(
+    args: ListTapesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTapesCommandOutput>;
+  listTapes(
+    args: ListTapesCommandInput,
+    cb: (err: any, data?: ListTapesCommandOutput) => void
+  ): void;
   listTapes(
     args: ListTapesCommandInput,
     options: __HttpHandlerOptions,
@@ -1610,8 +1724,14 @@ export interface StorageGateway {
    * @see {@link ListVolumesCommand}
    */
   listVolumes(): Promise<ListVolumesCommandOutput>;
-  listVolumes(args: ListVolumesCommandInput, options?: __HttpHandlerOptions): Promise<ListVolumesCommandOutput>;
-  listVolumes(args: ListVolumesCommandInput, cb: (err: any, data?: ListVolumesCommandOutput) => void): void;
+  listVolumes(
+    args: ListVolumesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVolumesCommandOutput>;
+  listVolumes(
+    args: ListVolumesCommandInput,
+    cb: (err: any, data?: ListVolumesCommandOutput) => void
+  ): void;
   listVolumes(
     args: ListVolumesCommandInput,
     options: __HttpHandlerOptions,
@@ -1638,8 +1758,14 @@ export interface StorageGateway {
   /**
    * @see {@link RefreshCacheCommand}
    */
-  refreshCache(args: RefreshCacheCommandInput, options?: __HttpHandlerOptions): Promise<RefreshCacheCommandOutput>;
-  refreshCache(args: RefreshCacheCommandInput, cb: (err: any, data?: RefreshCacheCommandOutput) => void): void;
+  refreshCache(
+    args: RefreshCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RefreshCacheCommandOutput>;
+  refreshCache(
+    args: RefreshCacheCommandInput,
+    cb: (err: any, data?: RefreshCacheCommandOutput) => void
+  ): void;
   refreshCache(
     args: RefreshCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1666,8 +1792,14 @@ export interface StorageGateway {
   /**
    * @see {@link ResetCacheCommand}
    */
-  resetCache(args: ResetCacheCommandInput, options?: __HttpHandlerOptions): Promise<ResetCacheCommandOutput>;
-  resetCache(args: ResetCacheCommandInput, cb: (err: any, data?: ResetCacheCommandOutput) => void): void;
+  resetCache(
+    args: ResetCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetCacheCommandOutput>;
+  resetCache(
+    args: ResetCacheCommandInput,
+    cb: (err: any, data?: ResetCacheCommandOutput) => void
+  ): void;
   resetCache(
     args: ResetCacheCommandInput,
     options: __HttpHandlerOptions,
@@ -1749,7 +1881,10 @@ export interface StorageGateway {
     args: ShutdownGatewayCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ShutdownGatewayCommandOutput>;
-  shutdownGateway(args: ShutdownGatewayCommandInput, cb: (err: any, data?: ShutdownGatewayCommandOutput) => void): void;
+  shutdownGateway(
+    args: ShutdownGatewayCommandInput,
+    cb: (err: any, data?: ShutdownGatewayCommandOutput) => void
+  ): void;
   shutdownGateway(
     args: ShutdownGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1793,8 +1928,14 @@ export interface StorageGateway {
   /**
    * @see {@link StartGatewayCommand}
    */
-  startGateway(args: StartGatewayCommandInput, options?: __HttpHandlerOptions): Promise<StartGatewayCommandOutput>;
-  startGateway(args: StartGatewayCommandInput, cb: (err: any, data?: StartGatewayCommandOutput) => void): void;
+  startGateway(
+    args: StartGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartGatewayCommandOutput>;
+  startGateway(
+    args: StartGatewayCommandInput,
+    cb: (err: any, data?: StartGatewayCommandOutput) => void
+  ): void;
   startGateway(
     args: StartGatewayCommandInput,
     options: __HttpHandlerOptions,

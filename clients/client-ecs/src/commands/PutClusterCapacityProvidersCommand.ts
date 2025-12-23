@@ -24,9 +24,7 @@ export interface PutClusterCapacityProvidersCommandInput extends PutClusterCapac
  *
  * The output of {@link PutClusterCapacityProvidersCommand}.
  */
-export interface PutClusterCapacityProvidersCommandOutput
-  extends PutClusterCapacityProvidersResponse,
-    __MetadataBearer {}
+export interface PutClusterCapacityProvidersCommandOutput extends PutClusterCapacityProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the available capacity providers and the default capacity provider strategy

@@ -26,7 +26,7 @@ export interface UploadArchiveInput {
  */
 export const UploadArchiveInputFilterSensitiveLog = (obj: UploadArchiveInput): any => ({
   ...obj,
-});
+})
 
 /**
  * @public
@@ -45,7 +45,7 @@ export interface UploadMultipartPartInput {
  */
 export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
   ...obj,
-});
+})
 
 /**
  * @public

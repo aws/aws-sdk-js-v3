@@ -622,8 +622,14 @@ export interface Transcribe {
   /**
    * @see {@link GetVocabularyCommand}
    */
-  getVocabulary(args: GetVocabularyCommandInput, options?: __HttpHandlerOptions): Promise<GetVocabularyCommandOutput>;
-  getVocabulary(args: GetVocabularyCommandInput, cb: (err: any, data?: GetVocabularyCommandOutput) => void): void;
+  getVocabulary(
+    args: GetVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVocabularyCommandOutput>;
+  getVocabulary(
+    args: GetVocabularyCommandInput,
+    cb: (err: any, data?: GetVocabularyCommandOutput) => void
+  ): void;
   getVocabulary(
     args: GetVocabularyCommandInput,
     options: __HttpHandlerOptions,
@@ -897,8 +903,14 @@ export interface Transcribe {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -908,8 +920,14 @@ export interface Transcribe {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

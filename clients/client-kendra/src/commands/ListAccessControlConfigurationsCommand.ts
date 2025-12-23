@@ -27,9 +27,7 @@ export interface ListAccessControlConfigurationsCommandInput extends ListAccessC
  *
  * The output of {@link ListAccessControlConfigurationsCommand}.
  */
-export interface ListAccessControlConfigurationsCommandOutput
-  extends ListAccessControlConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAccessControlConfigurationsCommandOutput extends ListAccessControlConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists one or more access control configurations for an index. This includes user and

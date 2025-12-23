@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
-export interface GetTransitGatewayAttachmentPropagationsCommandInput
-  extends GetTransitGatewayAttachmentPropagationsRequest {}
+export interface GetTransitGatewayAttachmentPropagationsCommandInput extends GetTransitGatewayAttachmentPropagationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
-export interface GetTransitGatewayAttachmentPropagationsCommandOutput
-  extends GetTransitGatewayAttachmentPropagationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayAttachmentPropagationsCommandOutput extends GetTransitGatewayAttachmentPropagationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>

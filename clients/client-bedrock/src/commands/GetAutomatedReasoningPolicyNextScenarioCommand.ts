@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyNextScenarioCommand}.
  */
-export interface GetAutomatedReasoningPolicyNextScenarioCommandInput
-  extends GetAutomatedReasoningPolicyNextScenarioRequest {}
+export interface GetAutomatedReasoningPolicyNextScenarioCommandInput extends GetAutomatedReasoningPolicyNextScenarioRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyNextScenarioCommand}.
  */
-export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput
-  extends GetAutomatedReasoningPolicyNextScenarioResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput extends GetAutomatedReasoningPolicyNextScenarioResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the next test scenario for validating an Automated Reasoning policy. This is used during the interactive policy refinement process to test policy behavior.</p>

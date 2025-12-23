@@ -28,9 +28,7 @@ export interface CompleteWebAuthnRegistrationCommandInput extends CompleteWebAut
  *
  * The output of {@link CompleteWebAuthnRegistrationCommand}.
  */
-export interface CompleteWebAuthnRegistrationCommandOutput
-  extends CompleteWebAuthnRegistrationResponse,
-    __MetadataBearer {}
+export interface CompleteWebAuthnRegistrationCommandOutput extends CompleteWebAuthnRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Completes registration of a passkey authenticator for the currently signed-in

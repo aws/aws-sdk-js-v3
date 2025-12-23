@@ -24,9 +24,7 @@ export interface CreateConfiguredModelAlgorithmCommandInput extends CreateConfig
  *
  * The output of {@link CreateConfiguredModelAlgorithmCommand}.
  */
-export interface CreateConfiguredModelAlgorithmCommandOutput
-  extends CreateConfiguredModelAlgorithmResponse,
-    __MetadataBearer {}
+export interface CreateConfiguredModelAlgorithmCommandOutput extends CreateConfiguredModelAlgorithmResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a configured model algorithm using a container image stored in an ECR repository.</p>

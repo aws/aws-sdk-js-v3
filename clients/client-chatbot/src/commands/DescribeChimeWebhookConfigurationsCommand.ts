@@ -27,9 +27,7 @@ export interface DescribeChimeWebhookConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeChimeWebhookConfigurationsCommand}.
  */
-export interface DescribeChimeWebhookConfigurationsCommandOutput
-  extends DescribeChimeWebhookConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeChimeWebhookConfigurationsCommandOutput extends DescribeChimeWebhookConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists Amazon Chime webhook configurations optionally filtered by ChatConfigurationArn</p>

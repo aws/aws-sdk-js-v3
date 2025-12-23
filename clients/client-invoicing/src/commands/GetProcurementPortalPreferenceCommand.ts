@@ -24,9 +24,7 @@ export interface GetProcurementPortalPreferenceCommandInput extends GetProcureme
  *
  * The output of {@link GetProcurementPortalPreferenceCommand}.
  */
-export interface GetProcurementPortalPreferenceCommandOutput
-  extends GetProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface GetProcurementPortalPreferenceCommandOutput extends GetProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of a specific procurement portal preference configuration.</p>

@@ -27,9 +27,7 @@ export interface UpdatePlaybackRestrictionPolicyCommandInput extends UpdatePlayb
  *
  * The output of {@link UpdatePlaybackRestrictionPolicyCommand}.
  */
-export interface UpdatePlaybackRestrictionPolicyCommandOutput
-  extends UpdatePlaybackRestrictionPolicyResponse,
-    __MetadataBearer {}
+export interface UpdatePlaybackRestrictionPolicyCommandOutput extends UpdatePlaybackRestrictionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a specified playback restriction policy.</p>

@@ -27,9 +27,7 @@ export interface DeleteApplicationFromEnvironmentCommandInput extends DeleteAppl
  *
  * The output of {@link DeleteApplicationFromEnvironmentCommand}.
  */
-export interface DeleteApplicationFromEnvironmentCommandOutput
-  extends DeleteApplicationFromEnvironmentResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationFromEnvironmentCommandOutput extends DeleteApplicationFromEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific application from the specific runtime environment where it was

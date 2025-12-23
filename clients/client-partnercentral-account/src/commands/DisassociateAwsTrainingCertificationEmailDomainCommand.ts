@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface DisassociateAwsTrainingCertificationEmailDomainCommandInput
-  extends DisassociateAwsTrainingCertificationEmailDomainRequest {}
+export interface DisassociateAwsTrainingCertificationEmailDomainCommandInput extends DisassociateAwsTrainingCertificationEmailDomainRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface DisassociateAwsTrainingCertificationEmailDomainCommandOutput
-  extends DisassociateAwsTrainingCertificationEmailDomainResponse,
-    __MetadataBearer {}
+export interface DisassociateAwsTrainingCertificationEmailDomainCommandOutput extends DisassociateAwsTrainingCertificationEmailDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an email domain and AWS training and certification for the partner account.</p>

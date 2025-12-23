@@ -24,9 +24,7 @@ export interface DisassociateDistributionWebACLCommandInput extends Disassociate
  *
  * The output of {@link DisassociateDistributionWebACLCommand}.
  */
-export interface DisassociateDistributionWebACLCommandOutput
-  extends DisassociateDistributionWebACLResult,
-    __MetadataBearer {}
+export interface DisassociateDistributionWebACLCommandOutput extends DisassociateDistributionWebACLResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a distribution from the WAF web ACL.</p>

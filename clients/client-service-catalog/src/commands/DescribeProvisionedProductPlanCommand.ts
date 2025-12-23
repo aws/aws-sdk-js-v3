@@ -28,9 +28,7 @@ export interface DescribeProvisionedProductPlanCommandInput extends DescribeProv
  *
  * The output of {@link DescribeProvisionedProductPlanCommand}.
  */
-export interface DescribeProvisionedProductPlanCommandOutput
-  extends DescribeProvisionedProductPlanOutput,
-    __MetadataBearer {}
+export interface DescribeProvisionedProductPlanCommandOutput extends DescribeProvisionedProductPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the resource changes for the specified plan.</p>

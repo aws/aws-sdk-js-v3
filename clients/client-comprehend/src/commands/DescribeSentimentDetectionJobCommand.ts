@@ -24,9 +24,7 @@ export interface DescribeSentimentDetectionJobCommandInput extends DescribeSenti
  *
  * The output of {@link DescribeSentimentDetectionJobCommand}.
  */
-export interface DescribeSentimentDetectionJobCommandOutput
-  extends DescribeSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeSentimentDetectionJobCommandOutput extends DescribeSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get

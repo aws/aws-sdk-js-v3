@@ -27,9 +27,7 @@ export interface GetColumnStatisticsForPartitionCommandInput extends GetColumnSt
  *
  * The output of {@link GetColumnStatisticsForPartitionCommand}.
  */
-export interface GetColumnStatisticsForPartitionCommandOutput
-  extends GetColumnStatisticsForPartitionResponse,
-    __MetadataBearer {}
+export interface GetColumnStatisticsForPartitionCommandOutput extends GetColumnStatisticsForPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves partition statistics of columns.</p>

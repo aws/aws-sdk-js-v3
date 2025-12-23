@@ -362,6 +362,7 @@ export class BatchGetItemCommand extends $Command
   .ep({
     ...commonParams,
     ResourceArnList: { type: "operationContextParams", get: (input?: any) => Object.keys(input?.RequestItems ?? {}) },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

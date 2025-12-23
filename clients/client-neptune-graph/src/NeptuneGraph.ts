@@ -201,8 +201,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link CancelQueryCommand}
    */
-  cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
-  cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelQueryCommandOutput>;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
   cancelQuery(
     args: CancelQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -212,8 +218,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link CreateGraphCommand}
    */
-  createGraph(args: CreateGraphCommandInput, options?: __HttpHandlerOptions): Promise<CreateGraphCommandOutput>;
-  createGraph(args: CreateGraphCommandInput, cb: (err: any, data?: CreateGraphCommandOutput) => void): void;
+  createGraph(
+    args: CreateGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGraphCommandOutput>;
+  createGraph(
+    args: CreateGraphCommandInput,
+    cb: (err: any, data?: CreateGraphCommandOutput) => void
+  ): void;
   createGraph(
     args: CreateGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -274,8 +286,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link DeleteGraphCommand}
    */
-  deleteGraph(args: DeleteGraphCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGraphCommandOutput>;
-  deleteGraph(args: DeleteGraphCommandInput, cb: (err: any, data?: DeleteGraphCommandOutput) => void): void;
+  deleteGraph(
+    args: DeleteGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGraphCommandOutput>;
+  deleteGraph(
+    args: DeleteGraphCommandInput,
+    cb: (err: any, data?: DeleteGraphCommandOutput) => void
+  ): void;
   deleteGraph(
     args: DeleteGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -319,8 +337,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link ExecuteQueryCommand}
    */
-  executeQuery(args: ExecuteQueryCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteQueryCommandOutput>;
-  executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteQueryCommandOutput>;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
   executeQuery(
     args: ExecuteQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -330,8 +354,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link GetExportTaskCommand}
    */
-  getExportTask(args: GetExportTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetExportTaskCommandOutput>;
-  getExportTask(args: GetExportTaskCommandInput, cb: (err: any, data?: GetExportTaskCommandOutput) => void): void;
+  getExportTask(
+    args: GetExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportTaskCommandOutput>;
+  getExportTask(
+    args: GetExportTaskCommandInput,
+    cb: (err: any, data?: GetExportTaskCommandOutput) => void
+  ): void;
   getExportTask(
     args: GetExportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -341,8 +371,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link GetGraphCommand}
    */
-  getGraph(args: GetGraphCommandInput, options?: __HttpHandlerOptions): Promise<GetGraphCommandOutput>;
-  getGraph(args: GetGraphCommandInput, cb: (err: any, data?: GetGraphCommandOutput) => void): void;
+  getGraph(
+    args: GetGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGraphCommandOutput>;
+  getGraph(
+    args: GetGraphCommandInput,
+    cb: (err: any, data?: GetGraphCommandOutput) => void
+  ): void;
   getGraph(
     args: GetGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -373,7 +409,10 @@ export interface NeptuneGraph {
     args: GetGraphSummaryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetGraphSummaryCommandOutput>;
-  getGraphSummary(args: GetGraphSummaryCommandInput, cb: (err: any, data?: GetGraphSummaryCommandOutput) => void): void;
+  getGraphSummary(
+    args: GetGraphSummaryCommandInput,
+    cb: (err: any, data?: GetGraphSummaryCommandOutput) => void
+  ): void;
   getGraphSummary(
     args: GetGraphSummaryCommandInput,
     options: __HttpHandlerOptions,
@@ -383,8 +422,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link GetImportTaskCommand}
    */
-  getImportTask(args: GetImportTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetImportTaskCommandOutput>;
-  getImportTask(args: GetImportTaskCommandInput, cb: (err: any, data?: GetImportTaskCommandOutput) => void): void;
+  getImportTask(
+    args: GetImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportTaskCommandOutput>;
+  getImportTask(
+    args: GetImportTaskCommandInput,
+    cb: (err: any, data?: GetImportTaskCommandOutput) => void
+  ): void;
   getImportTask(
     args: GetImportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -411,8 +456,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link GetQueryCommand}
    */
-  getQuery(args: GetQueryCommandInput, options?: __HttpHandlerOptions): Promise<GetQueryCommandOutput>;
-  getQuery(args: GetQueryCommandInput, cb: (err: any, data?: GetQueryCommandOutput) => void): void;
+  getQuery(
+    args: GetQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryCommandOutput>;
+  getQuery(
+    args: GetQueryCommandInput,
+    cb: (err: any, data?: GetQueryCommandOutput) => void
+  ): void;
   getQuery(
     args: GetQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -427,7 +478,10 @@ export interface NeptuneGraph {
     args: ListExportTasksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExportTasksCommandOutput>;
-  listExportTasks(args: ListExportTasksCommandInput, cb: (err: any, data?: ListExportTasksCommandOutput) => void): void;
+  listExportTasks(
+    args: ListExportTasksCommandInput,
+    cb: (err: any, data?: ListExportTasksCommandOutput) => void
+  ): void;
   listExportTasks(
     args: ListExportTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -438,8 +492,14 @@ export interface NeptuneGraph {
    * @see {@link ListGraphsCommand}
    */
   listGraphs(): Promise<ListGraphsCommandOutput>;
-  listGraphs(args: ListGraphsCommandInput, options?: __HttpHandlerOptions): Promise<ListGraphsCommandOutput>;
-  listGraphs(args: ListGraphsCommandInput, cb: (err: any, data?: ListGraphsCommandOutput) => void): void;
+  listGraphs(
+    args: ListGraphsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGraphsCommandOutput>;
+  listGraphs(
+    args: ListGraphsCommandInput,
+    cb: (err: any, data?: ListGraphsCommandOutput) => void
+  ): void;
   listGraphs(
     args: ListGraphsCommandInput,
     options: __HttpHandlerOptions,
@@ -472,7 +532,10 @@ export interface NeptuneGraph {
     args: ListImportTasksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListImportTasksCommandOutput>;
-  listImportTasks(args: ListImportTasksCommandInput, cb: (err: any, data?: ListImportTasksCommandOutput) => void): void;
+  listImportTasks(
+    args: ListImportTasksCommandInput,
+    cb: (err: any, data?: ListImportTasksCommandOutput) => void
+  ): void;
   listImportTasks(
     args: ListImportTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +562,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link ListQueriesCommand}
    */
-  listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
-  listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
+  listQueries(
+    args: ListQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueriesCommandOutput>;
+  listQueries(
+    args: ListQueriesCommandInput,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
+  ): void;
   listQueries(
     args: ListQueriesCommandInput,
     options: __HttpHandlerOptions,
@@ -527,8 +596,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link ResetGraphCommand}
    */
-  resetGraph(args: ResetGraphCommandInput, options?: __HttpHandlerOptions): Promise<ResetGraphCommandOutput>;
-  resetGraph(args: ResetGraphCommandInput, cb: (err: any, data?: ResetGraphCommandOutput) => void): void;
+  resetGraph(
+    args: ResetGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetGraphCommandOutput>;
+  resetGraph(
+    args: ResetGraphCommandInput,
+    cb: (err: any, data?: ResetGraphCommandOutput) => void
+  ): void;
   resetGraph(
     args: ResetGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -559,7 +634,10 @@ export interface NeptuneGraph {
     args: StartExportTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartExportTaskCommandOutput>;
-  startExportTask(args: StartExportTaskCommandInput, cb: (err: any, data?: StartExportTaskCommandOutput) => void): void;
+  startExportTask(
+    args: StartExportTaskCommandInput,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
   startExportTask(
     args: StartExportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -569,8 +647,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link StartGraphCommand}
    */
-  startGraph(args: StartGraphCommandInput, options?: __HttpHandlerOptions): Promise<StartGraphCommandOutput>;
-  startGraph(args: StartGraphCommandInput, cb: (err: any, data?: StartGraphCommandOutput) => void): void;
+  startGraph(
+    args: StartGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartGraphCommandOutput>;
+  startGraph(
+    args: StartGraphCommandInput,
+    cb: (err: any, data?: StartGraphCommandOutput) => void
+  ): void;
   startGraph(
     args: StartGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -584,7 +668,10 @@ export interface NeptuneGraph {
     args: StartImportTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartImportTaskCommandOutput>;
-  startImportTask(args: StartImportTaskCommandInput, cb: (err: any, data?: StartImportTaskCommandOutput) => void): void;
+  startImportTask(
+    args: StartImportTaskCommandInput,
+    cb: (err: any, data?: StartImportTaskCommandOutput) => void
+  ): void;
   startImportTask(
     args: StartImportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -594,8 +681,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link StopGraphCommand}
    */
-  stopGraph(args: StopGraphCommandInput, options?: __HttpHandlerOptions): Promise<StopGraphCommandOutput>;
-  stopGraph(args: StopGraphCommandInput, cb: (err: any, data?: StopGraphCommandOutput) => void): void;
+  stopGraph(
+    args: StopGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopGraphCommandOutput>;
+  stopGraph(
+    args: StopGraphCommandInput,
+    cb: (err: any, data?: StopGraphCommandOutput) => void
+  ): void;
   stopGraph(
     args: StopGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +698,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -616,8 +715,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -627,8 +732,14 @@ export interface NeptuneGraph {
   /**
    * @see {@link UpdateGraphCommand}
    */
-  updateGraph(args: UpdateGraphCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGraphCommandOutput>;
-  updateGraph(args: UpdateGraphCommandInput, cb: (err: any, data?: UpdateGraphCommandOutput) => void): void;
+  updateGraph(
+    args: UpdateGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGraphCommandOutput>;
+  updateGraph(
+    args: UpdateGraphCommandInput,
+    cb: (err: any, data?: UpdateGraphCommandOutput) => void
+  ): void;
   updateGraph(
     args: UpdateGraphCommandInput,
     options: __HttpHandlerOptions,

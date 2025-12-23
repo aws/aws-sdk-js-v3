@@ -27,9 +27,7 @@ export interface DescribeCustomVocabularyMetadataCommandInput extends DescribeCu
  *
  * The output of {@link DescribeCustomVocabularyMetadataCommand}.
  */
-export interface DescribeCustomVocabularyMetadataCommandOutput
-  extends DescribeCustomVocabularyMetadataResponse,
-    __MetadataBearer {}
+export interface DescribeCustomVocabularyMetadataCommandOutput extends DescribeCustomVocabularyMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Provides metadata information about a custom vocabulary.</p>

@@ -209,7 +209,10 @@ export interface ControlTower {
     args: DisableBaselineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableBaselineCommandOutput>;
-  disableBaseline(args: DisableBaselineCommandInput, cb: (err: any, data?: DisableBaselineCommandOutput) => void): void;
+  disableBaseline(
+    args: DisableBaselineCommandInput,
+    cb: (err: any, data?: DisableBaselineCommandOutput) => void
+  ): void;
   disableBaseline(
     args: DisableBaselineCommandInput,
     options: __HttpHandlerOptions,
@@ -224,7 +227,10 @@ export interface ControlTower {
     args: DisableControlCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableControlCommandOutput>;
-  disableControl(args: DisableControlCommandInput, cb: (err: any, data?: DisableControlCommandOutput) => void): void;
+  disableControl(
+    args: DisableControlCommandInput,
+    cb: (err: any, data?: DisableControlCommandOutput) => void
+  ): void;
   disableControl(
     args: DisableControlCommandInput,
     options: __HttpHandlerOptions,
@@ -238,7 +244,10 @@ export interface ControlTower {
     args: EnableBaselineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableBaselineCommandOutput>;
-  enableBaseline(args: EnableBaselineCommandInput, cb: (err: any, data?: EnableBaselineCommandOutput) => void): void;
+  enableBaseline(
+    args: EnableBaselineCommandInput,
+    cb: (err: any, data?: EnableBaselineCommandOutput) => void
+  ): void;
   enableBaseline(
     args: EnableBaselineCommandInput,
     options: __HttpHandlerOptions,
@@ -248,8 +257,14 @@ export interface ControlTower {
   /**
    * @see {@link EnableControlCommand}
    */
-  enableControl(args: EnableControlCommandInput, options?: __HttpHandlerOptions): Promise<EnableControlCommandOutput>;
-  enableControl(args: EnableControlCommandInput, cb: (err: any, data?: EnableControlCommandOutput) => void): void;
+  enableControl(
+    args: EnableControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableControlCommandOutput>;
+  enableControl(
+    args: EnableControlCommandInput,
+    cb: (err: any, data?: EnableControlCommandOutput) => void
+  ): void;
   enableControl(
     args: EnableControlCommandInput,
     options: __HttpHandlerOptions,
@@ -259,8 +274,14 @@ export interface ControlTower {
   /**
    * @see {@link GetBaselineCommand}
    */
-  getBaseline(args: GetBaselineCommandInput, options?: __HttpHandlerOptions): Promise<GetBaselineCommandOutput>;
-  getBaseline(args: GetBaselineCommandInput, cb: (err: any, data?: GetBaselineCommandOutput) => void): void;
+  getBaseline(
+    args: GetBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBaselineCommandOutput>;
+  getBaseline(
+    args: GetBaselineCommandInput,
+    cb: (err: any, data?: GetBaselineCommandOutput) => void
+  ): void;
   getBaseline(
     args: GetBaselineCommandInput,
     options: __HttpHandlerOptions,
@@ -342,7 +363,10 @@ export interface ControlTower {
     args: GetLandingZoneCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLandingZoneCommandOutput>;
-  getLandingZone(args: GetLandingZoneCommandInput, cb: (err: any, data?: GetLandingZoneCommandOutput) => void): void;
+  getLandingZone(
+    args: GetLandingZoneCommandInput,
+    cb: (err: any, data?: GetLandingZoneCommandOutput) => void
+  ): void;
   getLandingZone(
     args: GetLandingZoneCommandInput,
     options: __HttpHandlerOptions,
@@ -370,8 +394,14 @@ export interface ControlTower {
    * @see {@link ListBaselinesCommand}
    */
   listBaselines(): Promise<ListBaselinesCommandOutput>;
-  listBaselines(args: ListBaselinesCommandInput, options?: __HttpHandlerOptions): Promise<ListBaselinesCommandOutput>;
-  listBaselines(args: ListBaselinesCommandInput, cb: (err: any, data?: ListBaselinesCommandOutput) => void): void;
+  listBaselines(
+    args: ListBaselinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBaselinesCommandOutput>;
+  listBaselines(
+    args: ListBaselinesCommandInput,
+    cb: (err: any, data?: ListBaselinesCommandOutput) => void
+  ): void;
   listBaselines(
     args: ListBaselinesCommandInput,
     options: __HttpHandlerOptions,
@@ -539,8 +569,14 @@ export interface ControlTower {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -550,8 +586,14 @@ export interface ControlTower {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

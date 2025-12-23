@@ -1,6 +1,6 @@
-export * from "./GetSimilarProfilesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetSimilarProfilesPaginator";
 export * from "./ListDomainLayoutsPaginator";
 export * from "./ListDomainObjectTypesPaginator";
 export * from "./ListEventStreamsPaginator";

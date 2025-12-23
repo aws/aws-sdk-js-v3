@@ -9,10 +9,8 @@ AWS SDK for JavaScript PcaConnectorScep Client for Node.js, Browser and React Na
 <p>Connector for SCEP creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-pca-connector-scep
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-pca-connector-scep`
 - `yarn add @aws-sdk/client-pca-connector-scep`
 - `pnpm add @aws-sdk/client-pca-connector-scep`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PcaConnectorScepClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConnectorsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateChallenge
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/CreateChallengeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/CreateChallengeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/CreateChallengeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/CreateConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/CreateConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/CreateConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ DeleteChallenge
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/DeleteChallengeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/DeleteChallengeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/DeleteChallengeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ DeleteConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/DeleteConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/DeleteConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/DeleteConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetChallengeMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/GetChallengeMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetChallengeMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetChallengeMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ GetChallengePassword
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/GetChallengePasswordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetChallengePasswordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetChallengePasswordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ GetConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/GetConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/GetConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ ListChallengeMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/ListChallengeMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListChallengeMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListChallengeMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListConnectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListConnectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,5 +282,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pca-connector-scep/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pca-connector-scep/Interface/UntagResourceCommandOutput/)
-
 </details>

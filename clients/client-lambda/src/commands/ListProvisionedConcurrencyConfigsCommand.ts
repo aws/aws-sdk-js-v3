@@ -27,9 +27,7 @@ export interface ListProvisionedConcurrencyConfigsCommandInput extends ListProvi
  *
  * The output of {@link ListProvisionedConcurrencyConfigsCommand}.
  */
-export interface ListProvisionedConcurrencyConfigsCommandOutput
-  extends ListProvisionedConcurrencyConfigsResponse,
-    __MetadataBearer {}
+export interface ListProvisionedConcurrencyConfigsCommandOutput extends ListProvisionedConcurrencyConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>

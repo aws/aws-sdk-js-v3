@@ -24,9 +24,7 @@ export interface ListResourceSharePermissionsCommandInput extends ListResourceSh
  *
  * The output of {@link ListResourceSharePermissionsCommand}.
  */
-export interface ListResourceSharePermissionsCommandOutput
-  extends ListResourceSharePermissionsResponse,
-    __MetadataBearer {}
+export interface ListResourceSharePermissionsCommandOutput extends ListResourceSharePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the RAM permissions that are associated with a resource share.</p>

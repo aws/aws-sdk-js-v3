@@ -437,7 +437,9 @@ export interface ValidationExceptionField {
  * <p>The identifier for a resource object that contains resources to scan. Specifying a codeArtifactId is required to create a scan.</p>
  * @public
  */
-export type ResourceId = ResourceId.CodeArtifactIdMember | ResourceId.$UnknownMember;
+export type ResourceId =
+  | ResourceId.CodeArtifactIdMember
+  | ResourceId.$UnknownMember;
 
 /**
  * @public

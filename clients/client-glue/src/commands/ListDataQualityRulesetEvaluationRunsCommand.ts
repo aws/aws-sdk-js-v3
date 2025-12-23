@@ -27,9 +27,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandInput extends ListDa
  *
  * The output of {@link ListDataQualityRulesetEvaluationRunsCommand}.
  */
-export interface ListDataQualityRulesetEvaluationRunsCommandOutput
-  extends ListDataQualityRulesetEvaluationRunsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityRulesetEvaluationRunsCommandOutput extends ListDataQualityRulesetEvaluationRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>

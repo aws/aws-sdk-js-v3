@@ -86,7 +86,10 @@ export class GetTrafficPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "GetTrafficPolicy", {})
   .n("Route53Client", "GetTrafficPolicyCommand")

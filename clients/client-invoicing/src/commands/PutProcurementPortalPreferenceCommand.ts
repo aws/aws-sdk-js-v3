@@ -24,9 +24,7 @@ export interface PutProcurementPortalPreferenceCommandInput extends PutProcureme
  *
  * The output of {@link PutProcurementPortalPreferenceCommand}.
  */
-export interface PutProcurementPortalPreferenceCommandOutput
-  extends PutProcurementPortalPreferenceResponse,
-    __MetadataBearer {}
+export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing procurement portal preference configuration. This operation can modify settings for e-invoice delivery and purchase order retrieval.</p>

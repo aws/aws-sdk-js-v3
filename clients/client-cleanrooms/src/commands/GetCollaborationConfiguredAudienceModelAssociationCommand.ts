@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCollaborationConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetCollaborationConfiguredAudienceModelAssociationCommandInput
-  extends GetCollaborationConfiguredAudienceModelAssociationInput {}
+export interface GetCollaborationConfiguredAudienceModelAssociationCommandInput extends GetCollaborationConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link GetCollaborationConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
-  extends GetCollaborationConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput extends GetCollaborationConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured audience model association within a collaboration.</p>

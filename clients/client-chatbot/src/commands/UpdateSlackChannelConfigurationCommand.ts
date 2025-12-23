@@ -24,9 +24,7 @@ export interface UpdateSlackChannelConfigurationCommandInput extends UpdateSlack
  *
  * The output of {@link UpdateSlackChannelConfigurationCommand}.
  */
-export interface UpdateSlackChannelConfigurationCommandOutput
-  extends UpdateSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface UpdateSlackChannelConfigurationCommandOutput extends UpdateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates a Slack channel configuration.</p>

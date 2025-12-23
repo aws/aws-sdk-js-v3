@@ -9,10 +9,8 @@ AWS SDK for JavaScript Route53RecoveryControlConfig Client for Node.js, Browser 
 <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route53-recovery-control-config
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route53-recovery-control-config`
 - `yarn add @aws-sdk/client-route53-recovery-control-config`
 - `pnpm add @aws-sdk/client-route53-recovery-control-config`
@@ -27,18 +25,12 @@ the commands you need, for example `ListClustersCommand`:
 
 ```js
 // ES5 example
-const {
-  Route53RecoveryControlConfigClient,
-  ListClustersCommand,
-} = require("@aws-sdk/client-route53-recovery-control-config");
+const { Route53RecoveryControlConfigClient, ListClustersCommand } = require("@aws-sdk/client-route53-recovery-control-config");
 ```
 
 ```ts
 // ES6+ example
-import {
-  Route53RecoveryControlConfigClient,
-  ListClustersCommand,
-} from "@aws-sdk/client-route53-recovery-control-config";
+import { Route53RecoveryControlConfigClient, ListClustersCommand } from "@aws-sdk/client-route53-recovery-control-config";
 ```
 
 ### Usage
@@ -54,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53RecoveryControlConfigClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListClustersCommand(params);
 ```
 
@@ -215,7 +205,6 @@ CreateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/CreateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -223,7 +212,6 @@ CreateControlPanel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/CreateControlPanelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateControlPanelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateControlPanelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -231,7 +219,6 @@ CreateRoutingControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/CreateRoutingControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateRoutingControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateRoutingControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -239,7 +226,6 @@ CreateSafetyRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/CreateSafetyRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateSafetyRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/CreateSafetyRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -247,7 +233,6 @@ DeleteCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DeleteClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +240,6 @@ DeleteControlPanel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DeleteControlPanelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteControlPanelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteControlPanelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +247,6 @@ DeleteRoutingControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DeleteRoutingControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteRoutingControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteRoutingControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,7 +254,6 @@ DeleteSafetyRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DeleteSafetyRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteSafetyRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DeleteSafetyRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -279,7 +261,6 @@ DescribeCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DescribeClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +268,6 @@ DescribeControlPanel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DescribeControlPanelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeControlPanelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeControlPanelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +275,6 @@ DescribeRoutingControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DescribeRoutingControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeRoutingControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeRoutingControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +282,6 @@ DescribeSafetyRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/DescribeSafetyRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeSafetyRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/DescribeSafetyRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +289,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +296,6 @@ ListAssociatedRoute53HealthChecks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListAssociatedRoute53HealthChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListAssociatedRoute53HealthChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListAssociatedRoute53HealthChecksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,7 +303,6 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListClustersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -335,7 +310,6 @@ ListControlPanels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListControlPanelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListControlPanelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListControlPanelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -343,7 +317,6 @@ ListRoutingControls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListRoutingControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListRoutingControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListRoutingControlsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -351,7 +324,6 @@ ListSafetyRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListSafetyRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListSafetyRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListSafetyRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -359,7 +331,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -367,7 +338,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -375,7 +345,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -383,7 +352,6 @@ UpdateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +359,6 @@ UpdateControlPanel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UpdateControlPanelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateControlPanelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateControlPanelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +366,6 @@ UpdateRoutingControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UpdateRoutingControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateRoutingControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateRoutingControlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,5 +373,4 @@ UpdateSafetyRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UpdateSafetyRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateSafetyRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateSafetyRuleCommandOutput/)
-
 </details>

@@ -24,9 +24,7 @@ export interface DescribePodIdentityAssociationCommandInput extends DescribePodI
  *
  * The output of {@link DescribePodIdentityAssociationCommand}.
  */
-export interface DescribePodIdentityAssociationCommandOutput
-  extends DescribePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface DescribePodIdentityAssociationCommandOutput extends DescribePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an EKS Pod Identity association.</p>

@@ -28,9 +28,7 @@ export interface CreateCrossAccountAttachmentCommandInput extends CreateCrossAcc
  *
  * The output of {@link CreateCrossAccountAttachmentCommand}.
  */
-export interface CreateCrossAccountAttachmentCommandOutput
-  extends CreateCrossAccountAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateCrossAccountAttachmentCommandOutput extends CreateCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Create a cross-account attachment in Global Accelerator. You create a cross-account attachment to

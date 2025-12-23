@@ -24,9 +24,7 @@ export interface GetTestExecutionArtifactsUrlCommandInput extends GetTestExecuti
  *
  * The output of {@link GetTestExecutionArtifactsUrlCommand}.
  */
-export interface GetTestExecutionArtifactsUrlCommandOutput
-  extends GetTestExecutionArtifactsUrlResponse,
-    __MetadataBearer {}
+export interface GetTestExecutionArtifactsUrlCommandOutput extends GetTestExecutionArtifactsUrlResponse, __MetadataBearer {}
 
 /**
  * <p>The pre-signed Amazon S3 URL to download the test execution result artifacts.</p>

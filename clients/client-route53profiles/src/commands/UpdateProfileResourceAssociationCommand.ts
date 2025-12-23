@@ -31,9 +31,7 @@ export interface UpdateProfileResourceAssociationCommandInput extends UpdateProf
  *
  * The output of {@link UpdateProfileResourceAssociationCommand}.
  */
-export interface UpdateProfileResourceAssociationCommandOutput
-  extends UpdateProfileResourceAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateProfileResourceAssociationCommandOutput extends UpdateProfileResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -49,11 +49,9 @@ export const defaultTimestreamInfluxDBHttpAuthSchemeParametersProvider = async (
 ): Promise<TimestreamInfluxDBHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface TimestreamInfluxDBHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultTimestreamInfluxDBHttpAuthSchemeProvider: TimestreamInfluxDBHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultTimestreamInfluxDBHttpAuthSchemeProvider: TimestreamInfluxDBHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

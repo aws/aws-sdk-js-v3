@@ -24,9 +24,7 @@ export interface DisassociateMemberFromFleetCommandInput extends DisassociateMem
  *
  * The output of {@link DisassociateMemberFromFleetCommand}.
  */
-export interface DisassociateMemberFromFleetCommandOutput
-  extends DisassociateMemberFromFleetResponse,
-    __MetadataBearer {}
+export interface DisassociateMemberFromFleetCommandOutput extends DisassociateMemberFromFleetResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a member from a fleet.</p>

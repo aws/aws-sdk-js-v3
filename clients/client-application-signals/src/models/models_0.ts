@@ -106,7 +106,10 @@ export interface RollingInterval {
  * <p>The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.</p>
  * @public
  */
-export type Interval = Interval.CalendarIntervalMember | Interval.RollingIntervalMember | Interval.$UnknownMember;
+export type Interval =
+  | Interval.CalendarIntervalMember
+  | Interval.RollingIntervalMember
+  | Interval.$UnknownMember;
 
 /**
  * @public

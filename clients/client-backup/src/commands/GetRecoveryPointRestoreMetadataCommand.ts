@@ -24,9 +24,7 @@ export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecovery
  *
  * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
-    __MetadataBearer {}
+export interface GetRecoveryPointRestoreMetadataCommandOutput extends GetRecoveryPointRestoreMetadataOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>

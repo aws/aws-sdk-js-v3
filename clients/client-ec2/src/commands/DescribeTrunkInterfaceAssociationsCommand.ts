@@ -27,9 +27,7 @@ export interface DescribeTrunkInterfaceAssociationsCommandInput extends Describe
  *
  * The output of {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
-export interface DescribeTrunkInterfaceAssociationsCommandOutput
-  extends DescribeTrunkInterfaceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeTrunkInterfaceAssociationsCommandOutput extends DescribeTrunkInterfaceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more network interface trunk associations.</p>

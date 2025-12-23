@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
-export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput
-  extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
+export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
  */
-export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
-  extends ModifyVpcEndpointServicePayerResponsibilityResult,
-    __MetadataBearer {}
+export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput extends ModifyVpcEndpointServicePayerResponsibilityResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the payer responsibility for your VPC endpoint service.</p>

@@ -24,9 +24,7 @@ export interface ModifyCustomDomainAssociationCommandInput extends ModifyCustomD
  *
  * The output of {@link ModifyCustomDomainAssociationCommand}.
  */
-export interface ModifyCustomDomainAssociationCommandOutput
-  extends ModifyCustomDomainAssociationResult,
-    __MetadataBearer {}
+export interface ModifyCustomDomainAssociationCommandOutput extends ModifyCustomDomainAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Contains information for changing a custom domain association.</p>

@@ -35,7 +35,6 @@ import {
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
 } from "./enums";
-
 import {
   type AccessRules,
   type Bucket,

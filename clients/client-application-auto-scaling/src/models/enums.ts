@@ -179,8 +179,7 @@ export const MetricType = {
   EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
   ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
   ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage:
-    "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage",
+  ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage: "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage",
   ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
   ElastiCacheDatabaseMemoryUsagePercentage: "ElastiCacheDatabaseMemoryUsagePercentage",
   ElastiCacheEngineCPUUtilization: "ElastiCacheEngineCPUUtilization",
@@ -191,8 +190,7 @@ export const MetricType = {
   NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
   RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
-  SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution:
-    "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution",
+  SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution: "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution",
   SageMakerInferenceComponentInvocationsPerCopy: "SageMakerInferenceComponentInvocationsPerCopy",
   SageMakerVariantConcurrentRequestsPerModelHighResolution: "SageMakerVariantConcurrentRequestsPerModelHighResolution",
   SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",

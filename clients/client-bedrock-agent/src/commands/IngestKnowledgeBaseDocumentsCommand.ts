@@ -24,9 +24,7 @@ export interface IngestKnowledgeBaseDocumentsCommandInput extends IngestKnowledg
  *
  * The output of {@link IngestKnowledgeBaseDocumentsCommand}.
  */
-export interface IngestKnowledgeBaseDocumentsCommandOutput
-  extends IngestKnowledgeBaseDocumentsResponse,
-    __MetadataBearer {}
+export interface IngestKnowledgeBaseDocumentsCommandOutput extends IngestKnowledgeBaseDocumentsResponse, __MetadataBearer {}
 
 /**
  * <p>Ingests documents directly into the knowledge base that is connected to the data source. The <code>dataSourceType</code> specified in the content for each document must match the type of the data source that you specify in the header. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>

@@ -27,9 +27,7 @@ export interface PromotePermissionCreatedFromPolicyCommandInput extends PromoteP
  *
  * The output of {@link PromotePermissionCreatedFromPolicyCommand}.
  */
-export interface PromotePermissionCreatedFromPolicyCommandOutput
-  extends PromotePermissionCreatedFromPolicyResponse,
-    __MetadataBearer {}
+export interface PromotePermissionCreatedFromPolicyCommandOutput extends PromotePermissionCreatedFromPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>When you attach a resource-based policy to a resource, RAM automatically creates

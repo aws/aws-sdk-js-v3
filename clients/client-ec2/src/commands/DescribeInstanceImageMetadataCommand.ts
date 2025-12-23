@@ -24,9 +24,7 @@ export interface DescribeInstanceImageMetadataCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceImageMetadataCommand}.
  */
-export interface DescribeInstanceImageMetadataCommandOutput
-  extends DescribeInstanceImageMetadataResult,
-    __MetadataBearer {}
+export interface DescribeInstanceImageMetadataCommandOutput extends DescribeInstanceImageMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Describes the AMI that was used to launch an instance, even if the AMI is deprecated,

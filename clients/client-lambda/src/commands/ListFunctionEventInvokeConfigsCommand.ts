@@ -24,9 +24,7 @@ export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunction
  *
  * The output of {@link ListFunctionEventInvokeConfigsCommand}.
  */
-export interface ListFunctionEventInvokeConfigsCommandOutput
-  extends ListFunctionEventInvokeConfigsResponse,
-    __MetadataBearer {}
+export interface ListFunctionEventInvokeConfigsCommandOutput extends ListFunctionEventInvokeConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>

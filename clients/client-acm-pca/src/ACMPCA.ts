@@ -222,8 +222,14 @@ export interface ACMPCA {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -271,7 +277,10 @@ export interface ACMPCA {
     args: GetCertificateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCertificateCommandOutput>;
-  getCertificate(args: GetCertificateCommandInput, cb: (err: any, data?: GetCertificateCommandOutput) => void): void;
+  getCertificate(
+    args: GetCertificateCommandInput,
+    cb: (err: any, data?: GetCertificateCommandOutput) => void
+  ): void;
   getCertificate(
     args: GetCertificateCommandInput,
     options: __HttpHandlerOptions,
@@ -315,8 +324,14 @@ export interface ACMPCA {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -382,7 +397,10 @@ export interface ACMPCA {
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPermissionsCommandOutput>;
-  listPermissions(args: ListPermissionsCommandInput, cb: (err: any, data?: ListPermissionsCommandOutput) => void): void;
+  listPermissions(
+    args: ListPermissionsCommandInput,
+    cb: (err: any, data?: ListPermissionsCommandOutput) => void
+  ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
     options: __HttpHandlerOptions,
@@ -392,8 +410,14 @@ export interface ACMPCA {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -403,8 +427,14 @@ export interface ACMPCA {
   /**
    * @see {@link PutPolicyCommand}
    */
-  putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
-  putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPolicyCommandOutput>;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
   putPolicy(
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,

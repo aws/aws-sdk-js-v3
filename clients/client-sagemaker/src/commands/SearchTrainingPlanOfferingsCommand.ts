@@ -24,9 +24,7 @@ export interface SearchTrainingPlanOfferingsCommandInput extends SearchTrainingP
  *
  * The output of {@link SearchTrainingPlanOfferingsCommand}.
  */
-export interface SearchTrainingPlanOfferingsCommandOutput
-  extends SearchTrainingPlanOfferingsResponse,
-    __MetadataBearer {}
+export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTrainingPlanOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for available training plan offerings based on specified criteria. </p> <ul> <li> <p>Users search for available plan offerings based on their requirements (e.g., instance type, count, start time, duration). </p> </li> <li> <p>And then, they create a plan that best matches their needs using the ID of the plan offering they want to use. </p> </li> </ul> <p>For more information about how to reserve GPU capacity for your SageMaker training jobs or SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>

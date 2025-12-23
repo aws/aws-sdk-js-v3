@@ -27,9 +27,7 @@ export interface DescribeConfigurationAggregatorsCommandInput extends DescribeCo
  *
  * The output of {@link DescribeConfigurationAggregatorsCommand}.
  */
-export interface DescribeConfigurationAggregatorsCommandOutput
-  extends DescribeConfigurationAggregatorsResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationAggregatorsCommandOutput extends DescribeConfigurationAggregatorsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more configuration aggregators.

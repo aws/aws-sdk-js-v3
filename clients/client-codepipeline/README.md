@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CodePipeline Client for Node.js, Browser and React Native.
 
 <fullname>CodePipeline</fullname>
-
 <p>
 <b>Overview</b>
 </p>
@@ -206,10 +205,8 @@ success.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codepipeline
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codepipeline`
 - `yarn add @aws-sdk/client-codepipeline`
 - `pnpm add @aws-sdk/client-codepipeline`
@@ -245,9 +242,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodePipelineClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListActionTypesCommand(params);
 ```
 
@@ -406,7 +401,6 @@ AcknowledgeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/AcknowledgeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/AcknowledgeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/AcknowledgeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -414,7 +408,6 @@ AcknowledgeThirdPartyJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/AcknowledgeThirdPartyJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/AcknowledgeThirdPartyJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/AcknowledgeThirdPartyJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -422,7 +415,6 @@ CreateCustomActionType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/CreateCustomActionTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/CreateCustomActionTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/CreateCustomActionTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -430,7 +422,6 @@ CreatePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/CreatePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/CreatePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/CreatePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -438,7 +429,6 @@ DeleteCustomActionType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/DeleteCustomActionTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeleteCustomActionTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeleteCustomActionTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -446,7 +436,6 @@ DeletePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/DeletePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeletePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeletePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -454,7 +443,6 @@ DeleteWebhook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/DeleteWebhookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeleteWebhookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeleteWebhookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -462,7 +450,6 @@ DeregisterWebhookWithThirdParty
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/DeregisterWebhookWithThirdPartyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeregisterWebhookWithThirdPartyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DeregisterWebhookWithThirdPartyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -470,7 +457,6 @@ DisableStageTransition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/DisableStageTransitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DisableStageTransitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/DisableStageTransitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -478,7 +464,6 @@ EnableStageTransition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/EnableStageTransitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/EnableStageTransitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/EnableStageTransitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -486,7 +471,6 @@ GetActionType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetActionTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetActionTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetActionTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -494,7 +478,6 @@ GetJobDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetJobDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetJobDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetJobDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -502,7 +485,6 @@ GetPipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -510,7 +492,6 @@ GetPipelineExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetPipelineExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -518,7 +499,6 @@ GetPipelineState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetPipelineStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetPipelineStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -526,7 +506,6 @@ GetThirdPartyJobDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/GetThirdPartyJobDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetThirdPartyJobDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/GetThirdPartyJobDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -534,7 +513,6 @@ ListActionExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListActionExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListActionExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListActionExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -542,7 +520,6 @@ ListActionTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListActionTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListActionTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListActionTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -550,7 +527,6 @@ ListDeployActionExecutionTargets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListDeployActionExecutionTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -558,7 +534,6 @@ ListPipelineExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListPipelineExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListPipelineExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListPipelineExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -566,7 +541,6 @@ ListPipelines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListPipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListPipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListPipelinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -574,7 +548,6 @@ ListRuleExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListRuleExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -582,7 +555,6 @@ ListRuleTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListRuleTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -590,7 +562,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -598,7 +569,6 @@ ListWebhooks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListWebhooksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListWebhooksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListWebhooksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -606,7 +576,6 @@ OverrideStageCondition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/OverrideStageConditionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/OverrideStageConditionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/OverrideStageConditionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -614,7 +583,6 @@ PollForJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PollForJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PollForJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PollForJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -622,7 +590,6 @@ PollForThirdPartyJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PollForThirdPartyJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PollForThirdPartyJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PollForThirdPartyJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -630,7 +597,6 @@ PutActionRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutActionRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutActionRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutActionRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -638,7 +604,6 @@ PutApprovalResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutApprovalResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutApprovalResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutApprovalResultCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -646,7 +611,6 @@ PutJobFailureResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutJobFailureResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutJobFailureResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutJobFailureResultCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -654,7 +618,6 @@ PutJobSuccessResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutJobSuccessResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutJobSuccessResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutJobSuccessResultCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -662,7 +625,6 @@ PutThirdPartyJobFailureResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutThirdPartyJobFailureResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutThirdPartyJobFailureResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutThirdPartyJobFailureResultCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -670,7 +632,6 @@ PutThirdPartyJobSuccessResult
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutThirdPartyJobSuccessResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutThirdPartyJobSuccessResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutThirdPartyJobSuccessResultCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -678,7 +639,6 @@ PutWebhook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/PutWebhookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutWebhookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/PutWebhookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -686,7 +646,6 @@ RegisterWebhookWithThirdParty
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/RegisterWebhookWithThirdPartyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RegisterWebhookWithThirdPartyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RegisterWebhookWithThirdPartyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -694,7 +653,6 @@ RetryStageExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/RetryStageExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RetryStageExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RetryStageExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -702,7 +660,6 @@ RollbackStage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/RollbackStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RollbackStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RollbackStageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -710,7 +667,6 @@ StartPipelineExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/StartPipelineExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/StartPipelineExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/StartPipelineExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -718,7 +674,6 @@ StopPipelineExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/StopPipelineExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/StopPipelineExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/StopPipelineExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -726,7 +681,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -734,7 +688,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -742,7 +695,6 @@ UpdateActionType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/UpdateActionTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UpdateActionTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UpdateActionTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -750,5 +702,4 @@ UpdatePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/UpdatePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UpdatePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/UpdatePipelineCommandOutput/)
-
 </details>

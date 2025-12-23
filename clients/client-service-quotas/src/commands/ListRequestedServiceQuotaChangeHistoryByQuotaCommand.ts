@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
-  extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
 /**
  * @public
  *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-  extends ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-    __MetadataBearer {}
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput extends ListRequestedServiceQuotaChangeHistoryByQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified quota. Filter responses to

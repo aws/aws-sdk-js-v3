@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentRunsCommandInput
-  extends DescribeReplicationTaskAssessmentRunsMessage {}
+export interface DescribeReplicationTaskAssessmentRunsCommandInput extends DescribeReplicationTaskAssessmentRunsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentRunsCommandOutput
-  extends DescribeReplicationTaskAssessmentRunsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTaskAssessmentRunsCommandOutput extends DescribeReplicationTaskAssessmentRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of premigration assessment runs based on filter

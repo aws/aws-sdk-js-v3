@@ -27,9 +27,7 @@ export interface UpdateQuickSightQSearchConfigurationCommandInput extends Update
  *
  * The output of {@link UpdateQuickSightQSearchConfigurationCommand}.
  */
-export interface UpdateQuickSightQSearchConfigurationCommandOutput
-  extends UpdateQuickSightQSearchConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateQuickSightQSearchConfigurationCommandOutput extends UpdateQuickSightQSearchConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the state of a Quick Sight Q Search configuration.</p>

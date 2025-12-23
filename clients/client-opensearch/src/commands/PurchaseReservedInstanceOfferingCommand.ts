@@ -27,9 +27,7 @@ export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseRe
  *
  * The output of {@link PurchaseReservedInstanceOfferingCommand}.
  */
-export interface PurchaseReservedInstanceOfferingCommandOutput
-  extends PurchaseReservedInstanceOfferingResponse,
-    __MetadataBearer {}
+export interface PurchaseReservedInstanceOfferingCommandOutput extends PurchaseReservedInstanceOfferingResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>

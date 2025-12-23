@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandInput
-  extends EnableSagemakerServicecatalogPortfolioInput {}
+export interface EnableSagemakerServicecatalogPortfolioCommandInput extends EnableSagemakerServicecatalogPortfolioInput {}
 /**
  * @public
  *
  * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
  */
-export interface EnableSagemakerServicecatalogPortfolioCommandOutput
-  extends EnableSagemakerServicecatalogPortfolioOutput,
-    __MetadataBearer {}
+export interface EnableSagemakerServicecatalogPortfolioCommandOutput extends EnableSagemakerServicecatalogPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>

@@ -24,9 +24,7 @@ export interface DescribeDBClusterAutomatedBackupsCommandInput extends DescribeD
  *
  * The output of {@link DescribeDBClusterAutomatedBackupsCommand}.
  */
-export interface DescribeDBClusterAutomatedBackupsCommandOutput
-  extends DBClusterAutomatedBackupMessage,
-    __MetadataBearer {}
+export interface DescribeDBClusterAutomatedBackupsCommandOutput extends DBClusterAutomatedBackupMessage, __MetadataBearer {}
 
 /**
  * <p>Displays backups for both current and deleted DB clusters. For example, use this operation to find details

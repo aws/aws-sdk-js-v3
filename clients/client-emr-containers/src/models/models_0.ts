@@ -482,7 +482,9 @@ export interface EksInfo {
  * <p>The information about the container used for a job run or a managed endpoint.</p>
  * @public
  */
-export type ContainerInfo = ContainerInfo.EksInfoMember | ContainerInfo.$UnknownMember;
+export type ContainerInfo =
+  | ContainerInfo.EksInfoMember
+  | ContainerInfo.$UnknownMember;
 
 /**
  * @public
@@ -1040,7 +1042,9 @@ export interface GetManagedEndpointSessionCredentialsRequest {
  * <p>The structure containing the session token being returned.</p>
  * @public
  */
-export type Credentials = Credentials.TokenMember | Credentials.$UnknownMember;
+export type Credentials =
+  | Credentials.TokenMember
+  | Credentials.$UnknownMember;
 
 /**
  * @public

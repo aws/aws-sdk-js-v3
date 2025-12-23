@@ -359,7 +359,9 @@ export interface GetIndexOutput {
  * <p>The vector data in different formats.</p>
  * @public
  */
-export type VectorData = VectorData.Float32Member | VectorData.$UnknownMember;
+export type VectorData =
+  | VectorData.Float32Member
+  | VectorData.$UnknownMember;
 
 /**
  * @public

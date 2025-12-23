@@ -31,9 +31,7 @@ export interface ListBillScenarioUsageModificationsCommandInput extends ListBill
  *
  * The output of {@link ListBillScenarioUsageModificationsCommand}.
  */
-export interface ListBillScenarioUsageModificationsCommandOutput
-  extends ListBillScenarioUsageModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillScenarioUsageModificationsCommandOutput extends ListBillScenarioUsageModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the usage modifications associated with a bill scenario. </p>

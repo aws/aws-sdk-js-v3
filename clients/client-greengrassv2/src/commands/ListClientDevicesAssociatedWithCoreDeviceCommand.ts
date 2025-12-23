@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
-export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput
-  extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
+export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
-export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
-  extends ListClientDevicesAssociatedWithCoreDeviceResponse,
-    __MetadataBearer {}
+export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput extends ListClientDevicesAssociatedWithCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of client devices that are associated with a core

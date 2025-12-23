@@ -24,9 +24,7 @@ export interface DescribeAccountSubscriptionCommandInput extends DescribeAccount
  *
  * The output of {@link DescribeAccountSubscriptionCommand}.
  */
-export interface DescribeAccountSubscriptionCommandOutput
-  extends DescribeAccountSubscriptionResponse,
-    __MetadataBearer {}
+export interface DescribeAccountSubscriptionCommandOutput extends DescribeAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Use the DescribeAccountSubscription operation to receive a description of an Quick Sight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>

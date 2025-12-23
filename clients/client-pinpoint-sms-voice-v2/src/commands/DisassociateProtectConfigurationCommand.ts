@@ -31,9 +31,7 @@ export interface DisassociateProtectConfigurationCommandInput extends Disassocia
  *
  * The output of {@link DisassociateProtectConfigurationCommand}.
  */
-export interface DisassociateProtectConfigurationCommandOutput
-  extends DisassociateProtectConfigurationResult,
-    __MetadataBearer {}
+export interface DisassociateProtectConfigurationCommandOutput extends DisassociateProtectConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Disassociate a protect configuration from a configuration set.</p>

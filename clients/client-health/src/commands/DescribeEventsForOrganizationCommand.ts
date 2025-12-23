@@ -24,9 +24,7 @@ export interface DescribeEventsForOrganizationCommandInput extends DescribeEvent
  *
  * The output of {@link DescribeEventsForOrganizationCommand}.
  */
-export interface DescribeEventsForOrganizationCommandOutput
-  extends DescribeEventsForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeEventsForOrganizationCommandOutput extends DescribeEventsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about events across your organization in Organizations. You can use

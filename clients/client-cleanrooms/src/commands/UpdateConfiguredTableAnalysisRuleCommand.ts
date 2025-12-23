@@ -27,9 +27,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandInput extends UpdateCon
  *
  * The output of {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
-export interface UpdateConfiguredTableAnalysisRuleCommandOutput
-  extends UpdateConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface UpdateConfiguredTableAnalysisRuleCommandOutput extends UpdateConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a configured table analysis rule.</p>

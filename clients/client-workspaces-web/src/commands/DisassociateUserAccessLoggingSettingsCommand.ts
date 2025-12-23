@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
-export interface DisassociateUserAccessLoggingSettingsCommandInput
-  extends DisassociateUserAccessLoggingSettingsRequest {}
+export interface DisassociateUserAccessLoggingSettingsCommandInput extends DisassociateUserAccessLoggingSettingsRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateUserAccessLoggingSettingsCommand}.
  */
-export interface DisassociateUserAccessLoggingSettingsCommandOutput
-  extends DisassociateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateUserAccessLoggingSettingsCommandOutput extends DisassociateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates user access logging settings from a web portal.</p>

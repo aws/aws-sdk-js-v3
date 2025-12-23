@@ -24,9 +24,7 @@ export interface CancelCapacityReservationFleetsCommandInput extends CancelCapac
  *
  * The output of {@link CancelCapacityReservationFleetsCommand}.
  */
-export interface CancelCapacityReservationFleetsCommandOutput
-  extends CancelCapacityReservationFleetsResult,
-    __MetadataBearer {}
+export interface CancelCapacityReservationFleetsCommandOutput extends CancelCapacityReservationFleetsResult, __MetadataBearer {}
 
 /**
  * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity

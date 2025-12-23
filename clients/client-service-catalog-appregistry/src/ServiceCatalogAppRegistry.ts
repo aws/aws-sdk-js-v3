@@ -291,7 +291,10 @@ export interface ServiceCatalogAppRegistry {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -474,8 +477,14 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link SyncResourceCommand}
    */
-  syncResource(args: SyncResourceCommandInput, options?: __HttpHandlerOptions): Promise<SyncResourceCommandOutput>;
-  syncResource(args: SyncResourceCommandInput, cb: (err: any, data?: SyncResourceCommandOutput) => void): void;
+  syncResource(
+    args: SyncResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SyncResourceCommandOutput>;
+  syncResource(
+    args: SyncResourceCommandInput,
+    cb: (err: any, data?: SyncResourceCommandOutput) => void
+  ): void;
   syncResource(
     args: SyncResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -485,8 +494,14 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -496,8 +511,14 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

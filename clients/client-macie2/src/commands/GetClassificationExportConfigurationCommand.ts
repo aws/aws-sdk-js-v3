@@ -27,9 +27,7 @@ export interface GetClassificationExportConfigurationCommandInput extends GetCla
  *
  * The output of {@link GetClassificationExportConfigurationCommand}.
  */
-export interface GetClassificationExportConfigurationCommandOutput
-  extends GetClassificationExportConfigurationResponse,
-    __MetadataBearer {}
+export interface GetClassificationExportConfigurationCommandOutput extends GetClassificationExportConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration settings for storing data classification results.</p>

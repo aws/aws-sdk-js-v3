@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput
-  extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-  extends CreateLocalGatewayRouteTableVpcAssociationResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput extends CreateLocalGatewayRouteTableVpcAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified VPC with the specified local gateway route table.</p>

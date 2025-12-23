@@ -24,9 +24,7 @@ export interface AssociateSoftwareToImageBuilderCommandInput extends AssociateSo
  *
  * The output of {@link AssociateSoftwareToImageBuilderCommand}.
  */
-export interface AssociateSoftwareToImageBuilderCommandOutput
-  extends AssociateSoftwareToImageBuilderResult,
-    __MetadataBearer {}
+export interface AssociateSoftwareToImageBuilderCommandOutput extends AssociateSoftwareToImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Associates license included application(s) with an existing image builder instance.</p>

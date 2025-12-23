@@ -24,9 +24,7 @@ export interface DescribeDomainChangeProgressCommandInput extends DescribeDomain
  *
  * The output of {@link DescribeDomainChangeProgressCommand}.
  */
-export interface DescribeDomainChangeProgressCommandOutput
-  extends DescribeDomainChangeProgressResponse,
-    __MetadataBearer {}
+export interface DescribeDomainChangeProgressCommandOutput extends DescribeDomainChangeProgressResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the current blue/green deployment happening on an Amazon

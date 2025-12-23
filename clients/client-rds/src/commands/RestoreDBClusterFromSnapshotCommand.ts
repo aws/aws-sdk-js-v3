@@ -24,9 +24,7 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
  *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
-export interface RestoreDBClusterFromSnapshotCommandOutput
-  extends RestoreDBClusterFromSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>

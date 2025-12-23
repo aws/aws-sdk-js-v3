@@ -24,9 +24,7 @@ export interface DeleteDataSetRefreshPropertiesCommandInput extends DeleteDataSe
  *
  * The output of {@link DeleteDataSetRefreshPropertiesCommand}.
  */
-export interface DeleteDataSetRefreshPropertiesCommandOutput
-  extends DeleteDataSetRefreshPropertiesResponse,
-    __MetadataBearer {}
+export interface DeleteDataSetRefreshPropertiesCommandOutput extends DeleteDataSetRefreshPropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the dataset refresh properties of the dataset.</p>

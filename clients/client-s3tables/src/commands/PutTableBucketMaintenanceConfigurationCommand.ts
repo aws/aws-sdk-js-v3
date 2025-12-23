@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutTableBucketMaintenanceConfigurationCommand}.
  */
-export interface PutTableBucketMaintenanceConfigurationCommandInput
-  extends PutTableBucketMaintenanceConfigurationRequest {}
+export interface PutTableBucketMaintenanceConfigurationCommandInput extends PutTableBucketMaintenanceConfigurationRequest {}
 /**
  * @public
  *

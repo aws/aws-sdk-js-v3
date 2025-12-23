@@ -24,9 +24,7 @@ export interface DeleteIdNamespaceAssociationCommandInput extends DeleteIdNamesp
  *
  * The output of {@link DeleteIdNamespaceAssociationCommand}.
  */
-export interface DeleteIdNamespaceAssociationCommandOutput
-  extends DeleteIdNamespaceAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteIdNamespaceAssociationCommandOutput extends DeleteIdNamespaceAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an ID namespace association.</p>

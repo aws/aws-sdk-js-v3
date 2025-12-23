@@ -24,9 +24,7 @@ export interface UpdateSecurityHubConfigurationCommandInput extends UpdateSecuri
  *
  * The output of {@link UpdateSecurityHubConfigurationCommand}.
  */
-export interface UpdateSecurityHubConfigurationCommandOutput
-  extends UpdateSecurityHubConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateSecurityHubConfigurationCommandOutput extends UpdateSecurityHubConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates configuration options for Security Hub.</p>

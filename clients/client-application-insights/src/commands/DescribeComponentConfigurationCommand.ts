@@ -28,9 +28,7 @@ export interface DescribeComponentConfigurationCommandInput extends DescribeComp
  *
  * The output of {@link DescribeComponentConfigurationCommand}.
  */
-export interface DescribeComponentConfigurationCommandOutput
-  extends DescribeComponentConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeComponentConfigurationCommandOutput extends DescribeComponentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the monitoring configuration of the component.</p>

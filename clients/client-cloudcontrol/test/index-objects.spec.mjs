@@ -58,6 +58,8 @@ import {
   NotUpdatableException$,
   Operation,
   OperationStatus,
+  paginateListResourceRequests,
+  paginateListResources,
   PrivateTypeException,
   PrivateTypeException$,
   ProgressEvent$,
@@ -83,8 +85,6 @@ import {
   UpdateResourceCommand,
   UpdateResourceInput$,
   UpdateResourceOutput$,
-  paginateListResourceRequests,
-  paginateListResources,
   waitForResourceRequestSuccess,
   waitUntilResourceRequestSuccess,
 } from "../dist-cjs/index.js";

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface DescribeInstanceAccessControlAttributeConfigurationCommandInput
-  extends DescribeInstanceAccessControlAttributeConfigurationRequest {}
+export interface DescribeInstanceAccessControlAttributeConfigurationCommandInput extends DescribeInstanceAccessControlAttributeConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutput
-  extends DescribeInstanceAccessControlAttributeConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutput extends DescribeInstanceAccessControlAttributeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>

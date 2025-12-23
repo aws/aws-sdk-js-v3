@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCloudExadataInfrastructureUnallocatedResourcesCommand}.
  */
-export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandInput
-  extends GetCloudExadataInfrastructureUnallocatedResourcesInput {}
+export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandInput extends GetCloudExadataInfrastructureUnallocatedResourcesInput {}
 /**
  * @public
  *
  * The output of {@link GetCloudExadataInfrastructureUnallocatedResourcesCommand}.
  */
-export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput
-  extends GetCloudExadataInfrastructureUnallocatedResourcesOutput,
-    __MetadataBearer {}
+export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput extends GetCloudExadataInfrastructureUnallocatedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about unallocated resources in a specified Cloud Exadata Infrastructure.</p>

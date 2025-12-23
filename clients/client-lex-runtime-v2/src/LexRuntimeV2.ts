@@ -39,8 +39,14 @@ export interface LexRuntimeV2 {
   /**
    * @see {@link DeleteSessionCommand}
    */
-  deleteSession(args: DeleteSessionCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSessionCommandOutput>;
-  deleteSession(args: DeleteSessionCommandInput, cb: (err: any, data?: DeleteSessionCommandOutput) => void): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -50,8 +56,14 @@ export interface LexRuntimeV2 {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -61,8 +73,14 @@ export interface LexRuntimeV2 {
   /**
    * @see {@link PutSessionCommand}
    */
-  putSession(args: PutSessionCommandInput, options?: __HttpHandlerOptions): Promise<PutSessionCommandOutput>;
-  putSession(args: PutSessionCommandInput, cb: (err: any, data?: PutSessionCommandOutput) => void): void;
+  putSession(
+    args: PutSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSessionCommandOutput>;
+  putSession(
+    args: PutSessionCommandInput,
+    cb: (err: any, data?: PutSessionCommandOutput) => void
+  ): void;
   putSession(
     args: PutSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -72,8 +90,14 @@ export interface LexRuntimeV2 {
   /**
    * @see {@link RecognizeTextCommand}
    */
-  recognizeText(args: RecognizeTextCommandInput, options?: __HttpHandlerOptions): Promise<RecognizeTextCommandOutput>;
-  recognizeText(args: RecognizeTextCommandInput, cb: (err: any, data?: RecognizeTextCommandOutput) => void): void;
+  recognizeText(
+    args: RecognizeTextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RecognizeTextCommandOutput>;
+  recognizeText(
+    args: RecognizeTextCommandInput,
+    cb: (err: any, data?: RecognizeTextCommandOutput) => void
+  ): void;
   recognizeText(
     args: RecognizeTextCommandInput,
     options: __HttpHandlerOptions,

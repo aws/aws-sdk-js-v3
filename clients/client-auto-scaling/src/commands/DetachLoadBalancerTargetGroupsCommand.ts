@@ -24,9 +24,7 @@ export interface DetachLoadBalancerTargetGroupsCommandInput extends DetachLoadBa
  *
  * The output of {@link DetachLoadBalancerTargetGroupsCommand}.
  */
-export interface DetachLoadBalancerTargetGroupsCommandOutput
-  extends DetachLoadBalancerTargetGroupsResultType,
-    __MetadataBearer {}
+export interface DetachLoadBalancerTargetGroupsCommandOutput extends DetachLoadBalancerTargetGroupsResultType, __MetadataBearer {}
 
 /**
  * <note>

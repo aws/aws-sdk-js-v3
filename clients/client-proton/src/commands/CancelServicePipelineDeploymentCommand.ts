@@ -24,9 +24,7 @@ export interface CancelServicePipelineDeploymentCommandInput extends CancelServi
  *
  * The output of {@link CancelServicePipelineDeploymentCommand}.
  */
-export interface CancelServicePipelineDeploymentCommandOutput
-  extends CancelServicePipelineDeploymentOutput,
-    __MetadataBearer {}
+export interface CancelServicePipelineDeploymentCommandOutput extends CancelServicePipelineDeploymentOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For

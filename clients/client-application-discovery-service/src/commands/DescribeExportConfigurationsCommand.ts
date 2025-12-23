@@ -28,9 +28,7 @@ export interface DescribeExportConfigurationsCommandInput extends DescribeExport
  *
  * The output of {@link DescribeExportConfigurationsCommand}.
  */
-export interface DescribeExportConfigurationsCommandOutput
-  extends DescribeExportConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeExportConfigurationsCommandOutput extends DescribeExportConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>

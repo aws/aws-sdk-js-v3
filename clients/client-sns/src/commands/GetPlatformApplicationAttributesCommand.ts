@@ -27,9 +27,7 @@ export interface GetPlatformApplicationAttributesCommandInput extends GetPlatfor
  *
  * The output of {@link GetPlatformApplicationAttributesCommand}.
  */
-export interface GetPlatformApplicationAttributesCommandOutput
-  extends GetPlatformApplicationAttributesResponse,
-    __MetadataBearer {}
+export interface GetPlatformApplicationAttributesCommandOutput extends GetPlatformApplicationAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the attributes of the platform application object for the supported push

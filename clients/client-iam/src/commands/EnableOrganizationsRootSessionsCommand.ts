@@ -27,9 +27,7 @@ export interface EnableOrganizationsRootSessionsCommandInput extends EnableOrgan
  *
  * The output of {@link EnableOrganizationsRootSessionsCommand}.
  */
-export interface EnableOrganizationsRootSessionsCommandOutput
-  extends EnableOrganizationsRootSessionsResponse,
-    __MetadataBearer {}
+export interface EnableOrganizationsRootSessionsCommandOutput extends EnableOrganizationsRootSessionsResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the management account or delegated administrator to perform privileged tasks

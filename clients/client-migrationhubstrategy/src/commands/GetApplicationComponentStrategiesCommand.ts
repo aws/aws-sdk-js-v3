@@ -31,9 +31,7 @@ export interface GetApplicationComponentStrategiesCommandInput extends GetApplic
  *
  * The output of {@link GetApplicationComponentStrategiesCommand}.
  */
-export interface GetApplicationComponentStrategiesCommandOutput
-  extends GetApplicationComponentStrategiesResponse,
-    __MetadataBearer {}
+export interface GetApplicationComponentStrategiesCommandOutput extends GetApplicationComponentStrategiesResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves a list of all the recommended strategies and tools for an application component

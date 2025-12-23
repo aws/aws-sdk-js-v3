@@ -27,9 +27,7 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandInput extends DeleteW
  *
  * The output of {@link DeleteWirelessGatewayTaskDefinitionCommand}.
  */
-export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
-  extends DeleteWirelessGatewayTaskDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteWirelessGatewayTaskDefinitionCommandOutput extends DeleteWirelessGatewayTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a wireless gateway task definition. Deleting this task definition does not

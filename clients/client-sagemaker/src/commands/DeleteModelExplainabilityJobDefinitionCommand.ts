@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteModelExplainabilityJobDefinitionCommand}.
  */
-export interface DeleteModelExplainabilityJobDefinitionCommandInput
-  extends DeleteModelExplainabilityJobDefinitionRequest {}
+export interface DeleteModelExplainabilityJobDefinitionCommandInput extends DeleteModelExplainabilityJobDefinitionRequest {}
 /**
  * @public
  *

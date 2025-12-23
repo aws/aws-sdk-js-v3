@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateAvailabilityZoneChangeProtectionCommand}.
  */
-export interface UpdateAvailabilityZoneChangeProtectionCommandInput
-  extends UpdateAvailabilityZoneChangeProtectionRequest {}
+export interface UpdateAvailabilityZoneChangeProtectionCommandInput extends UpdateAvailabilityZoneChangeProtectionRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAvailabilityZoneChangeProtectionCommand}.
  */
-export interface UpdateAvailabilityZoneChangeProtectionCommandOutput
-  extends UpdateAvailabilityZoneChangeProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateAvailabilityZoneChangeProtectionCommandOutput extends UpdateAvailabilityZoneChangeProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the <code>AvailabilityZoneChangeProtection</code> setting for a transit gateway-attached firewall. When enabled, this setting prevents accidental changes to the firewall's Availability Zone configuration. This helps protect against disrupting traffic flow in production environments.</p>

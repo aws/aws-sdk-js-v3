@@ -27,9 +27,7 @@ export interface DeleteChatControlsConfigurationCommandInput extends DeleteChatC
  *
  * The output of {@link DeleteChatControlsConfigurationCommand}.
  */
-export interface DeleteChatControlsConfigurationCommandOutput
-  extends DeleteChatControlsConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteChatControlsConfigurationCommandOutput extends DeleteChatControlsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes chat controls configured for an existing Amazon Q Business application.</p>

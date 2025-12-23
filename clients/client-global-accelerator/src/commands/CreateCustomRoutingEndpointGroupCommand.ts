@@ -31,9 +31,7 @@ export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCust
  *
  * The output of {@link CreateCustomRoutingEndpointGroupCommand}.
  */
-export interface CreateCustomRoutingEndpointGroupCommandOutput
-  extends CreateCustomRoutingEndpointGroupResponse,
-    __MetadataBearer {}
+export interface CreateCustomRoutingEndpointGroupCommandOutput extends CreateCustomRoutingEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.

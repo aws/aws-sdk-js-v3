@@ -280,8 +280,14 @@ export interface Route53Domains {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -415,7 +421,10 @@ export interface Route53Domains {
     args: GetDomainDetailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDomainDetailCommandOutput>;
-  getDomainDetail(args: GetDomainDetailCommandInput, cb: (err: any, data?: GetDomainDetailCommandOutput) => void): void;
+  getDomainDetail(
+    args: GetDomainDetailCommandInput,
+    cb: (err: any, data?: GetDomainDetailCommandOutput) => void
+  ): void;
   getDomainDetail(
     args: GetDomainDetailCommandInput,
     options: __HttpHandlerOptions,
@@ -460,8 +469,14 @@ export interface Route53Domains {
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -476,7 +491,10 @@ export interface Route53Domains {
     args: ListOperationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOperationsCommandOutput>;
-  listOperations(args: ListOperationsCommandInput, cb: (err: any, data?: ListOperationsCommandOutput) => void): void;
+  listOperations(
+    args: ListOperationsCommandInput,
+    cb: (err: any, data?: ListOperationsCommandOutput) => void
+  ): void;
   listOperations(
     args: ListOperationsCommandInput,
     options: __HttpHandlerOptions,
@@ -487,8 +505,14 @@ export interface Route53Domains {
    * @see {@link ListPricesCommand}
    */
   listPrices(): Promise<ListPricesCommandOutput>;
-  listPrices(args: ListPricesCommandInput, options?: __HttpHandlerOptions): Promise<ListPricesCommandOutput>;
-  listPrices(args: ListPricesCommandInput, cb: (err: any, data?: ListPricesCommandOutput) => void): void;
+  listPrices(
+    args: ListPricesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPricesCommandOutput>;
+  listPrices(
+    args: ListPricesCommandInput,
+    cb: (err: any, data?: ListPricesCommandOutput) => void
+  ): void;
   listPrices(
     args: ListPricesCommandInput,
     options: __HttpHandlerOptions,
@@ -515,8 +539,14 @@ export interface Route53Domains {
   /**
    * @see {@link PushDomainCommand}
    */
-  pushDomain(args: PushDomainCommandInput, options?: __HttpHandlerOptions): Promise<PushDomainCommandOutput>;
-  pushDomain(args: PushDomainCommandInput, cb: (err: any, data?: PushDomainCommandOutput) => void): void;
+  pushDomain(
+    args: PushDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PushDomainCommandOutput>;
+  pushDomain(
+    args: PushDomainCommandInput,
+    cb: (err: any, data?: PushDomainCommandOutput) => void
+  ): void;
   pushDomain(
     args: PushDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -530,7 +560,10 @@ export interface Route53Domains {
     args: RegisterDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterDomainCommandOutput>;
-  registerDomain(args: RegisterDomainCommandInput, cb: (err: any, data?: RegisterDomainCommandOutput) => void): void;
+  registerDomain(
+    args: RegisterDomainCommandInput,
+    cb: (err: any, data?: RegisterDomainCommandOutput) => void
+  ): void;
   registerDomain(
     args: RegisterDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -557,8 +590,14 @@ export interface Route53Domains {
   /**
    * @see {@link RenewDomainCommand}
    */
-  renewDomain(args: RenewDomainCommandInput, options?: __HttpHandlerOptions): Promise<RenewDomainCommandOutput>;
-  renewDomain(args: RenewDomainCommandInput, cb: (err: any, data?: RenewDomainCommandOutput) => void): void;
+  renewDomain(
+    args: RenewDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RenewDomainCommandOutput>;
+  renewDomain(
+    args: RenewDomainCommandInput,
+    cb: (err: any, data?: RenewDomainCommandOutput) => void
+  ): void;
   renewDomain(
     args: RenewDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -624,7 +663,10 @@ export interface Route53Domains {
     args: TransferDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TransferDomainCommandOutput>;
-  transferDomain(args: TransferDomainCommandInput, cb: (err: any, data?: TransferDomainCommandOutput) => void): void;
+  transferDomain(
+    args: TransferDomainCommandInput,
+    cb: (err: any, data?: TransferDomainCommandOutput) => void
+  ): void;
   transferDomain(
     args: TransferDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -720,8 +762,14 @@ export interface Route53Domains {
    * @see {@link ViewBillingCommand}
    */
   viewBilling(): Promise<ViewBillingCommandOutput>;
-  viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;
-  viewBilling(args: ViewBillingCommandInput, cb: (err: any, data?: ViewBillingCommandOutput) => void): void;
+  viewBilling(
+    args: ViewBillingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ViewBillingCommandOutput>;
+  viewBilling(
+    args: ViewBillingCommandInput,
+    cb: (err: any, data?: ViewBillingCommandOutput) => void
+  ): void;
   viewBilling(
     args: ViewBillingCommandInput,
     options: __HttpHandlerOptions,

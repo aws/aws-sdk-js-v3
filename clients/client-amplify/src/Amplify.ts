@@ -181,8 +181,14 @@ export interface Amplify {
   /**
    * @see {@link CreateAppCommand}
    */
-  createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
-  createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
+  createApp(
+    args: CreateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppCommandOutput>;
+  createApp(
+    args: CreateAppCommandInput,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
   createApp(
     args: CreateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -209,8 +215,14 @@ export interface Amplify {
   /**
    * @see {@link CreateBranchCommand}
    */
-  createBranch(args: CreateBranchCommandInput, options?: __HttpHandlerOptions): Promise<CreateBranchCommandOutput>;
-  createBranch(args: CreateBranchCommandInput, cb: (err: any, data?: CreateBranchCommandOutput) => void): void;
+  createBranch(
+    args: CreateBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBranchCommandOutput>;
+  createBranch(
+    args: CreateBranchCommandInput,
+    cb: (err: any, data?: CreateBranchCommandOutput) => void
+  ): void;
   createBranch(
     args: CreateBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -254,8 +266,14 @@ export interface Amplify {
   /**
    * @see {@link CreateWebhookCommand}
    */
-  createWebhook(args: CreateWebhookCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebhookCommandOutput>;
-  createWebhook(args: CreateWebhookCommandInput, cb: (err: any, data?: CreateWebhookCommandOutput) => void): void;
+  createWebhook(
+    args: CreateWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebhookCommandOutput>;
+  createWebhook(
+    args: CreateWebhookCommandInput,
+    cb: (err: any, data?: CreateWebhookCommandOutput) => void
+  ): void;
   createWebhook(
     args: CreateWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -265,8 +283,14 @@ export interface Amplify {
   /**
    * @see {@link DeleteAppCommand}
    */
-  deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
-  deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppCommandOutput>;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
   deleteApp(
     args: DeleteAppCommandInput,
     options: __HttpHandlerOptions,
@@ -293,8 +317,14 @@ export interface Amplify {
   /**
    * @see {@link DeleteBranchCommand}
    */
-  deleteBranch(args: DeleteBranchCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBranchCommandOutput>;
-  deleteBranch(args: DeleteBranchCommandInput, cb: (err: any, data?: DeleteBranchCommandOutput) => void): void;
+  deleteBranch(
+    args: DeleteBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBranchCommandOutput>;
+  deleteBranch(
+    args: DeleteBranchCommandInput,
+    cb: (err: any, data?: DeleteBranchCommandOutput) => void
+  ): void;
   deleteBranch(
     args: DeleteBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -321,8 +351,14 @@ export interface Amplify {
   /**
    * @see {@link DeleteJobCommand}
    */
-  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
   deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
@@ -332,8 +368,14 @@ export interface Amplify {
   /**
    * @see {@link DeleteWebhookCommand}
    */
-  deleteWebhook(args: DeleteWebhookCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebhookCommandOutput>;
-  deleteWebhook(args: DeleteWebhookCommandInput, cb: (err: any, data?: DeleteWebhookCommandOutput) => void): void;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebhookCommandOutput>;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): void;
   deleteWebhook(
     args: DeleteWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -360,8 +402,14 @@ export interface Amplify {
   /**
    * @see {@link GetAppCommand}
    */
-  getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
-  getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
+  getApp(
+    args: GetAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppCommandOutput>;
+  getApp(
+    args: GetAppCommandInput,
+    cb: (err: any, data?: GetAppCommandOutput) => void
+  ): void;
   getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
@@ -375,7 +423,10 @@ export interface Amplify {
     args: GetArtifactUrlCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetArtifactUrlCommandOutput>;
-  getArtifactUrl(args: GetArtifactUrlCommandInput, cb: (err: any, data?: GetArtifactUrlCommandOutput) => void): void;
+  getArtifactUrl(
+    args: GetArtifactUrlCommandInput,
+    cb: (err: any, data?: GetArtifactUrlCommandOutput) => void
+  ): void;
   getArtifactUrl(
     args: GetArtifactUrlCommandInput,
     options: __HttpHandlerOptions,
@@ -402,8 +453,14 @@ export interface Amplify {
   /**
    * @see {@link GetBranchCommand}
    */
-  getBranch(args: GetBranchCommandInput, options?: __HttpHandlerOptions): Promise<GetBranchCommandOutput>;
-  getBranch(args: GetBranchCommandInput, cb: (err: any, data?: GetBranchCommandOutput) => void): void;
+  getBranch(
+    args: GetBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBranchCommandOutput>;
+  getBranch(
+    args: GetBranchCommandInput,
+    cb: (err: any, data?: GetBranchCommandOutput) => void
+  ): void;
   getBranch(
     args: GetBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -430,8 +487,14 @@ export interface Amplify {
   /**
    * @see {@link GetJobCommand}
    */
-  getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
-  getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
   getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -441,8 +504,14 @@ export interface Amplify {
   /**
    * @see {@link GetWebhookCommand}
    */
-  getWebhook(args: GetWebhookCommandInput, options?: __HttpHandlerOptions): Promise<GetWebhookCommandOutput>;
-  getWebhook(args: GetWebhookCommandInput, cb: (err: any, data?: GetWebhookCommandOutput) => void): void;
+  getWebhook(
+    args: GetWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebhookCommandOutput>;
+  getWebhook(
+    args: GetWebhookCommandInput,
+    cb: (err: any, data?: GetWebhookCommandOutput) => void
+  ): void;
   getWebhook(
     args: GetWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +522,14 @@ export interface Amplify {
    * @see {@link ListAppsCommand}
    */
   listApps(): Promise<ListAppsCommandOutput>;
-  listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
-  listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
+  listApps(
+    args: ListAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsCommandOutput>;
+  listApps(
+    args: ListAppsCommandInput,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
   listApps(
     args: ListAppsCommandInput,
     options: __HttpHandlerOptions,
@@ -464,8 +539,14 @@ export interface Amplify {
   /**
    * @see {@link ListArtifactsCommand}
    */
-  listArtifacts(args: ListArtifactsCommandInput, options?: __HttpHandlerOptions): Promise<ListArtifactsCommandOutput>;
-  listArtifacts(args: ListArtifactsCommandInput, cb: (err: any, data?: ListArtifactsCommandOutput) => void): void;
+  listArtifacts(
+    args: ListArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArtifactsCommandOutput>;
+  listArtifacts(
+    args: ListArtifactsCommandInput,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
   listArtifacts(
     args: ListArtifactsCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +573,14 @@ export interface Amplify {
   /**
    * @see {@link ListBranchesCommand}
    */
-  listBranches(args: ListBranchesCommandInput, options?: __HttpHandlerOptions): Promise<ListBranchesCommandOutput>;
-  listBranches(args: ListBranchesCommandInput, cb: (err: any, data?: ListBranchesCommandOutput) => void): void;
+  listBranches(
+    args: ListBranchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBranchesCommandOutput>;
+  listBranches(
+    args: ListBranchesCommandInput,
+    cb: (err: any, data?: ListBranchesCommandOutput) => void
+  ): void;
   listBranches(
     args: ListBranchesCommandInput,
     options: __HttpHandlerOptions,
@@ -520,8 +607,14 @@ export interface Amplify {
   /**
    * @see {@link ListJobsCommand}
    */
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -548,8 +641,14 @@ export interface Amplify {
   /**
    * @see {@link ListWebhooksCommand}
    */
-  listWebhooks(args: ListWebhooksCommandInput, options?: __HttpHandlerOptions): Promise<ListWebhooksCommandOutput>;
-  listWebhooks(args: ListWebhooksCommandInput, cb: (err: any, data?: ListWebhooksCommandOutput) => void): void;
+  listWebhooks(
+    args: ListWebhooksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebhooksCommandOutput>;
+  listWebhooks(
+    args: ListWebhooksCommandInput,
+    cb: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): void;
   listWebhooks(
     args: ListWebhooksCommandInput,
     options: __HttpHandlerOptions,
@@ -563,7 +662,10 @@ export interface Amplify {
     args: StartDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDeploymentCommandOutput>;
-  startDeployment(args: StartDeploymentCommandInput, cb: (err: any, data?: StartDeploymentCommandOutput) => void): void;
+  startDeployment(
+    args: StartDeploymentCommandInput,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
   startDeployment(
     args: StartDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -573,8 +675,14 @@ export interface Amplify {
   /**
    * @see {@link StartJobCommand}
    */
-  startJob(args: StartJobCommandInput, options?: __HttpHandlerOptions): Promise<StartJobCommandOutput>;
-  startJob(args: StartJobCommandInput, cb: (err: any, data?: StartJobCommandOutput) => void): void;
+  startJob(
+    args: StartJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobCommandOutput>;
+  startJob(
+    args: StartJobCommandInput,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
   startJob(
     args: StartJobCommandInput,
     options: __HttpHandlerOptions,
@@ -584,8 +692,14 @@ export interface Amplify {
   /**
    * @see {@link StopJobCommand}
    */
-  stopJob(args: StopJobCommandInput, options?: __HttpHandlerOptions): Promise<StopJobCommandOutput>;
-  stopJob(args: StopJobCommandInput, cb: (err: any, data?: StopJobCommandOutput) => void): void;
+  stopJob(
+    args: StopJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopJobCommandOutput>;
+  stopJob(
+    args: StopJobCommandInput,
+    cb: (err: any, data?: StopJobCommandOutput) => void
+  ): void;
   stopJob(
     args: StopJobCommandInput,
     options: __HttpHandlerOptions,
@@ -595,8 +709,14 @@ export interface Amplify {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -606,8 +726,14 @@ export interface Amplify {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -617,8 +743,14 @@ export interface Amplify {
   /**
    * @see {@link UpdateAppCommand}
    */
-  updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
-  updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
+  updateApp(
+    args: UpdateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppCommandOutput>;
+  updateApp(
+    args: UpdateAppCommandInput,
+    cb: (err: any, data?: UpdateAppCommandOutput) => void
+  ): void;
   updateApp(
     args: UpdateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -628,8 +760,14 @@ export interface Amplify {
   /**
    * @see {@link UpdateBranchCommand}
    */
-  updateBranch(args: UpdateBranchCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBranchCommandOutput>;
-  updateBranch(args: UpdateBranchCommandInput, cb: (err: any, data?: UpdateBranchCommandOutput) => void): void;
+  updateBranch(
+    args: UpdateBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBranchCommandOutput>;
+  updateBranch(
+    args: UpdateBranchCommandInput,
+    cb: (err: any, data?: UpdateBranchCommandOutput) => void
+  ): void;
   updateBranch(
     args: UpdateBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -656,8 +794,14 @@ export interface Amplify {
   /**
    * @see {@link UpdateWebhookCommand}
    */
-  updateWebhook(args: UpdateWebhookCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebhookCommandOutput>;
-  updateWebhook(args: UpdateWebhookCommandInput, cb: (err: any, data?: UpdateWebhookCommandOutput) => void): void;
+  updateWebhook(
+    args: UpdateWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebhookCommandOutput>;
+  updateWebhook(
+    args: UpdateWebhookCommandInput,
+    cb: (err: any, data?: UpdateWebhookCommandOutput) => void
+  ): void;
   updateWebhook(
     args: UpdateWebhookCommandInput,
     options: __HttpHandlerOptions,

@@ -24,9 +24,7 @@ export interface GetSecurityControlDefinitionCommandInput extends GetSecurityCon
  *
  * The output of {@link GetSecurityControlDefinitionCommand}.
  */
-export interface GetSecurityControlDefinitionCommandOutput
-  extends GetSecurityControlDefinitionResponse,
-    __MetadataBearer {}
+export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityControlDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>

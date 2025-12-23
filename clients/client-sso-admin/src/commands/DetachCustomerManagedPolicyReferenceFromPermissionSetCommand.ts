@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
-  extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
-  extends DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput extends DetachCustomerManagedPolicyReferenceFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>

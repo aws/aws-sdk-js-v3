@@ -24,9 +24,7 @@ export interface GetRecommenderConfigurationsCommandInput extends GetRecommender
  *
  * The output of {@link GetRecommenderConfigurationsCommand}.
  */
-export interface GetRecommenderConfigurationsCommandOutput
-  extends GetRecommenderConfigurationsResponse,
-    __MetadataBearer {}
+export interface GetRecommenderConfigurationsCommandOutput extends GetRecommenderConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>

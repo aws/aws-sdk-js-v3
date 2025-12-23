@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput
-  extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
-export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
-  extends PutVoiceConnectorEmergencyCallingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput extends PutVoiceConnectorEmergencyCallingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's emergency calling configuration.</p>

@@ -611,7 +611,10 @@ export interface IoTSiteWise {
     args: AssociateAssetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateAssetsCommandOutput>;
-  associateAssets(args: AssociateAssetsCommandInput, cb: (err: any, data?: AssociateAssetsCommandOutput) => void): void;
+  associateAssets(
+    args: AssociateAssetsCommandInput,
+    cb: (err: any, data?: AssociateAssetsCommandOutput) => void
+  ): void;
   associateAssets(
     args: AssociateAssetsCommandInput,
     options: __HttpHandlerOptions,
@@ -757,8 +760,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link CreateAssetCommand}
    */
-  createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
-  createAsset(args: CreateAssetCommandInput, cb: (err: any, data?: CreateAssetCommandOutput) => void): void;
+  createAsset(
+    args: CreateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetCommandOutput>;
+  createAsset(
+    args: CreateAssetCommandInput,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
   createAsset(
     args: CreateAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -840,7 +849,10 @@ export interface IoTSiteWise {
     args: CreateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDashboardCommandOutput>;
-  createDashboard(args: CreateDashboardCommandInput, cb: (err: any, data?: CreateDashboardCommandOutput) => void): void;
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    cb: (err: any, data?: CreateDashboardCommandOutput) => void
+  ): void;
   createDashboard(
     args: CreateDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -850,8 +862,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -861,8 +879,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link CreateGatewayCommand}
    */
-  createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
-  createGateway(args: CreateGatewayCommandInput, cb: (err: any, data?: CreateGatewayCommandOutput) => void): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayCommandOutput>;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
   createGateway(
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -872,8 +896,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link CreatePortalCommand}
    */
-  createPortal(args: CreatePortalCommandInput, options?: __HttpHandlerOptions): Promise<CreatePortalCommandOutput>;
-  createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
+  createPortal(
+    args: CreatePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePortalCommandOutput>;
+  createPortal(
+    args: CreatePortalCommandInput,
+    cb: (err: any, data?: CreatePortalCommandOutput) => void
+  ): void;
   createPortal(
     args: CreatePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -883,8 +913,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -911,8 +947,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeleteAssetCommand}
    */
-  deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
-  deleteAsset(args: DeleteAssetCommandInput, cb: (err: any, data?: DeleteAssetCommandOutput) => void): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -994,7 +1036,10 @@ export interface IoTSiteWise {
     args: DeleteDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDashboardCommandOutput>;
-  deleteDashboard(args: DeleteDashboardCommandInput, cb: (err: any, data?: DeleteDashboardCommandOutput) => void): void;
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -1004,8 +1049,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -1015,8 +1066,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeleteGatewayCommand}
    */
-  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
-  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1026,8 +1083,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeletePortalCommand}
    */
-  deletePortal(args: DeletePortalCommandInput, options?: __HttpHandlerOptions): Promise<DeletePortalCommandOutput>;
-  deletePortal(args: DeletePortalCommandInput, cb: (err: any, data?: DeletePortalCommandOutput) => void): void;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePortalCommandOutput>;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    cb: (err: any, data?: DeletePortalCommandOutput) => void
+  ): void;
   deletePortal(
     args: DeletePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -1037,8 +1100,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1087,7 +1156,10 @@ export interface IoTSiteWise {
     args: DescribeActionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeActionCommandOutput>;
-  describeAction(args: DescribeActionCommandInput, cb: (err: any, data?: DescribeActionCommandOutput) => void): void;
+  describeAction(
+    args: DescribeActionCommandInput,
+    cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
   describeAction(
     args: DescribeActionCommandInput,
     options: __HttpHandlerOptions,
@@ -1097,8 +1169,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link DescribeAssetCommand}
    */
-  describeAsset(args: DescribeAssetCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAssetCommandOutput>;
-  describeAsset(args: DescribeAssetCommandInput, cb: (err: any, data?: DescribeAssetCommandOutput) => void): void;
+  describeAsset(
+    args: DescribeAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetCommandOutput>;
+  describeAsset(
+    args: DescribeAssetCommandInput,
+    cb: (err: any, data?: DescribeAssetCommandOutput) => void
+  ): void;
   describeAsset(
     args: DescribeAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -1265,7 +1343,10 @@ export interface IoTSiteWise {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -1314,7 +1395,10 @@ export interface IoTSiteWise {
     args: DescribeGatewayCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeGatewayCommandOutput>;
-  describeGateway(args: DescribeGatewayCommandInput, cb: (err: any, data?: DescribeGatewayCommandOutput) => void): void;
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
+  ): void;
   describeGateway(
     args: DescribeGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -1363,7 +1447,10 @@ export interface IoTSiteWise {
     args: DescribePortalCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePortalCommandOutput>;
-  describePortal(args: DescribePortalCommandInput, cb: (err: any, data?: DescribePortalCommandOutput) => void): void;
+  describePortal(
+    args: DescribePortalCommandInput,
+    cb: (err: any, data?: DescribePortalCommandOutput) => void
+  ): void;
   describePortal(
     args: DescribePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -1377,7 +1464,10 @@ export interface IoTSiteWise {
     args: DescribeProjectCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeProjectCommandOutput>;
-  describeProject(args: DescribeProjectCommandInput, cb: (err: any, data?: DescribeProjectCommandOutput) => void): void;
+  describeProject(
+    args: DescribeProjectCommandInput,
+    cb: (err: any, data?: DescribeProjectCommandOutput) => void
+  ): void;
   describeProject(
     args: DescribeProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1457,8 +1547,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link ExecuteActionCommand}
    */
-  executeAction(args: ExecuteActionCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteActionCommandOutput>;
-  executeAction(args: ExecuteActionCommandInput, cb: (err: any, data?: ExecuteActionCommandOutput) => void): void;
+  executeAction(
+    args: ExecuteActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteActionCommandOutput>;
+  executeAction(
+    args: ExecuteActionCommandInput,
+    cb: (err: any, data?: ExecuteActionCommandOutput) => void
+  ): void;
   executeAction(
     args: ExecuteActionCommandInput,
     options: __HttpHandlerOptions,
@@ -1468,8 +1564,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link ExecuteQueryCommand}
    */
-  executeQuery(args: ExecuteQueryCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteQueryCommandOutput>;
-  executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteQueryCommandOutput>;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
   executeQuery(
     args: ExecuteQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1553,7 +1655,10 @@ export interface IoTSiteWise {
     args: InvokeAssistantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InvokeAssistantCommandOutput>;
-  invokeAssistant(args: InvokeAssistantCommandInput, cb: (err: any, data?: InvokeAssistantCommandOutput) => void): void;
+  invokeAssistant(
+    args: InvokeAssistantCommandInput,
+    cb: (err: any, data?: InvokeAssistantCommandOutput) => void
+  ): void;
   invokeAssistant(
     args: InvokeAssistantCommandInput,
     options: __HttpHandlerOptions,
@@ -1581,8 +1686,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListActionsCommand}
    */
-  listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
-  listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
+  listActions(
+    args: ListActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActionsCommandOutput>;
+  listActions(
+    args: ListActionsCommandInput,
+    cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
   listActions(
     args: ListActionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1631,7 +1742,10 @@ export interface IoTSiteWise {
     args: ListAssetModelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAssetModelsCommandOutput>;
-  listAssetModels(args: ListAssetModelsCommandInput, cb: (err: any, data?: ListAssetModelsCommandOutput) => void): void;
+  listAssetModels(
+    args: ListAssetModelsCommandInput,
+    cb: (err: any, data?: ListAssetModelsCommandOutput) => void
+  ): void;
   listAssetModels(
     args: ListAssetModelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1676,8 +1790,14 @@ export interface IoTSiteWise {
    * @see {@link ListAssetsCommand}
    */
   listAssets(): Promise<ListAssetsCommandOutput>;
-  listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
-  listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
+  listAssets(
+    args: ListAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetsCommandOutput>;
+  listAssets(
+    args: ListAssetsCommandInput,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
   listAssets(
     args: ListAssetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1795,7 +1915,10 @@ export interface IoTSiteWise {
     args: ListDashboardsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDashboardsCommandOutput>;
-  listDashboards(args: ListDashboardsCommandInput, cb: (err: any, data?: ListDashboardsCommandOutput) => void): void;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
   listDashboards(
     args: ListDashboardsCommandInput,
     options: __HttpHandlerOptions,
@@ -1805,8 +1928,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListDatasetsCommand}
    */
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1820,7 +1949,10 @@ export interface IoTSiteWise {
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExecutionsCommandOutput>;
-  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1831,8 +1963,14 @@ export interface IoTSiteWise {
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
   listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -1860,8 +1998,14 @@ export interface IoTSiteWise {
    * @see {@link ListPortalsCommand}
    */
   listPortals(): Promise<ListPortalsCommandOutput>;
-  listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
-  listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
+  listPortals(
+    args: ListPortalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPortalsCommandOutput>;
+  listPortals(
+    args: ListPortalsCommandInput,
+    cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
   listPortals(
     args: ListPortalsCommandInput,
     options: __HttpHandlerOptions,
@@ -1888,8 +2032,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListProjectsCommand}
    */
-  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
   listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -1921,7 +2071,10 @@ export interface IoTSiteWise {
     args: ListTimeSeriesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTimeSeriesCommandOutput>;
-  listTimeSeries(args: ListTimeSeriesCommandInput, cb: (err: any, data?: ListTimeSeriesCommandOutput) => void): void;
+  listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
   listTimeSeries(
     args: ListTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
@@ -1999,8 +2152,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2010,8 +2169,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2038,8 +2203,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UpdateAssetCommand}
    */
-  updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
-  updateAsset(args: UpdateAssetCommandInput, cb: (err: any, data?: UpdateAssetCommandOutput) => void): void;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetCommandOutput>;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
   updateAsset(
     args: UpdateAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -2121,7 +2292,10 @@ export interface IoTSiteWise {
     args: UpdateDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDashboardCommandOutput>;
-  updateDashboard(args: UpdateDashboardCommandInput, cb: (err: any, data?: UpdateDashboardCommandOutput) => void): void;
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
   updateDashboard(
     args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -2131,8 +2305,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UpdateDatasetCommand}
    */
-  updateDataset(args: UpdateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDatasetCommandOutput>;
-  updateDataset(args: UpdateDatasetCommandInput, cb: (err: any, data?: UpdateDatasetCommandOutput) => void): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
+  ): void;
   updateDataset(
     args: UpdateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -2142,8 +2322,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UpdateGatewayCommand}
    */
-  updateGateway(args: UpdateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGatewayCommandOutput>;
-  updateGateway(args: UpdateGatewayCommandInput, cb: (err: any, data?: UpdateGatewayCommandOutput) => void): void;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayCommandOutput>;
+  updateGateway(
+    args: UpdateGatewayCommandInput,
+    cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
   updateGateway(
     args: UpdateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -2170,8 +2356,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UpdatePortalCommand}
    */
-  updatePortal(args: UpdatePortalCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePortalCommandOutput>;
-  updatePortal(args: UpdatePortalCommandInput, cb: (err: any, data?: UpdatePortalCommandOutput) => void): void;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePortalCommandOutput>;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    cb: (err: any, data?: UpdatePortalCommandOutput) => void
+  ): void;
   updatePortal(
     args: UpdatePortalCommandInput,
     options: __HttpHandlerOptions,
@@ -2181,8 +2373,14 @@ export interface IoTSiteWise {
   /**
    * @see {@link UpdateProjectCommand}
    */
-  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
-  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
   updateProject(
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,

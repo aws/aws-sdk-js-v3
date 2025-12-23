@@ -27,9 +27,7 @@ export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWS
  *
  * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
  */
-export interface ListAWSServiceAccessForOrganizationCommandOutput
-  extends ListAWSServiceAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListAWSServiceAccessForOrganizationCommandOutput extends ListAWSServiceAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your

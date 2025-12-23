@@ -50,11 +50,9 @@ export const defaultBedrockRuntimeHttpAuthSchemeParametersProvider = async (
 ): Promise<BedrockRuntimeHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -77,15 +75,15 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BedrockRuntimeHttpAuth
   };
 }
 
-function createSmithyApiHttpBearerAuthHttpAuthOption(
-  authParameters: BedrockRuntimeHttpAuthSchemeParameters
-): HttpAuthOption {
+function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: BedrockRuntimeHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "smithy.api#httpBearerAuth",
-    propertiesExtractor: <T>(
-      { profile, filepath, configFilepath, ignoreCache }: T & FromSsoInit,
-      context: HandlerExecutionContext
-    ) => ({
+    propertiesExtractor: <T>({
+      profile,
+      filepath,
+      configFilepath,
+      ignoreCache,
+    }: T & FromSsoInit, context: HandlerExecutionContext) => ({
       /**
        * @internal
        */

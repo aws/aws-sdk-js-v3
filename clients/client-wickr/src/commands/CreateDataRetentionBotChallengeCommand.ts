@@ -27,9 +27,7 @@ export interface CreateDataRetentionBotChallengeCommandInput extends CreateDataR
  *
  * The output of {@link CreateDataRetentionBotChallengeCommand}.
  */
-export interface CreateDataRetentionBotChallengeCommandOutput
-  extends CreateDataRetentionBotChallengeResponse,
-    __MetadataBearer {}
+export interface CreateDataRetentionBotChallengeCommandOutput extends CreateDataRetentionBotChallengeResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new challenge password for the data retention bot. This password is used for authentication when the bot connects to the network.</p>

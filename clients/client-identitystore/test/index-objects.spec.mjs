@@ -89,6 +89,10 @@ import {
   ListUsersResponse$,
   MemberId$,
   Name$,
+  paginateListGroupMemberships,
+  paginateListGroupMembershipsForMember,
+  paginateListGroups,
+  paginateListUsers,
   PhoneNumber$,
   Photo$,
   ResourceNotFoundException,
@@ -114,10 +118,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
-  paginateListGroupMemberships,
-  paginateListGroupMembershipsForMember,
-  paginateListGroups,
-  paginateListUsers,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

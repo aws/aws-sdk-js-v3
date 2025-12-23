@@ -24,9 +24,7 @@ export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConne
  *
  * The output of {@link UpdateConnectionAliasPermissionCommand}.
  */
-export interface UpdateConnectionAliasPermissionCommandOutput
-  extends UpdateConnectionAliasPermissionResult,
-    __MetadataBearer {}
+export interface UpdateConnectionAliasPermissionCommandOutput extends UpdateConnectionAliasPermissionResult, __MetadataBearer {}
 
 /**
  * <p>Shares or unshares a connection alias with one account by specifying whether that

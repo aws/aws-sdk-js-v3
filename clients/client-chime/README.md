@@ -51,10 +51,8 @@ in the <i>Amazon Web Services General Reference</i>.</p>
 in the <i>Amazon Chime Administration Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-chime
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-chime`
 - `yarn add @aws-sdk/client-chime`
 - `pnpm add @aws-sdk/client-chime`
@@ -90,9 +88,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ChimeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListAccountsCommand(params);
 ```
 
@@ -251,7 +247,6 @@ AssociatePhoneNumberWithUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/AssociatePhoneNumberWithUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/AssociatePhoneNumberWithUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/AssociatePhoneNumberWithUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +254,6 @@ AssociateSigninDelegateGroupsWithAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/AssociateSigninDelegateGroupsWithAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/AssociateSigninDelegateGroupsWithAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/AssociateSigninDelegateGroupsWithAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +261,6 @@ BatchCreateRoomMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchCreateRoomMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchCreateRoomMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchCreateRoomMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +268,6 @@ BatchDeletePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchDeletePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchDeletePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchDeletePhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +275,6 @@ BatchSuspendUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchSuspendUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchSuspendUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchSuspendUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +282,6 @@ BatchUnsuspendUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchUnsuspendUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUnsuspendUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUnsuspendUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +289,6 @@ BatchUpdatePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchUpdatePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUpdatePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUpdatePhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +296,6 @@ BatchUpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/BatchUpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/BatchUpdateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +303,6 @@ CreateAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +310,6 @@ CreateBot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateBotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateBotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateBotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +317,6 @@ CreateMeetingDialOut
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateMeetingDialOutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateMeetingDialOutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateMeetingDialOutCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +324,6 @@ CreatePhoneNumberOrder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreatePhoneNumberOrderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreatePhoneNumberOrderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreatePhoneNumberOrderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +331,6 @@ CreateRoom
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateRoomCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +338,6 @@ CreateRoomMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateRoomMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateRoomMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateRoomMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +345,6 @@ CreateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/CreateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/CreateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +352,6 @@ DeleteAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DeleteAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +359,6 @@ DeleteEventsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DeleteEventsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteEventsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteEventsConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +366,6 @@ DeletePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DeletePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeletePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeletePhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +373,6 @@ DeleteRoom
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DeleteRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteRoomCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +380,6 @@ DeleteRoomMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DeleteRoomMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteRoomMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DeleteRoomMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +387,6 @@ DisassociatePhoneNumberFromUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DisassociatePhoneNumberFromUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DisassociatePhoneNumberFromUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DisassociatePhoneNumberFromUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +394,6 @@ DisassociateSigninDelegateGroupsFromAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/DisassociateSigninDelegateGroupsFromAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DisassociateSigninDelegateGroupsFromAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/DisassociateSigninDelegateGroupsFromAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +401,6 @@ GetAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,7 +408,6 @@ GetAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -443,7 +415,6 @@ GetBot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetBotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetBotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetBotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -451,7 +422,6 @@ GetEventsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetEventsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetEventsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetEventsConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -459,7 +429,6 @@ GetGlobalSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetGlobalSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -467,7 +436,6 @@ GetPhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -475,7 +443,6 @@ GetPhoneNumberOrder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetPhoneNumberOrderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberOrderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberOrderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -483,7 +450,6 @@ GetPhoneNumberSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetPhoneNumberSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetPhoneNumberSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -491,7 +457,6 @@ GetRetentionSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetRetentionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetRetentionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetRetentionSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -499,7 +464,6 @@ GetRoom
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetRoomCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -507,7 +471,6 @@ GetUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -515,7 +478,6 @@ GetUserSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/GetUserSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetUserSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/GetUserSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -523,7 +485,6 @@ InviteUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/InviteUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/InviteUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/InviteUsersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -531,7 +492,6 @@ ListAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -539,7 +499,6 @@ ListBots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListBotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListBotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListBotsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -547,7 +506,6 @@ ListPhoneNumberOrders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListPhoneNumberOrdersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListPhoneNumberOrdersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListPhoneNumberOrdersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -555,7 +513,6 @@ ListPhoneNumbers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListPhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListPhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListPhoneNumbersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -563,7 +520,6 @@ ListRoomMemberships
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListRoomMembershipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListRoomMembershipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListRoomMembershipsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -571,7 +527,6 @@ ListRooms
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListRoomsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListRoomsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListRoomsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -579,7 +534,6 @@ ListSupportedPhoneNumberCountries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListSupportedPhoneNumberCountriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListSupportedPhoneNumberCountriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListSupportedPhoneNumberCountriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -587,7 +541,6 @@ ListUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ListUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ListUsersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -595,7 +548,6 @@ LogoutUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/LogoutUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/LogoutUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/LogoutUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +555,6 @@ PutEventsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/PutEventsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/PutEventsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/PutEventsConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,7 +562,6 @@ PutRetentionSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/PutRetentionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/PutRetentionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/PutRetentionSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -619,7 +569,6 @@ RedactConversationMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/RedactConversationMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RedactConversationMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RedactConversationMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -627,7 +576,6 @@ RedactRoomMessage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/RedactRoomMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RedactRoomMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RedactRoomMessageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -635,7 +583,6 @@ RegenerateSecurityToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/RegenerateSecurityTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RegenerateSecurityTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RegenerateSecurityTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -643,7 +590,6 @@ ResetPersonalPIN
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/ResetPersonalPINCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ResetPersonalPINCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/ResetPersonalPINCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -651,7 +597,6 @@ RestorePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/RestorePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RestorePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/RestorePhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -659,7 +604,6 @@ SearchAvailablePhoneNumbers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/SearchAvailablePhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/SearchAvailablePhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/SearchAvailablePhoneNumbersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -667,7 +611,6 @@ UpdateAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -675,7 +618,6 @@ UpdateAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -683,7 +625,6 @@ UpdateBot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateBotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateBotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateBotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -691,7 +632,6 @@ UpdateGlobalSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateGlobalSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -699,7 +639,6 @@ UpdatePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdatePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdatePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdatePhoneNumberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -707,7 +646,6 @@ UpdatePhoneNumberSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdatePhoneNumberSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdatePhoneNumberSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdatePhoneNumberSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -715,7 +653,6 @@ UpdateRoom
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateRoomCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -723,7 +660,6 @@ UpdateRoomMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateRoomMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateRoomMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateRoomMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -731,7 +667,6 @@ UpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -739,5 +674,4 @@ UpdateUserSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime/command/UpdateUserSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateUserSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime/Interface/UpdateUserSettingsCommandOutput/)
-
 </details>

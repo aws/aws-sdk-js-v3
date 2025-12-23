@@ -28,9 +28,7 @@ export interface AddApplicationVpcConfigurationCommandInput extends AddApplicati
  *
  * The output of {@link AddApplicationVpcConfigurationCommand}.
  */
-export interface AddApplicationVpcConfigurationCommandOutput
-  extends AddApplicationVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface AddApplicationVpcConfigurationCommandOutput extends AddApplicationVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store

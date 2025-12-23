@@ -31,9 +31,7 @@ export interface GetIdentityProviderByIdentifierCommandInput extends GetIdentity
  *
  * The output of {@link GetIdentityProviderByIdentifierCommand}.
  */
-export interface GetIdentityProviderByIdentifierCommandOutput
-  extends GetIdentityProviderByIdentifierResponse,
-    __MetadataBearer {}
+export interface GetIdentityProviderByIdentifierCommandOutput extends GetIdentityProviderByIdentifierResponse, __MetadataBearer {}
 
 /**
  * <p>Given the identifier of an identity provider (IdP), for example

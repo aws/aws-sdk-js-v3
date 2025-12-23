@@ -24,9 +24,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTraffic
  *
  * The output of {@link ModifyTrafficMirrorFilterRuleCommand}.
  */
-export interface ModifyTrafficMirrorFilterRuleCommandOutput
-  extends ModifyTrafficMirrorFilterRuleResult,
-    __MetadataBearer {}
+export interface ModifyTrafficMirrorFilterRuleCommandOutput extends ModifyTrafficMirrorFilterRuleResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Traffic Mirror rule.</p>

@@ -28,9 +28,7 @@ export interface ListCrossAccountAuthorizationsCommandInput extends ListCrossAcc
  *
  * The output of {@link ListCrossAccountAuthorizationsCommand}.
  */
-export interface ListCrossAccountAuthorizationsCommandOutput
-  extends ListCrossAccountAuthorizationsResponse,
-    __MetadataBearer {}
+export interface ListCrossAccountAuthorizationsCommandOutput extends ListCrossAccountAuthorizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>

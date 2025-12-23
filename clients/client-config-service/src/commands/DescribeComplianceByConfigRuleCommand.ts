@@ -24,9 +24,7 @@ export interface DescribeComplianceByConfigRuleCommandInput extends DescribeComp
  *
  * The output of {@link DescribeComplianceByConfigRuleCommand}.
  */
-export interface DescribeComplianceByConfigRuleCommandOutput
-  extends DescribeComplianceByConfigRuleResponse,
-    __MetadataBearer {}
+export interface DescribeComplianceByConfigRuleCommandOutput extends DescribeComplianceByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Indicates whether the specified Config rules are compliant.

@@ -27,9 +27,7 @@ export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEm
  *
  * The output of {@link DescribeEmergencyContactSettingsCommand}.
  */
-export interface DescribeEmergencyContactSettingsCommandOutput
-  extends DescribeEmergencyContactSettingsResponse,
-    __MetadataBearer {}
+export interface DescribeEmergencyContactSettingsCommandOutput extends DescribeEmergencyContactSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>

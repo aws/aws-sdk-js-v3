@@ -10,9 +10,9 @@ const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInp
     const result: any = await client.send(new DescribeTableCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Table.TableStatus;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

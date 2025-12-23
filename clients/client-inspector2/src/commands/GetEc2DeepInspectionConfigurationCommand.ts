@@ -27,9 +27,7 @@ export interface GetEc2DeepInspectionConfigurationCommandInput extends GetEc2Dee
  *
  * The output of {@link GetEc2DeepInspectionConfigurationCommand}.
  */
-export interface GetEc2DeepInspectionConfigurationCommandOutput
-  extends GetEc2DeepInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface GetEc2DeepInspectionConfigurationCommandOutput extends GetEc2DeepInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the activation status of Amazon Inspector deep inspection and custom paths associated

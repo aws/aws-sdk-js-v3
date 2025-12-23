@@ -27,9 +27,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandInput extends Describe
  *
  * The output of {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
-export interface DescribeConfigRuleEvaluationStatusCommandOutput
-  extends DescribeConfigRuleEvaluationStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigRuleEvaluationStatusCommandOutput extends DescribeConfigRuleEvaluationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke

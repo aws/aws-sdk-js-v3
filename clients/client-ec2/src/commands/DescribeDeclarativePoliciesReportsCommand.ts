@@ -27,9 +27,7 @@ export interface DescribeDeclarativePoliciesReportsCommandInput extends Describe
  *
  * The output of {@link DescribeDeclarativePoliciesReportsCommand}.
  */
-export interface DescribeDeclarativePoliciesReportsCommandOutput
-  extends DescribeDeclarativePoliciesReportsResult,
-    __MetadataBearer {}
+export interface DescribeDeclarativePoliciesReportsCommandOutput extends DescribeDeclarativePoliciesReportsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the metadata of an account status report, including the status of the

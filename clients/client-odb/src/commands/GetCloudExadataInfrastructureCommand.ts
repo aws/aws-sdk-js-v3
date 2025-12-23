@@ -24,9 +24,7 @@ export interface GetCloudExadataInfrastructureCommandInput extends GetCloudExada
  *
  * The output of {@link GetCloudExadataInfrastructureCommand}.
  */
-export interface GetCloudExadataInfrastructureCommandOutput
-  extends GetCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface GetCloudExadataInfrastructureCommandOutput extends GetCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified Exadata infrastructure.</p>

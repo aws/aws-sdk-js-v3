@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteCentralizationRuleForOrganizationCommand}.
  */
-export interface DeleteCentralizationRuleForOrganizationCommandInput
-  extends DeleteCentralizationRuleForOrganizationInput {}
+export interface DeleteCentralizationRuleForOrganizationCommandInput extends DeleteCentralizationRuleForOrganizationInput {}
 /**
  * @public
  *

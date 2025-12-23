@@ -27,9 +27,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandInput extends Notify
  *
  * The output of {@link NotifyResourceDeploymentStatusChangeCommand}.
  */
-export interface NotifyResourceDeploymentStatusChangeCommandOutput
-  extends NotifyResourceDeploymentStatusChangeOutput,
-    __MetadataBearer {}
+export interface NotifyResourceDeploymentStatusChangeCommandOutput extends NotifyResourceDeploymentStatusChangeOutput, __MetadataBearer {}
 
 /**
  * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>

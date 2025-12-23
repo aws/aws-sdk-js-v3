@@ -24,9 +24,7 @@ export interface CreateCloudWatchAlarmTemplateCommandInput extends CreateCloudWa
  *
  * The output of {@link CreateCloudWatchAlarmTemplateCommand}.
  */
-export interface CreateCloudWatchAlarmTemplateCommandOutput
-  extends CreateCloudWatchAlarmTemplateResponse,
-    __MetadataBearer {}
+export interface CreateCloudWatchAlarmTemplateCommandOutput extends CreateCloudWatchAlarmTemplateResponse, __MetadataBearer {}
 
 /**
  * Creates a cloudwatch alarm template to dynamically generate cloudwatch metric alarms on targeted resource types.

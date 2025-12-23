@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCertificateAuthorityAuditReportCommand}.
  */
-export interface DescribeCertificateAuthorityAuditReportCommandInput
-  extends DescribeCertificateAuthorityAuditReportRequest {}
+export interface DescribeCertificateAuthorityAuditReportCommandInput extends DescribeCertificateAuthorityAuditReportRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCertificateAuthorityAuditReportCommand}.
  */
-export interface DescribeCertificateAuthorityAuditReportCommandOutput
-  extends DescribeCertificateAuthorityAuditReportResponse,
-    __MetadataBearer {}
+export interface DescribeCertificateAuthorityAuditReportCommandOutput extends DescribeCertificateAuthorityAuditReportResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created every time the certificate authority (CA) private key is used. The private key is used when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> action. </p>

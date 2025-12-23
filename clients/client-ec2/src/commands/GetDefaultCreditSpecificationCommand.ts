@@ -24,9 +24,7 @@ export interface GetDefaultCreditSpecificationCommandInput extends GetDefaultCre
  *
  * The output of {@link GetDefaultCreditSpecificationCommand}.
  */
-export interface GetDefaultCreditSpecificationCommandOutput
-  extends GetDefaultCreditSpecificationResult,
-    __MetadataBearer {}
+export interface GetDefaultCreditSpecificationCommandOutput extends GetDefaultCreditSpecificationResult, __MetadataBearer {}
 
 /**
  * <p>Describes the default credit option for CPU usage of a burstable performance instance

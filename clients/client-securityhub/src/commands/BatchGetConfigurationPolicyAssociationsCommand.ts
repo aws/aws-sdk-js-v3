@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchGetConfigurationPolicyAssociationsCommand}.
  */
-export interface BatchGetConfigurationPolicyAssociationsCommandInput
-  extends BatchGetConfigurationPolicyAssociationsRequest {}
+export interface BatchGetConfigurationPolicyAssociationsCommandInput extends BatchGetConfigurationPolicyAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetConfigurationPolicyAssociationsCommand}.
  */
-export interface BatchGetConfigurationPolicyAssociationsCommandOutput
-  extends BatchGetConfigurationPolicyAssociationsResponse,
-    __MetadataBearer {}
+export interface BatchGetConfigurationPolicyAssociationsCommandOutput extends BatchGetConfigurationPolicyAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

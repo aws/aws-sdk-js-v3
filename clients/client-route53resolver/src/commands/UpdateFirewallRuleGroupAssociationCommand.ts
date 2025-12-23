@@ -31,9 +31,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFi
  *
  * The output of {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
-export interface UpdateFirewallRuleGroupAssociationCommandOutput
-  extends UpdateFirewallRuleGroupAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallRuleGroupAssociationCommandOutput extends UpdateFirewallRuleGroupAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>

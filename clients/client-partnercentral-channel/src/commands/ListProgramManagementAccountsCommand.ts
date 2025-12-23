@@ -28,9 +28,7 @@ export interface ListProgramManagementAccountsCommandInput extends ListProgramMa
  *
  * The output of {@link ListProgramManagementAccountsCommand}.
  */
-export interface ListProgramManagementAccountsCommandOutput
-  extends ListProgramManagementAccountsResponse,
-    __MetadataBearer {}
+export interface ListProgramManagementAccountsCommandOutput extends ListProgramManagementAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists program management accounts based on specified criteria.</p>

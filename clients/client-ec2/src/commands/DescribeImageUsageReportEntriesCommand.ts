@@ -24,9 +24,7 @@ export interface DescribeImageUsageReportEntriesCommandInput extends DescribeIma
  *
  * The output of {@link DescribeImageUsageReportEntriesCommand}.
  */
-export interface DescribeImageUsageReportEntriesCommandOutput
-  extends DescribeImageUsageReportEntriesResult,
-    __MetadataBearer {}
+export interface DescribeImageUsageReportEntriesCommandOutput extends DescribeImageUsageReportEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the entries in image usage reports, showing how your images are used across

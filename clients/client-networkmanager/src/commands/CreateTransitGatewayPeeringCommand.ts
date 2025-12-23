@@ -28,9 +28,7 @@ export interface CreateTransitGatewayPeeringCommandInput extends CreateTransitGa
  *
  * The output of {@link CreateTransitGatewayPeeringCommand}.
  */
-export interface CreateTransitGatewayPeeringCommandOutput
-  extends CreateTransitGatewayPeeringResponse,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPeeringCommandOutput extends CreateTransitGatewayPeeringResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway peering connection.</p>

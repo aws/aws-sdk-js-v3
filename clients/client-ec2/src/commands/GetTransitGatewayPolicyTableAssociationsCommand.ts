@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayPolicyTableAssociationsCommand}.
  */
-export interface GetTransitGatewayPolicyTableAssociationsCommandInput
-  extends GetTransitGatewayPolicyTableAssociationsRequest {}
+export interface GetTransitGatewayPolicyTableAssociationsCommandInput extends GetTransitGatewayPolicyTableAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayPolicyTableAssociationsCommand}.
  */
-export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
-  extends GetTransitGatewayPolicyTableAssociationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayPolicyTableAssociationsCommandOutput extends GetTransitGatewayPolicyTableAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the transit gateway policy table associations.</p>

@@ -249,7 +249,10 @@ export interface S3ResultItem {
  * <p>This is an object representing the item returned in the results of a search for a specific resource type.</p>
  * @public
  */
-export type ResultItem = ResultItem.EBSResultItemMember | ResultItem.S3ResultItemMember | ResultItem.$UnknownMember;
+export type ResultItem =
+  | ResultItem.EBSResultItemMember
+  | ResultItem.S3ResultItemMember
+  | ResultItem.$UnknownMember;
 
 /**
  * @public
@@ -834,7 +837,9 @@ export interface S3ExportSpecification {
  * <p>This contains the export specification object.</p>
  * @public
  */
-export type ExportSpecification = ExportSpecification.S3ExportSpecificationMember | ExportSpecification.$UnknownMember;
+export type ExportSpecification =
+  | ExportSpecification.S3ExportSpecificationMember
+  | ExportSpecification.$UnknownMember;
 
 /**
  * @public

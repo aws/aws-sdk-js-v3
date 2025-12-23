@@ -81,12 +81,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = ListRecommendedActionsCommandInput;
+export type ServiceInputTypes =
+  | ListRecommendedActionsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = ListRecommendedActionsCommandOutput;
+export type ServiceOutputTypes =
+  | ListRecommendedActionsCommandOutput;
 
 /**
  * @public

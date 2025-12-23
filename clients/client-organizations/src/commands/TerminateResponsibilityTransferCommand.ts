@@ -27,9 +27,7 @@ export interface TerminateResponsibilityTransferCommandInput extends TerminateRe
  *
  * The output of {@link TerminateResponsibilityTransferCommand}.
  */
-export interface TerminateResponsibilityTransferCommandOutput
-  extends TerminateResponsibilityTransferResponse,
-    __MetadataBearer {}
+export interface TerminateResponsibilityTransferCommandOutput extends TerminateResponsibilityTransferResponse, __MetadataBearer {}
 
 /**
  * <p>Ends a transfer. A <i>transfer</i> is an arrangement between two

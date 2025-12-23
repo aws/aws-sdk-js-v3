@@ -24,9 +24,7 @@ export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesD
  *
  * The output of {@link ListKeyPhrasesDetectionJobsCommand}.
  */
-export interface ListKeyPhrasesDetectionJobsCommandOutput
-  extends ListKeyPhrasesDetectionJobsResponse,
-    __MetadataBearer {}
+export interface ListKeyPhrasesDetectionJobsCommandOutput extends ListKeyPhrasesDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Get a list of key phrase detection jobs that you have submitted.</p>

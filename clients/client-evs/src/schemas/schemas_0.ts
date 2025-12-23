@@ -193,377 +193,326 @@ import {
 import { EvsServiceException } from "../models/EvsServiceException";
 
 /* eslint no-var: 0 */
-export var AssociateEipToVlanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AETVR,
+export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
   0,
   [_cT, _eI, _vN, _aI],
-  [[0, 4], 0, 0, 0],
+  [[0, 4], 0, 0, 0]
 ];
-export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs, 0, [_v], [() => Vlan$]];
-export var Check$: StaticStructureSchema = [3, n0, _C, 0, [_t, _r, _iS], [0, 0, 4]];
-export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI, 0, [_pRSP], [64 | 0]];
-export var CreateEnvironmentHostRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CEHR,
+export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs,
+  0,
+  [_v],
+  [() => Vlan$]
+];
+export var Check$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_t, _r, _iS],
+  [0, 0, 4]
+];
+export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
+  0,
+  [_pRSP],
+  [64 | 0]
+];
+export var CreateEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _CEHR,
   0,
   [_cT, _eI, _h],
-  [[0, 4], 0, () => HostInfoForCreate$],
+  [[0, 4], 0, () => HostInfoForCreate$]
 ];
-export var CreateEnvironmentHostResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CEHRr,
+export var CreateEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _CEHRr,
   0,
   [_eS, _h],
-  [() => EnvironmentSummary$, () => Host$],
+  [() => EnvironmentSummary$, () => Host$]
 ];
-export var CreateEnvironmentRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CER,
+export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_cT, _eN, _kKI, _ta, _sASG, _vI, _sASI, _vV, _tA, _lI, _iV, _ho, _cI, _vH, _sI],
-  [
-    [0, 4],
-    0,
-    0,
-    128 | 0,
-    () => ServiceAccessSecurityGroups$,
-    0,
-    0,
-    0,
-    2,
-    () => LicenseInfoList,
-    () => InitialVlans$,
-    () => HostInfoForCreateList,
-    () => ConnectivityInfo$,
-    () => VcfHostnames$,
-    0,
-  ],
+  [[0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$, 0, 0, 0, 2, () => LicenseInfoList, () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0]
 ];
-export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr, 0, [_e], [() => Environment$]];
-export var DeleteEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _DEHR, 0, [_cT, _eI, _hN], [[0, 4], 0, 0]];
-export var DeleteEnvironmentHostResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEHRe,
+export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
+  0,
+  [_e],
+  [() => Environment$]
+];
+export var DeleteEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _DEHR,
+  0,
+  [_cT, _eI, _hN],
+  [[0, 4], 0, 0]
+];
+export var DeleteEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _DEHRe,
   0,
   [_eS, _h],
-  [() => EnvironmentSummary$, () => Host$],
+  [() => EnvironmentSummary$, () => Host$]
 ];
-export var DeleteEnvironmentRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DER,
+export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_cT, _eI],
-  [
-    [0, 4],
-    [0, 1],
-  ],
+  [[0, 4], [0, 1]]
 ];
-export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [_e], [() => Environment$]];
-export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEFVR,
+export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
+  0,
+  [_e],
+  [() => Environment$]
+];
+export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [3, n0, _DEFVR,
   0,
   [_cT, _eI, _vN, _aIs],
-  [[0, 4], 0, 0, 0],
+  [[0, 4], 0, 0, 0]
 ];
-export var DisassociateEipFromVlanResponse$: StaticStructureSchema = [3, n0, _DEFVRi, 0, [_v], [() => Vlan$]];
-export var EipAssociation$: StaticStructureSchema = [3, n0, _EA, 0, [_aIs, _aI, _iA], [0, 0, 0]];
-export var Environment$: StaticStructureSchema = [
-  3,
-  n0,
-  _E,
+export var DisassociateEipFromVlanResponse$: StaticStructureSchema = [3, n0, _DEFVRi,
+  0,
+  [_v],
+  [() => Vlan$]
+];
+export var EipAssociation$: StaticStructureSchema = [3, n0, _EA,
+  0,
+  [_aIs, _aI, _iA],
+  [0, 0, 0]
+];
+export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
   [_eI, _eSn, _sD, _cA, _mA, _eA, _eN, _vI, _sASI, _vV, _tA, _lI, _sI, _eSnv, _c, _cI, _vH, _kKI, _sASG, _cr],
-  [
-    0,
-    0,
-    0,
-    4,
-    4,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    () => LicenseInfoList,
-    0,
-    0,
-    () => ChecksList,
-    () => ConnectivityInfo$,
-    () => VcfHostnames$,
-    0,
-    () => ServiceAccessSecurityGroups$,
-    () => SecretList,
-  ],
+  [0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 2, () => LicenseInfoList, 0, 0, () => ChecksList, () => ConnectivityInfo$, () => VcfHostnames$, 0, () => ServiceAccessSecurityGroups$, () => SecretList]
 ];
-export var EnvironmentSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _ES,
+export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_eI, _eN, _vV, _eSnv, _eSn, _cA, _mA, _eA],
-  [0, 0, 0, 0, 0, 4, 4, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0]
 ];
-export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER, 0, [_eI], [[0, 1]]];
-export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe, 0, [_e], [() => Environment$]];
-export var Host$: StaticStructureSchema = [
-  3,
-  n0,
-  _H,
+export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
+  0,
+  [_eI],
+  [[0, 1]]
+];
+export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
+  0,
+  [_e],
+  [() => Environment$]
+];
+export var Host$: StaticStructureSchema = [3, n0, _H,
   0,
   [_hN, _iA, _kN, _iT, _pGI, _dHI, _cA, _mA, _hS, _sD, _eII, _nI],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => NetworkInterfaceList],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => NetworkInterfaceList]
 ];
-export var HostInfoForCreate$: StaticStructureSchema = [3, n0, _HIFC, 0, [_hN, _kN, _iT, _pGI, _dHI], [0, 0, 0, 0, 0]];
-export var InitialVlanInfo$: StaticStructureSchema = [3, n0, _IVI, 0, [_ci], [0]];
-export var InitialVlans$: StaticStructureSchema = [
-  3,
-  n0,
-  _IV,
+export var HostInfoForCreate$: StaticStructureSchema = [3, n0, _HIFC,
+  0,
+  [_hN, _kN, _iT, _pGI, _dHI],
+  [0, 0, 0, 0, 0]
+];
+export var InitialVlanInfo$: StaticStructureSchema = [3, n0, _IVI,
+  0,
+  [_ci],
+  [0]
+];
+export var InitialVlans$: StaticStructureSchema = [3, n0, _IV,
   0,
   [_vM, _vMm, _vMo, _vS, _vT, _eVT, _nU, _hc, _eV, _eVx, _iHP, _hNAI],
-  [
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    () => InitialVlanInfo$,
-    2,
-    0,
-  ],
+  [() => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, 2, 0]
 ];
-export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI, 0, [_sK, _vK], [0, 0]];
-export var ListEnvironmentHostsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LEHR,
+export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
+  0,
+  [_sK, _vK],
+  [0, 0]
+];
+export var ListEnvironmentHostsRequest$: StaticStructureSchema = [3, n0, _LEHR,
   0,
   [_nT, _mR, _eI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
 ];
-export var ListEnvironmentHostsResponse$: StaticStructureSchema = [3, n0, _LEHRi, 0, [_nT, _eH], [0, () => HostList]];
-export var ListEnvironmentsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LER,
+export var ListEnvironmentHostsResponse$: StaticStructureSchema = [3, n0, _LEHRi,
+  0,
+  [_nT, _eH],
+  [0, () => HostList]
+];
+export var ListEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_nT, _mR, _s],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [64 | 0, { [_hQ]: _s }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _s }]]
 ];
-export var ListEnvironmentsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LERi,
+export var ListEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
   [_nT, _eSnvi],
-  [0, () => EnvironmentSummaryList],
+  [0, () => EnvironmentSummaryList]
 ];
-export var ListEnvironmentVlansRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LEVR,
+export var ListEnvironmentVlansRequest$: StaticStructureSchema = [3, n0, _LEVR,
   0,
   [_nT, _mR, _eI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
 ];
-export var ListEnvironmentVlansResponse$: StaticStructureSchema = [3, n0, _LEVRi, 0, [_nT, _eVn], [0, () => VlanList]];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI, 0, [_nII], [0]];
-export var ResourceNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ListEnvironmentVlansResponse$: StaticStructureSchema = [3, n0, _LEVRi,
+  0,
+  [_nT, _eVn],
+  [0, () => VlanList]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_ta],
+  [128 | 0]
+];
+export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
+  0,
+  [_nII],
+  [0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_er]: _cl, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var Secret$: StaticStructureSchema = [3, n0, _S, 0, [_sA], [0]];
-export var ServiceAccessSecurityGroups$: StaticStructureSchema = [3, n0, _SASG, 0, [_sG], [64 | 0]];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cl, [_hE]: 402 }, [_m], [0]];
+export var Secret$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sA],
+  [0]
+];
+export var ServiceAccessSecurityGroups$: StaticStructureSchema = [3, n0, _SASG,
+  0,
+  [_sG],
+  [64 | 0]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_er]: _cl, [_hE]: 402 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
+export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
+  { [_er]: _cl, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [0, 128 | 0]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _ta],
+  [0, 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_er]: _cl, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_er]: _cl, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_er]: _cl, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var VcfHostnames$: StaticStructureSchema = [
-  3,
-  n0,
-  _VH,
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
+  0,
+  [_n, _m],
+  [0, 0]
+];
+export var VcfHostnames$: StaticStructureSchema = [3, n0, _VH,
   0,
   [_vC, _ns, _nM, _nMs, _nMsx, _nE, _nEs, _sM, _cB],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var Vlan$: StaticStructureSchema = [
-  3,
-  n0,
-  _V,
+export var Vlan$: StaticStructureSchema = [3, n0, _V,
   0,
   [_vIl, _ci, _aZ, _fN, _sIu, _cA, _mA, _vSl, _sD, _eAi, _iP, _nAI],
-  [1, 0, 0, 0, 0, 4, 4, 0, 0, () => EipAssociationList, 2, 0],
+  [1, 0, 0, 0, 0, 4, 4, 0, 0, () => EipAssociationList, 2, 0]
 ];
 export var EvsServiceException$: StaticErrorSchema = [-3, _sm, "EvsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EvsServiceException$, EvsServiceException);
-var ChecksList: StaticListSchema = [1, n0, _CL, 0, () => Check$];
-var EipAssociationList: StaticListSchema = [1, n0, _EAL, 0, () => EipAssociation$];
+var ChecksList: StaticListSchema = [1, n0, _CL,
+  0, () => Check$
+];
+var EipAssociationList: StaticListSchema = [1, n0, _EAL,
+  0, () => EipAssociation$
+];
 var EnvironmentStateList = 64 | 0;
-var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EnvironmentSummary$];
-var HostInfoForCreateList: StaticListSchema = [1, n0, _HIFCL, 0, () => HostInfoForCreate$];
-var HostList: StaticListSchema = [1, n0, _HL, 0, () => Host$];
-var LicenseInfoList: StaticListSchema = [1, n0, _LIL, 0, () => LicenseInfo$];
-var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface$];
+var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL,
+  0, () => EnvironmentSummary$
+];
+var HostInfoForCreateList: StaticListSchema = [1, n0, _HIFCL,
+  0, () => HostInfoForCreate$
+];
+var HostList: StaticListSchema = [1, n0, _HL,
+  0, () => Host$
+];
+var LicenseInfoList: StaticListSchema = [1, n0, _LIL,
+  0, () => LicenseInfo$
+];
+var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL,
+  0, () => NetworkInterface$
+];
 var RouteServerPeeringList = 64 | 0;
-var SecretList: StaticListSchema = [1, n0, _SL, 0, () => Secret$];
+var SecretList: StaticListSchema = [1, n0, _SL,
+  0, () => Secret$
+];
 var SecurityGroups = 64 | 0;
 var TagKeys = 64 | 0;
-var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-var VlanList: StaticListSchema = [1, n0, _VL, 0, () => Vlan$];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
+];
+var VlanList: StaticListSchema = [1, n0, _VL,
+  0, () => Vlan$
+];
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
-export var AssociateEipToVlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _AETV,
-  2,
-  () => AssociateEipToVlanRequest$,
-  () => AssociateEipToVlanResponse$,
+export var AssociateEipToVlan$: StaticOperationSchema = [9, n0, _AETV,
+  2, () => AssociateEipToVlanRequest$, () => AssociateEipToVlanResponse$
 ];
-export var CreateEnvironment$: StaticOperationSchema = [
-  9,
-  n0,
-  _CE,
-  2,
-  () => CreateEnvironmentRequest$,
-  () => CreateEnvironmentResponse$,
+export var CreateEnvironment$: StaticOperationSchema = [9, n0, _CE,
+  2, () => CreateEnvironmentRequest$, () => CreateEnvironmentResponse$
 ];
-export var CreateEnvironmentHost$: StaticOperationSchema = [
-  9,
-  n0,
-  _CEH,
-  2,
-  () => CreateEnvironmentHostRequest$,
-  () => CreateEnvironmentHostResponse$,
+export var CreateEnvironmentHost$: StaticOperationSchema = [9, n0, _CEH,
+  2, () => CreateEnvironmentHostRequest$, () => CreateEnvironmentHostResponse$
 ];
-export var DeleteEnvironment$: StaticOperationSchema = [
-  9,
-  n0,
-  _DE,
-  2,
-  () => DeleteEnvironmentRequest$,
-  () => DeleteEnvironmentResponse$,
+export var DeleteEnvironment$: StaticOperationSchema = [9, n0, _DE,
+  2, () => DeleteEnvironmentRequest$, () => DeleteEnvironmentResponse$
 ];
-export var DeleteEnvironmentHost$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEH,
-  2,
-  () => DeleteEnvironmentHostRequest$,
-  () => DeleteEnvironmentHostResponse$,
+export var DeleteEnvironmentHost$: StaticOperationSchema = [9, n0, _DEH,
+  2, () => DeleteEnvironmentHostRequest$, () => DeleteEnvironmentHostResponse$
 ];
-export var DisassociateEipFromVlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEFV,
-  2,
-  () => DisassociateEipFromVlanRequest$,
-  () => DisassociateEipFromVlanResponse$,
+export var DisassociateEipFromVlan$: StaticOperationSchema = [9, n0, _DEFV,
+  2, () => DisassociateEipFromVlanRequest$, () => DisassociateEipFromVlanResponse$
 ];
-export var GetEnvironment$: StaticOperationSchema = [
-  9,
-  n0,
-  _GE,
-  0,
-  () => GetEnvironmentRequest$,
-  () => GetEnvironmentResponse$,
+export var GetEnvironment$: StaticOperationSchema = [9, n0, _GE,
+  0, () => GetEnvironmentRequest$, () => GetEnvironmentResponse$
 ];
-export var ListEnvironmentHosts$: StaticOperationSchema = [
-  9,
-  n0,
-  _LEH,
-  0,
-  () => ListEnvironmentHostsRequest$,
-  () => ListEnvironmentHostsResponse$,
+export var ListEnvironmentHosts$: StaticOperationSchema = [9, n0, _LEH,
+  0, () => ListEnvironmentHostsRequest$, () => ListEnvironmentHostsResponse$
 ];
-export var ListEnvironments$: StaticOperationSchema = [
-  9,
-  n0,
-  _LE,
-  0,
-  () => ListEnvironmentsRequest$,
-  () => ListEnvironmentsResponse$,
+export var ListEnvironments$: StaticOperationSchema = [9, n0, _LE,
+  0, () => ListEnvironmentsRequest$, () => ListEnvironmentsResponse$
 ];
-export var ListEnvironmentVlans$: StaticOperationSchema = [
-  9,
-  n0,
-  _LEV,
-  0,
-  () => ListEnvironmentVlansRequest$,
-  () => ListEnvironmentVlansResponse$,
+export var ListEnvironmentVlans$: StaticOperationSchema = [9, n0, _LEV,
+  0, () => ListEnvironmentVlansRequest$, () => ListEnvironmentVlansResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest$, () => TagResourceResponse$];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  2,
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  2, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  2, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];

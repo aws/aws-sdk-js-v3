@@ -441,7 +441,10 @@ export interface Inspector2 {
     args: AssociateMemberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateMemberCommandOutput>;
-  associateMember(args: AssociateMemberCommandInput, cb: (err: any, data?: AssociateMemberCommandOutput) => void): void;
+  associateMember(
+    args: AssociateMemberCommandInput,
+    cb: (err: any, data?: AssociateMemberCommandOutput) => void
+  ): void;
   associateMember(
     args: AssociateMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -674,8 +677,14 @@ export interface Inspector2 {
   /**
    * @see {@link CreateFilterCommand}
    */
-  createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
-  createFilter(args: CreateFilterCommandInput, cb: (err: any, data?: CreateFilterCommandOutput) => void): void;
+  createFilter(
+    args: CreateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFilterCommandOutput>;
+  createFilter(
+    args: CreateFilterCommandInput,
+    cb: (err: any, data?: CreateFilterCommandOutput) => void
+  ): void;
   createFilter(
     args: CreateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -770,8 +779,14 @@ export interface Inspector2 {
   /**
    * @see {@link DeleteFilterCommand}
    */
-  deleteFilter(args: DeleteFilterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFilterCommandOutput>;
-  deleteFilter(args: DeleteFilterCommandInput, cb: (err: any, data?: DeleteFilterCommandOutput) => void): void;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFilterCommandOutput>;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    cb: (err: any, data?: DeleteFilterCommandOutput) => void
+  ): void;
   deleteFilter(
     args: DeleteFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -800,8 +815,14 @@ export interface Inspector2 {
    * @see {@link DisableCommand}
    */
   disable(): Promise<DisableCommandOutput>;
-  disable(args: DisableCommandInput, options?: __HttpHandlerOptions): Promise<DisableCommandOutput>;
-  disable(args: DisableCommandInput, cb: (err: any, data?: DisableCommandOutput) => void): void;
+  disable(
+    args: DisableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableCommandOutput>;
+  disable(
+    args: DisableCommandInput,
+    cb: (err: any, data?: DisableCommandOutput) => void
+  ): void;
   disable(
     args: DisableCommandInput,
     options: __HttpHandlerOptions,
@@ -845,8 +866,14 @@ export interface Inspector2 {
   /**
    * @see {@link EnableCommand}
    */
-  enable(args: EnableCommandInput, options?: __HttpHandlerOptions): Promise<EnableCommandOutput>;
-  enable(args: EnableCommandInput, cb: (err: any, data?: EnableCommandOutput) => void): void;
+  enable(
+    args: EnableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableCommandOutput>;
+  enable(
+    args: EnableCommandInput,
+    cb: (err: any, data?: EnableCommandOutput) => void
+  ): void;
   enable(
     args: EnableCommandInput,
     options: __HttpHandlerOptions,
@@ -1064,8 +1091,14 @@ export interface Inspector2 {
   /**
    * @see {@link GetMemberCommand}
    */
-  getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
-  getMember(args: GetMemberCommandInput, cb: (err: any, data?: GetMemberCommandOutput) => void): void;
+  getMember(
+    args: GetMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemberCommandOutput>;
+  getMember(
+    args: GetMemberCommandInput,
+    cb: (err: any, data?: GetMemberCommandOutput) => void
+  ): void;
   getMember(
     args: GetMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -1075,8 +1108,14 @@ export interface Inspector2 {
   /**
    * @see {@link GetSbomExportCommand}
    */
-  getSbomExport(args: GetSbomExportCommandInput, options?: __HttpHandlerOptions): Promise<GetSbomExportCommandOutput>;
-  getSbomExport(args: GetSbomExportCommandInput, cb: (err: any, data?: GetSbomExportCommandOutput) => void): void;
+  getSbomExport(
+    args: GetSbomExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSbomExportCommandOutput>;
+  getSbomExport(
+    args: GetSbomExportCommandInput,
+    cb: (err: any, data?: GetSbomExportCommandOutput) => void
+  ): void;
   getSbomExport(
     args: GetSbomExportCommandInput,
     options: __HttpHandlerOptions,
@@ -1157,8 +1196,14 @@ export interface Inspector2 {
    * @see {@link ListCisScansCommand}
    */
   listCisScans(): Promise<ListCisScansCommandOutput>;
-  listCisScans(args: ListCisScansCommandInput, options?: __HttpHandlerOptions): Promise<ListCisScansCommandOutput>;
-  listCisScans(args: ListCisScansCommandInput, cb: (err: any, data?: ListCisScansCommandOutput) => void): void;
+  listCisScans(
+    args: ListCisScansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCisScansCommandOutput>;
+  listCisScans(
+    args: ListCisScansCommandInput,
+    cb: (err: any, data?: ListCisScansCommandOutput) => void
+  ): void;
   listCisScans(
     args: ListCisScansCommandInput,
     options: __HttpHandlerOptions,
@@ -1222,8 +1267,14 @@ export interface Inspector2 {
    * @see {@link ListCoverageCommand}
    */
   listCoverage(): Promise<ListCoverageCommandOutput>;
-  listCoverage(args: ListCoverageCommandInput, options?: __HttpHandlerOptions): Promise<ListCoverageCommandOutput>;
-  listCoverage(args: ListCoverageCommandInput, cb: (err: any, data?: ListCoverageCommandOutput) => void): void;
+  listCoverage(
+    args: ListCoverageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoverageCommandOutput>;
+  listCoverage(
+    args: ListCoverageCommandInput,
+    cb: (err: any, data?: ListCoverageCommandOutput) => void
+  ): void;
   listCoverage(
     args: ListCoverageCommandInput,
     options: __HttpHandlerOptions,
@@ -1270,8 +1321,14 @@ export interface Inspector2 {
    * @see {@link ListFiltersCommand}
    */
   listFilters(): Promise<ListFiltersCommandOutput>;
-  listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
-  listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
+  listFilters(
+    args: ListFiltersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFiltersCommandOutput>;
+  listFilters(
+    args: ListFiltersCommandInput,
+    cb: (err: any, data?: ListFiltersCommandOutput) => void
+  ): void;
   listFilters(
     args: ListFiltersCommandInput,
     options: __HttpHandlerOptions,
@@ -1299,8 +1356,14 @@ export interface Inspector2 {
    * @see {@link ListFindingsCommand}
    */
   listFindings(): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
+  listFindings(
+    args: ListFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsCommandOutput>;
+  listFindings(
+    args: ListFindingsCommandInput,
+    cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
   listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1311,8 +1374,14 @@ export interface Inspector2 {
    * @see {@link ListMembersCommand}
    */
   listMembers(): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1344,7 +1413,10 @@ export interface Inspector2 {
     args: ListUsageTotalsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUsageTotalsCommandOutput>;
-  listUsageTotals(args: ListUsageTotalsCommandInput, cb: (err: any, data?: ListUsageTotalsCommandOutput) => void): void;
+  listUsageTotals(
+    args: ListUsageTotalsCommandInput,
+    cb: (err: any, data?: ListUsageTotalsCommandOutput) => void
+  ): void;
   listUsageTotals(
     args: ListUsageTotalsCommandInput,
     options: __HttpHandlerOptions,
@@ -1426,7 +1498,10 @@ export interface Inspector2 {
     args: StartCisSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartCisSessionCommandOutput>;
-  startCisSession(args: StartCisSessionCommandInput, cb: (err: any, data?: StartCisSessionCommandOutput) => void): void;
+  startCisSession(
+    args: StartCisSessionCommandInput,
+    cb: (err: any, data?: StartCisSessionCommandOutput) => void
+  ): void;
   startCisSession(
     args: StartCisSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1457,7 +1532,10 @@ export interface Inspector2 {
     args: StopCisSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopCisSessionCommandOutput>;
-  stopCisSession(args: StopCisSessionCommandInput, cb: (err: any, data?: StopCisSessionCommandOutput) => void): void;
+  stopCisSession(
+    args: StopCisSessionCommandInput,
+    cb: (err: any, data?: StopCisSessionCommandOutput) => void
+  ): void;
   stopCisSession(
     args: StopCisSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1467,8 +1545,14 @@ export interface Inspector2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1478,8 +1562,14 @@ export interface Inspector2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1593,8 +1683,14 @@ export interface Inspector2 {
   /**
    * @see {@link UpdateFilterCommand}
    */
-  updateFilter(args: UpdateFilterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFilterCommandOutput>;
-  updateFilter(args: UpdateFilterCommandInput, cb: (err: any, data?: UpdateFilterCommandOutput) => void): void;
+  updateFilter(
+    args: UpdateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFilterCommandOutput>;
+  updateFilter(
+    args: UpdateFilterCommandInput,
+    cb: (err: any, data?: UpdateFilterCommandOutput) => void
+  ): void;
   updateFilter(
     args: UpdateFilterCommandInput,
     options: __HttpHandlerOptions,

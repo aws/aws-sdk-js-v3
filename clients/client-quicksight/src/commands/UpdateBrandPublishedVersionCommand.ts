@@ -24,9 +24,7 @@ export interface UpdateBrandPublishedVersionCommandInput extends UpdateBrandPubl
  *
  * The output of {@link UpdateBrandPublishedVersionCommand}.
  */
-export interface UpdateBrandPublishedVersionCommandOutput
-  extends UpdateBrandPublishedVersionResponse,
-    __MetadataBearer {}
+export interface UpdateBrandPublishedVersionCommandOutput extends UpdateBrandPublishedVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the published version of a brand.</p>

@@ -27,9 +27,7 @@ export interface DescribeDataSetRefreshPropertiesCommandInput extends DescribeDa
  *
  * The output of {@link DescribeDataSetRefreshPropertiesCommand}.
  */
-export interface DescribeDataSetRefreshPropertiesCommandOutput
-  extends DescribeDataSetRefreshPropertiesResponse,
-    __MetadataBearer {}
+export interface DescribeDataSetRefreshPropertiesCommandOutput extends DescribeDataSetRefreshPropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the refresh properties of a dataset.</p>

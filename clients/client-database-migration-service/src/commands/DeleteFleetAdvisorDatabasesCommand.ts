@@ -28,9 +28,7 @@ export interface DeleteFleetAdvisorDatabasesCommandInput extends DeleteFleetAdvi
  *
  * The output of {@link DeleteFleetAdvisorDatabasesCommand}.
  */
-export interface DeleteFleetAdvisorDatabasesCommandOutput
-  extends DeleteFleetAdvisorDatabasesResponse,
-    __MetadataBearer {}
+export interface DeleteFleetAdvisorDatabasesCommandOutput extends DeleteFleetAdvisorDatabasesResponse, __MetadataBearer {}
 
 /**
  * <important>

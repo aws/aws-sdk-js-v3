@@ -434,7 +434,10 @@ export interface Location {
     args: CalculateRouteCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CalculateRouteCommandOutput>;
-  calculateRoute(args: CalculateRouteCommandInput, cb: (err: any, data?: CalculateRouteCommandOutput) => void): void;
+  calculateRoute(
+    args: CalculateRouteCommandInput,
+    cb: (err: any, data?: CalculateRouteCommandOutput) => void
+  ): void;
   calculateRoute(
     args: CalculateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -478,8 +481,14 @@ export interface Location {
   /**
    * @see {@link CreateKeyCommand}
    */
-  createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
-  createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
+  createKey(
+    args: CreateKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyCommandOutput>;
+  createKey(
+    args: CreateKeyCommandInput,
+    cb: (err: any, data?: CreateKeyCommandOutput) => void
+  ): void;
   createKey(
     args: CreateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -489,8 +498,14 @@ export interface Location {
   /**
    * @see {@link CreateMapCommand}
    */
-  createMap(args: CreateMapCommandInput, options?: __HttpHandlerOptions): Promise<CreateMapCommandOutput>;
-  createMap(args: CreateMapCommandInput, cb: (err: any, data?: CreateMapCommandOutput) => void): void;
+  createMap(
+    args: CreateMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMapCommandOutput>;
+  createMap(
+    args: CreateMapCommandInput,
+    cb: (err: any, data?: CreateMapCommandOutput) => void
+  ): void;
   createMap(
     args: CreateMapCommandInput,
     options: __HttpHandlerOptions,
@@ -534,8 +549,14 @@ export interface Location {
   /**
    * @see {@link CreateTrackerCommand}
    */
-  createTracker(args: CreateTrackerCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrackerCommandOutput>;
-  createTracker(args: CreateTrackerCommandInput, cb: (err: any, data?: CreateTrackerCommandOutput) => void): void;
+  createTracker(
+    args: CreateTrackerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrackerCommandOutput>;
+  createTracker(
+    args: CreateTrackerCommandInput,
+    cb: (err: any, data?: CreateTrackerCommandOutput) => void
+  ): void;
   createTracker(
     args: CreateTrackerCommandInput,
     options: __HttpHandlerOptions,
@@ -562,8 +583,14 @@ export interface Location {
   /**
    * @see {@link DeleteKeyCommand}
    */
-  deleteKey(args: DeleteKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyCommandOutput>;
-  deleteKey(args: DeleteKeyCommandInput, cb: (err: any, data?: DeleteKeyCommandOutput) => void): void;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyCommandOutput>;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    cb: (err: any, data?: DeleteKeyCommandOutput) => void
+  ): void;
   deleteKey(
     args: DeleteKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -573,8 +600,14 @@ export interface Location {
   /**
    * @see {@link DeleteMapCommand}
    */
-  deleteMap(args: DeleteMapCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMapCommandOutput>;
-  deleteMap(args: DeleteMapCommandInput, cb: (err: any, data?: DeleteMapCommandOutput) => void): void;
+  deleteMap(
+    args: DeleteMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMapCommandOutput>;
+  deleteMap(
+    args: DeleteMapCommandInput,
+    cb: (err: any, data?: DeleteMapCommandOutput) => void
+  ): void;
   deleteMap(
     args: DeleteMapCommandInput,
     options: __HttpHandlerOptions,
@@ -618,8 +651,14 @@ export interface Location {
   /**
    * @see {@link DeleteTrackerCommand}
    */
-  deleteTracker(args: DeleteTrackerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrackerCommandOutput>;
-  deleteTracker(args: DeleteTrackerCommandInput, cb: (err: any, data?: DeleteTrackerCommandOutput) => void): void;
+  deleteTracker(
+    args: DeleteTrackerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrackerCommandOutput>;
+  deleteTracker(
+    args: DeleteTrackerCommandInput,
+    cb: (err: any, data?: DeleteTrackerCommandOutput) => void
+  ): void;
   deleteTracker(
     args: DeleteTrackerCommandInput,
     options: __HttpHandlerOptions,
@@ -646,8 +685,14 @@ export interface Location {
   /**
    * @see {@link DescribeKeyCommand}
    */
-  describeKey(args: DescribeKeyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeKeyCommandOutput>;
-  describeKey(args: DescribeKeyCommandInput, cb: (err: any, data?: DescribeKeyCommandOutput) => void): void;
+  describeKey(
+    args: DescribeKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKeyCommandOutput>;
+  describeKey(
+    args: DescribeKeyCommandInput,
+    cb: (err: any, data?: DescribeKeyCommandOutput) => void
+  ): void;
   describeKey(
     args: DescribeKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -657,8 +702,14 @@ export interface Location {
   /**
    * @see {@link DescribeMapCommand}
    */
-  describeMap(args: DescribeMapCommandInput, options?: __HttpHandlerOptions): Promise<DescribeMapCommandOutput>;
-  describeMap(args: DescribeMapCommandInput, cb: (err: any, data?: DescribeMapCommandOutput) => void): void;
+  describeMap(
+    args: DescribeMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMapCommandOutput>;
+  describeMap(
+    args: DescribeMapCommandInput,
+    cb: (err: any, data?: DescribeMapCommandOutput) => void
+  ): void;
   describeMap(
     args: DescribeMapCommandInput,
     options: __HttpHandlerOptions,
@@ -706,7 +757,10 @@ export interface Location {
     args: DescribeTrackerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTrackerCommandOutput>;
-  describeTracker(args: DescribeTrackerCommandInput, cb: (err: any, data?: DescribeTrackerCommandOutput) => void): void;
+  describeTracker(
+    args: DescribeTrackerCommandInput,
+    cb: (err: any, data?: DescribeTrackerCommandOutput) => void
+  ): void;
   describeTracker(
     args: DescribeTrackerCommandInput,
     options: __HttpHandlerOptions,
@@ -784,8 +838,14 @@ export interface Location {
   /**
    * @see {@link GetGeofenceCommand}
    */
-  getGeofence(args: GetGeofenceCommandInput, options?: __HttpHandlerOptions): Promise<GetGeofenceCommandOutput>;
-  getGeofence(args: GetGeofenceCommandInput, cb: (err: any, data?: GetGeofenceCommandOutput) => void): void;
+  getGeofence(
+    args: GetGeofenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGeofenceCommandOutput>;
+  getGeofence(
+    args: GetGeofenceCommandInput,
+    cb: (err: any, data?: GetGeofenceCommandOutput) => void
+  ): void;
   getGeofence(
     args: GetGeofenceCommandInput,
     options: __HttpHandlerOptions,
@@ -795,8 +855,14 @@ export interface Location {
   /**
    * @see {@link GetMapGlyphsCommand}
    */
-  getMapGlyphs(args: GetMapGlyphsCommandInput, options?: __HttpHandlerOptions): Promise<GetMapGlyphsCommandOutput>;
-  getMapGlyphs(args: GetMapGlyphsCommandInput, cb: (err: any, data?: GetMapGlyphsCommandOutput) => void): void;
+  getMapGlyphs(
+    args: GetMapGlyphsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMapGlyphsCommandOutput>;
+  getMapGlyphs(
+    args: GetMapGlyphsCommandInput,
+    cb: (err: any, data?: GetMapGlyphsCommandOutput) => void
+  ): void;
   getMapGlyphs(
     args: GetMapGlyphsCommandInput,
     options: __HttpHandlerOptions,
@@ -806,8 +872,14 @@ export interface Location {
   /**
    * @see {@link GetMapSpritesCommand}
    */
-  getMapSprites(args: GetMapSpritesCommandInput, options?: __HttpHandlerOptions): Promise<GetMapSpritesCommandOutput>;
-  getMapSprites(args: GetMapSpritesCommandInput, cb: (err: any, data?: GetMapSpritesCommandOutput) => void): void;
+  getMapSprites(
+    args: GetMapSpritesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMapSpritesCommandOutput>;
+  getMapSprites(
+    args: GetMapSpritesCommandInput,
+    cb: (err: any, data?: GetMapSpritesCommandOutput) => void
+  ): void;
   getMapSprites(
     args: GetMapSpritesCommandInput,
     options: __HttpHandlerOptions,
@@ -834,8 +906,14 @@ export interface Location {
   /**
    * @see {@link GetMapTileCommand}
    */
-  getMapTile(args: GetMapTileCommandInput, options?: __HttpHandlerOptions): Promise<GetMapTileCommandOutput>;
-  getMapTile(args: GetMapTileCommandInput, cb: (err: any, data?: GetMapTileCommandOutput) => void): void;
+  getMapTile(
+    args: GetMapTileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMapTileCommandOutput>;
+  getMapTile(
+    args: GetMapTileCommandInput,
+    cb: (err: any, data?: GetMapTileCommandOutput) => void
+  ): void;
   getMapTile(
     args: GetMapTileCommandInput,
     options: __HttpHandlerOptions,
@@ -845,8 +923,14 @@ export interface Location {
   /**
    * @see {@link GetPlaceCommand}
    */
-  getPlace(args: GetPlaceCommandInput, options?: __HttpHandlerOptions): Promise<GetPlaceCommandOutput>;
-  getPlace(args: GetPlaceCommandInput, cb: (err: any, data?: GetPlaceCommandOutput) => void): void;
+  getPlace(
+    args: GetPlaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlaceCommandOutput>;
+  getPlace(
+    args: GetPlaceCommandInput,
+    cb: (err: any, data?: GetPlaceCommandOutput) => void
+  ): void;
   getPlace(
     args: GetPlaceCommandInput,
     options: __HttpHandlerOptions,
@@ -891,8 +975,14 @@ export interface Location {
   /**
    * @see {@link ListGeofencesCommand}
    */
-  listGeofences(args: ListGeofencesCommandInput, options?: __HttpHandlerOptions): Promise<ListGeofencesCommandOutput>;
-  listGeofences(args: ListGeofencesCommandInput, cb: (err: any, data?: ListGeofencesCommandOutput) => void): void;
+  listGeofences(
+    args: ListGeofencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGeofencesCommandOutput>;
+  listGeofences(
+    args: ListGeofencesCommandInput,
+    cb: (err: any, data?: ListGeofencesCommandOutput) => void
+  ): void;
   listGeofences(
     args: ListGeofencesCommandInput,
     options: __HttpHandlerOptions,
@@ -903,8 +993,14 @@ export interface Location {
    * @see {@link ListKeysCommand}
    */
   listKeys(): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
+  listKeys(
+    args: ListKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeysCommandOutput>;
+  listKeys(
+    args: ListKeysCommandInput,
+    cb: (err: any, data?: ListKeysCommandOutput) => void
+  ): void;
   listKeys(
     args: ListKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -915,8 +1011,14 @@ export interface Location {
    * @see {@link ListMapsCommand}
    */
   listMaps(): Promise<ListMapsCommandOutput>;
-  listMaps(args: ListMapsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapsCommandOutput>;
-  listMaps(args: ListMapsCommandInput, cb: (err: any, data?: ListMapsCommandOutput) => void): void;
+  listMaps(
+    args: ListMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMapsCommandOutput>;
+  listMaps(
+    args: ListMapsCommandInput,
+    cb: (err: any, data?: ListMapsCommandOutput) => void
+  ): void;
   listMaps(
     args: ListMapsCommandInput,
     options: __HttpHandlerOptions,
@@ -997,8 +1099,14 @@ export interface Location {
    * @see {@link ListTrackersCommand}
    */
   listTrackers(): Promise<ListTrackersCommandOutput>;
-  listTrackers(args: ListTrackersCommandInput, options?: __HttpHandlerOptions): Promise<ListTrackersCommandOutput>;
-  listTrackers(args: ListTrackersCommandInput, cb: (err: any, data?: ListTrackersCommandOutput) => void): void;
+  listTrackers(
+    args: ListTrackersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrackersCommandOutput>;
+  listTrackers(
+    args: ListTrackersCommandInput,
+    cb: (err: any, data?: ListTrackersCommandOutput) => void
+  ): void;
   listTrackers(
     args: ListTrackersCommandInput,
     options: __HttpHandlerOptions,
@@ -1008,8 +1116,14 @@ export interface Location {
   /**
    * @see {@link PutGeofenceCommand}
    */
-  putGeofence(args: PutGeofenceCommandInput, options?: __HttpHandlerOptions): Promise<PutGeofenceCommandOutput>;
-  putGeofence(args: PutGeofenceCommandInput, cb: (err: any, data?: PutGeofenceCommandOutput) => void): void;
+  putGeofence(
+    args: PutGeofenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutGeofenceCommandOutput>;
+  putGeofence(
+    args: PutGeofenceCommandInput,
+    cb: (err: any, data?: PutGeofenceCommandOutput) => void
+  ): void;
   putGeofence(
     args: PutGeofenceCommandInput,
     options: __HttpHandlerOptions,
@@ -1070,8 +1184,14 @@ export interface Location {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1081,8 +1201,14 @@ export interface Location {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1109,8 +1235,14 @@ export interface Location {
   /**
    * @see {@link UpdateKeyCommand}
    */
-  updateKey(args: UpdateKeyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateKeyCommandOutput>;
-  updateKey(args: UpdateKeyCommandInput, cb: (err: any, data?: UpdateKeyCommandOutput) => void): void;
+  updateKey(
+    args: UpdateKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyCommandOutput>;
+  updateKey(
+    args: UpdateKeyCommandInput,
+    cb: (err: any, data?: UpdateKeyCommandOutput) => void
+  ): void;
   updateKey(
     args: UpdateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1120,8 +1252,14 @@ export interface Location {
   /**
    * @see {@link UpdateMapCommand}
    */
-  updateMap(args: UpdateMapCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMapCommandOutput>;
-  updateMap(args: UpdateMapCommandInput, cb: (err: any, data?: UpdateMapCommandOutput) => void): void;
+  updateMap(
+    args: UpdateMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMapCommandOutput>;
+  updateMap(
+    args: UpdateMapCommandInput,
+    cb: (err: any, data?: UpdateMapCommandOutput) => void
+  ): void;
   updateMap(
     args: UpdateMapCommandInput,
     options: __HttpHandlerOptions,
@@ -1165,8 +1303,14 @@ export interface Location {
   /**
    * @see {@link UpdateTrackerCommand}
    */
-  updateTracker(args: UpdateTrackerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrackerCommandOutput>;
-  updateTracker(args: UpdateTrackerCommandInput, cb: (err: any, data?: UpdateTrackerCommandOutput) => void): void;
+  updateTracker(
+    args: UpdateTrackerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrackerCommandOutput>;
+  updateTracker(
+    args: UpdateTrackerCommandInput,
+    cb: (err: any, data?: UpdateTrackerCommandOutput) => void
+  ): void;
   updateTracker(
     args: UpdateTrackerCommandInput,
     options: __HttpHandlerOptions,

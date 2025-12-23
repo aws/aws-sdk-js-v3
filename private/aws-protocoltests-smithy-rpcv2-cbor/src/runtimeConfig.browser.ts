@@ -26,8 +26,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({ clientVersion: packageInfo.version }),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),

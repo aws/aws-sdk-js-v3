@@ -10,10 +10,8 @@ AWS SDK for JavaScript VoiceID Client for Node.js, Browser and React Native.
 make voice interactions in contact centers more secure and efficient.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-voice-id
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-voice-id`
 - `yarn add @aws-sdk/client-voice-id`
 - `pnpm add @aws-sdk/client-voice-id`
@@ -49,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new VoiceIDClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDomainsCommand(params);
 ```
 
@@ -210,7 +206,6 @@ AssociateFraudster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/AssociateFraudsterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/AssociateFraudsterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/AssociateFraudsterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -218,7 +213,6 @@ CreateDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/CreateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/CreateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/CreateDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,7 +220,6 @@ CreateWatchlist
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/CreateWatchlistCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/CreateWatchlistCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/CreateWatchlistCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +227,6 @@ DeleteDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DeleteDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +234,6 @@ DeleteFraudster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DeleteFraudsterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteFraudsterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteFraudsterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +241,6 @@ DeleteSpeaker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DeleteSpeakerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteSpeakerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteSpeakerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +248,6 @@ DeleteWatchlist
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DeleteWatchlistCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteWatchlistCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DeleteWatchlistCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +255,6 @@ DescribeDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +262,6 @@ DescribeFraudster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeFraudsterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeFraudsterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeFraudsterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +269,6 @@ DescribeFraudsterRegistrationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeFraudsterRegistrationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeFraudsterRegistrationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeFraudsterRegistrationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +276,6 @@ DescribeSpeaker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeSpeakerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeSpeakerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeSpeakerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +283,6 @@ DescribeSpeakerEnrollmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeSpeakerEnrollmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeSpeakerEnrollmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeSpeakerEnrollmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +290,6 @@ DescribeWatchlist
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DescribeWatchlistCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeWatchlistCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DescribeWatchlistCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +297,6 @@ DisassociateFraudster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/DisassociateFraudsterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DisassociateFraudsterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/DisassociateFraudsterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +304,6 @@ EvaluateSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/EvaluateSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/EvaluateSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/EvaluateSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +311,6 @@ ListDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +318,6 @@ ListFraudsterRegistrationJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListFraudsterRegistrationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListFraudsterRegistrationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListFraudsterRegistrationJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +325,6 @@ ListFraudsters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListFraudstersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListFraudstersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListFraudstersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +332,6 @@ ListSpeakerEnrollmentJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListSpeakerEnrollmentJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListSpeakerEnrollmentJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListSpeakerEnrollmentJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +339,6 @@ ListSpeakers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListSpeakersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListSpeakersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListSpeakersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +346,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +353,6 @@ ListWatchlists
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/ListWatchlistsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListWatchlistsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/ListWatchlistsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +360,6 @@ OptOutSpeaker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/OptOutSpeakerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/OptOutSpeakerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/OptOutSpeakerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +367,6 @@ StartFraudsterRegistrationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/StartFraudsterRegistrationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/StartFraudsterRegistrationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/StartFraudsterRegistrationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +374,6 @@ StartSpeakerEnrollmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/StartSpeakerEnrollmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/StartSpeakerEnrollmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/StartSpeakerEnrollmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +381,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +388,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +395,6 @@ UpdateDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/UpdateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UpdateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UpdateDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,5 +402,4 @@ UpdateWatchlist
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/voice-id/command/UpdateWatchlistCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UpdateWatchlistCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-voice-id/Interface/UpdateWatchlistCommandOutput/)
-
 </details>

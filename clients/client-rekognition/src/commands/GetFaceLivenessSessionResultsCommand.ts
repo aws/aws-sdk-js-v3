@@ -24,9 +24,7 @@ export interface GetFaceLivenessSessionResultsCommandInput extends GetFaceLivene
  *
  * The output of {@link GetFaceLivenessSessionResultsCommand}.
  */
-export interface GetFaceLivenessSessionResultsCommandOutput
-  extends GetFaceLivenessSessionResultsResponse,
-    __MetadataBearer {}
+export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLivenessSessionResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the results of a specific Face Liveness session. It requires the

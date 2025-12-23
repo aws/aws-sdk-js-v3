@@ -28,9 +28,7 @@ export interface ListCrossAccountAttachmentsCommandInput extends ListCrossAccoun
  *
  * The output of {@link ListCrossAccountAttachmentsCommand}.
  */
-export interface ListCrossAccountAttachmentsCommandOutput
-  extends ListCrossAccountAttachmentsResponse,
-    __MetadataBearer {}
+export interface ListCrossAccountAttachmentsCommandOutput extends ListCrossAccountAttachmentsResponse, __MetadataBearer {}
 
 /**
  * <p>List the cross-account attachments that have been created in Global Accelerator.</p>

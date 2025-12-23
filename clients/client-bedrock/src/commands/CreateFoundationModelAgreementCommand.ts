@@ -24,9 +24,7 @@ export interface CreateFoundationModelAgreementCommandInput extends CreateFounda
  *
  * The output of {@link CreateFoundationModelAgreementCommand}.
  */
-export interface CreateFoundationModelAgreementCommandOutput
-  extends CreateFoundationModelAgreementResponse,
-    __MetadataBearer {}
+export interface CreateFoundationModelAgreementCommandOutput extends CreateFoundationModelAgreementResponse, __MetadataBearer {}
 
 /**
  * <p>Request a model access agreement for the specified model.</p>

@@ -10,17 +10,17 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
     const result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.pipeline.deploymentStatus;
-      };
+      }
       if (returnComparator() === "SUCCEEDED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.pipeline.deploymentStatus;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

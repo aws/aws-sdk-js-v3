@@ -24,9 +24,7 @@ export interface GetThingRuntimeConfigurationCommandInput extends GetThingRuntim
  *
  * The output of {@link GetThingRuntimeConfigurationCommand}.
  */
-export interface GetThingRuntimeConfigurationCommandOutput
-  extends GetThingRuntimeConfigurationResponse,
-    __MetadataBearer {}
+export interface GetThingRuntimeConfigurationCommandOutput extends GetThingRuntimeConfigurationResponse, __MetadataBearer {}
 
 /**
  * Get the runtime configuration of a thing.

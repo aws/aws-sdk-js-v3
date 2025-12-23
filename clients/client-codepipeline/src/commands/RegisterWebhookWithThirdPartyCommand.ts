@@ -24,9 +24,7 @@ export interface RegisterWebhookWithThirdPartyCommandInput extends RegisterWebho
  *
  * The output of {@link RegisterWebhookWithThirdPartyCommand}.
  */
-export interface RegisterWebhookWithThirdPartyCommandOutput
-  extends RegisterWebhookWithThirdPartyOutput,
-    __MetadataBearer {}
+export interface RegisterWebhookWithThirdPartyCommandOutput extends RegisterWebhookWithThirdPartyOutput, __MetadataBearer {}
 
 /**
  * <p>Configures a connection between the webhook that was created and the external tool

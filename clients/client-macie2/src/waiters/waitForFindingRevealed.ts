@@ -7,26 +7,23 @@ import {
 } from "../commands/GetSensitiveDataOccurrencesCommand";
 import { Macie2Client } from "../Macie2Client";
 
-const checkState = async (
-  client: Macie2Client,
-  input: GetSensitiveDataOccurrencesCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: Macie2Client, input: GetSensitiveDataOccurrencesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetSensitiveDataOccurrencesCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "SUCCESS") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.SUCCESS, reason };
       }

@@ -29,10 +29,8 @@ that they complete at most one time. If you repeat an operation, it succeeds wit
 response code.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-elastic-load-balancing
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-elastic-load-balancing`
 - `yarn add @aws-sdk/client-elastic-load-balancing`
 - `pnpm add @aws-sdk/client-elastic-load-balancing`
@@ -68,9 +66,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ElasticLoadBalancingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new DescribeAccountLimitsCommand(params);
 ```
 
@@ -229,7 +225,6 @@ AddTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/AddTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/AddTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/AddTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -237,7 +232,6 @@ ApplySecurityGroupsToLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/ApplySecurityGroupsToLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ApplySecurityGroupsToLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ApplySecurityGroupsToLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +239,6 @@ AttachLoadBalancerToSubnets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/AttachLoadBalancerToSubnetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/AttachLoadBalancerToSubnetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/AttachLoadBalancerToSubnetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +246,6 @@ ConfigureHealthCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/ConfigureHealthCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ConfigureHealthCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ConfigureHealthCheckCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +253,6 @@ CreateAppCookieStickinessPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/CreateAppCookieStickinessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateAppCookieStickinessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateAppCookieStickinessPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +260,6 @@ CreateLBCookieStickinessPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/CreateLBCookieStickinessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLBCookieStickinessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLBCookieStickinessPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +267,6 @@ CreateLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/CreateLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +274,6 @@ CreateLoadBalancerListeners
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/CreateLoadBalancerListenersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerListenersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerListenersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +281,6 @@ CreateLoadBalancerPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/CreateLoadBalancerPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/CreateLoadBalancerPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +288,6 @@ DeleteLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DeleteLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +295,6 @@ DeleteLoadBalancerListeners
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DeleteLoadBalancerListenersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerListenersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerListenersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +302,6 @@ DeleteLoadBalancerPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DeleteLoadBalancerPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeleteLoadBalancerPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +309,6 @@ DeregisterInstancesFromLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DeregisterInstancesFromLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeregisterInstancesFromLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DeregisterInstancesFromLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +316,6 @@ DescribeAccountLimits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeAccountLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeAccountLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeAccountLimitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +323,6 @@ DescribeInstanceHealth
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeInstanceHealthCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeInstanceHealthCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeInstanceHealthCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +330,6 @@ DescribeLoadBalancerAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeLoadBalancerAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +337,6 @@ DescribeLoadBalancerPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeLoadBalancerPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerPoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +344,6 @@ DescribeLoadBalancerPolicyTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeLoadBalancerPolicyTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerPolicyTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancerPolicyTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +351,6 @@ DescribeLoadBalancers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeLoadBalancersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeLoadBalancersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +358,6 @@ DescribeTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DescribeTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DescribeTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +365,6 @@ DetachLoadBalancerFromSubnets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DetachLoadBalancerFromSubnetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DetachLoadBalancerFromSubnetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DetachLoadBalancerFromSubnetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +372,6 @@ DisableAvailabilityZonesForLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/DisableAvailabilityZonesForLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DisableAvailabilityZonesForLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/DisableAvailabilityZonesForLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +379,6 @@ EnableAvailabilityZonesForLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/EnableAvailabilityZonesForLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/EnableAvailabilityZonesForLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/EnableAvailabilityZonesForLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,7 +386,6 @@ ModifyLoadBalancerAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/ModifyLoadBalancerAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ModifyLoadBalancerAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/ModifyLoadBalancerAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -421,7 +393,6 @@ RegisterInstancesWithLoadBalancer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/RegisterInstancesWithLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/RegisterInstancesWithLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/RegisterInstancesWithLoadBalancerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -429,7 +400,6 @@ RemoveTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/RemoveTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/RemoveTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/RemoveTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -437,7 +407,6 @@ SetLoadBalancerListenerSSLCertificate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/SetLoadBalancerListenerSSLCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerListenerSSLCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerListenerSSLCertificateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -445,7 +414,6 @@ SetLoadBalancerPoliciesForBackendServer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/SetLoadBalancerPoliciesForBackendServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerPoliciesForBackendServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerPoliciesForBackendServerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -453,5 +421,4 @@ SetLoadBalancerPoliciesOfListener
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing/command/SetLoadBalancerPoliciesOfListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerPoliciesOfListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing/Interface/SetLoadBalancerPoliciesOfListenerCommandOutput/)
-
 </details>

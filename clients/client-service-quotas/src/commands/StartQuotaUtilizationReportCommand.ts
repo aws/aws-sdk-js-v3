@@ -24,9 +24,7 @@ export interface StartQuotaUtilizationReportCommandInput extends StartQuotaUtili
  *
  * The output of {@link StartQuotaUtilizationReportCommand}.
  */
-export interface StartQuotaUtilizationReportCommandOutput
-  extends StartQuotaUtilizationReportResponse,
-    __MetadataBearer {}
+export interface StartQuotaUtilizationReportCommandOutput extends StartQuotaUtilizationReportResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates the generation of a quota utilization report for your Amazon Web Services account. This

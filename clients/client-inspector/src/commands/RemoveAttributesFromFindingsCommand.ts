@@ -24,9 +24,7 @@ export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttribut
  *
  * The output of {@link RemoveAttributesFromFindingsCommand}.
  */
-export interface RemoveAttributesFromFindingsCommandOutput
-  extends RemoveAttributesFromFindingsResponse,
-    __MetadataBearer {}
+export interface RemoveAttributesFromFindingsCommandOutput extends RemoveAttributesFromFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified

@@ -27,9 +27,7 @@ export interface DescribeInstanceSqlHaHistoryStatesCommandInput extends Describe
  *
  * The output of {@link DescribeInstanceSqlHaHistoryStatesCommand}.
  */
-export interface DescribeInstanceSqlHaHistoryStatesCommandOutput
-  extends DescribeInstanceSqlHaHistoryStatesResult,
-    __MetadataBearer {}
+export interface DescribeInstanceSqlHaHistoryStatesCommandOutput extends DescribeInstanceSqlHaHistoryStatesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the historical SQL Server High Availability states for Amazon EC2

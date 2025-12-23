@@ -24,9 +24,7 @@ export interface GetVerifiedAccessGroupPolicyCommandInput extends GetVerifiedAcc
  *
  * The output of {@link GetVerifiedAccessGroupPolicyCommand}.
  */
-export interface GetVerifiedAccessGroupPolicyCommandOutput
-  extends GetVerifiedAccessGroupPolicyResult,
-    __MetadataBearer {}
+export interface GetVerifiedAccessGroupPolicyCommandOutput extends GetVerifiedAccessGroupPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Shows the contents of the Verified Access policy associated with the group.</p>

@@ -27,9 +27,7 @@ export interface EnableSharingWithAwsOrganizationCommandInput extends EnableShar
  *
  * The output of {@link EnableSharingWithAwsOrganizationCommand}.
  */
-export interface EnableSharingWithAwsOrganizationCommandOutput
-  extends EnableSharingWithAwsOrganizationResponse,
-    __MetadataBearer {}
+export interface EnableSharingWithAwsOrganizationCommandOutput extends EnableSharingWithAwsOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables resource sharing within your organization in Organizations. This operation creates

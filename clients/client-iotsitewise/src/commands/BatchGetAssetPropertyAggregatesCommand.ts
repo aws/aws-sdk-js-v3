@@ -27,9 +27,7 @@ export interface BatchGetAssetPropertyAggregatesCommandInput extends BatchGetAss
  *
  * The output of {@link BatchGetAssetPropertyAggregatesCommand}.
  */
-export interface BatchGetAssetPropertyAggregatesCommandOutput
-  extends BatchGetAssetPropertyAggregatesResponse,
-    __MetadataBearer {}
+export interface BatchGetAssetPropertyAggregatesCommandOutput extends BatchGetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset

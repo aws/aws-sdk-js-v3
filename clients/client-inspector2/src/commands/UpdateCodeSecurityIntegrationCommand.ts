@@ -24,9 +24,7 @@ export interface UpdateCodeSecurityIntegrationCommandInput extends UpdateCodeSec
  *
  * The output of {@link UpdateCodeSecurityIntegrationCommand}.
  */
-export interface UpdateCodeSecurityIntegrationCommandOutput
-  extends UpdateCodeSecurityIntegrationResponse,
-    __MetadataBearer {}
+export interface UpdateCodeSecurityIntegrationCommandOutput extends UpdateCodeSecurityIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing code security integration.</p>

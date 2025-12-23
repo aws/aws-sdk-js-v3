@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
-export interface DescribeReplicationConfigurationTemplatesCommandInput
-  extends DescribeReplicationConfigurationTemplatesRequest {}
+export interface DescribeReplicationConfigurationTemplatesCommandInput extends DescribeReplicationConfigurationTemplatesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
-export interface DescribeReplicationConfigurationTemplatesCommandOutput
-  extends DescribeReplicationConfigurationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationConfigurationTemplatesCommandOutput extends DescribeReplicationConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>

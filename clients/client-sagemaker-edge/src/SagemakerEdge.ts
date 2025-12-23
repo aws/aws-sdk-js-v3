@@ -33,7 +33,10 @@ export interface SagemakerEdge {
     args: GetDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDeploymentsCommandOutput>;
-  getDeployments(args: GetDeploymentsCommandInput, cb: (err: any, data?: GetDeploymentsCommandOutput) => void): void;
+  getDeployments(
+    args: GetDeploymentsCommandInput,
+    cb: (err: any, data?: GetDeploymentsCommandOutput) => void
+  ): void;
   getDeployments(
     args: GetDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -60,8 +63,14 @@ export interface SagemakerEdge {
   /**
    * @see {@link SendHeartbeatCommand}
    */
-  sendHeartbeat(args: SendHeartbeatCommandInput, options?: __HttpHandlerOptions): Promise<SendHeartbeatCommandOutput>;
-  sendHeartbeat(args: SendHeartbeatCommandInput, cb: (err: any, data?: SendHeartbeatCommandOutput) => void): void;
+  sendHeartbeat(
+    args: SendHeartbeatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendHeartbeatCommandOutput>;
+  sendHeartbeat(
+    args: SendHeartbeatCommandInput,
+    cb: (err: any, data?: SendHeartbeatCommandOutput) => void
+  ): void;
   sendHeartbeat(
     args: SendHeartbeatCommandInput,
     options: __HttpHandlerOptions,

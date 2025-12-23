@@ -46,6 +46,10 @@ import {
   ListTagsForResourceResponse$,
   LongCondition$,
   LongConditionOperator,
+  paginateListSearchJobBackups,
+  paginateListSearchJobResults,
+  paginateListSearchJobs,
+  paginateListSearchResultExportJobs,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
@@ -88,10 +92,6 @@ import {
   UntagResourceResponse$,
   ValidationException,
   ValidationException$,
-  paginateListSearchJobBackups,
-  paginateListSearchJobResults,
-  paginateListSearchJobs,
-  paginateListSearchResultExportJobs,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

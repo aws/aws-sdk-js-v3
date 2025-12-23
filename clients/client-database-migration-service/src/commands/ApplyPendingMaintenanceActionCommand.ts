@@ -28,9 +28,7 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
  *
  * The output of {@link ApplyPendingMaintenanceActionCommand}.
  */
-export interface ApplyPendingMaintenanceActionCommandOutput
-  extends ApplyPendingMaintenanceActionResponse,
-    __MetadataBearer {}
+export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a pending maintenance action to a resource (for example, to a replication

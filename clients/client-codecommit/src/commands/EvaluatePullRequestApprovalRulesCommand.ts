@@ -24,9 +24,7 @@ export interface EvaluatePullRequestApprovalRulesCommandInput extends EvaluatePu
  *
  * The output of {@link EvaluatePullRequestApprovalRulesCommand}.
  */
-export interface EvaluatePullRequestApprovalRulesCommandOutput
-  extends EvaluatePullRequestApprovalRulesOutput,
-    __MetadataBearer {}
+export interface EvaluatePullRequestApprovalRulesCommandOutput extends EvaluatePullRequestApprovalRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>

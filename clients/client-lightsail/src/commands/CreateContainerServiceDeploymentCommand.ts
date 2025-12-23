@@ -27,9 +27,7 @@ export interface CreateContainerServiceDeploymentCommandInput extends CreateCont
  *
  * The output of {@link CreateContainerServiceDeploymentCommand}.
  */
-export interface CreateContainerServiceDeploymentCommandOutput
-  extends CreateContainerServiceDeploymentResult,
-    __MetadataBearer {}
+export interface CreateContainerServiceDeploymentCommandOutput extends CreateContainerServiceDeploymentResult, __MetadataBearer {}
 
 /**
  * <p>Creates a deployment for your Amazon Lightsail container service.</p>

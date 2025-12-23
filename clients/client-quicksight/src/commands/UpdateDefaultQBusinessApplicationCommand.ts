@@ -27,9 +27,7 @@ export interface UpdateDefaultQBusinessApplicationCommandInput extends UpdateDef
  *
  * The output of {@link UpdateDefaultQBusinessApplicationCommand}.
  */
-export interface UpdateDefaultQBusinessApplicationCommandOutput
-  extends UpdateDefaultQBusinessApplicationResponse,
-    __MetadataBearer {}
+export interface UpdateDefaultQBusinessApplicationCommandOutput extends UpdateDefaultQBusinessApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Amazon Q Business application that is linked to a Quick Sight account.</p>

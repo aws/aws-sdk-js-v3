@@ -28,9 +28,7 @@ export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRou
  *
  * The output of {@link ListCustomRoutingPortMappingsCommand}.
  */
-export interface ListCustomRoutingPortMappingsCommandOutput
-  extends ListCustomRoutingPortMappingsResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingPortMappingsCommandOutput extends ListCustomRoutingPortMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance

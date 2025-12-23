@@ -24,9 +24,7 @@ export interface GetConfigurationCheckOperationCommandInput extends GetConfigura
  *
  * The output of {@link GetConfigurationCheckOperationCommand}.
  */
-export interface GetConfigurationCheckOperationCommandOutput
-  extends GetConfigurationCheckOperationOutput,
-    __MetadataBearer {}
+export interface GetConfigurationCheckOperationCommandOutput extends GetConfigurationCheckOperationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the details of a configuration check operation by specifying the operation ID.</p>

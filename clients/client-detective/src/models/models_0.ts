@@ -128,9 +128,7 @@ export interface MembershipDatasources {
    * <p>Details on when a data source package was added to a behavior graph.</p>
    * @public
    */
-  DatasourcePackageIngestHistory?:
-    | Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>>
-    | undefined;
+  DatasourcePackageIngestHistory?: Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>> | undefined;
 }
 
 /**

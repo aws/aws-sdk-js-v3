@@ -27,9 +27,7 @@ export interface CreateStreamingDistributionWithTagsCommandInput extends CreateS
  *
  * The output of {@link CreateStreamingDistributionWithTagsCommand}.
  */
-export interface CreateStreamingDistributionWithTagsCommandOutput
-  extends CreateStreamingDistributionWithTagsResult,
-    __MetadataBearer {}
+export interface CreateStreamingDistributionWithTagsCommandOutput extends CreateStreamingDistributionWithTagsResult, __MetadataBearer {}
 
 /**
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>

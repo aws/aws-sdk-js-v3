@@ -24,9 +24,7 @@ export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecu
  *
  * The output of {@link AuthorizeSecurityGroupIngressCommand}.
  */
-export interface AuthorizeSecurityGroupIngressCommandOutput
-  extends AuthorizeSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface AuthorizeSecurityGroupIngressCommandOutput extends AuthorizeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>

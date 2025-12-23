@@ -668,7 +668,10 @@ export interface SESv2 {
     args: CancelExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelExportJobCommandOutput>;
-  cancelExportJob(args: CancelExportJobCommandInput, cb: (err: any, data?: CancelExportJobCommandOutput) => void): void;
+  cancelExportJob(
+    args: CancelExportJobCommandInput,
+    cb: (err: any, data?: CancelExportJobCommandOutput) => void
+  ): void;
   cancelExportJob(
     args: CancelExportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -712,8 +715,14 @@ export interface SESv2 {
   /**
    * @see {@link CreateContactCommand}
    */
-  createContact(args: CreateContactCommandInput, options?: __HttpHandlerOptions): Promise<CreateContactCommandOutput>;
-  createContact(args: CreateContactCommandInput, cb: (err: any, data?: CreateContactCommandOutput) => void): void;
+  createContact(
+    args: CreateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactCommandOutput>;
+  createContact(
+    args: CreateContactCommandInput,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
   createContact(
     args: CreateContactCommandInput,
     options: __HttpHandlerOptions,
@@ -846,7 +855,10 @@ export interface SESv2 {
     args: CreateExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateExportJobCommandOutput>;
-  createExportJob(args: CreateExportJobCommandInput, cb: (err: any, data?: CreateExportJobCommandOutput) => void): void;
+  createExportJob(
+    args: CreateExportJobCommandInput,
+    cb: (err: any, data?: CreateExportJobCommandOutput) => void
+  ): void;
   createExportJob(
     args: CreateExportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -860,7 +872,10 @@ export interface SESv2 {
     args: CreateImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateImportJobCommandOutput>;
-  createImportJob(args: CreateImportJobCommandInput, cb: (err: any, data?: CreateImportJobCommandOutput) => void): void;
+  createImportJob(
+    args: CreateImportJobCommandInput,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
   createImportJob(
     args: CreateImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -887,8 +902,14 @@ export interface SESv2 {
   /**
    * @see {@link CreateTenantCommand}
    */
-  createTenant(args: CreateTenantCommandInput, options?: __HttpHandlerOptions): Promise<CreateTenantCommandOutput>;
-  createTenant(args: CreateTenantCommandInput, cb: (err: any, data?: CreateTenantCommandOutput) => void): void;
+  createTenant(
+    args: CreateTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTenantCommandOutput>;
+  createTenant(
+    args: CreateTenantCommandInput,
+    cb: (err: any, data?: CreateTenantCommandOutput) => void
+  ): void;
   createTenant(
     args: CreateTenantCommandInput,
     options: __HttpHandlerOptions,
@@ -949,8 +970,14 @@ export interface SESv2 {
   /**
    * @see {@link DeleteContactCommand}
    */
-  deleteContact(args: DeleteContactCommandInput, options?: __HttpHandlerOptions): Promise<DeleteContactCommandOutput>;
-  deleteContact(args: DeleteContactCommandInput, cb: (err: any, data?: DeleteContactCommandOutput) => void): void;
+  deleteContact(
+    args: DeleteContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactCommandOutput>;
+  deleteContact(
+    args: DeleteContactCommandInput,
+    cb: (err: any, data?: DeleteContactCommandOutput) => void
+  ): void;
   deleteContact(
     args: DeleteContactCommandInput,
     options: __HttpHandlerOptions,
@@ -1096,8 +1123,14 @@ export interface SESv2 {
   /**
    * @see {@link DeleteTenantCommand}
    */
-  deleteTenant(args: DeleteTenantCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTenantCommandOutput>;
-  deleteTenant(args: DeleteTenantCommandInput, cb: (err: any, data?: DeleteTenantCommandOutput) => void): void;
+  deleteTenant(
+    args: DeleteTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTenantCommandOutput>;
+  deleteTenant(
+    args: DeleteTenantCommandInput,
+    cb: (err: any, data?: DeleteTenantCommandOutput) => void
+  ): void;
   deleteTenant(
     args: DeleteTenantCommandInput,
     options: __HttpHandlerOptions,
@@ -1125,8 +1158,14 @@ export interface SESv2 {
    * @see {@link GetAccountCommand}
    */
   getAccount(): Promise<GetAccountCommandOutput>;
-  getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
-  getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
+  getAccount(
+    args: GetAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountCommandOutput>;
+  getAccount(
+    args: GetAccountCommandInput,
+    cb: (err: any, data?: GetAccountCommandOutput) => void
+  ): void;
   getAccount(
     args: GetAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1187,8 +1226,14 @@ export interface SESv2 {
   /**
    * @see {@link GetContactCommand}
    */
-  getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
-  getContact(args: GetContactCommandInput, cb: (err: any, data?: GetContactCommandOutput) => void): void;
+  getContact(
+    args: GetContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactCommandOutput>;
+  getContact(
+    args: GetContactCommandInput,
+    cb: (err: any, data?: GetContactCommandOutput) => void
+  ): void;
   getContact(
     args: GetContactCommandInput,
     options: __HttpHandlerOptions,
@@ -1202,7 +1247,10 @@ export interface SESv2 {
     args: GetContactListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetContactListCommandOutput>;
-  getContactList(args: GetContactListCommandInput, cb: (err: any, data?: GetContactListCommandOutput) => void): void;
+  getContactList(
+    args: GetContactListCommandInput,
+    cb: (err: any, data?: GetContactListCommandOutput) => void
+  ): void;
   getContactList(
     args: GetContactListCommandInput,
     options: __HttpHandlerOptions,
@@ -1233,7 +1281,10 @@ export interface SESv2 {
     args: GetDedicatedIpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDedicatedIpCommandOutput>;
-  getDedicatedIp(args: GetDedicatedIpCommandInput, cb: (err: any, data?: GetDedicatedIpCommandOutput) => void): void;
+  getDedicatedIp(
+    args: GetDedicatedIpCommandInput,
+    cb: (err: any, data?: GetDedicatedIpCommandOutput) => void
+  ): void;
   getDedicatedIp(
     args: GetDedicatedIpCommandInput,
     options: __HttpHandlerOptions,
@@ -1265,7 +1316,10 @@ export interface SESv2 {
     args: GetDedicatedIpsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDedicatedIpsCommandOutput>;
-  getDedicatedIps(args: GetDedicatedIpsCommandInput, cb: (err: any, data?: GetDedicatedIpsCommandOutput) => void): void;
+  getDedicatedIps(
+    args: GetDedicatedIpsCommandInput,
+    cb: (err: any, data?: GetDedicatedIpsCommandOutput) => void
+  ): void;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
     options: __HttpHandlerOptions,
@@ -1412,8 +1466,14 @@ export interface SESv2 {
   /**
    * @see {@link GetExportJobCommand}
    */
-  getExportJob(args: GetExportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobCommandOutput>;
-  getExportJob(args: GetExportJobCommandInput, cb: (err: any, data?: GetExportJobCommandOutput) => void): void;
+  getExportJob(
+    args: GetExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportJobCommandOutput>;
+  getExportJob(
+    args: GetExportJobCommandInput,
+    cb: (err: any, data?: GetExportJobCommandOutput) => void
+  ): void;
   getExportJob(
     args: GetExportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1423,8 +1483,14 @@ export interface SESv2 {
   /**
    * @see {@link GetImportJobCommand}
    */
-  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
-  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
   getImportJob(
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1502,8 +1568,14 @@ export interface SESv2 {
   /**
    * @see {@link GetTenantCommand}
    */
-  getTenant(args: GetTenantCommandInput, options?: __HttpHandlerOptions): Promise<GetTenantCommandOutput>;
-  getTenant(args: GetTenantCommandInput, cb: (err: any, data?: GetTenantCommandOutput) => void): void;
+  getTenant(
+    args: GetTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTenantCommandOutput>;
+  getTenant(
+    args: GetTenantCommandInput,
+    cb: (err: any, data?: GetTenantCommandOutput) => void
+  ): void;
   getTenant(
     args: GetTenantCommandInput,
     options: __HttpHandlerOptions,
@@ -1549,8 +1621,14 @@ export interface SESv2 {
   /**
    * @see {@link ListContactsCommand}
    */
-  listContacts(args: ListContactsCommandInput, options?: __HttpHandlerOptions): Promise<ListContactsCommandOutput>;
-  listContacts(args: ListContactsCommandInput, cb: (err: any, data?: ListContactsCommandOutput) => void): void;
+  listContacts(
+    args: ListContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactsCommandOutput>;
+  listContacts(
+    args: ListContactsCommandInput,
+    cb: (err: any, data?: ListContactsCommandOutput) => void
+  ): void;
   listContacts(
     args: ListContactsCommandInput,
     options: __HttpHandlerOptions,
@@ -1672,7 +1750,10 @@ export interface SESv2 {
     args: ListExportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExportJobsCommandOutput>;
-  listExportJobs(args: ListExportJobsCommandInput, cb: (err: any, data?: ListExportJobsCommandOutput) => void): void;
+  listExportJobs(
+    args: ListExportJobsCommandInput,
+    cb: (err: any, data?: ListExportJobsCommandOutput) => void
+  ): void;
   listExportJobs(
     args: ListExportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1687,7 +1768,10 @@ export interface SESv2 {
     args: ListImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListImportJobsCommandOutput>;
-  listImportJobs(args: ListImportJobsCommandInput, cb: (err: any, data?: ListImportJobsCommandOutput) => void): void;
+  listImportJobs(
+    args: ListImportJobsCommandInput,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
   listImportJobs(
     args: ListImportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1821,8 +1905,14 @@ export interface SESv2 {
    * @see {@link ListTenantsCommand}
    */
   listTenants(): Promise<ListTenantsCommandOutput>;
-  listTenants(args: ListTenantsCommandInput, options?: __HttpHandlerOptions): Promise<ListTenantsCommandOutput>;
-  listTenants(args: ListTenantsCommandInput, cb: (err: any, data?: ListTenantsCommandOutput) => void): void;
+  listTenants(
+    args: ListTenantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTenantsCommandOutput>;
+  listTenants(
+    args: ListTenantsCommandInput,
+    cb: (err: any, data?: ListTenantsCommandOutput) => void
+  ): void;
   listTenants(
     args: ListTenantsCommandInput,
     options: __HttpHandlerOptions,
@@ -2209,8 +2299,14 @@ export interface SESv2 {
   /**
    * @see {@link SendBulkEmailCommand}
    */
-  sendBulkEmail(args: SendBulkEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendBulkEmailCommandOutput>;
-  sendBulkEmail(args: SendBulkEmailCommandInput, cb: (err: any, data?: SendBulkEmailCommandOutput) => void): void;
+  sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendBulkEmailCommandOutput>;
+  sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    cb: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): void;
   sendBulkEmail(
     args: SendBulkEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -2237,8 +2333,14 @@ export interface SESv2 {
   /**
    * @see {@link SendEmailCommand}
    */
-  sendEmail(args: SendEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendEmailCommandOutput>;
-  sendEmail(args: SendEmailCommandInput, cb: (err: any, data?: SendEmailCommandOutput) => void): void;
+  sendEmail(
+    args: SendEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEmailCommandOutput>;
+  sendEmail(
+    args: SendEmailCommandInput,
+    cb: (err: any, data?: SendEmailCommandOutput) => void
+  ): void;
   sendEmail(
     args: SendEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -2248,8 +2350,14 @@ export interface SESv2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2276,8 +2384,14 @@ export interface SESv2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2304,8 +2418,14 @@ export interface SESv2 {
   /**
    * @see {@link UpdateContactCommand}
    */
-  updateContact(args: UpdateContactCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContactCommandOutput>;
-  updateContact(args: UpdateContactCommandInput, cb: (err: any, data?: UpdateContactCommandOutput) => void): void;
+  updateContact(
+    args: UpdateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactCommandOutput>;
+  updateContact(
+    args: UpdateContactCommandInput,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
   updateContact(
     args: UpdateContactCommandInput,
     options: __HttpHandlerOptions,

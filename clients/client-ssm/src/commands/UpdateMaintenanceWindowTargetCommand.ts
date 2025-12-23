@@ -24,9 +24,7 @@ export interface UpdateMaintenanceWindowTargetCommandInput extends UpdateMainten
  *
  * The output of {@link UpdateMaintenanceWindowTargetCommand}.
  */
-export interface UpdateMaintenanceWindowTargetCommandOutput
-  extends UpdateMaintenanceWindowTargetResult,
-    __MetadataBearer {}
+export interface UpdateMaintenanceWindowTargetCommandOutput extends UpdateMaintenanceWindowTargetResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the target of an existing maintenance window. You

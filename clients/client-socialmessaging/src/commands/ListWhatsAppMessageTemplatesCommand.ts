@@ -28,9 +28,7 @@ export interface ListWhatsAppMessageTemplatesCommandInput extends ListWhatsAppMe
  *
  * The output of {@link ListWhatsAppMessageTemplatesCommand}.
  */
-export interface ListWhatsAppMessageTemplatesCommandOutput
-  extends ListWhatsAppMessageTemplatesOutput,
-    __MetadataBearer {}
+export interface ListWhatsAppMessageTemplatesCommandOutput extends ListWhatsAppMessageTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists WhatsApp message templates for a specific WhatsApp Business Account.</p>

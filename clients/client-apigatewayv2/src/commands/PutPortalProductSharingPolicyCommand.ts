@@ -24,9 +24,7 @@ export interface PutPortalProductSharingPolicyCommandInput extends PutPortalProd
  *
  * The output of {@link PutPortalProductSharingPolicyCommand}.
  */
-export interface PutPortalProductSharingPolicyCommandOutput
-  extends PutPortalProductSharingPolicyResponse,
-    __MetadataBearer {}
+export interface PutPortalProductSharingPolicyCommandOutput extends PutPortalProductSharingPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the sharing policy for a portal product.</p>

@@ -24,9 +24,7 @@ export interface DisableRouteServerPropagationCommandInput extends DisableRouteS
  *
  * The output of {@link DisableRouteServerPropagationCommand}.
  */
-export interface DisableRouteServerPropagationCommandOutput
-  extends DisableRouteServerPropagationResult,
-    __MetadataBearer {}
+export interface DisableRouteServerPropagationCommandOutput extends DisableRouteServerPropagationResult, __MetadataBearer {}
 
 /**
  * <p>Disables route propagation from a route server to a specified route table.</p>

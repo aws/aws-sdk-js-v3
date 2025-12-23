@@ -93,12 +93,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = InvokeEndpointWithBidirectionalStreamCommandInput;
+export type ServiceInputTypes =
+  | InvokeEndpointWithBidirectionalStreamCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = InvokeEndpointWithBidirectionalStreamCommandOutput;
+export type ServiceOutputTypes =
+  | InvokeEndpointWithBidirectionalStreamCommandOutput;
 
 /**
  * @public
@@ -259,6 +261,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
 }
 
 /**

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ReplaceImageCriteriaInAllowedImagesSettingsCommand}.
  */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandInput
-  extends ReplaceImageCriteriaInAllowedImagesSettingsRequest {}
+export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandInput extends ReplaceImageCriteriaInAllowedImagesSettingsRequest {}
 /**
  * @public
  *
  * The output of {@link ReplaceImageCriteriaInAllowedImagesSettingsCommand}.
  */
-export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput
-  extends ReplaceImageCriteriaInAllowedImagesSettingsResult,
-    __MetadataBearer {}
+export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput extends ReplaceImageCriteriaInAllowedImagesSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Sets or replaces the criteria for Allowed AMIs.</p>

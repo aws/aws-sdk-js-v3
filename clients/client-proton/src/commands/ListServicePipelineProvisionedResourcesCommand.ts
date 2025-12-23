@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServicePipelineProvisionedResourcesCommand}.
  */
-export interface ListServicePipelineProvisionedResourcesCommandInput
-  extends ListServicePipelineProvisionedResourcesInput {}
+export interface ListServicePipelineProvisionedResourcesCommandInput extends ListServicePipelineProvisionedResourcesInput {}
 /**
  * @public
  *
  * The output of {@link ListServicePipelineProvisionedResourcesCommand}.
  */
-export interface ListServicePipelineProvisionedResourcesCommandOutput
-  extends ListServicePipelineProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListServicePipelineProvisionedResourcesCommandOutput extends ListServicePipelineProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List provisioned resources for a service and pipeline with details.</p>

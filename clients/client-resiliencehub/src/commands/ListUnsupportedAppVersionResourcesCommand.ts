@@ -27,9 +27,7 @@ export interface ListUnsupportedAppVersionResourcesCommandInput extends ListUnsu
  *
  * The output of {@link ListUnsupportedAppVersionResourcesCommand}.
  */
-export interface ListUnsupportedAppVersionResourcesCommandOutput
-  extends ListUnsupportedAppVersionResourcesResponse,
-    __MetadataBearer {}
+export interface ListUnsupportedAppVersionResourcesCommandOutput extends ListUnsupportedAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resources that are not currently supported in Resilience Hub. An

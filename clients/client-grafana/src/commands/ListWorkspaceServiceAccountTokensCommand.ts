@@ -27,9 +27,7 @@ export interface ListWorkspaceServiceAccountTokensCommandInput extends ListWorks
  *
  * The output of {@link ListWorkspaceServiceAccountTokensCommand}.
  */
-export interface ListWorkspaceServiceAccountTokensCommandOutput
-  extends ListWorkspaceServiceAccountTokensResponse,
-    __MetadataBearer {}
+export interface ListWorkspaceServiceAccountTokensCommandOutput extends ListWorkspaceServiceAccountTokensResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of tokens for a workspace service account.</p>

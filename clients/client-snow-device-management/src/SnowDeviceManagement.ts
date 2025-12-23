@@ -69,8 +69,14 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link CancelTaskCommand}
    */
-  cancelTask(args: CancelTaskCommandInput, options?: __HttpHandlerOptions): Promise<CancelTaskCommandOutput>;
-  cancelTask(args: CancelTaskCommandInput, cb: (err: any, data?: CancelTaskCommandOutput) => void): void;
+  cancelTask(
+    args: CancelTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelTaskCommandOutput>;
+  cancelTask(
+    args: CancelTaskCommandInput,
+    cb: (err: any, data?: CancelTaskCommandOutput) => void
+  ): void;
   cancelTask(
     args: CancelTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -80,8 +86,14 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link CreateTaskCommand}
    */
-  createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
-  createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
+  createTask(
+    args: CreateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTaskCommandOutput>;
+  createTask(
+    args: CreateTaskCommandInput,
+    cb: (err: any, data?: CreateTaskCommandOutput) => void
+  ): void;
   createTask(
     args: CreateTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -95,7 +107,10 @@ export interface SnowDeviceManagement {
     args: DescribeDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDeviceCommandOutput>;
-  describeDevice(args: DescribeDeviceCommandInput, cb: (err: any, data?: DescribeDeviceCommandOutput) => void): void;
+  describeDevice(
+    args: DescribeDeviceCommandInput,
+    cb: (err: any, data?: DescribeDeviceCommandOutput) => void
+  ): void;
   describeDevice(
     args: DescribeDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -139,8 +154,14 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link DescribeTaskCommand}
    */
-  describeTask(args: DescribeTaskCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTaskCommandOutput>;
-  describeTask(args: DescribeTaskCommandInput, cb: (err: any, data?: DescribeTaskCommandOutput) => void): void;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTaskCommandOutput>;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    cb: (err: any, data?: DescribeTaskCommandOutput) => void
+  ): void;
   describeTask(
     args: DescribeTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -168,8 +189,14 @@ export interface SnowDeviceManagement {
    * @see {@link ListDevicesCommand}
    */
   listDevices(): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
-  listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
+  listDevices(
+    args: ListDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevicesCommandOutput>;
+  listDevices(
+    args: ListDevicesCommandInput,
+    cb: (err: any, data?: ListDevicesCommandOutput) => void
+  ): void;
   listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -183,7 +210,10 @@ export interface SnowDeviceManagement {
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExecutionsCommandOutput>;
-  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -211,8 +241,14 @@ export interface SnowDeviceManagement {
    * @see {@link ListTasksCommand}
    */
   listTasks(): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTasksCommandOutput>;
+  listTasks(
+    args: ListTasksCommandInput,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
   listTasks(
     args: ListTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -222,8 +258,14 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -233,8 +275,14 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

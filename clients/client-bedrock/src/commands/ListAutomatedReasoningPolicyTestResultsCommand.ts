@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAutomatedReasoningPolicyTestResultsCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestResultsCommandInput
-  extends ListAutomatedReasoningPolicyTestResultsRequest {}
+export interface ListAutomatedReasoningPolicyTestResultsCommandInput extends ListAutomatedReasoningPolicyTestResultsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAutomatedReasoningPolicyTestResultsCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestResultsCommandOutput
-  extends ListAutomatedReasoningPolicyTestResultsResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPolicyTestResultsCommandOutput extends ListAutomatedReasoningPolicyTestResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists test results for an Automated Reasoning policy, showing how the policy performed against various test scenarios and validation checks.</p>

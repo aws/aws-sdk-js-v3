@@ -24,9 +24,7 @@ export interface DeletePublishingDestinationCommandInput extends DeletePublishin
  *
  * The output of {@link DeletePublishingDestinationCommand}.
  */
-export interface DeletePublishingDestinationCommandOutput
-  extends DeletePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface DeletePublishingDestinationCommandOutput extends DeletePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>

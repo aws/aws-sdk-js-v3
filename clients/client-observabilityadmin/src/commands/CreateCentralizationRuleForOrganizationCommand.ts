@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateCentralizationRuleForOrganizationCommand}.
  */
-export interface CreateCentralizationRuleForOrganizationCommandInput
-  extends CreateCentralizationRuleForOrganizationInput {}
+export interface CreateCentralizationRuleForOrganizationCommandInput extends CreateCentralizationRuleForOrganizationInput {}
 /**
  * @public
  *
  * The output of {@link CreateCentralizationRuleForOrganizationCommand}.
  */
-export interface CreateCentralizationRuleForOrganizationCommandOutput
-  extends CreateCentralizationRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface CreateCentralizationRuleForOrganizationCommandOutput extends CreateCentralizationRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a centralization rule that applies across an Amazon Web Services Organization. This operation can only be called by the organization's management account or a delegated administrator account.</p>

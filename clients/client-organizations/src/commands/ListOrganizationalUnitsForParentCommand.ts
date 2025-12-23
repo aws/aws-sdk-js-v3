@@ -27,9 +27,7 @@ export interface ListOrganizationalUnitsForParentCommandInput extends ListOrgani
  *
  * The output of {@link ListOrganizationalUnitsForParentCommand}.
  */
-export interface ListOrganizationalUnitsForParentCommandOutput
-  extends ListOrganizationalUnitsForParentResponse,
-    __MetadataBearer {}
+export interface ListOrganizationalUnitsForParentCommandOutput extends ListOrganizationalUnitsForParentResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>

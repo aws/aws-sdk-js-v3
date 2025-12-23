@@ -24,9 +24,7 @@ export interface AcceptResourceShareInvitationCommandInput extends AcceptResourc
  *
  * The output of {@link AcceptResourceShareInvitationCommand}.
  */
-export interface AcceptResourceShareInvitationCommandOutput
-  extends AcceptResourceShareInvitationResponse,
-    __MetadataBearer {}
+export interface AcceptResourceShareInvitationCommandOutput extends AcceptResourceShareInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the

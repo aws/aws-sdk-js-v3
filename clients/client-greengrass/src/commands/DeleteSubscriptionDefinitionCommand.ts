@@ -24,9 +24,7 @@ export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscrip
  *
  * The output of {@link DeleteSubscriptionDefinitionCommand}.
  */
-export interface DeleteSubscriptionDefinitionCommandOutput
-  extends DeleteSubscriptionDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteSubscriptionDefinitionCommandOutput extends DeleteSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a subscription definition.

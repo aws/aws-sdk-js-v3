@@ -75,7 +75,6 @@ import {
   VpnStaticRouteSource,
   VpnTunnelBandwidth,
 } from "./enums";
-
 import {
   type CarrierGateway,
   type ClientVpnEndpointStatus,
@@ -96,7 +95,6 @@ import {
   UnsuccessfulItem,
   VpcAttachment,
 } from "./models_0";
-
 import type {
   Ec2InstanceConnectEndpoint,
   Ipam,
@@ -7793,9 +7791,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
    * <p>Information about the association.</p>
    * @public
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?:
-    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-    | undefined;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
 }
 
 /**

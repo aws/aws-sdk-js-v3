@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface UpdateInstanceAccessControlAttributeConfigurationCommandInput
-  extends UpdateInstanceAccessControlAttributeConfigurationRequest {}
+export interface UpdateInstanceAccessControlAttributeConfigurationCommandInput extends UpdateInstanceAccessControlAttributeConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
-  extends UpdateInstanceAccessControlAttributeConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput extends UpdateInstanceAccessControlAttributeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center replaces the attribute value with the value from the IAM Identity Center identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>

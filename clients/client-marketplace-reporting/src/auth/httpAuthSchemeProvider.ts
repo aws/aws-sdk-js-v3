@@ -49,17 +49,13 @@ export const defaultMarketplaceReportingHttpAuthSchemeParametersProvider = async
 ): Promise<MarketplaceReportingHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: MarketplaceReportingHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: MarketplaceReportingHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface MarketplaceReportingHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultMarketplaceReportingHttpAuthSchemeProvider: MarketplaceReportingHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultMarketplaceReportingHttpAuthSchemeProvider: MarketplaceReportingHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

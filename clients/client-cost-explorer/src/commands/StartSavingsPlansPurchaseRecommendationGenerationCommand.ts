@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput
-  extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
+export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
  * @public
  *
  * The output of {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
-  extends StartSavingsPlansPurchaseRecommendationGenerationResponse,
-    __MetadataBearer {}
+export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput extends StartSavingsPlansPurchaseRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
  * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh

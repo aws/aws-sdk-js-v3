@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
-export interface GetRelationalDatabaseMasterUserPasswordCommandInput
-  extends GetRelationalDatabaseMasterUserPasswordRequest {}
+export interface GetRelationalDatabaseMasterUserPasswordCommandInput extends GetRelationalDatabaseMasterUserPasswordRequest {}
 /**
  * @public
  *
  * The output of {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
-export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
-  extends GetRelationalDatabaseMasterUserPasswordResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseMasterUserPasswordCommandOutput extends GetRelationalDatabaseMasterUserPasswordResult, __MetadataBearer {}
 
 /**
  * <p>Returns the current, previous, or pending versions of the master user password for a

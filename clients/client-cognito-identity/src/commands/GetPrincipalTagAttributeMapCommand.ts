@@ -28,9 +28,7 @@ export interface GetPrincipalTagAttributeMapCommandInput extends GetPrincipalTag
  *
  * The output of {@link GetPrincipalTagAttributeMapCommand}.
  */
-export interface GetPrincipalTagAttributeMapCommandOutput
-  extends GetPrincipalTagAttributeMapResponse,
-    __MetadataBearer {}
+export interface GetPrincipalTagAttributeMapCommandOutput extends GetPrincipalTagAttributeMapResponse, __MetadataBearer {}
 
 /**
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between

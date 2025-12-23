@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
  *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>

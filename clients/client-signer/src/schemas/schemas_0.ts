@@ -204,339 +204,340 @@ import {
 import { SignerServiceException } from "../models/SignerServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m, _co], [0, 0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AddProfilePermissionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _APPR,
+export var AddProfilePermissionRequest$: StaticStructureSchema = [3, n0, _APPR,
   0,
   [_pN, _pV, _a, _p, _rI, _sI],
-  [[0, 1], 0, 0, 0, 0, 0],
+  [[0, 1], 0, 0, 0, 0, 0]
 ];
-export var AddProfilePermissionResponse$: StaticStructureSchema = [3, n0, _APPRd, 0, [_rI], [0]];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m, _co], [0, 0]];
+export var AddProfilePermissionResponse$: StaticStructureSchema = [3, n0, _APPRd,
+  0,
+  [_rI],
+  [0]
+];
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var CancelSigningProfileRequest$: StaticStructureSchema = [3, n0, _CSPR, 0, [_pN], [[0, 1]]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _co], [0, 0]];
+export var CancelSigningProfileRequest$: StaticStructureSchema = [3, n0, _CSPR,
+  0,
+  [_pN],
+  [[0, 1]]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var DescribeSigningJobRequest$: StaticStructureSchema = [3, n0, _DSJR, 0, [_jI], [[0, 1]]];
-export var DescribeSigningJobResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSJRe,
+export var DescribeSigningJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
+  0,
+  [_jI],
+  [[0, 1]]
+];
+export var DescribeSigningJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
   [_jI, _s, _sM, _pI, _pDN, _pN, _pV, _o, _sP, _cA, _cAo, _sEA, _rB, _st, _sR, _rR, _sO, _jO, _jIo],
-  [
-    0,
-    () => Source$,
-    () => SigningMaterial$,
-    0,
-    0,
-    0,
-    0,
-    () => SigningPlatformOverrides$,
-    128 | 0,
-    4,
-    4,
-    4,
-    0,
-    0,
-    0,
-    () => SigningJobRevocationRecord$,
-    () => SignedObject$,
-    0,
-    0,
-  ],
+  [0, () => Source$, () => SigningMaterial$, 0, 0, 0, 0, () => SigningPlatformOverrides$, 128 | 0, 4, 4, 4, 0, 0, 0, () => SigningJobRevocationRecord$, () => SignedObject$, 0, 0]
 ];
-export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_s_], [() => S3Destination$]];
-export var EncryptionAlgorithmOptions$: StaticStructureSchema = [3, n0, _EAO, 0, [_aV, _dV], [64 | 0, 0]];
-export var GetRevocationStatusRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRSR,
+export var Destination$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_s_],
+  [() => S3Destination$]
+];
+export var EncryptionAlgorithmOptions$: StaticStructureSchema = [3, n0, _EAO,
+  0,
+  [_aV, _dV],
+  [64 | 0, 0]
+];
+export var GetRevocationStatusRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
   [_sT, _pI, _pVA, _jA, _cH],
-  [
-    [4, { [_hQ]: _sT }],
-    [0, { [_hQ]: _pI }],
-    [0, { [_hQ]: _pVA }],
-    [0, { [_hQ]: _jA }],
-    [64 | 0, { [_hQ]: _cH }],
-  ],
+  [[4, { [_hQ]: _sT }], [0, { [_hQ]: _pI }], [0, { [_hQ]: _pVA }], [0, { [_hQ]: _jA }], [64 | 0, { [_hQ]: _cH }]]
 ];
-export var GetRevocationStatusResponse$: StaticStructureSchema = [3, n0, _GRSRe, 0, [_rE], [64 | 0]];
-export var GetSigningPlatformRequest$: StaticStructureSchema = [3, n0, _GSPR, 0, [_pI], [[0, 1]]];
-export var GetSigningPlatformResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSPRe,
+export var GetRevocationStatusResponse$: StaticStructureSchema = [3, n0, _GRSRe,
+  0,
+  [_rE],
+  [64 | 0]
+];
+export var GetSigningPlatformRequest$: StaticStructureSchema = [3, n0, _GSPR,
+  0,
+  [_pI],
+  [[0, 1]]
+];
+export var GetSigningPlatformResponse$: StaticStructureSchema = [3, n0, _GSPRe,
   0,
   [_pI, _dN, _pa, _t, _ca, _sC, _sIF, _mSIMB, _rS],
-  [0, 0, 0, 0, 0, () => SigningConfiguration$, () => SigningImageFormat$, 1, 2],
+  [0, 0, 0, 0, 0, () => SigningConfiguration$, () => SigningImageFormat$, 1, 2]
 ];
-export var GetSigningProfileRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSPRet,
+export var GetSigningProfileRequest$: StaticStructureSchema = [3, n0, _GSPRet,
   0,
   [_pN, _pO],
-  [
-    [0, 1],
-    [0, { [_hQ]: _pO }],
-  ],
+  [[0, 1], [0, { [_hQ]: _pO }]]
 ];
-export var GetSigningProfileResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSPReti,
+export var GetSigningProfileResponse$: StaticStructureSchema = [3, n0, _GSPReti,
   0,
   [_pN, _pV, _pVA, _rR, _sM, _pI, _pDN, _sVP, _o, _sP, _st, _sR, _ar, _ta],
-  [
-    0,
-    0,
-    0,
-    () => SigningProfileRevocationRecord$,
-    () => SigningMaterial$,
-    0,
-    0,
-    () => SignatureValidityPeriod$,
-    () => SigningPlatformOverrides$,
-    128 | 0,
-    0,
-    0,
-    0,
-    128 | 0,
-  ],
+  [0, 0, 0, () => SigningProfileRevocationRecord$, () => SigningMaterial$, 0, 0, () => SignatureValidityPeriod$, () => SigningPlatformOverrides$, 128 | 0, 0, 0, 0, 128 | 0]
 ];
-export var HashAlgorithmOptions$: StaticStructureSchema = [3, n0, _HAO, 0, [_aV, _dV], [64 | 0, 0]];
-export var InternalServiceErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
+export var HashAlgorithmOptions$: StaticStructureSchema = [3, n0, _HAO,
+  0,
+  [_aV, _dV],
+  [64 | 0, 0]
+];
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _co],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var ListProfilePermissionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPPR,
+export var ListProfilePermissionsRequest$: StaticStructureSchema = [3, n0, _LPPR,
   0,
   [_pN, _nT],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nT }]]
 ];
-export var ListProfilePermissionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPPRi,
+export var ListProfilePermissionsResponse$: StaticStructureSchema = [3, n0, _LPPRi,
   0,
   [_rI, _pSB, _pe, _nT],
-  [0, 1, () => Permissions, 0],
+  [0, 1, () => Permissions, 0]
 ];
-export var ListSigningJobsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSJR,
+export var ListSigningJobsRequest$: StaticStructureSchema = [3, n0, _LSJR,
   0,
   [_st, _pI, _rB, _mR, _nT, _iR, _sEB, _sEAi, _jIo],
-  [
-    [0, { [_hQ]: _st }],
-    [0, { [_hQ]: _pI }],
-    [0, { [_hQ]: _rB }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [2, { [_hQ]: _iR }],
-    [4, { [_hQ]: _sEB }],
-    [4, { [_hQ]: _sEAi }],
-    [0, { [_hQ]: _jIo }],
-  ],
+  [[0, { [_hQ]: _st }], [0, { [_hQ]: _pI }], [0, { [_hQ]: _rB }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [2, { [_hQ]: _iR }], [4, { [_hQ]: _sEB }], [4, { [_hQ]: _sEAi }], [0, { [_hQ]: _jIo }]]
 ];
-export var ListSigningJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi, 0, [_j, _nT], [() => SigningJobs, 0]];
-export var ListSigningPlatformsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSPR,
+export var ListSigningJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi,
+  0,
+  [_j, _nT],
+  [() => SigningJobs, 0]
+];
+export var ListSigningPlatformsRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
   [_ca, _pa, _t, _mR, _nT],
-  [
-    [0, { [_hQ]: _ca }],
-    [0, { [_hQ]: _pa }],
-    [0, { [_hQ]: _t }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _pa }], [0, { [_hQ]: _t }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListSigningPlatformsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSPRi,
+export var ListSigningPlatformsResponse$: StaticStructureSchema = [3, n0, _LSPRi,
   0,
   [_pl, _nT],
-  [() => SigningPlatforms, 0],
+  [() => SigningPlatforms, 0]
 ];
-export var ListSigningProfilesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSPRis,
+export var ListSigningProfilesRequest$: StaticStructureSchema = [3, n0, _LSPRis,
   0,
   [_iC, _mR, _nT, _pI, _sta],
-  [
-    [2, { [_hQ]: _iC }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _pI }],
-    [64 | 0, { [_hQ]: _sta }],
-  ],
+  [[2, { [_hQ]: _iC }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _pI }], [64 | 0, { [_hQ]: _sta }]]
 ];
-export var ListSigningProfilesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSPRist,
+export var ListSigningProfilesResponse$: StaticStructureSchema = [3, n0, _LSPRist,
   0,
   [_pr, _nT],
-  [() => SigningProfiles, 0],
+  [() => SigningProfiles, 0]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m, _co], [0, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_ta],
+  [128 | 0]
+];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
-export var Permission$: StaticStructureSchema = [3, n0, _P, 0, [_a, _p, _sI, _pV], [0, 0, 0, 0]];
-export var PutSigningProfileRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PSPR,
+export var Permission$: StaticStructureSchema = [3, n0, _P,
+  0,
+  [_a, _p, _sI, _pV],
+  [0, 0, 0, 0]
+];
+export var PutSigningProfileRequest$: StaticStructureSchema = [3, n0, _PSPR,
   0,
   [_pN, _sM, _sVP, _pI, _o, _sP, _ta],
-  [
-    [0, 1],
-    () => SigningMaterial$,
-    () => SignatureValidityPeriod$,
-    0,
-    () => SigningPlatformOverrides$,
-    128 | 0,
-    128 | 0,
-  ],
+  [[0, 1], () => SigningMaterial$, () => SignatureValidityPeriod$, 0, () => SigningPlatformOverrides$, 128 | 0, 128 | 0]
 ];
-export var PutSigningProfileResponse$: StaticStructureSchema = [3, n0, _PSPRu, 0, [_ar, _pV, _pVA], [0, 0, 0]];
-export var RemoveProfilePermissionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RPPR,
+export var PutSigningProfileResponse$: StaticStructureSchema = [3, n0, _PSPRu,
+  0,
+  [_ar, _pV, _pVA],
+  [0, 0, 0]
+];
+export var RemoveProfilePermissionRequest$: StaticStructureSchema = [3, n0, _RPPR,
   0,
   [_pN, _rI, _sI],
-  [
-    [0, 1],
-    [0, { [_hQ]: _rI }],
-    [0, 1],
-  ],
+  [[0, 1], [0, { [_hQ]: _rI }], [0, 1]]
 ];
-export var RemoveProfilePermissionResponse$: StaticStructureSchema = [3, n0, _RPPRe, 0, [_rI], [0]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _co], [0, 0]];
+export var RemoveProfilePermissionResponse$: StaticStructureSchema = [3, n0, _RPPRe,
+  0,
+  [_rI],
+  [0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var RevokeSignatureRequest$: StaticStructureSchema = [3, n0, _RSR, 0, [_jI, _jO, _r], [[0, 1], 0, 0]];
-export var RevokeSigningProfileRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSPR,
+export var RevokeSignatureRequest$: StaticStructureSchema = [3, n0, _RSR,
+  0,
+  [_jI, _jO, _r],
+  [[0, 1], 0, 0]
+];
+export var RevokeSigningProfileRequest$: StaticStructureSchema = [3, n0, _RSPR,
   0,
   [_pN, _pV, _r, _eT],
-  [[0, 1], 0, 0, 4],
+  [[0, 1], 0, 0, 4]
 ];
-export var S3Destination$: StaticStructureSchema = [3, n0, _SD, 0, [_bN, _pre], [0, 0]];
-export var S3SignedObject$: StaticStructureSchema = [3, n0, _SSO, 0, [_bN, _k], [0, 0]];
-export var S3Source$: StaticStructureSchema = [3, n0, _SS, 0, [_bN, _k, _v], [0, 0, 0]];
-export var ServiceLimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLEE,
+export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_bN, _pre],
+  [0, 0]
+];
+export var S3SignedObject$: StaticStructureSchema = [3, n0, _SSO,
+  0,
+  [_bN, _k],
+  [0, 0]
+];
+export var S3Source$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_bN, _k, _v],
+  [0, 0, 0]
+];
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _co],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
-export var SignatureValidityPeriod$: StaticStructureSchema = [3, n0, _SVP, 0, [_va, _ty], [1, 0]];
-export var SignedObject$: StaticStructureSchema = [3, n0, _SO, 0, [_s_], [() => S3SignedObject$]];
-export var SigningConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
+export var SignatureValidityPeriod$: StaticStructureSchema = [3, n0, _SVP,
+  0,
+  [_va, _ty],
+  [1, 0]
+];
+export var SignedObject$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_s_],
+  [() => S3SignedObject$]
+];
+export var SigningConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_eAO, _hAO],
-  [() => EncryptionAlgorithmOptions$, () => HashAlgorithmOptions$],
+  [() => EncryptionAlgorithmOptions$, () => HashAlgorithmOptions$]
 ];
-export var SigningConfigurationOverrides$: StaticStructureSchema = [3, n0, _SCO, 0, [_eA, _hA], [0, 0]];
-export var SigningImageFormat$: StaticStructureSchema = [3, n0, _SIF, 0, [_sF, _dF], [64 | 0, 0]];
-export var SigningJob$: StaticStructureSchema = [
-  3,
-  n0,
-  _SJ,
+export var SigningConfigurationOverrides$: StaticStructureSchema = [3, n0, _SCO,
+  0,
+  [_eA, _hA],
+  [0, 0]
+];
+export var SigningImageFormat$: StaticStructureSchema = [3, n0, _SIF,
+  0,
+  [_sF, _dF],
+  [64 | 0, 0]
+];
+export var SigningJob$: StaticStructureSchema = [3, n0, _SJ,
   0,
   [_jI, _s, _sO, _sM, _cA, _st, _iR, _pN, _pV, _pI, _pDN, _sEA, _jO, _jIo],
-  [0, () => Source$, () => SignedObject$, () => SigningMaterial$, 4, 0, 2, 0, 0, 0, 0, 4, 0, 0],
+  [0, () => Source$, () => SignedObject$, () => SigningMaterial$, 4, 0, 2, 0, 0, 0, 0, 4, 0, 0]
 ];
-export var SigningJobRevocationRecord$: StaticStructureSchema = [3, n0, _SJRR, 0, [_r, _rAe, _rBe], [0, 4, 0]];
-export var SigningMaterial$: StaticStructureSchema = [3, n0, _SM, 0, [_cAe], [0]];
-export var SigningPlatform$: StaticStructureSchema = [
-  3,
-  n0,
-  _SP,
+export var SigningJobRevocationRecord$: StaticStructureSchema = [3, n0, _SJRR,
+  0,
+  [_r, _rAe, _rBe],
+  [0, 4, 0]
+];
+export var SigningMaterial$: StaticStructureSchema = [3, n0, _SM,
+  0,
+  [_cAe],
+  [0]
+];
+export var SigningPlatform$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_pI, _dN, _pa, _t, _ca, _sC, _sIF, _mSIMB, _rS],
-  [0, 0, 0, 0, 0, () => SigningConfiguration$, () => SigningImageFormat$, 1, 2],
+  [0, 0, 0, 0, 0, () => SigningConfiguration$, () => SigningImageFormat$, 1, 2]
 ];
-export var SigningPlatformOverrides$: StaticStructureSchema = [
-  3,
-  n0,
-  _SPO,
+export var SigningPlatformOverrides$: StaticStructureSchema = [3, n0, _SPO,
   0,
   [_sC, _sIF],
-  [() => SigningConfigurationOverrides$, 0],
+  [() => SigningConfigurationOverrides$, 0]
 ];
-export var SigningProfile$: StaticStructureSchema = [
-  3,
-  n0,
-  _SPi,
+export var SigningProfile$: StaticStructureSchema = [3, n0, _SPi,
   0,
   [_pN, _pV, _pVA, _sM, _sVP, _pI, _pDN, _sP, _st, _ar, _ta],
-  [0, 0, 0, () => SigningMaterial$, () => SignatureValidityPeriod$, 0, 0, 128 | 0, 0, 0, 128 | 0],
+  [0, 0, 0, () => SigningMaterial$, () => SignatureValidityPeriod$, 0, 0, 128 | 0, 0, 0, 128 | 0]
 ];
-export var SigningProfileRevocationRecord$: StaticStructureSchema = [3, n0, _SPRR, 0, [_rEF, _rAe, _rBe], [4, 4, 0]];
-export var SignPayloadRequest$: StaticStructureSchema = [3, n0, _SPR, 0, [_pN, _pO, _pay, _pF], [0, 0, 21, 0]];
-export var SignPayloadResponse$: StaticStructureSchema = [3, n0, _SPRi, 0, [_jI, _jO, _me, _si], [0, 0, 128 | 0, 21]];
-export var Source$: StaticStructureSchema = [3, n0, _S, 0, [_s_], [() => S3Source$]];
-export var StartSigningJobRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSJR,
+export var SigningProfileRevocationRecord$: StaticStructureSchema = [3, n0, _SPRR,
+  0,
+  [_rEF, _rAe, _rBe],
+  [4, 4, 0]
+];
+export var SignPayloadRequest$: StaticStructureSchema = [3, n0, _SPR,
+  0,
+  [_pN, _pO, _pay, _pF],
+  [0, 0, 21, 0]
+];
+export var SignPayloadResponse$: StaticStructureSchema = [3, n0, _SPRi,
+  0,
+  [_jI, _jO, _me, _si],
+  [0, 0, 128 | 0, 21]
+];
+export var Source$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_s_],
+  [() => S3Source$]
+];
+export var StartSigningJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
   [_s, _d, _pN, _cRT, _pO],
-  [() => Source$, () => Destination$, 0, [0, 4], 0],
+  [() => Source$, () => Destination$, 0, [0, 4], 0]
 ];
-export var StartSigningJobResponse$: StaticStructureSchema = [3, n0, _SSJRt, 0, [_jI, _jO], [0, 0]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _co], [0, 0]];
+export var StartSigningJobResponse$: StaticStructureSchema = [3, n0, _SSJRt,
+  0,
+  [_jI, _jO],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _ta],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m, _co], [0, 0]];
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UntagResourceRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _co], [0, 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
 export var SignerServiceException$: StaticErrorSchema = [-3, _sm, "SignerServiceException", 0, [], []];
@@ -545,165 +546,78 @@ var CertificateHashes = 64 | 0;
 var EncryptionAlgorithms = 64 | 0;
 var HashAlgorithms = 64 | 0;
 var ImageFormats = 64 | 0;
-var Permissions: StaticListSchema = [1, n0, _Pe, 0, () => Permission$];
+var Permissions: StaticListSchema = [1, n0, _Pe,
+  0, () => Permission$
+];
 var RevokedEntities = 64 | 0;
-var SigningJobs: StaticListSchema = [1, n0, _SJi, 0, () => SigningJob$];
-var SigningPlatforms: StaticListSchema = [1, n0, _SPig, 0, () => SigningPlatform$];
-var SigningProfiles: StaticListSchema = [1, n0, _SPign, 0, () => SigningProfile$];
+var SigningJobs: StaticListSchema = [1, n0, _SJi,
+  0, () => SigningJob$
+];
+var SigningPlatforms: StaticListSchema = [1, n0, _SPig,
+  0, () => SigningPlatform$
+];
+var SigningProfiles: StaticListSchema = [1, n0, _SPign,
+  0, () => SigningProfile$
+];
 var Statuses = 64 | 0;
 var TagKeyList = 64 | 0;
 var Metadata = 128 | 0;
 var SigningParameters = 128 | 0;
 var TagMap = 128 | 0;
-export var AddProfilePermission$: StaticOperationSchema = [
-  9,
-  n0,
-  _APP,
-  { [_h]: ["POST", "/signing-profiles/{profileName}/permissions", 200] },
-  () => AddProfilePermissionRequest$,
-  () => AddProfilePermissionResponse$,
+export var AddProfilePermission$: StaticOperationSchema = [9, n0, _APP,
+  { [_h]: ["POST", "/signing-profiles/{profileName}/permissions", 200] }, () => AddProfilePermissionRequest$, () => AddProfilePermissionResponse$
 ];
-export var CancelSigningProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSP,
-  { [_h]: ["DELETE", "/signing-profiles/{profileName}", 200] },
-  () => CancelSigningProfileRequest$,
-  () => __Unit,
+export var CancelSigningProfile$: StaticOperationSchema = [9, n0, _CSP,
+  { [_h]: ["DELETE", "/signing-profiles/{profileName}", 200] }, () => CancelSigningProfileRequest$, () => __Unit
 ];
-export var DescribeSigningJob$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSJ,
-  { [_h]: ["GET", "/signing-jobs/{jobId}", 200] },
-  () => DescribeSigningJobRequest$,
-  () => DescribeSigningJobResponse$,
+export var DescribeSigningJob$: StaticOperationSchema = [9, n0, _DSJ,
+  { [_h]: ["GET", "/signing-jobs/{jobId}", 200] }, () => DescribeSigningJobRequest$, () => DescribeSigningJobResponse$
 ];
-export var GetRevocationStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRS,
-  { [_en]: ["data-"], [_h]: ["GET", "/revocations", 200] },
-  () => GetRevocationStatusRequest$,
-  () => GetRevocationStatusResponse$,
+export var GetRevocationStatus$: StaticOperationSchema = [9, n0, _GRS,
+  { [_en]: ["data-"], [_h]: ["GET", "/revocations", 200] }, () => GetRevocationStatusRequest$, () => GetRevocationStatusResponse$
 ];
-export var GetSigningPlatform$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSP,
-  { [_h]: ["GET", "/signing-platforms/{platformId}", 200] },
-  () => GetSigningPlatformRequest$,
-  () => GetSigningPlatformResponse$,
+export var GetSigningPlatform$: StaticOperationSchema = [9, n0, _GSP,
+  { [_h]: ["GET", "/signing-platforms/{platformId}", 200] }, () => GetSigningPlatformRequest$, () => GetSigningPlatformResponse$
 ];
-export var GetSigningProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSPe,
-  { [_h]: ["GET", "/signing-profiles/{profileName}", 200] },
-  () => GetSigningProfileRequest$,
-  () => GetSigningProfileResponse$,
+export var GetSigningProfile$: StaticOperationSchema = [9, n0, _GSPe,
+  { [_h]: ["GET", "/signing-profiles/{profileName}", 200] }, () => GetSigningProfileRequest$, () => GetSigningProfileResponse$
 ];
-export var ListProfilePermissions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LPP,
-  { [_h]: ["GET", "/signing-profiles/{profileName}/permissions", 200] },
-  () => ListProfilePermissionsRequest$,
-  () => ListProfilePermissionsResponse$,
+export var ListProfilePermissions$: StaticOperationSchema = [9, n0, _LPP,
+  { [_h]: ["GET", "/signing-profiles/{profileName}/permissions", 200] }, () => ListProfilePermissionsRequest$, () => ListProfilePermissionsResponse$
 ];
-export var ListSigningJobs$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSJ,
-  { [_h]: ["GET", "/signing-jobs", 200] },
-  () => ListSigningJobsRequest$,
-  () => ListSigningJobsResponse$,
+export var ListSigningJobs$: StaticOperationSchema = [9, n0, _LSJ,
+  { [_h]: ["GET", "/signing-jobs", 200] }, () => ListSigningJobsRequest$, () => ListSigningJobsResponse$
 ];
-export var ListSigningPlatforms$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSP,
-  { [_h]: ["GET", "/signing-platforms", 200] },
-  () => ListSigningPlatformsRequest$,
-  () => ListSigningPlatformsResponse$,
+export var ListSigningPlatforms$: StaticOperationSchema = [9, n0, _LSP,
+  { [_h]: ["GET", "/signing-platforms", 200] }, () => ListSigningPlatformsRequest$, () => ListSigningPlatformsResponse$
 ];
-export var ListSigningProfiles$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSPi,
-  { [_h]: ["GET", "/signing-profiles", 200] },
-  () => ListSigningProfilesRequest$,
-  () => ListSigningProfilesResponse$,
+export var ListSigningProfiles$: StaticOperationSchema = [9, n0, _LSPi,
+  { [_h]: ["GET", "/signing-profiles", 200] }, () => ListSigningProfilesRequest$, () => ListSigningProfilesResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var PutSigningProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _PSP,
-  { [_h]: ["PUT", "/signing-profiles/{profileName}", 200] },
-  () => PutSigningProfileRequest$,
-  () => PutSigningProfileResponse$,
+export var PutSigningProfile$: StaticOperationSchema = [9, n0, _PSP,
+  { [_h]: ["PUT", "/signing-profiles/{profileName}", 200] }, () => PutSigningProfileRequest$, () => PutSigningProfileResponse$
 ];
-export var RemoveProfilePermission$: StaticOperationSchema = [
-  9,
-  n0,
-  _RPP,
-  { [_h]: ["DELETE", "/signing-profiles/{profileName}/permissions/{statementId}", 200] },
-  () => RemoveProfilePermissionRequest$,
-  () => RemoveProfilePermissionResponse$,
+export var RemoveProfilePermission$: StaticOperationSchema = [9, n0, _RPP,
+  { [_h]: ["DELETE", "/signing-profiles/{profileName}/permissions/{statementId}", 200] }, () => RemoveProfilePermissionRequest$, () => RemoveProfilePermissionResponse$
 ];
-export var RevokeSignature$: StaticOperationSchema = [
-  9,
-  n0,
-  _RS,
-  { [_h]: ["PUT", "/signing-jobs/{jobId}/revoke", 200] },
-  () => RevokeSignatureRequest$,
-  () => __Unit,
+export var RevokeSignature$: StaticOperationSchema = [9, n0, _RS,
+  { [_h]: ["PUT", "/signing-jobs/{jobId}/revoke", 200] }, () => RevokeSignatureRequest$, () => __Unit
 ];
-export var RevokeSigningProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _RSP,
-  { [_h]: ["PUT", "/signing-profiles/{profileName}/revoke", 200] },
-  () => RevokeSigningProfileRequest$,
-  () => __Unit,
+export var RevokeSigningProfile$: StaticOperationSchema = [9, n0, _RSP,
+  { [_h]: ["PUT", "/signing-profiles/{profileName}/revoke", 200] }, () => RevokeSigningProfileRequest$, () => __Unit
 ];
-export var SignPayload$: StaticOperationSchema = [
-  9,
-  n0,
-  _SPigna,
-  { [_h]: ["POST", "/signing-jobs/with-payload", 200] },
-  () => SignPayloadRequest$,
-  () => SignPayloadResponse$,
+export var SignPayload$: StaticOperationSchema = [9, n0, _SPigna,
+  { [_h]: ["POST", "/signing-jobs/with-payload", 200] }, () => SignPayloadRequest$, () => SignPayloadResponse$
 ];
-export var StartSigningJob$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSJ,
-  { [_h]: ["POST", "/signing-jobs", 200] },
-  () => StartSigningJobRequest$,
-  () => StartSigningJobResponse$,
+export var StartSigningJob$: StaticOperationSchema = [9, n0, _SSJ,
+  { [_h]: ["POST", "/signing-jobs", 200] }, () => StartSigningJobRequest$, () => StartSigningJobResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest$,
-  () => TagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];

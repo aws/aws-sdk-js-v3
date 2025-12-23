@@ -27,9 +27,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandInput extends Associat
  *
  * The output of {@link AssociateEnclaveCertificateIamRoleCommand}.
  */
-export interface AssociateEnclaveCertificateIamRoleCommandOutput
-  extends AssociateEnclaveCertificateIamRoleResult,
-    __MetadataBearer {}
+export interface AssociateEnclaveCertificateIamRoleCommandOutput extends AssociateEnclaveCertificateIamRoleResult, __MetadataBearer {}
 
 /**
  * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.

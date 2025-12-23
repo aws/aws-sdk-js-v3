@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
  *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>

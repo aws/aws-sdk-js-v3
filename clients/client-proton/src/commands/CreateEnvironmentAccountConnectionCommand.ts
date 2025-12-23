@@ -27,9 +27,7 @@ export interface CreateEnvironmentAccountConnectionCommandInput extends CreateEn
  *
  * The output of {@link CreateEnvironmentAccountConnectionCommand}.
  */
-export interface CreateEnvironmentAccountConnectionCommandOutput
-  extends CreateEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface CreateEnvironmentAccountConnectionCommandOutput extends CreateEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment

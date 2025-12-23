@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StartEngagementByAcceptingInvitationTaskCommand}.
  */
-export interface StartEngagementByAcceptingInvitationTaskCommandInput
-  extends StartEngagementByAcceptingInvitationTaskRequest {}
+export interface StartEngagementByAcceptingInvitationTaskCommandInput extends StartEngagementByAcceptingInvitationTaskRequest {}
 /**
  * @public
  *
  * The output of {@link StartEngagementByAcceptingInvitationTaskCommand}.
  */
-export interface StartEngagementByAcceptingInvitationTaskCommandOutput
-  extends StartEngagementByAcceptingInvitationTaskResponse,
-    __MetadataBearer {}
+export interface StartEngagementByAcceptingInvitationTaskCommandOutput extends StartEngagementByAcceptingInvitationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>This action starts the engagement by accepting an <code>EngagementInvitation</code>. The task is asynchronous and involves the following steps: accepting the invitation, creating an opportunity in the partner’s account from the AWS opportunity, and copying details for tracking. When completed, an <code>Opportunity Created</code> event is generated, indicating that the opportunity has been successfully created in the partner's account.</p>

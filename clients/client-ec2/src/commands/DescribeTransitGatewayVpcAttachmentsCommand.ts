@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandInput extends Descri
  *
  * The output of {@link DescribeTransitGatewayVpcAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
-  extends DescribeTransitGatewayVpcAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayVpcAttachmentsCommandOutput extends DescribeTransitGatewayVpcAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.

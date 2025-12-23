@@ -24,9 +24,7 @@ export interface CreateIpamPrefixListResolverCommandInput extends CreateIpamPref
  *
  * The output of {@link CreateIpamPrefixListResolverCommand}.
  */
-export interface CreateIpamPrefixListResolverCommandOutput
-  extends CreateIpamPrefixListResolverResult,
-    __MetadataBearer {}
+export interface CreateIpamPrefixListResolverCommandOutput extends CreateIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
  * <p>Creates an IPAM prefix list resolver.</p>

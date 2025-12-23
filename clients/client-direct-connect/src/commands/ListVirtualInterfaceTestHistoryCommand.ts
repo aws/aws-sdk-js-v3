@@ -27,9 +27,7 @@ export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtual
  *
  * The output of {@link ListVirtualInterfaceTestHistoryCommand}.
  */
-export interface ListVirtualInterfaceTestHistoryCommandOutput
-  extends ListVirtualInterfaceTestHistoryResponse,
-    __MetadataBearer {}
+export interface ListVirtualInterfaceTestHistoryCommandOutput extends ListVirtualInterfaceTestHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the virtual interface failover test history.</p>

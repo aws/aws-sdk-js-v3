@@ -28,9 +28,7 @@ export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolver
  *
  * The output of {@link DeleteResolverQueryLogConfigCommand}.
  */
-export interface DeleteResolverQueryLogConfigCommandOutput
-  extends DeleteResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface DeleteResolverQueryLogConfigCommandOutput extends DeleteResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are

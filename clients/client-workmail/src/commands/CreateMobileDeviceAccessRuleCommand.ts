@@ -24,9 +24,7 @@ export interface CreateMobileDeviceAccessRuleCommandInput extends CreateMobileDe
  *
  * The output of {@link CreateMobileDeviceAccessRuleCommand}.
  */
-export interface CreateMobileDeviceAccessRuleCommandOutput
-  extends CreateMobileDeviceAccessRuleResponse,
-    __MetadataBearer {}
+export interface CreateMobileDeviceAccessRuleCommandOutput extends CreateMobileDeviceAccessRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new mobile device access rule for the specified WorkMail organization.</p>

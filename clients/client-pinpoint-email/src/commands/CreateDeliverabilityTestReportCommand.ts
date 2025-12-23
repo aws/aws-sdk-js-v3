@@ -24,9 +24,7 @@ export interface CreateDeliverabilityTestReportCommandInput extends CreateDelive
  *
  * The output of {@link CreateDeliverabilityTestReportCommand}.
  */
-export interface CreateDeliverabilityTestReportCommandOutput
-  extends CreateDeliverabilityTestReportResponse,
-    __MetadataBearer {}
+export interface CreateDeliverabilityTestReportCommandOutput extends CreateDeliverabilityTestReportResponse, __MetadataBearer {}
 
 /**
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled

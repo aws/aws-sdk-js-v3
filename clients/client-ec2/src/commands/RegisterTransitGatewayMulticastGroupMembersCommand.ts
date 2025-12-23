@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupMembersCommandInput
-  extends RegisterTransitGatewayMulticastGroupMembersRequest {}
+export interface RegisterTransitGatewayMulticastGroupMembersCommandInput extends RegisterTransitGatewayMulticastGroupMembersRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterTransitGatewayMulticastGroupMembersCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
-  extends RegisterTransitGatewayMulticastGroupMembersResult,
-    __MetadataBearer {}
+export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput extends RegisterTransitGatewayMulticastGroupMembersResult, __MetadataBearer {}
 
 /**
  * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated

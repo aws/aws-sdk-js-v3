@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
-export interface UpdateConfigurationSetEventDestinationCommandInput
-  extends UpdateConfigurationSetEventDestinationRequest {}
+export interface UpdateConfigurationSetEventDestinationCommandInput extends UpdateConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
-export interface UpdateConfigurationSetEventDestinationCommandOutput
-  extends UpdateConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface UpdateConfigurationSetEventDestinationCommandOutput extends UpdateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the event destination of a configuration set. Event destinations are

@@ -27,9 +27,7 @@ export interface DescribeDefaultQBusinessApplicationCommandInput extends Describ
  *
  * The output of {@link DescribeDefaultQBusinessApplicationCommand}.
  */
-export interface DescribeDefaultQBusinessApplicationCommandOutput
-  extends DescribeDefaultQBusinessApplicationResponse,
-    __MetadataBearer {}
+export interface DescribeDefaultQBusinessApplicationCommandOutput extends DescribeDefaultQBusinessApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a Amazon Q Business application that is linked to an Quick Sight account.</p>

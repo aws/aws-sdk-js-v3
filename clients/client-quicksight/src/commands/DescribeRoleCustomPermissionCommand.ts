@@ -24,9 +24,7 @@ export interface DescribeRoleCustomPermissionCommandInput extends DescribeRoleCu
  *
  * The output of {@link DescribeRoleCustomPermissionCommand}.
  */
-export interface DescribeRoleCustomPermissionCommandOutput
-  extends DescribeRoleCustomPermissionResponse,
-    __MetadataBearer {}
+export interface DescribeRoleCustomPermissionCommandOutput extends DescribeRoleCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes all custom permissions that are  mapped to a role.</p>

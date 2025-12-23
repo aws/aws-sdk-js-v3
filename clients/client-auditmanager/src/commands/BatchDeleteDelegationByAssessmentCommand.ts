@@ -27,9 +27,7 @@ export interface BatchDeleteDelegationByAssessmentCommandInput extends BatchDele
  *
  * The output of {@link BatchDeleteDelegationByAssessmentCommand}.
  */
-export interface BatchDeleteDelegationByAssessmentCommandOutput
-  extends BatchDeleteDelegationByAssessmentResponse,
-    __MetadataBearer {}
+export interface BatchDeleteDelegationByAssessmentCommandOutput extends BatchDeleteDelegationByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>

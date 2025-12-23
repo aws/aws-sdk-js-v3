@@ -24,9 +24,7 @@ export interface DisassociateFileSystemAliasesCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFileSystemAliasesCommand}.
  */
-export interface DisassociateFileSystemAliasesCommandOutput
-  extends DisassociateFileSystemAliasesResponse,
-    __MetadataBearer {}
+export interface DisassociateFileSystemAliasesCommandOutput extends DisassociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases

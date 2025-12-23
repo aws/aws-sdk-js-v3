@@ -28,9 +28,7 @@ export interface GetAccountLevelServiceConfigurationCommandInput {}
  *
  * The output of {@link GetAccountLevelServiceConfigurationCommand}.
  */
-export interface GetAccountLevelServiceConfigurationCommandOutput
-  extends GetAccountLevelServiceConfigurationOutput,
-    __MetadataBearer {}
+export interface GetAccountLevelServiceConfigurationCommandOutput extends GetAccountLevelServiceConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service linked role required to access the multi-account search feature. Only the management account can invoke this API call. </p>

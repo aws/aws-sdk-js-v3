@@ -27,9 +27,7 @@ export interface DisassociateClientVpnTargetNetworkCommandInput extends Disassoc
  *
  * The output of {@link DisassociateClientVpnTargetNetworkCommand}.
  */
-export interface DisassociateClientVpnTargetNetworkCommandOutput
-  extends DisassociateClientVpnTargetNetworkResult,
-    __MetadataBearer {}
+export interface DisassociateClientVpnTargetNetworkCommandOutput extends DisassociateClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the

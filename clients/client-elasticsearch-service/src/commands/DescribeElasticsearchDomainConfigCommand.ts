@@ -31,9 +31,7 @@ export interface DescribeElasticsearchDomainConfigCommandInput extends DescribeE
  *
  * The output of {@link DescribeElasticsearchDomainConfigCommand}.
  */
-export interface DescribeElasticsearchDomainConfigCommandOutput
-  extends DescribeElasticsearchDomainConfigResponse,
-    __MetadataBearer {}
+export interface DescribeElasticsearchDomainConfigCommandOutput extends DescribeElasticsearchDomainConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>

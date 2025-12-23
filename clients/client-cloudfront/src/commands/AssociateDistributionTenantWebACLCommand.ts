@@ -27,9 +27,7 @@ export interface AssociateDistributionTenantWebACLCommandInput extends Associate
  *
  * The output of {@link AssociateDistributionTenantWebACLCommand}.
  */
-export interface AssociateDistributionTenantWebACLCommandOutput
-  extends AssociateDistributionTenantWebACLResult,
-    __MetadataBearer {}
+export interface AssociateDistributionTenantWebACLCommandOutput extends AssociateDistributionTenantWebACLResult, __MetadataBearer {}
 
 /**
  * <p>Associates the WAF web ACL with a distribution tenant.</p>

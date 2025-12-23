@@ -89,8 +89,14 @@ export interface TimestreamQuery {
   /**
    * @see {@link CancelQueryCommand}
    */
-  cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
-  cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelQueryCommandOutput>;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
   cancelQuery(
     args: CancelQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -239,8 +245,14 @@ export interface TimestreamQuery {
   /**
    * @see {@link PrepareQueryCommand}
    */
-  prepareQuery(args: PrepareQueryCommandInput, options?: __HttpHandlerOptions): Promise<PrepareQueryCommandOutput>;
-  prepareQuery(args: PrepareQueryCommandInput, cb: (err: any, data?: PrepareQueryCommandOutput) => void): void;
+  prepareQuery(
+    args: PrepareQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PrepareQueryCommandOutput>;
+  prepareQuery(
+    args: PrepareQueryCommandInput,
+    cb: (err: any, data?: PrepareQueryCommandOutput) => void
+  ): void;
   prepareQuery(
     args: PrepareQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -250,8 +262,14 @@ export interface TimestreamQuery {
   /**
    * @see {@link QueryCommand}
    */
-  query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
-  query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
+  query(
+    args: QueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryCommandOutput>;
+  query(
+    args: QueryCommandInput,
+    cb: (err: any, data?: QueryCommandOutput) => void
+  ): void;
   query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -261,8 +279,14 @@ export interface TimestreamQuery {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -272,8 +296,14 @@ export interface TimestreamQuery {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

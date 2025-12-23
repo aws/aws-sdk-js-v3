@@ -28,9 +28,7 @@ export interface ListVpcEndpointAssociationsCommandInput extends ListVpcEndpoint
  *
  * The output of {@link ListVpcEndpointAssociationsCommand}.
  */
-export interface ListVpcEndpointAssociationsCommandOutput
-  extends ListVpcEndpointAssociationsResponse,
-    __MetadataBearer {}
+export interface ListVpcEndpointAssociationsCommandOutput extends ListVpcEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the metadata for the VPC endpoint associations that you have defined. If you specify a fireawll,

@@ -27,9 +27,7 @@ export interface ListEnvironmentProvisionedResourcesCommandInput extends ListEnv
  *
  * The output of {@link ListEnvironmentProvisionedResourcesCommand}.
  */
-export interface ListEnvironmentProvisionedResourcesCommandOutput
-  extends ListEnvironmentProvisionedResourcesOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentProvisionedResourcesCommandOutput extends ListEnvironmentProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>List the provisioned resources for your environment.</p>

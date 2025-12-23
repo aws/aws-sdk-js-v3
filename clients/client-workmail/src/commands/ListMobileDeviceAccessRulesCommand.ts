@@ -24,9 +24,7 @@ export interface ListMobileDeviceAccessRulesCommandInput extends ListMobileDevic
  *
  * The output of {@link ListMobileDeviceAccessRulesCommand}.
  */
-export interface ListMobileDeviceAccessRulesCommandOutput
-  extends ListMobileDeviceAccessRulesResponse,
-    __MetadataBearer {}
+export interface ListMobileDeviceAccessRulesCommandOutput extends ListMobileDeviceAccessRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>

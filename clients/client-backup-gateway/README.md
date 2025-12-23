@@ -7,7 +7,6 @@
 AWS SDK for JavaScript BackupGateway Client for Node.js, Browser and React Native.
 
 <fullname>Backup gateway</fullname>
-
 <p>Backup gateway connects Backup to your hypervisor, so you can
 create, store, and restore backups of your virtual machines (VMs) anywhere, whether
 on-premises or in the VMware Cloud (VMC) on Amazon Web Services.</p>
@@ -18,10 +17,8 @@ like any resource supported by Backup.</p>
 <p>To download the Amazon Web Services software to get started, navigate to the Backup console, choose <b>Gateways</b>, then choose <b>Create gateway</b>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-backup-gateway
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-backup-gateway`
 - `yarn add @aws-sdk/client-backup-gateway`
 - `pnpm add @aws-sdk/client-backup-gateway`
@@ -57,9 +54,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new BackupGatewayClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListGatewaysCommand(params);
 ```
 
@@ -218,7 +213,6 @@ AssociateGatewayToServer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/AssociateGatewayToServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/AssociateGatewayToServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/AssociateGatewayToServerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,7 +220,6 @@ CreateGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/CreateGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/CreateGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/CreateGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +227,6 @@ DeleteGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/DeleteGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DeleteGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DeleteGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +234,6 @@ DeleteHypervisor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/DeleteHypervisorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DeleteHypervisorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DeleteHypervisorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +241,6 @@ DisassociateGatewayFromServer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/DisassociateGatewayFromServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DisassociateGatewayFromServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/DisassociateGatewayFromServerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +248,6 @@ GetBandwidthRateLimitSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/GetBandwidthRateLimitScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetBandwidthRateLimitScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetBandwidthRateLimitScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +255,6 @@ GetGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/GetGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetGatewayCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +262,6 @@ GetHypervisor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/GetHypervisorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetHypervisorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetHypervisorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +269,6 @@ GetHypervisorPropertyMappings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/GetHypervisorPropertyMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetHypervisorPropertyMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetHypervisorPropertyMappingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +276,6 @@ GetVirtualMachine
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/GetVirtualMachineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetVirtualMachineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/GetVirtualMachineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +283,6 @@ ImportHypervisorConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/ImportHypervisorConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ImportHypervisorConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ImportHypervisorConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +290,6 @@ ListGateways
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/ListGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListGatewaysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +297,6 @@ ListHypervisors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/ListHypervisorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListHypervisorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListHypervisorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +304,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +311,6 @@ ListVirtualMachines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/ListVirtualMachinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListVirtualMachinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/ListVirtualMachinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +318,6 @@ PutBandwidthRateLimitSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/PutBandwidthRateLimitScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutBandwidthRateLimitScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutBandwidthRateLimitScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +325,6 @@ PutHypervisorPropertyMappings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/PutHypervisorPropertyMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutHypervisorPropertyMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutHypervisorPropertyMappingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +332,6 @@ PutMaintenanceStartTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/PutMaintenanceStartTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutMaintenanceStartTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/PutMaintenanceStartTimeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +339,6 @@ StartVirtualMachinesMetadataSync
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/StartVirtualMachinesMetadataSyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/StartVirtualMachinesMetadataSyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/StartVirtualMachinesMetadataSyncCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +346,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +353,6 @@ TestHypervisorConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/TestHypervisorConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/TestHypervisorConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/TestHypervisorConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +360,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +367,6 @@ UpdateGatewayInformation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/UpdateGatewayInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateGatewayInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateGatewayInformationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +374,6 @@ UpdateGatewaySoftwareNow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/UpdateGatewaySoftwareNowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateGatewaySoftwareNowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateGatewaySoftwareNowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,5 +381,4 @@ UpdateHypervisor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup-gateway/command/UpdateHypervisorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateHypervisorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup-gateway/Interface/UpdateHypervisorCommandOutput/)
-
 </details>

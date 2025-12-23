@@ -24,9 +24,7 @@ export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVer
  *
  * The output of {@link DescribeVerifiedAccessInstancesCommand}.
  */
-export interface DescribeVerifiedAccessInstancesCommandOutput
-  extends DescribeVerifiedAccessInstancesResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessInstancesCommandOutput extends DescribeVerifiedAccessInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access instances.</p>

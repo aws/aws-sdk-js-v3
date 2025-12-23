@@ -31,9 +31,7 @@ export interface DescribePendingMaintenanceActionsCommandInput extends DescribeP
  *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
-export interface DescribePendingMaintenanceActionsCommandOutput
-  extends DescribePendingMaintenanceActionsResponse,
-    __MetadataBearer {}
+export interface DescribePendingMaintenanceActionsCommandOutput extends DescribePendingMaintenanceActionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of upcoming maintenance events for replication instances in your account

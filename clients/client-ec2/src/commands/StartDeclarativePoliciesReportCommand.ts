@@ -24,9 +24,7 @@ export interface StartDeclarativePoliciesReportCommandInput extends StartDeclara
  *
  * The output of {@link StartDeclarativePoliciesReportCommand}.
  */
-export interface StartDeclarativePoliciesReportCommandOutput
-  extends StartDeclarativePoliciesReportResult,
-    __MetadataBearer {}
+export interface StartDeclarativePoliciesReportCommandOutput extends StartDeclarativePoliciesReportResult, __MetadataBearer {}
 
 /**
  * <p>Generates an account status report. The report is generated asynchronously, and can

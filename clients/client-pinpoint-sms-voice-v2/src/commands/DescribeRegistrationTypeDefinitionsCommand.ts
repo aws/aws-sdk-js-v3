@@ -31,9 +31,7 @@ export interface DescribeRegistrationTypeDefinitionsCommandInput extends Describ
  *
  * The output of {@link DescribeRegistrationTypeDefinitionsCommand}.
  */
-export interface DescribeRegistrationTypeDefinitionsCommandOutput
-  extends DescribeRegistrationTypeDefinitionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationTypeDefinitionsCommandOutput extends DescribeRegistrationTypeDefinitionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration type definitions. You can use DescribeRegistrationTypeDefinitions to view the requirements for creating, filling out, and submitting each registration type.</p>

@@ -303,7 +303,10 @@ export interface WAFV2 {
     args: AssociateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateWebACLCommandOutput>;
-  associateWebACL(args: AssociateWebACLCommandInput, cb: (err: any, data?: AssociateWebACLCommandOutput) => void): void;
+  associateWebACL(
+    args: AssociateWebACLCommandInput,
+    cb: (err: any, data?: AssociateWebACLCommandOutput) => void
+  ): void;
   associateWebACL(
     args: AssociateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -313,8 +316,14 @@ export interface WAFV2 {
   /**
    * @see {@link CheckCapacityCommand}
    */
-  checkCapacity(args: CheckCapacityCommandInput, options?: __HttpHandlerOptions): Promise<CheckCapacityCommandOutput>;
-  checkCapacity(args: CheckCapacityCommandInput, cb: (err: any, data?: CheckCapacityCommandOutput) => void): void;
+  checkCapacity(
+    args: CheckCapacityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckCapacityCommandOutput>;
+  checkCapacity(
+    args: CheckCapacityCommandInput,
+    cb: (err: any, data?: CheckCapacityCommandOutput) => void
+  ): void;
   checkCapacity(
     args: CheckCapacityCommandInput,
     options: __HttpHandlerOptions,
@@ -324,8 +333,14 @@ export interface WAFV2 {
   /**
    * @see {@link CreateAPIKeyCommand}
    */
-  createAPIKey(args: CreateAPIKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateAPIKeyCommandOutput>;
-  createAPIKey(args: CreateAPIKeyCommandInput, cb: (err: any, data?: CreateAPIKeyCommandOutput) => void): void;
+  createAPIKey(
+    args: CreateAPIKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAPIKeyCommandOutput>;
+  createAPIKey(
+    args: CreateAPIKeyCommandInput,
+    cb: (err: any, data?: CreateAPIKeyCommandOutput) => void
+  ): void;
   createAPIKey(
     args: CreateAPIKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -335,8 +350,14 @@ export interface WAFV2 {
   /**
    * @see {@link CreateIPSetCommand}
    */
-  createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
-  createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIPSetCommandOutput>;
+  createIPSet(
+    args: CreateIPSetCommandInput,
+    cb: (err: any, data?: CreateIPSetCommandOutput) => void
+  ): void;
   createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -367,7 +388,10 @@ export interface WAFV2 {
     args: CreateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRuleGroupCommandOutput>;
-  createRuleGroup(args: CreateRuleGroupCommandInput, cb: (err: any, data?: CreateRuleGroupCommandOutput) => void): void;
+  createRuleGroup(
+    args: CreateRuleGroupCommandInput,
+    cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
+  ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -377,8 +401,14 @@ export interface WAFV2 {
   /**
    * @see {@link CreateWebACLCommand}
    */
-  createWebACL(args: CreateWebACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebACLCommandOutput>;
-  createWebACL(args: CreateWebACLCommandInput, cb: (err: any, data?: CreateWebACLCommandOutput) => void): void;
+  createWebACL(
+    args: CreateWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebACLCommandOutput>;
+  createWebACL(
+    args: CreateWebACLCommandInput,
+    cb: (err: any, data?: CreateWebACLCommandOutput) => void
+  ): void;
   createWebACL(
     args: CreateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -388,8 +418,14 @@ export interface WAFV2 {
   /**
    * @see {@link DeleteAPIKeyCommand}
    */
-  deleteAPIKey(args: DeleteAPIKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAPIKeyCommandOutput>;
-  deleteAPIKey(args: DeleteAPIKeyCommandInput, cb: (err: any, data?: DeleteAPIKeyCommandOutput) => void): void;
+  deleteAPIKey(
+    args: DeleteAPIKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAPIKeyCommandOutput>;
+  deleteAPIKey(
+    args: DeleteAPIKeyCommandInput,
+    cb: (err: any, data?: DeleteAPIKeyCommandOutput) => void
+  ): void;
   deleteAPIKey(
     args: DeleteAPIKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -416,8 +452,14 @@ export interface WAFV2 {
   /**
    * @see {@link DeleteIPSetCommand}
    */
-  deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
-  deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIPSetCommandOutput>;
+  deleteIPSet(
+    args: DeleteIPSetCommandInput,
+    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -482,7 +524,10 @@ export interface WAFV2 {
     args: DeleteRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
-  deleteRuleGroup(args: DeleteRuleGroupCommandInput, cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void): void;
+  deleteRuleGroup(
+    args: DeleteRuleGroupCommandInput,
+    cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
+  ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +537,14 @@ export interface WAFV2 {
   /**
    * @see {@link DeleteWebACLCommand}
    */
-  deleteWebACL(args: DeleteWebACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebACLCommandOutput>;
-  deleteWebACL(args: DeleteWebACLCommandInput, cb: (err: any, data?: DeleteWebACLCommandOutput) => void): void;
+  deleteWebACL(
+    args: DeleteWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebACLCommandOutput>;
+  deleteWebACL(
+    args: DeleteWebACLCommandInput,
+    cb: (err: any, data?: DeleteWebACLCommandOutput) => void
+  ): void;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -605,8 +656,14 @@ export interface WAFV2 {
   /**
    * @see {@link GetIPSetCommand}
    */
-  getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
-  getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIPSetCommandOutput>;
+  getIPSet(
+    args: GetIPSetCommandInput,
+    cb: (err: any, data?: GetIPSetCommandOutput) => void
+  ): void;
   getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -719,8 +776,14 @@ export interface WAFV2 {
    * @see {@link GetRuleGroupCommand}
    */
   getRuleGroup(): Promise<GetRuleGroupCommandOutput>;
-  getRuleGroup(args: GetRuleGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleGroupCommandOutput>;
-  getRuleGroup(args: GetRuleGroupCommandInput, cb: (err: any, data?: GetRuleGroupCommandOutput) => void): void;
+  getRuleGroup(
+    args: GetRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleGroupCommandOutput>;
+  getRuleGroup(
+    args: GetRuleGroupCommandInput,
+    cb: (err: any, data?: GetRuleGroupCommandOutput) => void
+  ): void;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -748,8 +811,14 @@ export interface WAFV2 {
    * @see {@link GetWebACLCommand}
    */
   getWebACL(): Promise<GetWebACLCommandOutput>;
-  getWebACL(args: GetWebACLCommandInput, options?: __HttpHandlerOptions): Promise<GetWebACLCommandOutput>;
-  getWebACL(args: GetWebACLCommandInput, cb: (err: any, data?: GetWebACLCommandOutput) => void): void;
+  getWebACL(
+    args: GetWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebACLCommandOutput>;
+  getWebACL(
+    args: GetWebACLCommandInput,
+    cb: (err: any, data?: GetWebACLCommandOutput) => void
+  ): void;
   getWebACL(
     args: GetWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -776,8 +845,14 @@ export interface WAFV2 {
   /**
    * @see {@link ListAPIKeysCommand}
    */
-  listAPIKeys(args: ListAPIKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListAPIKeysCommandOutput>;
-  listAPIKeys(args: ListAPIKeysCommandInput, cb: (err: any, data?: ListAPIKeysCommandOutput) => void): void;
+  listAPIKeys(
+    args: ListAPIKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAPIKeysCommandOutput>;
+  listAPIKeys(
+    args: ListAPIKeysCommandInput,
+    cb: (err: any, data?: ListAPIKeysCommandOutput) => void
+  ): void;
   listAPIKeys(
     args: ListAPIKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -821,8 +896,14 @@ export interface WAFV2 {
   /**
    * @see {@link ListIPSetsCommand}
    */
-  listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
-  listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIPSetsCommandOutput>;
+  listIPSets(
+    args: ListIPSetsCommandInput,
+    cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
   listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -921,7 +1002,10 @@ export interface WAFV2 {
     args: ListRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRuleGroupsCommandOutput>;
-  listRuleGroups(args: ListRuleGroupsCommandInput, cb: (err: any, data?: ListRuleGroupsCommandOutput) => void): void;
+  listRuleGroups(
+    args: ListRuleGroupsCommandInput,
+    cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
+  ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -948,8 +1032,14 @@ export interface WAFV2 {
   /**
    * @see {@link ListWebACLsCommand}
    */
-  listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
-  listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
+  listWebACLs(
+    args: ListWebACLsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebACLsCommandOutput>;
+  listWebACLs(
+    args: ListWebACLsCommandInput,
+    cb: (err: any, data?: ListWebACLsCommandOutput) => void
+  ): void;
   listWebACLs(
     args: ListWebACLsCommandInput,
     options: __HttpHandlerOptions,
@@ -1010,8 +1100,14 @@ export interface WAFV2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1021,8 +1117,14 @@ export interface WAFV2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1032,8 +1134,14 @@ export interface WAFV2 {
   /**
    * @see {@link UpdateIPSetCommand}
    */
-  updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
-  updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIPSetCommandOutput>;
+  updateIPSet(
+    args: UpdateIPSetCommandInput,
+    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
+  ): void;
   updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1081,7 +1189,10 @@ export interface WAFV2 {
     args: UpdateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
-  updateRuleGroup(args: UpdateRuleGroupCommandInput, cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void): void;
+  updateRuleGroup(
+    args: UpdateRuleGroupCommandInput,
+    cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
+  ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1091,8 +1202,14 @@ export interface WAFV2 {
   /**
    * @see {@link UpdateWebACLCommand}
    */
-  updateWebACL(args: UpdateWebACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebACLCommandOutput>;
-  updateWebACL(args: UpdateWebACLCommandInput, cb: (err: any, data?: UpdateWebACLCommandOutput) => void): void;
+  updateWebACL(
+    args: UpdateWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebACLCommandOutput>;
+  updateWebACL(
+    args: UpdateWebACLCommandInput,
+    cb: (err: any, data?: UpdateWebACLCommandOutput) => void
+  ): void;
   updateWebACL(
     args: UpdateWebACLCommandInput,
     options: __HttpHandlerOptions,

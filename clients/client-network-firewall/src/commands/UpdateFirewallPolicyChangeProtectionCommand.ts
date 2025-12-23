@@ -31,9 +31,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandInput extends Update
  *
  * The output of {@link UpdateFirewallPolicyChangeProtectionCommand}.
  */
-export interface UpdateFirewallPolicyChangeProtectionCommandOutput
-  extends UpdateFirewallPolicyChangeProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallPolicyChangeProtectionCommandOutput extends UpdateFirewallPolicyChangeProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the flag, <code>ChangeProtection</code>, which indicates whether it

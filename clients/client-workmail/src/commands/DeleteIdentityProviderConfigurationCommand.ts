@@ -27,9 +27,7 @@ export interface DeleteIdentityProviderConfigurationCommandInput extends DeleteI
  *
  * The output of {@link DeleteIdentityProviderConfigurationCommand}.
  */
-export interface DeleteIdentityProviderConfigurationCommandOutput
-  extends DeleteIdentityProviderConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteIdentityProviderConfigurationCommandOutput extends DeleteIdentityProviderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>

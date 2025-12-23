@@ -21,10 +21,4 @@ export const paginateListRegisteredSubscriptionProviders: (
   LicenseManagerLinuxSubscriptionsPaginationConfiguration,
   ListRegisteredSubscriptionProvidersCommandInput,
   ListRegisteredSubscriptionProvidersCommandOutput
->(
-  LicenseManagerLinuxSubscriptionsClient,
-  ListRegisteredSubscriptionProvidersCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(LicenseManagerLinuxSubscriptionsClient, ListRegisteredSubscriptionProvidersCommand, "NextToken", "NextToken", "MaxResults");

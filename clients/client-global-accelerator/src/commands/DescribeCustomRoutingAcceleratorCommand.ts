@@ -31,9 +31,7 @@ export interface DescribeCustomRoutingAcceleratorCommandInput extends DescribeCu
  *
  * The output of {@link DescribeCustomRoutingAcceleratorCommand}.
  */
-export interface DescribeCustomRoutingAcceleratorCommandOutput
-  extends DescribeCustomRoutingAcceleratorResponse,
-    __MetadataBearer {}
+export interface DescribeCustomRoutingAcceleratorCommandOutput extends DescribeCustomRoutingAcceleratorResponse, __MetadataBearer {}
 
 /**
  * <p>Describe a custom routing accelerator. </p>

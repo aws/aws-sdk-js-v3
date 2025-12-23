@@ -28,9 +28,7 @@ export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustom
  *
  * The output of {@link CreateCustomRoutingAcceleratorCommand}.
  */
-export interface CreateCustomRoutingAcceleratorCommandOutput
-  extends CreateCustomRoutingAcceleratorResponse,
-    __MetadataBearer {}
+export interface CreateCustomRoutingAcceleratorCommandOutput extends CreateCustomRoutingAcceleratorResponse, __MetadataBearer {}
 
 /**
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands

@@ -31,9 +31,7 @@ export interface BatchGetEffectiveLifecyclePolicyCommandInput extends BatchGetEf
  *
  * The output of {@link BatchGetEffectiveLifecyclePolicyCommand}.
  */
-export interface BatchGetEffectiveLifecyclePolicyCommandOutput
-  extends BatchGetEffectiveLifecyclePolicyResponse,
-    __MetadataBearer {}
+export interface BatchGetEffectiveLifecyclePolicyCommandOutput extends BatchGetEffectiveLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of successful and failed retrievals for the OpenSearch Serverless indexes. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>

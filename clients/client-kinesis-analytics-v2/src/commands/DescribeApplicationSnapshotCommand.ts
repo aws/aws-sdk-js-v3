@@ -28,9 +28,7 @@ export interface DescribeApplicationSnapshotCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationSnapshotCommand}.
  */
-export interface DescribeApplicationSnapshotCommandOutput
-  extends DescribeApplicationSnapshotResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationSnapshotCommandOutput extends DescribeApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a snapshot of application state data.</p>

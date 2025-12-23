@@ -24,9 +24,7 @@ export interface ListHandshakesForOrganizationCommandInput extends ListHandshake
  *
  * The output of {@link ListHandshakesForOrganizationCommand}.
  */
-export interface ListHandshakesForOrganizationCommandOutput
-  extends ListHandshakesForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListHandshakesForOrganizationCommandOutput extends ListHandshakesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recent handshakes that you have sent.</p>

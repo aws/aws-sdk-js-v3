@@ -2787,7 +2787,9 @@ export interface UpdateStaticPolicyDefinition {
  * <p>Contains information about updates to be applied to a policy.</p> <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicy.html">UpdatePolicy</a> operation.</p>
  * @public
  */
-export type UpdatePolicyDefinition = UpdatePolicyDefinition.StaticMember | UpdatePolicyDefinition.$UnknownMember;
+export type UpdatePolicyDefinition =
+  | UpdatePolicyDefinition.StaticMember
+  | UpdatePolicyDefinition.$UnknownMember;
 
 /**
  * @public
@@ -2964,7 +2966,9 @@ export interface UpdatePolicyTemplateOutput {
  * <p>Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to <code>STRICT</code>, then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.</p>
  * @public
  */
-export type SchemaDefinition = SchemaDefinition.CedarJsonMember | SchemaDefinition.$UnknownMember;
+export type SchemaDefinition =
+  | SchemaDefinition.CedarJsonMember
+  | SchemaDefinition.$UnknownMember;
 
 /**
  * @public

@@ -7,7 +7,7 @@ export * from "./ListCrossAccountResourcesPaginator";
 export * from "./ListCustomRoutingAcceleratorsPaginator";
 export * from "./ListCustomRoutingEndpointGroupsPaginator";
 export * from "./ListCustomRoutingListenersPaginator";
-export * from "./ListCustomRoutingPortMappingsByDestinationPaginator";
 export * from "./ListCustomRoutingPortMappingsPaginator";
+export * from "./ListCustomRoutingPortMappingsByDestinationPaginator";
 export * from "./ListEndpointGroupsPaginator";
 export * from "./ListListenersPaginator";

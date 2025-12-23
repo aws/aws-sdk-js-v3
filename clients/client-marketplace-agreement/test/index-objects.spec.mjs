@@ -31,6 +31,8 @@ import {
   MarketplaceAgreement,
   MarketplaceAgreementClient,
   MarketplaceAgreementServiceException,
+  paginateGetAgreementTerms,
+  paginateSearchAgreements,
   PaymentRequestApprovalStrategy,
   PaymentScheduleTerm$,
   ProposalSummary$,
@@ -63,8 +65,6 @@ import {
   ValidityTerm$,
   VariablePaymentTerm$,
   VariablePaymentTermConfiguration$,
-  paginateGetAgreementTerms,
-  paginateSearchAgreements,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

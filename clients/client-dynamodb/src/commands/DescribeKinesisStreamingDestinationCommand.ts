@@ -27,9 +27,7 @@ export interface DescribeKinesisStreamingDestinationCommandInput extends Describ
  *
  * The output of {@link DescribeKinesisStreamingDestinationCommand}.
  */
-export interface DescribeKinesisStreamingDestinationCommandOutput
-  extends DescribeKinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface DescribeKinesisStreamingDestinationCommandOutput extends DescribeKinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the status of Kinesis streaming.</p>

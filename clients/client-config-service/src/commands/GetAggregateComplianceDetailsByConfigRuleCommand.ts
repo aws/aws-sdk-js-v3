@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetAggregateComplianceDetailsByConfigRuleCommandInput
-  extends GetAggregateComplianceDetailsByConfigRuleRequest {}
+export interface GetAggregateComplianceDetailsByConfigRuleCommandInput extends GetAggregateComplianceDetailsByConfigRuleRequest {}
 /**
  * @public
  *
  * The output of {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
-  extends GetAggregateComplianceDetailsByConfigRuleResponse,
-    __MetadataBearer {}
+export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput extends GetAggregateComplianceDetailsByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified Config

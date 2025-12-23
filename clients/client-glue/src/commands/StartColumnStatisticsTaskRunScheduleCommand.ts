@@ -27,9 +27,7 @@ export interface StartColumnStatisticsTaskRunScheduleCommandInput extends StartC
  *
  * The output of {@link StartColumnStatisticsTaskRunScheduleCommand}.
  */
-export interface StartColumnStatisticsTaskRunScheduleCommandOutput
-  extends StartColumnStatisticsTaskRunScheduleResponse,
-    __MetadataBearer {}
+export interface StartColumnStatisticsTaskRunScheduleCommandOutput extends StartColumnStatisticsTaskRunScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a column statistics task run schedule.</p>

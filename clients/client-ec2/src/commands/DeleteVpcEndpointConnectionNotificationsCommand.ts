@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DeleteVpcEndpointConnectionNotificationsCommandInput
-  extends DeleteVpcEndpointConnectionNotificationsRequest {}
+export interface DeleteVpcEndpointConnectionNotificationsCommandInput extends DeleteVpcEndpointConnectionNotificationsRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
-export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
-  extends DeleteVpcEndpointConnectionNotificationsResult,
-    __MetadataBearer {}
+export interface DeleteVpcEndpointConnectionNotificationsCommandOutput extends DeleteVpcEndpointConnectionNotificationsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPC endpoint connection notifications.</p>

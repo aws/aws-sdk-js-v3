@@ -31,9 +31,7 @@ export interface UpdateProvisionedProductPropertiesCommandInput extends UpdatePr
  *
  * The output of {@link UpdateProvisionedProductPropertiesCommand}.
  */
-export interface UpdateProvisionedProductPropertiesCommandOutput
-  extends UpdateProvisionedProductPropertiesOutput,
-    __MetadataBearer {}
+export interface UpdateProvisionedProductPropertiesCommandOutput extends UpdateProvisionedProductPropertiesOutput, __MetadataBearer {}
 
 /**
  * <p>Requests updates to the properties of the specified provisioned product.</p>

@@ -89,8 +89,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -100,8 +106,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -115,7 +127,10 @@ export interface ElasticTranscoder {
     args: CreatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePipelineCommandOutput>;
-  createPipeline(args: CreatePipelineCommandInput, cb: (err: any, data?: CreatePipelineCommandOutput) => void): void;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -125,8 +140,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link CreatePresetCommand}
    */
-  createPreset(args: CreatePresetCommandInput, options?: __HttpHandlerOptions): Promise<CreatePresetCommandOutput>;
-  createPreset(args: CreatePresetCommandInput, cb: (err: any, data?: CreatePresetCommandOutput) => void): void;
+  createPreset(
+    args: CreatePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresetCommandOutput>;
+  createPreset(
+    args: CreatePresetCommandInput,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
   createPreset(
     args: CreatePresetCommandInput,
     options: __HttpHandlerOptions,
@@ -140,7 +161,10 @@ export interface ElasticTranscoder {
     args: DeletePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePipelineCommandOutput>;
-  deletePipeline(args: DeletePipelineCommandInput, cb: (err: any, data?: DeletePipelineCommandOutput) => void): void;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -150,8 +174,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link DeletePresetCommand}
    */
-  deletePreset(args: DeletePresetCommandInput, options?: __HttpHandlerOptions): Promise<DeletePresetCommandOutput>;
-  deletePreset(args: DeletePresetCommandInput, cb: (err: any, data?: DeletePresetCommandOutput) => void): void;
+  deletePreset(
+    args: DeletePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePresetCommandOutput>;
+  deletePreset(
+    args: DeletePresetCommandInput,
+    cb: (err: any, data?: DeletePresetCommandOutput) => void
+  ): void;
   deletePreset(
     args: DeletePresetCommandInput,
     options: __HttpHandlerOptions,
@@ -196,8 +226,14 @@ export interface ElasticTranscoder {
    * @see {@link ListPipelinesCommand}
    */
   listPipelines(): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
     options: __HttpHandlerOptions,
@@ -208,8 +244,14 @@ export interface ElasticTranscoder {
    * @see {@link ListPresetsCommand}
    */
   listPresets(): Promise<ListPresetsCommandOutput>;
-  listPresets(args: ListPresetsCommandInput, options?: __HttpHandlerOptions): Promise<ListPresetsCommandOutput>;
-  listPresets(args: ListPresetsCommandInput, cb: (err: any, data?: ListPresetsCommandOutput) => void): void;
+  listPresets(
+    args: ListPresetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPresetsCommandOutput>;
+  listPresets(
+    args: ListPresetsCommandInput,
+    cb: (err: any, data?: ListPresetsCommandOutput) => void
+  ): void;
   listPresets(
     args: ListPresetsCommandInput,
     options: __HttpHandlerOptions,
@@ -219,8 +261,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link ReadJobCommand}
    */
-  readJob(args: ReadJobCommandInput, options?: __HttpHandlerOptions): Promise<ReadJobCommandOutput>;
-  readJob(args: ReadJobCommandInput, cb: (err: any, data?: ReadJobCommandOutput) => void): void;
+  readJob(
+    args: ReadJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReadJobCommandOutput>;
+  readJob(
+    args: ReadJobCommandInput,
+    cb: (err: any, data?: ReadJobCommandOutput) => void
+  ): void;
   readJob(
     args: ReadJobCommandInput,
     options: __HttpHandlerOptions,
@@ -230,8 +278,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link ReadPipelineCommand}
    */
-  readPipeline(args: ReadPipelineCommandInput, options?: __HttpHandlerOptions): Promise<ReadPipelineCommandOutput>;
-  readPipeline(args: ReadPipelineCommandInput, cb: (err: any, data?: ReadPipelineCommandOutput) => void): void;
+  readPipeline(
+    args: ReadPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReadPipelineCommandOutput>;
+  readPipeline(
+    args: ReadPipelineCommandInput,
+    cb: (err: any, data?: ReadPipelineCommandOutput) => void
+  ): void;
   readPipeline(
     args: ReadPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -241,8 +295,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link ReadPresetCommand}
    */
-  readPreset(args: ReadPresetCommandInput, options?: __HttpHandlerOptions): Promise<ReadPresetCommandOutput>;
-  readPreset(args: ReadPresetCommandInput, cb: (err: any, data?: ReadPresetCommandOutput) => void): void;
+  readPreset(
+    args: ReadPresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReadPresetCommandOutput>;
+  readPreset(
+    args: ReadPresetCommandInput,
+    cb: (err: any, data?: ReadPresetCommandOutput) => void
+  ): void;
   readPreset(
     args: ReadPresetCommandInput,
     options: __HttpHandlerOptions,
@@ -252,8 +312,14 @@ export interface ElasticTranscoder {
   /**
    * @see {@link TestRoleCommand}
    */
-  testRole(args: TestRoleCommandInput, options?: __HttpHandlerOptions): Promise<TestRoleCommandOutput>;
-  testRole(args: TestRoleCommandInput, cb: (err: any, data?: TestRoleCommandOutput) => void): void;
+  testRole(
+    args: TestRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestRoleCommandOutput>;
+  testRole(
+    args: TestRoleCommandInput,
+    cb: (err: any, data?: TestRoleCommandOutput) => void
+  ): void;
   testRole(
     args: TestRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -267,7 +333,10 @@ export interface ElasticTranscoder {
     args: UpdatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePipelineCommandOutput>;
-  updatePipeline(args: UpdatePipelineCommandInput, cb: (err: any, data?: UpdatePipelineCommandOutput) => void): void;
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
   updatePipeline(
     args: UpdatePipelineCommandInput,
     options: __HttpHandlerOptions,

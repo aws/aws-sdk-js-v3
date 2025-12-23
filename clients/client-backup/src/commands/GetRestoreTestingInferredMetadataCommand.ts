@@ -27,9 +27,7 @@ export interface GetRestoreTestingInferredMetadataCommandInput extends GetRestor
  *
  * The output of {@link GetRestoreTestingInferredMetadataCommand}.
  */
-export interface GetRestoreTestingInferredMetadataCommandOutput
-  extends GetRestoreTestingInferredMetadataOutput,
-    __MetadataBearer {}
+export interface GetRestoreTestingInferredMetadataCommandOutput extends GetRestoreTestingInferredMetadataOutput, __MetadataBearer {}
 
 /**
  * <p>This request returns the minimal required set of metadata needed to

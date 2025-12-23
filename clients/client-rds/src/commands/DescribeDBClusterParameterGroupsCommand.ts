@@ -24,9 +24,7 @@ export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDB
  *
  * The output of {@link DescribeDBClusterParameterGroupsCommand}.
  */
-export interface DescribeDBClusterParameterGroupsCommandOutput
-  extends DBClusterParameterGroupsMessage,
-    __MetadataBearer {}
+export interface DescribeDBClusterParameterGroupsCommandOutput extends DBClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a

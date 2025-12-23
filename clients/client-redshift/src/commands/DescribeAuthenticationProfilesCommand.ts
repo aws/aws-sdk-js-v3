@@ -24,9 +24,7 @@ export interface DescribeAuthenticationProfilesCommandInput extends DescribeAuth
  *
  * The output of {@link DescribeAuthenticationProfilesCommand}.
  */
-export interface DescribeAuthenticationProfilesCommandOutput
-  extends DescribeAuthenticationProfilesResult,
-    __MetadataBearer {}
+export interface DescribeAuthenticationProfilesCommandOutput extends DescribeAuthenticationProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Describes an authentication profile.</p>

@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
+import {
+  ApplicationDiscoveryServiceServiceException as __BaseException,
+} from "./ApplicationDiscoveryServiceServiceException";
 
 /**
  * <p>The user does not have permission to perform the action. Check the IAM

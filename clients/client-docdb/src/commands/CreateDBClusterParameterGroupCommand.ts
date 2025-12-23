@@ -24,9 +24,7 @@ export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClust
  *
  * The output of {@link CreateDBClusterParameterGroupCommand}.
  */
-export interface CreateDBClusterParameterGroupCommandOutput
-  extends CreateDBClusterParameterGroupResult,
-    __MetadataBearer {}
+export interface CreateDBClusterParameterGroupCommandOutput extends CreateDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new cluster parameter group.</p>

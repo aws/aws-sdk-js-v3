@@ -249,8 +249,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -328,8 +334,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -356,8 +368,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link DeleteSpaceCommand}
    */
-  deleteSpace(args: DeleteSpaceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSpaceCommandOutput>;
-  deleteSpace(args: DeleteSpaceCommandInput, cb: (err: any, data?: DeleteSpaceCommandOutput) => void): void;
+  deleteSpace(
+    args: DeleteSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSpaceCommandOutput>;
+  deleteSpace(
+    args: DeleteSpaceCommandInput,
+    cb: (err: any, data?: DeleteSpaceCommandOutput) => void
+  ): void;
   deleteSpace(
     args: DeleteSpaceCommandInput,
     options: __HttpHandlerOptions,
@@ -384,8 +402,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link GetProjectCommand}
    */
-  getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
-  getProject(args: GetProjectCommandInput, cb: (err: any, data?: GetProjectCommandOutput) => void): void;
+  getProject(
+    args: GetProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProjectCommandOutput>;
+  getProject(
+    args: GetProjectCommandInput,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
   getProject(
     args: GetProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -429,8 +453,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link GetSpaceCommand}
    */
-  getSpace(args: GetSpaceCommandInput, options?: __HttpHandlerOptions): Promise<GetSpaceCommandOutput>;
-  getSpace(args: GetSpaceCommandInput, cb: (err: any, data?: GetSpaceCommandOutput) => void): void;
+  getSpace(
+    args: GetSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpaceCommandOutput>;
+  getSpace(
+    args: GetSpaceCommandInput,
+    cb: (err: any, data?: GetSpaceCommandOutput) => void
+  ): void;
   getSpace(
     args: GetSpaceCommandInput,
     options: __HttpHandlerOptions,
@@ -444,7 +474,10 @@ export interface CodeCatalyst {
     args: GetSubscriptionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSubscriptionCommandOutput>;
-  getSubscription(args: GetSubscriptionCommandInput, cb: (err: any, data?: GetSubscriptionCommandOutput) => void): void;
+  getSubscription(
+    args: GetSubscriptionCommandInput,
+    cb: (err: any, data?: GetSubscriptionCommandOutput) => void
+  ): void;
   getSubscription(
     args: GetSubscriptionCommandInput,
     options: __HttpHandlerOptions,
@@ -459,7 +492,10 @@ export interface CodeCatalyst {
     args: GetUserDetailsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUserDetailsCommandOutput>;
-  getUserDetails(args: GetUserDetailsCommandInput, cb: (err: any, data?: GetUserDetailsCommandOutput) => void): void;
+  getUserDetails(
+    args: GetUserDetailsCommandInput,
+    cb: (err: any, data?: GetUserDetailsCommandOutput) => void
+  ): void;
   getUserDetails(
     args: GetUserDetailsCommandInput,
     options: __HttpHandlerOptions,
@@ -469,8 +505,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link GetWorkflowCommand}
    */
-  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
@@ -484,7 +526,10 @@ export interface CodeCatalyst {
     args: GetWorkflowRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetWorkflowRunCommandOutput>;
-  getWorkflowRun(args: GetWorkflowRunCommandInput, cb: (err: any, data?: GetWorkflowRunCommandOutput) => void): void;
+  getWorkflowRun(
+    args: GetWorkflowRunCommandInput,
+    cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
+  ): void;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
@@ -546,8 +591,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link ListEventLogsCommand}
    */
-  listEventLogs(args: ListEventLogsCommandInput, options?: __HttpHandlerOptions): Promise<ListEventLogsCommandOutput>;
-  listEventLogs(args: ListEventLogsCommandInput, cb: (err: any, data?: ListEventLogsCommandOutput) => void): void;
+  listEventLogs(
+    args: ListEventLogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventLogsCommandOutput>;
+  listEventLogs(
+    args: ListEventLogsCommandInput,
+    cb: (err: any, data?: ListEventLogsCommandOutput) => void
+  ): void;
   listEventLogs(
     args: ListEventLogsCommandInput,
     options: __HttpHandlerOptions,
@@ -557,8 +608,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link ListProjectsCommand}
    */
-  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
   listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -603,8 +660,14 @@ export interface CodeCatalyst {
    * @see {@link ListSpacesCommand}
    */
   listSpaces(): Promise<ListSpacesCommandOutput>;
-  listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
-  listSpaces(args: ListSpacesCommandInput, cb: (err: any, data?: ListSpacesCommandOutput) => void): void;
+  listSpaces(
+    args: ListSpacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpacesCommandOutput>;
+  listSpaces(
+    args: ListSpacesCommandInput,
+    cb: (err: any, data?: ListSpacesCommandOutput) => void
+  ): void;
   listSpaces(
     args: ListSpacesCommandInput,
     options: __HttpHandlerOptions,
@@ -631,8 +694,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link ListWorkflowsCommand}
    */
-  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
-  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
@@ -744,8 +813,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link UpdateProjectCommand}
    */
-  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
-  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
   updateProject(
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -755,8 +830,14 @@ export interface CodeCatalyst {
   /**
    * @see {@link UpdateSpaceCommand}
    */
-  updateSpace(args: UpdateSpaceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSpaceCommandOutput>;
-  updateSpace(args: UpdateSpaceCommandInput, cb: (err: any, data?: UpdateSpaceCommandOutput) => void): void;
+  updateSpace(
+    args: UpdateSpaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSpaceCommandOutput>;
+  updateSpace(
+    args: UpdateSpaceCommandInput,
+    cb: (err: any, data?: UpdateSpaceCommandOutput) => void
+  ): void;
   updateSpace(
     args: UpdateSpaceCommandInput,
     options: __HttpHandlerOptions,
@@ -767,8 +848,14 @@ export interface CodeCatalyst {
    * @see {@link VerifySessionCommand}
    */
   verifySession(): Promise<VerifySessionCommandOutput>;
-  verifySession(args: VerifySessionCommandInput, options?: __HttpHandlerOptions): Promise<VerifySessionCommandOutput>;
-  verifySession(args: VerifySessionCommandInput, cb: (err: any, data?: VerifySessionCommandOutput) => void): void;
+  verifySession(
+    args: VerifySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifySessionCommandOutput>;
+  verifySession(
+    args: VerifySessionCommandInput,
+    cb: (err: any, data?: VerifySessionCommandOutput) => void
+  ): void;
   verifySession(
     args: VerifySessionCommandInput,
     options: __HttpHandlerOptions,

@@ -31,9 +31,7 @@ export interface GetAutoScalingGroupRecommendationsCommandInput extends GetAutoS
  *
  * The output of {@link GetAutoScalingGroupRecommendationsCommand}.
  */
-export interface GetAutoScalingGroupRecommendationsCommandOutput
-  extends GetAutoScalingGroupRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetAutoScalingGroupRecommendationsCommandOutput extends GetAutoScalingGroupRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon EC2 Auto Scaling group recommendations.</p>

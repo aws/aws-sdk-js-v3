@@ -24,9 +24,7 @@ export interface ListDistributionsByTrustStoreCommandInput extends ListDistribut
  *
  * The output of {@link ListDistributionsByTrustStoreCommand}.
  */
-export interface ListDistributionsByTrustStoreCommandOutput
-  extends ListDistributionsByTrustStoreResult,
-    __MetadataBearer {}
+export interface ListDistributionsByTrustStoreCommandOutput extends ListDistributionsByTrustStoreResult, __MetadataBearer {}
 
 /**
  * <p>Lists distributions by trust store.</p>

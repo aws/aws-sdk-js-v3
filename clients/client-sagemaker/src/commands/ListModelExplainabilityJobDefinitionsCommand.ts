@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListModelExplainabilityJobDefinitionsCommand}.
  */
-export interface ListModelExplainabilityJobDefinitionsCommandInput
-  extends ListModelExplainabilityJobDefinitionsRequest {}
+export interface ListModelExplainabilityJobDefinitionsCommandInput extends ListModelExplainabilityJobDefinitionsRequest {}
 /**
  * @public
  *
  * The output of {@link ListModelExplainabilityJobDefinitionsCommand}.
  */
-export interface ListModelExplainabilityJobDefinitionsCommandOutput
-  extends ListModelExplainabilityJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListModelExplainabilityJobDefinitionsCommandOutput extends ListModelExplainabilityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists model explainability job definitions that satisfy various filters.</p>

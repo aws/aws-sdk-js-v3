@@ -24,9 +24,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandInput extends ModifyWorks
  *
  * The output of {@link ModifyWorkspaceAccessPropertiesCommand}.
  */
-export interface ModifyWorkspaceAccessPropertiesCommandOutput
-  extends ModifyWorkspaceAccessPropertiesResult,
-    __MetadataBearer {}
+export interface ModifyWorkspaceAccessPropertiesCommandOutput extends ModifyWorkspaceAccessPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.

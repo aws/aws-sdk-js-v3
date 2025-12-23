@@ -27,9 +27,7 @@ export interface DescribeNotificationConfigurationCommandInput extends DescribeN
  *
  * The output of {@link DescribeNotificationConfigurationCommand}.
  */
-export interface DescribeNotificationConfigurationCommandOutput
-  extends DescribeNotificationConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeNotificationConfigurationCommandOutput extends DescribeNotificationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>

@@ -35,6 +35,11 @@ import {
   ListRequiredTagsCommand,
   ListRequiredTagsInput$,
   ListRequiredTagsOutput$,
+  paginateGetComplianceSummary,
+  paginateGetResources,
+  paginateGetTagKeys,
+  paginateGetTagValues,
+  paginateListRequiredTags,
   PaginationTokenExpiredException,
   PaginationTokenExpiredException$,
   RequiredTag$,
@@ -60,11 +65,6 @@ import {
   UntagResourcesCommand,
   UntagResourcesInput$,
   UntagResourcesOutput$,
-  paginateGetComplianceSummary,
-  paginateGetResources,
-  paginateGetTagKeys,
-  paginateGetTagValues,
-  paginateListRequiredTags,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

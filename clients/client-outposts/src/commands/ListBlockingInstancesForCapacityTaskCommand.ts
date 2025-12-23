@@ -27,9 +27,7 @@ export interface ListBlockingInstancesForCapacityTaskCommandInput extends ListBl
  *
  * The output of {@link ListBlockingInstancesForCapacityTaskCommand}.
  */
-export interface ListBlockingInstancesForCapacityTaskCommandOutput
-  extends ListBlockingInstancesForCapacityTaskOutput,
-    __MetadataBearer {}
+export interface ListBlockingInstancesForCapacityTaskCommandOutput extends ListBlockingInstancesForCapacityTaskOutput, __MetadataBearer {}
 
 /**
  * <p>A list of Amazon EC2 instances running on the Outpost and belonging to the account that

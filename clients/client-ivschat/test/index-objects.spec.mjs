@@ -63,6 +63,8 @@ import {
   LoggingConfigurationState,
   LoggingConfigurationSummary$,
   MessageReviewHandler$,
+  paginateListLoggingConfigurations,
+  paginateListRooms,
   PendingVerification,
   PendingVerification$,
   ResourceNotFoundException,
@@ -99,8 +101,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListLoggingConfigurations,
-  paginateListRooms,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

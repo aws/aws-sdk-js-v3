@@ -18,10 +18,8 @@ your Linux instance using EC2 Instance Connect</a>.</p>
 Reference</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ec2-instance-connect
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ec2-instance-connect`
 - `yarn add @aws-sdk/client-ec2-instance-connect`
 - `pnpm add @aws-sdk/client-ec2-instance-connect`
@@ -57,9 +55,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new EC2InstanceConnectClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new SendSSHPublicKeyCommand(params);
 ```
 
@@ -218,7 +214,6 @@ SendSerialConsoleSSHPublicKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSerialConsoleSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,5 +221,4 @@ SendSSHPublicKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandOutput/)
-
 </details>

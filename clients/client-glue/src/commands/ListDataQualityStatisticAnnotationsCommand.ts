@@ -27,9 +27,7 @@ export interface ListDataQualityStatisticAnnotationsCommandInput extends ListDat
  *
  * The output of {@link ListDataQualityStatisticAnnotationsCommand}.
  */
-export interface ListDataQualityStatisticAnnotationsCommandOutput
-  extends ListDataQualityStatisticAnnotationsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityStatisticAnnotationsCommandOutput extends ListDataQualityStatisticAnnotationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve annotations for a data quality statistic.</p>

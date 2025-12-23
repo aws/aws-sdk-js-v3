@@ -24,9 +24,7 @@ export interface ListAnnotationStoreVersionsCommandInput extends ListAnnotationS
  *
  * The output of {@link ListAnnotationStoreVersionsCommand}.
  */
-export interface ListAnnotationStoreVersionsCommandOutput
-  extends ListAnnotationStoreVersionsResponse,
-    __MetadataBearer {}
+export interface ListAnnotationStoreVersionsCommandOutput extends ListAnnotationStoreVersionsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the versions of an annotation store. </p>

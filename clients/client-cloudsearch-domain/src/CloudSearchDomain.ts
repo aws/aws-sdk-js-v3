@@ -21,8 +21,14 @@ export interface CloudSearchDomain {
   /**
    * @see {@link SearchCommand}
    */
-  search(args: SearchCommandInput, options?: __HttpHandlerOptions): Promise<SearchCommandOutput>;
-  search(args: SearchCommandInput, cb: (err: any, data?: SearchCommandOutput) => void): void;
+  search(
+    args: SearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchCommandOutput>;
+  search(
+    args: SearchCommandInput,
+    cb: (err: any, data?: SearchCommandOutput) => void
+  ): void;
   search(
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
@@ -32,8 +38,14 @@ export interface CloudSearchDomain {
   /**
    * @see {@link SuggestCommand}
    */
-  suggest(args: SuggestCommandInput, options?: __HttpHandlerOptions): Promise<SuggestCommandOutput>;
-  suggest(args: SuggestCommandInput, cb: (err: any, data?: SuggestCommandOutput) => void): void;
+  suggest(
+    args: SuggestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SuggestCommandOutput>;
+  suggest(
+    args: SuggestCommandInput,
+    cb: (err: any, data?: SuggestCommandOutput) => void
+  ): void;
   suggest(
     args: SuggestCommandInput,
     options: __HttpHandlerOptions,
@@ -47,7 +59,10 @@ export interface CloudSearchDomain {
     args: UploadDocumentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UploadDocumentsCommandOutput>;
-  uploadDocuments(args: UploadDocumentsCommandInput, cb: (err: any, data?: UploadDocumentsCommandOutput) => void): void;
+  uploadDocuments(
+    args: UploadDocumentsCommandInput,
+    cb: (err: any, data?: UploadDocumentsCommandOutput) => void
+  ): void;
   uploadDocuments(
     args: UploadDocumentsCommandInput,
     options: __HttpHandlerOptions,

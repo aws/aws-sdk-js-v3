@@ -24,9 +24,7 @@ export interface CreateSubscriberNotificationCommandInput extends CreateSubscrib
  *
  * The output of {@link CreateSubscriberNotificationCommand}.
  */
-export interface CreateSubscriberNotificationCommandOutput
-  extends CreateSubscriberNotificationResponse,
-    __MetadataBearer {}
+export interface CreateSubscriberNotificationCommandOutput extends CreateSubscriberNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Notifies the subscriber when new data is written to the data lake for the sources that

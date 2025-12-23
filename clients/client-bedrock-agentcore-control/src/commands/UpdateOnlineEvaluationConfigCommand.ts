@@ -28,9 +28,7 @@ export interface UpdateOnlineEvaluationConfigCommandInput extends UpdateOnlineEv
  *
  * The output of {@link UpdateOnlineEvaluationConfigCommand}.
  */
-export interface UpdateOnlineEvaluationConfigCommandOutput
-  extends UpdateOnlineEvaluationConfigResponse,
-    __MetadataBearer {}
+export interface UpdateOnlineEvaluationConfigCommandOutput extends UpdateOnlineEvaluationConfigResponse, __MetadataBearer {}
 
 /**
  * <p> Updates an online evaluation configuration's settings, including rules, data sources, evaluators, and execution status. Changes take effect immediately for ongoing evaluations. </p>

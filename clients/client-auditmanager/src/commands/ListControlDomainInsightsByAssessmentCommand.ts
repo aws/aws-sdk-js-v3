@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListControlDomainInsightsByAssessmentCommand}.
  */
-export interface ListControlDomainInsightsByAssessmentCommandInput
-  extends ListControlDomainInsightsByAssessmentRequest {}
+export interface ListControlDomainInsightsByAssessmentCommandInput extends ListControlDomainInsightsByAssessmentRequest {}
 /**
  * @public
  *
  * The output of {@link ListControlDomainInsightsByAssessmentCommand}.
  */
-export interface ListControlDomainInsightsByAssessmentCommandOutput
-  extends ListControlDomainInsightsByAssessmentResponse,
-    __MetadataBearer {}
+export interface ListControlDomainInsightsByAssessmentCommandOutput extends ListControlDomainInsightsByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p>Lists analytics data for control domains within a specified active assessment.</p>

@@ -7,7 +7,6 @@
 AWS SDK for JavaScript KinesisAnalytics Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Kinesis Analytics</fullname>
-
 <p>
 <b>Overview</b>
 </p>
@@ -19,10 +18,8 @@ The Amazon Kinesis Analytics Developer Guide provides additional information.
 </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kinesis-analytics
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kinesis-analytics`
 - `yarn add @aws-sdk/client-kinesis-analytics`
 - `pnpm add @aws-sdk/client-kinesis-analytics`
@@ -58,9 +55,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KinesisAnalyticsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListApplicationsCommand(params);
 ```
 
@@ -219,7 +214,6 @@ AddApplicationCloudWatchLoggingOption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/AddApplicationCloudWatchLoggingOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationCloudWatchLoggingOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationCloudWatchLoggingOptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ AddApplicationInput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/AddApplicationInputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationInputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationInputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ AddApplicationInputProcessingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/AddApplicationInputProcessingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationInputProcessingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationInputProcessingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ AddApplicationOutput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/AddApplicationOutputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationOutputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationOutputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ AddApplicationReferenceDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/AddApplicationReferenceDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationReferenceDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/AddApplicationReferenceDataSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ DeleteApplicationCloudWatchLoggingOption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DeleteApplicationCloudWatchLoggingOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationCloudWatchLoggingOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationCloudWatchLoggingOptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ DeleteApplicationInputProcessingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DeleteApplicationInputProcessingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationInputProcessingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationInputProcessingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ DeleteApplicationOutput
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DeleteApplicationOutputCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationOutputCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationOutputCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ DeleteApplicationReferenceDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DeleteApplicationReferenceDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationReferenceDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DeleteApplicationReferenceDataSourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ DescribeApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DescribeApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DescribeApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DescribeApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +298,6 @@ DiscoverInputSchema
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/DiscoverInputSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DiscoverInputSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/DiscoverInputSchemaCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +305,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +312,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +319,6 @@ StartApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/StartApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/StartApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/StartApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +326,6 @@ StopApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/StopApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/StopApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/StopApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +333,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +340,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,5 +347,4 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics/Interface/UpdateApplicationCommandOutput/)
-
 </details>

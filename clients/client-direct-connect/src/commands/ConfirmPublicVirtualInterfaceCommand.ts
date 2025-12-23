@@ -24,9 +24,7 @@ export interface ConfirmPublicVirtualInterfaceCommandInput extends ConfirmPublic
  *
  * The output of {@link ConfirmPublicVirtualInterfaceCommand}.
  */
-export interface ConfirmPublicVirtualInterfaceCommandOutput
-  extends ConfirmPublicVirtualInterfaceResponse,
-    __MetadataBearer {}
+export interface ConfirmPublicVirtualInterfaceCommandOutput extends ConfirmPublicVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a public virtual interface created by another Amazon Web Services account.</p>

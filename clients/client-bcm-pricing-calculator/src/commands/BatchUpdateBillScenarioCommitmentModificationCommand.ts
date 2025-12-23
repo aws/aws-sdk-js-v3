@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchUpdateBillScenarioCommitmentModificationCommandInput
-  extends BatchUpdateBillScenarioCommitmentModificationRequest {}
+export interface BatchUpdateBillScenarioCommitmentModificationCommandInput extends BatchUpdateBillScenarioCommitmentModificationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateBillScenarioCommitmentModificationCommand}.
  */
-export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput
-  extends BatchUpdateBillScenarioCommitmentModificationResponse,
-    __MetadataBearer {}
+export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput extends BatchUpdateBillScenarioCommitmentModificationResponse, __MetadataBearer {}
 
 /**
  * <p> Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID. </p> <note> <p>The <code>BatchUpdateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:UpdateBillScenarioCommitmentModification</code> in your policies.</p> </note>

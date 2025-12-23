@@ -7,7 +7,6 @@
 AWS SDK for JavaScript ApplicationDiscoveryService Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Web Services Application Discovery Service</fullname>
-
 <p>Amazon Web Services Application Discovery Service (Application Discovery Service) helps you plan application migration projects. It automatically
 identifies servers, virtual machines (VMs), and network dependencies in your on-premises data
 centers. For more information, see the <a href="http://aws.amazon.com/application-discovery/faqs/">Amazon Web Services Application Discovery Service FAQ</a>. </p>
@@ -115,10 +114,8 @@ inspect collected data before it is shared with the service.</p>
 </important>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-application-discovery-service
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-application-discovery-service`
 - `yarn add @aws-sdk/client-application-discovery-service`
 - `pnpm add @aws-sdk/client-application-discovery-service`
@@ -133,18 +130,12 @@ the commands you need, for example `ListConfigurationsCommand`:
 
 ```js
 // ES5 example
-const {
-  ApplicationDiscoveryServiceClient,
-  ListConfigurationsCommand,
-} = require("@aws-sdk/client-application-discovery-service");
+const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ApplicationDiscoveryServiceClient,
-  ListConfigurationsCommand,
-} from "@aws-sdk/client-application-discovery-service";
+import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service";
 ```
 
 ### Usage
@@ -160,9 +151,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ApplicationDiscoveryServiceClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConfigurationsCommand(params);
 ```
 
@@ -321,7 +310,6 @@ AssociateConfigurationItemsToApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/AssociateConfigurationItemsToApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/AssociateConfigurationItemsToApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/AssociateConfigurationItemsToApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +317,6 @@ BatchDeleteAgents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/BatchDeleteAgentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/BatchDeleteAgentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/BatchDeleteAgentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +324,6 @@ BatchDeleteImportData
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/BatchDeleteImportDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/BatchDeleteImportDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/BatchDeleteImportDataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +331,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +338,6 @@ CreateTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/CreateTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/CreateTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/CreateTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +345,6 @@ DeleteApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DeleteApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DeleteApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DeleteApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +352,6 @@ DeleteTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DeleteTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DeleteTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DeleteTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +359,6 @@ DescribeAgents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeAgentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeAgentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeAgentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +366,6 @@ DescribeBatchDeleteConfigurationTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeBatchDeleteConfigurationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeBatchDeleteConfigurationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeBatchDeleteConfigurationTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +373,6 @@ DescribeConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +380,6 @@ DescribeContinuousExports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeContinuousExportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeContinuousExportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeContinuousExportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +387,6 @@ DescribeExportConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeExportConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeExportConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeExportConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +394,6 @@ DescribeExportTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeExportTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeExportTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeExportTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +401,6 @@ DescribeImportTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeImportTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeImportTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeImportTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +408,6 @@ DescribeTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DescribeTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DescribeTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +415,6 @@ DisassociateConfigurationItemsFromApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/DisassociateConfigurationItemsFromApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DisassociateConfigurationItemsFromApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/DisassociateConfigurationItemsFromApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +422,6 @@ ExportConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/ExportConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ExportConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ExportConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +429,6 @@ GetDiscoverySummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/GetDiscoverySummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/GetDiscoverySummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/GetDiscoverySummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +436,6 @@ ListConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/ListConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ListConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ListConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +443,6 @@ ListServerNeighbors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/ListServerNeighborsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ListServerNeighborsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/ListServerNeighborsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,7 +450,6 @@ StartBatchDeleteConfigurationTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StartBatchDeleteConfigurationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartBatchDeleteConfigurationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartBatchDeleteConfigurationTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -489,7 +457,6 @@ StartContinuousExport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StartContinuousExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartContinuousExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartContinuousExportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -497,7 +464,6 @@ StartDataCollectionByAgentIds
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StartDataCollectionByAgentIdsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartDataCollectionByAgentIdsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartDataCollectionByAgentIdsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -505,7 +471,6 @@ StartExportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StartExportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartExportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartExportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -513,7 +478,6 @@ StartImportTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StartImportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartImportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StartImportTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -521,7 +485,6 @@ StopContinuousExport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StopContinuousExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StopContinuousExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StopContinuousExportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -529,7 +492,6 @@ StopDataCollectionByAgentIds
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/StopDataCollectionByAgentIdsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StopDataCollectionByAgentIdsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/StopDataCollectionByAgentIdsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -537,5 +499,4 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-discovery-service/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-discovery-service/Interface/UpdateApplicationCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface ListInfrastructureConfigurationsCommandInput extends ListInfras
  *
  * The output of {@link ListInfrastructureConfigurationsCommand}.
  */
-export interface ListInfrastructureConfigurationsCommandOutput
-  extends ListInfrastructureConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListInfrastructureConfigurationsCommandOutput extends ListInfrastructureConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of infrastructure configurations.</p>

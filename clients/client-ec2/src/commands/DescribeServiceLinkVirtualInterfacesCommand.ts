@@ -27,9 +27,7 @@ export interface DescribeServiceLinkVirtualInterfacesCommandInput extends Descri
  *
  * The output of {@link DescribeServiceLinkVirtualInterfacesCommand}.
  */
-export interface DescribeServiceLinkVirtualInterfacesCommandOutput
-  extends DescribeServiceLinkVirtualInterfacesResult,
-    __MetadataBearer {}
+export interface DescribeServiceLinkVirtualInterfacesCommandOutput extends DescribeServiceLinkVirtualInterfacesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Outpost service link virtual interfaces.</p>

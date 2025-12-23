@@ -31,9 +31,7 @@ export interface GetWorkloadAccessTokenForUserIdCommandInput extends GetWorkload
  *
  * The output of {@link GetWorkloadAccessTokenForUserIdCommand}.
  */
-export interface GetWorkloadAccessTokenForUserIdCommandOutput
-  extends GetWorkloadAccessTokenForUserIdResponse,
-    __MetadataBearer {}
+export interface GetWorkloadAccessTokenForUserIdCommandOutput extends GetWorkloadAccessTokenForUserIdResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains a workload access token for agentic workloads acting on behalf of a user, using the user's ID.</p>

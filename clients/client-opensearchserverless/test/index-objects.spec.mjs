@@ -163,6 +163,12 @@ import {
   OpenSearchServerless,
   OpenSearchServerlessClient,
   OpenSearchServerlessServiceException,
+  paginateListAccessPolicies,
+  paginateListCollections,
+  paginateListLifecyclePolicies,
+  paginateListSecurityConfigs,
+  paginateListSecurityPolicies,
+  paginateListVpcEndpoints,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
@@ -231,12 +237,6 @@ import {
   VpcEndpointFilters$,
   VpcEndpointStatus,
   VpcEndpointSummary$,
-  paginateListAccessPolicies,
-  paginateListCollections,
-  paginateListLifecyclePolicies,
-  paginateListSecurityConfigs,
-  paginateListSecurityPolicies,
-  paginateListVpcEndpoints,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

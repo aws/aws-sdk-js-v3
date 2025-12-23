@@ -24,9 +24,7 @@ export interface DescribeAppVersionAppComponentCommandInput extends DescribeAppV
  *
  * The output of {@link DescribeAppVersionAppComponentCommand}.
  */
-export interface DescribeAppVersionAppComponentCommandOutput
-  extends DescribeAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface DescribeAppVersionAppComponentCommandOutput extends DescribeAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an Application Component in the Resilience Hub application.</p>

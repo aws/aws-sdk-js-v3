@@ -55,6 +55,11 @@ import {
   ObjectiveFilter$,
   ObjectiveResourceFilter$,
   ObjectiveSummary$,
+  paginateListCommonControls,
+  paginateListControlMappings,
+  paginateListControls,
+  paginateListDomains,
+  paginateListObjectives,
   RegionConfiguration$,
   RelatedControlMappingDetails$,
   ResourceNotFoundException,
@@ -63,11 +68,6 @@ import {
   ThrottlingException$,
   ValidationException,
   ValidationException$,
-  paginateListCommonControls,
-  paginateListControlMappings,
-  paginateListControls,
-  paginateListDomains,
-  paginateListObjectives,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -27,9 +27,7 @@ export interface GetRateBasedStatementManagedKeysCommandInput extends GetRateBas
  *
  * The output of {@link GetRateBasedStatementManagedKeysCommand}.
  */
-export interface GetRateBasedStatementManagedKeysCommandOutput
-  extends GetRateBasedStatementManagedKeysResponse,
-    __MetadataBearer {}
+export interface GetRateBasedStatementManagedKeysCommandOutput extends GetRateBasedStatementManagedKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the IP addresses that are currently blocked by a rate-based rule instance. This

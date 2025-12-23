@@ -28,9 +28,7 @@ export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecov
  *
  * The output of {@link ConvertRecoveryPointToSnapshotCommand}.
  */
-export interface ConvertRecoveryPointToSnapshotCommandOutput
-  extends ConvertRecoveryPointToSnapshotResponse,
-    __MetadataBearer {}
+export interface ConvertRecoveryPointToSnapshotCommandOutput extends ConvertRecoveryPointToSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>

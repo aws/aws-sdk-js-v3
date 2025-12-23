@@ -695,2147 +695,1053 @@ import {
 import { KafkaServiceException } from "../models/KafkaServiceException";
 
 /* eslint no-var: 0 */
-export var AmazonMskCluster$: StaticStructureSchema = [3, n0, _AMC, 0, [_MCA], [[0, { [_jN]: _mCA }]]];
-export var BadRequestException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
+export var AmazonMskCluster$: StaticStructureSchema = [3, n0, _AMC,
+  0,
+  [_MCA],
+  [[0, { [_jN]: _mCA }]]
+];
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BASSR,
+export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BASSR,
   0,
   [_CA, _SAL],
-  [
-    [0, 1],
-    [64 | 0, { [_jN]: _sAL }],
-  ],
+  [[0, 1], [64 | 0, { [_jN]: _sAL }]]
 ];
-export var BatchAssociateScramSecretResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BASSRa,
+export var BatchAssociateScramSecretResponse$: StaticStructureSchema = [3, n0, _BASSRa,
   0,
   [_CA, _USS],
-  [
-    [0, { [_jN]: _cA }],
-    [() => __listOfUnprocessedScramSecret, { [_jN]: _uSS }],
-  ],
+  [[0, { [_jN]: _cA }], [() => __listOfUnprocessedScramSecret, { [_jN]: _uSS }]]
 ];
-export var BatchDisassociateScramSecretRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDSSR,
+export var BatchDisassociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BDSSR,
   0,
   [_CA, _SAL],
-  [
-    [0, 1],
-    [64 | 0, { [_jN]: _sAL }],
-  ],
+  [[0, 1], [64 | 0, { [_jN]: _sAL }]]
 ];
-export var BatchDisassociateScramSecretResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDSSRa,
+export var BatchDisassociateScramSecretResponse$: StaticStructureSchema = [3, n0, _BDSSRa,
   0,
   [_CA, _USS],
-  [
-    [0, { [_jN]: _cA }],
-    [() => __listOfUnprocessedScramSecret, { [_jN]: _uSS }],
-  ],
+  [[0, { [_jN]: _cA }], [() => __listOfUnprocessedScramSecret, { [_jN]: _uSS }]]
 ];
-export var BrokerCountUpdateInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BCUI,
+export var BrokerCountUpdateInfo$: StaticStructureSchema = [3, n0, _BCUI,
   0,
   [_CBI, _DBI],
-  [
-    [64 | 1, { [_jN]: _cBI }],
-    [64 | 1, { [_jN]: _dBI }],
-  ],
+  [[64 | 1, { [_jN]: _cBI }], [64 | 1, { [_jN]: _dBI }]]
 ];
-export var BrokerEBSVolumeInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BEBSVI,
+export var BrokerEBSVolumeInfo$: StaticStructureSchema = [3, n0, _BEBSVI,
   0,
   [_KBNI, _PT, _VSGB],
-  [
-    [0, { [_jN]: _kBNI }],
-    [() => ProvisionedThroughput$, { [_jN]: _pT }],
-    [1, { [_jN]: _vSGB }],
-  ],
+  [[0, { [_jN]: _kBNI }], [() => ProvisionedThroughput$, { [_jN]: _pT }], [1, { [_jN]: _vSGB }]]
 ];
-export var BrokerLogs$: StaticStructureSchema = [
-  3,
-  n0,
-  _BL,
+export var BrokerLogs$: StaticStructureSchema = [3, n0, _BL,
   0,
   [_CWL, _F, _S],
-  [
-    [() => CloudWatchLogs$, { [_jN]: _cWL }],
-    [() => Firehose$, { [_jN]: _f }],
-    [() => S3$, { [_jN]: _s }],
-  ],
+  [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s }]]
 ];
-export var BrokerNodeGroupInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BNGI,
+export var BrokerNodeGroupInfo$: StaticStructureSchema = [3, n0, _BNGI,
   0,
   [_BAZD, _CS, _IT, _SG, _SI, _CI, _ZI],
-  [
-    [0, { [_jN]: _bAZD }],
-    [64 | 0, { [_jN]: _cS }],
-    [0, { [_jN]: _iT }],
-    [64 | 0, { [_jN]: _sG }],
-    [() => StorageInfo$, { [_jN]: _sI }],
-    [() => ConnectivityInfo$, { [_jN]: _cI }],
-    [64 | 0, { [_jN]: _zI }],
-  ],
+  [[0, { [_jN]: _bAZD }], [64 | 0, { [_jN]: _cS }], [0, { [_jN]: _iT }], [64 | 0, { [_jN]: _sG }], [() => StorageInfo$, { [_jN]: _sI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [64 | 0, { [_jN]: _zI }]]
 ];
-export var BrokerNodeInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BNI,
+export var BrokerNodeInfo$: StaticStructureSchema = [3, n0, _BNI,
   0,
   [_AENII, _BI, _CSl, _CVIA, _CBSI, _E],
-  [
-    [0, { [_jN]: _aENII }],
-    [1, { [_jN]: _bI }],
-    [0, { [_jN]: _cSl }],
-    [0, { [_jN]: _cVIA }],
-    [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }],
-    [64 | 0, { [_jN]: _en }],
-  ],
+  [[0, { [_jN]: _aENII }], [1, { [_jN]: _bI }], [0, { [_jN]: _cSl }], [0, { [_jN]: _cVIA }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [64 | 0, { [_jN]: _en }]]
 ];
-export var BrokerSoftwareInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _BSI,
+export var BrokerSoftwareInfo$: StaticStructureSchema = [3, n0, _BSI,
   0,
   [_CAo, _CR, _KV],
-  [
-    [0, { [_jN]: _cAo }],
-    [1, { [_jN]: _cR }],
-    [0, { [_jN]: _kV }],
-  ],
+  [[0, { [_jN]: _cAo }], [1, { [_jN]: _cR }], [0, { [_jN]: _kV }]]
 ];
-export var ClientAuthentication$: StaticStructureSchema = [
-  3,
-  n0,
-  _CAl,
+export var ClientAuthentication$: StaticStructureSchema = [3, n0, _CAl,
   0,
   [_Sa, _T, _U],
-  [
-    [() => Sasl$, { [_jN]: _sa }],
-    [() => Tls$, { [_jN]: _t }],
-    [() => Unauthenticated$, { [_jN]: _u }],
-  ],
+  [[() => Sasl$, { [_jN]: _sa }], [() => Tls$, { [_jN]: _t }], [() => Unauthenticated$, { [_jN]: _u }]]
 ];
-export var ClientVpcConnection$: StaticStructureSchema = [
-  3,
-  n0,
-  _CVC,
+export var ClientVpcConnection$: StaticStructureSchema = [3, n0, _CVC,
   0,
   [_A, _CT, _St, _VCA, _O],
-  [
-    [0, { [_jN]: _a }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _st }],
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _o }],
-  ],
+  [[0, { [_jN]: _a }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }], [0, { [_jN]: _vCA }], [0, { [_jN]: _o }]]
 ];
-export var CloudWatchLogs$: StaticStructureSchema = [
-  3,
-  n0,
-  _CWL,
+export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
   0,
   [_En, _LG],
-  [
-    [2, { [_jN]: _ena }],
-    [0, { [_jN]: _lG }],
-  ],
+  [[2, { [_jN]: _ena }], [0, { [_jN]: _lG }]]
 ];
-export var Cluster$: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
+export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AOA, _CTl, _CA, _CN, _CT, _CV, _St, _SIt, _Ta, _P, _Se],
-  [
-    [0, { [_jN]: _aOA }],
-    [0, { [_jN]: _cTl }],
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cN }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _st }],
-    [() => StateInfo$, { [_jN]: _sIt }],
-    [128 | 0, { [_jN]: _ta }],
-    [() => Provisioned$, { [_jN]: _p }],
-    [() => Serverless$, { [_jN]: _se }],
-  ],
+  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _se }]]
 ];
-export var ClusterInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _CIl,
+export var ClusterInfo$: StaticStructureSchema = [3, n0, _CIl,
   0,
   [_AOA, _BNGI, _R, _CAl, _CA, _CN, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _St, _SIt, _Ta, _ZCS, _ZCST, _SM, _CAS],
-  [
-    [0, { [_jN]: _aOA }],
-    [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }],
-    [() => Rebalancing$, { [_jN]: _r }],
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cN }],
-    [5, { [_jN]: _cT }],
-    [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }],
-    [0, { [_jN]: _cV }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoring$, { [_jN]: _oM }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-    [1, { [_jN]: _nOBN }],
-    [0, { [_jN]: _st }],
-    [() => StateInfo$, { [_jN]: _sIt }],
-    [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _zCS }],
-    [0, { [_jN]: _zCST }],
-    [0, { [_jN]: _sM }],
-    [0, { [_jN]: _cAS }],
-  ],
+  [[0, { [_jN]: _aOA }], [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
 ];
-export var ClusterOperationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _COI,
+export var ClusterOperationInfo$: StaticStructureSchema = [3, n0, _COI,
   0,
   [_CRI, _CA, _CT, _ET, _EIr, _OA, _OS, _OSp, _OT, _SCI, _TCI, _VCI],
-  [
-    [0, { [_jN]: _cRI }],
-    [0, { [_jN]: _cA }],
-    [5, { [_jN]: _cT }],
-    [5, { [_jN]: _eT }],
-    [() => ErrorInfo$, { [_jN]: _eIr }],
-    [0, { [_jN]: _oA }],
-    [0, { [_jN]: _oS }],
-    [() => __listOfClusterOperationStep, { [_jN]: _oSp }],
-    [0, { [_jN]: _oT }],
-    [() => MutableClusterInfo$, { [_jN]: _sCI }],
-    [() => MutableClusterInfo$, { [_jN]: _tCI }],
-    [() => VpcConnectionInfo$, { [_jN]: _vCI }],
-  ],
+  [[0, { [_jN]: _cRI }], [0, { [_jN]: _cA }], [5, { [_jN]: _cT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [() => __listOfClusterOperationStep, { [_jN]: _oSp }], [0, { [_jN]: _oT }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
 ];
-export var ClusterOperationStep$: StaticStructureSchema = [
-  3,
-  n0,
-  _COS,
+export var ClusterOperationStep$: StaticStructureSchema = [3, n0, _COS,
   0,
   [_SIte, _SN],
-  [
-    [() => ClusterOperationStepInfo$, { [_jN]: _sIte }],
-    [0, { [_jN]: _sN }],
-  ],
+  [[() => ClusterOperationStepInfo$, { [_jN]: _sIte }], [0, { [_jN]: _sN }]]
 ];
-export var ClusterOperationStepInfo$: StaticStructureSchema = [3, n0, _COSI, 0, [_SS], [[0, { [_jN]: _sS }]]];
-export var ClusterOperationV2$: StaticStructureSchema = [
-  3,
-  n0,
-  _COV,
+export var ClusterOperationStepInfo$: StaticStructureSchema = [3, n0, _COSI,
+  0,
+  [_SS],
+  [[0, { [_jN]: _sS }]]
+];
+export var ClusterOperationV2$: StaticStructureSchema = [3, n0, _COV,
   0,
   [_CA, _CTl, _ST, _ET, _EIr, _OA, _OS, _OT, _P, _Se],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cTl }],
-    [5, { [_jN]: _sT }],
-    [5, { [_jN]: _eT }],
-    [() => ErrorInfo$, { [_jN]: _eIr }],
-    [0, { [_jN]: _oA }],
-    [0, { [_jN]: _oS }],
-    [0, { [_jN]: _oT }],
-    [() => ClusterOperationV2Provisioned$, { [_jN]: _p }],
-    [() => ClusterOperationV2Serverless$, { [_jN]: _se }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cTl }], [5, { [_jN]: _sT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [0, { [_jN]: _oT }], [() => ClusterOperationV2Provisioned$, { [_jN]: _p }], [() => ClusterOperationV2Serverless$, { [_jN]: _se }]]
 ];
-export var ClusterOperationV2Provisioned$: StaticStructureSchema = [
-  3,
-  n0,
-  _COVP,
+export var ClusterOperationV2Provisioned$: StaticStructureSchema = [3, n0, _COVP,
   0,
   [_OSp, _SCI, _TCI, _VCI],
-  [
-    [() => __listOfClusterOperationStep, { [_jN]: _oSp }],
-    [() => MutableClusterInfo$, { [_jN]: _sCI }],
-    [() => MutableClusterInfo$, { [_jN]: _tCI }],
-    [() => VpcConnectionInfo$, { [_jN]: _vCI }],
-  ],
+  [[() => __listOfClusterOperationStep, { [_jN]: _oSp }], [() => MutableClusterInfo$, { [_jN]: _sCI }], [() => MutableClusterInfo$, { [_jN]: _tCI }], [() => VpcConnectionInfo$, { [_jN]: _vCI }]]
 ];
-export var ClusterOperationV2Serverless$: StaticStructureSchema = [
-  3,
-  n0,
-  _COVS,
+export var ClusterOperationV2Serverless$: StaticStructureSchema = [3, n0, _COVS,
   0,
   [_VCI],
-  [[() => VpcConnectionInfoServerless$, { [_jN]: _vCI }]],
+  [[() => VpcConnectionInfoServerless$, { [_jN]: _vCI }]]
 ];
-export var ClusterOperationV2Summary$: StaticStructureSchema = [
-  3,
-  n0,
-  _COVSl,
+export var ClusterOperationV2Summary$: StaticStructureSchema = [3, n0, _COVSl,
   0,
   [_CA, _CTl, _ST, _ET, _OA, _OS, _OT],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cTl }],
-    [5, { [_jN]: _sT }],
-    [5, { [_jN]: _eT }],
-    [0, { [_jN]: _oA }],
-    [0, { [_jN]: _oS }],
-    [0, { [_jN]: _oT }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cTl }], [5, { [_jN]: _sT }], [5, { [_jN]: _eT }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [0, { [_jN]: _oT }]]
 ];
-export var CompatibleKafkaVersion$: StaticStructureSchema = [
-  3,
-  n0,
-  _CKV,
+export var CompatibleKafkaVersion$: StaticStructureSchema = [3, n0, _CKV,
   0,
   [_SV, _TV],
-  [
-    [0, { [_jN]: _sV }],
-    [64 | 0, { [_jN]: _tV }],
-  ],
+  [[0, { [_jN]: _sV }], [64 | 0, { [_jN]: _tV }]]
 ];
-export var Configuration$: StaticStructureSchema = [
-  3,
-  n0,
-  _Co,
+export var Configuration$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_Ar, _CT, _D, _KVa, _LR, _N, _St],
-  [
-    [0, { [_jN]: _ar }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _d }],
-    [64 | 0, { [_jN]: _kVa }],
-    [() => ConfigurationRevision$, { [_jN]: _lR }],
-    [0, { [_jN]: _n }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]]
 ];
-export var ConfigurationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _CIo,
+export var ConfigurationInfo$: StaticStructureSchema = [3, n0, _CIo,
   0,
   [_Ar, _Re],
-  [
-    [0, { [_jN]: _ar }],
-    [1, { [_jN]: _re }],
-  ],
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _re }]]
 ];
-export var ConfigurationRevision$: StaticStructureSchema = [
-  3,
-  n0,
-  _CR,
+export var ConfigurationRevision$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_CT, _D, _Re],
-  [
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _d }],
-    [1, { [_jN]: _re }],
-  ],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _d }], [1, { [_jN]: _re }]]
 ];
-export var ConflictException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ConnectivityInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _CI,
+export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_PA, _VC],
-  [
-    [() => PublicAccess$, { [_jN]: _pA }],
-    [() => VpcConnectivity$, { [_jN]: _vC }],
-  ],
+  [[() => PublicAccess$, { [_jN]: _pA }], [() => VpcConnectivity$, { [_jN]: _vC }]]
 ];
-export var ConsumerGroupReplication$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGR,
+export var ConsumerGroupReplication$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_CGTE, _CGTR, _DACNCG, _SCGO],
-  [
-    [64 | 0, { [_jN]: _cGTE }],
-    [64 | 0, { [_jN]: _cGTR }],
-    [2, { [_jN]: _dACNCG }],
-    [2, { [_jN]: _sCGO }],
-  ],
+  [[64 | 0, { [_jN]: _cGTE }], [64 | 0, { [_jN]: _cGTR }], [2, { [_jN]: _dACNCG }], [2, { [_jN]: _sCGO }]]
 ];
-export var ConsumerGroupReplicationUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGRU,
+export var ConsumerGroupReplicationUpdate$: StaticStructureSchema = [3, n0, _CGRU,
   0,
   [_CGTE, _CGTR, _DACNCG, _SCGO],
-  [
-    [64 | 0, { [_jN]: _cGTE }],
-    [64 | 0, { [_jN]: _cGTR }],
-    [2, { [_jN]: _dACNCG }],
-    [2, { [_jN]: _sCGO }],
-  ],
+  [[64 | 0, { [_jN]: _cGTE }], [64 | 0, { [_jN]: _cGTR }], [2, { [_jN]: _dACNCG }], [2, { [_jN]: _sCGO }]]
 ];
-export var ControllerNodeInfo$: StaticStructureSchema = [3, n0, _CNI, 0, [_E], [[64 | 0, { [_jN]: _en }]]];
-export var CreateClusterRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCR,
+export var ControllerNodeInfo$: StaticStructureSchema = [3, n0, _CNI,
+  0,
+  [_E],
+  [[64 | 0, { [_jN]: _en }]]
+];
+export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_BNGI, _R, _CAl, _CN, _CIo, _EI, _EM, _OM, _KV, _LI, _NOBN, _Ta, _SM],
-  [
-    [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }],
-    [() => Rebalancing$, { [_jN]: _r }],
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [0, { [_jN]: _cN }],
-    [() => ConfigurationInfo$, { [_jN]: _cIo }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoringInfo$, { [_jN]: _oM }],
-    [0, { [_jN]: _kV }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-    [1, { [_jN]: _nOBN }],
-    [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _sM }],
-  ],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cN }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _sM }]]
 ];
-export var CreateClusterResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCRr,
+export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_CA, _CN, _St],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cN }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }]]
 ];
-export var CreateClusterV2Request$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCVR,
+export var CreateClusterV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
   [_CN, _Ta, _P, _Se],
-  [
-    [0, { [_jN]: _cN }],
-    [128 | 0, { [_jN]: _ta }],
-    [() => ProvisionedRequest$, { [_jN]: _p }],
-    [() => ServerlessRequest$, { [_jN]: _se }],
-  ],
+  [[0, { [_jN]: _cN }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _se }]]
 ];
-export var CreateClusterV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCVRr,
+export var CreateClusterV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
   [_CA, _CN, _St, _CTl],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cN }],
-    [0, { [_jN]: _st }],
-    [0, { [_jN]: _cTl }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [0, { [_jN]: _cTl }]]
 ];
-export var CreateConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCRre,
+export var CreateConfigurationRequest$: StaticStructureSchema = [3, n0, _CCRre,
   0,
   [_D, _KVa, _N, _SP],
-  [
-    [0, { [_jN]: _d }],
-    [64 | 0, { [_jN]: _kVa }],
-    [0, { [_jN]: _n }],
-    [21, { [_jN]: _sP }],
-  ],
+  [[0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [0, { [_jN]: _n }], [21, { [_jN]: _sP }]]
 ];
-export var CreateConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCRrea,
+export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
   [_Ar, _CT, _LR, _N, _St],
-  [
-    [0, { [_jN]: _ar }],
-    [5, { [_jN]: _cT }],
-    [() => ConfigurationRevision$, { [_jN]: _lR }],
-    [0, { [_jN]: _n }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]]
 ];
-export var CreateReplicatorRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRR,
+export var CreateReplicatorRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_D, _KC, _RIL, _RN, _SERA, _Ta],
-  [
-    [0, { [_jN]: _d }],
-    [() => __listOfKafkaCluster, { [_jN]: _kC }],
-    [() => __listOfReplicationInfo, { [_jN]: _rIL }],
-    [0, { [_jN]: _rN }],
-    [0, { [_jN]: _sERA }],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[0, { [_jN]: _d }], [() => __listOfKafkaCluster, { [_jN]: _kC }], [() => __listOfReplicationInfo, { [_jN]: _rIL }], [0, { [_jN]: _rN }], [0, { [_jN]: _sERA }], [128 | 0, { [_jN]: _ta }]]
 ];
-export var CreateReplicatorResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRRr,
+export var CreateReplicatorResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_RA, _RN, _RS],
-  [
-    [0, { [_jN]: _rA }],
-    [0, { [_jN]: _rN }],
-    [0, { [_jN]: _rS }],
-  ],
+  [[0, { [_jN]: _rA }], [0, { [_jN]: _rN }], [0, { [_jN]: _rS }]]
 ];
-export var CreateVpcConnectionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CVCR,
+export var CreateVpcConnectionRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
   [_TCA, _A, _VI, _CS, _SG, _Ta],
-  [
-    [0, { [_jN]: _tCA }],
-    [0, { [_jN]: _a }],
-    [0, { [_jN]: _vI }],
-    [64 | 0, { [_jN]: _cS }],
-    [64 | 0, { [_jN]: _sG }],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[0, { [_jN]: _tCA }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [128 | 0, { [_jN]: _ta }]]
 ];
-export var CreateVpcConnectionResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CVCRr,
+export var CreateVpcConnectionResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
   [_VCA, _St, _A, _VI, _CS, _SG, _CT, _Ta],
-  [
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _st }],
-    [0, { [_jN]: _a }],
-    [0, { [_jN]: _vI }],
-    [64 | 0, { [_jN]: _cS }],
-    [64 | 0, { [_jN]: _sG }],
-    [5, { [_jN]: _cT }],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _st }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
 ];
-export var DeleteClusterPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR, 0, [_CA], [[0, 1]]];
-export var DeleteClusterPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe, 0, [], []];
-export var DeleteClusterRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCR,
+export var DeleteClusterPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
+  0,
+  [_CA],
+  [[0, 1]]
+];
+export var DeleteClusterPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
+  0,
+  [],
+  []
+];
+export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CA, _CV],
-  [
-    [0, 1],
-    [0, { [_hQ]: _cV }],
-  ],
+  [[0, 1], [0, { [_hQ]: _cV }]]
 ];
-export var DeleteClusterResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRe,
+export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CA, _St],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _st }]]
 ];
-export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRel, 0, [_Ar], [[0, 1]]];
-export var DeleteConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRele,
+export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRel,
+  0,
+  [_Ar],
+  [[0, 1]]
+];
+export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRele,
   0,
   [_Ar, _St],
-  [
-    [0, { [_jN]: _ar }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _st }]]
 ];
-export var DeleteReplicatorRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRR,
+export var DeleteReplicatorRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_CV, _RA],
-  [
-    [0, { [_hQ]: _cV }],
-    [0, 1],
-  ],
+  [[0, { [_hQ]: _cV }], [0, 1]]
 ];
-export var DeleteReplicatorResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRRe,
+export var DeleteReplicatorResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
   [_RA, _RS],
-  [
-    [0, { [_jN]: _rA }],
-    [0, { [_jN]: _rS }],
-  ],
+  [[0, { [_jN]: _rA }], [0, { [_jN]: _rS }]]
 ];
-export var DeleteVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCR, 0, [_Ar], [[0, 1]]];
-export var DeleteVpcConnectionResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DVCRe,
+export var DeleteVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCR,
+  0,
+  [_Ar],
+  [[0, 1]]
+];
+export var DeleteVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
   [_VCA, _St],
-  [
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _st }]]
 ];
-export var DescribeClusterOperationRequest$: StaticStructureSchema = [3, n0, _DCOR, 0, [_COA], [[0, 1]]];
-export var DescribeClusterOperationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCORe,
+export var DescribeClusterOperationRequest$: StaticStructureSchema = [3, n0, _DCOR,
+  0,
+  [_COA],
+  [[0, 1]]
+];
+export var DescribeClusterOperationResponse$: StaticStructureSchema = [3, n0, _DCORe,
   0,
   [_COI],
-  [[() => ClusterOperationInfo$, { [_jN]: _cOI }]],
+  [[() => ClusterOperationInfo$, { [_jN]: _cOI }]]
 ];
-export var DescribeClusterOperationV2Request$: StaticStructureSchema = [3, n0, _DCOVR, 0, [_COA], [[0, 1]]];
-export var DescribeClusterOperationV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCOVRe,
+export var DescribeClusterOperationV2Request$: StaticStructureSchema = [3, n0, _DCOVR,
+  0,
+  [_COA],
+  [[0, 1]]
+];
+export var DescribeClusterOperationV2Response$: StaticStructureSchema = [3, n0, _DCOVRe,
   0,
   [_COI],
-  [[() => ClusterOperationV2$, { [_jN]: _cOI }]],
+  [[() => ClusterOperationV2$, { [_jN]: _cOI }]]
 ];
-export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes, 0, [_CA], [[0, 1]]];
-export var DescribeClusterResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCResc,
+export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
+  0,
+  [_CA],
+  [[0, 1]]
+];
+export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
   [_CIl],
-  [[() => ClusterInfo$, { [_jN]: _cIl }]],
+  [[() => ClusterInfo$, { [_jN]: _cIl }]]
 ];
-export var DescribeClusterV2Request$: StaticStructureSchema = [3, n0, _DCVR, 0, [_CA], [[0, 1]]];
-export var DescribeClusterV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCVRe,
+export var DescribeClusterV2Request$: StaticStructureSchema = [3, n0, _DCVR,
+  0,
+  [_CA],
+  [[0, 1]]
+];
+export var DescribeClusterV2Response$: StaticStructureSchema = [3, n0, _DCVRe,
   0,
   [_CIl],
-  [[() => Cluster$, { [_jN]: _cIl }]],
+  [[() => Cluster$, { [_jN]: _cIl }]]
 ];
-export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRescr, 0, [_Ar], [[0, 1]]];
-export var DescribeConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRescri,
+export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRescr,
+  0,
+  [_Ar],
+  [[0, 1]]
+];
+export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRescri,
   0,
   [_Ar, _CT, _D, _KVa, _LR, _N, _St],
-  [
-    [0, { [_jN]: _ar }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _d }],
-    [64 | 0, { [_jN]: _kVa }],
-    [() => ConfigurationRevision$, { [_jN]: _lR }],
-    [0, { [_jN]: _n }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]]
 ];
-export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRR,
+export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_Ar, _Re],
-  [
-    [0, 1],
-    [1, 1],
-  ],
+  [[0, 1], [1, 1]]
 ];
-export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRRe,
+export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
   [_Ar, _CT, _D, _Re, _SP],
-  [
-    [0, { [_jN]: _ar }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _d }],
-    [1, { [_jN]: _re }],
-    [21, { [_jN]: _sP }],
-  ],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [1, { [_jN]: _re }], [21, { [_jN]: _sP }]]
 ];
-export var DescribeReplicatorRequest$: StaticStructureSchema = [3, n0, _DRRes, 0, [_RA], [[0, 1]]];
-export var DescribeReplicatorResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRResc,
+export var DescribeReplicatorRequest$: StaticStructureSchema = [3, n0, _DRRes,
+  0,
+  [_RA],
+  [[0, 1]]
+];
+export var DescribeReplicatorResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
   [_CT, _CV, _IRR, _KC, _RIL, _RA, _RD, _RN, _RRA, _RS, _SERA, _SIt, _Ta],
-  [
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _cV }],
-    [2, { [_jN]: _iRR }],
-    [() => __listOfKafkaClusterDescription, { [_jN]: _kC }],
-    [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }],
-    [0, { [_jN]: _rA }],
-    [0, { [_jN]: _rD }],
-    [0, { [_jN]: _rN }],
-    [0, { [_jN]: _rRA }],
-    [0, { [_jN]: _rS }],
-    [0, { [_jN]: _sERA }],
-    [() => ReplicationStateInfo$, { [_jN]: _sIt }],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterDescription, { [_jN]: _kC }], [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rD }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }], [0, { [_jN]: _sERA }], [() => ReplicationStateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }]]
 ];
-export var DescribeTopicPartitionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTPR,
+export var DescribeTopicPartitionsRequest$: StaticStructureSchema = [3, n0, _DTPR,
   0,
   [_CA, _TN, _MR, _NT],
-  [
-    [0, 1],
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var DescribeTopicPartitionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTPRe,
+export var DescribeTopicPartitionsResponse$: StaticStructureSchema = [3, n0, _DTPRe,
   0,
   [_Pa, _NT],
-  [
-    [() => __listOfTopicPartitionInfo, { [_jN]: _pa }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfTopicPartitionInfo, { [_jN]: _pa }], [0, { [_jN]: _nT }]]
 ];
-export var DescribeTopicRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTR,
+export var DescribeTopicRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_CA, _TN],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var DescribeTopicResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTRe,
+export var DescribeTopicResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_TA, _TN, _RF, _PC, _Con, _Sta],
-  [
-    [0, { [_jN]: _tA }],
-    [0, { [_jN]: _tN }],
-    [1, { [_jN]: _rF }],
-    [1, { [_jN]: _pC }],
-    [0, { [_jN]: _co }],
-    [0, { [_jN]: _sta }],
-  ],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [0, { [_jN]: _co }], [0, { [_jN]: _sta }]]
 ];
-export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRes, 0, [_Ar], [[0, 1]]];
-export var DescribeVpcConnectionResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DVCResc,
+export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRes,
+  0,
+  [_Ar],
+  [[0, 1]]
+];
+export var DescribeVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCResc,
   0,
   [_VCA, _TCA, _St, _A, _VI, _Su, _SG, _CT, _Ta],
-  [
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _tCA }],
-    [0, { [_jN]: _st }],
-    [0, { [_jN]: _a }],
-    [0, { [_jN]: _vI }],
-    [64 | 0, { [_jN]: _su }],
-    [64 | 0, { [_jN]: _sG }],
-    [5, { [_jN]: _cT }],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [0, { [_jN]: _st }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _su }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
 ];
-export var EBSStorageInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _EBSSI,
+export var EBSStorageInfo$: StaticStructureSchema = [3, n0, _EBSSI,
   0,
   [_PT, _VS],
-  [
-    [() => ProvisionedThroughput$, { [_jN]: _pT }],
-    [1, { [_jN]: _vS }],
-  ],
+  [[() => ProvisionedThroughput$, { [_jN]: _pT }], [1, { [_jN]: _vS }]]
 ];
-export var EncryptionAtRest$: StaticStructureSchema = [3, n0, _EAR, 0, [_DVKMSKI], [[0, { [_jN]: _dVKMSKI }]]];
-export var EncryptionInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _EI,
+export var EncryptionAtRest$: StaticStructureSchema = [3, n0, _EAR,
+  0,
+  [_DVKMSKI],
+  [[0, { [_jN]: _dVKMSKI }]]
+];
+export var EncryptionInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
   [_EAR, _EIT],
-  [
-    [() => EncryptionAtRest$, { [_jN]: _eAR }],
-    [() => EncryptionInTransit$, { [_jN]: _eIT }],
-  ],
+  [[() => EncryptionAtRest$, { [_jN]: _eAR }], [() => EncryptionInTransit$, { [_jN]: _eIT }]]
 ];
-export var EncryptionInTransit$: StaticStructureSchema = [
-  3,
-  n0,
-  _EIT,
+export var EncryptionInTransit$: StaticStructureSchema = [3, n0, _EIT,
   0,
   [_CB, _IC],
-  [
-    [0, { [_jN]: _cB }],
-    [2, { [_jN]: _iC }],
-  ],
+  [[0, { [_jN]: _cB }], [2, { [_jN]: _iC }]]
 ];
-export var ErrorInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _EIr,
+export var ErrorInfo$: StaticStructureSchema = [3, n0, _EIr,
   0,
   [_EC, _ES],
-  [
-    [0, { [_jN]: _eC }],
-    [0, { [_jN]: _eS }],
-  ],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _eS }]]
 ];
-export var Firehose$: StaticStructureSchema = [
-  3,
-  n0,
-  _F,
+export var Firehose$: StaticStructureSchema = [3, n0, _F,
   0,
   [_DS, _En],
-  [
-    [0, { [_jN]: _dS }],
-    [2, { [_jN]: _ena }],
-  ],
+  [[0, { [_jN]: _dS }], [2, { [_jN]: _ena }]]
 ];
-export var ForbiddenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
-export var GetBootstrapBrokersRequest$: StaticStructureSchema = [3, n0, _GBBR, 0, [_CA], [[0, 1]]];
-export var GetBootstrapBrokersResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GBBRe,
+export var GetBootstrapBrokersRequest$: StaticStructureSchema = [3, n0, _GBBR,
+  0,
+  [_CA],
+  [[0, 1]]
+];
+export var GetBootstrapBrokersResponse$: StaticStructureSchema = [3, n0, _GBBRe,
   0,
   [_BBS, _BBST, _BBSSS, _BBSSI, _BBSPT, _BBSPSS, _BBSPSI, _BBSVCT, _BBSVCSS, _BBSVCSI],
-  [
-    [0, { [_jN]: _bBS }],
-    [0, { [_jN]: _bBST }],
-    [0, { [_jN]: _bBSSS }],
-    [0, { [_jN]: _bBSSI }],
-    [0, { [_jN]: _bBSPT }],
-    [0, { [_jN]: _bBSPSS }],
-    [0, { [_jN]: _bBSPSI }],
-    [0, { [_jN]: _bBSVCT }],
-    [0, { [_jN]: _bBSVCSS }],
-    [0, { [_jN]: _bBSVCSI }],
-  ],
+  [[0, { [_jN]: _bBS }], [0, { [_jN]: _bBST }], [0, { [_jN]: _bBSSS }], [0, { [_jN]: _bBSSI }], [0, { [_jN]: _bBSPT }], [0, { [_jN]: _bBSPSS }], [0, { [_jN]: _bBSPSI }], [0, { [_jN]: _bBSVCT }], [0, { [_jN]: _bBSVCSS }], [0, { [_jN]: _bBSVCSI }]]
 ];
-export var GetClusterPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR, 0, [_CA], [[0, 1]]];
-export var GetClusterPolicyResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCPRe,
+export var GetClusterPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
+  0,
+  [_CA],
+  [[0, 1]]
+];
+export var GetClusterPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
   [_CV, _Po],
-  [
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _po }],
-  ],
+  [[0, { [_jN]: _cV }], [0, { [_jN]: _po }]]
 ];
-export var GetCompatibleKafkaVersionsRequest$: StaticStructureSchema = [3, n0, _GCKVR, 0, [_CA], [[0, { [_hQ]: _cA }]]];
-export var GetCompatibleKafkaVersionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCKVRe,
+export var GetCompatibleKafkaVersionsRequest$: StaticStructureSchema = [3, n0, _GCKVR,
+  0,
+  [_CA],
+  [[0, { [_hQ]: _cA }]]
+];
+export var GetCompatibleKafkaVersionsResponse$: StaticStructureSchema = [3, n0, _GCKVRe,
   0,
   [_CKVo],
-  [[() => __listOfCompatibleKafkaVersion, { [_jN]: _cKV }]],
+  [[() => __listOfCompatibleKafkaVersion, { [_jN]: _cKV }]]
 ];
-export var Iam$: StaticStructureSchema = [3, n0, _I, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var InternalServerErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
+export var Iam$: StaticStructureSchema = [3, n0, _I,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _ser, [_hE]: 500 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
-export var JmxExporter$: StaticStructureSchema = [3, n0, _JE, 0, [_EIB], [[2, { [_jN]: _eIB }]]];
-export var JmxExporterInfo$: StaticStructureSchema = [3, n0, _JEI, 0, [_EIB], [[2, { [_jN]: _eIB }]]];
-export var KafkaCluster$: StaticStructureSchema = [
-  3,
-  n0,
-  _KCa,
+export var JmxExporter$: StaticStructureSchema = [3, n0, _JE,
+  0,
+  [_EIB],
+  [[2, { [_jN]: _eIB }]]
+];
+export var JmxExporterInfo$: StaticStructureSchema = [3, n0, _JEI,
+  0,
+  [_EIB],
+  [[2, { [_jN]: _eIB }]]
+];
+export var KafkaCluster$: StaticStructureSchema = [3, n0, _KCa,
   0,
   [_AMC, _VCp],
-  [
-    [() => AmazonMskCluster$, { [_jN]: _aMC }],
-    [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }],
-  ],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }]]
 ];
-export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _KCCVC,
+export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
   0,
   [_SGI, _SIu],
-  [
-    [64 | 0, { [_jN]: _sGI }],
-    [64 | 0, { [_jN]: _sIu }],
-  ],
+  [[64 | 0, { [_jN]: _sGI }], [64 | 0, { [_jN]: _sIu }]]
 ];
-export var KafkaClusterDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _KCD,
+export var KafkaClusterDescription$: StaticStructureSchema = [3, n0, _KCD,
   0,
   [_AMC, _KCA, _VCp],
-  [
-    [() => AmazonMskCluster$, { [_jN]: _aMC }],
-    [0, { [_jN]: _kCA }],
-    [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }],
-  ],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [0, { [_jN]: _kCA }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }]]
 ];
-export var KafkaClusterSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _KCS,
+export var KafkaClusterSummary$: StaticStructureSchema = [3, n0, _KCS,
   0,
   [_AMC, _KCA],
-  [
-    [() => AmazonMskCluster$, { [_jN]: _aMC }],
-    [0, { [_jN]: _kCA }],
-  ],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [0, { [_jN]: _kCA }]]
 ];
-export var KafkaVersion$: StaticStructureSchema = [
-  3,
-  n0,
-  _KV,
+export var KafkaVersion$: StaticStructureSchema = [3, n0, _KV,
   0,
   [_V, _Sta],
-  [
-    [0, { [_jN]: _v }],
-    [0, { [_jN]: _sta }],
-  ],
+  [[0, { [_jN]: _v }], [0, { [_jN]: _sta }]]
 ];
-export var ListClientVpcConnectionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVCR,
+export var ListClientVpcConnectionsRequest$: StaticStructureSchema = [3, n0, _LCVCR,
   0,
   [_CA, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListClientVpcConnectionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVCRi,
+export var ListClientVpcConnectionsResponse$: StaticStructureSchema = [3, n0, _LCVCRi,
   0,
   [_CVCl, _NT],
-  [
-    [() => __listOfClientVpcConnection, { [_jN]: _cVC }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfClientVpcConnection, { [_jN]: _cVC }], [0, { [_jN]: _nT }]]
 ];
-export var ListClusterOperationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCOR,
+export var ListClusterOperationsRequest$: StaticStructureSchema = [3, n0, _LCOR,
   0,
   [_CA, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListClusterOperationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCORi,
+export var ListClusterOperationsResponse$: StaticStructureSchema = [3, n0, _LCORi,
   0,
   [_COIL, _NT],
-  [
-    [() => __listOfClusterOperationInfo, { [_jN]: _cOIL }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfClusterOperationInfo, { [_jN]: _cOIL }], [0, { [_jN]: _nT }]]
 ];
-export var ListClusterOperationsV2Request$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCOVR,
+export var ListClusterOperationsV2Request$: StaticStructureSchema = [3, n0, _LCOVR,
   0,
   [_CA, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListClusterOperationsV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCOVRi,
+export var ListClusterOperationsV2Response$: StaticStructureSchema = [3, n0, _LCOVRi,
   0,
   [_COIL, _NT],
-  [
-    [() => __listOfClusterOperationV2Summary, { [_jN]: _cOIL }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfClusterOperationV2Summary, { [_jN]: _cOIL }], [0, { [_jN]: _nT }]]
 ];
-export var ListClustersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCR,
+export var ListClustersRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_CNF, _MR, _NT],
-  [
-    [0, { [_hQ]: _cNF }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _cNF }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListClustersResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRi,
+export var ListClustersResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_CIL, _NT],
-  [
-    [() => __listOfClusterInfo, { [_jN]: _cIL }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfClusterInfo, { [_jN]: _cIL }], [0, { [_jN]: _nT }]]
 ];
-export var ListClustersV2Request$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVR,
+export var ListClustersV2Request$: StaticStructureSchema = [3, n0, _LCVR,
   0,
   [_CNF, _CTF, _MR, _NT],
-  [
-    [0, { [_hQ]: _cNF }],
-    [0, { [_hQ]: _cTF }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, { [_hQ]: _cNF }], [0, { [_hQ]: _cTF }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListClustersV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCVRi,
+export var ListClustersV2Response$: StaticStructureSchema = [3, n0, _LCVRi,
   0,
   [_CIL, _NT],
-  [
-    [() => __listOfCluster, { [_jN]: _cIL }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfCluster, { [_jN]: _cIL }], [0, { [_jN]: _nT }]]
 ];
-export var ListConfigurationRevisionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRR,
+export var ListConfigurationRevisionsRequest$: StaticStructureSchema = [3, n0, _LCRR,
   0,
   [_Ar, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRRi,
+export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
   [_NT, _Rev],
-  [
-    [0, { [_jN]: _nT }],
-    [() => __listOfConfigurationRevision, { [_jN]: _rev }],
-  ],
+  [[0, { [_jN]: _nT }], [() => __listOfConfigurationRevision, { [_jN]: _rev }]]
 ];
-export var ListConfigurationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRis,
+export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCRis,
   0,
   [_MR, _NT],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListConfigurationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRist,
+export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRist,
   0,
   [_Conf, _NT],
-  [
-    [() => __listOfConfiguration, { [_jN]: _con }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfConfiguration, { [_jN]: _con }], [0, { [_jN]: _nT }]]
 ];
-export var ListKafkaVersionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LKVR,
+export var ListKafkaVersionsRequest$: StaticStructureSchema = [3, n0, _LKVR,
   0,
   [_MR, _NT],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListKafkaVersionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LKVRi,
+export var ListKafkaVersionsResponse$: StaticStructureSchema = [3, n0, _LKVRi,
   0,
   [_KVa, _NT],
-  [
-    [() => __listOfKafkaVersion, { [_jN]: _kVa }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfKafkaVersion, { [_jN]: _kVa }], [0, { [_jN]: _nT }]]
 ];
-export var ListNodesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LNR,
+export var ListNodesRequest$: StaticStructureSchema = [3, n0, _LNR,
   0,
   [_CA, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListNodesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LNRi,
+export var ListNodesResponse$: StaticStructureSchema = [3, n0, _LNRi,
   0,
   [_NT, _NIL],
-  [
-    [0, { [_jN]: _nT }],
-    [() => __listOfNodeInfo, { [_jN]: _nIL }],
-  ],
+  [[0, { [_jN]: _nT }], [() => __listOfNodeInfo, { [_jN]: _nIL }]]
 ];
-export var ListReplicatorsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRR,
+export var ListReplicatorsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_MR, _NT, _RNF],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _rNF }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _rNF }]]
 ];
-export var ListReplicatorsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRi,
+export var ListReplicatorsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_NT, _Rep],
-  [
-    [0, { [_jN]: _nT }],
-    [() => __listOfReplicatorSummary, { [_jN]: _rep }],
-  ],
+  [[0, { [_jN]: _nT }], [() => __listOfReplicatorSummary, { [_jN]: _rep }]]
 ];
-export var ListScramSecretsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSR,
+export var ListScramSecretsRequest$: StaticStructureSchema = [3, n0, _LSSR,
   0,
   [_CA, _MR, _NT],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListScramSecretsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSRi,
+export var ListScramSecretsResponse$: StaticStructureSchema = [3, n0, _LSSRi,
   0,
   [_NT, _SAL],
-  [
-    [0, { [_jN]: _nT }],
-    [64 | 0, { [_jN]: _sAL }],
-  ],
+  [[0, { [_jN]: _nT }], [64 | 0, { [_jN]: _sAL }]]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_RAe],
+  [[0, 1]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_Ta],
-  [[128 | 0, { [_jN]: _ta }]],
+  [[128 | 0, { [_jN]: _ta }]]
 ];
-export var ListTopicsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTR,
+export var ListTopicsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_CA, _MR, _NT, _TNF],
-  [
-    [0, 1],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _tNF }],
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _tNF }]]
 ];
-export var ListTopicsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTRi,
+export var ListTopicsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_To, _NT],
-  [
-    [() => __listOfTopicInfo, { [_jN]: _to }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfTopicInfo, { [_jN]: _to }], [0, { [_jN]: _nT }]]
 ];
-export var ListVpcConnectionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LVCR,
+export var ListVpcConnectionsRequest$: StaticStructureSchema = [3, n0, _LVCR,
   0,
   [_MR, _NT],
-  [
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
 ];
-export var ListVpcConnectionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LVCRi,
+export var ListVpcConnectionsResponse$: StaticStructureSchema = [3, n0, _LVCRi,
   0,
   [_VCpc, _NT],
-  [
-    [() => __listOfVpcConnection, { [_jN]: _vCpc }],
-    [0, { [_jN]: _nT }],
-  ],
+  [[() => __listOfVpcConnection, { [_jN]: _vCpc }], [0, { [_jN]: _nT }]]
 ];
-export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI, 0, [_BL], [[() => BrokerLogs$, { [_jN]: _bL }]]];
-export var MutableClusterInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _MCI,
+export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI,
+  0,
+  [_BL],
+  [[() => BrokerLogs$, { [_jN]: _bL }]]
+];
+export var MutableClusterInfo$: StaticStructureSchema = [3, n0, _MCI,
   0,
   [_BEBSVI, _CIo, _NOBN, _EM, _OM, _KV, _LI, _IT, _CAl, _EI, _CI, _SM, _BCUI, _R],
-  [
-    [() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }],
-    [() => ConfigurationInfo$, { [_jN]: _cIo }],
-    [1, { [_jN]: _nOBN }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoring$, { [_jN]: _oM }],
-    [0, { [_jN]: _kV }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-    [0, { [_jN]: _iT }],
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-    [() => ConnectivityInfo$, { [_jN]: _cI }],
-    [0, { [_jN]: _sM }],
-    [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }],
-    [() => Rebalancing$, { [_jN]: _r }],
-  ],
+  [[() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _iT }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _sM }], [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }], [() => Rebalancing$, { [_jN]: _r }]]
 ];
-export var NodeExporter$: StaticStructureSchema = [3, n0, _NE, 0, [_EIB], [[2, { [_jN]: _eIB }]]];
-export var NodeExporterInfo$: StaticStructureSchema = [3, n0, _NEI, 0, [_EIB], [[2, { [_jN]: _eIB }]]];
-export var NodeInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _NI,
+export var NodeExporter$: StaticStructureSchema = [3, n0, _NE,
+  0,
+  [_EIB],
+  [[2, { [_jN]: _eIB }]]
+];
+export var NodeExporterInfo$: StaticStructureSchema = [3, n0, _NEI,
+  0,
+  [_EIB],
+  [[2, { [_jN]: _eIB }]]
+];
+export var NodeInfo$: StaticStructureSchema = [3, n0, _NI,
   0,
   [_ATCT, _BNI, _CNI, _IT, _NARN, _NTo, _ZNI],
-  [
-    [0, { [_jN]: _aTCT }],
-    [() => BrokerNodeInfo$, { [_jN]: _bNI }],
-    [() => ControllerNodeInfo$, { [_jN]: _cNI }],
-    [0, { [_jN]: _iT }],
-    [0, { [_jN]: _nARN }],
-    [0, { [_jN]: _nTo }],
-    [() => ZookeeperNodeInfo$, { [_jN]: _zNI }],
-  ],
+  [[0, { [_jN]: _aTCT }], [() => BrokerNodeInfo$, { [_jN]: _bNI }], [() => ControllerNodeInfo$, { [_jN]: _cNI }], [0, { [_jN]: _iT }], [0, { [_jN]: _nARN }], [0, { [_jN]: _nTo }], [() => ZookeeperNodeInfo$, { [_jN]: _zNI }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
-export var OpenMonitoring$: StaticStructureSchema = [3, n0, _OM, 0, [_Pr], [[() => Prometheus$, { [_jN]: _pr }]]];
-export var OpenMonitoringInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _OMI,
+export var OpenMonitoring$: StaticStructureSchema = [3, n0, _OM,
   0,
   [_Pr],
-  [[() => PrometheusInfo$, { [_jN]: _pr }]],
+  [[() => Prometheus$, { [_jN]: _pr }]]
 ];
-export var Prometheus$: StaticStructureSchema = [
-  3,
-  n0,
-  _Pr,
+export var OpenMonitoringInfo$: StaticStructureSchema = [3, n0, _OMI,
+  0,
+  [_Pr],
+  [[() => PrometheusInfo$, { [_jN]: _pr }]]
+];
+export var Prometheus$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_JE, _NE],
-  [
-    [() => JmxExporter$, { [_jN]: _jE }],
-    [() => NodeExporter$, { [_jN]: _nE }],
-  ],
+  [[() => JmxExporter$, { [_jN]: _jE }], [() => NodeExporter$, { [_jN]: _nE }]]
 ];
-export var PrometheusInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _PI,
+export var PrometheusInfo$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_JE, _NE],
-  [
-    [() => JmxExporterInfo$, { [_jN]: _jE }],
-    [() => NodeExporterInfo$, { [_jN]: _nE }],
-  ],
+  [[() => JmxExporterInfo$, { [_jN]: _jE }], [() => NodeExporterInfo$, { [_jN]: _nE }]]
 ];
-export var Provisioned$: StaticStructureSchema = [
-  3,
-  n0,
-  _P,
+export var Provisioned$: StaticStructureSchema = [3, n0, _P,
   0,
   [_BNGI, _R, _CBSI, _CAl, _EI, _EM, _OM, _LI, _NOBN, _ZCS, _ZCST, _SM, _CAS],
-  [
-    [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }],
-    [() => Rebalancing$, { [_jN]: _r }],
-    [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }],
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoringInfo$, { [_jN]: _oM }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-    [1, { [_jN]: _nOBN }],
-    [0, { [_jN]: _zCS }],
-    [0, { [_jN]: _zCST }],
-    [0, { [_jN]: _sM }],
-    [0, { [_jN]: _cAS }],
-  ],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
 ];
-export var ProvisionedRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PR,
+export var ProvisionedRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_BNGI, _R, _CAl, _CIo, _EI, _EM, _OM, _KV, _LI, _NOBN, _SM],
-  [
-    [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }],
-    [() => Rebalancing$, { [_jN]: _r }],
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [() => ConfigurationInfo$, { [_jN]: _cIo }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoringInfo$, { [_jN]: _oM }],
-    [0, { [_jN]: _kV }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-    [1, { [_jN]: _nOBN }],
-    [0, { [_jN]: _sM }],
-  ],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _sM }]]
 ];
-export var ProvisionedThroughput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PT,
+export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PT,
   0,
   [_En, _VT],
-  [
-    [2, { [_jN]: _ena }],
-    [1, { [_jN]: _vT }],
-  ],
+  [[2, { [_jN]: _ena }], [1, { [_jN]: _vT }]]
 ];
-export var PublicAccess$: StaticStructureSchema = [3, n0, _PA, 0, [_Ty], [[0, { [_jN]: _ty }]]];
-export var PutClusterPolicyRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PCPR,
+export var PublicAccess$: StaticStructureSchema = [3, n0, _PA,
+  0,
+  [_Ty],
+  [[0, { [_jN]: _ty }]]
+];
+export var PutClusterPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_CA, _CV, _Po],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _po }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [0, { [_jN]: _po }]]
 ];
-export var PutClusterPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu, 0, [_CV], [[0, { [_jN]: _cV }]]];
-export var Rebalancing$: StaticStructureSchema = [3, n0, _R, 0, [_Sta], [[0, { [_jN]: _sta }]]];
-export var RebootBrokerRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RBR,
+export var PutClusterPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
+  0,
+  [_CV],
+  [[0, { [_jN]: _cV }]]
+];
+export var Rebalancing$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_Sta],
+  [[0, { [_jN]: _sta }]]
+];
+export var RebootBrokerRequest$: StaticStructureSchema = [3, n0, _RBR,
   0,
   [_BIr, _CA],
-  [
-    [64 | 0, { [_jN]: _bIr }],
-    [0, 1],
-  ],
+  [[64 | 0, { [_jN]: _bIr }], [0, 1]]
 ];
-export var RebootBrokerResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _RBRe,
+export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var RejectClientVpcConnectionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RCVCR,
+export var RejectClientVpcConnectionRequest$: StaticStructureSchema = [3, n0, _RCVCR,
   0,
   [_CA, _VCA],
-  [
-    [0, 1],
-    [0, { [_jN]: _vCA }],
-  ],
+  [[0, 1], [0, { [_jN]: _vCA }]]
 ];
-export var RejectClientVpcConnectionResponse$: StaticStructureSchema = [3, n0, _RCVCRe, 0, [], []];
-export var ReplicationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _RI,
+export var RejectClientVpcConnectionResponse$: StaticStructureSchema = [3, n0, _RCVCRe,
+  0,
+  [],
+  []
+];
+export var ReplicationInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
   [_CGR, _SKCA, _TCT, _TKCA, _TR],
-  [
-    [() => ConsumerGroupReplication$, { [_jN]: _cGR }],
-    [0, { [_jN]: _sKCA }],
-    [0, { [_jN]: _tCT }],
-    [0, { [_jN]: _tKCA }],
-    [() => TopicReplication$, { [_jN]: _tR }],
-  ],
+  [[() => ConsumerGroupReplication$, { [_jN]: _cGR }], [0, { [_jN]: _sKCA }], [0, { [_jN]: _tCT }], [0, { [_jN]: _tKCA }], [() => TopicReplication$, { [_jN]: _tR }]]
 ];
-export var ReplicationInfoDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RID,
+export var ReplicationInfoDescription$: StaticStructureSchema = [3, n0, _RID,
   0,
   [_CGR, _SKCAo, _TCT, _TKCAa, _TR],
-  [
-    [() => ConsumerGroupReplication$, { [_jN]: _cGR }],
-    [0, { [_jN]: _sKCAo }],
-    [0, { [_jN]: _tCT }],
-    [0, { [_jN]: _tKCAa }],
-    [() => TopicReplication$, { [_jN]: _tR }],
-  ],
+  [[() => ConsumerGroupReplication$, { [_jN]: _cGR }], [0, { [_jN]: _sKCAo }], [0, { [_jN]: _tCT }], [0, { [_jN]: _tKCAa }], [() => TopicReplication$, { [_jN]: _tR }]]
 ];
-export var ReplicationInfoSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _RIS,
+export var ReplicationInfoSummary$: StaticStructureSchema = [3, n0, _RIS,
   0,
   [_SKCAo, _TKCAa],
-  [
-    [0, { [_jN]: _sKCAo }],
-    [0, { [_jN]: _tKCAa }],
-  ],
+  [[0, { [_jN]: _sKCAo }], [0, { [_jN]: _tKCAa }]]
 ];
-export var ReplicationStartingPosition$: StaticStructureSchema = [3, n0, _RSP, 0, [_Ty], [[0, { [_jN]: _ty }]]];
-export var ReplicationStateInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSI,
+export var ReplicationStartingPosition$: StaticStructureSchema = [3, n0, _RSP,
+  0,
+  [_Ty],
+  [[0, { [_jN]: _ty }]]
+];
+export var ReplicationStateInfo$: StaticStructureSchema = [3, n0, _RSI,
   0,
   [_Cod, _M],
-  [
-    [0, { [_jN]: _cod }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _cod }], [0, { [_jN]: _m }]]
 ];
-export var ReplicationTopicNameConfiguration$: StaticStructureSchema = [3, n0, _RTNC, 0, [_Ty], [[0, { [_jN]: _ty }]]];
-export var ReplicatorSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSe,
+export var ReplicationTopicNameConfiguration$: StaticStructureSchema = [3, n0, _RTNC,
+  0,
+  [_Ty],
+  [[0, { [_jN]: _ty }]]
+];
+export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_CT, _CV, _IRR, _KCSa, _RISL, _RA, _RN, _RRA, _RS],
-  [
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _cV }],
-    [2, { [_jN]: _iRR }],
-    [() => __listOfKafkaClusterSummary, { [_jN]: _kCS }],
-    [() => __listOfReplicationInfoSummary, { [_jN]: _rISL }],
-    [0, { [_jN]: _rA }],
-    [0, { [_jN]: _rN }],
-    [0, { [_jN]: _rRA }],
-    [0, { [_jN]: _rS }],
-  ],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterSummary, { [_jN]: _kCS }], [() => __listOfReplicationInfoSummary, { [_jN]: _rISL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }]]
 ];
-export var S3$: StaticStructureSchema = [
-  3,
-  n0,
-  _S,
+export var S3$: StaticStructureSchema = [3, n0, _S,
   0,
   [_B, _En, _Pre],
-  [
-    [0, { [_jN]: _b }],
-    [2, { [_jN]: _ena }],
-    [0, { [_jN]: _pre }],
-  ],
+  [[0, { [_jN]: _b }], [2, { [_jN]: _ena }], [0, { [_jN]: _pre }]]
 ];
-export var Sasl$: StaticStructureSchema = [
-  3,
-  n0,
-  _Sa,
+export var Sasl$: StaticStructureSchema = [3, n0, _Sa,
   0,
   [_Sc, _I],
-  [
-    [() => Scram$, { [_jN]: _sc }],
-    [() => Iam$, { [_jN]: _i }],
-  ],
+  [[() => Scram$, { [_jN]: _sc }], [() => Iam$, { [_jN]: _i }]]
 ];
-export var Scram$: StaticStructureSchema = [3, n0, _Sc, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var Serverless$: StaticStructureSchema = [
-  3,
-  n0,
-  _Se,
+export var Scram$: StaticStructureSchema = [3, n0, _Sc,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var Serverless$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_VCpco, _CAl],
-  [
-    [() => __listOfVpcConfig, { [_jN]: _vCpco }],
-    [() => ServerlessClientAuthentication$, { [_jN]: _cAl }],
-  ],
+  [[() => __listOfVpcConfig, { [_jN]: _vCpco }], [() => ServerlessClientAuthentication$, { [_jN]: _cAl }]]
 ];
-export var ServerlessClientAuthentication$: StaticStructureSchema = [
-  3,
-  n0,
-  _SCA,
+export var ServerlessClientAuthentication$: StaticStructureSchema = [3, n0, _SCA,
   0,
   [_Sa],
-  [[() => ServerlessSasl$, { [_jN]: _sa }]],
+  [[() => ServerlessSasl$, { [_jN]: _sa }]]
 ];
-export var ServerlessRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SR,
+export var ServerlessRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_VCpco, _CAl],
-  [
-    [() => __listOfVpcConfig, { [_jN]: _vCpco }],
-    [() => ServerlessClientAuthentication$, { [_jN]: _cAl }],
-  ],
+  [[() => __listOfVpcConfig, { [_jN]: _vCpco }], [() => ServerlessClientAuthentication$, { [_jN]: _cAl }]]
 ];
-export var ServerlessSasl$: StaticStructureSchema = [3, n0, _SSe, 0, [_I], [[() => Iam$, { [_jN]: _i }]]];
-export var ServiceUnavailableException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
+export var ServerlessSasl$: StaticStructureSchema = [3, n0, _SSe,
+  0,
+  [_I],
+  [[() => Iam$, { [_jN]: _i }]]
+];
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _ser, [_hE]: 503 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
-export var StateInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIt,
+export var StateInfo$: StaticStructureSchema = [3, n0, _SIt,
   0,
   [_Cod, _M],
-  [
-    [0, { [_jN]: _cod }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _cod }], [0, { [_jN]: _m }]]
 ];
-export var StorageInfo$: StaticStructureSchema = [3, n0, _SI, 0, [_ESI], [[() => EBSStorageInfo$, { [_jN]: _eSI }]]];
-export var TagResourceRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _TRR,
+export var StorageInfo$: StaticStructureSchema = [3, n0, _SI,
+  0,
+  [_ESI],
+  [[() => EBSStorageInfo$, { [_jN]: _eSI }]]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _Ta],
-  [
-    [0, 1],
-    [128 | 0, { [_jN]: _ta }],
-  ],
+  [[0, 1], [128 | 0, { [_jN]: _ta }]]
 ];
-export var Tls$: StaticStructureSchema = [
-  3,
-  n0,
-  _T,
+export var Tls$: StaticStructureSchema = [3, n0, _T,
   0,
   [_CAAL, _En],
-  [
-    [64 | 0, { [_jN]: _cAAL }],
-    [2, { [_jN]: _ena }],
-  ],
+  [[64 | 0, { [_jN]: _cAAL }], [2, { [_jN]: _ena }]]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var TopicInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _TI,
+export var TopicInfo$: StaticStructureSchema = [3, n0, _TI,
   0,
   [_TA, _TN, _RF, _PC, _OOSRC],
-  [
-    [0, { [_jN]: _tA }],
-    [0, { [_jN]: _tN }],
-    [1, { [_jN]: _rF }],
-    [1, { [_jN]: _pC }],
-    [1, { [_jN]: _oOSRC }],
-  ],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [1, { [_jN]: _oOSRC }]]
 ];
-export var TopicPartitionInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _TPI,
+export var TopicPartitionInfo$: StaticStructureSchema = [3, n0, _TPI,
   0,
   [_Par, _L, _Repl, _Is],
-  [
-    [1, { [_jN]: _par }],
-    [1, { [_jN]: _l }],
-    [64 | 1, { [_jN]: _repl }],
-    [64 | 1, { [_jN]: _is }],
-  ],
+  [[1, { [_jN]: _par }], [1, { [_jN]: _l }], [64 | 1, { [_jN]: _repl }], [64 | 1, { [_jN]: _is }]]
 ];
-export var TopicReplication$: StaticStructureSchema = [
-  3,
-  n0,
-  _TR,
+export var TopicReplication$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_CACLFT, _CTC, _DACNT, _SPt, _TNC, _TTE, _TTR],
-  [
-    [2, { [_jN]: _cACLFT }],
-    [2, { [_jN]: _cTC }],
-    [2, { [_jN]: _dACNT }],
-    [() => ReplicationStartingPosition$, { [_jN]: _sPt }],
-    [() => ReplicationTopicNameConfiguration$, { [_jN]: _tNC }],
-    [64 | 0, { [_jN]: _tTE }],
-    [64 | 0, { [_jN]: _tTR }],
-  ],
+  [[2, { [_jN]: _cACLFT }], [2, { [_jN]: _cTC }], [2, { [_jN]: _dACNT }], [() => ReplicationStartingPosition$, { [_jN]: _sPt }], [() => ReplicationTopicNameConfiguration$, { [_jN]: _tNC }], [64 | 0, { [_jN]: _tTE }], [64 | 0, { [_jN]: _tTR }]]
 ];
-export var TopicReplicationUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _TRU,
+export var TopicReplicationUpdate$: StaticStructureSchema = [3, n0, _TRU,
   0,
   [_CACLFT, _CTC, _DACNT, _TTE, _TTR],
-  [
-    [2, { [_jN]: _cACLFT }],
-    [2, { [_jN]: _cTC }],
-    [2, { [_jN]: _dACNT }],
-    [64 | 0, { [_jN]: _tTE }],
-    [64 | 0, { [_jN]: _tTR }],
-  ],
+  [[2, { [_jN]: _cACLFT }], [2, { [_jN]: _cTC }], [2, { [_jN]: _dACNT }], [64 | 0, { [_jN]: _tTE }], [64 | 0, { [_jN]: _tTR }]]
 ];
-export var Unauthenticated$: StaticStructureSchema = [3, n0, _U, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var UnauthorizedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
+export var Unauthenticated$: StaticStructureSchema = [3, n0, _U,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
   { [_e]: _c, [_hE]: 401 },
   [_IP, _M],
-  [
-    [0, { [_jN]: _iP }],
-    [0, { [_jN]: _m }],
-  ],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnprocessedScramSecret$: StaticStructureSchema = [
-  3,
-  n0,
-  _USSn,
+export var UnprocessedScramSecret$: StaticStructureSchema = [3, n0, _USSn,
   0,
   [_EC, _EMr, _SA],
-  [
-    [0, { [_jN]: _eC }],
-    [0, { [_jN]: _eMr }],
-    [0, { [_jN]: _sA }],
-  ],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [0, { [_jN]: _sA }]]
 ];
-export var UntagResourceRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UpdateBrokerCountRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBCR,
+export var UpdateBrokerCountRequest$: StaticStructureSchema = [3, n0, _UBCR,
   0,
   [_CA, _CV, _TNOBN],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [1, { [_jN]: _tNOBN }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [1, { [_jN]: _tNOBN }]]
 ];
-export var UpdateBrokerCountResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBCRp,
+export var UpdateBrokerCountResponse$: StaticStructureSchema = [3, n0, _UBCRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateBrokerStorageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBSR,
+export var UpdateBrokerStorageRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
   [_CA, _CV, _TBEBSVI],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [() => __listOfBrokerEBSVolumeInfo, { [_jN]: _tBEBSVI }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [() => __listOfBrokerEBSVolumeInfo, { [_jN]: _tBEBSVI }]]
 ];
-export var UpdateBrokerStorageResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBSRp,
+export var UpdateBrokerStorageResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateBrokerTypeRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBTR,
+export var UpdateBrokerTypeRequest$: StaticStructureSchema = [3, n0, _UBTR,
   0,
   [_CA, _CV, _TIT],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _tIT }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [0, { [_jN]: _tIT }]]
 ];
-export var UpdateBrokerTypeResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBTRp,
+export var UpdateBrokerTypeResponse$: StaticStructureSchema = [3, n0, _UBTRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateClusterConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCCR,
+export var UpdateClusterConfigurationRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_CA, _CIo, _CV],
-  [
-    [0, 1],
-    [() => ConfigurationInfo$, { [_jN]: _cIo }],
-    [0, { [_jN]: _cV }],
-  ],
+  [[0, 1], [() => ConfigurationInfo$, { [_jN]: _cIo }], [0, { [_jN]: _cV }]]
 ];
-export var UpdateClusterConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCCRp,
+export var UpdateClusterConfigurationResponse$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateClusterKafkaVersionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCKVR,
+export var UpdateClusterKafkaVersionRequest$: StaticStructureSchema = [3, n0, _UCKVR,
   0,
   [_CA, _CIo, _CV, _TKV],
-  [
-    [0, 1],
-    [() => ConfigurationInfo$, { [_jN]: _cIo }],
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _tKV }],
-  ],
+  [[0, 1], [() => ConfigurationInfo$, { [_jN]: _cIo }], [0, { [_jN]: _cV }], [0, { [_jN]: _tKV }]]
 ];
-export var UpdateClusterKafkaVersionResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCKVRp,
+export var UpdateClusterKafkaVersionResponse$: StaticStructureSchema = [3, n0, _UCKVRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCR,
+export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_Ar, _D, _SP],
-  [
-    [0, 1],
-    [0, { [_jN]: _d }],
-    [21, { [_jN]: _sP }],
-  ],
+  [[0, 1], [0, { [_jN]: _d }], [21, { [_jN]: _sP }]]
 ];
-export var UpdateConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCRp,
+export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_Ar, _LR],
-  [
-    [0, { [_jN]: _ar }],
-    [() => ConfigurationRevision$, { [_jN]: _lR }],
-  ],
+  [[0, { [_jN]: _ar }], [() => ConfigurationRevision$, { [_jN]: _lR }]]
 ];
-export var UpdateConnectivityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCRpd,
+export var UpdateConnectivityRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
   [_CA, _CI, _CV],
-  [
-    [0, 1],
-    [() => ConnectivityInfo$, { [_jN]: _cI }],
-    [0, { [_jN]: _cV }],
-  ],
+  [[0, 1], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _cV }]]
 ];
-export var UpdateConnectivityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCRpda,
+export var UpdateConnectivityResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateMonitoringRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UMR,
+export var UpdateMonitoringRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_CA, _CV, _EM, _OM, _LI],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [0, { [_jN]: _eM }],
-    [() => OpenMonitoringInfo$, { [_jN]: _oM }],
-    [() => LoggingInfo$, { [_jN]: _lI }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }]]
 ];
-export var UpdateMonitoringResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UMRp,
+export var UpdateMonitoringResponse$: StaticStructureSchema = [3, n0, _UMRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateRebalancingRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URRp,
+export var UpdateRebalancingRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_CA, _CV, _R],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [() => Rebalancing$, { [_jN]: _r }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [() => Rebalancing$, { [_jN]: _r }]]
 ];
-export var UpdateRebalancingResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _URRpd,
+export var UpdateRebalancingResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateReplicationInfoRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URIR,
+export var UpdateReplicationInfoRequest$: StaticStructureSchema = [3, n0, _URIR,
   0,
   [_CGR, _CV, _RA, _SKCA, _TKCA, _TR],
-  [
-    [() => ConsumerGroupReplicationUpdate$, { [_jN]: _cGR }],
-    [0, { [_jN]: _cV }],
-    [0, 1],
-    [0, { [_jN]: _sKCA }],
-    [0, { [_jN]: _tKCA }],
-    [() => TopicReplicationUpdate$, { [_jN]: _tR }],
-  ],
+  [[() => ConsumerGroupReplicationUpdate$, { [_jN]: _cGR }], [0, { [_jN]: _cV }], [0, 1], [0, { [_jN]: _sKCA }], [0, { [_jN]: _tKCA }], [() => TopicReplicationUpdate$, { [_jN]: _tR }]]
 ];
-export var UpdateReplicationInfoResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _URIRp,
+export var UpdateReplicationInfoResponse$: StaticStructureSchema = [3, n0, _URIRp,
   0,
   [_RA, _RS],
-  [
-    [0, { [_jN]: _rA }],
-    [0, { [_jN]: _rS }],
-  ],
+  [[0, { [_jN]: _rA }], [0, { [_jN]: _rS }]]
 ];
-export var UpdateSecurityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _USR,
+export var UpdateSecurityRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_CAl, _CA, _CV, _EI],
-  [
-    [() => ClientAuthentication$, { [_jN]: _cAl }],
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [() => EncryptionInfo$, { [_jN]: _eI }],
-  ],
+  [[() => ClientAuthentication$, { [_jN]: _cAl }], [0, 1], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }]]
 ];
-export var UpdateSecurityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _USRp,
+export var UpdateSecurityResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateStorageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _USRpd,
+export var UpdateStorageRequest$: StaticStructureSchema = [3, n0, _USRpd,
   0,
   [_CA, _CV, _PT, _SM, _VSGB],
-  [
-    [0, 1],
-    [0, { [_jN]: _cV }],
-    [() => ProvisionedThroughput$, { [_jN]: _pT }],
-    [0, { [_jN]: _sM }],
-    [1, { [_jN]: _vSGB }],
-  ],
+  [[0, 1], [0, { [_jN]: _cV }], [() => ProvisionedThroughput$, { [_jN]: _pT }], [0, { [_jN]: _sM }], [1, { [_jN]: _vSGB }]]
 ];
-export var UpdateStorageResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _USRpda,
+export var UpdateStorageResponse$: StaticStructureSchema = [3, n0, _USRpda,
   0,
   [_CA, _COA],
-  [
-    [0, { [_jN]: _cA }],
-    [0, { [_jN]: _cOA }],
-  ],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UserIdentity$: StaticStructureSchema = [
-  3,
-  n0,
-  _UI,
+export var UserIdentity$: StaticStructureSchema = [3, n0, _UI,
   0,
   [_Ty, _PIr],
-  [
-    [0, { [_jN]: _ty }],
-    [0, { [_jN]: _pI }],
-  ],
+  [[0, { [_jN]: _ty }], [0, { [_jN]: _pI }]]
 ];
-export var VpcConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCp,
+export var VpcConfig$: StaticStructureSchema = [3, n0, _VCp,
   0,
   [_SIu, _SGI],
-  [
-    [64 | 0, { [_jN]: _sIu }],
-    [64 | 0, { [_jN]: _sGI }],
-  ],
+  [[64 | 0, { [_jN]: _sIu }], [64 | 0, { [_jN]: _sGI }]]
 ];
-export var VpcConnection$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCpcon,
+export var VpcConnection$: StaticStructureSchema = [3, n0, _VCpcon,
   0,
   [_VCA, _TCA, _CT, _A, _VI, _St],
-  [
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _tCA }],
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _a }],
-    [0, { [_jN]: _vI }],
-    [0, { [_jN]: _st }],
-  ],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [5, { [_jN]: _cT }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [0, { [_jN]: _st }]]
 ];
-export var VpcConnectionInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCI,
+export var VpcConnectionInfo$: StaticStructureSchema = [3, n0, _VCI,
   0,
   [_VCA, _O, _UI, _CT],
-  [
-    [0, { [_jN]: _vCA }],
-    [0, { [_jN]: _o }],
-    [() => UserIdentity$, { [_jN]: _uI }],
-    [5, { [_jN]: _cT }],
-  ],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _o }], [() => UserIdentity$, { [_jN]: _uI }], [5, { [_jN]: _cT }]]
 ];
-export var VpcConnectionInfoServerless$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCIS,
+export var VpcConnectionInfoServerless$: StaticStructureSchema = [3, n0, _VCIS,
   0,
   [_CT, _O, _UI, _VCA],
-  [
-    [5, { [_jN]: _cT }],
-    [0, { [_jN]: _o }],
-    [() => UserIdentity$, { [_jN]: _uI }],
-    [0, { [_jN]: _vCA }],
-  ],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _o }], [() => UserIdentity$, { [_jN]: _uI }], [0, { [_jN]: _vCA }]]
 ];
-export var VpcConnectivity$: StaticStructureSchema = [
-  3,
-  n0,
-  _VC,
+export var VpcConnectivity$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_CAl],
-  [[() => VpcConnectivityClientAuthentication$, { [_jN]: _cAl }]],
+  [[() => VpcConnectivityClientAuthentication$, { [_jN]: _cAl }]]
 ];
-export var VpcConnectivityClientAuthentication$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCCA,
+export var VpcConnectivityClientAuthentication$: StaticStructureSchema = [3, n0, _VCCA,
   0,
   [_Sa, _T],
-  [
-    [() => VpcConnectivitySasl$, { [_jN]: _sa }],
-    [() => VpcConnectivityTls$, { [_jN]: _t }],
-  ],
+  [[() => VpcConnectivitySasl$, { [_jN]: _sa }], [() => VpcConnectivityTls$, { [_jN]: _t }]]
 ];
-export var VpcConnectivityIam$: StaticStructureSchema = [3, n0, _VCIp, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var VpcConnectivitySasl$: StaticStructureSchema = [
-  3,
-  n0,
-  _VCS,
+export var VpcConnectivityIam$: StaticStructureSchema = [3, n0, _VCIp,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var VpcConnectivitySasl$: StaticStructureSchema = [3, n0, _VCS,
   0,
   [_Sc, _I],
-  [
-    [() => VpcConnectivityScram$, { [_jN]: _sc }],
-    [() => VpcConnectivityIam$, { [_jN]: _i }],
-  ],
+  [[() => VpcConnectivityScram$, { [_jN]: _sc }], [() => VpcConnectivityIam$, { [_jN]: _i }]]
 ];
-export var VpcConnectivityScram$: StaticStructureSchema = [3, n0, _VCSp, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var VpcConnectivityTls$: StaticStructureSchema = [3, n0, _VCT, 0, [_En], [[2, { [_jN]: _ena }]]];
-export var ZookeeperNodeInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _ZNI,
+export var VpcConnectivityScram$: StaticStructureSchema = [3, n0, _VCSp,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var VpcConnectivityTls$: StaticStructureSchema = [3, n0, _VCT,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var ZookeeperNodeInfo$: StaticStructureSchema = [3, n0, _ZNI,
   0,
   [_AENII, _CVIA, _E, _ZIo, _ZV],
-  [
-    [0, { [_jN]: _aENII }],
-    [0, { [_jN]: _cVIA }],
-    [64 | 0, { [_jN]: _en }],
-    [1, { [_jN]: _zIo }],
-    [0, { [_jN]: _zV }],
-  ],
+  [[0, { [_jN]: _aENII }], [0, { [_jN]: _cVIA }], [64 | 0, { [_jN]: _en }], [1, { [_jN]: _zIo }], [0, { [_jN]: _zV }]]
 ];
 var __Unit = "unit" as const;
 export var KafkaServiceException$: StaticErrorSchema = [-3, _sm, "KafkaServiceException", 0, [], []];
@@ -2845,476 +1751,268 @@ var __listOf__integer = 64 | 1;
 var __listOf__string = 64 | 0;
 var __listOf__stringMax249 = 64 | 0;
 var __listOf__stringMax256 = 64 | 0;
-var __listOfBrokerEBSVolumeInfo: StaticListSchema = [1, n0, _lOBEBSVI, 0, [() => BrokerEBSVolumeInfo$, 0]];
-var __listOfClientVpcConnection: StaticListSchema = [1, n0, _lOCVC, 0, [() => ClientVpcConnection$, 0]];
-var __listOfCluster: StaticListSchema = [1, n0, _lOC, 0, [() => Cluster$, 0]];
-var __listOfClusterInfo: StaticListSchema = [1, n0, _lOCI, 0, [() => ClusterInfo$, 0]];
-var __listOfClusterOperationInfo: StaticListSchema = [1, n0, _lOCOI, 0, [() => ClusterOperationInfo$, 0]];
-var __listOfClusterOperationStep: StaticListSchema = [1, n0, _lOCOS, 0, [() => ClusterOperationStep$, 0]];
-var __listOfClusterOperationV2Summary: StaticListSchema = [1, n0, _lOCOVS, 0, [() => ClusterOperationV2Summary$, 0]];
-var __listOfCompatibleKafkaVersion: StaticListSchema = [1, n0, _lOCKV, 0, [() => CompatibleKafkaVersion$, 0]];
-var __listOfConfiguration: StaticListSchema = [1, n0, _lOCi, 0, [() => Configuration$, 0]];
-var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR, 0, [() => ConfigurationRevision$, 0]];
-var __listOfKafkaCluster: StaticListSchema = [1, n0, _lOKC, 0, [() => KafkaCluster$, 0]];
-var __listOfKafkaClusterDescription: StaticListSchema = [1, n0, _lOKCD, 0, [() => KafkaClusterDescription$, 0]];
-var __listOfKafkaClusterSummary: StaticListSchema = [1, n0, _lOKCS, 0, [() => KafkaClusterSummary$, 0]];
-var __listOfKafkaVersion: StaticListSchema = [1, n0, _lOKV, 0, [() => KafkaVersion$, 0]];
-var __listOfNodeInfo: StaticListSchema = [1, n0, _lONI, 0, [() => NodeInfo$, 0]];
-var __listOfReplicationInfo: StaticListSchema = [1, n0, _lORI, 0, [() => ReplicationInfo$, 0]];
-var __listOfReplicationInfoDescription: StaticListSchema = [1, n0, _lORID, 0, [() => ReplicationInfoDescription$, 0]];
-var __listOfReplicationInfoSummary: StaticListSchema = [1, n0, _lORIS, 0, [() => ReplicationInfoSummary$, 0]];
-var __listOfReplicatorSummary: StaticListSchema = [1, n0, _lORS, 0, [() => ReplicatorSummary$, 0]];
-var __listOfTopicInfo: StaticListSchema = [1, n0, _lOTI, 0, [() => TopicInfo$, 0]];
-var __listOfTopicPartitionInfo: StaticListSchema = [1, n0, _lOTPI, 0, [() => TopicPartitionInfo$, 0]];
-var __listOfUnprocessedScramSecret: StaticListSchema = [1, n0, _lOUSS, 0, [() => UnprocessedScramSecret$, 0]];
-var __listOfVpcConfig: StaticListSchema = [1, n0, _lOVC, 0, [() => VpcConfig$, 0]];
-var __listOfVpcConnection: StaticListSchema = [1, n0, _lOVCi, 0, [() => VpcConnection$, 0]];
+var __listOfBrokerEBSVolumeInfo: StaticListSchema = [1, n0, _lOBEBSVI,
+  0, [() => BrokerEBSVolumeInfo$,
+    0]
+];
+var __listOfClientVpcConnection: StaticListSchema = [1, n0, _lOCVC,
+  0, [() => ClientVpcConnection$,
+    0]
+];
+var __listOfCluster: StaticListSchema = [1, n0, _lOC,
+  0, [() => Cluster$,
+    0]
+];
+var __listOfClusterInfo: StaticListSchema = [1, n0, _lOCI,
+  0, [() => ClusterInfo$,
+    0]
+];
+var __listOfClusterOperationInfo: StaticListSchema = [1, n0, _lOCOI,
+  0, [() => ClusterOperationInfo$,
+    0]
+];
+var __listOfClusterOperationStep: StaticListSchema = [1, n0, _lOCOS,
+  0, [() => ClusterOperationStep$,
+    0]
+];
+var __listOfClusterOperationV2Summary: StaticListSchema = [1, n0, _lOCOVS,
+  0, [() => ClusterOperationV2Summary$,
+    0]
+];
+var __listOfCompatibleKafkaVersion: StaticListSchema = [1, n0, _lOCKV,
+  0, [() => CompatibleKafkaVersion$,
+    0]
+];
+var __listOfConfiguration: StaticListSchema = [1, n0, _lOCi,
+  0, [() => Configuration$,
+    0]
+];
+var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR,
+  0, [() => ConfigurationRevision$,
+    0]
+];
+var __listOfKafkaCluster: StaticListSchema = [1, n0, _lOKC,
+  0, [() => KafkaCluster$,
+    0]
+];
+var __listOfKafkaClusterDescription: StaticListSchema = [1, n0, _lOKCD,
+  0, [() => KafkaClusterDescription$,
+    0]
+];
+var __listOfKafkaClusterSummary: StaticListSchema = [1, n0, _lOKCS,
+  0, [() => KafkaClusterSummary$,
+    0]
+];
+var __listOfKafkaVersion: StaticListSchema = [1, n0, _lOKV,
+  0, [() => KafkaVersion$,
+    0]
+];
+var __listOfNodeInfo: StaticListSchema = [1, n0, _lONI,
+  0, [() => NodeInfo$,
+    0]
+];
+var __listOfReplicationInfo: StaticListSchema = [1, n0, _lORI,
+  0, [() => ReplicationInfo$,
+    0]
+];
+var __listOfReplicationInfoDescription: StaticListSchema = [1, n0, _lORID,
+  0, [() => ReplicationInfoDescription$,
+    0]
+];
+var __listOfReplicationInfoSummary: StaticListSchema = [1, n0, _lORIS,
+  0, [() => ReplicationInfoSummary$,
+    0]
+];
+var __listOfReplicatorSummary: StaticListSchema = [1, n0, _lORS,
+  0, [() => ReplicatorSummary$,
+    0]
+];
+var __listOfTopicInfo: StaticListSchema = [1, n0, _lOTI,
+  0, [() => TopicInfo$,
+    0]
+];
+var __listOfTopicPartitionInfo: StaticListSchema = [1, n0, _lOTPI,
+  0, [() => TopicPartitionInfo$,
+    0]
+];
+var __listOfUnprocessedScramSecret: StaticListSchema = [1, n0, _lOUSS,
+  0, [() => UnprocessedScramSecret$,
+    0]
+];
+var __listOfVpcConfig: StaticListSchema = [1, n0, _lOVC,
+  0, [() => VpcConfig$,
+    0]
+];
+var __listOfVpcConnection: StaticListSchema = [1, n0, _lOVCi,
+  0, [() => VpcConnection$,
+    0]
+];
 var __mapOf__string = 128 | 0;
-export var BatchAssociateScramSecret$: StaticOperationSchema = [
-  9,
-  n0,
-  _BASS,
-  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/scram-secrets", 200] },
-  () => BatchAssociateScramSecretRequest$,
-  () => BatchAssociateScramSecretResponse$,
+export var BatchAssociateScramSecret$: StaticOperationSchema = [9, n0, _BASS,
+  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchAssociateScramSecretRequest$, () => BatchAssociateScramSecretResponse$
 ];
-export var BatchDisassociateScramSecret$: StaticOperationSchema = [
-  9,
-  n0,
-  _BDSS,
-  { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/scram-secrets", 200] },
-  () => BatchDisassociateScramSecretRequest$,
-  () => BatchDisassociateScramSecretResponse$,
+export var BatchDisassociateScramSecret$: StaticOperationSchema = [9, n0, _BDSS,
+  { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchDisassociateScramSecretRequest$, () => BatchDisassociateScramSecretResponse$
 ];
-export var CreateCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _CC,
-  { [_h]: ["POST", "/v1/clusters", 200] },
-  () => CreateClusterRequest$,
-  () => CreateClusterResponse$,
+export var CreateCluster$: StaticOperationSchema = [9, n0, _CC,
+  { [_h]: ["POST", "/v1/clusters", 200] }, () => CreateClusterRequest$, () => CreateClusterResponse$
 ];
-export var CreateClusterV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCV,
-  { [_h]: ["POST", "/api/v2/clusters", 200] },
-  () => CreateClusterV2Request$,
-  () => CreateClusterV2Response$,
+export var CreateClusterV2$: StaticOperationSchema = [9, n0, _CCV,
+  { [_h]: ["POST", "/api/v2/clusters", 200] }, () => CreateClusterV2Request$, () => CreateClusterV2Response$
 ];
-export var CreateConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCr,
-  { [_h]: ["POST", "/v1/configurations", 200] },
-  () => CreateConfigurationRequest$,
-  () => CreateConfigurationResponse$,
+export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CCr,
+  { [_h]: ["POST", "/v1/configurations", 200] }, () => CreateConfigurationRequest$, () => CreateConfigurationResponse$
 ];
-export var CreateReplicator$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRr,
-  { [_h]: ["POST", "/replication/v1/replicators", 200] },
-  () => CreateReplicatorRequest$,
-  () => CreateReplicatorResponse$,
+export var CreateReplicator$: StaticOperationSchema = [9, n0, _CRr,
+  { [_h]: ["POST", "/replication/v1/replicators", 200] }, () => CreateReplicatorRequest$, () => CreateReplicatorResponse$
 ];
-export var CreateVpcConnection$: StaticOperationSchema = [
-  9,
-  n0,
-  _CVCr,
-  { [_h]: ["POST", "/v1/vpc-connection", 200] },
-  () => CreateVpcConnectionRequest$,
-  () => CreateVpcConnectionResponse$,
+export var CreateVpcConnection$: StaticOperationSchema = [9, n0, _CVCr,
+  { [_h]: ["POST", "/v1/vpc-connection", 200] }, () => CreateVpcConnectionRequest$, () => CreateVpcConnectionResponse$
 ];
-export var DeleteCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}", 200] },
-  () => DeleteClusterRequest$,
-  () => DeleteClusterResponse$,
+export var DeleteCluster$: StaticOperationSchema = [9, n0, _DC,
+  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}", 200] }, () => DeleteClusterRequest$, () => DeleteClusterResponse$
 ];
-export var DeleteClusterPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCP,
-  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/policy", 200] },
-  () => DeleteClusterPolicyRequest$,
-  () => DeleteClusterPolicyResponse$,
+export var DeleteClusterPolicy$: StaticOperationSchema = [9, n0, _DCP,
+  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/policy", 200] }, () => DeleteClusterPolicyRequest$, () => DeleteClusterPolicyResponse$
 ];
-export var DeleteConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCe,
-  { [_h]: ["DELETE", "/v1/configurations/{Arn}", 200] },
-  () => DeleteConfigurationRequest$,
-  () => DeleteConfigurationResponse$,
+export var DeleteConfiguration$: StaticOperationSchema = [9, n0, _DCe,
+  { [_h]: ["DELETE", "/v1/configurations/{Arn}", 200] }, () => DeleteConfigurationRequest$, () => DeleteConfigurationResponse$
 ];
-export var DeleteReplicator$: StaticOperationSchema = [
-  9,
-  n0,
-  _DR,
-  { [_h]: ["DELETE", "/replication/v1/replicators/{ReplicatorArn}", 200] },
-  () => DeleteReplicatorRequest$,
-  () => DeleteReplicatorResponse$,
+export var DeleteReplicator$: StaticOperationSchema = [9, n0, _DR,
+  { [_h]: ["DELETE", "/replication/v1/replicators/{ReplicatorArn}", 200] }, () => DeleteReplicatorRequest$, () => DeleteReplicatorResponse$
 ];
-export var DeleteVpcConnection$: StaticOperationSchema = [
-  9,
-  n0,
-  _DVC,
-  { [_h]: ["DELETE", "/v1/vpc-connection/{Arn}", 200] },
-  () => DeleteVpcConnectionRequest$,
-  () => DeleteVpcConnectionResponse$,
+export var DeleteVpcConnection$: StaticOperationSchema = [9, n0, _DVC,
+  { [_h]: ["DELETE", "/v1/vpc-connection/{Arn}", 200] }, () => DeleteVpcConnectionRequest$, () => DeleteVpcConnectionResponse$
 ];
-export var DescribeCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCes,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}", 200] },
-  () => DescribeClusterRequest$,
-  () => DescribeClusterResponse$,
+export var DescribeCluster$: StaticOperationSchema = [9, n0, _DCes,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}", 200] }, () => DescribeClusterRequest$, () => DescribeClusterResponse$
 ];
-export var DescribeClusterOperation$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCO,
-  { [_h]: ["GET", "/v1/operations/{ClusterOperationArn}", 200] },
-  () => DescribeClusterOperationRequest$,
-  () => DescribeClusterOperationResponse$,
+export var DescribeClusterOperation$: StaticOperationSchema = [9, n0, _DCO,
+  { [_h]: ["GET", "/v1/operations/{ClusterOperationArn}", 200] }, () => DescribeClusterOperationRequest$, () => DescribeClusterOperationResponse$
 ];
-export var DescribeClusterOperationV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCOV,
-  { [_h]: ["GET", "/api/v2/operations/{ClusterOperationArn}", 200] },
-  () => DescribeClusterOperationV2Request$,
-  () => DescribeClusterOperationV2Response$,
+export var DescribeClusterOperationV2$: StaticOperationSchema = [9, n0, _DCOV,
+  { [_h]: ["GET", "/api/v2/operations/{ClusterOperationArn}", 200] }, () => DescribeClusterOperationV2Request$, () => DescribeClusterOperationV2Response$
 ];
-export var DescribeClusterV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCV,
-  { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}", 200] },
-  () => DescribeClusterV2Request$,
-  () => DescribeClusterV2Response$,
+export var DescribeClusterV2$: StaticOperationSchema = [9, n0, _DCV,
+  { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}", 200] }, () => DescribeClusterV2Request$, () => DescribeClusterV2Response$
 ];
-export var DescribeConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCesc,
-  { [_h]: ["GET", "/v1/configurations/{Arn}", 200] },
-  () => DescribeConfigurationRequest$,
-  () => DescribeConfigurationResponse$,
+export var DescribeConfiguration$: StaticOperationSchema = [9, n0, _DCesc,
+  { [_h]: ["GET", "/v1/configurations/{Arn}", 200] }, () => DescribeConfigurationRequest$, () => DescribeConfigurationResponse$
 ];
-export var DescribeConfigurationRevision$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCRescrib,
-  { [_h]: ["GET", "/v1/configurations/{Arn}/revisions/{Revision}", 200] },
-  () => DescribeConfigurationRevisionRequest$,
-  () => DescribeConfigurationRevisionResponse$,
+export var DescribeConfigurationRevision$: StaticOperationSchema = [9, n0, _DCRescrib,
+  { [_h]: ["GET", "/v1/configurations/{Arn}/revisions/{Revision}", 200] }, () => DescribeConfigurationRevisionRequest$, () => DescribeConfigurationRevisionResponse$
 ];
-export var DescribeReplicator$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRe,
-  { [_h]: ["GET", "/replication/v1/replicators/{ReplicatorArn}", 200] },
-  () => DescribeReplicatorRequest$,
-  () => DescribeReplicatorResponse$,
+export var DescribeReplicator$: StaticOperationSchema = [9, n0, _DRe,
+  { [_h]: ["GET", "/replication/v1/replicators/{ReplicatorArn}", 200] }, () => DescribeReplicatorRequest$, () => DescribeReplicatorResponse$
 ];
-export var DescribeTopic$: StaticOperationSchema = [
-  9,
-  n0,
-  _DT,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}", 200] },
-  () => DescribeTopicRequest$,
-  () => DescribeTopicResponse$,
+export var DescribeTopic$: StaticOperationSchema = [9, n0, _DT,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}", 200] }, () => DescribeTopicRequest$, () => DescribeTopicResponse$
 ];
-export var DescribeTopicPartitions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTP,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}/partitions", 200] },
-  () => DescribeTopicPartitionsRequest$,
-  () => DescribeTopicPartitionsResponse$,
+export var DescribeTopicPartitions$: StaticOperationSchema = [9, n0, _DTP,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}/partitions", 200] }, () => DescribeTopicPartitionsRequest$, () => DescribeTopicPartitionsResponse$
 ];
-export var DescribeVpcConnection$: StaticOperationSchema = [
-  9,
-  n0,
-  _DVCe,
-  { [_h]: ["GET", "/v1/vpc-connection/{Arn}", 200] },
-  () => DescribeVpcConnectionRequest$,
-  () => DescribeVpcConnectionResponse$,
+export var DescribeVpcConnection$: StaticOperationSchema = [9, n0, _DVCe,
+  { [_h]: ["GET", "/v1/vpc-connection/{Arn}", 200] }, () => DescribeVpcConnectionRequest$, () => DescribeVpcConnectionResponse$
 ];
-export var GetBootstrapBrokers$: StaticOperationSchema = [
-  9,
-  n0,
-  _GBB,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/bootstrap-brokers", 200] },
-  () => GetBootstrapBrokersRequest$,
-  () => GetBootstrapBrokersResponse$,
+export var GetBootstrapBrokers$: StaticOperationSchema = [9, n0, _GBB,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/bootstrap-brokers", 200] }, () => GetBootstrapBrokersRequest$, () => GetBootstrapBrokersResponse$
 ];
-export var GetClusterPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCP,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/policy", 200] },
-  () => GetClusterPolicyRequest$,
-  () => GetClusterPolicyResponse$,
+export var GetClusterPolicy$: StaticOperationSchema = [9, n0, _GCP,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/policy", 200] }, () => GetClusterPolicyRequest$, () => GetClusterPolicyResponse$
 ];
-export var GetCompatibleKafkaVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCKV,
-  { [_h]: ["GET", "/v1/compatible-kafka-versions", 200] },
-  () => GetCompatibleKafkaVersionsRequest$,
-  () => GetCompatibleKafkaVersionsResponse$,
+export var GetCompatibleKafkaVersions$: StaticOperationSchema = [9, n0, _GCKV,
+  { [_h]: ["GET", "/v1/compatible-kafka-versions", 200] }, () => GetCompatibleKafkaVersionsRequest$, () => GetCompatibleKafkaVersionsResponse$
 ];
-export var ListClientVpcConnections$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCVC,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/client-vpc-connections", 200] },
-  () => ListClientVpcConnectionsRequest$,
-  () => ListClientVpcConnectionsResponse$,
+export var ListClientVpcConnections$: StaticOperationSchema = [9, n0, _LCVC,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/client-vpc-connections", 200] }, () => ListClientVpcConnectionsRequest$, () => ListClientVpcConnectionsResponse$
 ];
-export var ListClusterOperations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCO,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/operations", 200] },
-  () => ListClusterOperationsRequest$,
-  () => ListClusterOperationsResponse$,
+export var ListClusterOperations$: StaticOperationSchema = [9, n0, _LCO,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/operations", 200] }, () => ListClusterOperationsRequest$, () => ListClusterOperationsResponse$
 ];
-export var ListClusterOperationsV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCOV,
-  { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}/operations", 200] },
-  () => ListClusterOperationsV2Request$,
-  () => ListClusterOperationsV2Response$,
+export var ListClusterOperationsV2$: StaticOperationSchema = [9, n0, _LCOV,
+  { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}/operations", 200] }, () => ListClusterOperationsV2Request$, () => ListClusterOperationsV2Response$
 ];
-export var ListClusters$: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_h]: ["GET", "/v1/clusters", 200] },
-  () => ListClustersRequest$,
-  () => ListClustersResponse$,
+export var ListClusters$: StaticOperationSchema = [9, n0, _LC,
+  { [_h]: ["GET", "/v1/clusters", 200] }, () => ListClustersRequest$, () => ListClustersResponse$
 ];
-export var ListClustersV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCV,
-  { [_h]: ["GET", "/api/v2/clusters", 200] },
-  () => ListClustersV2Request$,
-  () => ListClustersV2Response$,
+export var ListClustersV2$: StaticOperationSchema = [9, n0, _LCV,
+  { [_h]: ["GET", "/api/v2/clusters", 200] }, () => ListClustersV2Request$, () => ListClustersV2Response$
 ];
-export var ListConfigurationRevisions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCRisto,
-  { [_h]: ["GET", "/v1/configurations/{Arn}/revisions", 200] },
-  () => ListConfigurationRevisionsRequest$,
-  () => ListConfigurationRevisionsResponse$,
+export var ListConfigurationRevisions$: StaticOperationSchema = [9, n0, _LCRisto,
+  { [_h]: ["GET", "/v1/configurations/{Arn}/revisions", 200] }, () => ListConfigurationRevisionsRequest$, () => ListConfigurationRevisionsResponse$
 ];
-export var ListConfigurations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCi,
-  { [_h]: ["GET", "/v1/configurations", 200] },
-  () => ListConfigurationsRequest$,
-  () => ListConfigurationsResponse$,
+export var ListConfigurations$: StaticOperationSchema = [9, n0, _LCi,
+  { [_h]: ["GET", "/v1/configurations", 200] }, () => ListConfigurationsRequest$, () => ListConfigurationsResponse$
 ];
-export var ListKafkaVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LKV,
-  { [_h]: ["GET", "/v1/kafka-versions", 200] },
-  () => ListKafkaVersionsRequest$,
-  () => ListKafkaVersionsResponse$,
+export var ListKafkaVersions$: StaticOperationSchema = [9, n0, _LKV,
+  { [_h]: ["GET", "/v1/kafka-versions", 200] }, () => ListKafkaVersionsRequest$, () => ListKafkaVersionsResponse$
 ];
-export var ListNodes$: StaticOperationSchema = [
-  9,
-  n0,
-  _LN,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/nodes", 200] },
-  () => ListNodesRequest$,
-  () => ListNodesResponse$,
+export var ListNodes$: StaticOperationSchema = [9, n0, _LN,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/nodes", 200] }, () => ListNodesRequest$, () => ListNodesResponse$
 ];
-export var ListReplicators$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRi,
-  { [_h]: ["GET", "/replication/v1/replicators", 200] },
-  () => ListReplicatorsRequest$,
-  () => ListReplicatorsResponse$,
+export var ListReplicators$: StaticOperationSchema = [9, n0, _LRi,
+  { [_h]: ["GET", "/replication/v1/replicators", 200] }, () => ListReplicatorsRequest$, () => ListReplicatorsResponse$
 ];
-export var ListScramSecrets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSS,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/scram-secrets", 200] },
-  () => ListScramSecretsRequest$,
-  () => ListScramSecretsResponse$,
+export var ListScramSecrets$: StaticOperationSchema = [9, n0, _LSS,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => ListScramSecretsRequest$, () => ListScramSecretsResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/v1/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/v1/tags/{ResourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var ListTopics$: StaticOperationSchema = [
-  9,
-  n0,
-  _LT,
-  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics", 200] },
-  () => ListTopicsRequest$,
-  () => ListTopicsResponse$,
+export var ListTopics$: StaticOperationSchema = [9, n0, _LT,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics", 200] }, () => ListTopicsRequest$, () => ListTopicsResponse$
 ];
-export var ListVpcConnections$: StaticOperationSchema = [
-  9,
-  n0,
-  _LVC,
-  { [_h]: ["GET", "/v1/vpc-connections", 200] },
-  () => ListVpcConnectionsRequest$,
-  () => ListVpcConnectionsResponse$,
+export var ListVpcConnections$: StaticOperationSchema = [9, n0, _LVC,
+  { [_h]: ["GET", "/v1/vpc-connections", 200] }, () => ListVpcConnectionsRequest$, () => ListVpcConnectionsResponse$
 ];
-export var PutClusterPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PCP,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/policy", 200] },
-  () => PutClusterPolicyRequest$,
-  () => PutClusterPolicyResponse$,
+export var PutClusterPolicy$: StaticOperationSchema = [9, n0, _PCP,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/policy", 200] }, () => PutClusterPolicyRequest$, () => PutClusterPolicyResponse$
 ];
-export var RebootBroker$: StaticOperationSchema = [
-  9,
-  n0,
-  _RB,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/reboot-broker", 200] },
-  () => RebootBrokerRequest$,
-  () => RebootBrokerResponse$,
+export var RebootBroker$: StaticOperationSchema = [9, n0, _RB,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/reboot-broker", 200] }, () => RebootBrokerRequest$, () => RebootBrokerResponse$
 ];
-export var RejectClientVpcConnection$: StaticOperationSchema = [
-  9,
-  n0,
-  _RCVC,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/client-vpc-connection", 200] },
-  () => RejectClientVpcConnectionRequest$,
-  () => RejectClientVpcConnectionResponse$,
+export var RejectClientVpcConnection$: StaticOperationSchema = [9, n0, _RCVC,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/client-vpc-connection", 200] }, () => RejectClientVpcConnectionRequest$, () => RejectClientVpcConnectionResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TRa,
-  { [_h]: ["POST", "/v1/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest$,
-  () => __Unit,
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
+  { [_h]: ["POST", "/v1/tags/{ResourceArn}", 204] }, () => TagResourceRequest$, () => __Unit
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/v1/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest$,
-  () => __Unit,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/v1/tags/{ResourceArn}", 204] }, () => UntagResourceRequest$, () => __Unit
 ];
-export var UpdateBrokerCount$: StaticOperationSchema = [
-  9,
-  n0,
-  _UBC,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/count", 200] },
-  () => UpdateBrokerCountRequest$,
-  () => UpdateBrokerCountResponse$,
+export var UpdateBrokerCount$: StaticOperationSchema = [9, n0, _UBC,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/count", 200] }, () => UpdateBrokerCountRequest$, () => UpdateBrokerCountResponse$
 ];
-export var UpdateBrokerStorage$: StaticOperationSchema = [
-  9,
-  n0,
-  _UBS,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/storage", 200] },
-  () => UpdateBrokerStorageRequest$,
-  () => UpdateBrokerStorageResponse$,
+export var UpdateBrokerStorage$: StaticOperationSchema = [9, n0, _UBS,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/storage", 200] }, () => UpdateBrokerStorageRequest$, () => UpdateBrokerStorageResponse$
 ];
-export var UpdateBrokerType$: StaticOperationSchema = [
-  9,
-  n0,
-  _UBT,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/type", 200] },
-  () => UpdateBrokerTypeRequest$,
-  () => UpdateBrokerTypeResponse$,
+export var UpdateBrokerType$: StaticOperationSchema = [9, n0, _UBT,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/type", 200] }, () => UpdateBrokerTypeRequest$, () => UpdateBrokerTypeResponse$
 ];
-export var UpdateClusterConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCC,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/configuration", 200] },
-  () => UpdateClusterConfigurationRequest$,
-  () => UpdateClusterConfigurationResponse$,
+export var UpdateClusterConfiguration$: StaticOperationSchema = [9, n0, _UCC,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/configuration", 200] }, () => UpdateClusterConfigurationRequest$, () => UpdateClusterConfigurationResponse$
 ];
-export var UpdateClusterKafkaVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCKV,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/version", 200] },
-  () => UpdateClusterKafkaVersionRequest$,
-  () => UpdateClusterKafkaVersionResponse$,
+export var UpdateClusterKafkaVersion$: StaticOperationSchema = [9, n0, _UCKV,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/version", 200] }, () => UpdateClusterKafkaVersionRequest$, () => UpdateClusterKafkaVersionResponse$
 ];
-export var UpdateConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _UC,
-  { [_h]: ["PUT", "/v1/configurations/{Arn}", 200] },
-  () => UpdateConfigurationRequest$,
-  () => UpdateConfigurationResponse$,
+export var UpdateConfiguration$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["PUT", "/v1/configurations/{Arn}", 200] }, () => UpdateConfigurationRequest$, () => UpdateConfigurationResponse$
 ];
-export var UpdateConnectivity$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCp,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/connectivity", 200] },
-  () => UpdateConnectivityRequest$,
-  () => UpdateConnectivityResponse$,
+export var UpdateConnectivity$: StaticOperationSchema = [9, n0, _UCp,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/connectivity", 200] }, () => UpdateConnectivityRequest$, () => UpdateConnectivityResponse$
 ];
-export var UpdateMonitoring$: StaticOperationSchema = [
-  9,
-  n0,
-  _UM,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/monitoring", 200] },
-  () => UpdateMonitoringRequest$,
-  () => UpdateMonitoringResponse$,
+export var UpdateMonitoring$: StaticOperationSchema = [9, n0, _UM,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/monitoring", 200] }, () => UpdateMonitoringRequest$, () => UpdateMonitoringResponse$
 ];
-export var UpdateRebalancing$: StaticOperationSchema = [
-  9,
-  n0,
-  _URp,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/rebalancing", 200] },
-  () => UpdateRebalancingRequest$,
-  () => UpdateRebalancingResponse$,
+export var UpdateRebalancing$: StaticOperationSchema = [9, n0, _URp,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/rebalancing", 200] }, () => UpdateRebalancingRequest$, () => UpdateRebalancingResponse$
 ];
-export var UpdateReplicationInfo$: StaticOperationSchema = [
-  9,
-  n0,
-  _URI,
-  { [_h]: ["PUT", "/replication/v1/replicators/{ReplicatorArn}/replication-info", 200] },
-  () => UpdateReplicationInfoRequest$,
-  () => UpdateReplicationInfoResponse$,
+export var UpdateReplicationInfo$: StaticOperationSchema = [9, n0, _URI,
+  { [_h]: ["PUT", "/replication/v1/replicators/{ReplicatorArn}/replication-info", 200] }, () => UpdateReplicationInfoRequest$, () => UpdateReplicationInfoResponse$
 ];
-export var UpdateSecurity$: StaticOperationSchema = [
-  9,
-  n0,
-  _US,
-  { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/security", 200] },
-  () => UpdateSecurityRequest$,
-  () => UpdateSecurityResponse$,
+export var UpdateSecurity$: StaticOperationSchema = [9, n0, _US,
+  { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/security", 200] }, () => UpdateSecurityRequest$, () => UpdateSecurityResponse$
 ];
-export var UpdateStorage$: StaticOperationSchema = [
-  9,
-  n0,
-  _USp,
-  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/storage", 200] },
-  () => UpdateStorageRequest$,
-  () => UpdateStorageResponse$,
+export var UpdateStorage$: StaticOperationSchema = [9, n0, _USp,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/storage", 200] }, () => UpdateStorageRequest$, () => UpdateStorageResponse$
 ];

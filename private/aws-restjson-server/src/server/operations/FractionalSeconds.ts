@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,11 +30,7 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type FractionalSeconds<Context> = __Operation<
-  FractionalSecondsServerInput,
-  FractionalSecondsServerOutput,
-  Context
->;
+export type FractionalSeconds<Context> = __Operation<FractionalSecondsServerInput, FractionalSecondsServerOutput, Context>
 
 export interface FractionalSecondsServerInput {}
 export namespace FractionalSecondsServerInput {
@@ -47,41 +43,33 @@ export interface FractionalSecondsServerOutput extends FractionalSecondsOutput {
 
 export type FractionalSecondsErrors = never;
 
-export class FractionalSecondsSerializer
-  implements __OperationSerializer<RestJsonService<any>, "FractionalSeconds", FractionalSecondsErrors>
-{
+export class FractionalSecondsSerializer implements __OperationSerializer<RestJsonService<any>, "FractionalSeconds", FractionalSecondsErrors> {
   serialize = serializeFractionalSecondsResponse;
   deserialize = deserializeFractionalSecondsRequest;
 
   isOperationError(error: any): error is FractionalSecondsErrors {
     return false;
-  }
+  };
 
   serializeError(error: FractionalSecondsErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getFractionalSecondsHandler = <Context>(
-  operation: __Operation<FractionalSecondsServerInput, FractionalSecondsServerOutput, Context>,
-  customizer: __ValidationCustomizer<"FractionalSeconds">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getFractionalSecondsHandler = <Context>(operation: __Operation<FractionalSecondsServerInput, FractionalSecondsServerOutput, Context>, customizer: __ValidationCustomizer<"FractionalSeconds">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "FractionalSeconds">([
     new httpbinding.UriSpec<"RestJson", "FractionalSeconds">(
-      "POST",
-      [{ type: "path_literal", value: "FractionalSeconds" }],
-      [],
-      { service: "RestJson", operation: "FractionalSeconds" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "FractionalSeconds" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "FractionalSeconds" }),
   ]);
-  return new FractionalSecondsHandler(
-    operation,
-    mux,
-    new FractionalSecondsSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new FractionalSecondsHandler(operation, mux, new FractionalSecondsSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -90,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -105,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class FractionalSecondsHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<FractionalSecondsServerInput, FractionalSecondsServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "FractionalSeconds">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "FractionalSeconds",
-    FractionalSecondsErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "FractionalSeconds", FractionalSecondsErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"FractionalSeconds">;
   /**
    * Construct a FractionalSeconds handler.
@@ -170,20 +150,9 @@ export class FractionalSecondsHandler<Context> implements __ServiceHandler<Conte
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.FractionalSeconds. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.FractionalSeconds. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "FractionalSeconds",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      FractionalSecondsServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "FractionalSeconds", this.serializer, this.operation, this.serializeFrameworkException, FractionalSecondsServerInput.validate, this.validationCustomizer);
   }
 }

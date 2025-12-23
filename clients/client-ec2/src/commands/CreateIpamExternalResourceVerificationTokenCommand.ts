@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateIpamExternalResourceVerificationTokenCommand}.
  */
-export interface CreateIpamExternalResourceVerificationTokenCommandInput
-  extends CreateIpamExternalResourceVerificationTokenRequest {}
+export interface CreateIpamExternalResourceVerificationTokenCommandInput extends CreateIpamExternalResourceVerificationTokenRequest {}
 /**
  * @public
  *
  * The output of {@link CreateIpamExternalResourceVerificationTokenCommand}.
  */
-export interface CreateIpamExternalResourceVerificationTokenCommandOutput
-  extends CreateIpamExternalResourceVerificationTokenResult,
-    __MetadataBearer {}
+export interface CreateIpamExternalResourceVerificationTokenCommandOutput extends CreateIpamExternalResourceVerificationTokenResult, __MetadataBearer {}
 
 /**
  * <p>Create a verification token.</p>

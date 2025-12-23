@@ -24,9 +24,7 @@ export interface CreateContactFlowModuleAliasCommandInput extends CreateContactF
  *
  * The output of {@link CreateContactFlowModuleAliasCommand}.
  */
-export interface CreateContactFlowModuleAliasCommandOutput
-  extends CreateContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface CreateContactFlowModuleAliasCommandOutput extends CreateContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a named alias that points to a specific version of a contact flow module.</p>

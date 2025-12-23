@@ -9,10 +9,8 @@ AWS SDK for JavaScript MWAAServerless Client for Node.js, Browser and React Nati
 <p>Amazon Managed Workflows for Apache Airflow Serverless provides a managed workflow orchestration platform for running Apache Airflow workflows in a serverless environment. You can use Amazon Managed Workflows for Apache Airflow Serverless to create, manage, and run data processing workflows without managing the underlying infrastructure, Airflow clusters, metadata databases, or scheduling overhead. The service provides secure multi-tenant run environments with automatic scaling, comprehensive logging, and integration with multiple Amazon Web Services services for orchestrating complex analytics workloads.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-mwaa-serverless
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-mwaa-serverless`
 - `yarn add @aws-sdk/client-mwaa-serverless`
 - `pnpm add @aws-sdk/client-mwaa-serverless`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MWAAServerlessClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListWorkflowsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/CreateWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/CreateWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/CreateWorkflowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/DeleteWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/DeleteWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/DeleteWorkflowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ GetTaskInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/GetTaskInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetTaskInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetTaskInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ GetWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/GetWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetWorkflowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/GetWorkflowRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetWorkflowRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/GetWorkflowRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ ListTaskInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/ListTaskInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListTaskInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListTaskInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ ListWorkflowRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/ListWorkflowRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowRunsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListWorkflows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/ListWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListWorkflowVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/ListWorkflowVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/ListWorkflowVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ StartWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/StartWorkflowRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/StartWorkflowRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/StartWorkflowRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ StopWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/StopWorkflowRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/StopWorkflowRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/StopWorkflowRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,5 +303,4 @@ UpdateWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa-serverless/command/UpdateWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/UpdateWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa-serverless/Interface/UpdateWorkflowCommandOutput/)
-
 </details>

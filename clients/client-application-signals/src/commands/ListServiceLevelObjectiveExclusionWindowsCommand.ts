@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListServiceLevelObjectiveExclusionWindowsCommand}.
  */
-export interface ListServiceLevelObjectiveExclusionWindowsCommandInput
-  extends ListServiceLevelObjectiveExclusionWindowsInput {}
+export interface ListServiceLevelObjectiveExclusionWindowsCommandInput extends ListServiceLevelObjectiveExclusionWindowsInput {}
 /**
  * @public
  *
  * The output of {@link ListServiceLevelObjectiveExclusionWindowsCommand}.
  */
-export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput
-  extends ListServiceLevelObjectiveExclusionWindowsOutput,
-    __MetadataBearer {}
+export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput extends ListServiceLevelObjectiveExclusionWindowsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves all exclusion windows configured for a specific SLO.</p>

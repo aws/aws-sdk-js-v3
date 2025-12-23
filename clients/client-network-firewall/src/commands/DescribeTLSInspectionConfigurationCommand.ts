@@ -31,9 +31,7 @@ export interface DescribeTLSInspectionConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeTLSInspectionConfigurationCommand}.
  */
-export interface DescribeTLSInspectionConfigurationCommandOutput
-  extends DescribeTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeTLSInspectionConfigurationCommandOutput extends DescribeTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the data objects for the specified TLS inspection configuration.</p>

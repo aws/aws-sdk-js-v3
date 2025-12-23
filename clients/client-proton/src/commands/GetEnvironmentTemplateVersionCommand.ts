@@ -24,9 +24,7 @@ export interface GetEnvironmentTemplateVersionCommandInput extends GetEnvironmen
  *
  * The output of {@link GetEnvironmentTemplateVersionCommand}.
  */
-export interface GetEnvironmentTemplateVersionCommandOutput
-  extends GetEnvironmentTemplateVersionOutput,
-    __MetadataBearer {}
+export interface GetEnvironmentTemplateVersionCommandOutput extends GetEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Get detailed data for a major or minor version of an environment template.</p>

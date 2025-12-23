@@ -28,9 +28,7 @@ export interface ListTypedLinkFacetAttributesCommandInput extends ListTypedLinkF
  *
  * The output of {@link ListTypedLinkFacetAttributesCommand}.
  */
-export interface ListTypedLinkFacetAttributesCommandOutput
-  extends ListTypedLinkFacetAttributesResponse,
-    __MetadataBearer {}
+export interface ListTypedLinkFacetAttributesCommandOutput extends ListTypedLinkFacetAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>

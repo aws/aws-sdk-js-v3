@@ -49,11 +49,9 @@ export const defaultRedshiftServerlessHttpAuthSchemeParametersProvider = async (
 ): Promise<RedshiftServerlessHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface RedshiftServerlessHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultRedshiftServerlessHttpAuthSchemeProvider: RedshiftServerlessHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultRedshiftServerlessHttpAuthSchemeProvider: RedshiftServerlessHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

@@ -24,9 +24,7 @@ export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWork
  *
  * The output of {@link DescribeWorkspaceConfigurationCommand}.
  */
-export interface DescribeWorkspaceConfigurationCommandOutput
-  extends DescribeWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeWorkspaceConfigurationCommandOutput extends DescribeWorkspaceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the current configuration string for the given workspace.</p>

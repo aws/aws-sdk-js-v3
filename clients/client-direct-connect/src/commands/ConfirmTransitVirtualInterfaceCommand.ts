@@ -24,9 +24,7 @@ export interface ConfirmTransitVirtualInterfaceCommandInput extends ConfirmTrans
  *
  * The output of {@link ConfirmTransitVirtualInterfaceCommand}.
  */
-export interface ConfirmTransitVirtualInterfaceCommandOutput
-  extends ConfirmTransitVirtualInterfaceResponse,
-    __MetadataBearer {}
+export interface ConfirmTransitVirtualInterfaceCommandOutput extends ConfirmTransitVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>

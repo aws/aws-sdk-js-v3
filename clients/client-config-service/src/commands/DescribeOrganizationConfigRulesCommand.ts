@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigRulesCommandInput extends DescribeOrg
  *
  * The output of {@link DescribeOrganizationConfigRulesCommand}.
  */
-export interface DescribeOrganizationConfigRulesCommandOutput
-  extends DescribeOrganizationConfigRulesResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigRulesCommandOutput extends DescribeOrganizationConfigRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of organization Config rules. </p>

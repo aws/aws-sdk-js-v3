@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DescribeLakeFormationIdentityCenterConfigurationCommandInput
-  extends DescribeLakeFormationIdentityCenterConfigurationRequest {}
+export interface DescribeLakeFormationIdentityCenterConfigurationCommandInput extends DescribeLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
-  extends DescribeLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput extends DescribeLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the instance ARN and application ARN for the connection.</p>

@@ -24,9 +24,7 @@ export interface PutDataSetRefreshPropertiesCommandInput extends PutDataSetRefre
  *
  * The output of {@link PutDataSetRefreshPropertiesCommand}.
  */
-export interface PutDataSetRefreshPropertiesCommandOutput
-  extends PutDataSetRefreshPropertiesResponse,
-    __MetadataBearer {}
+export interface PutDataSetRefreshPropertiesCommandOutput extends PutDataSetRefreshPropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the dataset refresh properties for the dataset.</p>

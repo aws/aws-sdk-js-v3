@@ -28,9 +28,7 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandInput {}
  *
  * The output of {@link GetTelemetryEvaluationStatusForOrganizationCommand}.
  */
-export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
-  extends GetTelemetryEvaluationStatusForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput extends GetTelemetryEvaluationStatusForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config. </p>

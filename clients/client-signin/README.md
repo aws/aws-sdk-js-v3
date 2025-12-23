@@ -10,10 +10,8 @@ AWS Sign-In manages authentication for AWS services. This service provides
 secure authentication flows for accessing AWS resources from the console and developer tools.
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-signin
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-signin`
 - `yarn add @aws-sdk/client-signin`
 - `pnpm add @aws-sdk/client-signin`
@@ -49,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SigninClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new CreateOAuth2TokenCommand(params);
 ```
 
@@ -210,5 +206,4 @@ CreateOAuth2Token
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateOAuth2TokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenCommandOutput/)
-
 </details>

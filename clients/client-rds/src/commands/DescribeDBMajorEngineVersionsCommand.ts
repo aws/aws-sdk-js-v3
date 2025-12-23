@@ -24,9 +24,7 @@ export interface DescribeDBMajorEngineVersionsCommandInput extends DescribeDBMaj
  *
  * The output of {@link DescribeDBMajorEngineVersionsCommand}.
  */
-export interface DescribeDBMajorEngineVersionsCommandOutput
-  extends DescribeDBMajorEngineVersionsResponse,
-    __MetadataBearer {}
+export interface DescribeDBMajorEngineVersionsCommandOutput extends DescribeDBMajorEngineVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the properties of specific major versions of DB engines.</p>

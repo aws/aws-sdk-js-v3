@@ -24,9 +24,7 @@ export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSha
  *
  * The output of {@link UpdatePublicSharingSettingsCommand}.
  */
-export interface UpdatePublicSharingSettingsCommandOutput
-  extends UpdatePublicSharingSettingsResponse,
-    __MetadataBearer {}
+export interface UpdatePublicSharingSettingsCommandOutput extends UpdatePublicSharingSettingsResponse, __MetadataBearer {}
 
 /**
  * <important>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
-export interface BatchUpdateStandardsControlAssociationsCommandInput
-  extends BatchUpdateStandardsControlAssociationsRequest {}
+export interface BatchUpdateStandardsControlAssociationsCommandInput extends BatchUpdateStandardsControlAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
-export interface BatchUpdateStandardsControlAssociationsCommandOutput
-  extends BatchUpdateStandardsControlAssociationsResponse,
-    __MetadataBearer {}
+export interface BatchUpdateStandardsControlAssociationsCommandOutput extends BatchUpdateStandardsControlAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

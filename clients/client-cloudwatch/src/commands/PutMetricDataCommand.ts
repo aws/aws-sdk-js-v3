@@ -199,7 +199,7 @@ export class PutMetricDataCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCompressionPlugin(config, {
-        encodings: ["gzip"],
+        'encodings': ['gzip'],
       }),
     ];
   })

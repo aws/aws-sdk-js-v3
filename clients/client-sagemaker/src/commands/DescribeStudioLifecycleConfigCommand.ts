@@ -24,9 +24,7 @@ export interface DescribeStudioLifecycleConfigCommandInput extends DescribeStudi
  *
  * The output of {@link DescribeStudioLifecycleConfigCommand}.
  */
-export interface DescribeStudioLifecycleConfigCommandOutput
-  extends DescribeStudioLifecycleConfigResponse,
-    __MetadataBearer {}
+export interface DescribeStudioLifecycleConfigCommandOutput extends DescribeStudioLifecycleConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the Amazon SageMaker AI Studio Lifecycle Configuration.</p>

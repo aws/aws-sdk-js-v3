@@ -24,9 +24,7 @@ export interface DescribeContactFlowModuleAliasCommandInput extends DescribeCont
  *
  * The output of {@link DescribeContactFlowModuleAliasCommand}.
  */
-export interface DescribeContactFlowModuleAliasCommandOutput
-  extends DescribeContactFlowModuleAliasResponse,
-    __MetadataBearer {}
+export interface DescribeContactFlowModuleAliasCommandOutput extends DescribeContactFlowModuleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about a specific alias, including which version it currently points to and its

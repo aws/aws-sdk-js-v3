@@ -27,9 +27,7 @@ export interface ListApplicationInstanceDependenciesCommandInput extends ListApp
  *
  * The output of {@link ListApplicationInstanceDependenciesCommand}.
  */
-export interface ListApplicationInstanceDependenciesCommandOutput
-  extends ListApplicationInstanceDependenciesResponse,
-    __MetadataBearer {}
+export interface ListApplicationInstanceDependenciesCommandOutput extends ListApplicationInstanceDependenciesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of application instance dependencies.</p>

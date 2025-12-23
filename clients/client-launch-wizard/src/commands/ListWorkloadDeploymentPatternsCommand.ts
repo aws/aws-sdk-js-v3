@@ -24,9 +24,7 @@ export interface ListWorkloadDeploymentPatternsCommandInput extends ListWorkload
  *
  * The output of {@link ListWorkloadDeploymentPatternsCommand}.
  */
-export interface ListWorkloadDeploymentPatternsCommandOutput
-  extends ListWorkloadDeploymentPatternsOutput,
-    __MetadataBearer {}
+export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloadDeploymentPatternsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the workload deployment patterns for a given workload name. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a> operation to discover the available workload names.</p>

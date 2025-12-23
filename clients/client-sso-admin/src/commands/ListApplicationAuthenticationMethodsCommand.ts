@@ -27,9 +27,7 @@ export interface ListApplicationAuthenticationMethodsCommandInput extends ListAp
  *
  * The output of {@link ListApplicationAuthenticationMethodsCommand}.
  */
-export interface ListApplicationAuthenticationMethodsCommandOutput
-  extends ListApplicationAuthenticationMethodsResponse,
-    __MetadataBearer {}
+export interface ListApplicationAuthenticationMethodsCommandOutput extends ListApplicationAuthenticationMethodsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the authentication methods supported by the specified application.</p>

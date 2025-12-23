@@ -24,9 +24,7 @@ export interface DescribeServiceEnvironmentsCommandInput extends DescribeService
  *
  * The output of {@link DescribeServiceEnvironmentsCommand}.
  */
-export interface DescribeServiceEnvironmentsCommandOutput
-  extends DescribeServiceEnvironmentsResponse,
-    __MetadataBearer {}
+export interface DescribeServiceEnvironmentsCommandOutput extends DescribeServiceEnvironmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your service environments.</p>

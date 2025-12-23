@@ -24,9 +24,7 @@ export interface GetWorkloadDeploymentPatternCommandInput extends GetWorkloadDep
  *
  * The output of {@link GetWorkloadDeploymentPatternCommand}.
  */
-export interface GetWorkloadDeploymentPatternCommandOutput
-  extends GetWorkloadDeploymentPatternOutput,
-    __MetadataBearer {}
+export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDeploymentPatternOutput, __MetadataBearer {}
 
 /**
  * <p>Returns details for a given workload and deployment pattern, including the available

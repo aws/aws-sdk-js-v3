@@ -24,9 +24,7 @@ export interface ListAutoScalingConfigurationsCommandInput extends ListAutoScali
  *
  * The output of {@link ListAutoScalingConfigurationsCommand}.
  */
-export interface ListAutoScalingConfigurationsCommandOutput
-  extends ListAutoScalingConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListAutoScalingConfigurationsCommandOutput extends ListAutoScalingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific

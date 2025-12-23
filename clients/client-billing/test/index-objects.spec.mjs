@@ -56,6 +56,8 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListBillingViews,
+  paginateListSourceViewsForBillingView,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceTag$,
@@ -83,8 +85,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListBillingViews,
-  paginateListSourceViewsForBillingView,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

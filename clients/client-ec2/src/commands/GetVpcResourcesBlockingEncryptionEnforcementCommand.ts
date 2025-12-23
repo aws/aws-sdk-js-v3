@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVpcResourcesBlockingEncryptionEnforcementCommand}.
  */
-export interface GetVpcResourcesBlockingEncryptionEnforcementCommandInput
-  extends GetVpcResourcesBlockingEncryptionEnforcementRequest {}
+export interface GetVpcResourcesBlockingEncryptionEnforcementCommandInput extends GetVpcResourcesBlockingEncryptionEnforcementRequest {}
 /**
  * @public
  *
  * The output of {@link GetVpcResourcesBlockingEncryptionEnforcementCommand}.
  */
-export interface GetVpcResourcesBlockingEncryptionEnforcementCommandOutput
-  extends GetVpcResourcesBlockingEncryptionEnforcementResult,
-    __MetadataBearer {}
+export interface GetVpcResourcesBlockingEncryptionEnforcementCommandOutput extends GetVpcResourcesBlockingEncryptionEnforcementResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about resources in a VPC that are blocking encryption enforcement.</p>

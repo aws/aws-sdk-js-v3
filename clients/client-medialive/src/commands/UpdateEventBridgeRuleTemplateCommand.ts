@@ -24,9 +24,7 @@ export interface UpdateEventBridgeRuleTemplateCommandInput extends UpdateEventBr
  *
  * The output of {@link UpdateEventBridgeRuleTemplateCommand}.
  */
-export interface UpdateEventBridgeRuleTemplateCommandOutput
-  extends UpdateEventBridgeRuleTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateEventBridgeRuleTemplateCommandOutput extends UpdateEventBridgeRuleTemplateResponse, __MetadataBearer {}
 
 /**
  * Updates the specified eventbridge rule template.

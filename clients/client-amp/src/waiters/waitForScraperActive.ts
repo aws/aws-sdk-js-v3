@@ -10,17 +10,17 @@ const checkState = async (client: AmpClient, input: DescribeScraperCommandInput)
     const result: any = await client.send(new DescribeScraperCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.scraper.status.statusCode;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.scraper.status.statusCode;
-      };
+      }
       if (returnComparator() === "CREATION_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

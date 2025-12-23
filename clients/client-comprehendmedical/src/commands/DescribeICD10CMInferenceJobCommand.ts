@@ -28,9 +28,7 @@ export interface DescribeICD10CMInferenceJobCommandInput extends DescribeICD10CM
  *
  * The output of {@link DescribeICD10CMInferenceJobCommand}.
  */
-export interface DescribeICD10CMInferenceJobCommandOutput
-  extends DescribeICD10CMInferenceJobResponse,
-    __MetadataBearer {}
+export interface DescribeICD10CMInferenceJobCommandOutput extends DescribeICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the

@@ -131,7 +131,10 @@ export interface AmplifyUIBuilder {
     args: CreateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateComponentCommandOutput>;
-  createComponent(args: CreateComponentCommandInput, cb: (err: any, data?: CreateComponentCommandOutput) => void): void;
+  createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
   createComponent(
     args: CreateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -141,8 +144,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link CreateFormCommand}
    */
-  createForm(args: CreateFormCommandInput, options?: __HttpHandlerOptions): Promise<CreateFormCommandOutput>;
-  createForm(args: CreateFormCommandInput, cb: (err: any, data?: CreateFormCommandOutput) => void): void;
+  createForm(
+    args: CreateFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFormCommandOutput>;
+  createForm(
+    args: CreateFormCommandInput,
+    cb: (err: any, data?: CreateFormCommandOutput) => void
+  ): void;
   createForm(
     args: CreateFormCommandInput,
     options: __HttpHandlerOptions,
@@ -152,8 +161,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link CreateThemeCommand}
    */
-  createTheme(args: CreateThemeCommandInput, options?: __HttpHandlerOptions): Promise<CreateThemeCommandOutput>;
-  createTheme(args: CreateThemeCommandInput, cb: (err: any, data?: CreateThemeCommandOutput) => void): void;
+  createTheme(
+    args: CreateThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThemeCommandOutput>;
+  createTheme(
+    args: CreateThemeCommandInput,
+    cb: (err: any, data?: CreateThemeCommandOutput) => void
+  ): void;
   createTheme(
     args: CreateThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -167,7 +182,10 @@ export interface AmplifyUIBuilder {
     args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
-  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
   deleteComponent(
     args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -177,8 +195,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link DeleteFormCommand}
    */
-  deleteForm(args: DeleteFormCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFormCommandOutput>;
-  deleteForm(args: DeleteFormCommandInput, cb: (err: any, data?: DeleteFormCommandOutput) => void): void;
+  deleteForm(
+    args: DeleteFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFormCommandOutput>;
+  deleteForm(
+    args: DeleteFormCommandInput,
+    cb: (err: any, data?: DeleteFormCommandOutput) => void
+  ): void;
   deleteForm(
     args: DeleteFormCommandInput,
     options: __HttpHandlerOptions,
@@ -188,8 +212,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link DeleteThemeCommand}
    */
-  deleteTheme(args: DeleteThemeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThemeCommandOutput>;
-  deleteTheme(args: DeleteThemeCommandInput, cb: (err: any, data?: DeleteThemeCommandOutput) => void): void;
+  deleteTheme(
+    args: DeleteThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThemeCommandOutput>;
+  deleteTheme(
+    args: DeleteThemeCommandInput,
+    cb: (err: any, data?: DeleteThemeCommandOutput) => void
+  ): void;
   deleteTheme(
     args: DeleteThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -233,8 +263,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link ExportFormsCommand}
    */
-  exportForms(args: ExportFormsCommandInput, options?: __HttpHandlerOptions): Promise<ExportFormsCommandOutput>;
-  exportForms(args: ExportFormsCommandInput, cb: (err: any, data?: ExportFormsCommandOutput) => void): void;
+  exportForms(
+    args: ExportFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportFormsCommandOutput>;
+  exportForms(
+    args: ExportFormsCommandInput,
+    cb: (err: any, data?: ExportFormsCommandOutput) => void
+  ): void;
   exportForms(
     args: ExportFormsCommandInput,
     options: __HttpHandlerOptions,
@@ -244,8 +280,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link ExportThemesCommand}
    */
-  exportThemes(args: ExportThemesCommandInput, options?: __HttpHandlerOptions): Promise<ExportThemesCommandOutput>;
-  exportThemes(args: ExportThemesCommandInput, cb: (err: any, data?: ExportThemesCommandOutput) => void): void;
+  exportThemes(
+    args: ExportThemesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportThemesCommandOutput>;
+  exportThemes(
+    args: ExportThemesCommandInput,
+    cb: (err: any, data?: ExportThemesCommandOutput) => void
+  ): void;
   exportThemes(
     args: ExportThemesCommandInput,
     options: __HttpHandlerOptions,
@@ -255,8 +297,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link GetCodegenJobCommand}
    */
-  getCodegenJob(args: GetCodegenJobCommandInput, options?: __HttpHandlerOptions): Promise<GetCodegenJobCommandOutput>;
-  getCodegenJob(args: GetCodegenJobCommandInput, cb: (err: any, data?: GetCodegenJobCommandOutput) => void): void;
+  getCodegenJob(
+    args: GetCodegenJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCodegenJobCommandOutput>;
+  getCodegenJob(
+    args: GetCodegenJobCommandInput,
+    cb: (err: any, data?: GetCodegenJobCommandOutput) => void
+  ): void;
   getCodegenJob(
     args: GetCodegenJobCommandInput,
     options: __HttpHandlerOptions,
@@ -266,8 +314,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link GetComponentCommand}
    */
-  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
-  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  getComponent(
+    args: GetComponentCommandInput,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
   getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -277,8 +331,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link GetFormCommand}
    */
-  getForm(args: GetFormCommandInput, options?: __HttpHandlerOptions): Promise<GetFormCommandOutput>;
-  getForm(args: GetFormCommandInput, cb: (err: any, data?: GetFormCommandOutput) => void): void;
+  getForm(
+    args: GetFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFormCommandOutput>;
+  getForm(
+    args: GetFormCommandInput,
+    cb: (err: any, data?: GetFormCommandOutput) => void
+  ): void;
   getForm(
     args: GetFormCommandInput,
     options: __HttpHandlerOptions,
@@ -288,8 +348,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link GetMetadataCommand}
    */
-  getMetadata(args: GetMetadataCommandInput, options?: __HttpHandlerOptions): Promise<GetMetadataCommandOutput>;
-  getMetadata(args: GetMetadataCommandInput, cb: (err: any, data?: GetMetadataCommandOutput) => void): void;
+  getMetadata(
+    args: GetMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetadataCommandOutput>;
+  getMetadata(
+    args: GetMetadataCommandInput,
+    cb: (err: any, data?: GetMetadataCommandOutput) => void
+  ): void;
   getMetadata(
     args: GetMetadataCommandInput,
     options: __HttpHandlerOptions,
@@ -299,8 +365,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link GetThemeCommand}
    */
-  getTheme(args: GetThemeCommandInput, options?: __HttpHandlerOptions): Promise<GetThemeCommandOutput>;
-  getTheme(args: GetThemeCommandInput, cb: (err: any, data?: GetThemeCommandOutput) => void): void;
+  getTheme(
+    args: GetThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThemeCommandOutput>;
+  getTheme(
+    args: GetThemeCommandInput,
+    cb: (err: any, data?: GetThemeCommandOutput) => void
+  ): void;
   getTheme(
     args: GetThemeCommandInput,
     options: __HttpHandlerOptions,
@@ -314,7 +386,10 @@ export interface AmplifyUIBuilder {
     args: ListCodegenJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCodegenJobsCommandOutput>;
-  listCodegenJobs(args: ListCodegenJobsCommandInput, cb: (err: any, data?: ListCodegenJobsCommandOutput) => void): void;
+  listCodegenJobs(
+    args: ListCodegenJobsCommandInput,
+    cb: (err: any, data?: ListCodegenJobsCommandOutput) => void
+  ): void;
   listCodegenJobs(
     args: ListCodegenJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -328,7 +403,10 @@ export interface AmplifyUIBuilder {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -338,8 +416,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link ListFormsCommand}
    */
-  listForms(args: ListFormsCommandInput, options?: __HttpHandlerOptions): Promise<ListFormsCommandOutput>;
-  listForms(args: ListFormsCommandInput, cb: (err: any, data?: ListFormsCommandOutput) => void): void;
+  listForms(
+    args: ListFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFormsCommandOutput>;
+  listForms(
+    args: ListFormsCommandInput,
+    cb: (err: any, data?: ListFormsCommandOutput) => void
+  ): void;
   listForms(
     args: ListFormsCommandInput,
     options: __HttpHandlerOptions,
@@ -366,8 +450,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link ListThemesCommand}
    */
-  listThemes(args: ListThemesCommandInput, options?: __HttpHandlerOptions): Promise<ListThemesCommandOutput>;
-  listThemes(args: ListThemesCommandInput, cb: (err: any, data?: ListThemesCommandOutput) => void): void;
+  listThemes(
+    args: ListThemesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThemesCommandOutput>;
+  listThemes(
+    args: ListThemesCommandInput,
+    cb: (err: any, data?: ListThemesCommandOutput) => void
+  ): void;
   listThemes(
     args: ListThemesCommandInput,
     options: __HttpHandlerOptions,
@@ -381,7 +471,10 @@ export interface AmplifyUIBuilder {
     args: PutMetadataFlagCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutMetadataFlagCommandOutput>;
-  putMetadataFlag(args: PutMetadataFlagCommandInput, cb: (err: any, data?: PutMetadataFlagCommandOutput) => void): void;
+  putMetadataFlag(
+    args: PutMetadataFlagCommandInput,
+    cb: (err: any, data?: PutMetadataFlagCommandOutput) => void
+  ): void;
   putMetadataFlag(
     args: PutMetadataFlagCommandInput,
     options: __HttpHandlerOptions,
@@ -391,8 +484,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link RefreshTokenCommand}
    */
-  refreshToken(args: RefreshTokenCommandInput, options?: __HttpHandlerOptions): Promise<RefreshTokenCommandOutput>;
-  refreshToken(args: RefreshTokenCommandInput, cb: (err: any, data?: RefreshTokenCommandOutput) => void): void;
+  refreshToken(
+    args: RefreshTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RefreshTokenCommandOutput>;
+  refreshToken(
+    args: RefreshTokenCommandInput,
+    cb: (err: any, data?: RefreshTokenCommandOutput) => void
+  ): void;
   refreshToken(
     args: RefreshTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -406,7 +505,10 @@ export interface AmplifyUIBuilder {
     args: StartCodegenJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartCodegenJobCommandOutput>;
-  startCodegenJob(args: StartCodegenJobCommandInput, cb: (err: any, data?: StartCodegenJobCommandOutput) => void): void;
+  startCodegenJob(
+    args: StartCodegenJobCommandInput,
+    cb: (err: any, data?: StartCodegenJobCommandOutput) => void
+  ): void;
   startCodegenJob(
     args: StartCodegenJobCommandInput,
     options: __HttpHandlerOptions,
@@ -416,8 +518,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -427,8 +535,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -442,7 +556,10 @@ export interface AmplifyUIBuilder {
     args: UpdateComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateComponentCommandOutput>;
-  updateComponent(args: UpdateComponentCommandInput, cb: (err: any, data?: UpdateComponentCommandOutput) => void): void;
+  updateComponent(
+    args: UpdateComponentCommandInput,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
   updateComponent(
     args: UpdateComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -452,8 +569,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link UpdateFormCommand}
    */
-  updateForm(args: UpdateFormCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFormCommandOutput>;
-  updateForm(args: UpdateFormCommandInput, cb: (err: any, data?: UpdateFormCommandOutput) => void): void;
+  updateForm(
+    args: UpdateFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFormCommandOutput>;
+  updateForm(
+    args: UpdateFormCommandInput,
+    cb: (err: any, data?: UpdateFormCommandOutput) => void
+  ): void;
   updateForm(
     args: UpdateFormCommandInput,
     options: __HttpHandlerOptions,
@@ -463,8 +586,14 @@ export interface AmplifyUIBuilder {
   /**
    * @see {@link UpdateThemeCommand}
    */
-  updateTheme(args: UpdateThemeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThemeCommandOutput>;
-  updateTheme(args: UpdateThemeCommandInput, cb: (err: any, data?: UpdateThemeCommandOutput) => void): void;
+  updateTheme(
+    args: UpdateThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThemeCommandOutput>;
+  updateTheme(
+    args: UpdateThemeCommandInput,
+    cb: (err: any, data?: UpdateThemeCommandOutput) => void
+  ): void;
   updateTheme(
     args: UpdateThemeCommandInput,
     options: __HttpHandlerOptions,

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { PolicyStatus, PolicyValidationMode, SchemaType, TargetStatus } from "./enums";
-
 import {
   type KmsConfiguration,
   type MetadataConfiguration,
@@ -618,7 +617,10 @@ export interface ToolDefinition {
  * <p>A tool schema for a gateway target. This structure defines the schema for a tool that the target exposes through the Model Context Protocol.</p>
  * @public
  */
-export type ToolSchema = ToolSchema.InlinePayloadMember | ToolSchema.S3Member | ToolSchema.$UnknownMember;
+export type ToolSchema =
+  | ToolSchema.InlinePayloadMember
+  | ToolSchema.S3Member
+  | ToolSchema.$UnknownMember;
 
 /**
  * @public
@@ -793,7 +795,9 @@ export namespace McpTargetConfiguration {
  * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
  * @public
  */
-export type TargetConfiguration = TargetConfiguration.McpMember | TargetConfiguration.$UnknownMember;
+export type TargetConfiguration =
+  | TargetConfiguration.McpMember
+  | TargetConfiguration.$UnknownMember;
 
 /**
  * @public

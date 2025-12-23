@@ -24,9 +24,7 @@ export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVi
  *
  * The output of {@link DeleteStorageVirtualMachineCommand}.
  */
-export interface DeleteStorageVirtualMachineCommandOutput
-  extends DeleteStorageVirtualMachineResponse,
-    __MetadataBearer {}
+export interface DeleteStorageVirtualMachineCommandOutput extends DeleteStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior

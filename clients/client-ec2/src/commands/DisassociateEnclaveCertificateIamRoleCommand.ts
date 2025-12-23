@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
-export interface DisassociateEnclaveCertificateIamRoleCommandInput
-  extends DisassociateEnclaveCertificateIamRoleRequest {}
+export interface DisassociateEnclaveCertificateIamRoleCommandInput extends DisassociateEnclaveCertificateIamRoleRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
-export interface DisassociateEnclaveCertificateIamRoleCommandOutput
-  extends DisassociateEnclaveCertificateIamRoleResult,
-    __MetadataBearer {}
+export interface DisassociateEnclaveCertificateIamRoleCommandOutput extends DisassociateEnclaveCertificateIamRoleResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role

@@ -130,7 +130,10 @@ export interface BedrockDataAutomation {
     args: CreateBlueprintCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBlueprintCommandOutput>;
-  createBlueprint(args: CreateBlueprintCommandInput, cb: (err: any, data?: CreateBlueprintCommandOutput) => void): void;
+  createBlueprint(
+    args: CreateBlueprintCommandInput,
+    cb: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): void;
   createBlueprint(
     args: CreateBlueprintCommandInput,
     options: __HttpHandlerOptions,
@@ -178,7 +181,10 @@ export interface BedrockDataAutomation {
     args: DeleteBlueprintCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBlueprintCommandOutput>;
-  deleteBlueprint(args: DeleteBlueprintCommandInput, cb: (err: any, data?: DeleteBlueprintCommandOutput) => void): void;
+  deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
   deleteBlueprint(
     args: DeleteBlueprintCommandInput,
     options: __HttpHandlerOptions,
@@ -205,8 +211,14 @@ export interface BedrockDataAutomation {
   /**
    * @see {@link GetBlueprintCommand}
    */
-  getBlueprint(args: GetBlueprintCommandInput, options?: __HttpHandlerOptions): Promise<GetBlueprintCommandOutput>;
-  getBlueprint(args: GetBlueprintCommandInput, cb: (err: any, data?: GetBlueprintCommandOutput) => void): void;
+  getBlueprint(
+    args: GetBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintCommandOutput>;
+  getBlueprint(
+    args: GetBlueprintCommandInput,
+    cb: (err: any, data?: GetBlueprintCommandOutput) => void
+  ): void;
   getBlueprint(
     args: GetBlueprintCommandInput,
     options: __HttpHandlerOptions,
@@ -272,7 +284,10 @@ export interface BedrockDataAutomation {
     args: ListBlueprintsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListBlueprintsCommandOutput>;
-  listBlueprints(args: ListBlueprintsCommandInput, cb: (err: any, data?: ListBlueprintsCommandOutput) => void): void;
+  listBlueprints(
+    args: ListBlueprintsCommandInput,
+    cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
   listBlueprints(
     args: ListBlueprintsCommandInput,
     options: __HttpHandlerOptions,
@@ -317,8 +332,14 @@ export interface BedrockDataAutomation {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -328,8 +349,14 @@ export interface BedrockDataAutomation {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -343,7 +370,10 @@ export interface BedrockDataAutomation {
     args: UpdateBlueprintCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateBlueprintCommandOutput>;
-  updateBlueprint(args: UpdateBlueprintCommandInput, cb: (err: any, data?: UpdateBlueprintCommandOutput) => void): void;
+  updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
   updateBlueprint(
     args: UpdateBlueprintCommandInput,
     options: __HttpHandlerOptions,

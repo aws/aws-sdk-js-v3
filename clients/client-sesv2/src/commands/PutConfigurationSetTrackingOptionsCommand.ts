@@ -27,9 +27,7 @@ export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
  */
-export interface PutConfigurationSetTrackingOptionsCommandOutput
-  extends PutConfigurationSetTrackingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetTrackingOptionsCommandOutput extends PutConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify a custom domain to use for open and click tracking elements in email that you

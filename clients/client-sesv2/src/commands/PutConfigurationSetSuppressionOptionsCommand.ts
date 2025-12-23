@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
-export interface PutConfigurationSetSuppressionOptionsCommandInput
-  extends PutConfigurationSetSuppressionOptionsRequest {}
+export interface PutConfigurationSetSuppressionOptionsCommandInput extends PutConfigurationSetSuppressionOptionsRequest {}
 /**
  * @public
  *
  * The output of {@link PutConfigurationSetSuppressionOptionsCommand}.
  */
-export interface PutConfigurationSetSuppressionOptionsCommandOutput
-  extends PutConfigurationSetSuppressionOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetSuppressionOptionsCommandOutput extends PutConfigurationSetSuppressionOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify the account suppression list preferences for a configuration set.</p>

@@ -24,9 +24,7 @@ export interface DescribeClusterSchedulerConfigCommandInput extends DescribeClus
  *
  * The output of {@link DescribeClusterSchedulerConfigCommand}.
  */
-export interface DescribeClusterSchedulerConfigCommandOutput
-  extends DescribeClusterSchedulerConfigResponse,
-    __MetadataBearer {}
+export interface DescribeClusterSchedulerConfigCommandOutput extends DescribeClusterSchedulerConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Description of the cluster policy. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>

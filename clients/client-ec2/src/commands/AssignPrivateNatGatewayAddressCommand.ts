@@ -24,9 +24,7 @@ export interface AssignPrivateNatGatewayAddressCommandInput extends AssignPrivat
  *
  * The output of {@link AssignPrivateNatGatewayAddressCommand}.
  */
-export interface AssignPrivateNatGatewayAddressCommandOutput
-  extends AssignPrivateNatGatewayAddressResult,
-    __MetadataBearer {}
+export interface AssignPrivateNatGatewayAddressCommandOutput extends AssignPrivateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
  * <p>Assigns private IPv4 addresses to a private NAT gateway. For more information, see

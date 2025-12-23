@@ -28,9 +28,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandInput extends DeleteCoreNe
  *
  * The output of {@link DeleteCoreNetworkPolicyVersionCommand}.
  */
-export interface DeleteCoreNetworkPolicyVersionCommandOutput
-  extends DeleteCoreNetworkPolicyVersionResponse,
-    __MetadataBearer {}
+export interface DeleteCoreNetworkPolicyVersionCommandOutput extends DeleteCoreNetworkPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>

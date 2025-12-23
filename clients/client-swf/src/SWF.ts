@@ -360,7 +360,10 @@ export interface SWF {
     args: DeprecateDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeprecateDomainCommandOutput>;
-  deprecateDomain(args: DeprecateDomainCommandInput, cb: (err: any, data?: DeprecateDomainCommandOutput) => void): void;
+  deprecateDomain(
+    args: DeprecateDomainCommandInput,
+    cb: (err: any, data?: DeprecateDomainCommandOutput) => void
+  ): void;
   deprecateDomain(
     args: DeprecateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -408,7 +411,10 @@ export interface SWF {
     args: DescribeDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainCommandOutput>;
-  describeDomain(args: DescribeDomainCommandInput, cb: (err: any, data?: DescribeDomainCommandOutput) => void): void;
+  describeDomain(
+    args: DescribeDomainCommandInput,
+    cb: (err: any, data?: DescribeDomainCommandOutput) => void
+  ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -503,8 +509,14 @@ export interface SWF {
   /**
    * @see {@link ListDomainsCommand}
    */
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -637,7 +649,10 @@ export interface SWF {
     args: RegisterDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterDomainCommandOutput>;
-  registerDomain(args: RegisterDomainCommandInput, cb: (err: any, data?: RegisterDomainCommandOutput) => void): void;
+  registerDomain(
+    args: RegisterDomainCommandInput,
+    cb: (err: any, data?: RegisterDomainCommandOutput) => void
+  ): void;
   registerDomain(
     args: RegisterDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -783,8 +798,14 @@ export interface SWF {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -862,8 +883,14 @@ export interface SWF {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

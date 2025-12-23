@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
-export interface DescribeDraftAppVersionResourcesImportStatusCommandInput
-  extends DescribeDraftAppVersionResourcesImportStatusRequest {}
+export interface DescribeDraftAppVersionResourcesImportStatusCommandInput extends DescribeDraftAppVersionResourcesImportStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
-export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
-  extends DescribeDraftAppVersionResourcesImportStatusResponse,
-    __MetadataBearer {}
+export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput extends DescribeDraftAppVersionResourcesImportStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of importing resources to an application version.</p>

@@ -24,9 +24,7 @@ export interface GetOrganizationsAccessReportCommandInput extends GetOrganizatio
  *
  * The output of {@link GetOrganizationsAccessReportCommand}.
  */
-export interface GetOrganizationsAccessReportCommandOutput
-  extends GetOrganizationsAccessReportResponse,
-    __MetadataBearer {}
+export interface GetOrganizationsAccessReportCommandOutput extends GetOrganizationsAccessReportResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the service last accessed data report for Organizations that was previously

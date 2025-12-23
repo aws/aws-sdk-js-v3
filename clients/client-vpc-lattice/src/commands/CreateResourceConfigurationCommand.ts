@@ -24,9 +24,7 @@ export interface CreateResourceConfigurationCommandInput extends CreateResourceC
  *
  * The output of {@link CreateResourceConfigurationCommand}.
  */
-export interface CreateResourceConfigurationCommandOutput
-  extends CreateResourceConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateResourceConfigurationCommandOutput extends CreateResourceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a resource configuration. A resource configuration defines a specific resource. You can associate a resource configuration with a service network or a VPC endpoint.</p>

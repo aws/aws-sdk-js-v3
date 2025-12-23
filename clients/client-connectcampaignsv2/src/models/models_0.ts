@@ -55,7 +55,9 @@ export interface EmailOutboundConfig {
  * Email Outbound Mode
  * @public
  */
-export type EmailOutboundMode = EmailOutboundMode.AgentlessMember | EmailOutboundMode.$UnknownMember;
+export type EmailOutboundMode =
+  | EmailOutboundMode.AgentlessMember
+  | EmailOutboundMode.$UnknownMember;
 
 /**
  * @public
@@ -134,7 +136,9 @@ export interface SmsOutboundConfig {
  * SMS Outbound Mode
  * @public
  */
-export type SmsOutboundMode = SmsOutboundMode.AgentlessMember | SmsOutboundMode.$UnknownMember;
+export type SmsOutboundMode =
+  | SmsOutboundMode.AgentlessMember
+  | SmsOutboundMode.$UnknownMember;
 
 /**
  * @public
@@ -438,7 +442,9 @@ export interface WhatsAppOutboundConfig {
  * WhatsApp Outbound Mode
  * @public
  */
-export type WhatsAppOutboundMode = WhatsAppOutboundMode.AgentlessMember | WhatsAppOutboundMode.$UnknownMember;
+export type WhatsAppOutboundMode =
+  | WhatsAppOutboundMode.AgentlessMember
+  | WhatsAppOutboundMode.$UnknownMember;
 
 /**
  * @public
@@ -628,7 +634,9 @@ export interface TimeRange {
  * Open Hours config
  * @public
  */
-export type OpenHours = OpenHours.DailyHoursMember | OpenHours.$UnknownMember;
+export type OpenHours =
+  | OpenHours.DailyHoursMember
+  | OpenHours.$UnknownMember;
 
 /**
  * @public
@@ -689,7 +697,9 @@ export interface RestrictedPeriod {
  * Restricted period config
  * @public
  */
-export type RestrictedPeriods = RestrictedPeriods.RestrictedPeriodListMember | RestrictedPeriods.$UnknownMember;
+export type RestrictedPeriods =
+  | RestrictedPeriods.RestrictedPeriodListMember
+  | RestrictedPeriods.$UnknownMember;
 
 /**
  * @public
@@ -834,7 +844,10 @@ export interface EventTrigger {
  * Source of the campaign
  * @public
  */
-export type Source = Source.CustomerProfilesSegmentArnMember | Source.EventTriggerMember | Source.$UnknownMember;
+export type Source =
+  | Source.CustomerProfilesSegmentArnMember
+  | Source.EventTriggerMember
+  | Source.$UnknownMember;
 
 /**
  * @public

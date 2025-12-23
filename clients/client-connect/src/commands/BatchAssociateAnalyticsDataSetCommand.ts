@@ -24,9 +24,7 @@ export interface BatchAssociateAnalyticsDataSetCommandInput extends BatchAssocia
  *
  * The output of {@link BatchAssociateAnalyticsDataSetCommand}.
  */
-export interface BatchAssociateAnalyticsDataSetCommandOutput
-  extends BatchAssociateAnalyticsDataSetResponse,
-    __MetadataBearer {}
+export interface BatchAssociateAnalyticsDataSetCommandOutput extends BatchAssociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target account. You can

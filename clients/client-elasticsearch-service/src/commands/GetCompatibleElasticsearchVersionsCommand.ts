@@ -31,9 +31,7 @@ export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompa
  *
  * The output of {@link GetCompatibleElasticsearchVersionsCommand}.
  */
-export interface GetCompatibleElasticsearchVersionsCommandOutput
-  extends GetCompatibleElasticsearchVersionsResponse,
-    __MetadataBearer {}
+export interface GetCompatibleElasticsearchVersionsCommandOutput extends GetCompatibleElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>

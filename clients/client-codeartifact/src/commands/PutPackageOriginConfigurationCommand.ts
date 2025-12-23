@@ -24,9 +24,7 @@ export interface PutPackageOriginConfigurationCommandInput extends PutPackageOri
  *
  * The output of {@link PutPackageOriginConfigurationCommand}.
  */
-export interface PutPackageOriginConfigurationCommandOutput
-  extends PutPackageOriginConfigurationResult,
-    __MetadataBearer {}
+export interface PutPackageOriginConfigurationCommandOutput extends PutPackageOriginConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Sets the package origin configuration for a package.</p>

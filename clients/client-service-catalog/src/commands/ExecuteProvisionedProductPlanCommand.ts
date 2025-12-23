@@ -28,9 +28,7 @@ export interface ExecuteProvisionedProductPlanCommandInput extends ExecuteProvis
  *
  * The output of {@link ExecuteProvisionedProductPlanCommand}.
  */
-export interface ExecuteProvisionedProductPlanCommandOutput
-  extends ExecuteProvisionedProductPlanOutput,
-    __MetadataBearer {}
+export interface ExecuteProvisionedProductPlanCommandOutput extends ExecuteProvisionedProductPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>

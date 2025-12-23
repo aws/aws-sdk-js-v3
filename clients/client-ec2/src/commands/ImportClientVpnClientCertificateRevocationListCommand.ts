@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ImportClientVpnClientCertificateRevocationListCommandInput
-  extends ImportClientVpnClientCertificateRevocationListRequest {}
+export interface ImportClientVpnClientCertificateRevocationListCommandInput extends ImportClientVpnClientCertificateRevocationListRequest {}
 /**
  * @public
  *
  * The output of {@link ImportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ImportClientVpnClientCertificateRevocationListCommandOutput
-  extends ImportClientVpnClientCertificateRevocationListResult,
-    __MetadataBearer {}
+export interface ImportClientVpnClientCertificateRevocationListCommandOutput extends ImportClientVpnClientCertificateRevocationListResult, __MetadataBearer {}
 
 /**
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>

@@ -27,9 +27,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandInput extends GetAutom
  *
  * The output of {@link GetAutomatedDiscoveryConfigurationCommand}.
  */
-export interface GetAutomatedDiscoveryConfigurationCommandOutput
-  extends GetAutomatedDiscoveryConfigurationResponse,
-    __MetadataBearer {}
+export interface GetAutomatedDiscoveryConfigurationCommandOutput extends GetAutomatedDiscoveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>

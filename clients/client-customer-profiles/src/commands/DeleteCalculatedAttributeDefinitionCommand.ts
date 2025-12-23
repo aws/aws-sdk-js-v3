@@ -31,9 +31,7 @@ export interface DeleteCalculatedAttributeDefinitionCommandInput extends DeleteC
  *
  * The output of {@link DeleteCalculatedAttributeDefinitionCommand}.
  */
-export interface DeleteCalculatedAttributeDefinitionCommandOutput
-  extends DeleteCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface DeleteCalculatedAttributeDefinitionCommandOutput extends DeleteCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing calculated attribute definition. Note that deleting a default

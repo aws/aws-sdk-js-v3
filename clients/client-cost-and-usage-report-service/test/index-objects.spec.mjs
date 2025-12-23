@@ -1,6 +1,6 @@
 import {
-  AWSRegion,
   AdditionalArtifact,
+  AWSRegion,
   CompressionFormat,
   CostAndUsageReportService,
   CostAndUsageReportServiceClient,
@@ -26,6 +26,7 @@ import {
   ModifyReportDefinitionCommand,
   ModifyReportDefinitionRequest$,
   ModifyReportDefinitionResponse$,
+  paginateDescribeReportDefinitions,
   PutReportDefinition$,
   PutReportDefinitionCommand,
   PutReportDefinitionRequest$,
@@ -51,7 +52,6 @@ import {
   UntagResourceResponse$,
   ValidationException,
   ValidationException$,
-  paginateDescribeReportDefinitions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

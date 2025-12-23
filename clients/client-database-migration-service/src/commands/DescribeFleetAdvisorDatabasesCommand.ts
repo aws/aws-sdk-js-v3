@@ -28,9 +28,7 @@ export interface DescribeFleetAdvisorDatabasesCommandInput extends DescribeFleet
  *
  * The output of {@link DescribeFleetAdvisorDatabasesCommand}.
  */
-export interface DescribeFleetAdvisorDatabasesCommandOutput
-  extends DescribeFleetAdvisorDatabasesResponse,
-    __MetadataBearer {}
+export interface DescribeFleetAdvisorDatabasesCommandOutput extends DescribeFleetAdvisorDatabasesResponse, __MetadataBearer {}
 
 /**
  * <important>

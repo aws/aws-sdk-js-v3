@@ -83,12 +83,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetIceServerConfigCommandInput | SendAlexaOfferToMasterCommandInput;
+export type ServiceInputTypes =
+  | GetIceServerConfigCommandInput
+  | SendAlexaOfferToMasterCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetIceServerConfigCommandOutput | SendAlexaOfferToMasterCommandOutput;
+export type ServiceOutputTypes =
+  | GetIceServerConfigCommandOutput
+  | SendAlexaOfferToMasterCommandOutput;
 
 /**
  * @public

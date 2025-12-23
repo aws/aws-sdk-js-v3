@@ -28,9 +28,7 @@ export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerG
  *
  * The output of {@link GetCustomerGatewayAssociationsCommand}.
  */
-export interface GetCustomerGatewayAssociationsCommandOutput
-  extends GetCustomerGatewayAssociationsResponse,
-    __MetadataBearer {}
+export interface GetCustomerGatewayAssociationsCommandOutput extends GetCustomerGatewayAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the association information for customer gateways that are associated with

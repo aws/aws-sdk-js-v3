@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
-  extends DeleteApplicationCloudWatchLoggingOptionRequest {}
+export interface DeleteApplicationCloudWatchLoggingOptionCommandInput extends DeleteApplicationCloudWatchLoggingOptionRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
  */
-export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
-  extends DeleteApplicationCloudWatchLoggingOptionResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput extends DeleteApplicationCloudWatchLoggingOptionResponse, __MetadataBearer {}
 
 /**
  * <note>

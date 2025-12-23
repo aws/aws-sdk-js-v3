@@ -11,10 +11,8 @@ With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs an
 </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route53profiles
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route53profiles`
 - `yarn add @aws-sdk/client-route53profiles`
 - `pnpm add @aws-sdk/client-route53profiles`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53ProfilesClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListProfilesCommand(params);
 ```
 
@@ -211,7 +207,6 @@ AssociateProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/AssociateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/AssociateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/AssociateProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ AssociateResourceToProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/AssociateResourceToProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/AssociateResourceToProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/AssociateResourceToProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ CreateProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/CreateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/CreateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/CreateProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ DeleteProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/DeleteProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DeleteProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DeleteProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +235,6 @@ DisassociateProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/DisassociateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DisassociateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DisassociateProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +242,6 @@ DisassociateResourceFromProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/DisassociateResourceFromProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DisassociateResourceFromProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/DisassociateResourceFromProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +249,6 @@ GetProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +256,6 @@ GetProfileAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/GetProfileAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +263,6 @@ GetProfileResourceAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/GetProfileResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/GetProfileResourceAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +270,6 @@ ListProfileAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/ListProfileAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfileAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfileAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +277,6 @@ ListProfileResourceAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/ListProfileResourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfileResourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfileResourceAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +284,6 @@ ListProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/ListProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListProfilesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +291,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +298,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +305,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,5 +312,4 @@ UpdateProfileResourceAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53profiles/command/UpdateProfileResourceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UpdateProfileResourceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53profiles/Interface/UpdateProfileResourceAssociationCommandOutput/)
-
 </details>

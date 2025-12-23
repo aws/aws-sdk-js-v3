@@ -27,9 +27,7 @@ export interface BatchDeleteDevicePositionHistoryCommandInput extends BatchDelet
  *
  * The output of {@link BatchDeleteDevicePositionHistoryCommand}.
  */
-export interface BatchDeleteDevicePositionHistoryCommandOutput
-  extends BatchDeleteDevicePositionHistoryResponse,
-    __MetadataBearer {}
+export interface BatchDeleteDevicePositionHistoryCommandOutput extends BatchDeleteDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the position history of one or more devices from a tracker resource.</p>

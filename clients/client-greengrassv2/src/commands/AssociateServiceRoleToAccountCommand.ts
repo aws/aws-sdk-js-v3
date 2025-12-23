@@ -24,9 +24,7 @@ export interface AssociateServiceRoleToAccountCommandInput extends AssociateServ
  *
  * The output of {@link AssociateServiceRoleToAccountCommand}.
  */
-export interface AssociateServiceRoleToAccountCommandOutput
-  extends AssociateServiceRoleToAccountResponse,
-    __MetadataBearer {}
+export interface AssociateServiceRoleToAccountCommandOutput extends AssociateServiceRoleToAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a Greengrass service role with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass

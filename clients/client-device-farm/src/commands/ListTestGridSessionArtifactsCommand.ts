@@ -24,9 +24,7 @@ export interface ListTestGridSessionArtifactsCommandInput extends ListTestGridSe
  *
  * The output of {@link ListTestGridSessionArtifactsCommand}.
  */
-export interface ListTestGridSessionArtifactsCommandOutput
-  extends ListTestGridSessionArtifactsResult,
-    __MetadataBearer {}
+export interface ListTestGridSessionArtifactsCommandOutput extends ListTestGridSessionArtifactsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of artifacts created during the session.</p>

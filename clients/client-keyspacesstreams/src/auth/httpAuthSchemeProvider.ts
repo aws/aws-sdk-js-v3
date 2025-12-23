@@ -46,11 +46,9 @@ export const defaultKeyspacesStreamsHttpAuthSchemeParametersProvider = async (
 ): Promise<KeyspacesStreamsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface KeyspacesStreamsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultKeyspacesStreamsHttpAuthSchemeProvider: KeyspacesStreamsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultKeyspacesStreamsHttpAuthSchemeProvider: KeyspacesStreamsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

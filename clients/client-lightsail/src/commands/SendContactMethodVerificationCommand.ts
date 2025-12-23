@@ -24,9 +24,7 @@ export interface SendContactMethodVerificationCommandInput extends SendContactMe
  *
  * The output of {@link SendContactMethodVerificationCommand}.
  */
-export interface SendContactMethodVerificationCommandOutput
-  extends SendContactMethodVerificationResult,
-    __MetadataBearer {}
+export interface SendContactMethodVerificationCommandOutput extends SendContactMethodVerificationResult, __MetadataBearer {}
 
 /**
  * <p>Sends a verification request to an email contact method to ensure it's owned by the

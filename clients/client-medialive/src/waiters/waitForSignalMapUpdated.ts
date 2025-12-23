@@ -10,33 +10,33 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
     const result: any = await client.send(new GetSignalMapCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "UPDATE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "UPDATE_IN_PROGRESS") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "UPDATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "UPDATE_REVERTED") {
         return { state: WaiterState.FAILURE, reason };
       }

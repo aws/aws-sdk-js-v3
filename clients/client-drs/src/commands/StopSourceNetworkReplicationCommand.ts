@@ -24,9 +24,7 @@ export interface StopSourceNetworkReplicationCommandInput extends StopSourceNetw
  *
  * The output of {@link StopSourceNetworkReplicationCommand}.
  */
-export interface StopSourceNetworkReplicationCommandOutput
-  extends StopSourceNetworkReplicationResponse,
-    __MetadataBearer {}
+export interface StopSourceNetworkReplicationCommandOutput extends StopSourceNetworkReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Stops replication for a Source Network. This action would make the Source Network unprotected.</p>

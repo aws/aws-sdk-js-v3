@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface DeleteConfiguredTableAssociationAnalysisRuleCommandInput
-  extends DeleteConfiguredTableAssociationAnalysisRuleInput {}
+export interface DeleteConfiguredTableAssociationAnalysisRuleCommandInput extends DeleteConfiguredTableAssociationAnalysisRuleInput {}
 /**
  * @public
  *
  * The output of {@link DeleteConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface DeleteConfiguredTableAssociationAnalysisRuleCommandOutput
-  extends DeleteConfiguredTableAssociationAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredTableAssociationAnalysisRuleCommandOutput extends DeleteConfiguredTableAssociationAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an analysis rule for a configured table association.</p>

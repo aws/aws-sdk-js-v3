@@ -9,10 +9,8 @@ AWS SDK for JavaScript Forecastquery Client for Node.js, Browser and React Nativ
 <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-forecastquery
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-forecastquery`
 - `yarn add @aws-sdk/client-forecastquery`
 - `pnpm add @aws-sdk/client-forecastquery`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ForecastqueryClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new QueryForecastCommand(params);
 ```
 
@@ -209,7 +205,6 @@ QueryForecast
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/forecastquery/command/QueryForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryForecastCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,5 +212,4 @@ QueryWhatIfForecast
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/forecastquery/command/QueryWhatIfForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryWhatIfForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryWhatIfForecastCommandOutput/)
-
 </details>

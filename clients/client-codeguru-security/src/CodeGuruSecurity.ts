@@ -86,8 +86,14 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link CreateScanCommand}
    */
-  createScan(args: CreateScanCommandInput, options?: __HttpHandlerOptions): Promise<CreateScanCommandOutput>;
-  createScan(args: CreateScanCommandInput, cb: (err: any, data?: CreateScanCommandOutput) => void): void;
+  createScan(
+    args: CreateScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScanCommandOutput>;
+  createScan(
+    args: CreateScanCommandInput,
+    cb: (err: any, data?: CreateScanCommandOutput) => void
+  ): void;
   createScan(
     args: CreateScanCommandInput,
     options: __HttpHandlerOptions,
@@ -101,7 +107,10 @@ export interface CodeGuruSecurity {
     args: CreateUploadUrlCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateUploadUrlCommandOutput>;
-  createUploadUrl(args: CreateUploadUrlCommandInput, cb: (err: any, data?: CreateUploadUrlCommandOutput) => void): void;
+  createUploadUrl(
+    args: CreateUploadUrlCommandInput,
+    cb: (err: any, data?: CreateUploadUrlCommandOutput) => void
+  ): void;
   createUploadUrl(
     args: CreateUploadUrlCommandInput,
     options: __HttpHandlerOptions,
@@ -129,8 +138,14 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link GetFindingsCommand}
    */
-  getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
-  getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
+  getFindings(
+    args: GetFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsCommandOutput>;
+  getFindings(
+    args: GetFindingsCommandInput,
+    cb: (err: any, data?: GetFindingsCommandOutput) => void
+  ): void;
   getFindings(
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -157,8 +172,14 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link GetScanCommand}
    */
-  getScan(args: GetScanCommandInput, options?: __HttpHandlerOptions): Promise<GetScanCommandOutput>;
-  getScan(args: GetScanCommandInput, cb: (err: any, data?: GetScanCommandOutput) => void): void;
+  getScan(
+    args: GetScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScanCommandOutput>;
+  getScan(
+    args: GetScanCommandInput,
+    cb: (err: any, data?: GetScanCommandOutput) => void
+  ): void;
   getScan(
     args: GetScanCommandInput,
     options: __HttpHandlerOptions,
@@ -186,8 +207,14 @@ export interface CodeGuruSecurity {
    * @see {@link ListScansCommand}
    */
   listScans(): Promise<ListScansCommandOutput>;
-  listScans(args: ListScansCommandInput, options?: __HttpHandlerOptions): Promise<ListScansCommandOutput>;
-  listScans(args: ListScansCommandInput, cb: (err: any, data?: ListScansCommandOutput) => void): void;
+  listScans(
+    args: ListScansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScansCommandOutput>;
+  listScans(
+    args: ListScansCommandInput,
+    cb: (err: any, data?: ListScansCommandOutput) => void
+  ): void;
   listScans(
     args: ListScansCommandInput,
     options: __HttpHandlerOptions,
@@ -214,8 +241,14 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -225,8 +258,14 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

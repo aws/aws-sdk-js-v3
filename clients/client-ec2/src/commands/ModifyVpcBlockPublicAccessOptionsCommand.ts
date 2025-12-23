@@ -27,9 +27,7 @@ export interface ModifyVpcBlockPublicAccessOptionsCommandInput extends ModifyVpc
  *
  * The output of {@link ModifyVpcBlockPublicAccessOptionsCommand}.
  */
-export interface ModifyVpcBlockPublicAccessOptionsCommandOutput
-  extends ModifyVpcBlockPublicAccessOptionsResult,
-    __MetadataBearer {}
+export interface ModifyVpcBlockPublicAccessOptionsCommandOutput extends ModifyVpcBlockPublicAccessOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modify VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>

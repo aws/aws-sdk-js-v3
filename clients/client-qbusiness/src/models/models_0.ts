@@ -114,7 +114,10 @@ export interface PrincipalUser {
  * <p>Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.</p>
  * @public
  */
-export type Principal = Principal.GroupMember | Principal.UserMember | Principal.$UnknownMember;
+export type Principal =
+  | Principal.GroupMember
+  | Principal.UserMember
+  | Principal.$UnknownMember;
 
 /**
  * @public
@@ -569,7 +572,10 @@ export interface S3 {
  * <p>Contains details about the OpenAPI schema for a custom plugin. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema">custom plugin OpenAPI schemas</a>. You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the <code>s3</code> field. </p>
  * @public
  */
-export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
+export type APISchema =
+  | APISchema.PayloadMember
+  | APISchema.S3Member
+  | APISchema.$UnknownMember;
 
 /**
  * @public
@@ -4188,7 +4194,9 @@ export interface ConversationSource {
  * <p>The source reference for an existing attachment.</p>
  * @public
  */
-export type CopyFromSource = CopyFromSource.ConversationMember | CopyFromSource.$UnknownMember;
+export type CopyFromSource =
+  | CopyFromSource.ConversationMember
+  | CopyFromSource.$UnknownMember;
 
 /**
  * @public
@@ -4523,7 +4531,10 @@ export interface BatchDeleteDocumentResponse {
  * <p>The contents of a document.</p> <note> <p>Documents have size limitations. The maximum file size for a document is 50 MB. The maximum amount of text that can be extracted from a single document is 5 MB. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html">Supported document formats in Amazon Q Business</a>.</p> </note>
  * @public
  */
-export type DocumentContent = DocumentContent.BlobMember | DocumentContent.S3Member | DocumentContent.$UnknownMember;
+export type DocumentContent =
+  | DocumentContent.BlobMember
+  | DocumentContent.S3Member
+  | DocumentContent.$UnknownMember;
 
 /**
  * @public
@@ -5714,7 +5725,9 @@ export interface RetrieverContentSource {
  * <p>Specifies the source of content to search in.</p>
  * @public
  */
-export type ContentSource = ContentSource.RetrieverMember | ContentSource.$UnknownMember;
+export type ContentSource =
+  | ContentSource.RetrieverMember
+  | ContentSource.$UnknownMember;
 
 /**
  * @public

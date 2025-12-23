@@ -27,9 +27,7 @@ export interface UpdateEc2DeepInspectionConfigurationCommandInput extends Update
  *
  * The output of {@link UpdateEc2DeepInspectionConfigurationCommand}.
  */
-export interface UpdateEc2DeepInspectionConfigurationCommandOutput
-  extends UpdateEc2DeepInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateEc2DeepInspectionConfigurationCommandOutput extends UpdateEc2DeepInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for your account.

@@ -27,9 +27,7 @@ export interface ListThingRegistrationTaskReportsCommandInput extends ListThingR
  *
  * The output of {@link ListThingRegistrationTaskReportsCommand}.
  */
-export interface ListThingRegistrationTaskReportsCommandOutput
-  extends ListThingRegistrationTaskReportsResponse,
-    __MetadataBearer {}
+export interface ListThingRegistrationTaskReportsCommandOutput extends ListThingRegistrationTaskReportsResponse, __MetadataBearer {}
 
 /**
  * <p>Information about the thing registration tasks.</p>

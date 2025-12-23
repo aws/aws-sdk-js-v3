@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface CreateInstanceAccessControlAttributeConfigurationCommandInput
-  extends CreateInstanceAccessControlAttributeConfigurationRequest {}
+export interface CreateInstanceAccessControlAttributeConfigurationCommandInput extends CreateInstanceAccessControlAttributeConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
  */
-export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
-  extends CreateInstanceAccessControlAttributeConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput extends CreateInstanceAccessControlAttributeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p> <note> <p>After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code> to validate that <code>InstanceAccessControlAttributeConfiguration</code> was created.</p> </note>

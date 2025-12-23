@@ -10,10 +10,8 @@ AWS SDK for JavaScript LicenseManagerLinuxSubscriptions Client for Node.js, Brow
 Amazon EC2 instances.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-license-manager-linux-subscriptions
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-license-manager-linux-subscriptions`
 - `yarn add @aws-sdk/client-license-manager-linux-subscriptions`
 - `pnpm add @aws-sdk/client-license-manager-linux-subscriptions`
@@ -28,18 +26,12 @@ the commands you need, for example `ListLinuxSubscriptionsCommand`:
 
 ```js
 // ES5 example
-const {
-  LicenseManagerLinuxSubscriptionsClient,
-  ListLinuxSubscriptionsCommand,
-} = require("@aws-sdk/client-license-manager-linux-subscriptions");
+const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions");
 ```
 
 ```ts
 // ES6+ example
-import {
-  LicenseManagerLinuxSubscriptionsClient,
-  ListLinuxSubscriptionsCommand,
-} from "@aws-sdk/client-license-manager-linux-subscriptions";
+import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions";
 ```
 
 ### Usage
@@ -55,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new LicenseManagerLinuxSubscriptionsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListLinuxSubscriptionsCommand(params);
 ```
 
@@ -216,7 +206,6 @@ DeregisterSubscriptionProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/DeregisterSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/DeregisterSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/DeregisterSubscriptionProviderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -224,7 +213,6 @@ GetRegisteredSubscriptionProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/GetRegisteredSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetRegisteredSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetRegisteredSubscriptionProviderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +220,6 @@ GetServiceSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/GetServiceSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetServiceSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/GetServiceSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +227,6 @@ ListLinuxSubscriptionInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListLinuxSubscriptionInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +234,6 @@ ListLinuxSubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListLinuxSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListLinuxSubscriptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +241,6 @@ ListRegisteredSubscriptionProviders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListRegisteredSubscriptionProvidersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListRegisteredSubscriptionProvidersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListRegisteredSubscriptionProvidersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +248,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +255,6 @@ RegisterSubscriptionProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/RegisterSubscriptionProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/RegisterSubscriptionProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/RegisterSubscriptionProviderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +262,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +269,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,5 +276,4 @@ UpdateServiceSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-linux-subscriptions/command/UpdateServiceSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UpdateServiceSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-linux-subscriptions/Interface/UpdateServiceSettingsCommandOutput/)
-
 </details>

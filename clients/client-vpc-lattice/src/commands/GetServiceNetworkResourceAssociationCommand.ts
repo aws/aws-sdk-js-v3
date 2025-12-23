@@ -27,9 +27,7 @@ export interface GetServiceNetworkResourceAssociationCommandInput extends GetSer
  *
  * The output of {@link GetServiceNetworkResourceAssociationCommand}.
  */
-export interface GetServiceNetworkResourceAssociationCommandOutput
-  extends GetServiceNetworkResourceAssociationResponse,
-    __MetadataBearer {}
+export interface GetServiceNetworkResourceAssociationCommandOutput extends GetServiceNetworkResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified association between a service network and a resource configuration.</p>

@@ -49,17 +49,13 @@ export const defaultIoTManagedIntegrationsHttpAuthSchemeParametersProvider = asy
 ): Promise<IoTManagedIntegrationsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: IoTManagedIntegrationsHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: IoTManagedIntegrationsHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface IoTManagedIntegrationsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultIoTManagedIntegrationsHttpAuthSchemeProvider: IoTManagedIntegrationsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultIoTManagedIntegrationsHttpAuthSchemeProvider: IoTManagedIntegrationsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

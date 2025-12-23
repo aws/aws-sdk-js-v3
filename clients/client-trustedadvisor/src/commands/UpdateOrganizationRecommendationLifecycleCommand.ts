@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link UpdateOrganizationRecommendationLifecycleCommand}.
  */
-export interface UpdateOrganizationRecommendationLifecycleCommandInput
-  extends UpdateOrganizationRecommendationLifecycleRequest {}
+export interface UpdateOrganizationRecommendationLifecycleCommandInput extends UpdateOrganizationRecommendationLifecycleRequest {}
 /**
  * @public
  *

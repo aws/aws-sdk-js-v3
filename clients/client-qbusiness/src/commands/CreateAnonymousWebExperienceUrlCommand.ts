@@ -27,9 +27,7 @@ export interface CreateAnonymousWebExperienceUrlCommandInput extends CreateAnony
  *
  * The output of {@link CreateAnonymousWebExperienceUrlCommand}.
  */
-export interface CreateAnonymousWebExperienceUrlCommandOutput
-  extends CreateAnonymousWebExperienceUrlResponse,
-    __MetadataBearer {}
+export interface CreateAnonymousWebExperienceUrlCommandOutput extends CreateAnonymousWebExperienceUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a unique URL for anonymous Amazon Q Business web experience. This URL can only be used once and must be used within 5 minutes after it's generated.</p>

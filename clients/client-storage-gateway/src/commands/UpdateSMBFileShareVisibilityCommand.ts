@@ -28,9 +28,7 @@ export interface UpdateSMBFileShareVisibilityCommandInput extends UpdateSMBFileS
  *
  * The output of {@link UpdateSMBFileShareVisibilityCommand}.
  */
-export interface UpdateSMBFileShareVisibilityCommandOutput
-  extends UpdateSMBFileShareVisibilityOutput,
-    __MetadataBearer {}
+export interface UpdateSMBFileShareVisibilityCommandOutput extends UpdateSMBFileShareVisibilityOutput, __MetadataBearer {}
 
 /**
  * <p>Controls whether the shares on an S3 File Gateway are visible in a net view or browse

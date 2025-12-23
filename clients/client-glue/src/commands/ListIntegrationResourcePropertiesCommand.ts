@@ -27,9 +27,7 @@ export interface ListIntegrationResourcePropertiesCommandInput extends ListInteg
  *
  * The output of {@link ListIntegrationResourcePropertiesCommand}.
  */
-export interface ListIntegrationResourcePropertiesCommandOutput
-  extends ListIntegrationResourcePropertiesResponse,
-    __MetadataBearer {}
+export interface ListIntegrationResourcePropertiesCommandOutput extends ListIntegrationResourcePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>List integration resource properties for a single customer. It supports the filters, maxRecords and markers.</p>

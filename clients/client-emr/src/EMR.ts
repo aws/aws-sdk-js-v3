@@ -385,7 +385,10 @@ export interface EMR {
     args: AddJobFlowStepsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddJobFlowStepsCommandOutput>;
-  addJobFlowSteps(args: AddJobFlowStepsCommandInput, cb: (err: any, data?: AddJobFlowStepsCommandOutput) => void): void;
+  addJobFlowSteps(
+    args: AddJobFlowStepsCommandInput,
+    cb: (err: any, data?: AddJobFlowStepsCommandOutput) => void
+  ): void;
   addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
     options: __HttpHandlerOptions,
@@ -395,8 +398,14 @@ export interface EMR {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -406,8 +415,14 @@ export interface EMR {
   /**
    * @see {@link CancelStepsCommand}
    */
-  cancelSteps(args: CancelStepsCommandInput, options?: __HttpHandlerOptions): Promise<CancelStepsCommandOutput>;
-  cancelSteps(args: CancelStepsCommandInput, cb: (err: any, data?: CancelStepsCommandOutput) => void): void;
+  cancelSteps(
+    args: CancelStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelStepsCommandOutput>;
+  cancelSteps(
+    args: CancelStepsCommandInput,
+    cb: (err: any, data?: CancelStepsCommandOutput) => void
+  ): void;
   cancelSteps(
     args: CancelStepsCommandInput,
     options: __HttpHandlerOptions,
@@ -451,8 +466,14 @@ export interface EMR {
   /**
    * @see {@link CreateStudioCommand}
    */
-  createStudio(args: CreateStudioCommandInput, options?: __HttpHandlerOptions): Promise<CreateStudioCommandOutput>;
-  createStudio(args: CreateStudioCommandInput, cb: (err: any, data?: CreateStudioCommandOutput) => void): void;
+  createStudio(
+    args: CreateStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStudioCommandOutput>;
+  createStudio(
+    args: CreateStudioCommandInput,
+    cb: (err: any, data?: CreateStudioCommandOutput) => void
+  ): void;
   createStudio(
     args: CreateStudioCommandInput,
     options: __HttpHandlerOptions,
@@ -496,8 +517,14 @@ export interface EMR {
   /**
    * @see {@link DeleteStudioCommand}
    */
-  deleteStudio(args: DeleteStudioCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStudioCommandOutput>;
-  deleteStudio(args: DeleteStudioCommandInput, cb: (err: any, data?: DeleteStudioCommandOutput) => void): void;
+  deleteStudio(
+    args: DeleteStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStudioCommandOutput>;
+  deleteStudio(
+    args: DeleteStudioCommandInput,
+    cb: (err: any, data?: DeleteStudioCommandOutput) => void
+  ): void;
   deleteStudio(
     args: DeleteStudioCommandInput,
     options: __HttpHandlerOptions,
@@ -528,7 +555,10 @@ export interface EMR {
     args: DescribeClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
-  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -625,8 +655,14 @@ export interface EMR {
   /**
    * @see {@link DescribeStepCommand}
    */
-  describeStep(args: DescribeStepCommandInput, options?: __HttpHandlerOptions): Promise<DescribeStepCommandOutput>;
-  describeStep(args: DescribeStepCommandInput, cb: (err: any, data?: DescribeStepCommandOutput) => void): void;
+  describeStep(
+    args: DescribeStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStepCommandOutput>;
+  describeStep(
+    args: DescribeStepCommandInput,
+    cb: (err: any, data?: DescribeStepCommandOutput) => void
+  ): void;
   describeStep(
     args: DescribeStepCommandInput,
     options: __HttpHandlerOptions,
@@ -640,7 +676,10 @@ export interface EMR {
     args: DescribeStudioCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStudioCommandOutput>;
-  describeStudio(args: DescribeStudioCommandInput, cb: (err: any, data?: DescribeStudioCommandOutput) => void): void;
+  describeStudio(
+    args: DescribeStudioCommandInput,
+    cb: (err: any, data?: DescribeStudioCommandOutput) => void
+  ): void;
   describeStudio(
     args: DescribeStudioCommandInput,
     options: __HttpHandlerOptions,
@@ -788,8 +827,14 @@ export interface EMR {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -833,8 +878,14 @@ export interface EMR {
   /**
    * @see {@link ListInstancesCommand}
    */
-  listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
-  listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
+  listInstances(
+    args: ListInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstancesCommandOutput>;
+  listInstances(
+    args: ListInstancesCommandInput,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
+  ): void;
   listInstances(
     args: ListInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -898,8 +949,14 @@ export interface EMR {
   /**
    * @see {@link ListStepsCommand}
    */
-  listSteps(args: ListStepsCommandInput, options?: __HttpHandlerOptions): Promise<ListStepsCommandOutput>;
-  listSteps(args: ListStepsCommandInput, cb: (err: any, data?: ListStepsCommandOutput) => void): void;
+  listSteps(
+    args: ListStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStepsCommandOutput>;
+  listSteps(
+    args: ListStepsCommandInput,
+    cb: (err: any, data?: ListStepsCommandOutput) => void
+  ): void;
   listSteps(
     args: ListStepsCommandInput,
     options: __HttpHandlerOptions,
@@ -910,8 +967,14 @@ export interface EMR {
    * @see {@link ListStudiosCommand}
    */
   listStudios(): Promise<ListStudiosCommandOutput>;
-  listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
-  listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
+  listStudios(
+    args: ListStudiosCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStudiosCommandOutput>;
+  listStudios(
+    args: ListStudiosCommandInput,
+    cb: (err: any, data?: ListStudiosCommandOutput) => void
+  ): void;
   listStudios(
     args: ListStudiosCommandInput,
     options: __HttpHandlerOptions,
@@ -956,8 +1019,14 @@ export interface EMR {
   /**
    * @see {@link ModifyClusterCommand}
    */
-  modifyCluster(args: ModifyClusterCommandInput, options?: __HttpHandlerOptions): Promise<ModifyClusterCommandOutput>;
-  modifyCluster(args: ModifyClusterCommandInput, cb: (err: any, data?: ModifyClusterCommandOutput) => void): void;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyClusterCommandOutput>;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    cb: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): void;
   modifyCluster(
     args: ModifyClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1121,8 +1190,14 @@ export interface EMR {
   /**
    * @see {@link RemoveTagsCommand}
    */
-  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
   removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1132,8 +1207,14 @@ export interface EMR {
   /**
    * @see {@link RunJobFlowCommand}
    */
-  runJobFlow(args: RunJobFlowCommandInput, options?: __HttpHandlerOptions): Promise<RunJobFlowCommandOutput>;
-  runJobFlow(args: RunJobFlowCommandInput, cb: (err: any, data?: RunJobFlowCommandOutput) => void): void;
+  runJobFlow(
+    args: RunJobFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RunJobFlowCommandOutput>;
+  runJobFlow(
+    args: RunJobFlowCommandInput,
+    cb: (err: any, data?: RunJobFlowCommandOutput) => void
+  ): void;
   runJobFlow(
     args: RunJobFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -1262,8 +1343,14 @@ export interface EMR {
   /**
    * @see {@link UpdateStudioCommand}
    */
-  updateStudio(args: UpdateStudioCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStudioCommandOutput>;
-  updateStudio(args: UpdateStudioCommandInput, cb: (err: any, data?: UpdateStudioCommandOutput) => void): void;
+  updateStudio(
+    args: UpdateStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStudioCommandOutput>;
+  updateStudio(
+    args: UpdateStudioCommandInput,
+    cb: (err: any, data?: UpdateStudioCommandOutput) => void
+  ): void;
   updateStudio(
     args: UpdateStudioCommandInput,
     options: __HttpHandlerOptions,

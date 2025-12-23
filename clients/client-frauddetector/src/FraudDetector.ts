@@ -488,8 +488,14 @@ export interface FraudDetector {
   /**
    * @see {@link CreateListCommand}
    */
-  createList(args: CreateListCommandInput, options?: __HttpHandlerOptions): Promise<CreateListCommandOutput>;
-  createList(args: CreateListCommandInput, cb: (err: any, data?: CreateListCommandOutput) => void): void;
+  createList(
+    args: CreateListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateListCommandOutput>;
+  createList(
+    args: CreateListCommandInput,
+    cb: (err: any, data?: CreateListCommandOutput) => void
+  ): void;
   createList(
     args: CreateListCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +505,14 @@ export interface FraudDetector {
   /**
    * @see {@link CreateModelCommand}
    */
-  createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
-  createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
+  createModel(
+    args: CreateModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelCommandOutput>;
+  createModel(
+    args: CreateModelCommandInput,
+    cb: (err: any, data?: CreateModelCommandOutput) => void
+  ): void;
   createModel(
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
@@ -527,8 +539,14 @@ export interface FraudDetector {
   /**
    * @see {@link CreateRuleCommand}
    */
-  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleCommandOutput>;
+  createRule(
+    args: CreateRuleCommandInput,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
   createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -542,7 +560,10 @@ export interface FraudDetector {
     args: CreateVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVariableCommandOutput>;
-  createVariable(args: CreateVariableCommandInput, cb: (err: any, data?: CreateVariableCommandOutput) => void): void;
+  createVariable(
+    args: CreateVariableCommandInput,
+    cb: (err: any, data?: CreateVariableCommandOutput) => void
+  ): void;
   createVariable(
     args: CreateVariableCommandInput,
     options: __HttpHandlerOptions,
@@ -590,7 +611,10 @@ export interface FraudDetector {
     args: DeleteDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDetectorCommandOutput>;
-  deleteDetector(args: DeleteDetectorCommandInput, cb: (err: any, data?: DeleteDetectorCommandOutput) => void): void;
+  deleteDetector(
+    args: DeleteDetectorCommandInput,
+    cb: (err: any, data?: DeleteDetectorCommandOutput) => void
+  ): void;
   deleteDetector(
     args: DeleteDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -634,8 +658,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteEventCommand}
    */
-  deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
-  deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
+  deleteEvent(
+    args: DeleteEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventCommandOutput>;
+  deleteEvent(
+    args: DeleteEventCommandInput,
+    cb: (err: any, data?: DeleteEventCommandOutput) => void
+  ): void;
   deleteEvent(
     args: DeleteEventCommandInput,
     options: __HttpHandlerOptions,
@@ -666,7 +696,10 @@ export interface FraudDetector {
     args: DeleteEventTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEventTypeCommandOutput>;
-  deleteEventType(args: DeleteEventTypeCommandInput, cb: (err: any, data?: DeleteEventTypeCommandOutput) => void): void;
+  deleteEventType(
+    args: DeleteEventTypeCommandInput,
+    cb: (err: any, data?: DeleteEventTypeCommandOutput) => void
+  ): void;
   deleteEventType(
     args: DeleteEventTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -693,8 +726,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteLabelCommand}
    */
-  deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
-  deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
+  deleteLabel(
+    args: DeleteLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLabelCommandOutput>;
+  deleteLabel(
+    args: DeleteLabelCommandInput,
+    cb: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): void;
   deleteLabel(
     args: DeleteLabelCommandInput,
     options: __HttpHandlerOptions,
@@ -704,8 +743,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteListCommand}
    */
-  deleteList(args: DeleteListCommandInput, options?: __HttpHandlerOptions): Promise<DeleteListCommandOutput>;
-  deleteList(args: DeleteListCommandInput, cb: (err: any, data?: DeleteListCommandOutput) => void): void;
+  deleteList(
+    args: DeleteListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteListCommandOutput>;
+  deleteList(
+    args: DeleteListCommandInput,
+    cb: (err: any, data?: DeleteListCommandOutput) => void
+  ): void;
   deleteList(
     args: DeleteListCommandInput,
     options: __HttpHandlerOptions,
@@ -715,8 +760,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteModelCommand}
    */
-  deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
-  deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
+  deleteModel(
+    args: DeleteModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelCommandOutput>;
+  deleteModel(
+    args: DeleteModelCommandInput,
+    cb: (err: any, data?: DeleteModelCommandOutput) => void
+  ): void;
   deleteModel(
     args: DeleteModelCommandInput,
     options: __HttpHandlerOptions,
@@ -743,8 +794,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteOutcomeCommand}
    */
-  deleteOutcome(args: DeleteOutcomeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteOutcomeCommandOutput>;
-  deleteOutcome(args: DeleteOutcomeCommandInput, cb: (err: any, data?: DeleteOutcomeCommandOutput) => void): void;
+  deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOutcomeCommandOutput>;
+  deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    cb: (err: any, data?: DeleteOutcomeCommandOutput) => void
+  ): void;
   deleteOutcome(
     args: DeleteOutcomeCommandInput,
     options: __HttpHandlerOptions,
@@ -754,8 +811,14 @@ export interface FraudDetector {
   /**
    * @see {@link DeleteRuleCommand}
    */
-  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleCommandOutput>;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -769,7 +832,10 @@ export interface FraudDetector {
     args: DeleteVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVariableCommandOutput>;
-  deleteVariable(args: DeleteVariableCommandInput, cb: (err: any, data?: DeleteVariableCommandOutput) => void): void;
+  deleteVariable(
+    args: DeleteVariableCommandInput,
+    cb: (err: any, data?: DeleteVariableCommandOutput) => void
+  ): void;
   deleteVariable(
     args: DeleteVariableCommandInput,
     options: __HttpHandlerOptions,
@@ -868,8 +934,14 @@ export interface FraudDetector {
    * @see {@link GetDetectorsCommand}
    */
   getDetectors(): Promise<GetDetectorsCommandOutput>;
-  getDetectors(args: GetDetectorsCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorsCommandOutput>;
-  getDetectors(args: GetDetectorsCommandInput, cb: (err: any, data?: GetDetectorsCommandOutput) => void): void;
+  getDetectors(
+    args: GetDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDetectorsCommandOutput>;
+  getDetectors(
+    args: GetDetectorsCommandInput,
+    cb: (err: any, data?: GetDetectorsCommandOutput) => void
+  ): void;
   getDetectors(
     args: GetDetectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -901,7 +973,10 @@ export interface FraudDetector {
     args: GetEntityTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEntityTypesCommandOutput>;
-  getEntityTypes(args: GetEntityTypesCommandInput, cb: (err: any, data?: GetEntityTypesCommandOutput) => void): void;
+  getEntityTypes(
+    args: GetEntityTypesCommandInput,
+    cb: (err: any, data?: GetEntityTypesCommandOutput) => void
+  ): void;
   getEntityTypes(
     args: GetEntityTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -911,8 +986,14 @@ export interface FraudDetector {
   /**
    * @see {@link GetEventCommand}
    */
-  getEvent(args: GetEventCommandInput, options?: __HttpHandlerOptions): Promise<GetEventCommandOutput>;
-  getEvent(args: GetEventCommandInput, cb: (err: any, data?: GetEventCommandOutput) => void): void;
+  getEvent(
+    args: GetEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventCommandOutput>;
+  getEvent(
+    args: GetEventCommandInput,
+    cb: (err: any, data?: GetEventCommandOutput) => void
+  ): void;
   getEvent(
     args: GetEventCommandInput,
     options: __HttpHandlerOptions,
@@ -957,8 +1038,14 @@ export interface FraudDetector {
    * @see {@link GetEventTypesCommand}
    */
   getEventTypes(): Promise<GetEventTypesCommandOutput>;
-  getEventTypes(args: GetEventTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetEventTypesCommandOutput>;
-  getEventTypes(args: GetEventTypesCommandInput, cb: (err: any, data?: GetEventTypesCommandOutput) => void): void;
+  getEventTypes(
+    args: GetEventTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventTypesCommandOutput>;
+  getEventTypes(
+    args: GetEventTypesCommandInput,
+    cb: (err: any, data?: GetEventTypesCommandOutput) => void
+  ): void;
   getEventTypes(
     args: GetEventTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,8 +1092,14 @@ export interface FraudDetector {
    * @see {@link GetLabelsCommand}
    */
   getLabels(): Promise<GetLabelsCommandOutput>;
-  getLabels(args: GetLabelsCommandInput, options?: __HttpHandlerOptions): Promise<GetLabelsCommandOutput>;
-  getLabels(args: GetLabelsCommandInput, cb: (err: any, data?: GetLabelsCommandOutput) => void): void;
+  getLabels(
+    args: GetLabelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLabelsCommandOutput>;
+  getLabels(
+    args: GetLabelsCommandInput,
+    cb: (err: any, data?: GetLabelsCommandOutput) => void
+  ): void;
   getLabels(
     args: GetLabelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1020,7 +1113,10 @@ export interface FraudDetector {
     args: GetListElementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetListElementsCommandOutput>;
-  getListElements(args: GetListElementsCommandInput, cb: (err: any, data?: GetListElementsCommandOutput) => void): void;
+  getListElements(
+    args: GetListElementsCommandInput,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
   getListElements(
     args: GetListElementsCommandInput,
     options: __HttpHandlerOptions,
@@ -1049,8 +1145,14 @@ export interface FraudDetector {
    * @see {@link GetModelsCommand}
    */
   getModels(): Promise<GetModelsCommandOutput>;
-  getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
-  getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
+  getModels(
+    args: GetModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelsCommandOutput>;
+  getModels(
+    args: GetModelsCommandInput,
+    cb: (err: any, data?: GetModelsCommandOutput) => void
+  ): void;
   getModels(
     args: GetModelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1064,7 +1166,10 @@ export interface FraudDetector {
     args: GetModelVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetModelVersionCommandOutput>;
-  getModelVersion(args: GetModelVersionCommandInput, cb: (err: any, data?: GetModelVersionCommandOutput) => void): void;
+  getModelVersion(
+    args: GetModelVersionCommandInput,
+    cb: (err: any, data?: GetModelVersionCommandOutput) => void
+  ): void;
   getModelVersion(
     args: GetModelVersionCommandInput,
     options: __HttpHandlerOptions,
@@ -1075,8 +1180,14 @@ export interface FraudDetector {
    * @see {@link GetOutcomesCommand}
    */
   getOutcomes(): Promise<GetOutcomesCommandOutput>;
-  getOutcomes(args: GetOutcomesCommandInput, options?: __HttpHandlerOptions): Promise<GetOutcomesCommandOutput>;
-  getOutcomes(args: GetOutcomesCommandInput, cb: (err: any, data?: GetOutcomesCommandOutput) => void): void;
+  getOutcomes(
+    args: GetOutcomesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutcomesCommandOutput>;
+  getOutcomes(
+    args: GetOutcomesCommandInput,
+    cb: (err: any, data?: GetOutcomesCommandOutput) => void
+  ): void;
   getOutcomes(
     args: GetOutcomesCommandInput,
     options: __HttpHandlerOptions,
@@ -1086,8 +1197,14 @@ export interface FraudDetector {
   /**
    * @see {@link GetRulesCommand}
    */
-  getRules(args: GetRulesCommandInput, options?: __HttpHandlerOptions): Promise<GetRulesCommandOutput>;
-  getRules(args: GetRulesCommandInput, cb: (err: any, data?: GetRulesCommandOutput) => void): void;
+  getRules(
+    args: GetRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRulesCommandOutput>;
+  getRules(
+    args: GetRulesCommandInput,
+    cb: (err: any, data?: GetRulesCommandOutput) => void
+  ): void;
   getRules(
     args: GetRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -1098,8 +1215,14 @@ export interface FraudDetector {
    * @see {@link GetVariablesCommand}
    */
   getVariables(): Promise<GetVariablesCommandOutput>;
-  getVariables(args: GetVariablesCommandInput, options?: __HttpHandlerOptions): Promise<GetVariablesCommandOutput>;
-  getVariables(args: GetVariablesCommandInput, cb: (err: any, data?: GetVariablesCommandOutput) => void): void;
+  getVariables(
+    args: GetVariablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVariablesCommandOutput>;
+  getVariables(
+    args: GetVariablesCommandInput,
+    cb: (err: any, data?: GetVariablesCommandOutput) => void
+  ): void;
   getVariables(
     args: GetVariablesCommandInput,
     options: __HttpHandlerOptions,
@@ -1144,8 +1267,14 @@ export interface FraudDetector {
   /**
    * @see {@link PutDetectorCommand}
    */
-  putDetector(args: PutDetectorCommandInput, options?: __HttpHandlerOptions): Promise<PutDetectorCommandOutput>;
-  putDetector(args: PutDetectorCommandInput, cb: (err: any, data?: PutDetectorCommandOutput) => void): void;
+  putDetector(
+    args: PutDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDetectorCommandOutput>;
+  putDetector(
+    args: PutDetectorCommandInput,
+    cb: (err: any, data?: PutDetectorCommandOutput) => void
+  ): void;
   putDetector(
     args: PutDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1155,8 +1284,14 @@ export interface FraudDetector {
   /**
    * @see {@link PutEntityTypeCommand}
    */
-  putEntityType(args: PutEntityTypeCommandInput, options?: __HttpHandlerOptions): Promise<PutEntityTypeCommandOutput>;
-  putEntityType(args: PutEntityTypeCommandInput, cb: (err: any, data?: PutEntityTypeCommandOutput) => void): void;
+  putEntityType(
+    args: PutEntityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEntityTypeCommandOutput>;
+  putEntityType(
+    args: PutEntityTypeCommandInput,
+    cb: (err: any, data?: PutEntityTypeCommandOutput) => void
+  ): void;
   putEntityType(
     args: PutEntityTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -1166,8 +1301,14 @@ export interface FraudDetector {
   /**
    * @see {@link PutEventTypeCommand}
    */
-  putEventType(args: PutEventTypeCommandInput, options?: __HttpHandlerOptions): Promise<PutEventTypeCommandOutput>;
-  putEventType(args: PutEventTypeCommandInput, cb: (err: any, data?: PutEventTypeCommandOutput) => void): void;
+  putEventType(
+    args: PutEventTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventTypeCommandOutput>;
+  putEventType(
+    args: PutEventTypeCommandInput,
+    cb: (err: any, data?: PutEventTypeCommandOutput) => void
+  ): void;
   putEventType(
     args: PutEventTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -1211,8 +1352,14 @@ export interface FraudDetector {
   /**
    * @see {@link PutLabelCommand}
    */
-  putLabel(args: PutLabelCommandInput, options?: __HttpHandlerOptions): Promise<PutLabelCommandOutput>;
-  putLabel(args: PutLabelCommandInput, cb: (err: any, data?: PutLabelCommandOutput) => void): void;
+  putLabel(
+    args: PutLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLabelCommandOutput>;
+  putLabel(
+    args: PutLabelCommandInput,
+    cb: (err: any, data?: PutLabelCommandOutput) => void
+  ): void;
   putLabel(
     args: PutLabelCommandInput,
     options: __HttpHandlerOptions,
@@ -1222,8 +1369,14 @@ export interface FraudDetector {
   /**
    * @see {@link PutOutcomeCommand}
    */
-  putOutcome(args: PutOutcomeCommandInput, options?: __HttpHandlerOptions): Promise<PutOutcomeCommandOutput>;
-  putOutcome(args: PutOutcomeCommandInput, cb: (err: any, data?: PutOutcomeCommandOutput) => void): void;
+  putOutcome(
+    args: PutOutcomeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutOutcomeCommandOutput>;
+  putOutcome(
+    args: PutOutcomeCommandInput,
+    cb: (err: any, data?: PutOutcomeCommandOutput) => void
+  ): void;
   putOutcome(
     args: PutOutcomeCommandInput,
     options: __HttpHandlerOptions,
@@ -1233,8 +1386,14 @@ export interface FraudDetector {
   /**
    * @see {@link SendEventCommand}
    */
-  sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
-  sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
+  sendEvent(
+    args: SendEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEventCommandOutput>;
+  sendEvent(
+    args: SendEventCommandInput,
+    cb: (err: any, data?: SendEventCommandOutput) => void
+  ): void;
   sendEvent(
     args: SendEventCommandInput,
     options: __HttpHandlerOptions,
@@ -1244,8 +1403,14 @@ export interface FraudDetector {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1255,8 +1420,14 @@ export interface FraudDetector {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1334,8 +1505,14 @@ export interface FraudDetector {
   /**
    * @see {@link UpdateListCommand}
    */
-  updateList(args: UpdateListCommandInput, options?: __HttpHandlerOptions): Promise<UpdateListCommandOutput>;
-  updateList(args: UpdateListCommandInput, cb: (err: any, data?: UpdateListCommandOutput) => void): void;
+  updateList(
+    args: UpdateListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateListCommandOutput>;
+  updateList(
+    args: UpdateListCommandInput,
+    cb: (err: any, data?: UpdateListCommandOutput) => void
+  ): void;
   updateList(
     args: UpdateListCommandInput,
     options: __HttpHandlerOptions,
@@ -1345,8 +1522,14 @@ export interface FraudDetector {
   /**
    * @see {@link UpdateModelCommand}
    */
-  updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
-  updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
+  updateModel(
+    args: UpdateModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateModelCommandOutput>;
+  updateModel(
+    args: UpdateModelCommandInput,
+    cb: (err: any, data?: UpdateModelCommandOutput) => void
+  ): void;
   updateModel(
     args: UpdateModelCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,7 +1611,10 @@ export interface FraudDetector {
     args: UpdateVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVariableCommandOutput>;
-  updateVariable(args: UpdateVariableCommandInput, cb: (err: any, data?: UpdateVariableCommandOutput) => void): void;
+  updateVariable(
+    args: UpdateVariableCommandInput,
+    cb: (err: any, data?: UpdateVariableCommandOutput) => void
+  ): void;
   updateVariable(
     args: UpdateVariableCommandInput,
     options: __HttpHandlerOptions,

@@ -27,9 +27,7 @@ export interface DescribeSlackChannelConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeSlackChannelConfigurationsCommand}.
  */
-export interface DescribeSlackChannelConfigurationsCommandOutput
-  extends DescribeSlackChannelConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeSlackChannelConfigurationsCommandOutput extends DescribeSlackChannelConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists Slack channel configurations optionally filtered by ChatConfigurationArn</p>

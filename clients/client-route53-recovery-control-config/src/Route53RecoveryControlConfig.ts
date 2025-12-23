@@ -157,8 +157,14 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -220,8 +226,14 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -286,7 +298,10 @@ export interface Route53RecoveryControlConfig {
     args: DescribeClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
-  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -382,8 +397,14 @@ export interface Route53RecoveryControlConfig {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -432,7 +453,10 @@ export interface Route53RecoveryControlConfig {
     args: ListSafetyRulesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSafetyRulesCommandOutput>;
-  listSafetyRules(args: ListSafetyRulesCommandInput, cb: (err: any, data?: ListSafetyRulesCommandOutput) => void): void;
+  listSafetyRules(
+    args: ListSafetyRulesCommandInput,
+    cb: (err: any, data?: ListSafetyRulesCommandOutput) => void
+  ): void;
   listSafetyRules(
     args: ListSafetyRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -459,8 +483,14 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -470,8 +500,14 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -481,8 +517,14 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link UpdateClusterCommand}
    */
-  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
-  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -546,7 +588,5 @@ export interface Route53RecoveryControlConfig {
  * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
  * @public
  */
-export class Route53RecoveryControlConfig
-  extends Route53RecoveryControlConfigClient
-  implements Route53RecoveryControlConfig {}
+export class Route53RecoveryControlConfig extends Route53RecoveryControlConfigClient implements Route53RecoveryControlConfig {}
 createAggregatedClient(commands, Route53RecoveryControlConfig);

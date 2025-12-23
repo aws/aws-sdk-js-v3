@@ -31,9 +31,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteRe
  *
  * The output of {@link DeleteReplicationTaskAssessmentRunCommand}.
  */
-export interface DeleteReplicationTaskAssessmentRunCommandOutput
-  extends DeleteReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationTaskAssessmentRunCommandOutput extends DeleteReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the record of a single premigration assessment run.</p>

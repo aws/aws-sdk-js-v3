@@ -27,9 +27,7 @@ export interface AssociateIdentityProviderConfigCommandInput extends AssociateId
  *
  * The output of {@link AssociateIdentityProviderConfigCommand}.
  */
-export interface AssociateIdentityProviderConfigCommandOutput
-  extends AssociateIdentityProviderConfigResponse,
-    __MetadataBearer {}
+export interface AssociateIdentityProviderConfigCommandOutput extends AssociateIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an identity provider configuration to a cluster.</p>

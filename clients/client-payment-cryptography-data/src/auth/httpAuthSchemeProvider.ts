@@ -49,17 +49,13 @@ export const defaultPaymentCryptographyDataHttpAuthSchemeParametersProvider = as
 ): Promise<PaymentCryptographyDataHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: PaymentCryptographyDataHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: PaymentCryptographyDataHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface PaymentCryptographyDataHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultPaymentCryptographyDataHttpAuthSchemeProvider: PaymentCryptographyDataHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultPaymentCryptographyDataHttpAuthSchemeProvider: PaymentCryptographyDataHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

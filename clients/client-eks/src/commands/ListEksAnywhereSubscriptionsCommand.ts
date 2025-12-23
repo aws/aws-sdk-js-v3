@@ -24,9 +24,7 @@ export interface ListEksAnywhereSubscriptionsCommandInput extends ListEksAnywher
  *
  * The output of {@link ListEksAnywhereSubscriptionsCommand}.
  */
-export interface ListEksAnywhereSubscriptionsCommandOutput
-  extends ListEksAnywhereSubscriptionsResponse,
-    __MetadataBearer {}
+export interface ListEksAnywhereSubscriptionsCommandOutput extends ListEksAnywhereSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Displays the full description of the subscription.</p>

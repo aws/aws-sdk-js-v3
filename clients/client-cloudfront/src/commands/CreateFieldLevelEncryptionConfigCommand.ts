@@ -27,9 +27,7 @@ export interface CreateFieldLevelEncryptionConfigCommandInput extends CreateFiel
  *
  * The output of {@link CreateFieldLevelEncryptionConfigCommand}.
  */
-export interface CreateFieldLevelEncryptionConfigCommandOutput
-  extends CreateFieldLevelEncryptionConfigResult,
-    __MetadataBearer {}
+export interface CreateFieldLevelEncryptionConfigCommandOutput extends CreateFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Create a new field-level encryption configuration.</p>

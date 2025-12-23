@@ -24,9 +24,7 @@ export interface SwitchoverBlueGreenDeploymentCommandInput extends SwitchoverBlu
  *
  * The output of {@link SwitchoverBlueGreenDeploymentCommand}.
  */
-export interface SwitchoverBlueGreenDeploymentCommandOutput
-  extends SwitchoverBlueGreenDeploymentResponse,
-    __MetadataBearer {}
+export interface SwitchoverBlueGreenDeploymentCommandOutput extends SwitchoverBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Switches over a blue/green deployment.</p>

@@ -31,9 +31,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRea
  *
  * The output of {@link ListRealtimeContactAnalysisSegmentsCommand}.
  */
-export interface ListRealtimeContactAnalysisSegmentsCommandOutput
-  extends ListRealtimeContactAnalysisSegmentsResponse,
-    __MetadataBearer {}
+export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRealtimeContactAnalysisSegmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>

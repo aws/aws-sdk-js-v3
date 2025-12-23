@@ -27,9 +27,7 @@ export interface StopDominantLanguageDetectionJobCommandInput extends StopDomina
  *
  * The output of {@link StopDominantLanguageDetectionJobCommand}.
  */
-export interface StopDominantLanguageDetectionJobCommandOutput
-  extends StopDominantLanguageDetectionJobResponse,
-    __MetadataBearer {}
+export interface StopDominantLanguageDetectionJobCommandOutput extends StopDominantLanguageDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a dominant language detection job in progress.</p>

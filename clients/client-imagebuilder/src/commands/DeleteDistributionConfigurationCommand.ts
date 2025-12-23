@@ -27,9 +27,7 @@ export interface DeleteDistributionConfigurationCommandInput extends DeleteDistr
  *
  * The output of {@link DeleteDistributionConfigurationCommand}.
  */
-export interface DeleteDistributionConfigurationCommandOutput
-  extends DeleteDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteDistributionConfigurationCommandOutput extends DeleteDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a distribution configuration.</p>

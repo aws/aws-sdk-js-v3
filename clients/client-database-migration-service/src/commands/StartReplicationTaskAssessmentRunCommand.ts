@@ -31,9 +31,7 @@ export interface StartReplicationTaskAssessmentRunCommandInput extends StartRepl
  *
  * The output of {@link StartReplicationTaskAssessmentRunCommand}.
  */
-export interface StartReplicationTaskAssessmentRunCommandOutput
-  extends StartReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface StartReplicationTaskAssessmentRunCommandOutput extends StartReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new premigration assessment run for one or more individual assessments of a

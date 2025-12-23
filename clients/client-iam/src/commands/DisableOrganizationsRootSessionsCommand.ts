@@ -27,9 +27,7 @@ export interface DisableOrganizationsRootSessionsCommandInput extends DisableOrg
  *
  * The output of {@link DisableOrganizationsRootSessionsCommand}.
  */
-export interface DisableOrganizationsRootSessionsCommandOutput
-  extends DisableOrganizationsRootSessionsResponse,
-    __MetadataBearer {}
+export interface DisableOrganizationsRootSessionsCommandOutput extends DisableOrganizationsRootSessionsResponse, __MetadataBearer {}
 
 /**
  * <p>Disables root user sessions for privileged tasks across member accounts in your

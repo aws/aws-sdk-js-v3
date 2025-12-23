@@ -7,7 +7,6 @@
 AWS SDK for JavaScript MigrationHubRefactorSpaces Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Web Services Migration Hub Refactor Spaces</fullname>
-
 <p>This API reference provides descriptions, syntax, and other details about each of the
 actions and data types for Amazon Web Services Migration Hub Refactor Spaces (Refactor Spaces). The topic for each action shows the API
 request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
@@ -17,10 +16,8 @@ more information, see <a href="https://aws.amazon.com/tools/#SDKs">Amazon Web Se
 and their OUs, use Resource Access Manager's <code>CreateResourceShare</code> API. See <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> in the <i>Amazon Web Services RAM API Reference</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-migration-hub-refactor-spaces
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-migration-hub-refactor-spaces`
 - `yarn add @aws-sdk/client-migration-hub-refactor-spaces`
 - `pnpm add @aws-sdk/client-migration-hub-refactor-spaces`
@@ -35,18 +32,12 @@ the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const {
-  MigrationHubRefactorSpacesClient,
-  ListEnvironmentsCommand,
-} = require("@aws-sdk/client-migration-hub-refactor-spaces");
+const { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces");
 ```
 
 ```ts
 // ES6+ example
-import {
-  MigrationHubRefactorSpacesClient,
-  ListEnvironmentsCommand,
-} from "@aws-sdk/client-migration-hub-refactor-spaces";
+import { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces";
 ```
 
 ### Usage
@@ -62,9 +53,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MigrationHubRefactorSpacesClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListEnvironmentsCommand(params);
 ```
 
@@ -223,7 +212,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -231,7 +219,6 @@ CreateEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/CreateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -239,7 +226,6 @@ CreateRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/CreateRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateRouteCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -247,7 +233,6 @@ CreateService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/CreateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/CreateServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +240,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +247,6 @@ DeleteEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/DeleteEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,7 +254,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -279,7 +261,6 @@ DeleteRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/DeleteRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteRouteCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +268,6 @@ DeleteService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/DeleteServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/DeleteServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +275,6 @@ GetApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +282,6 @@ GetEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/GetEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +289,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +296,6 @@ GetRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/GetRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetRouteCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,7 +303,6 @@ GetService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/GetServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -335,7 +310,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -343,7 +317,6 @@ ListEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListEnvironmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -351,7 +324,6 @@ ListEnvironmentVpcs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListEnvironmentVpcsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListEnvironmentVpcsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListEnvironmentVpcsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -359,7 +331,6 @@ ListRoutes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListRoutesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListRoutesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListRoutesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -367,7 +338,6 @@ ListServices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListServicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -375,7 +345,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -383,7 +352,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +359,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +366,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,5 +373,4 @@ UpdateRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub-refactor-spaces/command/UpdateRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/UpdateRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub-refactor-spaces/Interface/UpdateRouteCommandOutput/)
-
 </details>

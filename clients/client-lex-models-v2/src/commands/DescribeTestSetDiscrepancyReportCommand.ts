@@ -27,9 +27,7 @@ export interface DescribeTestSetDiscrepancyReportCommandInput extends DescribeTe
  *
  * The output of {@link DescribeTestSetDiscrepancyReportCommand}.
  */
-export interface DescribeTestSetDiscrepancyReportCommandOutput
-  extends DescribeTestSetDiscrepancyReportResponse,
-    __MetadataBearer {}
+export interface DescribeTestSetDiscrepancyReportCommandOutput extends DescribeTestSetDiscrepancyReportResponse, __MetadataBearer {}
 
 /**
  * <p>Gets metadata information about the test set discrepancy report.</p>

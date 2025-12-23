@@ -25,9 +25,7 @@ export interface DeleteTrafficPolicyInstanceCommandInput extends DeleteTrafficPo
  *
  * The output of {@link DeleteTrafficPolicyInstanceCommand}.
  */
-export interface DeleteTrafficPolicyInstanceCommandOutput
-  extends DeleteTrafficPolicyInstanceResponse,
-    __MetadataBearer {}
+export interface DeleteTrafficPolicyInstanceCommandOutput extends DeleteTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
@@ -88,7 +86,10 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteTrafficPolicyInstance", {})
   .n("Route53Client", "DeleteTrafficPolicyInstanceCommand")

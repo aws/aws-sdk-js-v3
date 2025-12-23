@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
  */
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput
-  extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {}
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
  */
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the associations between virtual interface groups and local gateway route tables.</p>

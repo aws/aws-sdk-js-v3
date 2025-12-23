@@ -88,12 +88,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = UploadArchiveCommandInput | UploadMultipartPartCommandInput;
+export type ServiceInputTypes =
+  | UploadArchiveCommandInput
+  | UploadMultipartPartCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = UploadArchiveCommandOutput | UploadMultipartPartCommandOutput;
+export type ServiceOutputTypes =
+  | UploadArchiveCommandOutput
+  | UploadMultipartPartCommandOutput;
 
 /**
  * @public
@@ -209,10 +213,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Function that returns body checksums.
    * @internal
    */
-  bodyChecksumGenerator?: (
-    request: __HttpRequest,
-    options: { sha256: __ChecksumConstructor | __HashConstructor; utf8Decoder: __Decoder }
-  ) => Promise<[string, string]>;
+  bodyChecksumGenerator?: (request: __HttpRequest, options: { sha256: __ChecksumConstructor | __HashConstructor; utf8Decoder: __Decoder }) => Promise<[string, string]>;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header

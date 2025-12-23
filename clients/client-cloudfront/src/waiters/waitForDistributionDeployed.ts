@@ -10,9 +10,9 @@ const checkState = async (client: CloudFrontClient, input: GetDistributionComman
     const result: any = await client.send(new GetDistributionCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Distribution.Status;
-      };
+      }
       if (returnComparator() === "Deployed") {
         return { state: WaiterState.SUCCESS, reason };
       }

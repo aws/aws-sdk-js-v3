@@ -27,9 +27,7 @@ export interface PutEmailIdentityMailFromAttributesCommandInput extends PutEmail
  *
  * The output of {@link PutEmailIdentityMailFromAttributesCommand}.
  */
-export interface PutEmailIdentityMailFromAttributesCommandOutput
-  extends PutEmailIdentityMailFromAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityMailFromAttributesCommandOutput extends PutEmailIdentityMailFromAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email

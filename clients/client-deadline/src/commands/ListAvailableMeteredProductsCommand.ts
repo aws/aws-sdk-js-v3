@@ -24,9 +24,7 @@ export interface ListAvailableMeteredProductsCommandInput extends ListAvailableM
  *
  * The output of {@link ListAvailableMeteredProductsCommand}.
  */
-export interface ListAvailableMeteredProductsCommandOutput
-  extends ListAvailableMeteredProductsResponse,
-    __MetadataBearer {}
+export interface ListAvailableMeteredProductsCommandOutput extends ListAvailableMeteredProductsResponse, __MetadataBearer {}
 
 /**
  * <p>A list of the available metered products.</p>

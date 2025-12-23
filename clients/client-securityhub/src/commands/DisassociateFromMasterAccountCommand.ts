@@ -24,9 +24,7 @@ export interface DisassociateFromMasterAccountCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
-export interface DisassociateFromMasterAccountCommandOutput
-  extends DisassociateFromMasterAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateFromMasterAccountCommandOutput extends DisassociateFromMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>

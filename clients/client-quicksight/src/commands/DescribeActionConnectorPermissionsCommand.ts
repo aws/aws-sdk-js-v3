@@ -27,9 +27,7 @@ export interface DescribeActionConnectorPermissionsCommandInput extends Describe
  *
  * The output of {@link DescribeActionConnectorPermissionsCommand}.
  */
-export interface DescribeActionConnectorPermissionsCommandOutput
-  extends DescribeActionConnectorPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeActionConnectorPermissionsCommandOutput extends DescribeActionConnectorPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the permissions configuration for an action connector, showing which users, groups, and namespaces have access and what operations they can perform.</p>

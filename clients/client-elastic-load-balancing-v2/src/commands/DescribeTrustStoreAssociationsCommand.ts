@@ -28,9 +28,7 @@ export interface DescribeTrustStoreAssociationsCommandInput extends DescribeTrus
  *
  * The output of {@link DescribeTrustStoreAssociationsCommand}.
  */
-export interface DescribeTrustStoreAssociationsCommandOutput
-  extends DescribeTrustStoreAssociationsOutput,
-    __MetadataBearer {}
+export interface DescribeTrustStoreAssociationsCommandOutput extends DescribeTrustStoreAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes all resources associated with the specified trust store.</p>

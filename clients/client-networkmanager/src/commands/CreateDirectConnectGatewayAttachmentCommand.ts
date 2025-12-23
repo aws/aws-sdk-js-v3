@@ -31,9 +31,7 @@ export interface CreateDirectConnectGatewayAttachmentCommandInput extends Create
  *
  * The output of {@link CreateDirectConnectGatewayAttachmentCommand}.
  */
-export interface CreateDirectConnectGatewayAttachmentCommandOutput
-  extends CreateDirectConnectGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateDirectConnectGatewayAttachmentCommandOutput extends CreateDirectConnectGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services Direct Connect gateway attachment </p>

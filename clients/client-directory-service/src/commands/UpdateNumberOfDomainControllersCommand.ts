@@ -28,9 +28,7 @@ export interface UpdateNumberOfDomainControllersCommandInput extends UpdateNumbe
  *
  * The output of {@link UpdateNumberOfDomainControllersCommand}.
  */
-export interface UpdateNumberOfDomainControllersCommandOutput
-  extends UpdateNumberOfDomainControllersResult,
-    __MetadataBearer {}
+export interface UpdateNumberOfDomainControllersCommandOutput extends UpdateNumberOfDomainControllersResult, __MetadataBearer {}
 
 /**
  * <p>Adds or removes domain controllers to or from the directory. Based on the difference

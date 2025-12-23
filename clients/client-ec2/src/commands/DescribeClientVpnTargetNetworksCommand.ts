@@ -24,9 +24,7 @@ export interface DescribeClientVpnTargetNetworksCommandInput extends DescribeCli
  *
  * The output of {@link DescribeClientVpnTargetNetworksCommand}.
  */
-export interface DescribeClientVpnTargetNetworksCommandOutput
-  extends DescribeClientVpnTargetNetworksResult,
-    __MetadataBearer {}
+export interface DescribeClientVpnTargetNetworksCommandOutput extends DescribeClientVpnTargetNetworksResult, __MetadataBearer {}
 
 /**
  * <p>Describes the target networks associated with the specified Client VPN endpoint.</p>

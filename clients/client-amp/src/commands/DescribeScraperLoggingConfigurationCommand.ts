@@ -27,9 +27,7 @@ export interface DescribeScraperLoggingConfigurationCommandInput extends Describ
  *
  * The output of {@link DescribeScraperLoggingConfigurationCommand}.
  */
-export interface DescribeScraperLoggingConfigurationCommandOutput
-  extends DescribeScraperLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeScraperLoggingConfigurationCommandOutput extends DescribeScraperLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the logging configuration for a Amazon Managed Service for Prometheus scraper.</p>

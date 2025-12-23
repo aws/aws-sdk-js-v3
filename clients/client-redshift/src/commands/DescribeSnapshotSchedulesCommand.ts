@@ -24,9 +24,7 @@ export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotS
  *
  * The output of {@link DescribeSnapshotSchedulesCommand}.
  */
-export interface DescribeSnapshotSchedulesCommandOutput
-  extends DescribeSnapshotSchedulesOutputMessage,
-    __MetadataBearer {}
+export interface DescribeSnapshotSchedulesCommandOutput extends DescribeSnapshotSchedulesOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot schedules. </p>

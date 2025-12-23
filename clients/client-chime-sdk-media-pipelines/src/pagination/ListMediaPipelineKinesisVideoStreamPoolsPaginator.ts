@@ -21,10 +21,4 @@ export const paginateListMediaPipelineKinesisVideoStreamPools: (
   ChimeSDKMediaPipelinesPaginationConfiguration,
   ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
   ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
->(
-  ChimeSDKMediaPipelinesClient,
-  ListMediaPipelineKinesisVideoStreamPoolsCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(ChimeSDKMediaPipelinesClient, ListMediaPipelineKinesisVideoStreamPoolsCommand, "NextToken", "NextToken", "MaxResults");

@@ -24,9 +24,7 @@ export interface GetCloudFormationStackRecordsCommandInput extends GetCloudForma
  *
  * The output of {@link GetCloudFormationStackRecordsCommand}.
  */
-export interface GetCloudFormationStackRecordsCommandOutput
-  extends GetCloudFormationStackRecordsResult,
-    __MetadataBearer {}
+export interface GetCloudFormationStackRecordsCommandOutput extends GetCloudFormationStackRecordsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud

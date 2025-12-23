@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
-export interface DescribeInstancePatchStatesForPatchGroupCommandInput
-  extends DescribeInstancePatchStatesForPatchGroupRequest {}
+export interface DescribeInstancePatchStatesForPatchGroupCommandInput extends DescribeInstancePatchStatesForPatchGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
-export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
-  extends DescribeInstancePatchStatesForPatchGroupResult,
-    __MetadataBearer {}
+export interface DescribeInstancePatchStatesForPatchGroupCommandOutput extends DescribeInstancePatchStatesForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the high-level patch state for the managed nodes in the specified patch

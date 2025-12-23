@@ -24,9 +24,7 @@ export interface DisassociateGatewayFromServerCommandInput extends DisassociateG
  *
  * The output of {@link DisassociateGatewayFromServerCommand}.
  */
-export interface DisassociateGatewayFromServerCommandOutput
-  extends DisassociateGatewayFromServerOutput,
-    __MetadataBearer {}
+export interface DisassociateGatewayFromServerCommandOutput extends DisassociateGatewayFromServerOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates a backup gateway from the specified server. After the disassociation process

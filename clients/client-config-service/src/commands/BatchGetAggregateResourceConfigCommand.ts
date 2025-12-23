@@ -27,9 +27,7 @@ export interface BatchGetAggregateResourceConfigCommandInput extends BatchGetAgg
  *
  * The output of {@link BatchGetAggregateResourceConfigCommand}.
  */
-export interface BatchGetAggregateResourceConfigCommandOutput
-  extends BatchGetAggregateResourceConfigResponse,
-    __MetadataBearer {}
+export interface BatchGetAggregateResourceConfigCommandOutput extends BatchGetAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current configuration items for resources that are present in your Config aggregator. The operation also returns a list of resources that are not processed in the current request.

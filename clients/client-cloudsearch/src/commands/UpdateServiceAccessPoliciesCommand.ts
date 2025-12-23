@@ -24,9 +24,7 @@ export interface UpdateServiceAccessPoliciesCommandInput extends UpdateServiceAc
  *
  * The output of {@link UpdateServiceAccessPoliciesCommand}.
  */
-export interface UpdateServiceAccessPoliciesCommandOutput
-  extends UpdateServiceAccessPoliciesResponse,
-    __MetadataBearer {}
+export interface UpdateServiceAccessPoliciesCommandOutput extends UpdateServiceAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Configures the access rules that control access to the domain's document and search endpoints.

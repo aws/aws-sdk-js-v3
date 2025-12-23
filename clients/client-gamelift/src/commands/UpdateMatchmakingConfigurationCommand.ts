@@ -24,9 +24,7 @@ export interface UpdateMatchmakingConfigurationCommandInput extends UpdateMatchm
  *
  * The output of {@link UpdateMatchmakingConfigurationCommand}.
  */
-export interface UpdateMatchmakingConfigurationCommandOutput
-  extends UpdateMatchmakingConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateMatchmakingConfigurationCommandOutput extends UpdateMatchmakingConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>

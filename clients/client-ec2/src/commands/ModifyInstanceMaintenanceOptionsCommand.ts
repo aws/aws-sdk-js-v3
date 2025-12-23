@@ -27,9 +27,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandInput extends ModifyInst
  *
  * The output of {@link ModifyInstanceMaintenanceOptionsCommand}.
  */
-export interface ModifyInstanceMaintenanceOptionsCommandOutput
-  extends ModifyInstanceMaintenanceOptionsResult,
-    __MetadataBearer {}
+export interface ModifyInstanceMaintenanceOptionsCommandOutput extends ModifyInstanceMaintenanceOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the recovery behavior of your instance to disable simplified automatic

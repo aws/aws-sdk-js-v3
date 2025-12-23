@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceNetworkVpcEndpointAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcEndpointAssociationsCommandInput
-  extends ListServiceNetworkVpcEndpointAssociationsRequest {}
+export interface ListServiceNetworkVpcEndpointAssociationsCommandInput extends ListServiceNetworkVpcEndpointAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListServiceNetworkVpcEndpointAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcEndpointAssociationsCommandOutput
-  extends ListServiceNetworkVpcEndpointAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkVpcEndpointAssociationsCommandOutput extends ListServiceNetworkVpcEndpointAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a VPC endpoint.</p>

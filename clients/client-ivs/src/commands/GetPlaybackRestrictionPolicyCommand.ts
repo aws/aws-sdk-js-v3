@@ -24,9 +24,7 @@ export interface GetPlaybackRestrictionPolicyCommandInput extends GetPlaybackRes
  *
  * The output of {@link GetPlaybackRestrictionPolicyCommand}.
  */
-export interface GetPlaybackRestrictionPolicyCommandOutput
-  extends GetPlaybackRestrictionPolicyResponse,
-    __MetadataBearer {}
+export interface GetPlaybackRestrictionPolicyCommandOutput extends GetPlaybackRestrictionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified playback restriction policy.</p>

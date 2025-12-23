@@ -24,9 +24,7 @@ export interface PurchaseReservedNodeOfferingCommandInput extends PurchaseReserv
  *
  * The output of {@link PurchaseReservedNodeOfferingCommand}.
  */
-export interface PurchaseReservedNodeOfferingCommandOutput
-  extends PurchaseReservedNodeOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedNodeOfferingCommandOutput extends PurchaseReservedNodeOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of

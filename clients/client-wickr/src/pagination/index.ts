@@ -5,6 +5,6 @@ export * from "./ListBotsPaginator";
 export * from "./ListDevicesForUserPaginator";
 export * from "./ListGuestUsersPaginator";
 export * from "./ListNetworksPaginator";
-export * from "./ListSecurityGroupUsersPaginator";
 export * from "./ListSecurityGroupsPaginator";
+export * from "./ListSecurityGroupUsersPaginator";
 export * from "./ListUsersPaginator";

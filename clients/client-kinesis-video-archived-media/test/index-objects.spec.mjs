@@ -64,13 +64,13 @@ import {
   NoDataRetentionException$,
   NotAuthorizedException,
   NotAuthorizedException$,
+  paginateGetImages,
+  paginateListFragments,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   TimestampRange$,
   UnsupportedStreamMediaTypeException,
   UnsupportedStreamMediaTypeException$,
-  paginateGetImages,
-  paginateListFragments,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIpamPrefixListResolverTargetsCommand}.
  */
-export interface DescribeIpamPrefixListResolverTargetsCommandInput
-  extends DescribeIpamPrefixListResolverTargetsRequest {}
+export interface DescribeIpamPrefixListResolverTargetsCommandInput extends DescribeIpamPrefixListResolverTargetsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIpamPrefixListResolverTargetsCommand}.
  */
-export interface DescribeIpamPrefixListResolverTargetsCommandOutput
-  extends DescribeIpamPrefixListResolverTargetsResult,
-    __MetadataBearer {}
+export interface DescribeIpamPrefixListResolverTargetsCommandOutput extends DescribeIpamPrefixListResolverTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more IPAM prefix list resolver Targets. Use this operation to view the configuration and status of resolver targets.</p>

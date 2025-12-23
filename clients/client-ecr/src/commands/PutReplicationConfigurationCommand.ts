@@ -24,9 +24,7 @@ export interface PutReplicationConfigurationCommandInput extends PutReplicationC
  *
  * The output of {@link PutReplicationConfigurationCommand}.
  */
-export interface PutReplicationConfigurationCommandOutput
-  extends PutReplicationConfigurationResponse,
-    __MetadataBearer {}
+export interface PutReplicationConfigurationCommandOutput extends PutReplicationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the replication configuration for a registry. The existing

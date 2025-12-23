@@ -28,9 +28,7 @@ export interface BatchDescribeTypeConfigurationsCommandInput extends BatchDescri
  *
  * The output of {@link BatchDescribeTypeConfigurationsCommand}.
  */
-export interface BatchDescribeTypeConfigurationsCommandOutput
-  extends BatchDescribeTypeConfigurationsOutput,
-    __MetadataBearer {}
+export interface BatchDescribeTypeConfigurationsCommandOutput extends BatchDescribeTypeConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation

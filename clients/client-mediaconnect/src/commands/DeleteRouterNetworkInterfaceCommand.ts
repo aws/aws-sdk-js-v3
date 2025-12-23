@@ -24,9 +24,7 @@ export interface DeleteRouterNetworkInterfaceCommandInput extends DeleteRouterNe
  *
  * The output of {@link DeleteRouterNetworkInterfaceCommand}.
  */
-export interface DeleteRouterNetworkInterfaceCommandOutput
-  extends DeleteRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface DeleteRouterNetworkInterfaceCommandOutput extends DeleteRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a router network interface from AWS Elemental MediaConnect.</p>

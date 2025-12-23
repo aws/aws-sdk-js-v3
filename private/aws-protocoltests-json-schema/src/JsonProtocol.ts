@@ -138,7 +138,10 @@ export interface JsonProtocol {
     args: DatetimeOffsetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
-  datetimeOffsets(args: DatetimeOffsetsCommandInput, cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void): void;
+  datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
     options: __HttpHandlerOptions,
@@ -153,7 +156,10 @@ export interface JsonProtocol {
     args: EmptyOperationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EmptyOperationCommandOutput>;
-  emptyOperation(args: EmptyOperationCommandInput, cb: (err: any, data?: EmptyOperationCommandOutput) => void): void;
+  emptyOperation(
+    args: EmptyOperationCommandInput,
+    cb: (err: any, data?: EmptyOperationCommandOutput) => void
+  ): void;
   emptyOperation(
     args: EmptyOperationCommandInput,
     options: __HttpHandlerOptions,
@@ -253,8 +259,14 @@ export interface JsonProtocol {
    * @see {@link JsonEnumsCommand}
    */
   jsonEnums(): Promise<JsonEnumsCommandOutput>;
-  jsonEnums(args: JsonEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonEnumsCommandOutput>;
-  jsonEnums(args: JsonEnumsCommandInput, cb: (err: any, data?: JsonEnumsCommandOutput) => void): void;
+  jsonEnums(
+    args: JsonEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonEnumsCommandOutput>;
+  jsonEnums(
+    args: JsonEnumsCommandInput,
+    cb: (err: any, data?: JsonEnumsCommandOutput) => void
+  ): void;
   jsonEnums(
     args: JsonEnumsCommandInput,
     options: __HttpHandlerOptions,
@@ -265,8 +277,14 @@ export interface JsonProtocol {
    * @see {@link JsonIntEnumsCommand}
    */
   jsonIntEnums(): Promise<JsonIntEnumsCommandOutput>;
-  jsonIntEnums(args: JsonIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonIntEnumsCommandOutput>;
-  jsonIntEnums(args: JsonIntEnumsCommandInput, cb: (err: any, data?: JsonIntEnumsCommandOutput) => void): void;
+  jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonIntEnumsCommandOutput>;
+  jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
+  ): void;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
     options: __HttpHandlerOptions,
@@ -277,8 +295,14 @@ export interface JsonProtocol {
    * @see {@link JsonUnionsCommand}
    */
   jsonUnions(): Promise<JsonUnionsCommandOutput>;
-  jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
-  jsonUnions(args: JsonUnionsCommandInput, cb: (err: any, data?: JsonUnionsCommandOutput) => void): void;
+  jsonUnions(
+    args: JsonUnionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JsonUnionsCommandOutput>;
+  jsonUnions(
+    args: JsonUnionsCommandInput,
+    cb: (err: any, data?: JsonUnionsCommandOutput) => void
+  ): void;
   jsonUnions(
     args: JsonUnionsCommandInput,
     options: __HttpHandlerOptions,
@@ -307,8 +331,14 @@ export interface JsonProtocol {
    * @see {@link NullOperationCommand}
    */
   nullOperation(): Promise<NullOperationCommandOutput>;
-  nullOperation(args: NullOperationCommandInput, options?: __HttpHandlerOptions): Promise<NullOperationCommandOutput>;
-  nullOperation(args: NullOperationCommandInput, cb: (err: any, data?: NullOperationCommandOutput) => void): void;
+  nullOperation(
+    args: NullOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NullOperationCommandOutput>;
+  nullOperation(
+    args: NullOperationCommandInput,
+    cb: (err: any, data?: NullOperationCommandOutput) => void
+  ): void;
   nullOperation(
     args: NullOperationCommandInput,
     options: __HttpHandlerOptions,

@@ -28,9 +28,7 @@ export interface ListStackInstanceResourceDriftsCommandInput extends ListStackIn
  *
  * The output of {@link ListStackInstanceResourceDriftsCommand}.
  */
-export interface ListStackInstanceResourceDriftsCommandOutput
-  extends ListStackInstanceResourceDriftsOutput,
-    __MetadataBearer {}
+export interface ListStackInstanceResourceDriftsCommandOutput extends ListStackInstanceResourceDriftsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns drift information for resources in a stack instance.</p>

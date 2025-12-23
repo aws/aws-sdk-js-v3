@@ -27,9 +27,7 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandInput extends GetCo
  *
  * The output of {@link GetCollaborationPrivacyBudgetTemplateCommand}.
  */
-export interface GetCollaborationPrivacyBudgetTemplateCommandOutput
-  extends GetCollaborationPrivacyBudgetTemplateOutput,
-    __MetadataBearer {}
+export interface GetCollaborationPrivacyBudgetTemplateCommandOutput extends GetCollaborationPrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Returns details about a specified privacy budget template.</p>

@@ -27,9 +27,7 @@ export interface DescribeProvisioningTemplateVersionCommandInput extends Describ
  *
  * The output of {@link DescribeProvisioningTemplateVersionCommand}.
  */
-export interface DescribeProvisioningTemplateVersionCommandOutput
-  extends DescribeProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface DescribeProvisioningTemplateVersionCommandOutput extends DescribeProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a provisioning template version.</p>

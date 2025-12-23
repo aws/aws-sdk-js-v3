@@ -24,9 +24,7 @@ export interface GetAssetPropertyValueHistoryCommandInput extends GetAssetProper
  *
  * The output of {@link GetAssetPropertyValueHistoryCommand}.
  */
-export interface GetAssetPropertyValueHistoryCommandOutput
-  extends GetAssetPropertyValueHistoryResponse,
-    __MetadataBearer {}
+export interface GetAssetPropertyValueHistoryCommandOutput extends GetAssetPropertyValueHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying

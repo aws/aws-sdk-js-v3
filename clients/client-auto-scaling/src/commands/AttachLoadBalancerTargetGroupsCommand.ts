@@ -24,9 +24,7 @@ export interface AttachLoadBalancerTargetGroupsCommandInput extends AttachLoadBa
  *
  * The output of {@link AttachLoadBalancerTargetGroupsCommand}.
  */
-export interface AttachLoadBalancerTargetGroupsCommandOutput
-  extends AttachLoadBalancerTargetGroupsResultType,
-    __MetadataBearer {}
+export interface AttachLoadBalancerTargetGroupsCommandOutput extends AttachLoadBalancerTargetGroupsResultType, __MetadataBearer {}
 
 /**
  * <note>

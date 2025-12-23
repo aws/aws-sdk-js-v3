@@ -27,9 +27,7 @@ export interface UpdateKxClusterCodeConfigurationCommandInput extends UpdateKxCl
  *
  * The output of {@link UpdateKxClusterCodeConfigurationCommand}.
  */
-export interface UpdateKxClusterCodeConfigurationCommandOutput
-  extends UpdateKxClusterCodeConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateKxClusterCodeConfigurationCommandOutput extends UpdateKxClusterCodeConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>

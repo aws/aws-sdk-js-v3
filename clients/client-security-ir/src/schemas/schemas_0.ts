@@ -273,639 +273,519 @@ var JobTitle: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var MembershipName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
 var PersonName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var BatchGetMemberAccountDetailsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGMADR,
+export var BatchGetMemberAccountDetailsRequest$: StaticStructureSchema = [3, n0, _BGMADR,
   0,
   [_mI, _aI],
-  [[0, 1], 64 | 0],
+  [[0, 1], 64 | 0]
 ];
-export var BatchGetMemberAccountDetailsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGMADRa,
+export var BatchGetMemberAccountDetailsResponse$: StaticStructureSchema = [3, n0, _BGMADRa,
   0,
   [_i, _er],
-  [() => GetMembershipAccountDetailItems, () => GetMembershipAccountDetailErrors],
+  [() => GetMembershipAccountDetailItems, () => GetMembershipAccountDetailErrors]
 ];
-export var CancelMembershipRequest$: StaticStructureSchema = [3, n0, _CMR, 0, [_mI], [[0, 1]]];
-export var CancelMembershipResponse$: StaticStructureSchema = [3, n0, _CMRa, 0, [_mI], [0]];
-export var CaseAttachmentAttributes$: StaticStructureSchema = [
-  3,
-  n0,
-  _CAA,
+export var CancelMembershipRequest$: StaticStructureSchema = [3, n0, _CMR,
+  0,
+  [_mI],
+  [[0, 1]]
+];
+export var CancelMembershipResponse$: StaticStructureSchema = [3, n0, _CMRa,
+  0,
+  [_mI],
+  [0]
+];
+export var CaseAttachmentAttributes$: StaticStructureSchema = [3, n0, _CAA,
   0,
   [_aIt, _fN, _aS, _cr, _cD],
-  [0, [() => FileName, 0], 0, 0, 4],
+  [0, [() => FileName, 0], 0, 0, 4]
 ];
-export var CaseEditItem$: StaticStructureSchema = [3, n0, _CEI, 0, [_eT, _p, _a, _m], [4, 0, 0, 0]];
-export var CaseMetadataEntry$: StaticStructureSchema = [3, n0, _CME, 0, [_k, _v], [0, 0]];
-export var CloseCaseRequest$: StaticStructureSchema = [3, n0, _CCR, 0, [_cI], [[0, 1]]];
-export var CloseCaseResponse$: StaticStructureSchema = [3, n0, _CCRl, 0, [_cS, _cDl], [0, 4]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+export var CaseEditItem$: StaticStructureSchema = [3, n0, _CEI,
+  0,
+  [_eT, _p, _a, _m],
+  [4, 0, 0, 0]
+];
+export var CaseMetadataEntry$: StaticStructureSchema = [3, n0, _CME,
+  0,
+  [_k, _v],
+  [0, 0]
+];
+export var CloseCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
+  0,
+  [_cI],
+  [[0, 1]]
+];
+export var CloseCaseResponse$: StaticStructureSchema = [3, n0, _CCRl,
+  0,
+  [_cS, _cDl],
+  [0, 4]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateCaseCommentRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCCR,
+export var CreateCaseCommentRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_cI, _cT, _b],
-  [
-    [0, 1],
-    [0, 4],
-    [() => CommentBody, 0],
-  ],
+  [[0, 1], [0, 4], [() => CommentBody, 0]]
 ];
-export var CreateCaseCommentResponse$: StaticStructureSchema = [3, n0, _CCCRr, 0, [_cIo], [0]];
-export var CreateCaseRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCRr,
+export var CreateCaseCommentResponse$: StaticStructureSchema = [3, n0, _CCCRr,
+  0,
+  [_cIo],
+  [0]
+];
+export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_cT, _rTe, _t, _d, _eTn, _rISD, _iA, _w, _tAIA, _iS, _iAR, _ta],
-  [
-    [0, 4],
-    0,
-    [() => CaseTitle, 0],
-    [() => CaseDescription, 0],
-    0,
-    4,
-    64 | 0,
-    [() => Watchers, 0],
-    [() => ThreatActorIpList, 0],
-    64 | 0,
-    () => ImpactedAwsRegionList,
-    128 | 0,
-  ],
+  [[0, 4], 0, [() => CaseTitle, 0], [() => CaseDescription, 0], 0, 4, 64 | 0, [() => Watchers, 0], [() => ThreatActorIpList, 0], 64 | 0, () => ImpactedAwsRegionList, 128 | 0]
 ];
-export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRre, 0, [_cI], [0]];
-export var CreateMembershipRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CMRr,
+export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRre,
+  0,
+  [_cI],
+  [0]
+];
+export var CreateMembershipRequest$: StaticStructureSchema = [3, n0, _CMRr,
   0,
   [_cT, _mN, _iRT, _oIF, _ta, _cEO],
-  [[0, 4], [() => MembershipName, 0], [() => IncidentResponseTeam, 0], () => OptInFeatures, 128 | 0, 2],
+  [[0, 4], [() => MembershipName, 0], [() => IncidentResponseTeam, 0], () => OptInFeatures, 128 | 0, 2]
 ];
-export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRre, 0, [_mI], [0]];
-export var GetCaseAttachmentDownloadUrlRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCADUR,
+export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRre,
+  0,
+  [_mI],
+  [0]
+];
+export var GetCaseAttachmentDownloadUrlRequest$: StaticStructureSchema = [3, n0, _GCADUR,
   0,
   [_cI, _aIt],
-  [
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, 1], [0, 1]]
 ];
-export var GetCaseAttachmentDownloadUrlResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCADURe,
+export var GetCaseAttachmentDownloadUrlResponse$: StaticStructureSchema = [3, n0, _GCADURe,
   0,
   [_aPU],
-  [[() => Url, 0]],
+  [[() => Url, 0]]
 ];
-export var GetCaseAttachmentUploadUrlRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCAUUR,
+export var GetCaseAttachmentUploadUrlRequest$: StaticStructureSchema = [3, n0, _GCAUUR,
   0,
   [_cI, _fN, _cL, _cT],
-  [[0, 1], [() => FileName, 0], 1, [0, 4]],
+  [[0, 1], [() => FileName, 0], 1, [0, 4]]
 ];
-export var GetCaseAttachmentUploadUrlResponse$: StaticStructureSchema = [3, n0, _GCAUURe, 0, [_aPU], [[() => Url, 0]]];
-export var GetCaseRequest$: StaticStructureSchema = [3, n0, _GCR, 0, [_cI], [[0, 1]]];
-export var GetCaseResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCRe,
+export var GetCaseAttachmentUploadUrlResponse$: StaticStructureSchema = [3, n0, _GCAUURe,
+  0,
+  [_aPU],
+  [[() => Url, 0]]
+];
+export var GetCaseRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_cI],
+  [[0, 1]]
+];
+export var GetCaseResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_t, _cA, _d, _cS, _eTn, _rISD, _aISD, _iAR, _tAIA, _pA, _iA, _w, _cD, _lUD, _cC, _rTe, _iS, _cAa, _cDl, _cM],
-  [
-    [() => CaseTitle, 0],
-    0,
-    [() => CaseDescription, 0],
-    0,
-    0,
-    4,
-    4,
-    () => ImpactedAwsRegionList,
-    [() => ThreatActorIpList, 0],
-    0,
-    64 | 0,
-    [() => Watchers, 0],
-    4,
-    4,
-    0,
-    0,
-    64 | 0,
-    [() => CaseAttachmentsList, 0],
-    4,
-    () => CaseMetadata,
-  ],
+  [[() => CaseTitle, 0], 0, [() => CaseDescription, 0], 0, 0, 4, 4, () => ImpactedAwsRegionList, [() => ThreatActorIpList, 0], 0, 64 | 0, [() => Watchers, 0], 4, 4, 0, 0, 64 | 0, [() => CaseAttachmentsList, 0], 4, () => CaseMetadata]
 ];
-export var GetMembershipAccountDetailError$: StaticStructureSchema = [3, n0, _GMADE, 0, [_aIc, _e, _m], [0, 0, 0]];
-export var GetMembershipAccountDetailItem$: StaticStructureSchema = [3, n0, _GMADI, 0, [_aIc, _rS, _rTel], [0, 0, 0]];
-export var GetMembershipRequest$: StaticStructureSchema = [3, n0, _GMR, 0, [_mI], [[0, 1]]];
-export var GetMembershipResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GMRe,
+export var GetMembershipAccountDetailError$: StaticStructureSchema = [3, n0, _GMADE,
+  0,
+  [_aIc, _e, _m],
+  [0, 0, 0]
+];
+export var GetMembershipAccountDetailItem$: StaticStructureSchema = [3, n0, _GMADI,
+  0,
+  [_aIc, _rS, _rTel],
+  [0, 0, 0]
+];
+export var GetMembershipRequest$: StaticStructureSchema = [3, n0, _GMR,
+  0,
+  [_mI],
+  [[0, 1]]
+];
+export var GetMembershipResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
   [_mI, _aIc, _r, _mN, _mA, _mS, _mAT, _mDT, _cTu, _nOAC, _iRT, _oIF, _mAC],
-  [
-    0,
-    0,
-    0,
-    [() => MembershipName, 0],
-    0,
-    0,
-    4,
-    4,
-    0,
-    1,
-    [() => IncidentResponseTeam, 0],
-    () => OptInFeatures,
-    () => MembershipAccountsConfigurations$,
-  ],
+  [0, 0, 0, [() => MembershipName, 0], 0, 0, 4, 4, 0, 1, [() => IncidentResponseTeam, 0], () => OptInFeatures, () => MembershipAccountsConfigurations$]
 ];
-export var ImpactedAwsRegion$: StaticStructureSchema = [3, n0, _IAR, 0, [_r], [0]];
-export var IncidentResponder$: StaticStructureSchema = [
-  3,
-  n0,
-  _IR,
+export var ImpactedAwsRegion$: StaticStructureSchema = [3, n0, _IAR,
+  0,
+  [_r],
+  [0]
+];
+export var IncidentResponder$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_n, _jT, _em, _cP],
-  [[() => IncidentResponderName, 0], [() => JobTitle, 0], [() => EmailAddress, 0], 64 | 0],
+  [[() => IncidentResponderName, 0], [() => JobTitle, 0], [() => EmailAddress, 0], 64 | 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c, [_hE]: 423 }, [_m], [0]];
+export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c, [_hE]: 423 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException);
-export var InvestigationAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _IA,
+export var InvestigationAction$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_iI, _aT, _t, _co, _st, _lU, _f],
-  [0, 0, 0, 0, 0, 4, () => InvestigationFeedback$],
+  [0, 0, 0, 0, 0, 4, () => InvestigationFeedback$]
 ];
-export var InvestigationFeedback$: StaticStructureSchema = [3, n0, _IF, 0, [_u, _com, _sA], [0, 0, 4]];
-export var ListCaseEditsRequest$: StaticStructureSchema = [3, n0, _LCER, 0, [_nT, _mR, _cI], [0, 1, [0, 1]]];
-export var ListCaseEditsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCERi,
+export var InvestigationFeedback$: StaticStructureSchema = [3, n0, _IF,
   0,
-  [_nT, _i, _to],
-  [0, () => CaseEditItems, 1],
+  [_u, _com, _sA],
+  [0, 0, 4]
 ];
-export var ListCasesItem$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCI,
-  0,
-  [_cI, _lUD, _t, _cA, _eTn, _cS, _cD, _cDl, _rTe, _pA],
-  [0, 4, [() => CaseTitle, 0], 0, 0, 0, 4, 4, 0, 0],
-];
-export var ListCasesRequest$: StaticStructureSchema = [3, n0, _LCR, 0, [_nT, _mR], [0, 1]];
-export var ListCasesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRi,
-  0,
-  [_nT, _i, _to],
-  [0, [() => ListCasesItems, 0], 1],
-];
-export var ListCommentsItem$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCIi,
-  0,
-  [_cIo, _cD, _lUD, _cr, _lUB, _b],
-  [0, 4, 4, 0, 0, [() => CommentBody, 0]],
-];
-export var ListCommentsRequest$: StaticStructureSchema = [3, n0, _LCRis, 0, [_nT, _mR, _cI], [0, 1, [0, 1]]];
-export var ListCommentsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCRist,
-  0,
-  [_nT, _i, _to],
-  [0, [() => ListCommentsItems, 0], 1],
-];
-export var ListInvestigationsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LIR,
+export var ListCaseEditsRequest$: StaticStructureSchema = [3, n0, _LCER,
   0,
   [_nT, _mR, _cI],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-    [0, 1],
-  ],
+  [0, 1, [0, 1]]
 ];
-export var ListInvestigationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LIRi,
+export var ListCaseEditsResponse$: StaticStructureSchema = [3, n0, _LCERi,
+  0,
+  [_nT, _i, _to],
+  [0, () => CaseEditItems, 1]
+];
+export var ListCasesItem$: StaticStructureSchema = [3, n0, _LCI,
+  0,
+  [_cI, _lUD, _t, _cA, _eTn, _cS, _cD, _cDl, _rTe, _pA],
+  [0, 4, [() => CaseTitle, 0], 0, 0, 0, 4, 4, 0, 0]
+];
+export var ListCasesRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_nT, _mR],
+  [0, 1]
+];
+export var ListCasesResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_nT, _i, _to],
+  [0, [() => ListCasesItems, 0], 1]
+];
+export var ListCommentsItem$: StaticStructureSchema = [3, n0, _LCIi,
+  0,
+  [_cIo, _cD, _lUD, _cr, _lUB, _b],
+  [0, 4, 4, 0, 0, [() => CommentBody, 0]]
+];
+export var ListCommentsRequest$: StaticStructureSchema = [3, n0, _LCRis,
+  0,
+  [_nT, _mR, _cI],
+  [0, 1, [0, 1]]
+];
+export var ListCommentsResponse$: StaticStructureSchema = [3, n0, _LCRist,
+  0,
+  [_nT, _i, _to],
+  [0, [() => ListCommentsItems, 0], 1]
+];
+export var ListInvestigationsRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_nT, _mR, _cI],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+];
+export var ListInvestigationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
   [_nT, _iAn],
-  [0, () => InvestigationActionList],
+  [0, () => InvestigationActionList]
 ];
-export var ListMembershipItem$: StaticStructureSchema = [3, n0, _LMI, 0, [_mI, _aIc, _r, _mA, _mS], [0, 0, 0, 0, 0]];
-export var ListMembershipsRequest$: StaticStructureSchema = [3, n0, _LMR, 0, [_nT, _mR], [0, 1]];
-export var ListMembershipsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LMRi,
+export var ListMembershipItem$: StaticStructureSchema = [3, n0, _LMI,
+  0,
+  [_mI, _aIc, _r, _mA, _mS],
+  [0, 0, 0, 0, 0]
+];
+export var ListMembershipsRequest$: StaticStructureSchema = [3, n0, _LMR,
+  0,
+  [_nT, _mR],
+  [0, 1]
+];
+export var ListMembershipsResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
   [_nT, _i],
-  [0, () => ListMembershipItems],
+  [0, () => ListMembershipItems]
 ];
-export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_ta], [128 | 0]];
-export var MembershipAccountsConfigurations$: StaticStructureSchema = [3, n0, _MAC, 0, [_cEO, _oU], [2, 64 | 0]];
-export var MembershipAccountsConfigurationsUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _MACU,
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
+  0,
+  [_rA],
+  [[0, 1]]
+];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
+  0,
+  [_ta],
+  [128 | 0]
+];
+export var MembershipAccountsConfigurations$: StaticStructureSchema = [3, n0, _MAC,
+  0,
+  [_cEO, _oU],
+  [2, 64 | 0]
+];
+export var MembershipAccountsConfigurationsUpdate$: StaticStructureSchema = [3, n0, _MACU,
   0,
   [_cEO, _oUTA, _oUTR],
-  [2, 64 | 0, 64 | 0],
+  [2, 64 | 0, 64 | 0]
 ];
-export var OptInFeature$: StaticStructureSchema = [3, n0, _OIF, 0, [_fNe, _iE], [0, 2]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var OptInFeature$: StaticStructureSchema = [3, n0, _OIF,
+  0,
+  [_fNe, _iE],
+  [0, 2]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SecurityIncidentResponseNotActiveException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SIRNAE,
+export var SecurityIncidentResponseNotActiveException$: StaticErrorSchema = [-3, n0, _SIRNAE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  SecurityIncidentResponseNotActiveException$,
-  SecurityIncidentResponseNotActiveException
-);
-export var SendFeedbackRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SFR,
+TypeRegistry.for(n0).registerError(SecurityIncidentResponseNotActiveException$, SecurityIncidentResponseNotActiveException);
+export var SendFeedbackRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_cI, _rIe, _u, _com],
-  [[0, 1], [0, 1], 0, 0],
+  [[0, 1], [0, 1], 0, 0]
 ];
-export var SendFeedbackResponse$: StaticStructureSchema = [3, n0, _SFRe, 0, [], []];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
+export var SendFeedbackResponse$: StaticStructureSchema = [3, n0, _SFRe,
+  0,
+  [],
+  []
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _ta], [[0, 1], 128 | 0]];
-export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThreatActorIp$: StaticStructureSchema = [3, n0, _TAI, 0, [_iAp, _uA], [[() => IPAddress, 0], 0]];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_rA, _ta],
+  [[0, 1], 128 | 0]
+];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
+  0,
+  [],
+  []
+];
+export var ThreatActorIp$: StaticStructureSchema = [3, n0, _TAI,
+  0,
+  [_iAp, _uA],
+  [[() => IPAddress, 0], 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UntagResourceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _URI,
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [
-    [0, 1],
-    [64 | 0, { [_hQ]: _tK }],
-  ],
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
 ];
-export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateCaseCommentRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCCR,
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
+  0,
+  [],
+  []
+];
+export var UpdateCaseCommentRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_cI, _cIo, _b],
-  [
-    [0, 1],
-    [0, 1],
-    [() => CommentBody, 0],
-  ],
+  [[0, 1], [0, 1], [() => CommentBody, 0]]
 ];
-export var UpdateCaseCommentResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCCRp,
+export var UpdateCaseCommentResponse$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
   [_cIo, _b],
-  [0, [() => CommentBody, 0]],
+  [0, [() => CommentBody, 0]]
 ];
-export var UpdateCaseRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCR,
+export var UpdateCaseRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cI, _t, _d, _rISD, _aISD, _eTn, _wTA, _wTD, _tAIATA, _tAIATD, _iSTA, _iSTD, _iARTA, _iARTD, _iATA, _iATD, _cM],
-  [
-    [0, 1],
-    [() => CaseTitle, 0],
-    [() => CaseDescription, 0],
-    4,
-    4,
-    0,
-    [() => Watchers, 0],
-    [() => Watchers, 0],
-    [() => ThreatActorIpList, 0],
-    [() => ThreatActorIpList, 0],
-    64 | 0,
-    64 | 0,
-    () => ImpactedAwsRegionList,
-    () => ImpactedAwsRegionList,
-    64 | 0,
-    64 | 0,
-    () => CaseMetadata,
-  ],
+  [[0, 1], [() => CaseTitle, 0], [() => CaseDescription, 0], 4, 4, 0, [() => Watchers, 0], [() => Watchers, 0], [() => ThreatActorIpList, 0], [() => ThreatActorIpList, 0], 64 | 0, 64 | 0, () => ImpactedAwsRegionList, () => ImpactedAwsRegionList, 64 | 0, 64 | 0, () => CaseMetadata]
 ];
-export var UpdateCaseResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
-export var UpdateCaseStatusRequest$: StaticStructureSchema = [3, n0, _UCSR, 0, [_cI, _cS], [[0, 1], 0]];
-export var UpdateCaseStatusResponse$: StaticStructureSchema = [3, n0, _UCSRp, 0, [_cS], [0]];
-export var UpdateMembershipRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UMR,
+export var UpdateCaseResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [],
+  []
+];
+export var UpdateCaseStatusRequest$: StaticStructureSchema = [3, n0, _UCSR,
+  0,
+  [_cI, _cS],
+  [[0, 1], 0]
+];
+export var UpdateCaseStatusResponse$: StaticStructureSchema = [3, n0, _UCSRp,
+  0,
+  [_cS],
+  [0]
+];
+export var UpdateMembershipRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_mI, _mN, _iRT, _oIF, _mACU, _uMC],
-  [
-    [0, 1],
-    [() => MembershipName, 0],
-    [() => IncidentResponseTeam, 0],
-    () => OptInFeatures,
-    () => MembershipAccountsConfigurationsUpdate$,
-    2,
-  ],
+  [[0, 1], [() => MembershipName, 0], [() => IncidentResponseTeam, 0], () => OptInFeatures, () => MembershipAccountsConfigurationsUpdate$, 2]
 ];
-export var UpdateMembershipResponse$: StaticStructureSchema = [3, n0, _UMRp, 0, [], []];
-export var UpdateResolverTypeRequest$: StaticStructureSchema = [3, n0, _URTR, 0, [_cI, _rTe], [[0, 1], 0]];
-export var UpdateResolverTypeResponse$: StaticStructureSchema = [3, n0, _URTRp, 0, [_cI, _cS, _rTe], [0, 0, 0]];
-export var ValidationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var UpdateMembershipResponse$: StaticStructureSchema = [3, n0, _UMRp,
+  0,
+  [],
+  []
+];
+export var UpdateResolverTypeRequest$: StaticStructureSchema = [3, n0, _URTR,
+  0,
+  [_cI, _rTe],
+  [[0, 1], 0]
+];
+export var UpdateResolverTypeResponse$: StaticStructureSchema = [3, n0, _URTRp,
+  0,
+  [_cI, _cS, _rTe],
+  [0, 0, 0]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var Watcher$: StaticStructureSchema = [
-  3,
-  n0,
-  _W,
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
+  0,
+  [_n, _m],
+  [0, 0]
+];
+export var Watcher$: StaticStructureSchema = [3, n0, _W,
   0,
   [_em, _n, _jT],
-  [
-    [() => EmailAddress, 0],
-    [() => PersonName, 0],
-    [() => JobTitle, 0],
-  ],
+  [[() => EmailAddress, 0], [() => PersonName, 0], [() => JobTitle, 0]]
 ];
 export var SecurityIRServiceException$: StaticErrorSchema = [-3, _sm, "SecurityIRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityIRServiceException$, SecurityIRServiceException);
 var AWSAccountIds = 64 | 0;
-var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL, 0, [() => CaseAttachmentAttributes$, 0]];
-var CaseEditItems: StaticListSchema = [1, n0, _CEIa, 0, () => CaseEditItem$];
-var CaseMetadata: StaticListSchema = [1, n0, _CM, 0, () => CaseMetadataEntry$];
+var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL,
+  0, [() => CaseAttachmentAttributes$,
+    0]
+];
+var CaseEditItems: StaticListSchema = [1, n0, _CEIa,
+  0, () => CaseEditItem$
+];
+var CaseMetadata: StaticListSchema = [1, n0, _CM,
+  0, () => CaseMetadataEntry$
+];
 var CommunicationPreferences = 64 | 0;
-var GetMembershipAccountDetailErrors: StaticListSchema = [1, n0, _GMADEe, 0, () => GetMembershipAccountDetailError$];
-var GetMembershipAccountDetailItems: StaticListSchema = [1, n0, _GMADIe, 0, () => GetMembershipAccountDetailItem$];
+var GetMembershipAccountDetailErrors: StaticListSchema = [1, n0, _GMADEe,
+  0, () => GetMembershipAccountDetailError$
+];
+var GetMembershipAccountDetailItems: StaticListSchema = [1, n0, _GMADIe,
+  0, () => GetMembershipAccountDetailItem$
+];
 var ImpactedAccounts = 64 | 0;
-var ImpactedAwsRegionList: StaticListSchema = [1, n0, _IARL, 0, () => ImpactedAwsRegion$];
+var ImpactedAwsRegionList: StaticListSchema = [1, n0, _IARL,
+  0, () => ImpactedAwsRegion$
+];
 var ImpactedServicesList = 64 | 0;
-var IncidentResponseTeam: StaticListSchema = [1, n0, _IRT, 0, [() => IncidentResponder$, 0]];
-var InvestigationActionList: StaticListSchema = [1, n0, _IAL, 0, () => InvestigationAction$];
-var ListCasesItems: StaticListSchema = [1, n0, _LCIis, 0, [() => ListCasesItem$, 0]];
-var ListCommentsItems: StaticListSchema = [1, n0, _LCIist, 0, [() => ListCommentsItem$, 0]];
-var ListMembershipItems: StaticListSchema = [1, n0, _LMIi, 0, () => ListMembershipItem$];
-var OptInFeatures: StaticListSchema = [1, n0, _OIFp, 0, () => OptInFeature$];
+var IncidentResponseTeam: StaticListSchema = [1, n0, _IRT,
+  0, [() => IncidentResponder$,
+    0]
+];
+var InvestigationActionList: StaticListSchema = [1, n0, _IAL,
+  0, () => InvestigationAction$
+];
+var ListCasesItems: StaticListSchema = [1, n0, _LCIis,
+  0, [() => ListCasesItem$,
+    0]
+];
+var ListCommentsItems: StaticListSchema = [1, n0, _LCIist,
+  0, [() => ListCommentsItem$,
+    0]
+];
+var ListMembershipItems: StaticListSchema = [1, n0, _LMIi,
+  0, () => ListMembershipItem$
+];
+var OptInFeatures: StaticListSchema = [1, n0, _OIFp,
+  0, () => OptInFeature$
+];
 var OrganizationalUnits = 64 | 0;
 var TagKeys = 64 | 0;
-var ThreatActorIpList: StaticListSchema = [1, n0, _TAIL, 0, [() => ThreatActorIp$, 0]];
-var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-var Watchers: StaticListSchema = [1, n0, _Wa, 0, [() => Watcher$, 0]];
+var ThreatActorIpList: StaticListSchema = [1, n0, _TAIL,
+  0, [() => ThreatActorIp$,
+    0]
+];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
+];
+var Watchers: StaticListSchema = [1, n0, _Wa,
+  0, [() => Watcher$,
+    0]
+];
 var TagMap = 128 | 0;
-export var BatchGetMemberAccountDetails$: StaticOperationSchema = [
-  9,
-  n0,
-  _BGMAD,
-  { [_h]: ["POST", "/v1/membership/{membershipId}/batch-member-details", 200] },
-  () => BatchGetMemberAccountDetailsRequest$,
-  () => BatchGetMemberAccountDetailsResponse$,
+export var BatchGetMemberAccountDetails$: StaticOperationSchema = [9, n0, _BGMAD,
+  { [_h]: ["POST", "/v1/membership/{membershipId}/batch-member-details", 200] }, () => BatchGetMemberAccountDetailsRequest$, () => BatchGetMemberAccountDetailsResponse$
 ];
-export var CancelMembership$: StaticOperationSchema = [
-  9,
-  n0,
-  _CMa,
-  { [_h]: ["PUT", "/v1/membership/{membershipId}", 200] },
-  () => CancelMembershipRequest$,
-  () => CancelMembershipResponse$,
+export var CancelMembership$: StaticOperationSchema = [9, n0, _CMa,
+  { [_h]: ["PUT", "/v1/membership/{membershipId}", 200] }, () => CancelMembershipRequest$, () => CancelMembershipResponse$
 ];
-export var CloseCase$: StaticOperationSchema = [
-  9,
-  n0,
-  _CC,
-  { [_h]: ["POST", "/v1/cases/{caseId}/close-case", 200] },
-  () => CloseCaseRequest$,
-  () => CloseCaseResponse$,
+export var CloseCase$: StaticOperationSchema = [9, n0, _CC,
+  { [_h]: ["POST", "/v1/cases/{caseId}/close-case", 200] }, () => CloseCaseRequest$, () => CloseCaseResponse$
 ];
-export var CreateCase$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCr,
-  { [_h]: ["POST", "/v1/create-case", 201] },
-  () => CreateCaseRequest$,
-  () => CreateCaseResponse$,
+export var CreateCase$: StaticOperationSchema = [9, n0, _CCr,
+  { [_h]: ["POST", "/v1/create-case", 201] }, () => CreateCaseRequest$, () => CreateCaseResponse$
 ];
-export var CreateCaseComment$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCC,
-  { [_h]: ["POST", "/v1/cases/{caseId}/create-comment", 201] },
-  () => CreateCaseCommentRequest$,
-  () => CreateCaseCommentResponse$,
+export var CreateCaseComment$: StaticOperationSchema = [9, n0, _CCC,
+  { [_h]: ["POST", "/v1/cases/{caseId}/create-comment", 201] }, () => CreateCaseCommentRequest$, () => CreateCaseCommentResponse$
 ];
-export var CreateMembership$: StaticOperationSchema = [
-  9,
-  n0,
-  _CMr,
-  { [_h]: ["POST", "/v1/membership", 201] },
-  () => CreateMembershipRequest$,
-  () => CreateMembershipResponse$,
+export var CreateMembership$: StaticOperationSchema = [9, n0, _CMr,
+  { [_h]: ["POST", "/v1/membership", 201] }, () => CreateMembershipRequest$, () => CreateMembershipResponse$
 ];
-export var GetCase$: StaticOperationSchema = [
-  9,
-  n0,
-  _GC,
-  { [_h]: ["GET", "/v1/cases/{caseId}/get-case", 200] },
-  () => GetCaseRequest$,
-  () => GetCaseResponse$,
+export var GetCase$: StaticOperationSchema = [9, n0, _GC,
+  { [_h]: ["GET", "/v1/cases/{caseId}/get-case", 200] }, () => GetCaseRequest$, () => GetCaseResponse$
 ];
-export var GetCaseAttachmentDownloadUrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCADU,
-  { [_h]: ["GET", "/v1/cases/{caseId}/get-presigned-url/{attachmentId}", 201] },
-  () => GetCaseAttachmentDownloadUrlRequest$,
-  () => GetCaseAttachmentDownloadUrlResponse$,
+export var GetCaseAttachmentDownloadUrl$: StaticOperationSchema = [9, n0, _GCADU,
+  { [_h]: ["GET", "/v1/cases/{caseId}/get-presigned-url/{attachmentId}", 201] }, () => GetCaseAttachmentDownloadUrlRequest$, () => GetCaseAttachmentDownloadUrlResponse$
 ];
-export var GetCaseAttachmentUploadUrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCAUU,
-  { [_h]: ["POST", "/v1/cases/{caseId}/get-presigned-url", 201] },
-  () => GetCaseAttachmentUploadUrlRequest$,
-  () => GetCaseAttachmentUploadUrlResponse$,
+export var GetCaseAttachmentUploadUrl$: StaticOperationSchema = [9, n0, _GCAUU,
+  { [_h]: ["POST", "/v1/cases/{caseId}/get-presigned-url", 201] }, () => GetCaseAttachmentUploadUrlRequest$, () => GetCaseAttachmentUploadUrlResponse$
 ];
-export var GetMembership$: StaticOperationSchema = [
-  9,
-  n0,
-  _GM,
-  { [_h]: ["GET", "/v1/membership/{membershipId}", 200] },
-  () => GetMembershipRequest$,
-  () => GetMembershipResponse$,
+export var GetMembership$: StaticOperationSchema = [9, n0, _GM,
+  { [_h]: ["GET", "/v1/membership/{membershipId}", 200] }, () => GetMembershipRequest$, () => GetMembershipResponse$
 ];
-export var ListCaseEdits$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCE,
-  { [_h]: ["POST", "/v1/cases/{caseId}/list-case-edits", 200] },
-  () => ListCaseEditsRequest$,
-  () => ListCaseEditsResponse$,
+export var ListCaseEdits$: StaticOperationSchema = [9, n0, _LCE,
+  { [_h]: ["POST", "/v1/cases/{caseId}/list-case-edits", 200] }, () => ListCaseEditsRequest$, () => ListCaseEditsResponse$
 ];
-export var ListCases$: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_h]: ["POST", "/v1/list-cases", 200] },
-  () => ListCasesRequest$,
-  () => ListCasesResponse$,
+export var ListCases$: StaticOperationSchema = [9, n0, _LC,
+  { [_h]: ["POST", "/v1/list-cases", 200] }, () => ListCasesRequest$, () => ListCasesResponse$
 ];
-export var ListComments$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCi,
-  { [_h]: ["POST", "/v1/cases/{caseId}/list-comments", 200] },
-  () => ListCommentsRequest$,
-  () => ListCommentsResponse$,
+export var ListComments$: StaticOperationSchema = [9, n0, _LCi,
+  { [_h]: ["POST", "/v1/cases/{caseId}/list-comments", 200] }, () => ListCommentsRequest$, () => ListCommentsResponse$
 ];
-export var ListInvestigations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LI,
-  { [_h]: ["GET", "/v1/cases/{caseId}/list-investigations", 200] },
-  () => ListInvestigationsRequest$,
-  () => ListInvestigationsResponse$,
+export var ListInvestigations$: StaticOperationSchema = [9, n0, _LI,
+  { [_h]: ["GET", "/v1/cases/{caseId}/list-investigations", 200] }, () => ListInvestigationsRequest$, () => ListInvestigationsResponse$
 ];
-export var ListMemberships$: StaticOperationSchema = [
-  9,
-  n0,
-  _LM,
-  { [_h]: ["POST", "/v1/memberships", 200] },
-  () => ListMembershipsRequest$,
-  () => ListMembershipsResponse$,
+export var ListMemberships$: StaticOperationSchema = [9, n0, _LM,
+  { [_h]: ["POST", "/v1/memberships", 200] }, () => ListMembershipsRequest$, () => ListMembershipsResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput$,
-  () => ListTagsForResourceOutput$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
 ];
-export var SendFeedback$: StaticOperationSchema = [
-  9,
-  n0,
-  _SF,
-  { [_h]: ["POST", "/v1/cases/{caseId}/feedback/{resultId}/send-feedback", 200] },
-  () => SendFeedbackRequest$,
-  () => SendFeedbackResponse$,
+export var SendFeedback$: StaticOperationSchema = [9, n0, _SF,
+  { [_h]: ["POST", "/v1/cases/{caseId}/feedback/{resultId}/send-feedback", 200] }, () => SendFeedbackRequest$, () => SendFeedbackResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/v1/tags/{resourceArn}", 204] },
-  () => TagResourceInput$,
-  () => TagResourceOutput$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/v1/tags/{resourceArn}", 204] }, () => TagResourceInput$, () => TagResourceOutput$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
-  () => UntagResourceInput$,
-  () => UntagResourceOutput$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
 ];
-export var UpdateCase$: StaticOperationSchema = [
-  9,
-  n0,
-  _UC,
-  { [_h]: ["POST", "/v1/cases/{caseId}/update-case", 200] },
-  () => UpdateCaseRequest$,
-  () => UpdateCaseResponse$,
+export var UpdateCase$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-case", 200] }, () => UpdateCaseRequest$, () => UpdateCaseResponse$
 ];
-export var UpdateCaseComment$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCC,
-  { [_h]: ["PUT", "/v1/cases/{caseId}/update-case-comment/{commentId}", 200] },
-  () => UpdateCaseCommentRequest$,
-  () => UpdateCaseCommentResponse$,
+export var UpdateCaseComment$: StaticOperationSchema = [9, n0, _UCC,
+  { [_h]: ["PUT", "/v1/cases/{caseId}/update-case-comment/{commentId}", 200] }, () => UpdateCaseCommentRequest$, () => UpdateCaseCommentResponse$
 ];
-export var UpdateCaseStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCS,
-  { [_h]: ["POST", "/v1/cases/{caseId}/update-case-status", 201] },
-  () => UpdateCaseStatusRequest$,
-  () => UpdateCaseStatusResponse$,
+export var UpdateCaseStatus$: StaticOperationSchema = [9, n0, _UCS,
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-case-status", 201] }, () => UpdateCaseStatusRequest$, () => UpdateCaseStatusResponse$
 ];
-export var UpdateMembership$: StaticOperationSchema = [
-  9,
-  n0,
-  _UM,
-  { [_h]: ["PUT", "/v1/membership/{membershipId}/update-membership", 200] },
-  () => UpdateMembershipRequest$,
-  () => UpdateMembershipResponse$,
+export var UpdateMembership$: StaticOperationSchema = [9, n0, _UM,
+  { [_h]: ["PUT", "/v1/membership/{membershipId}/update-membership", 200] }, () => UpdateMembershipRequest$, () => UpdateMembershipResponse$
 ];
-export var UpdateResolverType$: StaticOperationSchema = [
-  9,
-  n0,
-  _URT,
-  { [_h]: ["POST", "/v1/cases/{caseId}/update-resolver-type", 200] },
-  () => UpdateResolverTypeRequest$,
-  () => UpdateResolverTypeResponse$,
+export var UpdateResolverType$: StaticOperationSchema = [9, n0, _URT,
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-resolver-type", 200] }, () => UpdateResolverTypeRequest$, () => UpdateResolverTypeResponse$
 ];

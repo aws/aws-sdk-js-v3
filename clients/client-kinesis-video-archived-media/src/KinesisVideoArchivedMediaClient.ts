@@ -266,6 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   sdkStreamMixin?: __SdkStreamMixinInjector;
+
 }
 
 /**
@@ -305,8 +306,7 @@ export type KinesisVideoArchivedMediaClientResolvedConfigType = __SmithyResolved
  *
  *  The resolved configuration interface of KinesisVideoArchivedMediaClient class. This is resolved and normalized from the {@link KinesisVideoArchivedMediaClientConfig | constructor configuration interface}.
  */
-export interface KinesisVideoArchivedMediaClientResolvedConfig
-  extends KinesisVideoArchivedMediaClientResolvedConfigType {}
+export interface KinesisVideoArchivedMediaClientResolvedConfig extends KinesisVideoArchivedMediaClientResolvedConfigType {}
 
 /**
  * <p></p>

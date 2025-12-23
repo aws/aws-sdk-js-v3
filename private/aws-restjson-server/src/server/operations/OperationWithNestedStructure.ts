@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,61 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type OperationWithNestedStructure<Context> = __Operation<
-  OperationWithNestedStructureServerInput,
-  OperationWithNestedStructureServerOutput,
-  Context
->;
+export type OperationWithNestedStructure<Context> = __Operation<OperationWithNestedStructureServerInput, OperationWithNestedStructureServerOutput, Context>
 
 export interface OperationWithNestedStructureServerInput extends OperationWithNestedStructureInput {}
 export namespace OperationWithNestedStructureServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof OperationWithNestedStructureInput.validate>[0]
-  ) => __ValidationFailure[] = OperationWithNestedStructureInput.validate;
+  export const validate: (obj: Parameters<typeof OperationWithNestedStructureInput.validate>[0]) => __ValidationFailure[] = OperationWithNestedStructureInput.validate;
 }
 export interface OperationWithNestedStructureServerOutput extends OperationWithNestedStructureOutput {}
 
 export type OperationWithNestedStructureErrors = never;
 
-export class OperationWithNestedStructureSerializer
-  implements
-    __OperationSerializer<RestJsonService<any>, "OperationWithNestedStructure", OperationWithNestedStructureErrors>
-{
+export class OperationWithNestedStructureSerializer implements __OperationSerializer<RestJsonService<any>, "OperationWithNestedStructure", OperationWithNestedStructureErrors> {
   serialize = serializeOperationWithNestedStructureResponse;
   deserialize = deserializeOperationWithNestedStructureRequest;
 
   isOperationError(error: any): error is OperationWithNestedStructureErrors {
     return false;
-  }
+  };
 
   serializeError(error: OperationWithNestedStructureErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getOperationWithNestedStructureHandler = <Context>(
-  operation: __Operation<OperationWithNestedStructureServerInput, OperationWithNestedStructureServerOutput, Context>,
-  customizer: __ValidationCustomizer<"OperationWithNestedStructure">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getOperationWithNestedStructureHandler = <Context>(operation: __Operation<OperationWithNestedStructureServerInput, OperationWithNestedStructureServerOutput, Context>, customizer: __ValidationCustomizer<"OperationWithNestedStructure">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "OperationWithNestedStructure">([
     new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">(
-      "POST",
-      [{ type: "path_literal", value: "OperationWithNestedStructure" }],
-      [],
-      { service: "RestJson", operation: "OperationWithNestedStructure" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "OperationWithNestedStructure" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "OperationWithNestedStructure" }),
   ]);
-  return new OperationWithNestedStructureHandler(
-    operation,
-    mux,
-    new OperationWithNestedStructureSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new OperationWithNestedStructureHandler(operation, mux, new OperationWithNestedStructureSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -93,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -108,49 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class OperationWithNestedStructureHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    OperationWithNestedStructureServerInput,
-    OperationWithNestedStructureServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<OperationWithNestedStructureServerInput, OperationWithNestedStructureServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "OperationWithNestedStructure">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "OperationWithNestedStructure",
-    OperationWithNestedStructureErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "OperationWithNestedStructure", OperationWithNestedStructureErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"OperationWithNestedStructure">;
   /**
    * Construct a OperationWithNestedStructure handler.
@@ -164,11 +137,7 @@ export class OperationWithNestedStructureHandler<Context> implements __ServiceHa
   constructor(
     operation: __Operation<OperationWithNestedStructureServerInput, OperationWithNestedStructureServerOutput, Context>,
     mux: __Mux<"RestJson", "OperationWithNestedStructure">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "OperationWithNestedStructure",
-      OperationWithNestedStructureErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "OperationWithNestedStructure", OperationWithNestedStructureErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"OperationWithNestedStructure">
   ) {
@@ -181,20 +150,9 @@ export class OperationWithNestedStructureHandler<Context> implements __ServiceHa
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.OperationWithNestedStructure. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.OperationWithNestedStructure. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "OperationWithNestedStructure",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      OperationWithNestedStructureServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "OperationWithNestedStructure", this.serializer, this.operation, this.serializeFrameworkException, OperationWithNestedStructureServerInput.validate, this.validationCustomizer);
   }
 }

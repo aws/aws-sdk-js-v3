@@ -193,7 +193,10 @@ export interface DataExchange {
     args: AcceptDataGrantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AcceptDataGrantCommandOutput>;
-  acceptDataGrant(args: AcceptDataGrantCommandInput, cb: (err: any, data?: AcceptDataGrantCommandOutput) => void): void;
+  acceptDataGrant(
+    args: AcceptDataGrantCommandInput,
+    cb: (err: any, data?: AcceptDataGrantCommandOutput) => void
+  ): void;
   acceptDataGrant(
     args: AcceptDataGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -203,8 +206,14 @@ export interface DataExchange {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -218,7 +227,10 @@ export interface DataExchange {
     args: CreateDataGrantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDataGrantCommandOutput>;
-  createDataGrant(args: CreateDataGrantCommandInput, cb: (err: any, data?: CreateDataGrantCommandOutput) => void): void;
+  createDataGrant(
+    args: CreateDataGrantCommandInput,
+    cb: (err: any, data?: CreateDataGrantCommandOutput) => void
+  ): void;
   createDataGrant(
     args: CreateDataGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -228,8 +240,14 @@ export interface DataExchange {
   /**
    * @see {@link CreateDataSetCommand}
    */
-  createDataSet(args: CreateDataSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDataSetCommandOutput>;
-  createDataSet(args: CreateDataSetCommandInput, cb: (err: any, data?: CreateDataSetCommandOutput) => void): void;
+  createDataSet(
+    args: CreateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataSetCommandOutput>;
+  createDataSet(
+    args: CreateDataSetCommandInput,
+    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): void;
   createDataSet(
     args: CreateDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -256,8 +274,14 @@ export interface DataExchange {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -271,7 +295,10 @@ export interface DataExchange {
     args: CreateRevisionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRevisionCommandOutput>;
-  createRevision(args: CreateRevisionCommandInput, cb: (err: any, data?: CreateRevisionCommandOutput) => void): void;
+  createRevision(
+    args: CreateRevisionCommandInput,
+    cb: (err: any, data?: CreateRevisionCommandOutput) => void
+  ): void;
   createRevision(
     args: CreateRevisionCommandInput,
     options: __HttpHandlerOptions,
@@ -281,8 +308,14 @@ export interface DataExchange {
   /**
    * @see {@link DeleteAssetCommand}
    */
-  deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
-  deleteAsset(args: DeleteAssetCommandInput, cb: (err: any, data?: DeleteAssetCommandOutput) => void): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -296,7 +329,10 @@ export interface DataExchange {
     args: DeleteDataGrantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDataGrantCommandOutput>;
-  deleteDataGrant(args: DeleteDataGrantCommandInput, cb: (err: any, data?: DeleteDataGrantCommandOutput) => void): void;
+  deleteDataGrant(
+    args: DeleteDataGrantCommandInput,
+    cb: (err: any, data?: DeleteDataGrantCommandOutput) => void
+  ): void;
   deleteDataGrant(
     args: DeleteDataGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -306,8 +342,14 @@ export interface DataExchange {
   /**
    * @see {@link DeleteDataSetCommand}
    */
-  deleteDataSet(args: DeleteDataSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDataSetCommandOutput>;
-  deleteDataSet(args: DeleteDataSetCommandInput, cb: (err: any, data?: DeleteDataSetCommandOutput) => void): void;
+  deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSetCommandOutput>;
+  deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
   deleteDataSet(
     args: DeleteDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -338,7 +380,10 @@ export interface DataExchange {
     args: DeleteRevisionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRevisionCommandOutput>;
-  deleteRevision(args: DeleteRevisionCommandInput, cb: (err: any, data?: DeleteRevisionCommandOutput) => void): void;
+  deleteRevision(
+    args: DeleteRevisionCommandInput,
+    cb: (err: any, data?: DeleteRevisionCommandOutput) => void
+  ): void;
   deleteRevision(
     args: DeleteRevisionCommandInput,
     options: __HttpHandlerOptions,
@@ -348,8 +393,14 @@ export interface DataExchange {
   /**
    * @see {@link GetAssetCommand}
    */
-  getAsset(args: GetAssetCommandInput, options?: __HttpHandlerOptions): Promise<GetAssetCommandOutput>;
-  getAsset(args: GetAssetCommandInput, cb: (err: any, data?: GetAssetCommandOutput) => void): void;
+  getAsset(
+    args: GetAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetCommandOutput>;
+  getAsset(
+    args: GetAssetCommandInput,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
   getAsset(
     args: GetAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -359,8 +410,14 @@ export interface DataExchange {
   /**
    * @see {@link GetDataGrantCommand}
    */
-  getDataGrant(args: GetDataGrantCommandInput, options?: __HttpHandlerOptions): Promise<GetDataGrantCommandOutput>;
-  getDataGrant(args: GetDataGrantCommandInput, cb: (err: any, data?: GetDataGrantCommandOutput) => void): void;
+  getDataGrant(
+    args: GetDataGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataGrantCommandOutput>;
+  getDataGrant(
+    args: GetDataGrantCommandInput,
+    cb: (err: any, data?: GetDataGrantCommandOutput) => void
+  ): void;
   getDataGrant(
     args: GetDataGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -370,8 +427,14 @@ export interface DataExchange {
   /**
    * @see {@link GetDataSetCommand}
    */
-  getDataSet(args: GetDataSetCommandInput, options?: __HttpHandlerOptions): Promise<GetDataSetCommandOutput>;
-  getDataSet(args: GetDataSetCommandInput, cb: (err: any, data?: GetDataSetCommandOutput) => void): void;
+  getDataSet(
+    args: GetDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataSetCommandOutput>;
+  getDataSet(
+    args: GetDataSetCommandInput,
+    cb: (err: any, data?: GetDataSetCommandOutput) => void
+  ): void;
   getDataSet(
     args: GetDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -385,7 +448,10 @@ export interface DataExchange {
     args: GetEventActionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventActionCommandOutput>;
-  getEventAction(args: GetEventActionCommandInput, cb: (err: any, data?: GetEventActionCommandOutput) => void): void;
+  getEventAction(
+    args: GetEventActionCommandInput,
+    cb: (err: any, data?: GetEventActionCommandOutput) => void
+  ): void;
   getEventAction(
     args: GetEventActionCommandInput,
     options: __HttpHandlerOptions,
@@ -395,8 +461,14 @@ export interface DataExchange {
   /**
    * @see {@link GetJobCommand}
    */
-  getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
-  getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
   getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -423,8 +495,14 @@ export interface DataExchange {
   /**
    * @see {@link GetRevisionCommand}
    */
-  getRevision(args: GetRevisionCommandInput, options?: __HttpHandlerOptions): Promise<GetRevisionCommandOutput>;
-  getRevision(args: GetRevisionCommandInput, cb: (err: any, data?: GetRevisionCommandOutput) => void): void;
+  getRevision(
+    args: GetRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevisionCommandOutput>;
+  getRevision(
+    args: GetRevisionCommandInput,
+    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
   getRevision(
     args: GetRevisionCommandInput,
     options: __HttpHandlerOptions,
@@ -439,7 +517,10 @@ export interface DataExchange {
     args: ListDataGrantsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDataGrantsCommandOutput>;
-  listDataGrants(args: ListDataGrantsCommandInput, cb: (err: any, data?: ListDataGrantsCommandOutput) => void): void;
+  listDataGrants(
+    args: ListDataGrantsCommandInput,
+    cb: (err: any, data?: ListDataGrantsCommandOutput) => void
+  ): void;
   listDataGrants(
     args: ListDataGrantsCommandInput,
     options: __HttpHandlerOptions,
@@ -467,8 +548,14 @@ export interface DataExchange {
    * @see {@link ListDataSetsCommand}
    */
   listDataSets(): Promise<ListDataSetsCommandOutput>;
-  listDataSets(args: ListDataSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDataSetsCommandOutput>;
-  listDataSets(args: ListDataSetsCommandInput, cb: (err: any, data?: ListDataSetsCommandOutput) => void): void;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSetsCommandOutput>;
+  listDataSets(
+    args: ListDataSetsCommandInput,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): void;
   listDataSets(
     args: ListDataSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -497,8 +584,14 @@ export interface DataExchange {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -564,7 +657,10 @@ export interface DataExchange {
     args: RevokeRevisionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RevokeRevisionCommandOutput>;
-  revokeRevision(args: RevokeRevisionCommandInput, cb: (err: any, data?: RevokeRevisionCommandOutput) => void): void;
+  revokeRevision(
+    args: RevokeRevisionCommandInput,
+    cb: (err: any, data?: RevokeRevisionCommandOutput) => void
+  ): void;
   revokeRevision(
     args: RevokeRevisionCommandInput,
     options: __HttpHandlerOptions,
@@ -574,8 +670,14 @@ export interface DataExchange {
   /**
    * @see {@link SendApiAssetCommand}
    */
-  sendApiAsset(args: SendApiAssetCommandInput, options?: __HttpHandlerOptions): Promise<SendApiAssetCommandOutput>;
-  sendApiAsset(args: SendApiAssetCommandInput, cb: (err: any, data?: SendApiAssetCommandOutput) => void): void;
+  sendApiAsset(
+    args: SendApiAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendApiAssetCommandOutput>;
+  sendApiAsset(
+    args: SendApiAssetCommandInput,
+    cb: (err: any, data?: SendApiAssetCommandOutput) => void
+  ): void;
   sendApiAsset(
     args: SendApiAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -602,8 +704,14 @@ export interface DataExchange {
   /**
    * @see {@link StartJobCommand}
    */
-  startJob(args: StartJobCommandInput, options?: __HttpHandlerOptions): Promise<StartJobCommandOutput>;
-  startJob(args: StartJobCommandInput, cb: (err: any, data?: StartJobCommandOutput) => void): void;
+  startJob(
+    args: StartJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobCommandOutput>;
+  startJob(
+    args: StartJobCommandInput,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
   startJob(
     args: StartJobCommandInput,
     options: __HttpHandlerOptions,
@@ -613,8 +721,14 @@ export interface DataExchange {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -624,8 +738,14 @@ export interface DataExchange {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -635,8 +755,14 @@ export interface DataExchange {
   /**
    * @see {@link UpdateAssetCommand}
    */
-  updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
-  updateAsset(args: UpdateAssetCommandInput, cb: (err: any, data?: UpdateAssetCommandOutput) => void): void;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetCommandOutput>;
+  updateAsset(
+    args: UpdateAssetCommandInput,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
   updateAsset(
     args: UpdateAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -646,8 +772,14 @@ export interface DataExchange {
   /**
    * @see {@link UpdateDataSetCommand}
    */
-  updateDataSet(args: UpdateDataSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDataSetCommandOutput>;
-  updateDataSet(args: UpdateDataSetCommandInput, cb: (err: any, data?: UpdateDataSetCommandOutput) => void): void;
+  updateDataSet(
+    args: UpdateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSetCommandOutput>;
+  updateDataSet(
+    args: UpdateDataSetCommandInput,
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): void;
   updateDataSet(
     args: UpdateDataSetCommandInput,
     options: __HttpHandlerOptions,
@@ -678,7 +810,10 @@ export interface DataExchange {
     args: UpdateRevisionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRevisionCommandOutput>;
-  updateRevision(args: UpdateRevisionCommandInput, cb: (err: any, data?: UpdateRevisionCommandOutput) => void): void;
+  updateRevision(
+    args: UpdateRevisionCommandInput,
+    cb: (err: any, data?: UpdateRevisionCommandOutput) => void
+  ): void;
   updateRevision(
     args: UpdateRevisionCommandInput,
     options: __HttpHandlerOptions,

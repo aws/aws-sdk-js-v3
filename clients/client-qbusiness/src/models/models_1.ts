@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ChatMode, ResponseConfigurationType, SubscriptionType } from "./enums";
-
 import {
   type ActionExecution,
   type AuthChallengeResponse,

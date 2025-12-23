@@ -49,11 +49,9 @@ export const defaultPersonalizeRuntimeHttpAuthSchemeParametersProvider = async (
 ): Promise<PersonalizeRuntimeHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface PersonalizeRuntimeHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultPersonalizeRuntimeHttpAuthSchemeProvider: PersonalizeRuntimeHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultPersonalizeRuntimeHttpAuthSchemeProvider: PersonalizeRuntimeHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

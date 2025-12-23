@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeRegistrationSectionDefinitionsCommand}.
  */
-export interface DescribeRegistrationSectionDefinitionsCommandInput
-  extends DescribeRegistrationSectionDefinitionsRequest {}
+export interface DescribeRegistrationSectionDefinitionsCommandInput extends DescribeRegistrationSectionDefinitionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeRegistrationSectionDefinitionsCommand}.
  */
-export interface DescribeRegistrationSectionDefinitionsCommandOutput
-  extends DescribeRegistrationSectionDefinitionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationSectionDefinitionsCommandOutput extends DescribeRegistrationSectionDefinitionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration section definitions. You can use DescribeRegistrationSectionDefinitions to view the requirements for creating, filling out, and submitting each registration type.</p>

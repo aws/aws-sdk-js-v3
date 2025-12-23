@@ -24,9 +24,7 @@ export interface CreateGlobalReplicationGroupCommandInput extends CreateGlobalRe
  *
  * The output of {@link CreateGlobalReplicationGroupCommand}.
  */
-export interface CreateGlobalReplicationGroupCommandOutput
-  extends CreateGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface CreateGlobalReplicationGroupCommandOutput extends CreateGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Global Datastore offers fully managed, fast, reliable and secure

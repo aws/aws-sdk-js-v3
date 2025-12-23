@@ -31,9 +31,7 @@ export interface CreateMediaConcatenationPipelineCommandInput extends CreateMedi
  *
  * The output of {@link CreateMediaConcatenationPipelineCommand}.
  */
-export interface CreateMediaConcatenationPipelineCommandOutput
-  extends CreateMediaConcatenationPipelineResponse,
-    __MetadataBearer {}
+export interface CreateMediaConcatenationPipelineCommandOutput extends CreateMediaConcatenationPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a media concatenation pipeline.</p>

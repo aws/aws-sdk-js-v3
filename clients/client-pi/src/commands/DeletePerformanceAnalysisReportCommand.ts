@@ -27,9 +27,7 @@ export interface DeletePerformanceAnalysisReportCommandInput extends DeletePerfo
  *
  * The output of {@link DeletePerformanceAnalysisReportCommand}.
  */
-export interface DeletePerformanceAnalysisReportCommandOutput
-  extends DeletePerformanceAnalysisReportResponse,
-    __MetadataBearer {}
+export interface DeletePerformanceAnalysisReportCommandOutput extends DeletePerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a performance analysis report.</p>

@@ -28,9 +28,7 @@ export interface DescribeVpcEndpointAssociationCommandInput extends DescribeVpcE
  *
  * The output of {@link DescribeVpcEndpointAssociationCommand}.
  */
-export interface DescribeVpcEndpointAssociationCommandOutput
-  extends DescribeVpcEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointAssociationCommandOutput extends DescribeVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the data object for the specified VPC endpoint association. </p>

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { BehaviorOnMxFailure, ReputationEntityType, SendingStatus, SuppressionListReason } from "./enums";
-
 import {
   type BulkEmailContent,
   type Destination,

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface StartNetworkInsightsAccessScopeAnalysisCommandInput
-  extends StartNetworkInsightsAccessScopeAnalysisRequest {}
+export interface StartNetworkInsightsAccessScopeAnalysisCommandInput extends StartNetworkInsightsAccessScopeAnalysisRequest {}
 /**
  * @public
  *
  * The output of {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
-  extends StartNetworkInsightsAccessScopeAnalysisResult,
-    __MetadataBearer {}
+export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput extends StartNetworkInsightsAccessScopeAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Starts analyzing the specified Network Access Scope.</p>

@@ -171,7 +171,10 @@ export interface CloudSearch {
     args: BuildSuggestersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BuildSuggestersCommandOutput>;
-  buildSuggesters(args: BuildSuggestersCommandInput, cb: (err: any, data?: BuildSuggestersCommandOutput) => void): void;
+  buildSuggesters(
+    args: BuildSuggestersCommandInput,
+    cb: (err: any, data?: BuildSuggestersCommandOutput) => void
+  ): void;
   buildSuggesters(
     args: BuildSuggestersCommandInput,
     options: __HttpHandlerOptions,
@@ -181,8 +184,14 @@ export interface CloudSearch {
   /**
    * @see {@link CreateDomainCommand}
    */
-  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
-  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
+    args: CreateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainCommandOutput>;
+  createDomain(
+    args: CreateDomainCommandInput,
+    cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
   createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -247,7 +256,10 @@ export interface CloudSearch {
     args: DefineSuggesterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DefineSuggesterCommandOutput>;
-  defineSuggester(args: DefineSuggesterCommandInput, cb: (err: any, data?: DefineSuggesterCommandOutput) => void): void;
+  defineSuggester(
+    args: DefineSuggesterCommandInput,
+    cb: (err: any, data?: DefineSuggesterCommandOutput) => void
+  ): void;
   defineSuggester(
     args: DefineSuggesterCommandInput,
     options: __HttpHandlerOptions,
@@ -274,8 +286,14 @@ export interface CloudSearch {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -323,7 +341,10 @@ export interface CloudSearch {
     args: DeleteSuggesterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSuggesterCommandOutput>;
-  deleteSuggester(args: DeleteSuggesterCommandInput, cb: (err: any, data?: DeleteSuggesterCommandOutput) => void): void;
+  deleteSuggester(
+    args: DeleteSuggesterCommandInput,
+    cb: (err: any, data?: DeleteSuggesterCommandOutput) => void
+  ): void;
   deleteSuggester(
     args: DeleteSuggesterCommandInput,
     options: __HttpHandlerOptions,
@@ -389,7 +410,10 @@ export interface CloudSearch {
     args: DescribeDomainsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainsCommandOutput>;
-  describeDomains(args: DescribeDomainsCommandInput, cb: (err: any, data?: DescribeDomainsCommandOutput) => void): void;
+  describeDomains(
+    args: DescribeDomainsCommandInput,
+    cb: (err: any, data?: DescribeDomainsCommandOutput) => void
+  ): void;
   describeDomains(
     args: DescribeDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -488,7 +512,10 @@ export interface CloudSearch {
     args: IndexDocumentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<IndexDocumentsCommandOutput>;
-  indexDocuments(args: IndexDocumentsCommandInput, cb: (err: any, data?: IndexDocumentsCommandOutput) => void): void;
+  indexDocuments(
+    args: IndexDocumentsCommandInput,
+    cb: (err: any, data?: IndexDocumentsCommandOutput) => void
+  ): void;
   indexDocuments(
     args: IndexDocumentsCommandInput,
     options: __HttpHandlerOptions,
@@ -503,7 +530,10 @@ export interface CloudSearch {
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDomainNamesCommandOutput>;
-  listDomainNames(args: ListDomainNamesCommandInput, cb: (err: any, data?: ListDomainNamesCommandOutput) => void): void;
+  listDomainNames(
+    args: ListDomainNamesCommandInput,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options: __HttpHandlerOptions,

@@ -846,7 +846,10 @@ export interface IoTWireless {
     args: CreateFuotaTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFuotaTaskCommandOutput>;
-  createFuotaTask(args: CreateFuotaTaskCommandInput, cb: (err: any, data?: CreateFuotaTaskCommandOutput) => void): void;
+  createFuotaTask(
+    args: CreateFuotaTaskCommandInput,
+    cb: (err: any, data?: CreateFuotaTaskCommandOutput) => void
+  ): void;
   createFuotaTask(
     args: CreateFuotaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1014,7 +1017,10 @@ export interface IoTWireless {
     args: DeleteFuotaTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFuotaTaskCommandOutput>;
-  deleteFuotaTask(args: DeleteFuotaTaskCommandInput, cb: (err: any, data?: DeleteFuotaTaskCommandOutput) => void): void;
+  deleteFuotaTask(
+    args: DeleteFuotaTaskCommandInput,
+    cb: (err: any, data?: DeleteFuotaTaskCommandOutput) => void
+  ): void;
   deleteFuotaTask(
     args: DeleteFuotaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1317,7 +1323,10 @@ export interface IoTWireless {
     args: GetDestinationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDestinationCommandOutput>;
-  getDestination(args: GetDestinationCommandInput, cb: (err: any, data?: GetDestinationCommandOutput) => void): void;
+  getDestination(
+    args: GetDestinationCommandInput,
+    cb: (err: any, data?: GetDestinationCommandOutput) => void
+  ): void;
   getDestination(
     args: GetDestinationCommandInput,
     options: __HttpHandlerOptions,
@@ -1362,8 +1371,14 @@ export interface IoTWireless {
   /**
    * @see {@link GetFuotaTaskCommand}
    */
-  getFuotaTask(args: GetFuotaTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetFuotaTaskCommandOutput>;
-  getFuotaTask(args: GetFuotaTaskCommandInput, cb: (err: any, data?: GetFuotaTaskCommandOutput) => void): void;
+  getFuotaTask(
+    args: GetFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFuotaTaskCommandOutput>;
+  getFuotaTask(
+    args: GetFuotaTaskCommandInput,
+    cb: (err: any, data?: GetFuotaTaskCommandOutput) => void
+  ): void;
   getFuotaTask(
     args: GetFuotaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1410,8 +1425,14 @@ export interface IoTWireless {
    * @see {@link GetMetricsCommand}
    */
   getMetrics(): Promise<GetMetricsCommandOutput>;
-  getMetrics(args: GetMetricsCommandInput, options?: __HttpHandlerOptions): Promise<GetMetricsCommandOutput>;
-  getMetrics(args: GetMetricsCommandInput, cb: (err: any, data?: GetMetricsCommandOutput) => void): void;
+  getMetrics(
+    args: GetMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricsCommandOutput>;
+  getMetrics(
+    args: GetMetricsCommandInput,
+    cb: (err: any, data?: GetMetricsCommandOutput) => void
+  ): void;
   getMetrics(
     args: GetMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -1489,8 +1510,14 @@ export interface IoTWireless {
   /**
    * @see {@link GetPositionCommand}
    */
-  getPosition(args: GetPositionCommandInput, options?: __HttpHandlerOptions): Promise<GetPositionCommandOutput>;
-  getPosition(args: GetPositionCommandInput, cb: (err: any, data?: GetPositionCommandOutput) => void): void;
+  getPosition(
+    args: GetPositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPositionCommandOutput>;
+  getPosition(
+    args: GetPositionCommandInput,
+    cb: (err: any, data?: GetPositionCommandOutput) => void
+  ): void;
   getPosition(
     args: GetPositionCommandInput,
     options: __HttpHandlerOptions,
@@ -1849,7 +1876,10 @@ export interface IoTWireless {
     args: ListFuotaTasksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFuotaTasksCommandOutput>;
-  listFuotaTasks(args: ListFuotaTasksCommandInput, cb: (err: any, data?: ListFuotaTasksCommandOutput) => void): void;
+  listFuotaTasks(
+    args: ListFuotaTasksCommandInput,
+    cb: (err: any, data?: ListFuotaTasksCommandOutput) => void
+  ): void;
   listFuotaTasks(
     args: ListFuotaTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -2213,7 +2243,10 @@ export interface IoTWireless {
     args: StartFuotaTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartFuotaTaskCommandOutput>;
-  startFuotaTask(args: StartFuotaTaskCommandInput, cb: (err: any, data?: StartFuotaTaskCommandOutput) => void): void;
+  startFuotaTask(
+    args: StartFuotaTaskCommandInput,
+    cb: (err: any, data?: StartFuotaTaskCommandOutput) => void
+  ): void;
   startFuotaTask(
     args: StartFuotaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -2274,8 +2307,14 @@ export interface IoTWireless {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2302,8 +2341,14 @@ export interface IoTWireless {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2352,7 +2397,10 @@ export interface IoTWireless {
     args: UpdateFuotaTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFuotaTaskCommandOutput>;
-  updateFuotaTask(args: UpdateFuotaTaskCommandInput, cb: (err: any, data?: UpdateFuotaTaskCommandOutput) => void): void;
+  updateFuotaTask(
+    args: UpdateFuotaTaskCommandInput,
+    cb: (err: any, data?: UpdateFuotaTaskCommandOutput) => void
+  ): void;
   updateFuotaTask(
     args: UpdateFuotaTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -2453,7 +2501,10 @@ export interface IoTWireless {
     args: UpdatePositionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePositionCommandOutput>;
-  updatePosition(args: UpdatePositionCommandInput, cb: (err: any, data?: UpdatePositionCommandOutput) => void): void;
+  updatePosition(
+    args: UpdatePositionCommandInput,
+    cb: (err: any, data?: UpdatePositionCommandOutput) => void
+  ): void;
   updatePosition(
     args: UpdatePositionCommandInput,
     options: __HttpHandlerOptions,

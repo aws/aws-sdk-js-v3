@@ -27,9 +27,7 @@ export interface ListProvisioningTemplateVersionsCommandInput extends ListProvis
  *
  * The output of {@link ListProvisioningTemplateVersionsCommand}.
  */
-export interface ListProvisioningTemplateVersionsCommandOutput
-  extends ListProvisioningTemplateVersionsResponse,
-    __MetadataBearer {}
+export interface ListProvisioningTemplateVersionsCommandOutput extends ListProvisioningTemplateVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>A list of provisioning template versions.</p>

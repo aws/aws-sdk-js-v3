@@ -119,7 +119,6 @@ import {
   VolumeType,
   WeekDay,
 } from "./enums";
-
 import {
   type AcceleratorCount,
   type AcceleratorCountRequest,
@@ -9854,9 +9853,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
    * <p>Information about the local gateway route table virtual interface group association.</p>
    * @public
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?:
-    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-    | undefined;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
 }
 
 /**

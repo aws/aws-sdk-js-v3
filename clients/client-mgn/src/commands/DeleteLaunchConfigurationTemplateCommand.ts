@@ -27,9 +27,7 @@ export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLau
  *
  * The output of {@link DeleteLaunchConfigurationTemplateCommand}.
  */
-export interface DeleteLaunchConfigurationTemplateCommandOutput
-  extends DeleteLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteLaunchConfigurationTemplateCommandOutput extends DeleteLaunchConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single Launch Configuration Template by ID.</p>

@@ -1,20 +1,13 @@
-export * from "./DescribeDomainAutoTunesPaginator";
-
-export * from "./DescribeInboundConnectionsPaginator";
-
-export * from "./DescribeOutboundConnectionsPaginator";
-
-export * from "./DescribePackagesPaginator";
-
-export * from "./DescribeReservedInstanceOfferingsPaginator";
-
-export * from "./DescribeReservedInstancesPaginator";
-
-export * from "./GetPackageVersionHistoryPaginator";
-
-export * from "./GetUpgradeHistoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeDomainAutoTunesPaginator";
+export * from "./DescribeInboundConnectionsPaginator";
+export * from "./DescribeOutboundConnectionsPaginator";
+export * from "./DescribePackagesPaginator";
+export * from "./DescribeReservedInstanceOfferingsPaginator";
+export * from "./DescribeReservedInstancesPaginator";
+export * from "./GetPackageVersionHistoryPaginator";
+export * from "./GetUpgradeHistoryPaginator";
 export * from "./ListApplicationsPaginator";
 export * from "./ListDomainMaintenancesPaginator";
 export * from "./ListDomainsForPackagePaginator";

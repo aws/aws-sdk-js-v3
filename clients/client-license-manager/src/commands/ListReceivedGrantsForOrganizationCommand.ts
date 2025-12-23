@@ -31,9 +31,7 @@ export interface ListReceivedGrantsForOrganizationCommandInput extends ListRecei
  *
  * The output of {@link ListReceivedGrantsForOrganizationCommand}.
  */
-export interface ListReceivedGrantsForOrganizationCommandOutput
-  extends ListReceivedGrantsForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListReceivedGrantsForOrganizationCommandOutput extends ListReceivedGrantsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the grants received for all accounts in the organization.</p>

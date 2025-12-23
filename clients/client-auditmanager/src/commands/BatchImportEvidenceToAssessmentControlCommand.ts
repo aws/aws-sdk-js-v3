@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchImportEvidenceToAssessmentControlCommand}.
  */
-export interface BatchImportEvidenceToAssessmentControlCommandInput
-  extends BatchImportEvidenceToAssessmentControlRequest {}
+export interface BatchImportEvidenceToAssessmentControlCommandInput extends BatchImportEvidenceToAssessmentControlRequest {}
 /**
  * @public
  *
  * The output of {@link BatchImportEvidenceToAssessmentControlCommand}.
  */
-export interface BatchImportEvidenceToAssessmentControlCommandOutput
-  extends BatchImportEvidenceToAssessmentControlResponse,
-    __MetadataBearer {}
+export interface BatchImportEvidenceToAssessmentControlCommandOutput extends BatchImportEvidenceToAssessmentControlResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more pieces of evidence to a control in an Audit Manager assessment. </p>

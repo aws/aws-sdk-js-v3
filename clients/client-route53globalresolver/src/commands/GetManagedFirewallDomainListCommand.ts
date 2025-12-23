@@ -28,9 +28,7 @@ export interface GetManagedFirewallDomainListCommandInput extends GetManagedFire
  *
  * The output of {@link GetManagedFirewallDomainListCommand}.
  */
-export interface GetManagedFirewallDomainListCommandOutput
-  extends GetManagedFirewallDomainListOutput,
-    __MetadataBearer {}
+export interface GetManagedFirewallDomainListCommandOutput extends GetManagedFirewallDomainListOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an AWS-managed firewall domain list. Managed domain lists contain domains associated with malicious activity, content categories, or specific threats.</p>

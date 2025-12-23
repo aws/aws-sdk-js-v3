@@ -24,9 +24,7 @@ export interface DeleteQueueLimitAssociationCommandInput extends DeleteQueueLimi
  *
  * The output of {@link DeleteQueueLimitAssociationCommand}.
  */
-export interface DeleteQueueLimitAssociationCommandOutput
-  extends DeleteQueueLimitAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteQueueLimitAssociationCommandOutput extends DeleteQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a queue and a limit. You must use the

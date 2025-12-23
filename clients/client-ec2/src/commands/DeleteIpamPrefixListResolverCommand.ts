@@ -24,9 +24,7 @@ export interface DeleteIpamPrefixListResolverCommandInput extends DeleteIpamPref
  *
  * The output of {@link DeleteIpamPrefixListResolverCommand}.
  */
-export interface DeleteIpamPrefixListResolverCommandOutput
-  extends DeleteIpamPrefixListResolverResult,
-    __MetadataBearer {}
+export interface DeleteIpamPrefixListResolverCommandOutput extends DeleteIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete all resolver targets associated with it.</p>

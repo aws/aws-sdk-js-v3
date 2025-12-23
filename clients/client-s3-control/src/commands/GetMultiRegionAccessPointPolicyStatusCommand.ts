@@ -23,16 +23,13 @@ export { $Command };
  *
  * The input for {@link GetMultiRegionAccessPointPolicyStatusCommand}.
  */
-export interface GetMultiRegionAccessPointPolicyStatusCommandInput
-  extends GetMultiRegionAccessPointPolicyStatusRequest {}
+export interface GetMultiRegionAccessPointPolicyStatusCommandInput extends GetMultiRegionAccessPointPolicyStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetMultiRegionAccessPointPolicyStatusCommand}.
  */
-export interface GetMultiRegionAccessPointPolicyStatusCommandOutput
-  extends GetMultiRegionAccessPointPolicyStatusResult,
-    __MetadataBearer {}
+export interface GetMultiRegionAccessPointPolicyStatusCommandOutput extends GetMultiRegionAccessPointPolicyStatusResult, __MetadataBearer {}
 
 /**
  * <note>

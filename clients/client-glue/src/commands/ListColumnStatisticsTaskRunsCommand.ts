@@ -24,9 +24,7 @@ export interface ListColumnStatisticsTaskRunsCommandInput extends ListColumnStat
  *
  * The output of {@link ListColumnStatisticsTaskRunsCommand}.
  */
-export interface ListColumnStatisticsTaskRunsCommandOutput
-  extends ListColumnStatisticsTaskRunsResponse,
-    __MetadataBearer {}
+export interface ListColumnStatisticsTaskRunsCommandOutput extends ListColumnStatisticsTaskRunsResponse, __MetadataBearer {}
 
 /**
  * <p>List all task runs for a particular account.</p>

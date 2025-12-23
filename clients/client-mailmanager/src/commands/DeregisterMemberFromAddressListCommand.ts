@@ -27,9 +27,7 @@ export interface DeregisterMemberFromAddressListCommandInput extends DeregisterM
  *
  * The output of {@link DeregisterMemberFromAddressListCommand}.
  */
-export interface DeregisterMemberFromAddressListCommandOutput
-  extends DeregisterMemberFromAddressListResponse,
-    __MetadataBearer {}
+export interface DeregisterMemberFromAddressListCommandOutput extends DeregisterMemberFromAddressListResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a member from an address list.</p>

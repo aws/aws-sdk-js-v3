@@ -24,9 +24,7 @@ export interface DescribeResponsibilityTransferCommandInput extends DescribeResp
  *
  * The output of {@link DescribeResponsibilityTransferCommand}.
  */
-export interface DescribeResponsibilityTransferCommandOutput
-  extends DescribeResponsibilityTransferResponse,
-    __MetadataBearer {}
+export interface DescribeResponsibilityTransferCommandOutput extends DescribeResponsibilityTransferResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details for a transfer. A <i>transfer</i> is an arrangement

@@ -167,8 +167,14 @@ export interface Appflow {
   /**
    * @see {@link CreateFlowCommand}
    */
-  createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
-  createFlow(args: CreateFlowCommandInput, cb: (err: any, data?: CreateFlowCommandOutput) => void): void;
+  createFlow(
+    args: CreateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFlowCommandOutput>;
+  createFlow(
+    args: CreateFlowCommandInput,
+    cb: (err: any, data?: CreateFlowCommandOutput) => void
+  ): void;
   createFlow(
     args: CreateFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -195,8 +201,14 @@ export interface Appflow {
   /**
    * @see {@link DeleteFlowCommand}
    */
-  deleteFlow(args: DeleteFlowCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFlowCommandOutput>;
-  deleteFlow(args: DeleteFlowCommandInput, cb: (err: any, data?: DeleteFlowCommandOutput) => void): void;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFlowCommandOutput>;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    cb: (err: any, data?: DeleteFlowCommandOutput) => void
+  ): void;
   deleteFlow(
     args: DeleteFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -276,8 +288,14 @@ export interface Appflow {
   /**
    * @see {@link DescribeFlowCommand}
    */
-  describeFlow(args: DescribeFlowCommandInput, options?: __HttpHandlerOptions): Promise<DescribeFlowCommandOutput>;
-  describeFlow(args: DescribeFlowCommandInput, cb: (err: any, data?: DescribeFlowCommandOutput) => void): void;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowCommandOutput>;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    cb: (err: any, data?: DescribeFlowCommandOutput) => void
+  ): void;
   describeFlow(
     args: DescribeFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -327,7 +345,10 @@ export interface Appflow {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -338,8 +359,14 @@ export interface Appflow {
    * @see {@link ListFlowsCommand}
    */
   listFlows(): Promise<ListFlowsCommandOutput>;
-  listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
-  listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
+  listFlows(
+    args: ListFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowsCommandOutput>;
+  listFlows(
+    args: ListFlowsCommandInput,
+    cb: (err: any, data?: ListFlowsCommandOutput) => void
+  ): void;
   listFlows(
     args: ListFlowsCommandInput,
     options: __HttpHandlerOptions,
@@ -402,8 +429,14 @@ export interface Appflow {
   /**
    * @see {@link StartFlowCommand}
    */
-  startFlow(args: StartFlowCommandInput, options?: __HttpHandlerOptions): Promise<StartFlowCommandOutput>;
-  startFlow(args: StartFlowCommandInput, cb: (err: any, data?: StartFlowCommandOutput) => void): void;
+  startFlow(
+    args: StartFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowCommandOutput>;
+  startFlow(
+    args: StartFlowCommandInput,
+    cb: (err: any, data?: StartFlowCommandOutput) => void
+  ): void;
   startFlow(
     args: StartFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -413,8 +446,14 @@ export interface Appflow {
   /**
    * @see {@link StopFlowCommand}
    */
-  stopFlow(args: StopFlowCommandInput, options?: __HttpHandlerOptions): Promise<StopFlowCommandOutput>;
-  stopFlow(args: StopFlowCommandInput, cb: (err: any, data?: StopFlowCommandOutput) => void): void;
+  stopFlow(
+    args: StopFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopFlowCommandOutput>;
+  stopFlow(
+    args: StopFlowCommandInput,
+    cb: (err: any, data?: StopFlowCommandOutput) => void
+  ): void;
   stopFlow(
     args: StopFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -424,8 +463,14 @@ export interface Appflow {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -452,8 +497,14 @@ export interface Appflow {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -497,8 +548,14 @@ export interface Appflow {
   /**
    * @see {@link UpdateFlowCommand}
    */
-  updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;
-  updateFlow(args: UpdateFlowCommandInput, cb: (err: any, data?: UpdateFlowCommandOutput) => void): void;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlowCommandOutput>;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    cb: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): void;
   updateFlow(
     args: UpdateFlowCommandInput,
     options: __HttpHandlerOptions,

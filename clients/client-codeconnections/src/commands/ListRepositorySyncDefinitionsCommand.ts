@@ -28,9 +28,7 @@ export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositor
  *
  * The output of {@link ListRepositorySyncDefinitionsCommand}.
  */
-export interface ListRepositorySyncDefinitionsCommandOutput
-  extends ListRepositorySyncDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListRepositorySyncDefinitionsCommandOutput extends ListRepositorySyncDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the repository sync definitions for repository links in your account.</p>

@@ -24,9 +24,7 @@ export interface GetDeliverabilityTestReportCommandInput extends GetDeliverabili
  *
  * The output of {@link GetDeliverabilityTestReportCommand}.
  */
-export interface GetDeliverabilityTestReportCommandOutput
-  extends GetDeliverabilityTestReportResponse,
-    __MetadataBearer {}
+export interface GetDeliverabilityTestReportCommandOutput extends GetDeliverabilityTestReportResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve the results of a predictive inbox placement test.</p>

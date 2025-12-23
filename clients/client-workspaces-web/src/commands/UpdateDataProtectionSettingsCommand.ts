@@ -24,9 +24,7 @@ export interface UpdateDataProtectionSettingsCommandInput extends UpdateDataProt
  *
  * The output of {@link UpdateDataProtectionSettingsCommand}.
  */
-export interface UpdateDataProtectionSettingsCommandOutput
-  extends UpdateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateDataProtectionSettingsCommandOutput extends UpdateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates data protection settings.</p>

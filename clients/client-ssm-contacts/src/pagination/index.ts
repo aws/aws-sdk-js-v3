@@ -9,5 +9,5 @@ export * from "./ListPagesByContactPaginator";
 export * from "./ListPagesByEngagementPaginator";
 export * from "./ListPreviewRotationShiftsPaginator";
 export * from "./ListRotationOverridesPaginator";
-export * from "./ListRotationShiftsPaginator";
 export * from "./ListRotationsPaginator";
+export * from "./ListRotationShiftsPaginator";

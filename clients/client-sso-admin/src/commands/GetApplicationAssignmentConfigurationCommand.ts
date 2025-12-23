@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetApplicationAssignmentConfigurationCommand}.
  */
-export interface GetApplicationAssignmentConfigurationCommandInput
-  extends GetApplicationAssignmentConfigurationRequest {}
+export interface GetApplicationAssignmentConfigurationCommandInput extends GetApplicationAssignmentConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetApplicationAssignmentConfigurationCommand}.
  */
-export interface GetApplicationAssignmentConfigurationCommandOutput
-  extends GetApplicationAssignmentConfigurationResponse,
-    __MetadataBearer {}
+export interface GetApplicationAssignmentConfigurationCommandOutput extends GetApplicationAssignmentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration of <a>PutApplicationAssignmentConfiguration</a>.</p>

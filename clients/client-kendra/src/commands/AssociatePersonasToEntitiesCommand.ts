@@ -24,9 +24,7 @@ export interface AssociatePersonasToEntitiesCommandInput extends AssociatePerson
  *
  * The output of {@link AssociatePersonasToEntitiesCommand}.
  */
-export interface AssociatePersonasToEntitiesCommandOutput
-  extends AssociatePersonasToEntitiesResponse,
-    __MetadataBearer {}
+export interface AssociatePersonasToEntitiesCommandOutput extends AssociatePersonasToEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Defines the specific permissions of users or groups in your IAM Identity Center

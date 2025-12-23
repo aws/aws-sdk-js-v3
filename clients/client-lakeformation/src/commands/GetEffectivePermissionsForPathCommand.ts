@@ -24,9 +24,7 @@ export interface GetEffectivePermissionsForPathCommandInput extends GetEffective
  *
  * The output of {@link GetEffectivePermissionsForPathCommand}.
  */
-export interface GetEffectivePermissionsForPathCommandOutput
-  extends GetEffectivePermissionsForPathResponse,
-    __MetadataBearer {}
+export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectivePermissionsForPathResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the Lake Formation permissions for a specified table or database resource located

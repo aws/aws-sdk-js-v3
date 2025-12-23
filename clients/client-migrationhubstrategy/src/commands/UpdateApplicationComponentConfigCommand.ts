@@ -31,9 +31,7 @@ export interface UpdateApplicationComponentConfigCommandInput extends UpdateAppl
  *
  * The output of {@link UpdateApplicationComponentConfigCommand}.
  */
-export interface UpdateApplicationComponentConfigCommandOutput
-  extends UpdateApplicationComponentConfigResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationComponentConfigCommandOutput extends UpdateApplicationComponentConfigResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the configuration of an application component. </p>

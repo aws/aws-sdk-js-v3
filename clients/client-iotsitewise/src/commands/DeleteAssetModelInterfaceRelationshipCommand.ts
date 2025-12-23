@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteAssetModelInterfaceRelationshipCommand}.
  */
-export interface DeleteAssetModelInterfaceRelationshipCommandInput
-  extends DeleteAssetModelInterfaceRelationshipRequest {}
+export interface DeleteAssetModelInterfaceRelationshipCommandInput extends DeleteAssetModelInterfaceRelationshipRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAssetModelInterfaceRelationshipCommand}.
  */
-export interface DeleteAssetModelInterfaceRelationshipCommandOutput
-  extends DeleteAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface DeleteAssetModelInterfaceRelationshipCommandOutput extends DeleteAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an interface relationship between an asset model and an interface asset

@@ -24,9 +24,7 @@ export interface TerminateClientVpnConnectionsCommandInput extends TerminateClie
  *
  * The output of {@link TerminateClientVpnConnectionsCommand}.
  */
-export interface TerminateClientVpnConnectionsCommandOutput
-  extends TerminateClientVpnConnectionsResult,
-    __MetadataBearer {}
+export interface TerminateClientVpnConnectionsCommandOutput extends TerminateClientVpnConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>

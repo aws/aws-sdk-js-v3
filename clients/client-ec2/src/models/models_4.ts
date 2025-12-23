@@ -79,7 +79,6 @@ import {
   VerifiedAccessLogDeliveryStatusCode,
   VirtualizationType,
 } from "./enums";
-
 import {
   type IamInstanceProfile,
   type IamInstanceProfileSpecification,
@@ -101,7 +100,6 @@ import {
   TrunkInterfaceAssociation,
   UserIdGroupPair,
 } from "./models_0";
-
 import {
   type AttributeValue,
   type ConnectionTrackingSpecificationRequest,
@@ -149,7 +147,6 @@ import {
   RouteTable,
   Snapshot,
 } from "./models_1";
-
 import {
   type SpotDatafeedSubscription,
   TrafficMirrorFilter,
@@ -167,7 +164,6 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
-
 import {
   type AttributeBooleanValue,
   type CapacityReservationSpecificationResponse,
@@ -4421,9 +4417,7 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
    * <p>Information about the associations.</p>
    * @public
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?:
-    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation[]
-    | undefined;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
-  extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}.
  */
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-  extends DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-    __MetadataBearer {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput extends DisassociatePhoneNumbersFromVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice

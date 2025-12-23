@@ -4686,7 +4686,9 @@ export namespace LakeFormationScopeUnion {
  * <p>A union structure that defines the scope of Amazon Redshift service integrations. Contains configuration for different integration types such as Amazon Redshift.</p>
  * @public
  */
-export type RedshiftScopeUnion = RedshiftScopeUnion.ConnectMember | RedshiftScopeUnion.$UnknownMember;
+export type RedshiftScopeUnion =
+  | RedshiftScopeUnion.ConnectMember
+  | RedshiftScopeUnion.$UnknownMember;
 
 /**
  * @public

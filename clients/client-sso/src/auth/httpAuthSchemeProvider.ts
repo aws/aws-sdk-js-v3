@@ -46,11 +46,9 @@ export const defaultSSOHttpAuthSchemeParametersProvider = async (
 ): Promise<SSOHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -93,19 +91,19 @@ export const defaultSSOHttpAuthSchemeProvider: SSOHttpAuthSchemeProvider = (auth
     case "GetRoleCredentials": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "ListAccountRoles": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "ListAccounts": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "Logout": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

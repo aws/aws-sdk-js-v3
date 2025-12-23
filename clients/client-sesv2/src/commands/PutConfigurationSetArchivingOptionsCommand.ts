@@ -27,9 +27,7 @@ export interface PutConfigurationSetArchivingOptionsCommandInput extends PutConf
  *
  * The output of {@link PutConfigurationSetArchivingOptionsCommand}.
  */
-export interface PutConfigurationSetArchivingOptionsCommandOutput
-  extends PutConfigurationSetArchivingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetArchivingOptionsCommandOutput extends PutConfigurationSetArchivingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Associate the configuration set with a MailManager archive. When you send email using the

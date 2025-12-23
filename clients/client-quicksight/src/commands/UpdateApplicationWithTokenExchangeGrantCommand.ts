@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateApplicationWithTokenExchangeGrantCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandInput
-  extends UpdateApplicationWithTokenExchangeGrantRequest {}
+export interface UpdateApplicationWithTokenExchangeGrantCommandInput extends UpdateApplicationWithTokenExchangeGrantRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateApplicationWithTokenExchangeGrantCommand}.
  */
-export interface UpdateApplicationWithTokenExchangeGrantCommandOutput
-  extends UpdateApplicationWithTokenExchangeGrantResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends UpdateApplicationWithTokenExchangeGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Quick Suite application with a token exchange grant. This operation only supports Quick Suite applications that are registered with IAM Identity Center.</p>

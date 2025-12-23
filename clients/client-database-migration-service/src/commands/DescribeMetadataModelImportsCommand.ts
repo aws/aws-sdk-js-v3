@@ -28,9 +28,7 @@ export interface DescribeMetadataModelImportsCommandInput extends DescribeMetada
  *
  * The output of {@link DescribeMetadataModelImportsCommand}.
  */
-export interface DescribeMetadataModelImportsCommandOutput
-  extends DescribeMetadataModelImportsResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetadataModelImportsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model imports.</p>

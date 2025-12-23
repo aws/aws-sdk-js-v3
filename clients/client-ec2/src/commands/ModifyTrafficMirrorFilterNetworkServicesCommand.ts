@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
  */
-export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput
-  extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
+export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
  */
-export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-  extends ModifyTrafficMirrorFilterNetworkServicesResult,
-    __MetadataBearer {}
+export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput extends ModifyTrafficMirrorFilterNetworkServicesResult, __MetadataBearer {}
 
 /**
  * <p>Allows or restricts mirroring network services.</p>

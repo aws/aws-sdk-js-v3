@@ -192,7 +192,9 @@ export interface AcceptPredictionsOutput {
  * <p>The asset permissions.</p>
  * @public
  */
-export type Permissions = Permissions.S3Member | Permissions.$UnknownMember;
+export type Permissions =
+  | Permissions.S3Member
+  | Permissions.$UnknownMember;
 
 /**
  * @public
@@ -1037,7 +1039,9 @@ export interface AwsConsoleLinkParameters {
  * <p>The parameters of the environment action.</p>
  * @public
  */
-export type ActionParameters = ActionParameters.AwsConsoleLinkMember | ActionParameters.$UnknownMember;
+export type ActionParameters =
+  | ActionParameters.AwsConsoleLinkMember
+  | ActionParameters.$UnknownMember;
 
 /**
  * @public
@@ -1098,7 +1102,10 @@ export interface OwnerUserProperties {
  * <p>The properties of a domain unit's owner.</p>
  * @public
  */
-export type OwnerProperties = OwnerProperties.GroupMember | OwnerProperties.UserMember | OwnerProperties.$UnknownMember;
+export type OwnerProperties =
+  | OwnerProperties.GroupMember
+  | OwnerProperties.UserMember
+  | OwnerProperties.$UnknownMember;
 
 /**
  * @public
@@ -1835,7 +1842,9 @@ export interface DomainUnitFilterForProject {
  * <p>The project grant filter.</p>
  * @public
  */
-export type ProjectGrantFilter = ProjectGrantFilter.DomainUnitFilterMember | ProjectGrantFilter.$UnknownMember;
+export type ProjectGrantFilter =
+  | ProjectGrantFilter.DomainUnitFilterMember
+  | ProjectGrantFilter.$UnknownMember;
 
 /**
  * @public
@@ -3523,7 +3532,9 @@ export interface TextMatchItem {
  * <p>A rationale indicating why this item was matched by search. </p>
  * @public
  */
-export type MatchRationaleItem = MatchRationaleItem.TextMatchesMember | MatchRationaleItem.$UnknownMember;
+export type MatchRationaleItem =
+  | MatchRationaleItem.TextMatchesMember
+  | MatchRationaleItem.$UnknownMember;
 
 /**
  * @public
@@ -4642,7 +4653,10 @@ export interface AuthenticationConfigurationPatch {
  * <p>The account ID of a project.</p>
  * @public
  */
-export type AwsAccount = AwsAccount.AwsAccountIdMember | AwsAccount.AwsAccountIdPathMember | AwsAccount.$UnknownMember;
+export type AwsAccount =
+  | AwsAccount.AwsAccountIdMember
+  | AwsAccount.AwsAccountIdPathMember
+  | AwsAccount.$UnknownMember;
 
 /**
  * @public
@@ -9286,7 +9300,9 @@ export interface CreateEnvironmentProfileOutput {
  * <p>The model of the API.</p>
  * @public
  */
-export type Model = Model.SmithyMember | Model.$UnknownMember;
+export type Model =
+  | Model.SmithyMember
+  | Model.$UnknownMember;
 
 /**
  * @public
@@ -10013,7 +10029,10 @@ export interface CreateProjectOutput {
  * <p>The details about a project member.</p>
  * @public
  */
-export type Member = Member.GroupIdentifierMember | Member.UserIdentifierMember | Member.$UnknownMember;
+export type Member =
+  | Member.GroupIdentifierMember
+  | Member.UserIdentifierMember
+  | Member.$UnknownMember;
 
 /**
  * @public
@@ -10097,7 +10116,10 @@ export interface CreateProjectMembershipOutput {}
  * <p>The Amazon Web Services Region.</p>
  * @public
  */
-export type Region = Region.RegionNameMember | Region.RegionNamePathMember | Region.$UnknownMember;
+export type Region =
+  | Region.RegionNameMember
+  | Region.RegionNamePathMember
+  | Region.$UnknownMember;
 
 /**
  * @public
@@ -10582,7 +10604,9 @@ export interface DomainUnitTarget {
  * <p>The target of the rule.</p>
  * @public
  */
-export type RuleTarget = RuleTarget.DomainUnitTargetMember | RuleTarget.$UnknownMember;
+export type RuleTarget =
+  | RuleTarget.DomainUnitTargetMember
+  | RuleTarget.$UnknownMember;
 
 /**
  * @public
@@ -10761,7 +10785,9 @@ export interface ListingRevisionInput {
  * <p>The details of a listing for which a subscription is to be granted.</p>
  * @public
  */
-export type GrantedEntityInput = GrantedEntityInput.ListingMember | GrantedEntityInput.$UnknownMember;
+export type GrantedEntityInput =
+  | GrantedEntityInput.ListingMember
+  | GrantedEntityInput.$UnknownMember;
 
 /**
  * @public
@@ -10929,7 +10955,9 @@ export interface ListingRevision {
  * <p>The details of a listing for which a subscription is granted.</p>
  * @public
  */
-export type GrantedEntity = GrantedEntity.ListingMember | GrantedEntity.$UnknownMember;
+export type GrantedEntity =
+  | GrantedEntity.ListingMember
+  | GrantedEntity.$UnknownMember;
 
 /**
  * @public

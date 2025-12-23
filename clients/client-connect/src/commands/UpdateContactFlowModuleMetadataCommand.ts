@@ -27,9 +27,7 @@ export interface UpdateContactFlowModuleMetadataCommandInput extends UpdateConta
  *
  * The output of {@link UpdateContactFlowModuleMetadataCommand}.
  */
-export interface UpdateContactFlowModuleMetadataCommandOutput
-  extends UpdateContactFlowModuleMetadataResponse,
-    __MetadataBearer {}
+export interface UpdateContactFlowModuleMetadataCommandOutput extends UpdateContactFlowModuleMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates metadata about specified flow module.</p>

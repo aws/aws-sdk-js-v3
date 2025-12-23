@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ExecuteProvisionedProductServiceActionCommand}.
  */
-export interface ExecuteProvisionedProductServiceActionCommandInput
-  extends ExecuteProvisionedProductServiceActionInput {}
+export interface ExecuteProvisionedProductServiceActionCommandInput extends ExecuteProvisionedProductServiceActionInput {}
 /**
  * @public
  *
  * The output of {@link ExecuteProvisionedProductServiceActionCommand}.
  */
-export interface ExecuteProvisionedProductServiceActionCommandOutput
-  extends ExecuteProvisionedProductServiceActionOutput,
-    __MetadataBearer {}
+export interface ExecuteProvisionedProductServiceActionCommandOutput extends ExecuteProvisionedProductServiceActionOutput, __MetadataBearer {}
 
 /**
  * <p>Executes a self-service action against a provisioned product.</p>

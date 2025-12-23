@@ -24,9 +24,7 @@ export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefi
  *
  * The output of {@link ListDeviceDefinitionVersionsCommand}.
  */
-export interface ListDeviceDefinitionVersionsCommandOutput
-  extends ListDeviceDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListDeviceDefinitionVersionsCommandOutput extends ListDeviceDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a device definition.

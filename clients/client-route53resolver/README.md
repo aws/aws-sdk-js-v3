@@ -35,10 +35,8 @@ whether to forward queries from your VPCs to your network (outbound queries), fr
 network to your VPCs (inbound queries), or both.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route53resolver
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route53resolver`
 - `yarn add @aws-sdk/client-route53resolver`
 - `pnpm add @aws-sdk/client-route53resolver`
@@ -74,9 +72,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53ResolverClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListResolverRulesCommand(params);
 ```
 
@@ -235,7 +231,6 @@ AssociateFirewallRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/AssociateFirewallRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateFirewallRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateFirewallRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +238,6 @@ AssociateResolverEndpointIpAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/AssociateResolverEndpointIpAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverEndpointIpAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverEndpointIpAddressCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +245,6 @@ AssociateResolverQueryLogConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/AssociateResolverQueryLogConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverQueryLogConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverQueryLogConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +252,6 @@ AssociateResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/AssociateResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/AssociateResolverRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +259,6 @@ CreateFirewallDomainList
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateFirewallDomainListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallDomainListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallDomainListCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +266,6 @@ CreateFirewallRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +273,6 @@ CreateFirewallRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateFirewallRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateFirewallRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +280,6 @@ CreateOutpostResolver
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateOutpostResolverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateOutpostResolverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateOutpostResolverCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +287,6 @@ CreateResolverEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateResolverEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +294,6 @@ CreateResolverQueryLogConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateResolverQueryLogConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverQueryLogConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverQueryLogConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +301,6 @@ CreateResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/CreateResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/CreateResolverRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +308,6 @@ DeleteFirewallDomainList
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteFirewallDomainListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallDomainListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallDomainListCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +315,6 @@ DeleteFirewallRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +322,6 @@ DeleteFirewallRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteFirewallRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteFirewallRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +329,6 @@ DeleteOutpostResolver
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteOutpostResolverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteOutpostResolverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteOutpostResolverCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +336,6 @@ DeleteResolverEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteResolverEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +343,6 @@ DeleteResolverQueryLogConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteResolverQueryLogConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverQueryLogConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverQueryLogConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +350,6 @@ DeleteResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DeleteResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DeleteResolverRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +357,6 @@ DisassociateFirewallRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DisassociateFirewallRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateFirewallRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateFirewallRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +364,6 @@ DisassociateResolverEndpointIpAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DisassociateResolverEndpointIpAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverEndpointIpAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverEndpointIpAddressCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +371,6 @@ DisassociateResolverQueryLogConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DisassociateResolverQueryLogConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverQueryLogConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverQueryLogConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +378,6 @@ DisassociateResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/DisassociateResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/DisassociateResolverRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +385,6 @@ GetFirewallConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetFirewallConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +392,6 @@ GetFirewallDomainList
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetFirewallDomainListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallDomainListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallDomainListCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +399,6 @@ GetFirewallRuleGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetFirewallRuleGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,7 +406,6 @@ GetFirewallRuleGroupAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetFirewallRuleGroupAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -443,7 +413,6 @@ GetFirewallRuleGroupPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetFirewallRuleGroupPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetFirewallRuleGroupPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -451,7 +420,6 @@ GetOutpostResolver
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetOutpostResolverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetOutpostResolverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetOutpostResolverCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -459,7 +427,6 @@ GetResolverConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -467,7 +434,6 @@ GetResolverDnssecConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverDnssecConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverDnssecConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverDnssecConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -475,7 +441,6 @@ GetResolverEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -483,7 +448,6 @@ GetResolverQueryLogConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverQueryLogConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -491,7 +455,6 @@ GetResolverQueryLogConfigAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverQueryLogConfigAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -499,7 +462,6 @@ GetResolverQueryLogConfigPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverQueryLogConfigPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverQueryLogConfigPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -507,7 +469,6 @@ GetResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -515,7 +476,6 @@ GetResolverRuleAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverRuleAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRuleAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRuleAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -523,7 +483,6 @@ GetResolverRulePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/GetResolverRulePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRulePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/GetResolverRulePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -531,7 +490,6 @@ ImportFirewallDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ImportFirewallDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ImportFirewallDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ImportFirewallDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -539,7 +497,6 @@ ListFirewallConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -547,7 +504,6 @@ ListFirewallDomainLists
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallDomainListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallDomainListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallDomainListsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -555,7 +511,6 @@ ListFirewallDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -563,7 +518,6 @@ ListFirewallRuleGroupAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRuleGroupAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleGroupAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleGroupAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -571,7 +525,6 @@ ListFirewallRuleGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRuleGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -579,7 +532,6 @@ ListFirewallRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -587,7 +539,6 @@ ListOutpostResolvers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListOutpostResolversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListOutpostResolversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListOutpostResolversCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -595,7 +546,6 @@ ListResolverConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +553,6 @@ ListResolverDnssecConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverDnssecConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverDnssecConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverDnssecConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,7 +560,6 @@ ListResolverEndpointIpAddresses
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverEndpointIpAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverEndpointIpAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverEndpointIpAddressesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -619,7 +567,6 @@ ListResolverEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -627,7 +574,6 @@ ListResolverQueryLogConfigAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverQueryLogConfigAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverQueryLogConfigAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverQueryLogConfigAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -635,7 +581,6 @@ ListResolverQueryLogConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverQueryLogConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverQueryLogConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverQueryLogConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -643,7 +588,6 @@ ListResolverRuleAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverRuleAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverRuleAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverRuleAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -651,7 +595,6 @@ ListResolverRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListResolverRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListResolverRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -659,7 +602,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -667,7 +609,6 @@ PutFirewallRuleGroupPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/PutFirewallRuleGroupPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutFirewallRuleGroupPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutFirewallRuleGroupPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -675,7 +616,6 @@ PutResolverQueryLogConfigPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/PutResolverQueryLogConfigPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutResolverQueryLogConfigPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutResolverQueryLogConfigPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -683,7 +623,6 @@ PutResolverRulePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/PutResolverRulePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutResolverRulePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/PutResolverRulePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -691,7 +630,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -699,7 +637,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -707,7 +644,6 @@ UpdateFirewallConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateFirewallConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -715,7 +651,6 @@ UpdateFirewallDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateFirewallDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -723,7 +658,6 @@ UpdateFirewallRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -731,7 +665,6 @@ UpdateFirewallRuleGroupAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateFirewallRuleGroupAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallRuleGroupAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateFirewallRuleGroupAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -739,7 +672,6 @@ UpdateOutpostResolver
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateOutpostResolverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateOutpostResolverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateOutpostResolverCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -747,7 +679,6 @@ UpdateResolverConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateResolverConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -755,7 +686,6 @@ UpdateResolverDnssecConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateResolverDnssecConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverDnssecConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverDnssecConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -763,7 +693,6 @@ UpdateResolverEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateResolverEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -771,5 +700,4 @@ UpdateResolverRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/UpdateResolverRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/UpdateResolverRuleCommandOutput/)
-
 </details>

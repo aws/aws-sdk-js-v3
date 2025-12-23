@@ -10,17 +10,17 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
     const result: any = await client.send(new DescribeNodegroupCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.nodegroup.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.nodegroup.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

@@ -27,8 +27,14 @@ export interface CloudFrontKeyValueStore {
   /**
    * @see {@link DeleteKeyCommand}
    */
-  deleteKey(args: DeleteKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyCommandOutput>;
-  deleteKey(args: DeleteKeyCommandInput, cb: (err: any, data?: DeleteKeyCommandOutput) => void): void;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyCommandOutput>;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    cb: (err: any, data?: DeleteKeyCommandOutput) => void
+  ): void;
   deleteKey(
     args: DeleteKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -55,8 +61,14 @@ export interface CloudFrontKeyValueStore {
   /**
    * @see {@link GetKeyCommand}
    */
-  getKey(args: GetKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyCommandOutput>;
-  getKey(args: GetKeyCommandInput, cb: (err: any, data?: GetKeyCommandOutput) => void): void;
+  getKey(
+    args: GetKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyCommandOutput>;
+  getKey(
+    args: GetKeyCommandInput,
+    cb: (err: any, data?: GetKeyCommandOutput) => void
+  ): void;
   getKey(
     args: GetKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -66,8 +78,14 @@ export interface CloudFrontKeyValueStore {
   /**
    * @see {@link ListKeysCommand}
    */
-  listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
+  listKeys(
+    args: ListKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeysCommandOutput>;
+  listKeys(
+    args: ListKeysCommandInput,
+    cb: (err: any, data?: ListKeysCommandOutput) => void
+  ): void;
   listKeys(
     args: ListKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -77,8 +95,14 @@ export interface CloudFrontKeyValueStore {
   /**
    * @see {@link PutKeyCommand}
    */
-  putKey(args: PutKeyCommandInput, options?: __HttpHandlerOptions): Promise<PutKeyCommandOutput>;
-  putKey(args: PutKeyCommandInput, cb: (err: any, data?: PutKeyCommandOutput) => void): void;
+  putKey(
+    args: PutKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutKeyCommandOutput>;
+  putKey(
+    args: PutKeyCommandInput,
+    cb: (err: any, data?: PutKeyCommandOutput) => void
+  ): void;
   putKey(
     args: PutKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -88,8 +112,14 @@ export interface CloudFrontKeyValueStore {
   /**
    * @see {@link UpdateKeysCommand}
    */
-  updateKeys(args: UpdateKeysCommandInput, options?: __HttpHandlerOptions): Promise<UpdateKeysCommandOutput>;
-  updateKeys(args: UpdateKeysCommandInput, cb: (err: any, data?: UpdateKeysCommandOutput) => void): void;
+  updateKeys(
+    args: UpdateKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeysCommandOutput>;
+  updateKeys(
+    args: UpdateKeysCommandInput,
+    cb: (err: any, data?: UpdateKeysCommandOutput) => void
+  ): void;
   updateKeys(
     args: UpdateKeysCommandInput,
     options: __HttpHandlerOptions,

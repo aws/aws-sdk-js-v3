@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartAutomatedReasoningPolicyTestWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyTestWorkflowCommandInput
-  extends StartAutomatedReasoningPolicyTestWorkflowRequest {}
+export interface StartAutomatedReasoningPolicyTestWorkflowCommandInput extends StartAutomatedReasoningPolicyTestWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link StartAutomatedReasoningPolicyTestWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyTestWorkflowCommandOutput
-  extends StartAutomatedReasoningPolicyTestWorkflowResponse,
-    __MetadataBearer {}
+export interface StartAutomatedReasoningPolicyTestWorkflowCommandOutput extends StartAutomatedReasoningPolicyTestWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a test workflow to validate Automated Reasoning policy tests. The workflow executes the specified tests against the policy and generates validation results.</p>

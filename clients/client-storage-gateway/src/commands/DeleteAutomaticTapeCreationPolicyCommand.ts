@@ -31,9 +31,7 @@ export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAut
  *
  * The output of {@link DeleteAutomaticTapeCreationPolicyCommand}.
  */
-export interface DeleteAutomaticTapeCreationPolicyCommandOutput
-  extends DeleteAutomaticTapeCreationPolicyOutput,
-    __MetadataBearer {}
+export interface DeleteAutomaticTapeCreationPolicyCommandOutput extends DeleteAutomaticTapeCreationPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new

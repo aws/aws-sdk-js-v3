@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateCapacityManagerOrganizationsAccessCommand}.
  */
-export interface UpdateCapacityManagerOrganizationsAccessCommandInput
-  extends UpdateCapacityManagerOrganizationsAccessRequest {}
+export interface UpdateCapacityManagerOrganizationsAccessCommandInput extends UpdateCapacityManagerOrganizationsAccessRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateCapacityManagerOrganizationsAccessCommand}.
  */
-export interface UpdateCapacityManagerOrganizationsAccessCommandOutput
-  extends UpdateCapacityManagerOrganizationsAccessResult,
-    __MetadataBearer {}
+export interface UpdateCapacityManagerOrganizationsAccessCommandOutput extends UpdateCapacityManagerOrganizationsAccessResult, __MetadataBearer {}
 
 /**
  * <p>

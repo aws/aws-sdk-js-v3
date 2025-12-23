@@ -75,8 +75,8 @@ export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSigV4AuthPlugin(config),
       getHttpApiKeyAuthPlugin(config, {
-        in: "header",
-        name: "X-Api-Key",
+        in: 'header',
+        name: 'X-Api-Key',
       }),
     ];
   })

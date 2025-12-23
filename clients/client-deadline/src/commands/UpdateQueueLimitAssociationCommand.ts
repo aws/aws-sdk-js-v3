@@ -24,9 +24,7 @@ export interface UpdateQueueLimitAssociationCommandInput extends UpdateQueueLimi
  *
  * The output of {@link UpdateQueueLimitAssociationCommand}.
  */
-export interface UpdateQueueLimitAssociationCommandOutput
-  extends UpdateQueueLimitAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateQueueLimitAssociationCommandOutput extends UpdateQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the status of the queue. If you set the status to one of the

@@ -28,9 +28,7 @@ export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSes
  *
  * The output of {@link GetMessagingSessionEndpointCommand}.
  */
-export interface GetMessagingSessionEndpointCommandOutput
-  extends GetMessagingSessionEndpointResponse,
-    __MetadataBearer {}
+export interface GetMessagingSessionEndpointCommandOutput extends GetMessagingSessionEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>The details of the endpoint for the messaging session.</p>

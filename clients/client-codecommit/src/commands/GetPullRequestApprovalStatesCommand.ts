@@ -24,9 +24,7 @@ export interface GetPullRequestApprovalStatesCommandInput extends GetPullRequest
  *
  * The output of {@link GetPullRequestApprovalStatesCommand}.
  */
-export interface GetPullRequestApprovalStatesCommandOutput
-  extends GetPullRequestApprovalStatesOutput,
-    __MetadataBearer {}
+export interface GetPullRequestApprovalStatesCommandOutput extends GetPullRequestApprovalStatesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more

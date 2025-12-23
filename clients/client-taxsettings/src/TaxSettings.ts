@@ -339,7 +339,10 @@ export interface TaxSettings {
     args: PutTaxExemptionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutTaxExemptionCommandOutput>;
-  putTaxExemption(args: PutTaxExemptionCommandInput, cb: (err: any, data?: PutTaxExemptionCommandOutput) => void): void;
+  putTaxExemption(
+    args: PutTaxExemptionCommandInput,
+    cb: (err: any, data?: PutTaxExemptionCommandOutput) => void
+  ): void;
   putTaxExemption(
     args: PutTaxExemptionCommandInput,
     options: __HttpHandlerOptions,

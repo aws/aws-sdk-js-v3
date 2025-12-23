@@ -31,9 +31,7 @@ export interface CreateMediaLiveConnectorPipelineCommandInput extends CreateMedi
  *
  * The output of {@link CreateMediaLiveConnectorPipelineCommand}.
  */
-export interface CreateMediaLiveConnectorPipelineCommandOutput
-  extends CreateMediaLiveConnectorPipelineResponse,
-    __MetadataBearer {}
+export interface CreateMediaLiveConnectorPipelineCommandOutput extends CreateMediaLiveConnectorPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>

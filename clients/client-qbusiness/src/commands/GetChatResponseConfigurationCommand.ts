@@ -24,9 +24,7 @@ export interface GetChatResponseConfigurationCommandInput extends GetChatRespons
  *
  * The output of {@link GetChatResponseConfigurationCommand}.
  */
-export interface GetChatResponseConfigurationCommandOutput
-  extends GetChatResponseConfigurationResponse,
-    __MetadataBearer {}
+export interface GetChatResponseConfigurationCommandOutput extends GetChatResponseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about a specific chat response configuration from an Amazon Q Business application. This operation returns the complete configuration settings and metadata.</p>

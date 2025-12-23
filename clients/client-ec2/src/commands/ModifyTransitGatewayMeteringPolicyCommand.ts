@@ -27,9 +27,7 @@ export interface ModifyTransitGatewayMeteringPolicyCommandInput extends ModifyTr
  *
  * The output of {@link ModifyTransitGatewayMeteringPolicyCommand}.
  */
-export interface ModifyTransitGatewayMeteringPolicyCommandOutput
-  extends ModifyTransitGatewayMeteringPolicyResult,
-    __MetadataBearer {}
+export interface ModifyTransitGatewayMeteringPolicyCommandOutput extends ModifyTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a transit gateway metering policy.</p>

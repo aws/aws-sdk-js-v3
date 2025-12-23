@@ -24,9 +24,7 @@ export interface DescribeSharedVpcConfigurationCommandInput extends DescribeShar
  *
  * The output of {@link DescribeSharedVpcConfigurationCommand}.
  */
-export interface DescribeSharedVpcConfigurationCommandOutput
-  extends DescribeSharedVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeSharedVpcConfigurationCommandOutput extends DescribeSharedVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual

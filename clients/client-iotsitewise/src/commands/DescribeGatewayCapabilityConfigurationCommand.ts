@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
-export interface DescribeGatewayCapabilityConfigurationCommandInput
-  extends DescribeGatewayCapabilityConfigurationRequest {}
+export interface DescribeGatewayCapabilityConfigurationCommandInput extends DescribeGatewayCapabilityConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeGatewayCapabilityConfigurationCommand}.
  */
-export interface DescribeGatewayCapabilityConfigurationCommandOutput
-  extends DescribeGatewayCapabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeGatewayCapabilityConfigurationCommandOutput extends DescribeGatewayCapabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.</p>

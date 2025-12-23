@@ -24,10 +24,8 @@ Amazon DynamoDB database tables in your production environment. </p>
 Management Pricing</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cost-explorer
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cost-explorer`
 - `yarn add @aws-sdk/client-cost-explorer`
 - `pnpm add @aws-sdk/client-cost-explorer`
@@ -63,9 +61,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CostExplorerClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListCostAllocationTagsCommand(params);
 ```
 
@@ -224,7 +220,6 @@ CreateAnomalyMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/CreateAnomalyMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateAnomalyMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateAnomalyMonitorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +227,6 @@ CreateAnomalySubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/CreateAnomalySubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateAnomalySubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateAnomalySubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +234,6 @@ CreateCostCategoryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/CreateCostCategoryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateCostCategoryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/CreateCostCategoryDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +241,6 @@ DeleteAnomalyMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/DeleteAnomalyMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteAnomalyMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteAnomalyMonitorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +248,6 @@ DeleteAnomalySubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/DeleteAnomalySubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteAnomalySubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteAnomalySubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +255,6 @@ DeleteCostCategoryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/DeleteCostCategoryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteCostCategoryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DeleteCostCategoryDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +262,6 @@ DescribeCostCategoryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/DescribeCostCategoryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DescribeCostCategoryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/DescribeCostCategoryDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +269,6 @@ GetAnomalies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetAnomaliesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomaliesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomaliesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +276,6 @@ GetAnomalyMonitors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetAnomalyMonitorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomalyMonitorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomalyMonitorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +283,6 @@ GetAnomalySubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetAnomalySubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomalySubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetAnomalySubscriptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +290,6 @@ GetApproximateUsageRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetApproximateUsageRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetApproximateUsageRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetApproximateUsageRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +297,6 @@ GetCommitmentPurchaseAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +304,6 @@ GetCostAndUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +311,6 @@ GetCostAndUsageComparisons
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageComparisonsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +318,6 @@ GetCostAndUsageWithResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageWithResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageWithResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageWithResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +325,6 @@ GetCostCategories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +332,6 @@ GetCostComparisonDrivers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostComparisonDriversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +339,6 @@ GetCostForecast
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostForecastCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,7 +346,6 @@ GetDimensionValues
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetDimensionValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetDimensionValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetDimensionValuesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -376,7 +353,6 @@ GetReservationCoverage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetReservationCoverageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationCoverageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationCoverageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -384,7 +360,6 @@ GetReservationPurchaseRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetReservationPurchaseRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationPurchaseRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationPurchaseRecommendationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -392,7 +367,6 @@ GetReservationUtilization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetReservationUtilizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationUtilizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetReservationUtilizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -400,7 +374,6 @@ GetRightsizingRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetRightsizingRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetRightsizingRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetRightsizingRecommendationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -408,7 +381,6 @@ GetSavingsPlanPurchaseRecommendationDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetSavingsPlanPurchaseRecommendationDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlanPurchaseRecommendationDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlanPurchaseRecommendationDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -416,7 +388,6 @@ GetSavingsPlansCoverage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetSavingsPlansCoverageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansCoverageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansCoverageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -424,7 +395,6 @@ GetSavingsPlansPurchaseRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetSavingsPlansPurchaseRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansPurchaseRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansPurchaseRecommendationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -432,7 +402,6 @@ GetSavingsPlansUtilization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetSavingsPlansUtilizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansUtilizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansUtilizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -440,7 +409,6 @@ GetSavingsPlansUtilizationDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetSavingsPlansUtilizationDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansUtilizationDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetSavingsPlansUtilizationDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -448,7 +416,6 @@ GetTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -456,7 +423,6 @@ GetUsageForecast
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetUsageForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetUsageForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetUsageForecastCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -464,7 +430,6 @@ ListCommitmentPurchaseAnalyses
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCommitmentPurchaseAnalysesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -472,7 +437,6 @@ ListCostAllocationTagBackfillHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostAllocationTagBackfillHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagBackfillHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagBackfillHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -480,7 +444,6 @@ ListCostAllocationTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostAllocationTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -488,7 +451,6 @@ ListCostCategoryDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostCategoryDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryDefinitionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -496,7 +458,6 @@ ListCostCategoryResourceAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostCategoryResourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryResourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryResourceAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -504,7 +465,6 @@ ListSavingsPlansPurchaseRecommendationGeneration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListSavingsPlansPurchaseRecommendationGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListSavingsPlansPurchaseRecommendationGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListSavingsPlansPurchaseRecommendationGenerationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -512,7 +472,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -520,7 +479,6 @@ ProvideAnomalyFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ProvideAnomalyFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -528,7 +486,6 @@ StartCommitmentPurchaseAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -536,7 +493,6 @@ StartCostAllocationTagBackfill
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartCostAllocationTagBackfillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCostAllocationTagBackfillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCostAllocationTagBackfillCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -544,7 +500,6 @@ StartSavingsPlansPurchaseRecommendationGeneration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartSavingsPlansPurchaseRecommendationGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartSavingsPlansPurchaseRecommendationGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartSavingsPlansPurchaseRecommendationGenerationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -552,7 +507,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -560,7 +514,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -568,7 +521,6 @@ UpdateAnomalyMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/UpdateAnomalyMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateAnomalyMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateAnomalyMonitorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -576,7 +528,6 @@ UpdateAnomalySubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/UpdateAnomalySubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateAnomalySubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateAnomalySubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -584,7 +535,6 @@ UpdateCostAllocationTagsStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/UpdateCostAllocationTagsStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateCostAllocationTagsStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateCostAllocationTagsStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -592,5 +542,4 @@ UpdateCostCategoryDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/UpdateCostCategoryDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateCostCategoryDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/UpdateCostCategoryDefinitionCommandOutput/)
-
 </details>

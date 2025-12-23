@@ -24,9 +24,7 @@ export interface DescribeInstanceTypeOfferingsCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceTypeOfferingsCommand}.
  */
-export interface DescribeInstanceTypeOfferingsCommandOutput
-  extends DescribeInstanceTypeOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceTypeOfferingsCommandOutput extends DescribeInstanceTypeOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the instance types that are offered for the specified location. If no location is

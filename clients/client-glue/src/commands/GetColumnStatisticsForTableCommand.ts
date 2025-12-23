@@ -24,9 +24,7 @@ export interface GetColumnStatisticsForTableCommandInput extends GetColumnStatis
  *
  * The output of {@link GetColumnStatisticsForTableCommand}.
  */
-export interface GetColumnStatisticsForTableCommandOutput
-  extends GetColumnStatisticsForTableResponse,
-    __MetadataBearer {}
+export interface GetColumnStatisticsForTableCommandOutput extends GetColumnStatisticsForTableResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves table statistics of columns.</p>

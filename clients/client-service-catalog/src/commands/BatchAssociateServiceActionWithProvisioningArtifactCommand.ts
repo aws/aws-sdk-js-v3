@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
-  extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-  extends BatchAssociateServiceActionWithProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput extends BatchAssociateServiceActionWithProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>

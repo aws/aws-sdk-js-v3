@@ -24,9 +24,7 @@ export interface DescribeEventConfigurationsCommandInput extends DescribeEventCo
  *
  * The output of {@link DescribeEventConfigurationsCommand}.
  */
-export interface DescribeEventConfigurationsCommandOutput
-  extends DescribeEventConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeEventConfigurationsCommandOutput extends DescribeEventConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes event configurations.</p>

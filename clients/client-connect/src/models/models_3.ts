@@ -35,7 +35,6 @@ import {
   ViewType,
   Visibility,
 } from "./enums";
-
 import {
   type AdditionalEmailRecipients,
   type AgentConfig,
@@ -81,7 +80,6 @@ import {
   TaskTemplateField,
   UserProficiency,
 } from "./models_0";
-
 import {
   type AttributeCondition,
   type ChatMetrics,
@@ -104,7 +102,6 @@ import {
   NextContactEntry,
   RecordingInfo,
 } from "./models_1";
-
 import {
   type BooleanCondition,
   type ChatMessage,
@@ -734,7 +731,9 @@ export interface EvaluationAnswerInput {
  * <p>Represents the entity that performed the action on the evaluation.</p>
  * @public
  */
-export type EvaluatorUserUnion = EvaluatorUserUnion.ConnectUserArnMember | EvaluatorUserUnion.$UnknownMember;
+export type EvaluatorUserUnion =
+  | EvaluatorUserUnion.ConnectUserArnMember
+  | EvaluatorUserUnion.$UnknownMember;
 
 /**
  * @public

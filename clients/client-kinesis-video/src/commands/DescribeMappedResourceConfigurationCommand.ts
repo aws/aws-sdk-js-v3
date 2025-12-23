@@ -27,9 +27,7 @@ export interface DescribeMappedResourceConfigurationCommandInput extends Describ
  *
  * The output of {@link DescribeMappedResourceConfigurationCommand}.
  */
-export interface DescribeMappedResourceConfigurationCommandOutput
-  extends DescribeMappedResourceConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeMappedResourceConfigurationCommandOutput extends DescribeMappedResourceConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the most current information about the stream. The <code>streamName</code>

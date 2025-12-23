@@ -24,9 +24,7 @@ export interface UpdateIndexingConfigurationCommandInput extends UpdateIndexingC
  *
  * The output of {@link UpdateIndexingConfigurationCommand}.
  */
-export interface UpdateIndexingConfigurationCommandOutput
-  extends UpdateIndexingConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateIndexingConfigurationCommandOutput extends UpdateIndexingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the search configuration.</p>

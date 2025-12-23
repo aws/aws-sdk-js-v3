@@ -1385,7 +1385,7 @@ export interface Snapshot {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -1471,7 +1471,7 @@ export interface Snapshot {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -1918,7 +1918,7 @@ export interface CreateCacheClusterMessage {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -2004,7 +2004,7 @@ export interface CreateCacheClusterMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -2344,7 +2344,7 @@ export interface CreateCacheClusterMessage {
  *                      </note>
  *                      <p>
  *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
- *
+ * 					
  * 					 	<code>cache.m6g.large</code>,
  * 							<code>cache.m6g.xlarge</code>,
  * 							<code>cache.m6g.2xlarge</code>,
@@ -2430,7 +2430,7 @@ export interface CreateCacheClusterMessage {
  *                   <li>
  *                      <p>Current generation: </p>
  *                      <p>
- *                         <b>R7g node types</b>:
+ *                         <b>R7g node types</b>:	
  * 							<code>cache.r7g.large</code>,
  * 							<code>cache.r7g.xlarge</code>,
  * 							<code>cache.r7g.2xlarge</code>,
@@ -2794,7 +2794,7 @@ export interface CacheCluster {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -2880,7 +2880,7 @@ export interface CacheCluster {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -3926,7 +3926,7 @@ export interface CreateReplicationGroupMessage {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -4012,7 +4012,7 @@ export interface CreateReplicationGroupMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -6433,7 +6433,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -6519,7 +6519,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -6715,7 +6715,7 @@ export interface ReservedCacheNode {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -6801,7 +6801,7 @@ export interface ReservedCacheNode {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -7014,7 +7014,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -7100,7 +7100,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,
@@ -7270,7 +7270,7 @@ export interface ReservedCacheNodesOffering {
    *                      </note>
    *                      <p>
    *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   *
+   * 					
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -7356,7 +7356,7 @@ export interface ReservedCacheNodesOffering {
    *                   <li>
    *                      <p>Current generation: </p>
    *                      <p>
-   *                         <b>R7g node types</b>:
+   *                         <b>R7g node types</b>:	
    * 							<code>cache.r7g.large</code>,
    * 							<code>cache.r7g.xlarge</code>,
    * 							<code>cache.r7g.2xlarge</code>,

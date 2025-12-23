@@ -28,9 +28,7 @@ export interface DeleteVerifiedDestinationNumberCommandInput extends DeleteVerif
  *
  * The output of {@link DeleteVerifiedDestinationNumberCommand}.
  */
-export interface DeleteVerifiedDestinationNumberCommandOutput
-  extends DeleteVerifiedDestinationNumberResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedDestinationNumberCommandOutput extends DeleteVerifiedDestinationNumberResult, __MetadataBearer {}
 
 /**
  * <p>Delete a verified destination phone number.</p>

@@ -24,9 +24,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
  *
  * The output of {@link DescribeHealthServiceStatusForOrganizationCommand}.
  */
-export interface DescribeHealthServiceStatusForOrganizationCommandOutput
-  extends DescribeHealthServiceStatusForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeHealthServiceStatusForOrganizationCommandOutput extends DescribeHealthServiceStatusForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>This operation provides status information on enabling or disabling Health to work

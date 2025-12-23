@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableInstanceSqlHaStandbyDetectionsCommand}.
  */
-export interface DisableInstanceSqlHaStandbyDetectionsCommandInput
-  extends DisableInstanceSqlHaStandbyDetectionsRequest {}
+export interface DisableInstanceSqlHaStandbyDetectionsCommandInput extends DisableInstanceSqlHaStandbyDetectionsRequest {}
 /**
  * @public
  *
  * The output of {@link DisableInstanceSqlHaStandbyDetectionsCommand}.
  */
-export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput
-  extends DisableInstanceSqlHaStandbyDetectionsResult,
-    __MetadataBearer {}
+export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput extends DisableInstanceSqlHaStandbyDetectionsResult, __MetadataBearer {}
 
 /**
  * <p>Disable Amazon EC2 instances running in an SQL Server High Availability cluster from SQL Server High Availability

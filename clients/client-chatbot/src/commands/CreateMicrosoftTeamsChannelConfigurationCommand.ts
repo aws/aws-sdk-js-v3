@@ -24,9 +24,7 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandInput extends Cr
  *
  * The output of {@link CreateMicrosoftTeamsChannelConfigurationCommand}.
  */
-export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
-  extends CreateTeamsChannelConfigurationResult,
-    __MetadataBearer {}
+export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput extends CreateTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Chatbot configuration for Microsoft Teams.</p>

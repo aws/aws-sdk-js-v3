@@ -26,7 +26,8 @@ export const getRuntimeConfig = (config: ServiceQuotasClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],

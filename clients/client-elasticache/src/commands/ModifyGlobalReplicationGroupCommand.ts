@@ -24,9 +24,7 @@ export interface ModifyGlobalReplicationGroupCommandInput extends ModifyGlobalRe
  *
  * The output of {@link ModifyGlobalReplicationGroupCommand}.
  */
-export interface ModifyGlobalReplicationGroupCommandOutput
-  extends ModifyGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface ModifyGlobalReplicationGroupCommandOutput extends ModifyGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a Global datastore.</p>

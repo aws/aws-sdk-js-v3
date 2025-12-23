@@ -24,9 +24,7 @@ export interface GetEvidenceFoldersByAssessmentCommandInput extends GetEvidenceF
  *
  * The output of {@link GetEvidenceFoldersByAssessmentCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentCommandOutput
-  extends GetEvidenceFoldersByAssessmentResponse,
-    __MetadataBearer {}
+export interface GetEvidenceFoldersByAssessmentCommandOutput extends GetEvidenceFoldersByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Gets the evidence folders from a specified assessment in Audit Manager. </p>

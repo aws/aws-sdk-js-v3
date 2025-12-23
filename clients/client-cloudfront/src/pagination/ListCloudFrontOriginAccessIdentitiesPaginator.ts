@@ -21,10 +21,4 @@ export const paginateListCloudFrontOriginAccessIdentities: (
   CloudFrontPaginationConfiguration,
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput
->(
-  CloudFrontClient,
-  ListCloudFrontOriginAccessIdentitiesCommand,
-  "Marker",
-  "CloudFrontOriginAccessIdentityList.NextMarker",
-  "MaxItems"
-);
+>(CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand, "Marker", "CloudFrontOriginAccessIdentityList.NextMarker", "MaxItems");

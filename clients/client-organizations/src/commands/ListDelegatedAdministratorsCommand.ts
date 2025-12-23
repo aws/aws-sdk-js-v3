@@ -24,9 +24,7 @@ export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAd
  *
  * The output of {@link ListDelegatedAdministratorsCommand}.
  */
-export interface ListDelegatedAdministratorsCommandOutput
-  extends ListDelegatedAdministratorsResponse,
-    __MetadataBearer {}
+export interface ListDelegatedAdministratorsCommandOutput extends ListDelegatedAdministratorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this

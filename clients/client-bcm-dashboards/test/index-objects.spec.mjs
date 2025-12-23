@@ -47,6 +47,7 @@ import {
   ListTagsForResourceResponse$,
   MatchOption,
   MetricName,
+  paginateListDashboards,
   QueryParameters$,
   ReservationCoverageQuery$,
   ReservationUtilizationQuery$,
@@ -78,7 +79,6 @@ import {
   VisualType,
   Widget$,
   WidgetConfig$,
-  paginateListDashboards,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

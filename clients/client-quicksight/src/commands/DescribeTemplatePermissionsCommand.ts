@@ -24,9 +24,7 @@ export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplat
  *
  * The output of {@link DescribeTemplatePermissionsCommand}.
  */
-export interface DescribeTemplatePermissionsCommandOutput
-  extends DescribeTemplatePermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeTemplatePermissionsCommandOutput extends DescribeTemplatePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes read and write permissions on a template.</p>

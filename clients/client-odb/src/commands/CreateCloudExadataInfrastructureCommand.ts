@@ -24,9 +24,7 @@ export interface CreateCloudExadataInfrastructureCommandInput extends CreateClou
  *
  * The output of {@link CreateCloudExadataInfrastructureCommand}.
  */
-export interface CreateCloudExadataInfrastructureCommandOutput
-  extends CreateCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface CreateCloudExadataInfrastructureCommandOutput extends CreateCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an Exadata infrastructure.</p>

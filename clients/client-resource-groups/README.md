@@ -42,10 +42,8 @@ results</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-resource-groups
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-resource-groups`
 - `yarn add @aws-sdk/client-resource-groups`
 - `pnpm add @aws-sdk/client-resource-groups`
@@ -81,9 +79,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ResourceGroupsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListGroupsCommand(params);
 ```
 
@@ -242,7 +238,6 @@ CancelTagSyncTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/CancelTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CancelTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CancelTagSyncTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +245,6 @@ CreateGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/CreateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CreateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/CreateGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +252,6 @@ DeleteGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/DeleteGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/DeleteGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/DeleteGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +259,6 @@ GetAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +266,6 @@ GetGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +273,6 @@ GetGroupConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetGroupConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +280,6 @@ GetGroupQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetGroupQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetGroupQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +287,6 @@ GetTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +294,6 @@ GetTagSyncTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GetTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GetTagSyncTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +301,6 @@ GroupResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/GroupResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GroupResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/GroupResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +308,6 @@ ListGroupingStatuses
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListGroupingStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupingStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupingStatusesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +315,6 @@ ListGroupResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListGroupResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +322,6 @@ ListGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +329,6 @@ ListTagSyncTasks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/ListTagSyncTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListTagSyncTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/ListTagSyncTasksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +336,6 @@ PutGroupConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/PutGroupConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/PutGroupConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/PutGroupConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +343,6 @@ SearchResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/SearchResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/SearchResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/SearchResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +350,6 @@ StartTagSyncTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/StartTagSyncTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/StartTagSyncTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/StartTagSyncTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +357,6 @@ Tag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/TagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/TagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/TagCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +364,6 @@ UngroupResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/UngroupResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UngroupResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UngroupResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +371,6 @@ Untag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/UntagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UntagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UntagCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +378,6 @@ UpdateAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/UpdateAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateAccountSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +385,6 @@ UpdateGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/UpdateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,5 +392,4 @@ UpdateGroupQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups/command/UpdateGroupQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateGroupQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups/Interface/UpdateGroupQueryCommandOutput/)
-
 </details>

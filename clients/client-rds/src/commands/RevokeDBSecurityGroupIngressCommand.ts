@@ -24,9 +24,7 @@ export interface RevokeDBSecurityGroupIngressCommandInput extends RevokeDBSecuri
  *
  * The output of {@link RevokeDBSecurityGroupIngressCommand}.
  */
-export interface RevokeDBSecurityGroupIngressCommandOutput
-  extends RevokeDBSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface RevokeDBSecurityGroupIngressCommandOutput extends RevokeDBSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required

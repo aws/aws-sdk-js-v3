@@ -1,6 +1,6 @@
-export * from "./GetQueryResultsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetQueryResultsPaginator";
 export * from "./ListChannelsPaginator";
 export * from "./ListEventDataStoresPaginator";
 export * from "./ListImportFailuresPaginator";

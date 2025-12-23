@@ -9,10 +9,8 @@ AWS SDK for JavaScript KinesisVideoArchivedMedia Client for Node.js, Browser and
 <p></p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kinesis-video-archived-media
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kinesis-video-archived-media`
 - `yarn add @aws-sdk/client-kinesis-video-archived-media`
 - `pnpm add @aws-sdk/client-kinesis-video-archived-media`
@@ -27,10 +25,7 @@ the commands you need, for example `ListFragmentsCommand`:
 
 ```js
 // ES5 example
-const {
-  KinesisVideoArchivedMediaClient,
-  ListFragmentsCommand,
-} = require("@aws-sdk/client-kinesis-video-archived-media");
+const { KinesisVideoArchivedMediaClient, ListFragmentsCommand } = require("@aws-sdk/client-kinesis-video-archived-media");
 ```
 
 ```ts
@@ -51,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KinesisVideoArchivedMediaClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListFragmentsCommand(params);
 ```
 
@@ -212,7 +205,6 @@ GetClip
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/GetClipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetClipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetClipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +212,6 @@ GetDASHStreamingSessionURL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/GetDASHStreamingSessionURLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetDASHStreamingSessionURLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetDASHStreamingSessionURLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +219,6 @@ GetHLSStreamingSessionURL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/GetHLSStreamingSessionURLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetHLSStreamingSessionURLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetHLSStreamingSessionURLCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +226,6 @@ GetImages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/GetImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetImagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +233,6 @@ GetMediaForFragmentList
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/GetMediaForFragmentListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetMediaForFragmentListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/GetMediaForFragmentListCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,5 +240,4 @@ ListFragments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-archived-media/command/ListFragmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/ListFragmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-archived-media/Interface/ListFragmentsCommandOutput/)
-
 </details>

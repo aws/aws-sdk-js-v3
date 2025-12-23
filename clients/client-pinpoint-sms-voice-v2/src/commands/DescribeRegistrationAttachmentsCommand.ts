@@ -28,9 +28,7 @@ export interface DescribeRegistrationAttachmentsCommandInput extends DescribeReg
  *
  * The output of {@link DescribeRegistrationAttachmentsCommand}.
  */
-export interface DescribeRegistrationAttachmentsCommandOutput
-  extends DescribeRegistrationAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationAttachmentsCommandOutput extends DescribeRegistrationAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration attachments or all registration attachments associated with your Amazon Web Services account.</p>

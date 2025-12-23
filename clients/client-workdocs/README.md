@@ -67,10 +67,8 @@ using the IAM model.</p>
 </note>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-workdocs
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-workdocs`
 - `yarn add @aws-sdk/client-workdocs`
 - `pnpm add @aws-sdk/client-workdocs`
@@ -106,9 +104,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new WorkDocsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new DescribeUsersCommand(params);
 ```
 
@@ -267,7 +263,6 @@ AbortDocumentVersionUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/AbortDocumentVersionUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/AbortDocumentVersionUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/AbortDocumentVersionUploadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +270,6 @@ ActivateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/ActivateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/ActivateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/ActivateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +277,6 @@ AddResourcePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/AddResourcePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/AddResourcePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/AddResourcePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +284,6 @@ CreateComment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateCommentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateCommentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateCommentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +291,6 @@ CreateCustomMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateCustomMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateCustomMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateCustomMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +298,6 @@ CreateFolder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateFolderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +305,6 @@ CreateLabels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateLabelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateLabelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateLabelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +312,6 @@ CreateNotificationSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateNotificationSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateNotificationSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateNotificationSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +319,6 @@ CreateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/CreateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/CreateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +326,6 @@ DeactivateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeactivateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeactivateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeactivateUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +333,6 @@ DeleteComment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteCommentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteCommentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteCommentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +340,6 @@ DeleteCustomMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteCustomMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteCustomMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteCustomMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +347,6 @@ DeleteDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteDocumentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +354,6 @@ DeleteDocumentVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteDocumentVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteDocumentVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteDocumentVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +361,6 @@ DeleteFolder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteFolderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +368,6 @@ DeleteFolderContents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteFolderContentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteFolderContentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteFolderContentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +375,6 @@ DeleteLabels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteLabelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteLabelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteLabelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +382,6 @@ DeleteNotificationSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteNotificationSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteNotificationSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteNotificationSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +389,6 @@ DeleteUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DeleteUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DeleteUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +396,6 @@ DescribeActivities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeActivitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeActivitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeActivitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +403,6 @@ DescribeComments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeCommentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeCommentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeCommentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,7 +410,6 @@ DescribeDocumentVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeDocumentVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeDocumentVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeDocumentVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -443,7 +417,6 @@ DescribeFolderContents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeFolderContentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeFolderContentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeFolderContentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -451,7 +424,6 @@ DescribeGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -459,7 +431,6 @@ DescribeNotificationSubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeNotificationSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeNotificationSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeNotificationSubscriptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -467,7 +438,6 @@ DescribeResourcePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeResourcePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeResourcePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeResourcePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -475,7 +445,6 @@ DescribeRootFolders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeRootFoldersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeRootFoldersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeRootFoldersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -483,7 +452,6 @@ DescribeUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/DescribeUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/DescribeUsersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -491,7 +459,6 @@ GetCurrentUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetCurrentUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetCurrentUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetCurrentUserCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -499,7 +466,6 @@ GetDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -507,7 +473,6 @@ GetDocumentPath
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetDocumentPathCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentPathCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentPathCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -515,7 +480,6 @@ GetDocumentVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetDocumentVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetDocumentVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -523,7 +487,6 @@ GetFolder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetFolderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -531,7 +494,6 @@ GetFolderPath
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetFolderPathCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetFolderPathCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetFolderPathCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -539,7 +501,6 @@ GetResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/GetResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/GetResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -547,7 +508,6 @@ InitiateDocumentVersionUpload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/InitiateDocumentVersionUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/InitiateDocumentVersionUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/InitiateDocumentVersionUploadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -555,7 +515,6 @@ RemoveAllResourcePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/RemoveAllResourcePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RemoveAllResourcePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RemoveAllResourcePermissionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -563,7 +522,6 @@ RemoveResourcePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/RemoveResourcePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RemoveResourcePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RemoveResourcePermissionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -571,7 +529,6 @@ RestoreDocumentVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/RestoreDocumentVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RestoreDocumentVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/RestoreDocumentVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -579,7 +536,6 @@ SearchResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/SearchResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/SearchResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/SearchResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -587,7 +543,6 @@ UpdateDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/UpdateDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateDocumentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -595,7 +550,6 @@ UpdateDocumentVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/UpdateDocumentVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateDocumentVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateDocumentVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +557,6 @@ UpdateFolder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/UpdateFolderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateFolderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateFolderCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,5 +564,4 @@ UpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workdocs/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workdocs/Interface/UpdateUserCommandOutput/)
-
 </details>

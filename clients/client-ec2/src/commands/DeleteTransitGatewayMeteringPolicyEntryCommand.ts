@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayMeteringPolicyEntryCommand}.
  */
-export interface DeleteTransitGatewayMeteringPolicyEntryCommandInput
-  extends DeleteTransitGatewayMeteringPolicyEntryRequest {}
+export interface DeleteTransitGatewayMeteringPolicyEntryCommandInput extends DeleteTransitGatewayMeteringPolicyEntryRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayMeteringPolicyEntryCommand}.
  */
-export interface DeleteTransitGatewayMeteringPolicyEntryCommandOutput
-  extends DeleteTransitGatewayMeteringPolicyEntryResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayMeteringPolicyEntryCommandOutput extends DeleteTransitGatewayMeteringPolicyEntryResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an entry from a transit gateway metering policy.</p>

@@ -24,9 +24,7 @@ export interface ResetServiceSpecificCredentialCommandInput extends ResetService
  *
  * The output of {@link ResetServiceSpecificCredentialCommand}.
  */
-export interface ResetServiceSpecificCredentialCommandOutput
-  extends ResetServiceSpecificCredentialResponse,
-    __MetadataBearer {}
+export interface ResetServiceSpecificCredentialCommandOutput extends ResetServiceSpecificCredentialResponse, __MetadataBearer {}
 
 /**
  * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services

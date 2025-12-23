@@ -27,9 +27,7 @@ export interface GetOrganizationCustomRulePolicyCommandInput extends GetOrganiza
  *
  * The output of {@link GetOrganizationCustomRulePolicyCommand}.
  */
-export interface GetOrganizationCustomRulePolicyCommandOutput
-  extends GetOrganizationCustomRulePolicyResponse,
-    __MetadataBearer {}
+export interface GetOrganizationCustomRulePolicyCommandOutput extends GetOrganizationCustomRulePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>

@@ -27,9 +27,7 @@ export interface DeleteTransitGatewayMulticastDomainCommandInput extends DeleteT
  *
  * The output of {@link DeleteTransitGatewayMulticastDomainCommand}.
  */
-export interface DeleteTransitGatewayMulticastDomainCommandOutput
-  extends DeleteTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayMulticastDomainCommandOutput extends DeleteTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified transit gateway multicast domain.</p>

@@ -129,8 +129,14 @@ export interface MPA {
   /**
    * @see {@link CancelSessionCommand}
    */
-  cancelSession(args: CancelSessionCommandInput, options?: __HttpHandlerOptions): Promise<CancelSessionCommandOutput>;
-  cancelSession(args: CancelSessionCommandInput, cb: (err: any, data?: CancelSessionCommandOutput) => void): void;
+  cancelSession(
+    args: CancelSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelSessionCommandOutput>;
+  cancelSession(
+    args: CancelSessionCommandInput,
+    cb: (err: any, data?: CancelSessionCommandOutput) => void
+  ): void;
   cancelSession(
     args: CancelSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -212,7 +218,10 @@ export interface MPA {
     args: GetApprovalTeamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApprovalTeamCommandOutput>;
-  getApprovalTeam(args: GetApprovalTeamCommandInput, cb: (err: any, data?: GetApprovalTeamCommandOutput) => void): void;
+  getApprovalTeam(
+    args: GetApprovalTeamCommandInput,
+    cb: (err: any, data?: GetApprovalTeamCommandOutput) => void
+  ): void;
   getApprovalTeam(
     args: GetApprovalTeamCommandInput,
     options: __HttpHandlerOptions,
@@ -273,8 +282,14 @@ export interface MPA {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -321,8 +336,14 @@ export interface MPA {
    * @see {@link ListPoliciesCommand}
    */
   listPolicies(): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -366,8 +387,14 @@ export interface MPA {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -411,8 +438,14 @@ export interface MPA {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -422,8 +455,14 @@ export interface MPA {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

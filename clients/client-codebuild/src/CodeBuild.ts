@@ -363,7 +363,10 @@ export interface CodeBuild {
     args: BatchGetBuildsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetBuildsCommandOutput>;
-  batchGetBuilds(args: BatchGetBuildsCommandInput, cb: (err: any, data?: BatchGetBuildsCommandOutput) => void): void;
+  batchGetBuilds(
+    args: BatchGetBuildsCommandInput,
+    cb: (err: any, data?: BatchGetBuildsCommandOutput) => void
+  ): void;
   batchGetBuilds(
     args: BatchGetBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -394,7 +397,10 @@ export interface CodeBuild {
     args: BatchGetFleetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetFleetsCommandOutput>;
-  batchGetFleets(args: BatchGetFleetsCommandInput, cb: (err: any, data?: BatchGetFleetsCommandOutput) => void): void;
+  batchGetFleets(
+    args: BatchGetFleetsCommandInput,
+    cb: (err: any, data?: BatchGetFleetsCommandOutput) => void
+  ): void;
   batchGetFleets(
     args: BatchGetFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -442,7 +448,10 @@ export interface CodeBuild {
     args: BatchGetReportsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetReportsCommandOutput>;
-  batchGetReports(args: BatchGetReportsCommandInput, cb: (err: any, data?: BatchGetReportsCommandOutput) => void): void;
+  batchGetReports(
+    args: BatchGetReportsCommandInput,
+    cb: (err: any, data?: BatchGetReportsCommandOutput) => void
+  ): void;
   batchGetReports(
     args: BatchGetReportsCommandInput,
     options: __HttpHandlerOptions,
@@ -469,8 +478,14 @@ export interface CodeBuild {
   /**
    * @see {@link CreateFleetCommand}
    */
-  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
-  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetCommandOutput>;
+  createFleet(
+    args: CreateFleetCommandInput,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
+  ): void;
   createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -480,8 +495,14 @@ export interface CodeBuild {
   /**
    * @see {@link CreateProjectCommand}
    */
-  createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
-  createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
   createProject(
     args: CreateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -508,8 +529,14 @@ export interface CodeBuild {
   /**
    * @see {@link CreateWebhookCommand}
    */
-  createWebhook(args: CreateWebhookCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebhookCommandOutput>;
-  createWebhook(args: CreateWebhookCommandInput, cb: (err: any, data?: CreateWebhookCommandOutput) => void): void;
+  createWebhook(
+    args: CreateWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebhookCommandOutput>;
+  createWebhook(
+    args: CreateWebhookCommandInput,
+    cb: (err: any, data?: CreateWebhookCommandOutput) => void
+  ): void;
   createWebhook(
     args: CreateWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -536,8 +563,14 @@ export interface CodeBuild {
   /**
    * @see {@link DeleteFleetCommand}
    */
-  deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
-  deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetCommandOutput>;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    cb: (err: any, data?: DeleteFleetCommandOutput) => void
+  ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -547,8 +580,14 @@ export interface CodeBuild {
   /**
    * @see {@link DeleteProjectCommand}
    */
-  deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
-  deleteProject(args: DeleteProjectCommandInput, cb: (err: any, data?: DeleteProjectCommandOutput) => void): void;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProjectCommandOutput>;
+  deleteProject(
+    args: DeleteProjectCommandInput,
+    cb: (err: any, data?: DeleteProjectCommandOutput) => void
+  ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -558,8 +597,14 @@ export interface CodeBuild {
   /**
    * @see {@link DeleteReportCommand}
    */
-  deleteReport(args: DeleteReportCommandInput, options?: __HttpHandlerOptions): Promise<DeleteReportCommandOutput>;
-  deleteReport(args: DeleteReportCommandInput, cb: (err: any, data?: DeleteReportCommandOutput) => void): void;
+  deleteReport(
+    args: DeleteReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReportCommandOutput>;
+  deleteReport(
+    args: DeleteReportCommandInput,
+    cb: (err: any, data?: DeleteReportCommandOutput) => void
+  ): void;
   deleteReport(
     args: DeleteReportCommandInput,
     options: __HttpHandlerOptions,
@@ -620,8 +665,14 @@ export interface CodeBuild {
   /**
    * @see {@link DeleteWebhookCommand}
    */
-  deleteWebhook(args: DeleteWebhookCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebhookCommandOutput>;
-  deleteWebhook(args: DeleteWebhookCommandInput, cb: (err: any, data?: DeleteWebhookCommandOutput) => void): void;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebhookCommandOutput>;
+  deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): void;
   deleteWebhook(
     args: DeleteWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -770,8 +821,14 @@ export interface CodeBuild {
    * @see {@link ListBuildsCommand}
    */
   listBuilds(): Promise<ListBuildsCommandOutput>;
-  listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
-  listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
+  listBuilds(
+    args: ListBuildsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBuildsCommandOutput>;
+  listBuilds(
+    args: ListBuildsCommandInput,
+    cb: (err: any, data?: ListBuildsCommandOutput) => void
+  ): void;
   listBuilds(
     args: ListBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -834,8 +891,14 @@ export interface CodeBuild {
    * @see {@link ListFleetsCommand}
    */
   listFleets(): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
+  listFleets(
+    args: ListFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetsCommandOutput>;
+  listFleets(
+    args: ListFleetsCommandInput,
+    cb: (err: any, data?: ListFleetsCommandOutput) => void
+  ): void;
   listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -846,8 +909,14 @@ export interface CodeBuild {
    * @see {@link ListProjectsCommand}
    */
   listProjects(): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
-  listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
   listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -876,8 +945,14 @@ export interface CodeBuild {
    * @see {@link ListReportsCommand}
    */
   listReports(): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
-  listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
+  listReports(
+    args: ListReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportsCommandOutput>;
+  listReports(
+    args: ListReportsCommandInput,
+    cb: (err: any, data?: ListReportsCommandOutput) => void
+  ): void;
   listReports(
     args: ListReportsCommandInput,
     options: __HttpHandlerOptions,
@@ -905,8 +980,14 @@ export interface CodeBuild {
    * @see {@link ListSandboxesCommand}
    */
   listSandboxes(): Promise<ListSandboxesCommandOutput>;
-  listSandboxes(args: ListSandboxesCommandInput, options?: __HttpHandlerOptions): Promise<ListSandboxesCommandOutput>;
-  listSandboxes(args: ListSandboxesCommandInput, cb: (err: any, data?: ListSandboxesCommandOutput) => void): void;
+  listSandboxes(
+    args: ListSandboxesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSandboxesCommandOutput>;
+  listSandboxes(
+    args: ListSandboxesCommandInput,
+    cb: (err: any, data?: ListSandboxesCommandOutput) => void
+  ): void;
   listSandboxes(
     args: ListSandboxesCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,8 +1086,14 @@ export interface CodeBuild {
    * @see {@link RetryBuildCommand}
    */
   retryBuild(): Promise<RetryBuildCommandOutput>;
-  retryBuild(args: RetryBuildCommandInput, options?: __HttpHandlerOptions): Promise<RetryBuildCommandOutput>;
-  retryBuild(args: RetryBuildCommandInput, cb: (err: any, data?: RetryBuildCommandOutput) => void): void;
+  retryBuild(
+    args: RetryBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetryBuildCommandOutput>;
+  retryBuild(
+    args: RetryBuildCommandInput,
+    cb: (err: any, data?: RetryBuildCommandOutput) => void
+  ): void;
   retryBuild(
     args: RetryBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1021,7 +1108,10 @@ export interface CodeBuild {
     args: RetryBuildBatchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RetryBuildBatchCommandOutput>;
-  retryBuildBatch(args: RetryBuildBatchCommandInput, cb: (err: any, data?: RetryBuildBatchCommandOutput) => void): void;
+  retryBuildBatch(
+    args: RetryBuildBatchCommandInput,
+    cb: (err: any, data?: RetryBuildBatchCommandOutput) => void
+  ): void;
   retryBuildBatch(
     args: RetryBuildBatchCommandInput,
     options: __HttpHandlerOptions,
@@ -1031,8 +1121,14 @@ export interface CodeBuild {
   /**
    * @see {@link StartBuildCommand}
    */
-  startBuild(args: StartBuildCommandInput, options?: __HttpHandlerOptions): Promise<StartBuildCommandOutput>;
-  startBuild(args: StartBuildCommandInput, cb: (err: any, data?: StartBuildCommandOutput) => void): void;
+  startBuild(
+    args: StartBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBuildCommandOutput>;
+  startBuild(
+    args: StartBuildCommandInput,
+    cb: (err: any, data?: StartBuildCommandOutput) => void
+  ): void;
   startBuild(
     args: StartBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1046,7 +1142,10 @@ export interface CodeBuild {
     args: StartBuildBatchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartBuildBatchCommandOutput>;
-  startBuildBatch(args: StartBuildBatchCommandInput, cb: (err: any, data?: StartBuildBatchCommandOutput) => void): void;
+  startBuildBatch(
+    args: StartBuildBatchCommandInput,
+    cb: (err: any, data?: StartBuildBatchCommandOutput) => void
+  ): void;
   startBuildBatch(
     args: StartBuildBatchCommandInput,
     options: __HttpHandlerOptions,
@@ -1074,8 +1173,14 @@ export interface CodeBuild {
    * @see {@link StartSandboxCommand}
    */
   startSandbox(): Promise<StartSandboxCommandOutput>;
-  startSandbox(args: StartSandboxCommandInput, options?: __HttpHandlerOptions): Promise<StartSandboxCommandOutput>;
-  startSandbox(args: StartSandboxCommandInput, cb: (err: any, data?: StartSandboxCommandOutput) => void): void;
+  startSandbox(
+    args: StartSandboxCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSandboxCommandOutput>;
+  startSandbox(
+    args: StartSandboxCommandInput,
+    cb: (err: any, data?: StartSandboxCommandOutput) => void
+  ): void;
   startSandbox(
     args: StartSandboxCommandInput,
     options: __HttpHandlerOptions,
@@ -1102,8 +1207,14 @@ export interface CodeBuild {
   /**
    * @see {@link StopBuildCommand}
    */
-  stopBuild(args: StopBuildCommandInput, options?: __HttpHandlerOptions): Promise<StopBuildCommandOutput>;
-  stopBuild(args: StopBuildCommandInput, cb: (err: any, data?: StopBuildCommandOutput) => void): void;
+  stopBuild(
+    args: StopBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBuildCommandOutput>;
+  stopBuild(
+    args: StopBuildCommandInput,
+    cb: (err: any, data?: StopBuildCommandOutput) => void
+  ): void;
   stopBuild(
     args: StopBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1117,7 +1228,10 @@ export interface CodeBuild {
     args: StopBuildBatchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopBuildBatchCommandOutput>;
-  stopBuildBatch(args: StopBuildBatchCommandInput, cb: (err: any, data?: StopBuildBatchCommandOutput) => void): void;
+  stopBuildBatch(
+    args: StopBuildBatchCommandInput,
+    cb: (err: any, data?: StopBuildBatchCommandOutput) => void
+  ): void;
   stopBuildBatch(
     args: StopBuildBatchCommandInput,
     options: __HttpHandlerOptions,
@@ -1127,8 +1241,14 @@ export interface CodeBuild {
   /**
    * @see {@link StopSandboxCommand}
    */
-  stopSandbox(args: StopSandboxCommandInput, options?: __HttpHandlerOptions): Promise<StopSandboxCommandOutput>;
-  stopSandbox(args: StopSandboxCommandInput, cb: (err: any, data?: StopSandboxCommandOutput) => void): void;
+  stopSandbox(
+    args: StopSandboxCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSandboxCommandOutput>;
+  stopSandbox(
+    args: StopSandboxCommandInput,
+    cb: (err: any, data?: StopSandboxCommandOutput) => void
+  ): void;
   stopSandbox(
     args: StopSandboxCommandInput,
     options: __HttpHandlerOptions,
@@ -1138,8 +1258,14 @@ export interface CodeBuild {
   /**
    * @see {@link UpdateFleetCommand}
    */
-  updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
-  updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFleetCommandOutput>;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    cb: (err: any, data?: UpdateFleetCommandOutput) => void
+  ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1149,8 +1275,14 @@ export interface CodeBuild {
   /**
    * @see {@link UpdateProjectCommand}
    */
-  updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
-  updateProject(args: UpdateProjectCommandInput, cb: (err: any, data?: UpdateProjectCommandOutput) => void): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
   updateProject(
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1194,8 +1326,14 @@ export interface CodeBuild {
   /**
    * @see {@link UpdateWebhookCommand}
    */
-  updateWebhook(args: UpdateWebhookCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebhookCommandOutput>;
-  updateWebhook(args: UpdateWebhookCommandInput, cb: (err: any, data?: UpdateWebhookCommandOutput) => void): void;
+  updateWebhook(
+    args: UpdateWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebhookCommandOutput>;
+  updateWebhook(
+    args: UpdateWebhookCommandInput,
+    cb: (err: any, data?: UpdateWebhookCommandOutput) => void
+  ): void;
   updateWebhook(
     args: UpdateWebhookCommandInput,
     options: __HttpHandlerOptions,

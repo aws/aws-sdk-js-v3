@@ -24,9 +24,7 @@ export interface GetServiceInstanceSyncStatusCommandInput extends GetServiceInst
  *
  * The output of {@link GetServiceInstanceSyncStatusCommand}.
  */
-export interface GetServiceInstanceSyncStatusCommandOutput
-  extends GetServiceInstanceSyncStatusOutput,
-    __MetadataBearer {}
+export interface GetServiceInstanceSyncStatusCommandOutput extends GetServiceInstanceSyncStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Get the status of the synced service instance.</p>

@@ -246,473 +246,502 @@ var BlueprintName: StaticSimpleSchema = [0, n0, _BN, 8, 0];
 var BlueprintSchema: StaticSimpleSchema = [0, n0, _BS, 8, 0];
 var DataAutomationProjectDescription: StaticSimpleSchema = [0, n0, _DAPD, 8, 0];
 var DataAutomationProjectName: StaticSimpleSchema = [0, n0, _DAPN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AudioExtractionCategory$: StaticStructureSchema = [
-  3,
-  n0,
-  _AEC,
+export var AudioExtractionCategory$: StaticStructureSchema = [3, n0, _AEC,
   0,
   [_s, _t, _tC],
-  [0, 64 | 0, () => AudioExtractionCategoryTypeConfiguration$],
+  [0, 64 | 0, () => AudioExtractionCategoryTypeConfiguration$]
 ];
-export var AudioExtractionCategoryTypeConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _AECTC,
+export var AudioExtractionCategoryTypeConfiguration$: StaticStructureSchema = [3, n0, _AECTC,
   0,
   [_tr],
-  [() => TranscriptConfiguration$],
+  [() => TranscriptConfiguration$]
 ];
-export var AudioLanguageConfiguration$: StaticStructureSchema = [3, n0, _ALC, 0, [_iL, _gOL, _iML], [64 | 0, 0, 2]];
-export var AudioOverrideConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _AOC,
+export var AudioLanguageConfiguration$: StaticStructureSchema = [3, n0, _ALC,
+  0,
+  [_iL, _gOL, _iML],
+  [64 | 0, 0, 2]
+];
+export var AudioOverrideConfiguration$: StaticStructureSchema = [3, n0, _AOC,
   0,
   [_mP, _lC, _sDC],
-  [() => ModalityProcessingConfiguration$, () => AudioLanguageConfiguration$, () => SensitiveDataConfiguration$],
+  [() => ModalityProcessingConfiguration$, () => AudioLanguageConfiguration$, () => SensitiveDataConfiguration$]
 ];
-export var AudioStandardExtraction$: StaticStructureSchema = [3, n0, _ASE, 0, [_ca], [() => AudioExtractionCategory$]];
-export var AudioStandardGenerativeField$: StaticStructureSchema = [3, n0, _ASGF, 0, [_s, _t], [0, 64 | 0]];
-export var AudioStandardOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASOC,
+export var AudioStandardExtraction$: StaticStructureSchema = [3, n0, _ASE,
+  0,
+  [_ca],
+  [() => AudioExtractionCategory$]
+];
+export var AudioStandardGenerativeField$: StaticStructureSchema = [3, n0, _ASGF,
+  0,
+  [_s, _t],
+  [0, 64 | 0]
+];
+export var AudioStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _ASOC,
   0,
   [_ex, _gF],
-  [() => AudioStandardExtraction$, () => AudioStandardGenerativeField$],
+  [() => AudioStandardExtraction$, () => AudioStandardGenerativeField$]
 ];
-export var Blueprint$: StaticStructureSchema = [
-  3,
-  n0,
-  _B,
+export var Blueprint$: StaticStructureSchema = [3, n0, _B,
   0,
   [_bA, _sc, _ty, _cT, _lMT, _bN, _bV, _bS, _kKI, _kEC, _oS, _oT],
-  [
-    0,
-    [() => BlueprintSchema, 0],
-    0,
-    5,
-    5,
-    [() => BlueprintName, 0],
-    0,
-    0,
-    0,
-    128 | 0,
-    () => BlueprintOptimizationSamples,
-    5,
-  ],
+  [0, [() => BlueprintSchema, 0], 0, 5, 5, [() => BlueprintName, 0], 0, 0, 0, 128 | 0, () => BlueprintOptimizationSamples, 5]
 ];
-export var BlueprintFilter$: StaticStructureSchema = [3, n0, _BF, 0, [_bA, _bV, _bS], [0, 0, 0]];
-export var BlueprintItem$: StaticStructureSchema = [3, n0, _BI, 0, [_bA, _bV, _bS], [0, 0, 0]];
-export var BlueprintOptimizationObject$: StaticStructureSchema = [3, n0, _BOO, 0, [_bA, _st], [0, 0]];
-export var BlueprintOptimizationOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _BOOC,
+export var BlueprintFilter$: StaticStructureSchema = [3, n0, _BF,
+  0,
+  [_bA, _bV, _bS],
+  [0, 0, 0]
+];
+export var BlueprintItem$: StaticStructureSchema = [3, n0, _BI,
+  0,
+  [_bA, _bV, _bS],
+  [0, 0, 0]
+];
+export var BlueprintOptimizationObject$: StaticStructureSchema = [3, n0, _BOO,
+  0,
+  [_bA, _st],
+  [0, 0]
+];
+export var BlueprintOptimizationOutputConfiguration$: StaticStructureSchema = [3, n0, _BOOC,
   0,
   [_sO],
-  [() => S3Object$],
+  [() => S3Object$]
 ];
-export var BlueprintOptimizationSample$: StaticStructureSchema = [
-  3,
-  n0,
-  _BOS,
+export var BlueprintOptimizationSample$: StaticStructureSchema = [3, n0, _BOS,
   0,
   [_aSO, _gTSO],
-  [() => S3Object$, () => S3Object$],
+  [() => S3Object$, () => S3Object$]
 ];
-export var BlueprintSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _BSl,
+export var BlueprintSummary$: StaticStructureSchema = [3, n0, _BSl,
   0,
   [_bA, _bV, _bS, _bN, _cT, _lMT],
-  [0, 0, 0, [() => BlueprintName, 0], 5, 5],
+  [0, 0, 0, [() => BlueprintName, 0], 5, 5]
 ];
-export var ChannelLabelingConfiguration$: StaticStructureSchema = [3, n0, _CLC, 0, [_s], [0]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+export var ChannelLabelingConfiguration$: StaticStructureSchema = [3, n0, _CLC,
+  0,
+  [_s],
+  [0]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CopyBlueprintStageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBSR,
+export var CopyBlueprintStageRequest$: StaticStructureSchema = [3, n0, _CBSR,
   0,
   [_bA, _sS, _tS, _cTl],
-  [[0, 1], 0, 0, [0, 4]],
+  [[0, 1], 0, 0, [0, 4]]
 ];
-export var CopyBlueprintStageResponse$: StaticStructureSchema = [3, n0, _CBSRo, 0, [], []];
-export var CreateBlueprintRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBR,
+export var CopyBlueprintStageResponse$: StaticStructureSchema = [3, n0, _CBSRo,
+  0,
+  [],
+  []
+];
+export var CreateBlueprintRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_bN, _ty, _bS, _sc, _cTl, _eC, _ta],
-  [[() => BlueprintName, 0], 0, 0, [() => BlueprintSchema, 0], [0, 4], () => EncryptionConfiguration$, () => TagList],
+  [[() => BlueprintName, 0], 0, 0, [() => BlueprintSchema, 0], [0, 4], () => EncryptionConfiguration$, () => TagList]
 ];
-export var CreateBlueprintResponse$: StaticStructureSchema = [3, n0, _CBRr, 0, [_b], [[() => Blueprint$, 0]]];
-export var CreateBlueprintVersionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBVR,
+export var CreateBlueprintResponse$: StaticStructureSchema = [3, n0, _CBRr,
+  0,
+  [_b],
+  [[() => Blueprint$, 0]]
+];
+export var CreateBlueprintVersionRequest$: StaticStructureSchema = [3, n0, _CBVR,
   0,
   [_bA, _cTl],
-  [
-    [0, 1],
-    [0, 4],
-  ],
+  [[0, 1], [0, 4]]
 ];
-export var CreateBlueprintVersionResponse$: StaticStructureSchema = [3, n0, _CBVRr, 0, [_b], [[() => Blueprint$, 0]]];
-export var CreateDataAutomationProjectRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDAPR,
+export var CreateBlueprintVersionResponse$: StaticStructureSchema = [3, n0, _CBVRr,
+  0,
+  [_b],
+  [[() => Blueprint$, 0]]
+];
+export var CreateDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _CDAPR,
   0,
   [_pN, _pD, _pS, _pT, _sOC, _cOC, _oC, _cTl, _eC, _ta],
-  [
-    [() => DataAutomationProjectName, 0],
-    [() => DataAutomationProjectDescription, 0],
-    0,
-    0,
-    () => StandardOutputConfiguration$,
-    () => CustomOutputConfiguration$,
-    () => OverrideConfiguration$,
-    [0, 4],
-    () => EncryptionConfiguration$,
-    () => TagList,
-  ],
+  [[() => DataAutomationProjectName, 0], [() => DataAutomationProjectDescription, 0], 0, 0, () => StandardOutputConfiguration$, () => CustomOutputConfiguration$, () => OverrideConfiguration$, [0, 4], () => EncryptionConfiguration$, () => TagList]
 ];
-export var CreateDataAutomationProjectResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDAPRr,
+export var CreateDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _CDAPRr,
   0,
   [_pA, _pS, _sta],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC, 0, [_bl], [() => BlueprintItems]];
-export var DataAutomationProject$: StaticStructureSchema = [
-  3,
-  n0,
-  _DAP,
+export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
+  0,
+  [_bl],
+  [() => BlueprintItems]
+];
+export var DataAutomationProject$: StaticStructureSchema = [3, n0, _DAP,
   0,
   [_pA, _cT, _lMT, _pN, _pS, _pT, _pD, _sOC, _cOC, _oC, _sta, _kKI, _kEC],
-  [
-    0,
-    5,
-    5,
-    [() => DataAutomationProjectName, 0],
-    0,
-    0,
-    [() => DataAutomationProjectDescription, 0],
-    () => StandardOutputConfiguration$,
-    () => CustomOutputConfiguration$,
-    () => OverrideConfiguration$,
-    0,
-    0,
-    128 | 0,
-  ],
+  [0, 5, 5, [() => DataAutomationProjectName, 0], 0, 0, [() => DataAutomationProjectDescription, 0], () => StandardOutputConfiguration$, () => CustomOutputConfiguration$, () => OverrideConfiguration$, 0, 0, 128 | 0]
 ];
-export var DataAutomationProjectFilter$: StaticStructureSchema = [3, n0, _DAPF, 0, [_pA, _pS], [0, 0]];
-export var DataAutomationProjectSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DAPS,
+export var DataAutomationProjectFilter$: StaticStructureSchema = [3, n0, _DAPF,
+  0,
+  [_pA, _pS],
+  [0, 0]
+];
+export var DataAutomationProjectSummary$: StaticStructureSchema = [3, n0, _DAPS,
   0,
   [_pA, _pS, _pT, _pN, _cT],
-  [0, 0, 0, [() => DataAutomationProjectName, 0], 5],
+  [0, 0, 0, [() => DataAutomationProjectName, 0], 5]
 ];
-export var DeleteBlueprintRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBR,
+export var DeleteBlueprintRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_bA, _bV],
-  [
-    [0, 1],
-    [0, { [_hQ]: _bV }],
-  ],
+  [[0, 1], [0, { [_hQ]: _bV }]]
 ];
-export var DeleteBlueprintResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [], []];
-export var DeleteDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _DDAPR, 0, [_pA], [[0, 1]]];
-export var DeleteDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _DDAPRe, 0, [_pA, _sta], [0, 0]];
-export var DocumentBoundingBox$: StaticStructureSchema = [3, n0, _DBB, 0, [_s], [0]];
-export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG, 0, [_t], [64 | 0]];
-export var DocumentOutputAdditionalFileFormat$: StaticStructureSchema = [3, n0, _DOAFF, 0, [_s], [0]];
-export var DocumentOutputFormat$: StaticStructureSchema = [
-  3,
-  n0,
-  _DOF,
+export var DeleteBlueprintResponse$: StaticStructureSchema = [3, n0, _DBRe,
+  0,
+  [],
+  []
+];
+export var DeleteDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _DDAPR,
+  0,
+  [_pA],
+  [[0, 1]]
+];
+export var DeleteDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _DDAPRe,
+  0,
+  [_pA, _sta],
+  [0, 0]
+];
+export var DocumentBoundingBox$: StaticStructureSchema = [3, n0, _DBB,
+  0,
+  [_s],
+  [0]
+];
+export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG,
+  0,
+  [_t],
+  [64 | 0]
+];
+export var DocumentOutputAdditionalFileFormat$: StaticStructureSchema = [3, n0, _DOAFF,
+  0,
+  [_s],
+  [0]
+];
+export var DocumentOutputFormat$: StaticStructureSchema = [3, n0, _DOF,
   0,
   [_tF, _aFF],
-  [() => DocumentOutputTextFormat$, () => DocumentOutputAdditionalFileFormat$],
+  [() => DocumentOutputTextFormat$, () => DocumentOutputAdditionalFileFormat$]
 ];
-export var DocumentOutputTextFormat$: StaticStructureSchema = [3, n0, _DOTF, 0, [_t], [64 | 0]];
-export var DocumentOverrideConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _DOC,
+export var DocumentOutputTextFormat$: StaticStructureSchema = [3, n0, _DOTF,
+  0,
+  [_t],
+  [64 | 0]
+];
+export var DocumentOverrideConfiguration$: StaticStructureSchema = [3, n0, _DOC,
   0,
   [_sp, _mP, _sDC],
-  [() => SplitterConfiguration$, () => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$],
+  [() => SplitterConfiguration$, () => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$]
 ];
-export var DocumentStandardExtraction$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSE,
+export var DocumentStandardExtraction$: StaticStructureSchema = [3, n0, _DSE,
   0,
   [_g, _bB],
-  [() => DocumentExtractionGranularity$, () => DocumentBoundingBox$],
+  [() => DocumentExtractionGranularity$, () => DocumentBoundingBox$]
 ];
-export var DocumentStandardGenerativeField$: StaticStructureSchema = [3, n0, _DSGF, 0, [_s], [0]];
-export var DocumentStandardOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSOC,
+export var DocumentStandardGenerativeField$: StaticStructureSchema = [3, n0, _DSGF,
+  0,
+  [_s],
+  [0]
+];
+export var DocumentStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _DSOC,
   0,
   [_ex, _gF, _oF],
-  [() => DocumentStandardExtraction$, () => DocumentStandardGenerativeField$, () => DocumentOutputFormat$],
+  [() => DocumentStandardExtraction$, () => DocumentStandardGenerativeField$, () => DocumentOutputFormat$]
 ];
-export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_kKI, _kEC], [0, 128 | 0]];
-export var GetBlueprintOptimizationStatusRequest$: StaticStructureSchema = [3, n0, _GBOSR, 0, [_iA], [[0, 1]]];
-export var GetBlueprintOptimizationStatusResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GBOSRe,
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_kKI, _kEC],
+  [0, 128 | 0]
+];
+export var GetBlueprintOptimizationStatusRequest$: StaticStructureSchema = [3, n0, _GBOSR,
+  0,
+  [_iA],
+  [[0, 1]]
+];
+export var GetBlueprintOptimizationStatusResponse$: StaticStructureSchema = [3, n0, _GBOSRe,
   0,
   [_sta, _eT, _eM, _oCu],
-  [0, 0, 0, () => BlueprintOptimizationOutputConfiguration$],
+  [0, 0, 0, () => BlueprintOptimizationOutputConfiguration$]
 ];
-export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR, 0, [_bA, _bV, _bS], [[0, 1], 0, 0]];
-export var GetBlueprintResponse$: StaticStructureSchema = [3, n0, _GBRe, 0, [_b], [[() => Blueprint$, 0]]];
-export var GetDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _GDAPR, 0, [_pA, _pS], [[0, 1], 0]];
-export var GetDataAutomationProjectResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDAPRe,
+export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR,
+  0,
+  [_bA, _bV, _bS],
+  [[0, 1], 0, 0]
+];
+export var GetBlueprintResponse$: StaticStructureSchema = [3, n0, _GBRe,
+  0,
+  [_b],
+  [[() => Blueprint$, 0]]
+];
+export var GetDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _GDAPR,
+  0,
+  [_pA, _pS],
+  [[0, 1], 0]
+];
+export var GetDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _GDAPRe,
   0,
   [_p],
-  [[() => DataAutomationProject$, 0]],
+  [[() => DataAutomationProject$, 0]]
 ];
-export var ImageBoundingBox$: StaticStructureSchema = [3, n0, _IBB, 0, [_s], [0]];
-export var ImageExtractionCategory$: StaticStructureSchema = [3, n0, _IEC, 0, [_s, _t], [0, 64 | 0]];
-export var ImageOverrideConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _IOC,
+export var ImageBoundingBox$: StaticStructureSchema = [3, n0, _IBB,
+  0,
+  [_s],
+  [0]
+];
+export var ImageExtractionCategory$: StaticStructureSchema = [3, n0, _IEC,
+  0,
+  [_s, _t],
+  [0, 64 | 0]
+];
+export var ImageOverrideConfiguration$: StaticStructureSchema = [3, n0, _IOC,
   0,
   [_mP, _sDC],
-  [() => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$],
+  [() => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$]
 ];
-export var ImageStandardExtraction$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISE,
+export var ImageStandardExtraction$: StaticStructureSchema = [3, n0, _ISE,
   0,
   [_ca, _bB],
-  [() => ImageExtractionCategory$, () => ImageBoundingBox$],
+  [() => ImageExtractionCategory$, () => ImageBoundingBox$]
 ];
-export var ImageStandardGenerativeField$: StaticStructureSchema = [3, n0, _ISGF, 0, [_s, _t], [0, 64 | 0]];
-export var ImageStandardOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISOC,
+export var ImageStandardGenerativeField$: StaticStructureSchema = [3, n0, _ISGF,
+  0,
+  [_s, _t],
+  [0, 64 | 0]
+];
+export var ImageStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _ISOC,
   0,
   [_ex, _gF],
-  [() => ImageStandardExtraction$, () => ImageStandardGenerativeField$],
+  [() => ImageStandardExtraction$, () => ImageStandardGenerativeField$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvokeBlueprintOptimizationAsyncRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _IBOAR,
+export var InvokeBlueprintOptimizationAsyncRequest$: StaticStructureSchema = [3, n0, _IBOAR,
   0,
   [_b, _sa, _oCu, _dAPA, _eC, _ta],
-  [
-    () => BlueprintOptimizationObject$,
-    () => BlueprintOptimizationSamples,
-    () => BlueprintOptimizationOutputConfiguration$,
-    0,
-    () => EncryptionConfiguration$,
-    () => TagList,
-  ],
+  [() => BlueprintOptimizationObject$, () => BlueprintOptimizationSamples, () => BlueprintOptimizationOutputConfiguration$, 0, () => EncryptionConfiguration$, () => TagList]
 ];
-export var InvokeBlueprintOptimizationAsyncResponse$: StaticStructureSchema = [3, n0, _IBOARn, 0, [_iA], [0]];
-export var ListBlueprintsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LBR,
+export var InvokeBlueprintOptimizationAsyncResponse$: StaticStructureSchema = [3, n0, _IBOARn,
+  0,
+  [_iA],
+  [0]
+];
+export var ListBlueprintsRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
   [_bA, _rO, _bSF, _mR, _nT, _pF],
-  [0, 0, 0, 1, 0, () => DataAutomationProjectFilter$],
+  [0, 0, 0, 1, 0, () => DataAutomationProjectFilter$]
 ];
-export var ListBlueprintsResponse$: StaticStructureSchema = [3, n0, _LBRi, 0, [_bl, _nT], [[() => Blueprints, 0], 0]];
-export var ListDataAutomationProjectsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDAPR,
+export var ListBlueprintsResponse$: StaticStructureSchema = [3, n0, _LBRi,
+  0,
+  [_bl, _nT],
+  [[() => Blueprints, 0], 0]
+];
+export var ListDataAutomationProjectsRequest$: StaticStructureSchema = [3, n0, _LDAPR,
   0,
   [_mR, _nT, _pSF, _bF, _rO],
-  [1, 0, 0, () => BlueprintFilter$, 0],
+  [1, 0, 0, () => BlueprintFilter$, 0]
 ];
-export var ListDataAutomationProjectsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDAPRi,
+export var ListDataAutomationProjectsResponse$: StaticStructureSchema = [3, n0, _LDAPRi,
   0,
   [_pr, _nT],
-  [[() => DataAutomationProjectSummaries, 0], 0],
+  [[() => DataAutomationProjectSummaries, 0], 0]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var ModalityProcessingConfiguration$: StaticStructureSchema = [3, n0, _MPC, 0, [_s], [0]];
-export var ModalityRoutingConfiguration$: StaticStructureSchema = [3, n0, _MRC, 0, [_j, _pn, _mp, _mo], [0, 0, 0, 0]];
-export var OverrideConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _OC,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rARN],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_ta],
+  [() => TagList]
+];
+export var ModalityProcessingConfiguration$: StaticStructureSchema = [3, n0, _MPC,
+  0,
+  [_s],
+  [0]
+];
+export var ModalityRoutingConfiguration$: StaticStructureSchema = [3, n0, _MRC,
+  0,
+  [_j, _pn, _mp, _mo],
+  [0, 0, 0, 0]
+];
+export var OverrideConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_d, _i, _v, _a, _mRo],
-  [
-    () => DocumentOverrideConfiguration$,
-    () => ImageOverrideConfiguration$,
-    () => VideoOverrideConfiguration$,
-    () => AudioOverrideConfiguration$,
-    () => ModalityRoutingConfiguration$,
-  ],
+  [() => DocumentOverrideConfiguration$, () => ImageOverrideConfiguration$, () => VideoOverrideConfiguration$, () => AudioOverrideConfiguration$, () => ModalityRoutingConfiguration$]
 ];
-export var PIIEntitiesConfiguration$: StaticStructureSchema = [3, n0, _PIIEC, 0, [_pET, _rMM], [64 | 0, 0]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var PIIEntitiesConfiguration$: StaticStructureSchema = [3, n0, _PIIEC,
+  0,
+  [_pET, _rMM],
+  [64 | 0, 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var S3Object$: StaticStructureSchema = [3, n0, _SO, 0, [_sU, _ve], [0, 0]];
-export var SensitiveDataConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDC,
+export var S3Object$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_sU, _ve],
+  [0, 0]
+];
+export var SensitiveDataConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_dM, _dS, _pEC],
-  [0, 64 | 0, () => PIIEntitiesConfiguration$],
+  [0, 64 | 0, () => PIIEntitiesConfiguration$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var SpeakerLabelingConfiguration$: StaticStructureSchema = [3, n0, _SLC, 0, [_s], [0]];
-export var SplitterConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_s], [0]];
-export var StandardOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _SOC,
+export var SpeakerLabelingConfiguration$: StaticStructureSchema = [3, n0, _SLC,
+  0,
+  [_s],
+  [0]
+];
+export var SplitterConfiguration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_s],
+  [0]
+];
+export var StandardOutputConfiguration$: StaticStructureSchema = [3, n0, _SOC,
   0,
   [_d, _i, _v, _a],
-  [
-    () => DocumentStandardOutputConfiguration$,
-    () => ImageStandardOutputConfiguration$,
-    () => VideoStandardOutputConfiguration$,
-    () => AudioStandardOutputConfiguration$,
-  ],
+  [() => DocumentStandardOutputConfiguration$, () => ImageStandardOutputConfiguration$, () => VideoStandardOutputConfiguration$, () => AudioStandardOutputConfiguration$]
 ];
-export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, () => TagList]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _T,
+  0,
+  [_k, _va],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rARN, _ta],
+  [0, () => TagList]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TranscriptConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _TC,
+export var TranscriptConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_sL, _cL],
-  [() => SpeakerLabelingConfiguration$, () => ChannelLabelingConfiguration$],
+  [() => SpeakerLabelingConfiguration$, () => ChannelLabelingConfiguration$]
 ];
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rARN, _tK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateBlueprintRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UBR,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rARN, _tK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateBlueprintRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_bA, _sc, _bS, _eC],
-  [[0, 1], [() => BlueprintSchema, 0], 0, () => EncryptionConfiguration$],
+  [[0, 1], [() => BlueprintSchema, 0], 0, () => EncryptionConfiguration$]
 ];
-export var UpdateBlueprintResponse$: StaticStructureSchema = [3, n0, _UBRp, 0, [_b], [[() => Blueprint$, 0]]];
-export var UpdateDataAutomationProjectRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDAPR,
+export var UpdateBlueprintResponse$: StaticStructureSchema = [3, n0, _UBRp,
+  0,
+  [_b],
+  [[() => Blueprint$, 0]]
+];
+export var UpdateDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _UDAPR,
   0,
   [_pA, _pS, _pD, _sOC, _cOC, _oC, _eC],
-  [
-    [0, 1],
-    0,
-    [() => DataAutomationProjectDescription, 0],
-    () => StandardOutputConfiguration$,
-    () => CustomOutputConfiguration$,
-    () => OverrideConfiguration$,
-    () => EncryptionConfiguration$,
-  ],
+  [[0, 1], 0, [() => DataAutomationProjectDescription, 0], () => StandardOutputConfiguration$, () => CustomOutputConfiguration$, () => OverrideConfiguration$, () => EncryptionConfiguration$]
 ];
-export var UpdateDataAutomationProjectResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDAPRp,
+export var UpdateDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _UDAPRp,
   0,
   [_pA, _pS, _sta],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _fL],
-  [0, () => ValidationExceptionFieldList],
+  [0, () => ValidationExceptionFieldList]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var VideoBoundingBox$: StaticStructureSchema = [3, n0, _VBB, 0, [_s], [0]];
-export var VideoExtractionCategory$: StaticStructureSchema = [3, n0, _VEC, 0, [_s, _t], [0, 64 | 0]];
-export var VideoOverrideConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _VOC,
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
+  0,
+  [_n, _m],
+  [0, 0]
+];
+export var VideoBoundingBox$: StaticStructureSchema = [3, n0, _VBB,
+  0,
+  [_s],
+  [0]
+];
+export var VideoExtractionCategory$: StaticStructureSchema = [3, n0, _VEC,
+  0,
+  [_s, _t],
+  [0, 64 | 0]
+];
+export var VideoOverrideConfiguration$: StaticStructureSchema = [3, n0, _VOC,
   0,
   [_mP, _sDC],
-  [() => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$],
+  [() => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$]
 ];
-export var VideoStandardExtraction$: StaticStructureSchema = [
-  3,
-  n0,
-  _VSE,
+export var VideoStandardExtraction$: StaticStructureSchema = [3, n0, _VSE,
   0,
   [_ca, _bB],
-  [() => VideoExtractionCategory$, () => VideoBoundingBox$],
+  [() => VideoExtractionCategory$, () => VideoBoundingBox$]
 ];
-export var VideoStandardGenerativeField$: StaticStructureSchema = [3, n0, _VSGF, 0, [_s, _t], [0, 64 | 0]];
-export var VideoStandardOutputConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _VSOC,
+export var VideoStandardGenerativeField$: StaticStructureSchema = [3, n0, _VSGF,
+  0,
+  [_s, _t],
+  [0, 64 | 0]
+];
+export var VideoStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _VSOC,
   0,
   [_ex, _gF],
-  [() => VideoStandardExtraction$, () => VideoStandardGenerativeField$],
+  [() => VideoStandardExtraction$, () => VideoStandardGenerativeField$]
 ];
-export var BedrockDataAutomationServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "BedrockDataAutomationServiceException",
-  0,
-  [],
-  [],
-];
+export var BedrockDataAutomationServiceException$: StaticErrorSchema = [-3, _sm, "BedrockDataAutomationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockDataAutomationServiceException$, BedrockDataAutomationServiceException);
 var AudioExtractionCategoryTypes = 64 | 0;
 var AudioInputLanguages = 64 | 0;
 var AudioStandardGenerativeFieldTypes = 64 | 0;
-var BlueprintItems: StaticListSchema = [1, n0, _BIl, 0, () => BlueprintItem$];
-var BlueprintOptimizationSamples: StaticListSchema = [1, n0, _BOSl, 0, () => BlueprintOptimizationSample$];
-var Blueprints: StaticListSchema = [1, n0, _Bl, 0, [() => BlueprintSummary$, 0]];
-var DataAutomationProjectSummaries: StaticListSchema = [1, n0, _DAPSa, 0, [() => DataAutomationProjectSummary$, 0]];
+var BlueprintItems: StaticListSchema = [1, n0, _BIl,
+  0, () => BlueprintItem$
+];
+var BlueprintOptimizationSamples: StaticListSchema = [1, n0, _BOSl,
+  0, () => BlueprintOptimizationSample$
+];
+var Blueprints: StaticListSchema = [1, n0, _Bl,
+  0, [() => BlueprintSummary$,
+    0]
+];
+var DataAutomationProjectSummaries: StaticListSchema = [1, n0, _DAPSa,
+  0, [() => DataAutomationProjectSummary$,
+    0]
+];
 var DocumentExtractionGranularityTypes = 64 | 0;
 var DocumentOutputTextFormatTypes = 64 | 0;
 var ImageExtractionCategoryTypes = 64 | 0;
@@ -720,144 +749,63 @@ var ImageStandardGenerativeFieldTypes = 64 | 0;
 var PIIEntityTypes = 64 | 0;
 var SensitiveDataDetectionScope = 64 | 0;
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
+];
 var VideoExtractionCategoryTypes = 64 | 0;
 var VideoStandardGenerativeFieldTypes = 64 | 0;
 var KmsEncryptionContext = 128 | 0;
-export var CopyBlueprintStage$: StaticOperationSchema = [
-  9,
-  n0,
-  _CBS,
-  { [_h]: ["PUT", "/blueprints/{blueprintArn}/copy-stage", 200] },
-  () => CopyBlueprintStageRequest$,
-  () => CopyBlueprintStageResponse$,
+export var CopyBlueprintStage$: StaticOperationSchema = [9, n0, _CBS,
+  { [_h]: ["PUT", "/blueprints/{blueprintArn}/copy-stage", 200] }, () => CopyBlueprintStageRequest$, () => CopyBlueprintStageResponse$
 ];
-export var CreateBlueprint$: StaticOperationSchema = [
-  9,
-  n0,
-  _CB,
-  { [_h]: ["PUT", "/blueprints/", 201] },
-  () => CreateBlueprintRequest$,
-  () => CreateBlueprintResponse$,
+export var CreateBlueprint$: StaticOperationSchema = [9, n0, _CB,
+  { [_h]: ["PUT", "/blueprints/", 201] }, () => CreateBlueprintRequest$, () => CreateBlueprintResponse$
 ];
-export var CreateBlueprintVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _CBV,
-  { [_h]: ["POST", "/blueprints/{blueprintArn}/versions/", 201] },
-  () => CreateBlueprintVersionRequest$,
-  () => CreateBlueprintVersionResponse$,
+export var CreateBlueprintVersion$: StaticOperationSchema = [9, n0, _CBV,
+  { [_h]: ["POST", "/blueprints/{blueprintArn}/versions/", 201] }, () => CreateBlueprintVersionRequest$, () => CreateBlueprintVersionResponse$
 ];
-export var CreateDataAutomationProject$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDAP,
-  { [_h]: ["PUT", "/data-automation-projects/", 201] },
-  () => CreateDataAutomationProjectRequest$,
-  () => CreateDataAutomationProjectResponse$,
+export var CreateDataAutomationProject$: StaticOperationSchema = [9, n0, _CDAP,
+  { [_h]: ["PUT", "/data-automation-projects/", 201] }, () => CreateDataAutomationProjectRequest$, () => CreateDataAutomationProjectResponse$
 ];
-export var DeleteBlueprint$: StaticOperationSchema = [
-  9,
-  n0,
-  _DB,
-  { [_h]: ["DELETE", "/blueprints/{blueprintArn}/", 200] },
-  () => DeleteBlueprintRequest$,
-  () => DeleteBlueprintResponse$,
+export var DeleteBlueprint$: StaticOperationSchema = [9, n0, _DB,
+  { [_h]: ["DELETE", "/blueprints/{blueprintArn}/", 200] }, () => DeleteBlueprintRequest$, () => DeleteBlueprintResponse$
 ];
-export var DeleteDataAutomationProject$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDAP,
-  { [_h]: ["DELETE", "/data-automation-projects/{projectArn}/", 200] },
-  () => DeleteDataAutomationProjectRequest$,
-  () => DeleteDataAutomationProjectResponse$,
+export var DeleteDataAutomationProject$: StaticOperationSchema = [9, n0, _DDAP,
+  { [_h]: ["DELETE", "/data-automation-projects/{projectArn}/", 200] }, () => DeleteDataAutomationProjectRequest$, () => DeleteDataAutomationProjectResponse$
 ];
-export var GetBlueprint$: StaticOperationSchema = [
-  9,
-  n0,
-  _GB,
-  { [_h]: ["POST", "/blueprints/{blueprintArn}/", 200] },
-  () => GetBlueprintRequest$,
-  () => GetBlueprintResponse$,
+export var GetBlueprint$: StaticOperationSchema = [9, n0, _GB,
+  { [_h]: ["POST", "/blueprints/{blueprintArn}/", 200] }, () => GetBlueprintRequest$, () => GetBlueprintResponse$
 ];
-export var GetBlueprintOptimizationStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _GBOS,
-  { [_h]: ["POST", "/getBlueprintOptimizationStatus/{invocationArn}", 200] },
-  () => GetBlueprintOptimizationStatusRequest$,
-  () => GetBlueprintOptimizationStatusResponse$,
+export var GetBlueprintOptimizationStatus$: StaticOperationSchema = [9, n0, _GBOS,
+  { [_h]: ["POST", "/getBlueprintOptimizationStatus/{invocationArn}", 200] }, () => GetBlueprintOptimizationStatusRequest$, () => GetBlueprintOptimizationStatusResponse$
 ];
-export var GetDataAutomationProject$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDAP,
-  { [_h]: ["POST", "/data-automation-projects/{projectArn}/", 200] },
-  () => GetDataAutomationProjectRequest$,
-  () => GetDataAutomationProjectResponse$,
+export var GetDataAutomationProject$: StaticOperationSchema = [9, n0, _GDAP,
+  { [_h]: ["POST", "/data-automation-projects/{projectArn}/", 200] }, () => GetDataAutomationProjectRequest$, () => GetDataAutomationProjectResponse$
 ];
-export var InvokeBlueprintOptimizationAsync$: StaticOperationSchema = [
-  9,
-  n0,
-  _IBOA,
-  { [_h]: ["POST", "/invokeBlueprintOptimizationAsync", 200] },
-  () => InvokeBlueprintOptimizationAsyncRequest$,
-  () => InvokeBlueprintOptimizationAsyncResponse$,
+export var InvokeBlueprintOptimizationAsync$: StaticOperationSchema = [9, n0, _IBOA,
+  { [_h]: ["POST", "/invokeBlueprintOptimizationAsync", 200] }, () => InvokeBlueprintOptimizationAsyncRequest$, () => InvokeBlueprintOptimizationAsyncResponse$
 ];
-export var ListBlueprints$: StaticOperationSchema = [
-  9,
-  n0,
-  _LB,
-  { [_h]: ["POST", "/blueprints/", 200] },
-  () => ListBlueprintsRequest$,
-  () => ListBlueprintsResponse$,
+export var ListBlueprints$: StaticOperationSchema = [9, n0, _LB,
+  { [_h]: ["POST", "/blueprints/", 200] }, () => ListBlueprintsRequest$, () => ListBlueprintsResponse$
 ];
-export var ListDataAutomationProjects$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDAP,
-  { [_h]: ["POST", "/data-automation-projects/", 200] },
-  () => ListDataAutomationProjectsRequest$,
-  () => ListDataAutomationProjectsResponse$,
+export var ListDataAutomationProjects$: StaticOperationSchema = [9, n0, _LDAP,
+  { [_h]: ["POST", "/data-automation-projects/", 200] }, () => ListDataAutomationProjectsRequest$, () => ListDataAutomationProjectsResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["POST", "/listTagsForResource", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["POST", "/listTagsForResource", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/tagResource", 200] },
-  () => TagResourceRequest$,
-  () => TagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/tagResource", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["POST", "/untagResource", 200] },
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/untagResource", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
-export var UpdateBlueprint$: StaticOperationSchema = [
-  9,
-  n0,
-  _UB,
-  { [_h]: ["PUT", "/blueprints/{blueprintArn}/", 200] },
-  () => UpdateBlueprintRequest$,
-  () => UpdateBlueprintResponse$,
+export var UpdateBlueprint$: StaticOperationSchema = [9, n0, _UB,
+  { [_h]: ["PUT", "/blueprints/{blueprintArn}/", 200] }, () => UpdateBlueprintRequest$, () => UpdateBlueprintResponse$
 ];
-export var UpdateDataAutomationProject$: StaticOperationSchema = [
-  9,
-  n0,
-  _UDAP,
-  { [_h]: ["PUT", "/data-automation-projects/{projectArn}/", 200] },
-  () => UpdateDataAutomationProjectRequest$,
-  () => UpdateDataAutomationProjectResponse$,
+export var UpdateDataAutomationProject$: StaticOperationSchema = [9, n0, _UDAP,
+  { [_h]: ["PUT", "/data-automation-projects/{projectArn}/", 200] }, () => UpdateDataAutomationProjectRequest$, () => UpdateDataAutomationProjectResponse$
 ];

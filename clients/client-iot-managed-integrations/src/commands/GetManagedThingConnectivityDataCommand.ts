@@ -31,9 +31,7 @@ export interface GetManagedThingConnectivityDataCommandInput extends GetManagedT
  *
  * The output of {@link GetManagedThingConnectivityDataCommand}.
  */
-export interface GetManagedThingConnectivityDataCommandOutput
-  extends GetManagedThingConnectivityDataResponse,
-    __MetadataBearer {}
+export interface GetManagedThingConnectivityDataCommandOutput extends GetManagedThingConnectivityDataResponse, __MetadataBearer {}
 
 /**
  * <p>Get the connectivity status of a managed thing.</p>

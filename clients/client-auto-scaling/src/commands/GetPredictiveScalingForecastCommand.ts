@@ -24,9 +24,7 @@ export interface GetPredictiveScalingForecastCommandInput extends GetPredictiveS
  *
  * The output of {@link GetPredictiveScalingForecastCommand}.
  */
-export interface GetPredictiveScalingForecastCommandOutput
-  extends GetPredictiveScalingForecastAnswer,
-    __MetadataBearer {}
+export interface GetPredictiveScalingForecastCommandOutput extends GetPredictiveScalingForecastAnswer, __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>

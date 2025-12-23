@@ -27,9 +27,7 @@ export interface ListLifecycleExecutionResourcesCommandInput extends ListLifecyc
  *
  * The output of {@link ListLifecycleExecutionResourcesCommand}.
  */
-export interface ListLifecycleExecutionResourcesCommandOutput
-  extends ListLifecycleExecutionResourcesResponse,
-    __MetadataBearer {}
+export interface ListLifecycleExecutionResourcesCommandOutput extends ListLifecycleExecutionResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>List resources that the runtime instance of the image lifecycle identified for lifecycle actions.</p>

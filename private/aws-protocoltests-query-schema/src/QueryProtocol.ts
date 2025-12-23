@@ -194,7 +194,10 @@ export interface QueryProtocol {
     args: DatetimeOffsetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
-  datetimeOffsets(args: DatetimeOffsetsCommandInput, cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void): void;
+  datetimeOffsets(
+    args: DatetimeOffsetsCommandInput,
+    cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
+  ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
     options: __HttpHandlerOptions,
@@ -262,7 +265,10 @@ export interface QueryProtocol {
     args: FlattenedXmlMapCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<FlattenedXmlMapCommandOutput>;
-  flattenedXmlMap(args: FlattenedXmlMapCommandInput, cb: (err: any, data?: FlattenedXmlMapCommandOutput) => void): void;
+  flattenedXmlMap(
+    args: FlattenedXmlMapCommandInput,
+    cb: (err: any, data?: FlattenedXmlMapCommandOutput) => void
+  ): void;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
     options: __HttpHandlerOptions,
@@ -471,8 +477,14 @@ export interface QueryProtocol {
    * @see {@link QueryListsCommand}
    */
   queryLists(): Promise<QueryListsCommandOutput>;
-  queryLists(args: QueryListsCommandInput, options?: __HttpHandlerOptions): Promise<QueryListsCommandOutput>;
-  queryLists(args: QueryListsCommandInput, cb: (err: any, data?: QueryListsCommandOutput) => void): void;
+  queryLists(
+    args: QueryListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryListsCommandOutput>;
+  queryLists(
+    args: QueryListsCommandInput,
+    cb: (err: any, data?: QueryListsCommandOutput) => void
+  ): void;
   queryLists(
     args: QueryListsCommandInput,
     options: __HttpHandlerOptions,
@@ -483,8 +495,14 @@ export interface QueryProtocol {
    * @see {@link QueryMapsCommand}
    */
   queryMaps(): Promise<QueryMapsCommandOutput>;
-  queryMaps(args: QueryMapsCommandInput, options?: __HttpHandlerOptions): Promise<QueryMapsCommandOutput>;
-  queryMaps(args: QueryMapsCommandInput, cb: (err: any, data?: QueryMapsCommandOutput) => void): void;
+  queryMaps(
+    args: QueryMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryMapsCommandOutput>;
+  queryMaps(
+    args: QueryMapsCommandInput,
+    cb: (err: any, data?: QueryMapsCommandOutput) => void
+  ): void;
   queryMaps(
     args: QueryMapsCommandInput,
     options: __HttpHandlerOptions,
@@ -499,7 +517,10 @@ export interface QueryProtocol {
     args: QueryTimestampsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<QueryTimestampsCommandOutput>;
-  queryTimestamps(args: QueryTimestampsCommandInput, cb: (err: any, data?: QueryTimestampsCommandOutput) => void): void;
+  queryTimestamps(
+    args: QueryTimestampsCommandInput,
+    cb: (err: any, data?: QueryTimestampsCommandOutput) => void
+  ): void;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
     options: __HttpHandlerOptions,
@@ -564,8 +585,14 @@ export interface QueryProtocol {
    * @see {@link XmlBlobsCommand}
    */
   xmlBlobs(): Promise<XmlBlobsCommandOutput>;
-  xmlBlobs(args: XmlBlobsCommandInput, options?: __HttpHandlerOptions): Promise<XmlBlobsCommandOutput>;
-  xmlBlobs(args: XmlBlobsCommandInput, cb: (err: any, data?: XmlBlobsCommandOutput) => void): void;
+  xmlBlobs(
+    args: XmlBlobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlBlobsCommandOutput>;
+  xmlBlobs(
+    args: XmlBlobsCommandInput,
+    cb: (err: any, data?: XmlBlobsCommandOutput) => void
+  ): void;
   xmlBlobs(
     args: XmlBlobsCommandInput,
     options: __HttpHandlerOptions,
@@ -576,8 +603,14 @@ export interface QueryProtocol {
    * @see {@link XmlEmptyBlobsCommand}
    */
   xmlEmptyBlobs(): Promise<XmlEmptyBlobsCommandOutput>;
-  xmlEmptyBlobs(args: XmlEmptyBlobsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEmptyBlobsCommandOutput>;
-  xmlEmptyBlobs(args: XmlEmptyBlobsCommandInput, cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void): void;
+  xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyBlobsCommandOutput>;
+  xmlEmptyBlobs(
+    args: XmlEmptyBlobsCommandInput,
+    cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
+  ): void;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
     options: __HttpHandlerOptions,
@@ -588,8 +621,14 @@ export interface QueryProtocol {
    * @see {@link XmlEmptyListsCommand}
    */
   xmlEmptyLists(): Promise<XmlEmptyListsCommandOutput>;
-  xmlEmptyLists(args: XmlEmptyListsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEmptyListsCommandOutput>;
-  xmlEmptyLists(args: XmlEmptyListsCommandInput, cb: (err: any, data?: XmlEmptyListsCommandOutput) => void): void;
+  xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyListsCommandOutput>;
+  xmlEmptyLists(
+    args: XmlEmptyListsCommandInput,
+    cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
+  ): void;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
     options: __HttpHandlerOptions,
@@ -600,8 +639,14 @@ export interface QueryProtocol {
    * @see {@link XmlEmptyMapsCommand}
    */
   xmlEmptyMaps(): Promise<XmlEmptyMapsCommandOutput>;
-  xmlEmptyMaps(args: XmlEmptyMapsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEmptyMapsCommandOutput>;
-  xmlEmptyMaps(args: XmlEmptyMapsCommandInput, cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void): void;
+  xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEmptyMapsCommandOutput>;
+  xmlEmptyMaps(
+    args: XmlEmptyMapsCommandInput,
+    cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void
+  ): void;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
     options: __HttpHandlerOptions,
@@ -612,8 +657,14 @@ export interface QueryProtocol {
    * @see {@link XmlEnumsCommand}
    */
   xmlEnums(): Promise<XmlEnumsCommandOutput>;
-  xmlEnums(args: XmlEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEnumsCommandOutput>;
-  xmlEnums(args: XmlEnumsCommandInput, cb: (err: any, data?: XmlEnumsCommandOutput) => void): void;
+  xmlEnums(
+    args: XmlEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlEnumsCommandOutput>;
+  xmlEnums(
+    args: XmlEnumsCommandInput,
+    cb: (err: any, data?: XmlEnumsCommandOutput) => void
+  ): void;
   xmlEnums(
     args: XmlEnumsCommandInput,
     options: __HttpHandlerOptions,
@@ -624,8 +675,14 @@ export interface QueryProtocol {
    * @see {@link XmlIntEnumsCommand}
    */
   xmlIntEnums(): Promise<XmlIntEnumsCommandOutput>;
-  xmlIntEnums(args: XmlIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlIntEnumsCommandOutput>;
-  xmlIntEnums(args: XmlIntEnumsCommandInput, cb: (err: any, data?: XmlIntEnumsCommandOutput) => void): void;
+  xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlIntEnumsCommandOutput>;
+  xmlIntEnums(
+    args: XmlIntEnumsCommandInput,
+    cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
+  ): void;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
     options: __HttpHandlerOptions,
@@ -636,8 +693,14 @@ export interface QueryProtocol {
    * @see {@link XmlListsCommand}
    */
   xmlLists(): Promise<XmlListsCommandOutput>;
-  xmlLists(args: XmlListsCommandInput, options?: __HttpHandlerOptions): Promise<XmlListsCommandOutput>;
-  xmlLists(args: XmlListsCommandInput, cb: (err: any, data?: XmlListsCommandOutput) => void): void;
+  xmlLists(
+    args: XmlListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlListsCommandOutput>;
+  xmlLists(
+    args: XmlListsCommandInput,
+    cb: (err: any, data?: XmlListsCommandOutput) => void
+  ): void;
   xmlLists(
     args: XmlListsCommandInput,
     options: __HttpHandlerOptions,
@@ -648,8 +711,14 @@ export interface QueryProtocol {
    * @see {@link XmlMapsCommand}
    */
   xmlMaps(): Promise<XmlMapsCommandOutput>;
-  xmlMaps(args: XmlMapsCommandInput, options?: __HttpHandlerOptions): Promise<XmlMapsCommandOutput>;
-  xmlMaps(args: XmlMapsCommandInput, cb: (err: any, data?: XmlMapsCommandOutput) => void): void;
+  xmlMaps(
+    args: XmlMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlMapsCommandOutput>;
+  xmlMaps(
+    args: XmlMapsCommandInput,
+    cb: (err: any, data?: XmlMapsCommandOutput) => void
+  ): void;
   xmlMaps(
     args: XmlMapsCommandInput,
     options: __HttpHandlerOptions,
@@ -664,7 +733,10 @@ export interface QueryProtocol {
     args: XmlMapsXmlNameCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<XmlMapsXmlNameCommandOutput>;
-  xmlMapsXmlName(args: XmlMapsXmlNameCommandInput, cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void): void;
+  xmlMapsXmlName(
+    args: XmlMapsXmlNameCommandInput,
+    cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
+  ): void;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
     options: __HttpHandlerOptions,
@@ -675,8 +747,14 @@ export interface QueryProtocol {
    * @see {@link XmlNamespacesCommand}
    */
   xmlNamespaces(): Promise<XmlNamespacesCommandOutput>;
-  xmlNamespaces(args: XmlNamespacesCommandInput, options?: __HttpHandlerOptions): Promise<XmlNamespacesCommandOutput>;
-  xmlNamespaces(args: XmlNamespacesCommandInput, cb: (err: any, data?: XmlNamespacesCommandOutput) => void): void;
+  xmlNamespaces(
+    args: XmlNamespacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlNamespacesCommandOutput>;
+  xmlNamespaces(
+    args: XmlNamespacesCommandInput,
+    cb: (err: any, data?: XmlNamespacesCommandOutput) => void
+  ): void;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
     options: __HttpHandlerOptions,
@@ -687,8 +765,14 @@ export interface QueryProtocol {
    * @see {@link XmlTimestampsCommand}
    */
   xmlTimestamps(): Promise<XmlTimestampsCommandOutput>;
-  xmlTimestamps(args: XmlTimestampsCommandInput, options?: __HttpHandlerOptions): Promise<XmlTimestampsCommandOutput>;
-  xmlTimestamps(args: XmlTimestampsCommandInput, cb: (err: any, data?: XmlTimestampsCommandOutput) => void): void;
+  xmlTimestamps(
+    args: XmlTimestampsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlTimestampsCommandOutput>;
+  xmlTimestamps(
+    args: XmlTimestampsCommandInput,
+    cb: (err: any, data?: XmlTimestampsCommandOutput) => void
+  ): void;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
     options: __HttpHandlerOptions,

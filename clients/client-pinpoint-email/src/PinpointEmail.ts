@@ -405,8 +405,14 @@ export interface PinpointEmail {
    * @see {@link GetAccountCommand}
    */
   getAccount(): Promise<GetAccountCommandOutput>;
-  getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
-  getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
+  getAccount(
+    args: GetAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountCommandOutput>;
+  getAccount(
+    args: GetAccountCommandInput,
+    cb: (err: any, data?: GetAccountCommandOutput) => void
+  ): void;
   getAccount(
     args: GetAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -471,7 +477,10 @@ export interface PinpointEmail {
     args: GetDedicatedIpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDedicatedIpCommandOutput>;
-  getDedicatedIp(args: GetDedicatedIpCommandInput, cb: (err: any, data?: GetDedicatedIpCommandOutput) => void): void;
+  getDedicatedIp(
+    args: GetDedicatedIpCommandInput,
+    cb: (err: any, data?: GetDedicatedIpCommandOutput) => void
+  ): void;
   getDedicatedIp(
     args: GetDedicatedIpCommandInput,
     options: __HttpHandlerOptions,
@@ -486,7 +495,10 @@ export interface PinpointEmail {
     args: GetDedicatedIpsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDedicatedIpsCommandOutput>;
-  getDedicatedIps(args: GetDedicatedIpsCommandInput, cb: (err: any, data?: GetDedicatedIpsCommandOutput) => void): void;
+  getDedicatedIps(
+    args: GetDedicatedIpsCommandInput,
+    cb: (err: any, data?: GetDedicatedIpsCommandOutput) => void
+  ): void;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
     options: __HttpHandlerOptions,
@@ -894,8 +906,14 @@ export interface PinpointEmail {
   /**
    * @see {@link SendEmailCommand}
    */
-  sendEmail(args: SendEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendEmailCommandOutput>;
-  sendEmail(args: SendEmailCommandInput, cb: (err: any, data?: SendEmailCommandOutput) => void): void;
+  sendEmail(
+    args: SendEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEmailCommandOutput>;
+  sendEmail(
+    args: SendEmailCommandInput,
+    cb: (err: any, data?: SendEmailCommandOutput) => void
+  ): void;
   sendEmail(
     args: SendEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -905,8 +923,14 @@ export interface PinpointEmail {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -916,8 +940,14 @@ export interface PinpointEmail {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

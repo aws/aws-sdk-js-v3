@@ -77,7 +77,10 @@ export interface DirectoryServiceData {
     args: AddGroupMemberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddGroupMemberCommandOutput>;
-  addGroupMember(args: AddGroupMemberCommandInput, cb: (err: any, data?: AddGroupMemberCommandOutput) => void): void;
+  addGroupMember(
+    args: AddGroupMemberCommandInput,
+    cb: (err: any, data?: AddGroupMemberCommandOutput) => void
+  ): void;
   addGroupMember(
     args: AddGroupMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -87,8 +90,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link CreateGroupCommand}
    */
-  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
   createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -98,8 +107,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -109,8 +124,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link DeleteGroupCommand}
    */
-  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -120,8 +141,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -131,8 +158,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link DescribeGroupCommand}
    */
-  describeGroup(args: DescribeGroupCommandInput, options?: __HttpHandlerOptions): Promise<DescribeGroupCommandOutput>;
-  describeGroup(args: DescribeGroupCommandInput, cb: (err: any, data?: DescribeGroupCommandOutput) => void): void;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupCommandOutput>;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): void;
   describeGroup(
     args: DescribeGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -142,8 +175,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link DescribeUserCommand}
    */
-  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
-  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
   describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -153,8 +192,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link DisableUserCommand}
    */
-  disableUser(args: DisableUserCommandInput, options?: __HttpHandlerOptions): Promise<DisableUserCommandOutput>;
-  disableUser(args: DisableUserCommandInput, cb: (err: any, data?: DisableUserCommandOutput) => void): void;
+  disableUser(
+    args: DisableUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableUserCommandOutput>;
+  disableUser(
+    args: DisableUserCommandInput,
+    cb: (err: any, data?: DisableUserCommandOutput) => void
+  ): void;
   disableUser(
     args: DisableUserCommandInput,
     options: __HttpHandlerOptions,
@@ -181,8 +226,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link ListGroupsCommand}
    */
-  listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
-  listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
   listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -209,8 +260,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -237,8 +294,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link SearchGroupsCommand}
    */
-  searchGroups(args: SearchGroupsCommandInput, options?: __HttpHandlerOptions): Promise<SearchGroupsCommandOutput>;
-  searchGroups(args: SearchGroupsCommandInput, cb: (err: any, data?: SearchGroupsCommandOutput) => void): void;
+  searchGroups(
+    args: SearchGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchGroupsCommandOutput>;
+  searchGroups(
+    args: SearchGroupsCommandInput,
+    cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
   searchGroups(
     args: SearchGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -248,8 +311,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link SearchUsersCommand}
    */
-  searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
-  searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
+  searchUsers(
+    args: SearchUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchUsersCommandOutput>;
+  searchUsers(
+    args: SearchUsersCommandInput,
+    cb: (err: any, data?: SearchUsersCommandOutput) => void
+  ): void;
   searchUsers(
     args: SearchUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -259,8 +328,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link UpdateGroupCommand}
    */
-  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -270,8 +345,14 @@ export interface DirectoryServiceData {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

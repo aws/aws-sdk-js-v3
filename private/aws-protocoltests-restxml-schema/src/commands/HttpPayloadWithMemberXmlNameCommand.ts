@@ -28,9 +28,7 @@ export interface HttpPayloadWithMemberXmlNameCommandInput extends HttpPayloadWit
  *
  * The output of {@link HttpPayloadWithMemberXmlNameCommand}.
  */
-export interface HttpPayloadWithMemberXmlNameCommandOutput
-  extends HttpPayloadWithMemberXmlNameInputOutput,
-    __MetadataBearer {}
+export interface HttpPayloadWithMemberXmlNameCommandOutput extends HttpPayloadWithMemberXmlNameInputOutput, __MetadataBearer {}
 
 /**
  * The following example serializes a payload that uses an XML name

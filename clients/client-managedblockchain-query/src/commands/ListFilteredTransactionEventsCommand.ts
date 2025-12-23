@@ -28,9 +28,7 @@ export interface ListFilteredTransactionEventsCommandInput extends ListFilteredT
  *
  * The output of {@link ListFilteredTransactionEventsCommand}.
  */
-export interface ListFilteredTransactionEventsCommandOutput
-  extends ListFilteredTransactionEventsOutput,
-    __MetadataBearer {}
+export interface ListFilteredTransactionEventsCommandOutput extends ListFilteredTransactionEventsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all the transaction events for an address on the blockchain.</p>

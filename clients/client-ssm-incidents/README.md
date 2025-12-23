@@ -16,10 +16,8 @@ critical incidents, Incident Manager automates response plans and enables respon
 team escalation. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ssm-incidents
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ssm-incidents`
 - `yarn add @aws-sdk/client-ssm-incidents`
 - `pnpm add @aws-sdk/client-ssm-incidents`
@@ -55,9 +53,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SSMIncidentsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListResponsePlansCommand(params);
 ```
 
@@ -216,7 +212,6 @@ BatchGetIncidentFindings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/BatchGetIncidentFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/BatchGetIncidentFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/BatchGetIncidentFindingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -224,7 +219,6 @@ CreateReplicationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/CreateReplicationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateReplicationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateReplicationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +226,6 @@ CreateResponsePlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/CreateResponsePlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateResponsePlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateResponsePlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +233,6 @@ CreateTimelineEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/CreateTimelineEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateTimelineEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/CreateTimelineEventCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +240,6 @@ DeleteIncidentRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/DeleteIncidentRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteIncidentRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteIncidentRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +247,6 @@ DeleteReplicationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/DeleteReplicationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteReplicationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteReplicationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +254,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +261,6 @@ DeleteResponsePlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/DeleteResponsePlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteResponsePlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteResponsePlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +268,6 @@ DeleteTimelineEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/DeleteTimelineEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteTimelineEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/DeleteTimelineEventCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +275,6 @@ GetIncidentRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/GetIncidentRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetIncidentRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetIncidentRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +282,6 @@ GetReplicationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/GetReplicationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetReplicationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetReplicationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +289,6 @@ GetResourcePolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/GetResourcePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetResourcePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetResourcePoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +296,6 @@ GetResponsePlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/GetResponsePlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetResponsePlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetResponsePlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +303,6 @@ GetTimelineEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/GetTimelineEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetTimelineEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/GetTimelineEventCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +310,6 @@ ListIncidentFindings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListIncidentFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListIncidentFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListIncidentFindingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +317,6 @@ ListIncidentRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListIncidentRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListIncidentRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListIncidentRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +324,6 @@ ListRelatedItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListRelatedItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +331,6 @@ ListReplicationSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListReplicationSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListReplicationSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListReplicationSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +338,6 @@ ListResponsePlans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListResponsePlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListResponsePlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListResponsePlansCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,7 +345,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -376,7 +352,6 @@ ListTimelineEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/ListTimelineEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListTimelineEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/ListTimelineEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -384,7 +359,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -392,7 +366,6 @@ StartIncident
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/StartIncidentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/StartIncidentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/StartIncidentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -400,7 +373,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -408,7 +380,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -416,7 +387,6 @@ UpdateDeletionProtection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateDeletionProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateDeletionProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateDeletionProtectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -424,7 +394,6 @@ UpdateIncidentRecord
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateIncidentRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateIncidentRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateIncidentRecordCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -432,7 +401,6 @@ UpdateRelatedItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateRelatedItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -440,7 +408,6 @@ UpdateReplicationSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateReplicationSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateReplicationSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateReplicationSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -448,7 +415,6 @@ UpdateResponsePlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateResponsePlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateResponsePlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateResponsePlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -456,5 +422,4 @@ UpdateTimelineEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-incidents/command/UpdateTimelineEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateTimelineEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-incidents/Interface/UpdateTimelineEventCommandOutput/)
-
 </details>

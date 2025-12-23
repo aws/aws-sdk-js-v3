@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CodeBuild Client for Node.js, Browser and React Native.
 
 <fullname>CodeBuild</fullname>
-
 <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
 runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
 need to provision, manage, and scale your own build servers. It provides prepackaged
@@ -20,10 +19,8 @@ Guide</a>.</i>
 </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codebuild
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codebuild`
 - `yarn add @aws-sdk/client-codebuild`
 - `pnpm add @aws-sdk/client-codebuild`
@@ -59,9 +56,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeBuildClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListBuildsCommand(params);
 ```
 
@@ -220,7 +215,6 @@ BatchDeleteBuilds
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchDeleteBuildsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchDeleteBuildsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchDeleteBuildsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ BatchGetBuildBatches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetBuildBatchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetBuildBatchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetBuildBatchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +229,6 @@ BatchGetBuilds
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetBuildsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetBuildsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetBuildsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +236,6 @@ BatchGetCommandExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetCommandExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetCommandExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetCommandExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +243,6 @@ BatchGetFleets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetFleetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetFleetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetFleetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +250,6 @@ BatchGetProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +257,6 @@ BatchGetReportGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetReportGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetReportGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetReportGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +264,6 @@ BatchGetReports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetReportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +271,6 @@ BatchGetSandboxes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/BatchGetSandboxesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetSandboxesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/BatchGetSandboxesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +278,6 @@ CreateFleet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateFleetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +285,6 @@ CreateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +292,6 @@ CreateReportGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateReportGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateReportGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateReportGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +299,6 @@ CreateWebhook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateWebhookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateWebhookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/CreateWebhookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +306,6 @@ DeleteBuildBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteBuildBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteBuildBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteBuildBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +313,6 @@ DeleteFleet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteFleetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +320,6 @@ DeleteProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +327,6 @@ DeleteReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteReportCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +334,6 @@ DeleteReportGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteReportGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteReportGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteReportGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +341,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +348,6 @@ DeleteSourceCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteSourceCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteSourceCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteSourceCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +355,6 @@ DeleteWebhook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DeleteWebhookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteWebhookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DeleteWebhookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +362,6 @@ DescribeCodeCoverages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DescribeCodeCoveragesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DescribeCodeCoveragesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DescribeCodeCoveragesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +369,6 @@ DescribeTestCases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/DescribeTestCasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DescribeTestCasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/DescribeTestCasesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +376,6 @@ GetReportGroupTrend
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/GetReportGroupTrendCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/GetReportGroupTrendCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/GetReportGroupTrendCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +383,6 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/GetResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +390,6 @@ ImportSourceCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ImportSourceCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ImportSourceCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ImportSourceCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +397,6 @@ InvalidateProjectCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/InvalidateProjectCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/InvalidateProjectCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/InvalidateProjectCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +404,6 @@ ListBuildBatches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListBuildBatchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildBatchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildBatchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +411,6 @@ ListBuildBatchesForProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListBuildBatchesForProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildBatchesForProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildBatchesForProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +418,6 @@ ListBuilds
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListBuildsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +425,6 @@ ListBuildsForProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListBuildsForProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildsForProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListBuildsForProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +432,6 @@ ListCommandExecutionsForSandbox
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListCommandExecutionsForSandboxCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListCommandExecutionsForSandboxCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListCommandExecutionsForSandboxCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +439,6 @@ ListCuratedEnvironmentImages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListCuratedEnvironmentImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListCuratedEnvironmentImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListCuratedEnvironmentImagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +446,6 @@ ListFleets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListFleetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListFleetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListFleetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,7 +453,6 @@ ListProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -500,7 +460,6 @@ ListReportGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListReportGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -508,7 +467,6 @@ ListReports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -516,7 +474,6 @@ ListReportsForReportGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListReportsForReportGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportsForReportGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListReportsForReportGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -524,7 +481,6 @@ ListSandboxes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListSandboxesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSandboxesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSandboxesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -532,7 +488,6 @@ ListSandboxesForProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListSandboxesForProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSandboxesForProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSandboxesForProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -540,7 +495,6 @@ ListSharedProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListSharedProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSharedProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSharedProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -548,7 +502,6 @@ ListSharedReportGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListSharedReportGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSharedReportGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSharedReportGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -556,7 +509,6 @@ ListSourceCredentials
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/ListSourceCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSourceCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/ListSourceCredentialsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -564,7 +516,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -572,7 +523,6 @@ RetryBuild
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/RetryBuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/RetryBuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/RetryBuildCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -580,7 +530,6 @@ RetryBuildBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/RetryBuildBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/RetryBuildBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/RetryBuildBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -588,7 +537,6 @@ StartBuild
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StartBuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartBuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartBuildCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -596,7 +544,6 @@ StartBuildBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StartBuildBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartBuildBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartBuildBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -604,7 +551,6 @@ StartCommandExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StartCommandExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartCommandExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartCommandExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -612,7 +558,6 @@ StartSandbox
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StartSandboxCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartSandboxCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartSandboxCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -620,7 +565,6 @@ StartSandboxConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StartSandboxConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartSandboxConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StartSandboxConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -628,7 +572,6 @@ StopBuild
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StopBuildCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopBuildCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopBuildCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -636,7 +579,6 @@ StopBuildBatch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StopBuildBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopBuildBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopBuildBatchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -644,7 +586,6 @@ StopSandbox
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/StopSandboxCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopSandboxCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/StopSandboxCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -652,7 +593,6 @@ UpdateFleet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/UpdateFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateFleetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -660,7 +600,6 @@ UpdateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/UpdateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -668,7 +607,6 @@ UpdateProjectVisibility
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/UpdateProjectVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateProjectVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateProjectVisibilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -676,7 +614,6 @@ UpdateReportGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/UpdateReportGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateReportGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateReportGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -684,5 +621,4 @@ UpdateWebhook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/UpdateWebhookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateWebhookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codebuild/Interface/UpdateWebhookCommandOutput/)
-
 </details>

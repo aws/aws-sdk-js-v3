@@ -82,12 +82,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = QueryForecastCommandInput | QueryWhatIfForecastCommandInput;
+export type ServiceInputTypes =
+  | QueryForecastCommandInput
+  | QueryWhatIfForecastCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = QueryForecastCommandOutput | QueryWhatIfForecastCommandOutput;
+export type ServiceOutputTypes =
+  | QueryForecastCommandOutput
+  | QueryWhatIfForecastCommandOutput;
 
 /**
  * @public

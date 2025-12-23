@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateDelegationSignerFromDomainCommand}.
  */
-export interface DisassociateDelegationSignerFromDomainCommandInput
-  extends DisassociateDelegationSignerFromDomainRequest {}
+export interface DisassociateDelegationSignerFromDomainCommandInput extends DisassociateDelegationSignerFromDomainRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateDelegationSignerFromDomainCommand}.
  */
-export interface DisassociateDelegationSignerFromDomainCommandOutput
-  extends DisassociateDelegationSignerFromDomainResponse,
-    __MetadataBearer {}
+export interface DisassociateDelegationSignerFromDomainCommandOutput extends DisassociateDelegationSignerFromDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a delegation signer (DS) record in the registry zone for this domain

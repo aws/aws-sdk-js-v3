@@ -24,9 +24,7 @@ export interface CreateUsageReportSubscriptionCommandInput extends CreateUsageRe
  *
  * The output of {@link CreateUsageReportSubscriptionCommand}.
  */
-export interface CreateUsageReportSubscriptionCommandOutput
-  extends CreateUsageReportSubscriptionResult,
-    __MetadataBearer {}
+export interface CreateUsageReportSubscriptionCommandOutput extends CreateUsageReportSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a usage report subscription. Usage reports are generated daily.</p>

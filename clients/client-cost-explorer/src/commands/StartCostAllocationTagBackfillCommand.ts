@@ -24,9 +24,7 @@ export interface StartCostAllocationTagBackfillCommandInput extends StartCostAll
  *
  * The output of {@link StartCostAllocationTagBackfillCommand}.
  */
-export interface StartCostAllocationTagBackfillCommandOutput
-  extends StartCostAllocationTagBackfillResponse,
-    __MetadataBearer {}
+export interface StartCostAllocationTagBackfillCommandOutput extends StartCostAllocationTagBackfillResponse, __MetadataBearer {}
 
 /**
  * <p>

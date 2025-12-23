@@ -295,7 +295,9 @@ export interface S3GlueDataCatalog {
  * <p>The type of data source.</p>
  * @public
  */
-export type DataSourceType = DataSourceType.S3GlueDataCatalogMember | DataSourceType.$UnknownMember;
+export type DataSourceType =
+  | DataSourceType.S3GlueDataCatalogMember
+  | DataSourceType.$UnknownMember;
 
 /**
  * @public

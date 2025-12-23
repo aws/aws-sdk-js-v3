@@ -24,9 +24,7 @@ export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputD
  *
  * The output of {@link DescribeInputDeviceThumbnailCommand}.
  */
-export interface DescribeInputDeviceThumbnailCommandOutput
-  extends Omit<DescribeInputDeviceThumbnailResponse, "Body">,
-    __MetadataBearer {
+export interface DescribeInputDeviceThumbnailCommandOutput extends Omit<DescribeInputDeviceThumbnailResponse, "Body">, __MetadataBearer {
   Body?: StreamingBlobPayloadOutputTypes;
 }
 

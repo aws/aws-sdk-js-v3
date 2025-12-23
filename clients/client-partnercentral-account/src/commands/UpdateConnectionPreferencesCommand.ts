@@ -28,9 +28,7 @@ export interface UpdateConnectionPreferencesCommandInput extends UpdateConnectio
  *
  * The output of {@link UpdateConnectionPreferencesCommand}.
  */
-export interface UpdateConnectionPreferencesCommandOutput
-  extends UpdateConnectionPreferencesResponse,
-    __MetadataBearer {}
+export interface UpdateConnectionPreferencesCommandOutput extends UpdateConnectionPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the connection preferences for a partner account, modifying access settings and exclusions.</p>

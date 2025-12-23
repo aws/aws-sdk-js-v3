@@ -28,9 +28,7 @@ export interface GetRecommendationReportDetailsCommandInput extends GetRecommend
  *
  * The output of {@link GetRecommendationReportDetailsCommand}.
  */
-export interface GetRecommendationReportDetailsCommandOutput
-  extends GetRecommendationReportDetailsResponse,
-    __MetadataBearer {}
+export interface GetRecommendationReportDetailsCommandOutput extends GetRecommendationReportDetailsResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves detailed information about the specified recommendation report. </p>

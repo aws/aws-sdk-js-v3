@@ -31,9 +31,7 @@ export interface PutAppInstanceRetentionSettingsCommandInput extends PutAppInsta
  *
  * The output of {@link PutAppInstanceRetentionSettingsCommand}.
  */
-export interface PutAppInstanceRetentionSettingsCommandOutput
-  extends PutAppInstanceRetentionSettingsResponse,
-    __MetadataBearer {}
+export interface PutAppInstanceRetentionSettingsCommandOutput extends PutAppInstanceRetentionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains

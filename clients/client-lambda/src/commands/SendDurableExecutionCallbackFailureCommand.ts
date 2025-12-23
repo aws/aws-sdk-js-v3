@@ -27,9 +27,7 @@ export interface SendDurableExecutionCallbackFailureCommandInput extends SendDur
  *
  * The output of {@link SendDurableExecutionCallbackFailureCommand}.
  */
-export interface SendDurableExecutionCallbackFailureCommandOutput
-  extends SendDurableExecutionCallbackFailureResponse,
-    __MetadataBearer {}
+export interface SendDurableExecutionCallbackFailureCommandOutput extends SendDurableExecutionCallbackFailureResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a failure response for a callback operation in a durable execution. Use this API when an external system cannot complete a callback operation successfully.</p>

@@ -27,9 +27,7 @@ export interface UpdateConnectionRecordingPreferencesCommandInput extends Update
  *
  * The output of {@link UpdateConnectionRecordingPreferencesCommand}.
  */
-export interface UpdateConnectionRecordingPreferencesCommandOutput
-  extends UpdateConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface UpdateConnectionRecordingPreferencesCommandOutput extends UpdateConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the preferences for recording RDP connections.</p>

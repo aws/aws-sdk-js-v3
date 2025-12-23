@@ -24,9 +24,7 @@ export interface ListResourceDefinitionVersionsCommandInput extends ListResource
  *
  * The output of {@link ListResourceDefinitionVersionsCommand}.
  */
-export interface ListResourceDefinitionVersionsCommandOutput
-  extends ListResourceDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListResourceDefinitionVersionsCommandOutput extends ListResourceDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a resource definition.

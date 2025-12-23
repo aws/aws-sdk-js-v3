@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}.
  */
-export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandInput
-  extends ListAutomatedReasoningPolicyBuildWorkflowsRequest {}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandInput extends ListAutomatedReasoningPolicyBuildWorkflowsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}.
  */
-export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput
-  extends ListAutomatedReasoningPolicyBuildWorkflowsResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput extends ListAutomatedReasoningPolicyBuildWorkflowsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all build workflows for an Automated Reasoning policy, showing the history of policy creation and modification attempts.</p>

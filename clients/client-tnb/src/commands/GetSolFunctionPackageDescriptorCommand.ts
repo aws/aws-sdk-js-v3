@@ -32,9 +32,7 @@ export type GetSolFunctionPackageDescriptorCommandOutputType = Omit<GetSolFuncti
  *
  * The output of {@link GetSolFunctionPackageDescriptorCommand}.
  */
-export interface GetSolFunctionPackageDescriptorCommandOutput
-  extends GetSolFunctionPackageDescriptorCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolFunctionPackageDescriptorCommandOutput extends GetSolFunctionPackageDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets a function package descriptor in a function package.</p>

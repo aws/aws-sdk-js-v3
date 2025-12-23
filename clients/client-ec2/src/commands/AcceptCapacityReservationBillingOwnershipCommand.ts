@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptCapacityReservationBillingOwnershipCommand}.
  */
-export interface AcceptCapacityReservationBillingOwnershipCommandInput
-  extends AcceptCapacityReservationBillingOwnershipRequest {}
+export interface AcceptCapacityReservationBillingOwnershipCommandInput extends AcceptCapacityReservationBillingOwnershipRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptCapacityReservationBillingOwnershipCommand}.
  */
-export interface AcceptCapacityReservationBillingOwnershipCommandOutput
-  extends AcceptCapacityReservationBillingOwnershipResult,
-    __MetadataBearer {}
+export interface AcceptCapacityReservationBillingOwnershipCommandOutput extends AcceptCapacityReservationBillingOwnershipResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a request to assign billing of the available capacity of a shared Capacity

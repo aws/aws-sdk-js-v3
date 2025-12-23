@@ -24,9 +24,7 @@ export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpo
  *
  * The output of {@link AcceptVpcEndpointConnectionsCommand}.
  */
-export interface AcceptVpcEndpointConnectionsCommandOutput
-  extends AcceptVpcEndpointConnectionsResult,
-    __MetadataBearer {}
+export interface AcceptVpcEndpointConnectionsCommandOutput extends AcceptVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Accepts connection requests to your VPC endpoint service.</p>

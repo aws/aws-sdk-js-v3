@@ -27,9 +27,7 @@ export interface GetManagedNotificationConfigurationCommandInput extends GetMana
  *
  * The output of {@link GetManagedNotificationConfigurationCommand}.
  */
-export interface GetManagedNotificationConfigurationCommandOutput
-  extends GetManagedNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetManagedNotificationConfigurationCommandOutput extends GetManagedNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a specified <code>ManagedNotificationConfiguration</code>.</p>

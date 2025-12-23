@@ -909,7 +909,10 @@ export interface Route53 {
     args: GetAccountLimitCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccountLimitCommandOutput>;
-  getAccountLimit(args: GetAccountLimitCommandInput, cb: (err: any, data?: GetAccountLimitCommandOutput) => void): void;
+  getAccountLimit(
+    args: GetAccountLimitCommandInput,
+    cb: (err: any, data?: GetAccountLimitCommandOutput) => void
+  ): void;
   getAccountLimit(
     args: GetAccountLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -919,8 +922,14 @@ export interface Route53 {
   /**
    * @see {@link GetChangeCommand}
    */
-  getChange(args: GetChangeCommandInput, options?: __HttpHandlerOptions): Promise<GetChangeCommandOutput>;
-  getChange(args: GetChangeCommandInput, cb: (err: any, data?: GetChangeCommandOutput) => void): void;
+  getChange(
+    args: GetChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChangeCommandOutput>;
+  getChange(
+    args: GetChangeCommandInput,
+    cb: (err: any, data?: GetChangeCommandOutput) => void
+  ): void;
   getChange(
     args: GetChangeCommandInput,
     options: __HttpHandlerOptions,
@@ -948,8 +957,14 @@ export interface Route53 {
   /**
    * @see {@link GetDNSSECCommand}
    */
-  getDNSSEC(args: GetDNSSECCommandInput, options?: __HttpHandlerOptions): Promise<GetDNSSECCommandOutput>;
-  getDNSSEC(args: GetDNSSECCommandInput, cb: (err: any, data?: GetDNSSECCommandOutput) => void): void;
+  getDNSSEC(
+    args: GetDNSSECCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDNSSECCommandOutput>;
+  getDNSSEC(
+    args: GetDNSSECCommandInput,
+    cb: (err: any, data?: GetDNSSECCommandOutput) => void
+  ): void;
   getDNSSEC(
     args: GetDNSSECCommandInput,
     options: __HttpHandlerOptions,
@@ -964,7 +979,10 @@ export interface Route53 {
     args: GetGeoLocationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetGeoLocationCommandOutput>;
-  getGeoLocation(args: GetGeoLocationCommandInput, cb: (err: any, data?: GetGeoLocationCommandOutput) => void): void;
+  getGeoLocation(
+    args: GetGeoLocationCommandInput,
+    cb: (err: any, data?: GetGeoLocationCommandOutput) => void
+  ): void;
   getGeoLocation(
     args: GetGeoLocationCommandInput,
     options: __HttpHandlerOptions,
@@ -978,7 +996,10 @@ export interface Route53 {
     args: GetHealthCheckCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetHealthCheckCommandOutput>;
-  getHealthCheck(args: GetHealthCheckCommandInput, cb: (err: any, data?: GetHealthCheckCommandOutput) => void): void;
+  getHealthCheck(
+    args: GetHealthCheckCommandInput,
+    cb: (err: any, data?: GetHealthCheckCommandOutput) => void
+  ): void;
   getHealthCheck(
     args: GetHealthCheckCommandInput,
     options: __HttpHandlerOptions,
@@ -1040,8 +1061,14 @@ export interface Route53 {
   /**
    * @see {@link GetHostedZoneCommand}
    */
-  getHostedZone(args: GetHostedZoneCommandInput, options?: __HttpHandlerOptions): Promise<GetHostedZoneCommandOutput>;
-  getHostedZone(args: GetHostedZoneCommandInput, cb: (err: any, data?: GetHostedZoneCommandOutput) => void): void;
+  getHostedZone(
+    args: GetHostedZoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHostedZoneCommandOutput>;
+  getHostedZone(
+    args: GetHostedZoneCommandInput,
+    cb: (err: any, data?: GetHostedZoneCommandOutput) => void
+  ): void;
   getHostedZone(
     args: GetHostedZoneCommandInput,
     options: __HttpHandlerOptions,
@@ -1193,7 +1220,10 @@ export interface Route53 {
     args: ListCidrBlocksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCidrBlocksCommandOutput>;
-  listCidrBlocks(args: ListCidrBlocksCommandInput, cb: (err: any, data?: ListCidrBlocksCommandOutput) => void): void;
+  listCidrBlocks(
+    args: ListCidrBlocksCommandInput,
+    cb: (err: any, data?: ListCidrBlocksCommandOutput) => void
+  ): void;
   listCidrBlocks(
     args: ListCidrBlocksCommandInput,
     options: __HttpHandlerOptions,
@@ -1279,7 +1309,10 @@ export interface Route53 {
     args: ListHostedZonesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListHostedZonesCommandOutput>;
-  listHostedZones(args: ListHostedZonesCommandInput, cb: (err: any, data?: ListHostedZonesCommandOutput) => void): void;
+  listHostedZones(
+    args: ListHostedZonesCommandInput,
+    cb: (err: any, data?: ListHostedZonesCommandOutput) => void
+  ): void;
   listHostedZones(
     args: ListHostedZonesCommandInput,
     options: __HttpHandlerOptions,
@@ -1515,8 +1548,14 @@ export interface Route53 {
   /**
    * @see {@link TestDNSAnswerCommand}
    */
-  testDNSAnswer(args: TestDNSAnswerCommandInput, options?: __HttpHandlerOptions): Promise<TestDNSAnswerCommandOutput>;
-  testDNSAnswer(args: TestDNSAnswerCommandInput, cb: (err: any, data?: TestDNSAnswerCommandOutput) => void): void;
+  testDNSAnswer(
+    args: TestDNSAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestDNSAnswerCommandOutput>;
+  testDNSAnswer(
+    args: TestDNSAnswerCommandInput,
+    cb: (err: any, data?: TestDNSAnswerCommandOutput) => void
+  ): void;
   testDNSAnswer(
     args: TestDNSAnswerCommandInput,
     options: __HttpHandlerOptions,

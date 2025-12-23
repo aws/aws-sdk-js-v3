@@ -32,17 +32,13 @@ export const getRuntimeConfig = (config: JsonProtocolClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
-    requestMinCompressionSizeBytes:
-      config?.requestMinCompressionSizeBytes ?? DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
+    requestMinCompressionSizeBytes: config?.requestMinCompressionSizeBytes ?? DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

@@ -157,7 +157,10 @@ export interface PcaConnectorAd {
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
   createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -205,7 +208,10 @@ export interface PcaConnectorAd {
     args: CreateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTemplateCommandOutput>;
-  createTemplate(args: CreateTemplateCommandInput, cb: (err: any, data?: CreateTemplateCommandOutput) => void): void;
+  createTemplate(
+    args: CreateTemplateCommandInput,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -236,7 +242,10 @@ export interface PcaConnectorAd {
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -284,7 +293,10 @@ export interface PcaConnectorAd {
     args: DeleteTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTemplateCommandOutput>;
-  deleteTemplate(args: DeleteTemplateCommandInput, cb: (err: any, data?: DeleteTemplateCommandOutput) => void): void;
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    cb: (err: any, data?: DeleteTemplateCommandOutput) => void
+  ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -311,8 +323,14 @@ export interface PcaConnectorAd {
   /**
    * @see {@link GetConnectorCommand}
    */
-  getConnector(args: GetConnectorCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectorCommandOutput>;
-  getConnector(args: GetConnectorCommandInput, cb: (err: any, data?: GetConnectorCommandOutput) => void): void;
+  getConnector(
+    args: GetConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorCommandOutput>;
+  getConnector(
+    args: GetConnectorCommandInput,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
   getConnector(
     args: GetConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -356,8 +374,14 @@ export interface PcaConnectorAd {
   /**
    * @see {@link GetTemplateCommand}
    */
-  getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
-  getTemplate(args: GetTemplateCommandInput, cb: (err: any, data?: GetTemplateCommandOutput) => void): void;
+  getTemplate(
+    args: GetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateCommandOutput>;
+  getTemplate(
+    args: GetTemplateCommandInput,
+    cb: (err: any, data?: GetTemplateCommandOutput) => void
+  ): void;
   getTemplate(
     args: GetTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -389,7 +413,10 @@ export interface PcaConnectorAd {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -468,8 +495,14 @@ export interface PcaConnectorAd {
   /**
    * @see {@link ListTemplatesCommand}
    */
-  listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplatesCommandOutput>;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    cb: (err: any, data?: ListTemplatesCommandOutput) => void
+  ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
     options: __HttpHandlerOptions,
@@ -479,8 +512,14 @@ export interface PcaConnectorAd {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -490,8 +529,14 @@ export interface PcaConnectorAd {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -505,7 +550,10 @@ export interface PcaConnectorAd {
     args: UpdateTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateTemplateCommandOutput>;
-  updateTemplate(args: UpdateTemplateCommandInput, cb: (err: any, data?: UpdateTemplateCommandOutput) => void): void;
+  updateTemplate(
+    args: UpdateTemplateCommandInput,
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
     options: __HttpHandlerOptions,

@@ -24,9 +24,7 @@ export interface DeleteCapacityManagerDataExportCommandInput extends DeleteCapac
  *
  * The output of {@link DeleteCapacityManagerDataExportCommand}.
  */
-export interface DeleteCapacityManagerDataExportCommandOutput
-  extends DeleteCapacityManagerDataExportResult,
-    __MetadataBearer {}
+export interface DeleteCapacityManagerDataExportCommandOutput extends DeleteCapacityManagerDataExportResult, __MetadataBearer {}
 
 /**
  * <p>

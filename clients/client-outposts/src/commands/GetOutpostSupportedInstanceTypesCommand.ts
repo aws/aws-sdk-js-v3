@@ -24,9 +24,7 @@ export interface GetOutpostSupportedInstanceTypesCommandInput extends GetOutpost
  *
  * The output of {@link GetOutpostSupportedInstanceTypesCommand}.
  */
-export interface GetOutpostSupportedInstanceTypesCommandOutput
-  extends GetOutpostSupportedInstanceTypesOutput,
-    __MetadataBearer {}
+export interface GetOutpostSupportedInstanceTypesCommandOutput extends GetOutpostSupportedInstanceTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the instance types that an Outpost can support in <code>InstanceTypeCapacity</code>.

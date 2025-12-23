@@ -82,7 +82,10 @@ export interface Weather {
     args: OnlyCustomAuthCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<OnlyCustomAuthCommandOutput>;
-  onlyCustomAuth(args: OnlyCustomAuthCommandInput, cb: (err: any, data?: OnlyCustomAuthCommandOutput) => void): void;
+  onlyCustomAuth(
+    args: OnlyCustomAuthCommandInput,
+    cb: (err: any, data?: OnlyCustomAuthCommandOutput) => void
+  ): void;
   onlyCustomAuth(
     args: OnlyCustomAuthCommandInput,
     options: __HttpHandlerOptions,
@@ -219,8 +222,14 @@ export interface Weather {
    * @see {@link OnlySigv4AuthCommand}
    */
   onlySigv4Auth(): Promise<OnlySigv4AuthCommandOutput>;
-  onlySigv4Auth(args: OnlySigv4AuthCommandInput, options?: __HttpHandlerOptions): Promise<OnlySigv4AuthCommandOutput>;
-  onlySigv4Auth(args: OnlySigv4AuthCommandInput, cb: (err: any, data?: OnlySigv4AuthCommandOutput) => void): void;
+  onlySigv4Auth(
+    args: OnlySigv4AuthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OnlySigv4AuthCommandOutput>;
+  onlySigv4Auth(
+    args: OnlySigv4AuthCommandInput,
+    cb: (err: any, data?: OnlySigv4AuthCommandOutput) => void
+  ): void;
   onlySigv4Auth(
     args: OnlySigv4AuthCommandInput,
     options: __HttpHandlerOptions,
@@ -249,8 +258,14 @@ export interface Weather {
    * @see {@link SameAsServiceCommand}
    */
   sameAsService(): Promise<SameAsServiceCommandOutput>;
-  sameAsService(args: SameAsServiceCommandInput, options?: __HttpHandlerOptions): Promise<SameAsServiceCommandOutput>;
-  sameAsService(args: SameAsServiceCommandInput, cb: (err: any, data?: SameAsServiceCommandOutput) => void): void;
+  sameAsService(
+    args: SameAsServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SameAsServiceCommandOutput>;
+  sameAsService(
+    args: SameAsServiceCommandInput,
+    cb: (err: any, data?: SameAsServiceCommandOutput) => void
+  ): void;
   sameAsService(
     args: SameAsServiceCommandInput,
     options: __HttpHandlerOptions,

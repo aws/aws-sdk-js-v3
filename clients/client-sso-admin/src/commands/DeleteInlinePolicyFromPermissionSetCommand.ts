@@ -27,9 +27,7 @@ export interface DeleteInlinePolicyFromPermissionSetCommandInput extends DeleteI
  *
  * The output of {@link DeleteInlinePolicyFromPermissionSetCommand}.
  */
-export interface DeleteInlinePolicyFromPermissionSetCommandOutput
-  extends DeleteInlinePolicyFromPermissionSetResponse,
-    __MetadataBearer {}
+export interface DeleteInlinePolicyFromPermissionSetCommandOutput extends DeleteInlinePolicyFromPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the inline policy from a specified permission set.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
-  extends DeleteServiceQuotaIncreaseRequestFromTemplateRequest {}
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput extends DeleteServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  extends DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput extends DeleteServiceQuotaIncreaseRequestFromTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the quota increase request for the specified quota from your quota request

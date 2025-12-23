@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateWhatsAppMessageTemplateFromLibraryCommand}.
  */
-export interface CreateWhatsAppMessageTemplateFromLibraryCommandInput
-  extends CreateWhatsAppMessageTemplateFromLibraryInput {}
+export interface CreateWhatsAppMessageTemplateFromLibraryCommandInput extends CreateWhatsAppMessageTemplateFromLibraryInput {}
 /**
  * @public
  *
  * The output of {@link CreateWhatsAppMessageTemplateFromLibraryCommand}.
  */
-export interface CreateWhatsAppMessageTemplateFromLibraryCommandOutput
-  extends CreateWhatsAppMessageTemplateFromLibraryOutput,
-    __MetadataBearer {}
+export interface CreateWhatsAppMessageTemplateFromLibraryCommandOutput extends CreateWhatsAppMessageTemplateFromLibraryOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new WhatsApp message template using a template from Meta's template library.</p>

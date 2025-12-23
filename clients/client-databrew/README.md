@@ -12,10 +12,8 @@ time-consuming to fix. DataBrew empowers users of all technical levels to visual
 data and perform one-click data transformations, with no coding required.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-databrew
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-databrew`
 - `yarn add @aws-sdk/client-databrew`
 - `pnpm add @aws-sdk/client-databrew`
@@ -51,9 +49,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DataBrewClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListJobsCommand(params);
 ```
 
@@ -212,7 +208,6 @@ BatchDeleteRecipeVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/BatchDeleteRecipeVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/BatchDeleteRecipeVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/BatchDeleteRecipeVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -220,7 +215,6 @@ CreateDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ CreateProfileJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateProfileJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateProfileJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateProfileJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +229,6 @@ CreateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +236,6 @@ CreateRecipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRecipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +243,6 @@ CreateRecipeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateRecipeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRecipeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRecipeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +250,6 @@ CreateRuleset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateRulesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +257,6 @@ CreateSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/CreateScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/CreateScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +264,6 @@ DeleteDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +271,6 @@ DeleteJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +278,6 @@ DeleteProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +285,6 @@ DeleteRecipeVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteRecipeVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteRecipeVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteRecipeVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +292,6 @@ DeleteRuleset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteRulesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +299,6 @@ DeleteSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DeleteScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DeleteScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +306,6 @@ DescribeDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +313,6 @@ DescribeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +320,6 @@ DescribeJobRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeJobRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeJobRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeJobRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +327,6 @@ DescribeProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +334,6 @@ DescribeRecipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeRecipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +341,6 @@ DescribeRuleset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeRulesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +348,6 @@ DescribeSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/DescribeScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/DescribeScheduleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +355,6 @@ ListDatasets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListDatasetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +362,6 @@ ListJobRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListJobRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListJobRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListJobRunsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +369,6 @@ ListJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +376,6 @@ ListProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +383,6 @@ ListRecipes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListRecipesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRecipesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRecipesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +390,6 @@ ListRecipeVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListRecipeVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRecipeVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRecipeVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +397,6 @@ ListRulesets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListRulesetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRulesetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListRulesetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +404,6 @@ ListSchedules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListSchedulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListSchedulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListSchedulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +411,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +418,6 @@ PublishRecipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/PublishRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/PublishRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/PublishRecipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +425,6 @@ SendProjectSessionAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/SendProjectSessionActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/SendProjectSessionActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/SendProjectSessionActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +432,6 @@ StartJobRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/StartJobRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StartJobRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StartJobRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +439,6 @@ StartProjectSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/StartProjectSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StartProjectSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StartProjectSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +446,6 @@ StopJobRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/StopJobRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StopJobRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/StopJobRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,7 +453,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -500,7 +460,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -508,7 +467,6 @@ UpdateDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -516,7 +474,6 @@ UpdateProfileJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateProfileJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateProfileJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateProfileJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -524,7 +481,6 @@ UpdateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -532,7 +488,6 @@ UpdateRecipe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateRecipeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRecipeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRecipeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -540,7 +495,6 @@ UpdateRecipeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateRecipeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRecipeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRecipeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -548,7 +502,6 @@ UpdateRuleset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateRulesetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -556,5 +509,4 @@ UpdateSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/databrew/command/UpdateScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-databrew/Interface/UpdateScheduleCommandOutput/)
-
 </details>

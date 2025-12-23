@@ -67,10 +67,8 @@ configuration using the AppConfig Data <code>StartConfigurationSession</code> an
 configuration</a> in the <i>AppConfig User Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-appconfigdata
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-appconfigdata`
 - `yarn add @aws-sdk/client-appconfigdata`
 - `pnpm add @aws-sdk/client-appconfigdata`
@@ -106,9 +104,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AppConfigDataClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetLatestConfigurationCommand(params);
 ```
 
@@ -267,7 +263,6 @@ GetLatestConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfigdata/command/GetLatestConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfigdata/Interface/GetLatestConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfigdata/Interface/GetLatestConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,5 +270,4 @@ StartConfigurationSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfigdata/command/StartConfigurationSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfigdata/Interface/StartConfigurationSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfigdata/Interface/StartConfigurationSessionCommandOutput/)
-
 </details>

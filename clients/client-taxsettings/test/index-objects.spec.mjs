@@ -88,6 +88,9 @@ import {
   ListTaxRegistrationsResponse$,
   MalaysiaAdditionalInfo$,
   MalaysiaServiceTaxCode,
+  paginateListSupplementalTaxRegistrations,
+  paginateListTaxExemptions,
+  paginateListTaxRegistrations,
   PersonType,
   PolandAdditionalInfo$,
   PutSupplementalTaxRegistration$,
@@ -146,9 +149,6 @@ import {
   ValidationExceptionField$,
   VerificationDetails$,
   VietnamAdditionalInfo$,
-  paginateListSupplementalTaxRegistrations,
-  paginateListTaxExemptions,
-  paginateListTaxRegistrations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

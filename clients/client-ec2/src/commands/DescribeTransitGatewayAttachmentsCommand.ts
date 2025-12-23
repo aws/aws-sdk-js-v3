@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeT
  *
  * The output of {@link DescribeTransitGatewayAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayAttachmentsCommandOutput
-  extends DescribeTransitGatewayAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayAttachmentsCommandOutput extends DescribeTransitGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.

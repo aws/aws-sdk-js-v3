@@ -27,9 +27,7 @@ export interface GetConfiguredAudienceModelAssociationCommandInput extends GetCo
  *
  * The output of {@link GetConfiguredAudienceModelAssociationCommand}.
  */
-export interface GetConfiguredAudienceModelAssociationCommandOutput
-  extends GetConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface GetConfiguredAudienceModelAssociationCommandOutput extends GetConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured audience model association.</p>

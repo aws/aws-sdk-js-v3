@@ -24,9 +24,7 @@ export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggin
  *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
-export interface DescribeLoggingConfigurationCommandOutput
-  extends DescribeLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLoggingConfigurationCommandOutput extends DescribeLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns complete information about the current rules and alerting logging configuration of the workspace.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>

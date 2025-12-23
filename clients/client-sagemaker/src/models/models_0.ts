@@ -6780,7 +6780,9 @@ export interface VectorConfig {
  * <p>Configuration for your collection.</p>
  * @public
  */
-export type CollectionConfig = CollectionConfig.VectorConfigMember | CollectionConfig.$UnknownMember;
+export type CollectionConfig =
+  | CollectionConfig.VectorConfigMember
+  | CollectionConfig.$UnknownMember;
 
 /**
  * @public

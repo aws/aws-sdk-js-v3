@@ -27,9 +27,7 @@ export interface ListContainerGroupDefinitionVersionsCommandInput extends ListCo
  *
  * The output of {@link ListContainerGroupDefinitionVersionsCommand}.
  */
-export interface ListContainerGroupDefinitionVersionsCommandOutput
-  extends ListContainerGroupDefinitionVersionsOutput,
-    __MetadataBearer {}
+export interface ListContainerGroupDefinitionVersionsCommandOutput extends ListContainerGroupDefinitionVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>

@@ -27,9 +27,7 @@ export interface DescribeAssociationExecutionTargetsCommandInput extends Describ
  *
  * The output of {@link DescribeAssociationExecutionTargetsCommand}.
  */
-export interface DescribeAssociationExecutionTargetsCommandOutput
-  extends DescribeAssociationExecutionTargetsResult,
-    __MetadataBearer {}
+export interface DescribeAssociationExecutionTargetsCommandOutput extends DescribeAssociationExecutionTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Views information about a specific execution of a specific association.</p>

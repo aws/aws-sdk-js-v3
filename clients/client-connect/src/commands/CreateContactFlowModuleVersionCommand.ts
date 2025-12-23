@@ -24,9 +24,7 @@ export interface CreateContactFlowModuleVersionCommandInput extends CreateContac
  *
  * The output of {@link CreateContactFlowModuleVersionCommand}.
  */
-export interface CreateContactFlowModuleVersionCommandOutput
-  extends CreateContactFlowModuleVersionResponse,
-    __MetadataBearer {}
+export interface CreateContactFlowModuleVersionCommandOutput extends CreateContactFlowModuleVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an immutable snapshot of a contact flow module, preserving its content and settings at a specific point

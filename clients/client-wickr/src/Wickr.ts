@@ -227,7 +227,10 @@ export interface Wickr {
     args: BatchCreateUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchCreateUserCommandOutput>;
-  batchCreateUser(args: BatchCreateUserCommandInput, cb: (err: any, data?: BatchCreateUserCommandOutput) => void): void;
+  batchCreateUser(
+    args: BatchCreateUserCommandInput,
+    cb: (err: any, data?: BatchCreateUserCommandOutput) => void
+  ): void;
   batchCreateUser(
     args: BatchCreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -241,7 +244,10 @@ export interface Wickr {
     args: BatchDeleteUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDeleteUserCommandOutput>;
-  batchDeleteUser(args: BatchDeleteUserCommandInput, cb: (err: any, data?: BatchDeleteUserCommandOutput) => void): void;
+  batchDeleteUser(
+    args: BatchDeleteUserCommandInput,
+    cb: (err: any, data?: BatchDeleteUserCommandOutput) => void
+  ): void;
   batchDeleteUser(
     args: BatchDeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -319,8 +325,14 @@ export interface Wickr {
   /**
    * @see {@link CreateBotCommand}
    */
-  createBot(args: CreateBotCommandInput, options?: __HttpHandlerOptions): Promise<CreateBotCommandOutput>;
-  createBot(args: CreateBotCommandInput, cb: (err: any, data?: CreateBotCommandOutput) => void): void;
+  createBot(
+    args: CreateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBotCommandOutput>;
+  createBot(
+    args: CreateBotCommandInput,
+    cb: (err: any, data?: CreateBotCommandOutput) => void
+  ): void;
   createBot(
     args: CreateBotCommandInput,
     options: __HttpHandlerOptions,
@@ -364,8 +376,14 @@ export interface Wickr {
   /**
    * @see {@link CreateNetworkCommand}
    */
-  createNetwork(args: CreateNetworkCommandInput, options?: __HttpHandlerOptions): Promise<CreateNetworkCommandOutput>;
-  createNetwork(args: CreateNetworkCommandInput, cb: (err: any, data?: CreateNetworkCommandOutput) => void): void;
+  createNetwork(
+    args: CreateNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkCommandOutput>;
+  createNetwork(
+    args: CreateNetworkCommandInput,
+    cb: (err: any, data?: CreateNetworkCommandOutput) => void
+  ): void;
   createNetwork(
     args: CreateNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -392,8 +410,14 @@ export interface Wickr {
   /**
    * @see {@link DeleteBotCommand}
    */
-  deleteBot(args: DeleteBotCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBotCommandOutput>;
-  deleteBot(args: DeleteBotCommandInput, cb: (err: any, data?: DeleteBotCommandOutput) => void): void;
+  deleteBot(
+    args: DeleteBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBotCommandOutput>;
+  deleteBot(
+    args: DeleteBotCommandInput,
+    cb: (err: any, data?: DeleteBotCommandOutput) => void
+  ): void;
   deleteBot(
     args: DeleteBotCommandInput,
     options: __HttpHandlerOptions,
@@ -420,8 +444,14 @@ export interface Wickr {
   /**
    * @see {@link DeleteNetworkCommand}
    */
-  deleteNetwork(args: DeleteNetworkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNetworkCommandOutput>;
-  deleteNetwork(args: DeleteNetworkCommandInput, cb: (err: any, data?: DeleteNetworkCommandOutput) => void): void;
+  deleteNetwork(
+    args: DeleteNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkCommandOutput>;
+  deleteNetwork(
+    args: DeleteNetworkCommandInput,
+    cb: (err: any, data?: DeleteNetworkCommandOutput) => void
+  ): void;
   deleteNetwork(
     args: DeleteNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -448,8 +478,14 @@ export interface Wickr {
   /**
    * @see {@link GetBotCommand}
    */
-  getBot(args: GetBotCommandInput, options?: __HttpHandlerOptions): Promise<GetBotCommandOutput>;
-  getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
+  getBot(
+    args: GetBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBotCommandOutput>;
+  getBot(
+    args: GetBotCommandInput,
+    cb: (err: any, data?: GetBotCommandOutput) => void
+  ): void;
   getBot(
     args: GetBotCommandInput,
     options: __HttpHandlerOptions,
@@ -459,8 +495,14 @@ export interface Wickr {
   /**
    * @see {@link GetBotsCountCommand}
    */
-  getBotsCount(args: GetBotsCountCommandInput, options?: __HttpHandlerOptions): Promise<GetBotsCountCommandOutput>;
-  getBotsCount(args: GetBotsCountCommandInput, cb: (err: any, data?: GetBotsCountCommandOutput) => void): void;
+  getBotsCount(
+    args: GetBotsCountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBotsCountCommandOutput>;
+  getBotsCount(
+    args: GetBotsCountCommandInput,
+    cb: (err: any, data?: GetBotsCountCommandOutput) => void
+  ): void;
   getBotsCount(
     args: GetBotsCountCommandInput,
     options: __HttpHandlerOptions,
@@ -504,8 +546,14 @@ export interface Wickr {
   /**
    * @see {@link GetNetworkCommand}
    */
-  getNetwork(args: GetNetworkCommandInput, options?: __HttpHandlerOptions): Promise<GetNetworkCommandOutput>;
-  getNetwork(args: GetNetworkCommandInput, cb: (err: any, data?: GetNetworkCommandOutput) => void): void;
+  getNetwork(
+    args: GetNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkCommandOutput>;
+  getNetwork(
+    args: GetNetworkCommandInput,
+    cb: (err: any, data?: GetNetworkCommandOutput) => void
+  ): void;
   getNetwork(
     args: GetNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -532,8 +580,14 @@ export interface Wickr {
   /**
    * @see {@link GetOidcInfoCommand}
    */
-  getOidcInfo(args: GetOidcInfoCommandInput, options?: __HttpHandlerOptions): Promise<GetOidcInfoCommandOutput>;
-  getOidcInfo(args: GetOidcInfoCommandInput, cb: (err: any, data?: GetOidcInfoCommandOutput) => void): void;
+  getOidcInfo(
+    args: GetOidcInfoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOidcInfoCommandOutput>;
+  getOidcInfo(
+    args: GetOidcInfoCommandInput,
+    cb: (err: any, data?: GetOidcInfoCommandOutput) => void
+  ): void;
   getOidcInfo(
     args: GetOidcInfoCommandInput,
     options: __HttpHandlerOptions,
@@ -560,8 +614,14 @@ export interface Wickr {
   /**
    * @see {@link GetUserCommand}
    */
-  getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
-  getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
+  getUser(
+    args: GetUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserCommandOutput>;
+  getUser(
+    args: GetUserCommandInput,
+    cb: (err: any, data?: GetUserCommandOutput) => void
+  ): void;
   getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -571,8 +631,14 @@ export interface Wickr {
   /**
    * @see {@link GetUsersCountCommand}
    */
-  getUsersCount(args: GetUsersCountCommandInput, options?: __HttpHandlerOptions): Promise<GetUsersCountCommandOutput>;
-  getUsersCount(args: GetUsersCountCommandInput, cb: (err: any, data?: GetUsersCountCommandOutput) => void): void;
+  getUsersCount(
+    args: GetUsersCountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUsersCountCommandOutput>;
+  getUsersCount(
+    args: GetUsersCountCommandInput,
+    cb: (err: any, data?: GetUsersCountCommandOutput) => void
+  ): void;
   getUsersCount(
     args: GetUsersCountCommandInput,
     options: __HttpHandlerOptions,
@@ -599,8 +665,14 @@ export interface Wickr {
   /**
    * @see {@link ListBotsCommand}
    */
-  listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
-  listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
+  listBots(
+    args: ListBotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotsCommandOutput>;
+  listBots(
+    args: ListBotsCommandInput,
+    cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
   listBots(
     args: ListBotsCommandInput,
     options: __HttpHandlerOptions,
@@ -631,7 +703,10 @@ export interface Wickr {
     args: ListGuestUsersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListGuestUsersCommandOutput>;
-  listGuestUsers(args: ListGuestUsersCommandInput, cb: (err: any, data?: ListGuestUsersCommandOutput) => void): void;
+  listGuestUsers(
+    args: ListGuestUsersCommandInput,
+    cb: (err: any, data?: ListGuestUsersCommandOutput) => void
+  ): void;
   listGuestUsers(
     args: ListGuestUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -642,8 +717,14 @@ export interface Wickr {
    * @see {@link ListNetworksCommand}
    */
   listNetworks(): Promise<ListNetworksCommandOutput>;
-  listNetworks(args: ListNetworksCommandInput, options?: __HttpHandlerOptions): Promise<ListNetworksCommandOutput>;
-  listNetworks(args: ListNetworksCommandInput, cb: (err: any, data?: ListNetworksCommandOutput) => void): void;
+  listNetworks(
+    args: ListNetworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworksCommandOutput>;
+  listNetworks(
+    args: ListNetworksCommandInput,
+    cb: (err: any, data?: ListNetworksCommandOutput) => void
+  ): void;
   listNetworks(
     args: ListNetworksCommandInput,
     options: __HttpHandlerOptions,
@@ -687,8 +768,14 @@ export interface Wickr {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -732,8 +819,14 @@ export interface Wickr {
   /**
    * @see {@link UpdateBotCommand}
    */
-  updateBot(args: UpdateBotCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBotCommandOutput>;
-  updateBot(args: UpdateBotCommandInput, cb: (err: any, data?: UpdateBotCommandOutput) => void): void;
+  updateBot(
+    args: UpdateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBotCommandOutput>;
+  updateBot(
+    args: UpdateBotCommandInput,
+    cb: (err: any, data?: UpdateBotCommandOutput) => void
+  ): void;
   updateBot(
     args: UpdateBotCommandInput,
     options: __HttpHandlerOptions,
@@ -764,7 +857,10 @@ export interface Wickr {
     args: UpdateGuestUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateGuestUserCommandOutput>;
-  updateGuestUser(args: UpdateGuestUserCommandInput, cb: (err: any, data?: UpdateGuestUserCommandOutput) => void): void;
+  updateGuestUser(
+    args: UpdateGuestUserCommandInput,
+    cb: (err: any, data?: UpdateGuestUserCommandOutput) => void
+  ): void;
   updateGuestUser(
     args: UpdateGuestUserCommandInput,
     options: __HttpHandlerOptions,
@@ -774,8 +870,14 @@ export interface Wickr {
   /**
    * @see {@link UpdateNetworkCommand}
    */
-  updateNetwork(args: UpdateNetworkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNetworkCommandOutput>;
-  updateNetwork(args: UpdateNetworkCommandInput, cb: (err: any, data?: UpdateNetworkCommandOutput) => void): void;
+  updateNetwork(
+    args: UpdateNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNetworkCommandOutput>;
+  updateNetwork(
+    args: UpdateNetworkCommandInput,
+    cb: (err: any, data?: UpdateNetworkCommandOutput) => void
+  ): void;
   updateNetwork(
     args: UpdateNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -819,8 +921,14 @@ export interface Wickr {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
-export interface DeleteCustomVerificationEmailTemplateCommandInput
-  extends DeleteCustomVerificationEmailTemplateRequest {}
+export interface DeleteCustomVerificationEmailTemplateCommandInput extends DeleteCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *

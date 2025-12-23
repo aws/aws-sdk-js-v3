@@ -28,9 +28,7 @@ export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCo
  *
  * The output of {@link CreateAppCookieStickinessPolicyCommand}.
  */
-export interface CreateAppCookieStickinessPolicyCommandOutput
-  extends CreateAppCookieStickinessPolicyOutput,
-    __MetadataBearer {}
+export interface CreateAppCookieStickinessPolicyCommandOutput extends CreateAppCookieStickinessPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>

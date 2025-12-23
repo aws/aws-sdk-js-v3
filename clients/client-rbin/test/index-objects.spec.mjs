@@ -30,6 +30,7 @@ import {
   LockRuleRequest$,
   LockRuleResponse$,
   LockState,
+  paginateListRules,
   Rbin,
   RbinClient,
   RbinServiceException,
@@ -67,7 +68,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
-  paginateListRules,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

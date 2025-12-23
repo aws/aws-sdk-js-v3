@@ -27,9 +27,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLo
  *
  * The output of {@link DescribeLoadBalancerTargetGroupsCommand}.
  */
-export interface DescribeLoadBalancerTargetGroupsCommandOutput
-  extends DescribeLoadBalancerTargetGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeLoadBalancerTargetGroupsCommandOutput extends DescribeLoadBalancerTargetGroupsResponse, __MetadataBearer {}
 
 /**
  * <note>

@@ -87,7 +87,6 @@ import {
   VolumeType,
   VpnEcmpSupportValue,
 } from "./enums";
-
 import {
   type AddressAttribute,
   type ClientConnectOptions,
@@ -113,7 +112,6 @@ import {
   TransitGatewayPolicyTableAssociation,
   UnsuccessfulItem,
 } from "./models_0";
-
 import {
   type AttributeValue,
   type CapacityReservationTarget,
@@ -140,7 +138,6 @@ import {
   IpamResourceTag,
   RequestIpamResourceTag,
 } from "./models_1";
-
 import {
   type TrafficMirrorFilter,
   type TrafficMirrorFilterRule,
@@ -155,7 +152,6 @@ import {
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayPrefixListReference,
 } from "./models_2";
-
 import {
   type AttributeBooleanValue,
   type ConversionTask,
@@ -168,14 +164,12 @@ import {
   LaunchPermission,
   SnapshotDetail,
 } from "./models_3";
-
 import {
   type InstanceStatusEvent,
   CreateVolumePermission,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
 } from "./models_4";
-
 import {
   type InstanceFamilyCreditSpecification,
   type VerifiedAccessInstanceLoggingConfiguration,

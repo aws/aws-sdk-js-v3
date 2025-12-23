@@ -27,9 +27,7 @@ export interface DescribeOrganizationConformancePacksCommandInput extends Descri
  *
  * The output of {@link DescribeOrganizationConformancePacksCommand}.
  */
-export interface DescribeOrganizationConformancePacksCommandOutput
-  extends DescribeOrganizationConformancePacksResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConformancePacksCommandOutput extends DescribeOrganizationConformancePacksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of organization conformance packs. </p>

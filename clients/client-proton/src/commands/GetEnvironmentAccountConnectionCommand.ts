@@ -24,9 +24,7 @@ export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironm
  *
  * The output of {@link GetEnvironmentAccountConnectionCommand}.
  */
-export interface GetEnvironmentAccountConnectionCommandOutput
-  extends GetEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface GetEnvironmentAccountConnectionCommandOutput extends GetEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In an environment account, get the detailed data for an environment account connection.</p>

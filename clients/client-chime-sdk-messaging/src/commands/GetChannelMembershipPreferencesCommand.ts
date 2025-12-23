@@ -31,9 +31,7 @@ export interface GetChannelMembershipPreferencesCommandInput extends GetChannelM
  *
  * The output of {@link GetChannelMembershipPreferencesCommand}.
  */
-export interface GetChannelMembershipPreferencesCommandOutput
-  extends GetChannelMembershipPreferencesResponse,
-    __MetadataBearer {}
+export interface GetChannelMembershipPreferencesCommandOutput extends GetChannelMembershipPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>

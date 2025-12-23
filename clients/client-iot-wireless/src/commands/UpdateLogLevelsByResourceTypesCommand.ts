@@ -24,9 +24,7 @@ export interface UpdateLogLevelsByResourceTypesCommandInput extends UpdateLogLev
  *
  * The output of {@link UpdateLogLevelsByResourceTypesCommand}.
  */
-export interface UpdateLogLevelsByResourceTypesCommandOutput
-  extends UpdateLogLevelsByResourceTypesResponse,
-    __MetadataBearer {}
+export interface UpdateLogLevelsByResourceTypesCommandOutput extends UpdateLogLevelsByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Set default log level, or log levels by resource types. This can be for wireless

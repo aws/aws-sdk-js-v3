@@ -24,9 +24,7 @@ export interface AttachCertificateToDistributionCommandInput extends AttachCerti
  *
  * The output of {@link AttachCertificateToDistributionCommand}.
  */
-export interface AttachCertificateToDistributionCommandOutput
-  extends AttachCertificateToDistributionResult,
-    __MetadataBearer {}
+export interface AttachCertificateToDistributionCommandOutput extends AttachCertificateToDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)

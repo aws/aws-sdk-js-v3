@@ -27,13 +27,13 @@ import {
   MigrationHubConfig,
   MigrationHubConfigClient,
   MigrationHubConfigServiceException,
+  paginateDescribeHomeRegionControls,
   ServiceUnavailableException,
   ServiceUnavailableException$,
   Target$,
   TargetType,
   ThrottlingException,
   ThrottlingException$,
-  paginateDescribeHomeRegionControls,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

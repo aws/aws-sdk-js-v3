@@ -21,10 +21,4 @@ export const paginateDescribeInboundCrossClusterSearchConnections: (
   ElasticsearchServicePaginationConfiguration,
   DescribeInboundCrossClusterSearchConnectionsCommandInput,
   DescribeInboundCrossClusterSearchConnectionsCommandOutput
->(
-  ElasticsearchServiceClient,
-  DescribeInboundCrossClusterSearchConnectionsCommand,
-  "NextToken",
-  "NextToken",
-  "MaxResults"
-);
+>(ElasticsearchServiceClient, DescribeInboundCrossClusterSearchConnectionsCommand, "NextToken", "NextToken", "MaxResults");

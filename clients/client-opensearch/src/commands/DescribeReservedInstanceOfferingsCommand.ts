@@ -27,9 +27,7 @@ export interface DescribeReservedInstanceOfferingsCommandInput extends DescribeR
  *
  * The output of {@link DescribeReservedInstanceOfferingsCommand}.
  */
-export interface DescribeReservedInstanceOfferingsCommandOutput
-  extends DescribeReservedInstanceOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeReservedInstanceOfferingsCommandOutput extends DescribeReservedInstanceOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a

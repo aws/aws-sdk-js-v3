@@ -10,17 +10,17 @@ const checkState = async (client: GroundStationClient, input: DescribeContactCom
     const result: any = await client.send(new DescribeContactCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.contactStatus;
-      };
+      }
       if (returnComparator() === "FAILED_TO_SCHEDULE") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.contactStatus;
-      };
+      }
       if (returnComparator() === "SCHEDULED") {
         return { state: WaiterState.SUCCESS, reason };
       }

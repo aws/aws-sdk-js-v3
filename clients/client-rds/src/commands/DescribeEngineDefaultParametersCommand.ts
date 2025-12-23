@@ -24,9 +24,7 @@ export interface DescribeEngineDefaultParametersCommandInput extends DescribeEng
  *
  * The output of {@link DescribeEngineDefaultParametersCommand}.
  */
-export interface DescribeEngineDefaultParametersCommandOutput
-  extends DescribeEngineDefaultParametersResult,
-    __MetadataBearer {}
+export interface DescribeEngineDefaultParametersCommandOutput extends DescribeEngineDefaultParametersResult, __MetadataBearer {}
 
 /**
  * <p>Returns the default engine and system parameter information for the specified database engine.</p>

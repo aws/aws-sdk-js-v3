@@ -27,9 +27,7 @@ export interface ListAdminAccountsForOrganizationCommandInput extends ListAdminA
  *
  * The output of {@link ListAdminAccountsForOrganizationCommand}.
  */
-export interface ListAdminAccountsForOrganizationCommandOutput
-  extends ListAdminAccountsForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListAdminAccountsForOrganizationCommandOutput extends ListAdminAccountsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a <code>AdminAccounts</code> object that lists the Firewall Manager administrators within the organization that are onboarded to Firewall Manager by <a>AssociateAdminAccount</a>.</p>

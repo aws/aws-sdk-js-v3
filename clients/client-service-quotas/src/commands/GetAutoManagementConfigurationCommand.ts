@@ -24,9 +24,7 @@ export interface GetAutoManagementConfigurationCommandInput extends GetAutoManag
  *
  * The output of {@link GetAutoManagementConfigurationCommand}.
  */
-export interface GetAutoManagementConfigurationCommandOutput
-  extends GetAutoManagementConfigurationResponse,
-    __MetadataBearer {}
+export interface GetAutoManagementConfigurationCommandOutput extends GetAutoManagementConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about your <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you

@@ -24,9 +24,7 @@ export interface GetOriginAccessControlConfigCommandInput extends GetOriginAcces
  *
  * The output of {@link GetOriginAccessControlConfigCommand}.
  */
-export interface GetOriginAccessControlConfigCommandOutput
-  extends GetOriginAccessControlConfigResult,
-    __MetadataBearer {}
+export interface GetOriginAccessControlConfigCommandOutput extends GetOriginAccessControlConfigResult, __MetadataBearer {}
 
 /**
  * <p>Gets a CloudFront origin access control configuration.</p>

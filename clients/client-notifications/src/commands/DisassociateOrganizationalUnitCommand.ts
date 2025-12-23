@@ -24,9 +24,7 @@ export interface DisassociateOrganizationalUnitCommandInput extends Disassociate
  *
  * The output of {@link DisassociateOrganizationalUnitCommand}.
  */
-export interface DisassociateOrganizationalUnitCommandOutput
-  extends DisassociateOrganizationalUnitResponse,
-    __MetadataBearer {}
+export interface DisassociateOrganizationalUnitCommandOutput extends DisassociateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an organizational unit and a notification configuration.</p>

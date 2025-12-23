@@ -24,9 +24,7 @@ export interface DescribeFlowSourceThumbnailCommandInput extends DescribeFlowSou
  *
  * The output of {@link DescribeFlowSourceThumbnailCommand}.
  */
-export interface DescribeFlowSourceThumbnailCommandOutput
-  extends DescribeFlowSourceThumbnailResponse,
-    __MetadataBearer {}
+export interface DescribeFlowSourceThumbnailCommandOutput extends DescribeFlowSourceThumbnailResponse, __MetadataBearer {}
 
 /**
  * <p> Describes the thumbnail for the flow source. </p>

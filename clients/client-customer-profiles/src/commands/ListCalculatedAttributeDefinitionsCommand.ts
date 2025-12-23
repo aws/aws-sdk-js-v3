@@ -31,9 +31,7 @@ export interface ListCalculatedAttributeDefinitionsCommandInput extends ListCalc
  *
  * The output of {@link ListCalculatedAttributeDefinitionsCommand}.
  */
-export interface ListCalculatedAttributeDefinitionsCommandOutput
-  extends ListCalculatedAttributeDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListCalculatedAttributeDefinitionsCommandOutput extends ListCalculatedAttributeDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists calculated attribute definitions for Customer Profiles</p>

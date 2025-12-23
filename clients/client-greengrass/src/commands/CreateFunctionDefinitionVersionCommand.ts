@@ -27,9 +27,7 @@ export interface CreateFunctionDefinitionVersionCommandInput extends CreateFunct
  *
  * The output of {@link CreateFunctionDefinitionVersionCommand}.
  */
-export interface CreateFunctionDefinitionVersionCommandOutput
-  extends CreateFunctionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateFunctionDefinitionVersionCommandOutput extends CreateFunctionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a Lambda function definition that has already been defined.

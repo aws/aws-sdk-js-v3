@@ -28,9 +28,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialCon
  *
  * The output of {@link SendSerialConsoleSSHPublicKeyCommand}.
  */
-export interface SendSerialConsoleSSHPublicKeyCommandOutput
-  extends SendSerialConsoleSSHPublicKeyResponse,
-    __MetadataBearer {}
+export interface SendSerialConsoleSSHPublicKeyCommandOutput extends SendSerialConsoleSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60

@@ -27,9 +27,7 @@ export interface ListControlInsightsByControlDomainCommandInput extends ListCont
  *
  * The output of {@link ListControlInsightsByControlDomainCommand}.
  */
-export interface ListControlInsightsByControlDomainCommandOutput
-  extends ListControlInsightsByControlDomainResponse,
-    __MetadataBearer {}
+export interface ListControlInsightsByControlDomainCommandOutput extends ListControlInsightsByControlDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the latest analytics data for controls within a specific control domain across all

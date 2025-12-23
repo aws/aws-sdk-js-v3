@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
-export interface DeleteCustomVerificationEmailTemplateCommandInput
-  extends DeleteCustomVerificationEmailTemplateRequest {}
+export interface DeleteCustomVerificationEmailTemplateCommandInput extends DeleteCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
-export interface DeleteCustomVerificationEmailTemplateCommandOutput
-  extends DeleteCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteCustomVerificationEmailTemplateCommandOutput extends DeleteCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing custom verification email template.</p>

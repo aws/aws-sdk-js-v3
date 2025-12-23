@@ -31,9 +31,7 @@ export interface ListRoute53HealthChecksInRegionCommandInput extends ListRoute53
  *
  * The output of {@link ListRoute53HealthChecksInRegionCommand}.
  */
-export interface ListRoute53HealthChecksInRegionCommandOutput
-  extends ListRoute53HealthChecksInRegionResponse,
-    __MetadataBearer {}
+export interface ListRoute53HealthChecksInRegionCommandOutput extends ListRoute53HealthChecksInRegionResponse, __MetadataBearer {}
 
 /**
  * <p>List the Amazon Route 53 health checks in a specific Amazon Web Services Region.</p>

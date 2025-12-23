@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
-export interface DeleteTransitGatewayPrefixListReferenceCommandInput
-  extends DeleteTransitGatewayPrefixListReferenceRequest {}
+export interface DeleteTransitGatewayPrefixListReferenceCommandInput extends DeleteTransitGatewayPrefixListReferenceRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
-export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
-  extends DeleteTransitGatewayPrefixListReferenceResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayPrefixListReferenceCommandOutput extends DeleteTransitGatewayPrefixListReferenceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>

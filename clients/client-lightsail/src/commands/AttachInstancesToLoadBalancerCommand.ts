@@ -24,9 +24,7 @@ export interface AttachInstancesToLoadBalancerCommandInput extends AttachInstanc
  *
  * The output of {@link AttachInstancesToLoadBalancerCommand}.
  */
-export interface AttachInstancesToLoadBalancerCommandOutput
-  extends AttachInstancesToLoadBalancerResult,
-    __MetadataBearer {}
+export interface AttachInstancesToLoadBalancerCommandOutput extends AttachInstancesToLoadBalancerResult, __MetadataBearer {}
 
 /**
  * <p>Attaches one or more Lightsail instances to a load balancer.</p>

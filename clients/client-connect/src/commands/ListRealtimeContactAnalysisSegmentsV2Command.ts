@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRealtimeContactAnalysisSegmentsV2Command}.
  */
-export interface ListRealtimeContactAnalysisSegmentsV2CommandInput
-  extends ListRealtimeContactAnalysisSegmentsV2Request {}
+export interface ListRealtimeContactAnalysisSegmentsV2CommandInput extends ListRealtimeContactAnalysisSegmentsV2Request {}
 /**
  * @public
  *
  * The output of {@link ListRealtimeContactAnalysisSegmentsV2Command}.
  */
-export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
-  extends ListRealtimeContactAnalysisSegmentsV2Response,
-    __MetadataBearer {}
+export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends ListRealtimeContactAnalysisSegmentsV2Response, __MetadataBearer {}
 
 /**
  * <p>Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels

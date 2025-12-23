@@ -27,9 +27,7 @@ export interface DeleteLocalGatewayVirtualInterfaceCommandInput extends DeleteLo
  *
  * The output of {@link DeleteLocalGatewayVirtualInterfaceCommand}.
  */
-export interface DeleteLocalGatewayVirtualInterfaceCommandOutput
-  extends DeleteLocalGatewayVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayVirtualInterfaceCommandOutput extends DeleteLocalGatewayVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified local gateway virtual interface.</p>

@@ -24,9 +24,7 @@ export interface CreateEgressOnlyInternetGatewayCommandInput extends CreateEgres
  *
  * The output of {@link CreateEgressOnlyInternetGatewayCommand}.
  */
-export interface CreateEgressOnlyInternetGatewayCommandOutput
-  extends CreateEgressOnlyInternetGatewayResult,
-    __MetadataBearer {}
+export interface CreateEgressOnlyInternetGatewayCommandOutput extends CreateEgressOnlyInternetGatewayResult, __MetadataBearer {}
 
 /**
  * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only

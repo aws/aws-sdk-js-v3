@@ -19,10 +19,8 @@ support the API. For more information and to download the driver, see <a href="h
 Amazon Athena with JDBC</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-athena
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-athena`
 - `yarn add @aws-sdk/client-athena`
 - `pnpm add @aws-sdk/client-athena`
@@ -58,9 +56,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AthenaClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDataCatalogsCommand(params);
 ```
 
@@ -219,7 +215,6 @@ BatchGetNamedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/BatchGetNamedQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetNamedQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetNamedQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +222,6 @@ BatchGetPreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/BatchGetPreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetPreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetPreparedStatementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +229,6 @@ BatchGetQueryExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/BatchGetQueryExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetQueryExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/BatchGetQueryExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,7 +236,6 @@ CancelCapacityReservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CancelCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CancelCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CancelCapacityReservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +243,6 @@ CreateCapacityReservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateCapacityReservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +250,6 @@ CreateDataCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateDataCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateDataCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateDataCatalogCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +257,6 @@ CreateNamedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateNamedQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateNamedQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateNamedQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +264,6 @@ CreateNotebook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateNotebookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateNotebookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateNotebookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +271,6 @@ CreatePreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreatePreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreatePreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreatePreparedStatementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +278,6 @@ CreatePresignedNotebookUrl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreatePresignedNotebookUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreatePresignedNotebookUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreatePresignedNotebookUrlCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +285,6 @@ CreateWorkGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/CreateWorkGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateWorkGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/CreateWorkGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +292,6 @@ DeleteCapacityReservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteCapacityReservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +299,6 @@ DeleteDataCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteDataCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteDataCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteDataCatalogCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +306,6 @@ DeleteNamedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteNamedQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteNamedQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteNamedQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +313,6 @@ DeleteNotebook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteNotebookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteNotebookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteNotebookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +320,6 @@ DeletePreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeletePreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeletePreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeletePreparedStatementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +327,6 @@ DeleteWorkGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/DeleteWorkGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteWorkGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/DeleteWorkGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +334,6 @@ ExportNotebook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ExportNotebookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ExportNotebookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ExportNotebookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +341,6 @@ GetCalculationExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetCalculationExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +348,6 @@ GetCalculationExecutionCode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetCalculationExecutionCodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionCodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionCodeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +355,6 @@ GetCalculationExecutionStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetCalculationExecutionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCalculationExecutionStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +362,6 @@ GetCapacityAssignmentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetCapacityAssignmentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCapacityAssignmentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCapacityAssignmentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +369,6 @@ GetCapacityReservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetCapacityReservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +376,6 @@ GetDatabase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetDatabaseCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +383,6 @@ GetDataCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetDataCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetDataCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetDataCatalogCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +390,6 @@ GetNamedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetNamedQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetNamedQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetNamedQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +397,6 @@ GetNotebookMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetNotebookMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetNotebookMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetNotebookMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,7 +404,6 @@ GetPreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetPreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetPreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetPreparedStatementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -443,7 +411,6 @@ GetQueryExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetQueryExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -451,7 +418,6 @@ GetQueryResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetQueryResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryResultsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -459,7 +425,6 @@ GetQueryRuntimeStatistics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetQueryRuntimeStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryRuntimeStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetQueryRuntimeStatisticsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -467,7 +432,6 @@ GetResourceDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetResourceDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetResourceDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetResourceDashboardCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -475,7 +439,6 @@ GetSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -483,7 +446,6 @@ GetSessionEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetSessionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -491,7 +453,6 @@ GetSessionStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetSessionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetSessionStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -499,7 +460,6 @@ GetTableMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetTableMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetTableMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetTableMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -507,7 +467,6 @@ GetWorkGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/GetWorkGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetWorkGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/GetWorkGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -515,7 +474,6 @@ ImportNotebook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ImportNotebookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ImportNotebookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ImportNotebookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -523,7 +481,6 @@ ListApplicationDPUSizes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListApplicationDPUSizesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListApplicationDPUSizesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListApplicationDPUSizesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -531,7 +488,6 @@ ListCalculationExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListCalculationExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListCalculationExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListCalculationExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -539,7 +495,6 @@ ListCapacityReservations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListCapacityReservationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListCapacityReservationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListCapacityReservationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -547,7 +502,6 @@ ListDatabases
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListDatabasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListDatabasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListDatabasesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -555,7 +509,6 @@ ListDataCatalogs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListDataCatalogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListDataCatalogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListDataCatalogsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -563,7 +516,6 @@ ListEngineVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListEngineVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListEngineVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListEngineVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -571,7 +523,6 @@ ListExecutors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListExecutorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListExecutorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListExecutorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -579,7 +530,6 @@ ListNamedQueries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListNamedQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNamedQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNamedQueriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -587,7 +537,6 @@ ListNotebookMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListNotebookMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNotebookMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNotebookMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -595,7 +544,6 @@ ListNotebookSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListNotebookSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNotebookSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListNotebookSessionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -603,7 +551,6 @@ ListPreparedStatements
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListPreparedStatementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListPreparedStatementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListPreparedStatementsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -611,7 +558,6 @@ ListQueryExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListQueryExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListQueryExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListQueryExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -619,7 +565,6 @@ ListSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListSessionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -627,7 +572,6 @@ ListTableMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListTableMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListTableMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListTableMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -635,7 +579,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -643,7 +586,6 @@ ListWorkGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/ListWorkGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListWorkGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/ListWorkGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -651,7 +593,6 @@ PutCapacityAssignmentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/PutCapacityAssignmentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/PutCapacityAssignmentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/PutCapacityAssignmentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -659,7 +600,6 @@ StartCalculationExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/StartCalculationExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartCalculationExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartCalculationExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -667,7 +607,6 @@ StartQueryExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/StartQueryExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartQueryExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartQueryExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -675,7 +614,6 @@ StartSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/StartSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StartSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -683,7 +621,6 @@ StopCalculationExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/StopCalculationExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StopCalculationExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StopCalculationExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -691,7 +628,6 @@ StopQueryExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/StopQueryExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StopQueryExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/StopQueryExecutionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -699,7 +635,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -707,7 +642,6 @@ TerminateSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/TerminateSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/TerminateSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/TerminateSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -715,7 +649,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -723,7 +656,6 @@ UpdateCapacityReservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateCapacityReservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -731,7 +663,6 @@ UpdateDataCatalog
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateDataCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateDataCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateDataCatalogCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -739,7 +670,6 @@ UpdateNamedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateNamedQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNamedQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNamedQueryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -747,7 +677,6 @@ UpdateNotebook
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateNotebookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNotebookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNotebookCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -755,7 +684,6 @@ UpdateNotebookMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateNotebookMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNotebookMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateNotebookMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -763,7 +691,6 @@ UpdatePreparedStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdatePreparedStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdatePreparedStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdatePreparedStatementCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -771,5 +698,4 @@ UpdateWorkGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/athena/command/UpdateWorkGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateWorkGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-athena/Interface/UpdateWorkGroupCommandOutput/)
-
 </details>

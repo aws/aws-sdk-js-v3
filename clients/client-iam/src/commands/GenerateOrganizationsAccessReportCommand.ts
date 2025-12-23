@@ -27,9 +27,7 @@ export interface GenerateOrganizationsAccessReportCommandInput extends GenerateO
  *
  * The output of {@link GenerateOrganizationsAccessReportCommand}.
  */
-export interface GenerateOrganizationsAccessReportCommandOutput
-  extends GenerateOrganizationsAccessReportResponse,
-    __MetadataBearer {}
+export interface GenerateOrganizationsAccessReportCommandOutput extends GenerateOrganizationsAccessReportResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a report for service last accessed data for Organizations. You can generate a

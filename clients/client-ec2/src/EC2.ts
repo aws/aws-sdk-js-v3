@@ -4592,7 +4592,10 @@ export interface EC2 {
     args: AllocateAddressCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AllocateAddressCommandOutput>;
-  allocateAddress(args: AllocateAddressCommandInput, cb: (err: any, data?: AllocateAddressCommandOutput) => void): void;
+  allocateAddress(
+    args: AllocateAddressCommandInput,
+    cb: (err: any, data?: AllocateAddressCommandOutput) => void
+  ): void;
   allocateAddress(
     args: AllocateAddressCommandInput,
     options: __HttpHandlerOptions,
@@ -4603,8 +4606,14 @@ export interface EC2 {
    * @see {@link AllocateHostsCommand}
    */
   allocateHosts(): Promise<AllocateHostsCommandOutput>;
-  allocateHosts(args: AllocateHostsCommandInput, options?: __HttpHandlerOptions): Promise<AllocateHostsCommandOutput>;
-  allocateHosts(args: AllocateHostsCommandInput, cb: (err: any, data?: AllocateHostsCommandOutput) => void): void;
+  allocateHosts(
+    args: AllocateHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AllocateHostsCommandOutput>;
+  allocateHosts(
+    args: AllocateHostsCommandInput,
+    cb: (err: any, data?: AllocateHostsCommandOutput) => void
+  ): void;
   allocateHosts(
     args: AllocateHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -5091,8 +5100,14 @@ export interface EC2 {
   /**
    * @see {@link AttachVolumeCommand}
    */
-  attachVolume(args: AttachVolumeCommandInput, options?: __HttpHandlerOptions): Promise<AttachVolumeCommandOutput>;
-  attachVolume(args: AttachVolumeCommandInput, cb: (err: any, data?: AttachVolumeCommandOutput) => void): void;
+  attachVolume(
+    args: AttachVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachVolumeCommandOutput>;
+  attachVolume(
+    args: AttachVolumeCommandInput,
+    cb: (err: any, data?: AttachVolumeCommandOutput) => void
+  ): void;
   attachVolume(
     args: AttachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -5175,7 +5190,10 @@ export interface EC2 {
     args: BundleInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BundleInstanceCommandOutput>;
-  bundleInstance(args: BundleInstanceCommandInput, cb: (err: any, data?: BundleInstanceCommandOutput) => void): void;
+  bundleInstance(
+    args: BundleInstanceCommandInput,
+    cb: (err: any, data?: BundleInstanceCommandOutput) => void
+  ): void;
   bundleInstance(
     args: BundleInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -5390,8 +5408,14 @@ export interface EC2 {
   /**
    * @see {@link CopyFpgaImageCommand}
    */
-  copyFpgaImage(args: CopyFpgaImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyFpgaImageCommandOutput>;
-  copyFpgaImage(args: CopyFpgaImageCommandInput, cb: (err: any, data?: CopyFpgaImageCommandOutput) => void): void;
+  copyFpgaImage(
+    args: CopyFpgaImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyFpgaImageCommandOutput>;
+  copyFpgaImage(
+    args: CopyFpgaImageCommandInput,
+    cb: (err: any, data?: CopyFpgaImageCommandOutput) => void
+  ): void;
   copyFpgaImage(
     args: CopyFpgaImageCommandInput,
     options: __HttpHandlerOptions,
@@ -5401,8 +5425,14 @@ export interface EC2 {
   /**
    * @see {@link CopyImageCommand}
    */
-  copyImage(args: CopyImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageCommandOutput>;
-  copyImage(args: CopyImageCommandInput, cb: (err: any, data?: CopyImageCommandOutput) => void): void;
+  copyImage(
+    args: CopyImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyImageCommandOutput>;
+  copyImage(
+    args: CopyImageCommandInput,
+    cb: (err: any, data?: CopyImageCommandOutput) => void
+  ): void;
   copyImage(
     args: CopyImageCommandInput,
     options: __HttpHandlerOptions,
@@ -5412,8 +5442,14 @@ export interface EC2 {
   /**
    * @see {@link CopySnapshotCommand}
    */
-  copySnapshot(args: CopySnapshotCommandInput, options?: __HttpHandlerOptions): Promise<CopySnapshotCommandOutput>;
-  copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopySnapshotCommandOutput>;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    cb: (err: any, data?: CopySnapshotCommandOutput) => void
+  ): void;
   copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -5423,8 +5459,14 @@ export interface EC2 {
   /**
    * @see {@link CopyVolumesCommand}
    */
-  copyVolumes(args: CopyVolumesCommandInput, options?: __HttpHandlerOptions): Promise<CopyVolumesCommandOutput>;
-  copyVolumes(args: CopyVolumesCommandInput, cb: (err: any, data?: CopyVolumesCommandOutput) => void): void;
+  copyVolumes(
+    args: CopyVolumesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyVolumesCommandOutput>;
+  copyVolumes(
+    args: CopyVolumesCommandInput,
+    cb: (err: any, data?: CopyVolumesCommandOutput) => void
+  ): void;
   copyVolumes(
     args: CopyVolumesCommandInput,
     options: __HttpHandlerOptions,
@@ -5557,7 +5599,10 @@ export interface EC2 {
     args: CreateCoipCidrCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCoipCidrCommandOutput>;
-  createCoipCidr(args: CreateCoipCidrCommandInput, cb: (err: any, data?: CreateCoipCidrCommandOutput) => void): void;
+  createCoipCidr(
+    args: CreateCoipCidrCommandInput,
+    cb: (err: any, data?: CreateCoipCidrCommandOutput) => void
+  ): void;
   createCoipCidr(
     args: CreateCoipCidrCommandInput,
     options: __HttpHandlerOptions,
@@ -5571,7 +5616,10 @@ export interface EC2 {
     args: CreateCoipPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCoipPoolCommandOutput>;
-  createCoipPool(args: CreateCoipPoolCommandInput, cb: (err: any, data?: CreateCoipPoolCommandOutput) => void): void;
+  createCoipPool(
+    args: CreateCoipPoolCommandInput,
+    cb: (err: any, data?: CreateCoipPoolCommandOutput) => void
+  ): void;
   createCoipPool(
     args: CreateCoipPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -5685,8 +5733,14 @@ export interface EC2 {
   /**
    * @see {@link CreateFleetCommand}
    */
-  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
-  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetCommandOutput>;
+  createFleet(
+    args: CreateFleetCommandInput,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
+  ): void;
   createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -5700,7 +5754,10 @@ export interface EC2 {
     args: CreateFlowLogsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFlowLogsCommandOutput>;
-  createFlowLogs(args: CreateFlowLogsCommandInput, cb: (err: any, data?: CreateFlowLogsCommandOutput) => void): void;
+  createFlowLogs(
+    args: CreateFlowLogsCommandInput,
+    cb: (err: any, data?: CreateFlowLogsCommandOutput) => void
+  ): void;
   createFlowLogs(
     args: CreateFlowLogsCommandInput,
     options: __HttpHandlerOptions,
@@ -5714,7 +5771,10 @@ export interface EC2 {
     args: CreateFpgaImageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFpgaImageCommandOutput>;
-  createFpgaImage(args: CreateFpgaImageCommandInput, cb: (err: any, data?: CreateFpgaImageCommandOutput) => void): void;
+  createFpgaImage(
+    args: CreateFpgaImageCommandInput,
+    cb: (err: any, data?: CreateFpgaImageCommandOutput) => void
+  ): void;
   createFpgaImage(
     args: CreateFpgaImageCommandInput,
     options: __HttpHandlerOptions,
@@ -5724,8 +5784,14 @@ export interface EC2 {
   /**
    * @see {@link CreateImageCommand}
    */
-  createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
-  createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
+  createImage(
+    args: CreateImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImageCommandOutput>;
+  createImage(
+    args: CreateImageCommandInput,
+    cb: (err: any, data?: CreateImageCommandOutput) => void
+  ): void;
   createImage(
     args: CreateImageCommandInput,
     options: __HttpHandlerOptions,
@@ -5840,8 +5906,14 @@ export interface EC2 {
    * @see {@link CreateIpamCommand}
    */
   createIpam(): Promise<CreateIpamCommandOutput>;
-  createIpam(args: CreateIpamCommandInput, options?: __HttpHandlerOptions): Promise<CreateIpamCommandOutput>;
-  createIpam(args: CreateIpamCommandInput, cb: (err: any, data?: CreateIpamCommandOutput) => void): void;
+  createIpam(
+    args: CreateIpamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamCommandOutput>;
+  createIpam(
+    args: CreateIpamCommandInput,
+    cb: (err: any, data?: CreateIpamCommandOutput) => void
+  ): void;
   createIpam(
     args: CreateIpamCommandInput,
     options: __HttpHandlerOptions,
@@ -5889,7 +5961,10 @@ export interface EC2 {
     args: CreateIpamPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateIpamPoolCommandOutput>;
-  createIpamPool(args: CreateIpamPoolCommandInput, cb: (err: any, data?: CreateIpamPoolCommandOutput) => void): void;
+  createIpamPool(
+    args: CreateIpamPoolCommandInput,
+    cb: (err: any, data?: CreateIpamPoolCommandOutput) => void
+  ): void;
   createIpamPool(
     args: CreateIpamPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -5955,7 +6030,10 @@ export interface EC2 {
     args: CreateIpamScopeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateIpamScopeCommandOutput>;
-  createIpamScope(args: CreateIpamScopeCommandInput, cb: (err: any, data?: CreateIpamScopeCommandOutput) => void): void;
+  createIpamScope(
+    args: CreateIpamScopeCommandInput,
+    cb: (err: any, data?: CreateIpamScopeCommandOutput) => void
+  ): void;
   createIpamScope(
     args: CreateIpamScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -5965,8 +6043,14 @@ export interface EC2 {
   /**
    * @see {@link CreateKeyPairCommand}
    */
-  createKeyPair(args: CreateKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyPairCommandOutput>;
-  createKeyPair(args: CreateKeyPairCommandInput, cb: (err: any, data?: CreateKeyPairCommandOutput) => void): void;
+  createKeyPair(
+    args: CreateKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyPairCommandOutput>;
+  createKeyPair(
+    args: CreateKeyPairCommandInput,
+    cb: (err: any, data?: CreateKeyPairCommandOutput) => void
+  ): void;
   createKeyPair(
     args: CreateKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -6353,8 +6437,14 @@ export interface EC2 {
   /**
    * @see {@link CreateRouteCommand}
    */
-  createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
-  createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
+  createRoute(
+    args: CreateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouteCommandOutput>;
+  createRoute(
+    args: CreateRouteCommandInput,
+    cb: (err: any, data?: CreateRouteCommandOutput) => void
+  ): void;
   createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -6453,7 +6543,10 @@ export interface EC2 {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -6467,7 +6560,10 @@ export interface EC2 {
     args: CreateSnapshotsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotsCommandOutput>;
-  createSnapshots(args: CreateSnapshotsCommandInput, cb: (err: any, data?: CreateSnapshotsCommandOutput) => void): void;
+  createSnapshots(
+    args: CreateSnapshotsCommandInput,
+    cb: (err: any, data?: CreateSnapshotsCommandOutput) => void
+  ): void;
   createSnapshots(
     args: CreateSnapshotsCommandInput,
     options: __HttpHandlerOptions,
@@ -6511,8 +6607,14 @@ export interface EC2 {
   /**
    * @see {@link CreateSubnetCommand}
    */
-  createSubnet(args: CreateSubnetCommandInput, options?: __HttpHandlerOptions): Promise<CreateSubnetCommandOutput>;
-  createSubnet(args: CreateSubnetCommandInput, cb: (err: any, data?: CreateSubnetCommandOutput) => void): void;
+  createSubnet(
+    args: CreateSubnetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSubnetCommandOutput>;
+  createSubnet(
+    args: CreateSubnetCommandInput,
+    cb: (err: any, data?: CreateSubnetCommandOutput) => void
+  ): void;
   createSubnet(
     args: CreateSubnetCommandInput,
     options: __HttpHandlerOptions,
@@ -6539,8 +6641,14 @@ export interface EC2 {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -6912,8 +7020,14 @@ export interface EC2 {
    * @see {@link CreateVolumeCommand}
    */
   createVolume(): Promise<CreateVolumeCommandOutput>;
-  createVolume(args: CreateVolumeCommandInput, options?: __HttpHandlerOptions): Promise<CreateVolumeCommandOutput>;
-  createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVolumeCommandOutput>;
+  createVolume(
+    args: CreateVolumeCommandInput,
+    cb: (err: any, data?: CreateVolumeCommandOutput) => void
+  ): void;
   createVolume(
     args: CreateVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -6924,8 +7038,14 @@ export interface EC2 {
    * @see {@link CreateVpcCommand}
    */
   createVpc(): Promise<CreateVpcCommandOutput>;
-  createVpc(args: CreateVpcCommandInput, options?: __HttpHandlerOptions): Promise<CreateVpcCommandOutput>;
-  createVpc(args: CreateVpcCommandInput, cb: (err: any, data?: CreateVpcCommandOutput) => void): void;
+  createVpc(
+    args: CreateVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcCommandOutput>;
+  createVpc(
+    args: CreateVpcCommandInput,
+    cb: (err: any, data?: CreateVpcCommandOutput) => void
+  ): void;
   createVpc(
     args: CreateVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -7178,7 +7298,10 @@ export interface EC2 {
     args: DeleteCoipCidrCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCoipCidrCommandOutput>;
-  deleteCoipCidr(args: DeleteCoipCidrCommandInput, cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void): void;
+  deleteCoipCidr(
+    args: DeleteCoipCidrCommandInput,
+    cb: (err: any, data?: DeleteCoipCidrCommandOutput) => void
+  ): void;
   deleteCoipCidr(
     args: DeleteCoipCidrCommandInput,
     options: __HttpHandlerOptions,
@@ -7192,7 +7315,10 @@ export interface EC2 {
     args: DeleteCoipPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCoipPoolCommandOutput>;
-  deleteCoipPool(args: DeleteCoipPoolCommandInput, cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void): void;
+  deleteCoipPool(
+    args: DeleteCoipPoolCommandInput,
+    cb: (err: any, data?: DeleteCoipPoolCommandOutput) => void
+  ): void;
   deleteCoipPool(
     args: DeleteCoipPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -7253,8 +7379,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteFleetsCommand}
    */
-  deleteFleets(args: DeleteFleetsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetsCommandOutput>;
-  deleteFleets(args: DeleteFleetsCommandInput, cb: (err: any, data?: DeleteFleetsCommandOutput) => void): void;
+  deleteFleets(
+    args: DeleteFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetsCommandOutput>;
+  deleteFleets(
+    args: DeleteFleetsCommandInput,
+    cb: (err: any, data?: DeleteFleetsCommandOutput) => void
+  ): void;
   deleteFleets(
     args: DeleteFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -7268,7 +7400,10 @@ export interface EC2 {
     args: DeleteFlowLogsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFlowLogsCommandOutput>;
-  deleteFlowLogs(args: DeleteFlowLogsCommandInput, cb: (err: any, data?: DeleteFlowLogsCommandOutput) => void): void;
+  deleteFlowLogs(
+    args: DeleteFlowLogsCommandInput,
+    cb: (err: any, data?: DeleteFlowLogsCommandOutput) => void
+  ): void;
   deleteFlowLogs(
     args: DeleteFlowLogsCommandInput,
     options: __HttpHandlerOptions,
@@ -7282,7 +7417,10 @@ export interface EC2 {
     args: DeleteFpgaImageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFpgaImageCommandOutput>;
-  deleteFpgaImage(args: DeleteFpgaImageCommandInput, cb: (err: any, data?: DeleteFpgaImageCommandOutput) => void): void;
+  deleteFpgaImage(
+    args: DeleteFpgaImageCommandInput,
+    cb: (err: any, data?: DeleteFpgaImageCommandOutput) => void
+  ): void;
   deleteFpgaImage(
     args: DeleteFpgaImageCommandInput,
     options: __HttpHandlerOptions,
@@ -7360,8 +7498,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteIpamCommand}
    */
-  deleteIpam(args: DeleteIpamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIpamCommandOutput>;
-  deleteIpam(args: DeleteIpamCommandInput, cb: (err: any, data?: DeleteIpamCommandOutput) => void): void;
+  deleteIpam(
+    args: DeleteIpamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamCommandOutput>;
+  deleteIpam(
+    args: DeleteIpamCommandInput,
+    cb: (err: any, data?: DeleteIpamCommandOutput) => void
+  ): void;
   deleteIpam(
     args: DeleteIpamCommandInput,
     options: __HttpHandlerOptions,
@@ -7409,7 +7553,10 @@ export interface EC2 {
     args: DeleteIpamPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIpamPoolCommandOutput>;
-  deleteIpamPool(args: DeleteIpamPoolCommandInput, cb: (err: any, data?: DeleteIpamPoolCommandOutput) => void): void;
+  deleteIpamPool(
+    args: DeleteIpamPoolCommandInput,
+    cb: (err: any, data?: DeleteIpamPoolCommandOutput) => void
+  ): void;
   deleteIpamPool(
     args: DeleteIpamPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -7474,7 +7621,10 @@ export interface EC2 {
     args: DeleteIpamScopeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteIpamScopeCommandOutput>;
-  deleteIpamScope(args: DeleteIpamScopeCommandInput, cb: (err: any, data?: DeleteIpamScopeCommandOutput) => void): void;
+  deleteIpamScope(
+    args: DeleteIpamScopeCommandInput,
+    cb: (err: any, data?: DeleteIpamScopeCommandOutput) => void
+  ): void;
   deleteIpamScope(
     args: DeleteIpamScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -7485,8 +7635,14 @@ export interface EC2 {
    * @see {@link DeleteKeyPairCommand}
    */
   deleteKeyPair(): Promise<DeleteKeyPairCommandOutput>;
-  deleteKeyPair(args: DeleteKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyPairCommandOutput>;
-  deleteKeyPair(args: DeleteKeyPairCommandInput, cb: (err: any, data?: DeleteKeyPairCommandOutput) => void): void;
+  deleteKeyPair(
+    args: DeleteKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyPairCommandOutput>;
+  deleteKeyPair(
+    args: DeleteKeyPairCommandInput,
+    cb: (err: any, data?: DeleteKeyPairCommandOutput) => void
+  ): void;
   deleteKeyPair(
     args: DeleteKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -7854,8 +8010,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteRouteCommand}
    */
-  deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
-  deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteCommandOutput>;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    cb: (err: any, data?: DeleteRouteCommandOutput) => void
+  ): void;
   deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -7955,7 +8117,10 @@ export interface EC2 {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -7983,8 +8148,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteSubnetCommand}
    */
-  deleteSubnet(args: DeleteSubnetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSubnetCommandOutput>;
-  deleteSubnet(args: DeleteSubnetCommandInput, cb: (err: any, data?: DeleteSubnetCommandOutput) => void): void;
+  deleteSubnet(
+    args: DeleteSubnetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSubnetCommandOutput>;
+  deleteSubnet(
+    args: DeleteSubnetCommandInput,
+    cb: (err: any, data?: DeleteSubnetCommandOutput) => void
+  ): void;
   deleteSubnet(
     args: DeleteSubnetCommandInput,
     options: __HttpHandlerOptions,
@@ -8011,8 +8182,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -8379,8 +8556,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteVolumeCommand}
    */
-  deleteVolume(args: DeleteVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVolumeCommandOutput>;
-  deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -8390,8 +8573,14 @@ export interface EC2 {
   /**
    * @see {@link DeleteVpcCommand}
    */
-  deleteVpc(args: DeleteVpcCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVpcCommandOutput>;
-  deleteVpc(args: DeleteVpcCommandInput, cb: (err: any, data?: DeleteVpcCommandOutput) => void): void;
+  deleteVpc(
+    args: DeleteVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcCommandOutput>;
+  deleteVpc(
+    args: DeleteVpcCommandInput,
+    cb: (err: any, data?: DeleteVpcCommandOutput) => void
+  ): void;
   deleteVpc(
     args: DeleteVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -8643,7 +8832,10 @@ export interface EC2 {
     args: DeregisterImageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeregisterImageCommandOutput>;
-  deregisterImage(args: DeregisterImageCommandInput, cb: (err: any, data?: DeregisterImageCommandOutput) => void): void;
+  deregisterImage(
+    args: DeregisterImageCommandInput,
+    cb: (err: any, data?: DeregisterImageCommandOutput) => void
+  ): void;
   deregisterImage(
     args: DeregisterImageCommandInput,
     options: __HttpHandlerOptions,
@@ -9403,7 +9595,10 @@ export interface EC2 {
     args: DescribeFleetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeFleetsCommandOutput>;
-  describeFleets(args: DescribeFleetsCommandInput, cb: (err: any, data?: DescribeFleetsCommandOutput) => void): void;
+  describeFleets(
+    args: DescribeFleetsCommandInput,
+    cb: (err: any, data?: DescribeFleetsCommandOutput) => void
+  ): void;
   describeFleets(
     args: DescribeFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -9503,8 +9698,14 @@ export interface EC2 {
    * @see {@link DescribeHostsCommand}
    */
   describeHosts(): Promise<DescribeHostsCommandOutput>;
-  describeHosts(args: DescribeHostsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHostsCommandOutput>;
-  describeHosts(args: DescribeHostsCommandInput, cb: (err: any, data?: DescribeHostsCommandOutput) => void): void;
+  describeHosts(
+    args: DescribeHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHostsCommandOutput>;
+  describeHosts(
+    args: DescribeHostsCommandInput,
+    cb: (err: any, data?: DescribeHostsCommandOutput) => void
+  ): void;
   describeHosts(
     args: DescribeHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -9606,7 +9807,10 @@ export interface EC2 {
     args: DescribeImagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeImagesCommandOutput>;
-  describeImages(args: DescribeImagesCommandInput, cb: (err: any, data?: DescribeImagesCommandOutput) => void): void;
+  describeImages(
+    args: DescribeImagesCommandInput,
+    cb: (err: any, data?: DescribeImagesCommandOutput) => void
+  ): void;
   describeImages(
     args: DescribeImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -10084,8 +10288,14 @@ export interface EC2 {
    * @see {@link DescribeIpamsCommand}
    */
   describeIpams(): Promise<DescribeIpamsCommandOutput>;
-  describeIpams(args: DescribeIpamsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeIpamsCommandOutput>;
-  describeIpams(args: DescribeIpamsCommandInput, cb: (err: any, data?: DescribeIpamsCommandOutput) => void): void;
+  describeIpams(
+    args: DescribeIpamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamsCommandOutput>;
+  describeIpams(
+    args: DescribeIpamsCommandInput,
+    cb: (err: any, data?: DescribeIpamsCommandOutput) => void
+  ): void;
   describeIpams(
     args: DescribeIpamsCommandInput,
     options: __HttpHandlerOptions,
@@ -10639,7 +10849,10 @@ export interface EC2 {
     args: DescribeRegionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRegionsCommandOutput>;
-  describeRegions(args: DescribeRegionsCommandInput, cb: (err: any, data?: DescribeRegionsCommandOutput) => void): void;
+  describeRegions(
+    args: DescribeRegionsCommandInput,
+    cb: (err: any, data?: DescribeRegionsCommandOutput) => void
+  ): void;
   describeRegions(
     args: DescribeRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -11134,7 +11347,10 @@ export interface EC2 {
     args: DescribeSubnetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSubnetsCommandOutput>;
-  describeSubnets(args: DescribeSubnetsCommandInput, cb: (err: any, data?: DescribeSubnetsCommandOutput) => void): void;
+  describeSubnets(
+    args: DescribeSubnetsCommandInput,
+    cb: (err: any, data?: DescribeSubnetsCommandOutput) => void
+  ): void;
   describeSubnets(
     args: DescribeSubnetsCommandInput,
     options: __HttpHandlerOptions,
@@ -11145,8 +11361,14 @@ export interface EC2 {
    * @see {@link DescribeTagsCommand}
    */
   describeTags(): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -11556,7 +11778,10 @@ export interface EC2 {
     args: DescribeVolumesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeVolumesCommandOutput>;
-  describeVolumes(args: DescribeVolumesCommandInput, cb: (err: any, data?: DescribeVolumesCommandOutput) => void): void;
+  describeVolumes(
+    args: DescribeVolumesCommandInput,
+    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
   describeVolumes(
     args: DescribeVolumesCommandInput,
     options: __HttpHandlerOptions,
@@ -11853,8 +12078,14 @@ export interface EC2 {
    * @see {@link DescribeVpcsCommand}
    */
   describeVpcs(): Promise<DescribeVpcsCommandOutput>;
-  describeVpcs(args: DescribeVpcsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeVpcsCommandOutput>;
-  describeVpcs(args: DescribeVpcsCommandInput, cb: (err: any, data?: DescribeVpcsCommandOutput) => void): void;
+  describeVpcs(
+    args: DescribeVpcsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcsCommandOutput>;
+  describeVpcs(
+    args: DescribeVpcsCommandInput,
+    cb: (err: any, data?: DescribeVpcsCommandOutput) => void
+  ): void;
   describeVpcs(
     args: DescribeVpcsCommandInput,
     options: __HttpHandlerOptions,
@@ -11986,8 +12217,14 @@ export interface EC2 {
   /**
    * @see {@link DetachVolumeCommand}
    */
-  detachVolume(args: DetachVolumeCommandInput, options?: __HttpHandlerOptions): Promise<DetachVolumeCommandOutput>;
-  detachVolume(args: DetachVolumeCommandInput, cb: (err: any, data?: DetachVolumeCommandOutput) => void): void;
+  detachVolume(
+    args: DetachVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachVolumeCommandOutput>;
+  detachVolume(
+    args: DetachVolumeCommandInput,
+    cb: (err: any, data?: DetachVolumeCommandOutput) => void
+  ): void;
   detachVolume(
     args: DetachVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -12137,8 +12374,14 @@ export interface EC2 {
   /**
    * @see {@link DisableImageCommand}
    */
-  disableImage(args: DisableImageCommandInput, options?: __HttpHandlerOptions): Promise<DisableImageCommandOutput>;
-  disableImage(args: DisableImageCommandInput, cb: (err: any, data?: DisableImageCommandOutput) => void): void;
+  disableImage(
+    args: DisableImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableImageCommandOutput>;
+  disableImage(
+    args: DisableImageCommandInput,
+    cb: (err: any, data?: DisableImageCommandOutput) => void
+  ): void;
   disableImage(
     args: DisableImageCommandInput,
     options: __HttpHandlerOptions,
@@ -12802,8 +13045,14 @@ export interface EC2 {
   /**
    * @see {@link EnableImageCommand}
    */
-  enableImage(args: EnableImageCommandInput, options?: __HttpHandlerOptions): Promise<EnableImageCommandOutput>;
-  enableImage(args: EnableImageCommandInput, cb: (err: any, data?: EnableImageCommandOutput) => void): void;
+  enableImage(
+    args: EnableImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableImageCommandOutput>;
+  enableImage(
+    args: EnableImageCommandInput,
+    cb: (err: any, data?: EnableImageCommandOutput) => void
+  ): void;
   enableImage(
     args: EnableImageCommandInput,
     options: __HttpHandlerOptions,
@@ -13023,7 +13272,10 @@ export interface EC2 {
     args: EnableVolumeIOCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableVolumeIOCommandOutput>;
-  enableVolumeIO(args: EnableVolumeIOCommandInput, cb: (err: any, data?: EnableVolumeIOCommandOutput) => void): void;
+  enableVolumeIO(
+    args: EnableVolumeIOCommandInput,
+    cb: (err: any, data?: EnableVolumeIOCommandOutput) => void
+  ): void;
   enableVolumeIO(
     args: EnableVolumeIOCommandInput,
     options: __HttpHandlerOptions,
@@ -13102,8 +13354,14 @@ export interface EC2 {
   /**
    * @see {@link ExportImageCommand}
    */
-  exportImage(args: ExportImageCommandInput, options?: __HttpHandlerOptions): Promise<ExportImageCommandOutput>;
-  exportImage(args: ExportImageCommandInput, cb: (err: any, data?: ExportImageCommandOutput) => void): void;
+  exportImage(
+    args: ExportImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportImageCommandOutput>;
+  exportImage(
+    args: ExportImageCommandInput,
+    cb: (err: any, data?: ExportImageCommandOutput) => void
+  ): void;
   exportImage(
     args: ExportImageCommandInput,
     options: __HttpHandlerOptions,
@@ -13890,7 +14148,10 @@ export interface EC2 {
     args: GetPasswordDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPasswordDataCommandOutput>;
-  getPasswordData(args: GetPasswordDataCommandInput, cb: (err: any, data?: GetPasswordDataCommandOutput) => void): void;
+  getPasswordData(
+    args: GetPasswordDataCommandInput,
+    cb: (err: any, data?: GetPasswordDataCommandOutput) => void
+  ): void;
   getPasswordData(
     args: GetPasswordDataCommandInput,
     options: __HttpHandlerOptions,
@@ -14329,8 +14590,14 @@ export interface EC2 {
    * @see {@link ImportImageCommand}
    */
   importImage(): Promise<ImportImageCommandOutput>;
-  importImage(args: ImportImageCommandInput, options?: __HttpHandlerOptions): Promise<ImportImageCommandOutput>;
-  importImage(args: ImportImageCommandInput, cb: (err: any, data?: ImportImageCommandOutput) => void): void;
+  importImage(
+    args: ImportImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportImageCommandOutput>;
+  importImage(
+    args: ImportImageCommandInput,
+    cb: (err: any, data?: ImportImageCommandOutput) => void
+  ): void;
   importImage(
     args: ImportImageCommandInput,
     options: __HttpHandlerOptions,
@@ -14344,7 +14611,10 @@ export interface EC2 {
     args: ImportInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportInstanceCommandOutput>;
-  importInstance(args: ImportInstanceCommandInput, cb: (err: any, data?: ImportInstanceCommandOutput) => void): void;
+  importInstance(
+    args: ImportInstanceCommandInput,
+    cb: (err: any, data?: ImportInstanceCommandOutput) => void
+  ): void;
   importInstance(
     args: ImportInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -14354,8 +14624,14 @@ export interface EC2 {
   /**
    * @see {@link ImportKeyPairCommand}
    */
-  importKeyPair(args: ImportKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<ImportKeyPairCommandOutput>;
-  importKeyPair(args: ImportKeyPairCommandInput, cb: (err: any, data?: ImportKeyPairCommandOutput) => void): void;
+  importKeyPair(
+    args: ImportKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportKeyPairCommandOutput>;
+  importKeyPair(
+    args: ImportKeyPairCommandInput,
+    cb: (err: any, data?: ImportKeyPairCommandOutput) => void
+  ): void;
   importKeyPair(
     args: ImportKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -14370,7 +14646,10 @@ export interface EC2 {
     args: ImportSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportSnapshotCommandOutput>;
-  importSnapshot(args: ImportSnapshotCommandInput, cb: (err: any, data?: ImportSnapshotCommandOutput) => void): void;
+  importSnapshot(
+    args: ImportSnapshotCommandInput,
+    cb: (err: any, data?: ImportSnapshotCommandOutput) => void
+  ): void;
   importSnapshot(
     args: ImportSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -14380,8 +14659,14 @@ export interface EC2 {
   /**
    * @see {@link ImportVolumeCommand}
    */
-  importVolume(args: ImportVolumeCommandInput, options?: __HttpHandlerOptions): Promise<ImportVolumeCommandOutput>;
-  importVolume(args: ImportVolumeCommandInput, cb: (err: any, data?: ImportVolumeCommandOutput) => void): void;
+  importVolume(
+    args: ImportVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportVolumeCommandOutput>;
+  importVolume(
+    args: ImportVolumeCommandInput,
+    cb: (err: any, data?: ImportVolumeCommandOutput) => void
+  ): void;
   importVolume(
     args: ImportVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -14445,8 +14730,14 @@ export interface EC2 {
   /**
    * @see {@link LockSnapshotCommand}
    */
-  lockSnapshot(args: LockSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<LockSnapshotCommandOutput>;
-  lockSnapshot(args: LockSnapshotCommandInput, cb: (err: any, data?: LockSnapshotCommandOutput) => void): void;
+  lockSnapshot(
+    args: LockSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LockSnapshotCommandOutput>;
+  lockSnapshot(
+    args: LockSnapshotCommandInput,
+    cb: (err: any, data?: LockSnapshotCommandOutput) => void
+  ): void;
   lockSnapshot(
     args: LockSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -14575,8 +14866,14 @@ export interface EC2 {
   /**
    * @see {@link ModifyFleetCommand}
    */
-  modifyFleet(args: ModifyFleetCommandInput, options?: __HttpHandlerOptions): Promise<ModifyFleetCommandOutput>;
-  modifyFleet(args: ModifyFleetCommandInput, cb: (err: any, data?: ModifyFleetCommandOutput) => void): void;
+  modifyFleet(
+    args: ModifyFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyFleetCommandOutput>;
+  modifyFleet(
+    args: ModifyFleetCommandInput,
+    cb: (err: any, data?: ModifyFleetCommandOutput) => void
+  ): void;
   modifyFleet(
     args: ModifyFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -14603,8 +14900,14 @@ export interface EC2 {
   /**
    * @see {@link ModifyHostsCommand}
    */
-  modifyHosts(args: ModifyHostsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHostsCommandOutput>;
-  modifyHosts(args: ModifyHostsCommandInput, cb: (err: any, data?: ModifyHostsCommandOutput) => void): void;
+  modifyHosts(
+    args: ModifyHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyHostsCommandOutput>;
+  modifyHosts(
+    args: ModifyHostsCommandInput,
+    cb: (err: any, data?: ModifyHostsCommandOutput) => void
+  ): void;
   modifyHosts(
     args: ModifyHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -14635,7 +14938,10 @@ export interface EC2 {
     args: ModifyIdFormatCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyIdFormatCommandOutput>;
-  modifyIdFormat(args: ModifyIdFormatCommandInput, cb: (err: any, data?: ModifyIdFormatCommandOutput) => void): void;
+  modifyIdFormat(
+    args: ModifyIdFormatCommandInput,
+    cb: (err: any, data?: ModifyIdFormatCommandOutput) => void
+  ): void;
   modifyIdFormat(
     args: ModifyIdFormatCommandInput,
     options: __HttpHandlerOptions,
@@ -14867,8 +15173,14 @@ export interface EC2 {
   /**
    * @see {@link ModifyIpamCommand}
    */
-  modifyIpam(args: ModifyIpamCommandInput, options?: __HttpHandlerOptions): Promise<ModifyIpamCommandOutput>;
-  modifyIpam(args: ModifyIpamCommandInput, cb: (err: any, data?: ModifyIpamCommandOutput) => void): void;
+  modifyIpam(
+    args: ModifyIpamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamCommandOutput>;
+  modifyIpam(
+    args: ModifyIpamCommandInput,
+    cb: (err: any, data?: ModifyIpamCommandOutput) => void
+  ): void;
   modifyIpam(
     args: ModifyIpamCommandInput,
     options: __HttpHandlerOptions,
@@ -14899,7 +15211,10 @@ export interface EC2 {
     args: ModifyIpamPoolCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyIpamPoolCommandOutput>;
-  modifyIpamPool(args: ModifyIpamPoolCommandInput, cb: (err: any, data?: ModifyIpamPoolCommandOutput) => void): void;
+  modifyIpamPool(
+    args: ModifyIpamPoolCommandInput,
+    cb: (err: any, data?: ModifyIpamPoolCommandOutput) => void
+  ): void;
   modifyIpamPool(
     args: ModifyIpamPoolCommandInput,
     options: __HttpHandlerOptions,
@@ -14981,7 +15296,10 @@ export interface EC2 {
     args: ModifyIpamScopeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyIpamScopeCommandOutput>;
-  modifyIpamScope(args: ModifyIpamScopeCommandInput, cb: (err: any, data?: ModifyIpamScopeCommandOutput) => void): void;
+  modifyIpamScope(
+    args: ModifyIpamScopeCommandInput,
+    cb: (err: any, data?: ModifyIpamScopeCommandOutput) => void
+  ): void;
   modifyIpamScope(
     args: ModifyIpamScopeCommandInput,
     options: __HttpHandlerOptions,
@@ -15451,8 +15769,14 @@ export interface EC2 {
   /**
    * @see {@link ModifyVolumeCommand}
    */
-  modifyVolume(args: ModifyVolumeCommandInput, options?: __HttpHandlerOptions): Promise<ModifyVolumeCommandOutput>;
-  modifyVolume(args: ModifyVolumeCommandInput, cb: (err: any, data?: ModifyVolumeCommandOutput) => void): void;
+  modifyVolume(
+    args: ModifyVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVolumeCommandOutput>;
+  modifyVolume(
+    args: ModifyVolumeCommandInput,
+    cb: (err: any, data?: ModifyVolumeCommandOutput) => void
+  ): void;
   modifyVolume(
     args: ModifyVolumeCommandInput,
     options: __HttpHandlerOptions,
@@ -15959,7 +16283,10 @@ export interface EC2 {
     args: RebootInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RebootInstancesCommandOutput>;
-  rebootInstances(args: RebootInstancesCommandInput, cb: (err: any, data?: RebootInstancesCommandOutput) => void): void;
+  rebootInstances(
+    args: RebootInstancesCommandInput,
+    cb: (err: any, data?: RebootInstancesCommandOutput) => void
+  ): void;
   rebootInstances(
     args: RebootInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -15969,8 +16296,14 @@ export interface EC2 {
   /**
    * @see {@link RegisterImageCommand}
    */
-  registerImage(args: RegisterImageCommandInput, options?: __HttpHandlerOptions): Promise<RegisterImageCommandOutput>;
-  registerImage(args: RegisterImageCommandInput, cb: (err: any, data?: RegisterImageCommandOutput) => void): void;
+  registerImage(
+    args: RegisterImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterImageCommandOutput>;
+  registerImage(
+    args: RegisterImageCommandInput,
+    cb: (err: any, data?: RegisterImageCommandOutput) => void
+  ): void;
   registerImage(
     args: RegisterImageCommandInput,
     options: __HttpHandlerOptions,
@@ -16139,7 +16472,10 @@ export interface EC2 {
     args: ReleaseAddressCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReleaseAddressCommandOutput>;
-  releaseAddress(args: ReleaseAddressCommandInput, cb: (err: any, data?: ReleaseAddressCommandOutput) => void): void;
+  releaseAddress(
+    args: ReleaseAddressCommandInput,
+    cb: (err: any, data?: ReleaseAddressCommandOutput) => void
+  ): void;
   releaseAddress(
     args: ReleaseAddressCommandInput,
     options: __HttpHandlerOptions,
@@ -16149,8 +16485,14 @@ export interface EC2 {
   /**
    * @see {@link ReleaseHostsCommand}
    */
-  releaseHosts(args: ReleaseHostsCommandInput, options?: __HttpHandlerOptions): Promise<ReleaseHostsCommandOutput>;
-  releaseHosts(args: ReleaseHostsCommandInput, cb: (err: any, data?: ReleaseHostsCommandOutput) => void): void;
+  releaseHosts(
+    args: ReleaseHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReleaseHostsCommandOutput>;
+  releaseHosts(
+    args: ReleaseHostsCommandInput,
+    cb: (err: any, data?: ReleaseHostsCommandOutput) => void
+  ): void;
   releaseHosts(
     args: ReleaseHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -16246,8 +16588,14 @@ export interface EC2 {
   /**
    * @see {@link ReplaceRouteCommand}
    */
-  replaceRoute(args: ReplaceRouteCommandInput, options?: __HttpHandlerOptions): Promise<ReplaceRouteCommandOutput>;
-  replaceRoute(args: ReplaceRouteCommandInput, cb: (err: any, data?: ReplaceRouteCommandOutput) => void): void;
+  replaceRoute(
+    args: ReplaceRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplaceRouteCommandOutput>;
+  replaceRoute(
+    args: ReplaceRouteCommandInput,
+    cb: (err: any, data?: ReplaceRouteCommandOutput) => void
+  ): void;
   replaceRoute(
     args: ReplaceRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -16634,8 +16982,14 @@ export interface EC2 {
   /**
    * @see {@link RunInstancesCommand}
    */
-  runInstances(args: RunInstancesCommandInput, options?: __HttpHandlerOptions): Promise<RunInstancesCommandOutput>;
-  runInstances(args: RunInstancesCommandInput, cb: (err: any, data?: RunInstancesCommandOutput) => void): void;
+  runInstances(
+    args: RunInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RunInstancesCommandOutput>;
+  runInstances(
+    args: RunInstancesCommandInput,
+    cb: (err: any, data?: RunInstancesCommandOutput) => void
+  ): void;
   runInstances(
     args: RunInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -16751,7 +17105,10 @@ export interface EC2 {
     args: StartInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartInstancesCommandOutput>;
-  startInstances(args: StartInstancesCommandInput, cb: (err: any, data?: StartInstancesCommandOutput) => void): void;
+  startInstances(
+    args: StartInstancesCommandInput,
+    cb: (err: any, data?: StartInstancesCommandOutput) => void
+  ): void;
   startInstances(
     args: StartInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -16812,8 +17169,14 @@ export interface EC2 {
   /**
    * @see {@link StopInstancesCommand}
    */
-  stopInstances(args: StopInstancesCommandInput, options?: __HttpHandlerOptions): Promise<StopInstancesCommandOutput>;
-  stopInstances(args: StopInstancesCommandInput, cb: (err: any, data?: StopInstancesCommandOutput) => void): void;
+  stopInstances(
+    args: StopInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopInstancesCommandOutput>;
+  stopInstances(
+    args: StopInstancesCommandInput,
+    cb: (err: any, data?: StopInstancesCommandOutput) => void
+  ): void;
   stopInstances(
     args: StopInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -16912,7 +17275,10 @@ export interface EC2 {
     args: UnlockSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UnlockSnapshotCommandOutput>;
-  unlockSnapshot(args: UnlockSnapshotCommandInput, cb: (err: any, data?: UnlockSnapshotCommandOutput) => void): void;
+  unlockSnapshot(
+    args: UnlockSnapshotCommandInput,
+    cb: (err: any, data?: UnlockSnapshotCommandOutput) => void
+  ): void;
   unlockSnapshot(
     args: UnlockSnapshotCommandInput,
     options: __HttpHandlerOptions,

@@ -28,9 +28,7 @@ export interface DeleteOnlineEvaluationConfigCommandInput extends DeleteOnlineEv
  *
  * The output of {@link DeleteOnlineEvaluationConfigCommand}.
  */
-export interface DeleteOnlineEvaluationConfigCommandOutput
-  extends DeleteOnlineEvaluationConfigResponse,
-    __MetadataBearer {}
+export interface DeleteOnlineEvaluationConfigCommandOutput extends DeleteOnlineEvaluationConfigResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes an online evaluation configuration and stops any ongoing evaluation processes associated with it. </p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListAssociationsForLicenseConfigurationCommand}.
  */
-export interface ListAssociationsForLicenseConfigurationCommandInput
-  extends ListAssociationsForLicenseConfigurationRequest {}
+export interface ListAssociationsForLicenseConfigurationCommandInput extends ListAssociationsForLicenseConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ListAssociationsForLicenseConfigurationCommand}.
  */
-export interface ListAssociationsForLicenseConfigurationCommandOutput
-  extends ListAssociationsForLicenseConfigurationResponse,
-    __MetadataBearer {}
+export interface ListAssociationsForLicenseConfigurationCommandOutput extends ListAssociationsForLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource associations for the specified license configuration.</p>

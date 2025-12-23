@@ -24,9 +24,7 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
  *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
-export interface SearchAvailablePhoneNumbersCommandOutput
-  extends SearchAvailablePhoneNumbersResponse,
-    __MetadataBearer {}
+export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the

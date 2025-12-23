@@ -31,9 +31,7 @@ export interface DeleteRecommendationPreferencesCommandInput extends DeleteRecom
  *
  * The output of {@link DeleteRecommendationPreferencesCommand}.
  */
-export interface DeleteRecommendationPreferencesCommandOutput
-  extends DeleteRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface DeleteRecommendationPreferencesCommandOutput extends DeleteRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>

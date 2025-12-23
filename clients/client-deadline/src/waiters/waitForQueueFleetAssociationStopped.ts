@@ -7,18 +7,15 @@ import {
 } from "../commands/GetQueueFleetAssociationCommand";
 import { DeadlineClient } from "../DeadlineClient";
 
-const checkState = async (
-  client: DeadlineClient,
-  input: GetQueueFleetAssociationCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetQueueFleetAssociationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetQueueFleetAssociationCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "STOPPED") {
         return { state: WaiterState.SUCCESS, reason };
       }

@@ -27,9 +27,7 @@ export interface UpdateActionConnectorPermissionsCommandInput extends UpdateActi
  *
  * The output of {@link UpdateActionConnectorPermissionsCommand}.
  */
-export interface UpdateActionConnectorPermissionsCommandOutput
-  extends UpdateActionConnectorPermissionsResponse,
-    __MetadataBearer {}
+export interface UpdateActionConnectorPermissionsCommandOutput extends UpdateActionConnectorPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the permissions for an action connector by granting or revoking access for specific users and groups. You can control who can view, use, or manage the action connector.</p>

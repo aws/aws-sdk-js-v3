@@ -27,9 +27,7 @@ export interface DeleteAvailabilityConfigurationCommandInput extends DeleteAvail
  *
  * The output of {@link DeleteAvailabilityConfigurationCommand}.
  */
-export interface DeleteAvailabilityConfigurationCommandOutput
-  extends DeleteAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAvailabilityConfigurationCommandOutput extends DeleteAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>

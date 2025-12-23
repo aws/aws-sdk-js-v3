@@ -110,7 +110,10 @@ export interface IoTDataPlane {
     args: GetThingShadowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetThingShadowCommandOutput>;
-  getThingShadow(args: GetThingShadowCommandInput, cb: (err: any, data?: GetThingShadowCommandOutput) => void): void;
+  getThingShadow(
+    args: GetThingShadowCommandInput,
+    cb: (err: any, data?: GetThingShadowCommandOutput) => void
+  ): void;
   getThingShadow(
     args: GetThingShadowCommandInput,
     options: __HttpHandlerOptions,
@@ -155,8 +158,14 @@ export interface IoTDataPlane {
   /**
    * @see {@link PublishCommand}
    */
-  publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
-  publish(args: PublishCommandInput, cb: (err: any, data?: PublishCommandOutput) => void): void;
+  publish(
+    args: PublishCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishCommandOutput>;
+  publish(
+    args: PublishCommandInput,
+    cb: (err: any, data?: PublishCommandOutput) => void
+  ): void;
   publish(
     args: PublishCommandInput,
     options: __HttpHandlerOptions,

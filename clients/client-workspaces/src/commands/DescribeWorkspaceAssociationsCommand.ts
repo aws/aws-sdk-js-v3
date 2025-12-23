@@ -24,9 +24,7 @@ export interface DescribeWorkspaceAssociationsCommandInput extends DescribeWorks
  *
  * The output of {@link DescribeWorkspaceAssociationsCommand}.
  */
-export interface DescribeWorkspaceAssociationsCommandOutput
-  extends DescribeWorkspaceAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeWorkspaceAssociationsCommandOutput extends DescribeWorkspaceAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the associations betweens applications and the specified WorkSpace.</p>

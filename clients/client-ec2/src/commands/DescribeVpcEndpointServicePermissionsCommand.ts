@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
-export interface DescribeVpcEndpointServicePermissionsCommandInput
-  extends DescribeVpcEndpointServicePermissionsRequest {}
+export interface DescribeVpcEndpointServicePermissionsCommandInput extends DescribeVpcEndpointServicePermissionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
-export interface DescribeVpcEndpointServicePermissionsCommandOutput
-  extends DescribeVpcEndpointServicePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointServicePermissionsCommandOutput extends DescribeVpcEndpointServicePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC

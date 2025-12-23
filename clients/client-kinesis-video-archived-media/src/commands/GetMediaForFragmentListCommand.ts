@@ -28,9 +28,7 @@ export interface GetMediaForFragmentListCommandInput extends GetMediaForFragment
  *
  * The output of {@link GetMediaForFragmentListCommand}.
  */
-export interface GetMediaForFragmentListCommandOutput
-  extends Omit<GetMediaForFragmentListOutput, "Payload">,
-    __MetadataBearer {
+export interface GetMediaForFragmentListCommandOutput extends Omit<GetMediaForFragmentListOutput, "Payload">, __MetadataBearer {
   Payload?: StreamingBlobPayloadOutputTypes;
 }
 

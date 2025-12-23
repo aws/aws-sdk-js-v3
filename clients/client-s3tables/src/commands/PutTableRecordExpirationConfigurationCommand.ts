@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutTableRecordExpirationConfigurationCommand}.
  */
-export interface PutTableRecordExpirationConfigurationCommandInput
-  extends PutTableRecordExpirationConfigurationRequest {}
+export interface PutTableRecordExpirationConfigurationCommandInput extends PutTableRecordExpirationConfigurationRequest {}
 /**
  * @public
  *

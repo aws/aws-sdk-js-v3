@@ -27,9 +27,7 @@ export interface DisassociateWirelessGatewayFromThingCommandInput extends Disass
  *
  * The output of {@link DisassociateWirelessGatewayFromThingCommand}.
  */
-export interface DisassociateWirelessGatewayFromThingCommandOutput
-  extends DisassociateWirelessGatewayFromThingResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessGatewayFromThingCommandOutput extends DisassociateWirelessGatewayFromThingResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>

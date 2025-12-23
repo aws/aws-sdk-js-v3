@@ -16,6 +16,7 @@ import {
   ListRealtimeContactAnalysisSegmentsCommand,
   ListRealtimeContactAnalysisSegmentsRequest$,
   ListRealtimeContactAnalysisSegmentsResponse$,
+  paginateListRealtimeContactAnalysisSegments,
   PointOfInterest$,
   PostContactSummary$,
   PostContactSummaryFailureCode,
@@ -27,7 +28,6 @@ import {
   ThrottlingException,
   ThrottlingException$,
   Transcript$,
-  paginateListRealtimeContactAnalysisSegments,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -27,9 +27,7 @@ export interface PutCapacityAssignmentConfigurationCommandInput extends PutCapac
  *
  * The output of {@link PutCapacityAssignmentConfigurationCommand}.
  */
-export interface PutCapacityAssignmentConfigurationCommandOutput
-  extends PutCapacityAssignmentConfigurationOutput,
-    __MetadataBearer {}
+export interface PutCapacityAssignmentConfigurationCommandOutput extends PutCapacityAssignmentConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Puts a new capacity assignment configuration for a specified capacity reservation. If

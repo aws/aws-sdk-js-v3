@@ -27,9 +27,7 @@ export interface ListWirelessGatewayTaskDefinitionsCommandInput extends ListWire
  *
  * The output of {@link ListWirelessGatewayTaskDefinitionsCommand}.
  */
-export interface ListWirelessGatewayTaskDefinitionsCommandOutput
-  extends ListWirelessGatewayTaskDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListWirelessGatewayTaskDefinitionsCommandOutput extends ListWirelessGatewayTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>List the wireless gateway tasks definitions registered to your AWS account.</p>

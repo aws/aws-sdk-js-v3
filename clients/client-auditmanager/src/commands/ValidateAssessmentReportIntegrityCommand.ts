@@ -27,9 +27,7 @@ export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateA
  *
  * The output of {@link ValidateAssessmentReportIntegrityCommand}.
  */
-export interface ValidateAssessmentReportIntegrityCommandOutput
-  extends ValidateAssessmentReportIntegrityResponse,
-    __MetadataBearer {}
+export interface ValidateAssessmentReportIntegrityCommandOutput extends ValidateAssessmentReportIntegrityResponse, __MetadataBearer {}
 
 /**
  * <p> Validates the integrity of an assessment report in Audit Manager. </p>

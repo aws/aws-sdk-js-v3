@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyTestCaseCommandInput
-  extends UpdateAutomatedReasoningPolicyTestCaseRequest {}
+export interface UpdateAutomatedReasoningPolicyTestCaseCommandInput extends UpdateAutomatedReasoningPolicyTestCaseRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput
-  extends UpdateAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput extends UpdateAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Automated Reasoning policy test. You can modify the content, query, expected result, and confidence threshold.</p>

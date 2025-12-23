@@ -229,8 +229,14 @@ export interface Batch {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -278,7 +284,10 @@ export interface Batch {
     args: CreateJobQueueCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateJobQueueCommandOutput>;
-  createJobQueue(args: CreateJobQueueCommandInput, cb: (err: any, data?: CreateJobQueueCommandOutput) => void): void;
+  createJobQueue(
+    args: CreateJobQueueCommandInput,
+    cb: (err: any, data?: CreateJobQueueCommandOutput) => void
+  ): void;
   createJobQueue(
     args: CreateJobQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -360,7 +369,10 @@ export interface Batch {
     args: DeleteJobQueueCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteJobQueueCommandOutput>;
-  deleteJobQueue(args: DeleteJobQueueCommandInput, cb: (err: any, data?: DeleteJobQueueCommandOutput) => void): void;
+  deleteJobQueue(
+    args: DeleteJobQueueCommandInput,
+    cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
+  ): void;
   deleteJobQueue(
     args: DeleteJobQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +504,14 @@ export interface Batch {
   /**
    * @see {@link DescribeJobsCommand}
    */
-  describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
-  describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobsCommandOutput>;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    cb: (err: any, data?: DescribeJobsCommandOutput) => void
+  ): void;
   describeJobs(
     args: DescribeJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -591,8 +609,14 @@ export interface Batch {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -642,7 +666,10 @@ export interface Batch {
     args: ListServiceJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServiceJobsCommandOutput>;
-  listServiceJobs(args: ListServiceJobsCommandInput, cb: (err: any, data?: ListServiceJobsCommandOutput) => void): void;
+  listServiceJobs(
+    args: ListServiceJobsCommandInput,
+    cb: (err: any, data?: ListServiceJobsCommandOutput) => void
+  ): void;
   listServiceJobs(
     args: ListServiceJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -686,8 +713,14 @@ export interface Batch {
   /**
    * @see {@link SubmitJobCommand}
    */
-  submitJob(args: SubmitJobCommandInput, options?: __HttpHandlerOptions): Promise<SubmitJobCommandOutput>;
-  submitJob(args: SubmitJobCommandInput, cb: (err: any, data?: SubmitJobCommandOutput) => void): void;
+  submitJob(
+    args: SubmitJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitJobCommandOutput>;
+  submitJob(
+    args: SubmitJobCommandInput,
+    cb: (err: any, data?: SubmitJobCommandOutput) => void
+  ): void;
   submitJob(
     args: SubmitJobCommandInput,
     options: __HttpHandlerOptions,
@@ -714,8 +747,14 @@ export interface Batch {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -725,8 +764,14 @@ export interface Batch {
   /**
    * @see {@link TerminateJobCommand}
    */
-  terminateJob(args: TerminateJobCommandInput, options?: __HttpHandlerOptions): Promise<TerminateJobCommandOutput>;
-  terminateJob(args: TerminateJobCommandInput, cb: (err: any, data?: TerminateJobCommandOutput) => void): void;
+  terminateJob(
+    args: TerminateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateJobCommandOutput>;
+  terminateJob(
+    args: TerminateJobCommandInput,
+    cb: (err: any, data?: TerminateJobCommandOutput) => void
+  ): void;
   terminateJob(
     args: TerminateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -753,8 +798,14 @@ export interface Batch {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -802,7 +853,10 @@ export interface Batch {
     args: UpdateJobQueueCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateJobQueueCommandOutput>;
-  updateJobQueue(args: UpdateJobQueueCommandInput, cb: (err: any, data?: UpdateJobQueueCommandOutput) => void): void;
+  updateJobQueue(
+    args: UpdateJobQueueCommandInput,
+    cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
+  ): void;
   updateJobQueue(
     args: UpdateJobQueueCommandInput,
     options: __HttpHandlerOptions,

@@ -33,7 +33,10 @@ export interface SageMakerRuntime {
     args: InvokeEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InvokeEndpointCommandOutput>;
-  invokeEndpoint(args: InvokeEndpointCommandInput, cb: (err: any, data?: InvokeEndpointCommandOutput) => void): void;
+  invokeEndpoint(
+    args: InvokeEndpointCommandInput,
+    cb: (err: any, data?: InvokeEndpointCommandOutput) => void
+  ): void;
   invokeEndpoint(
     args: InvokeEndpointCommandInput,
     options: __HttpHandlerOptions,

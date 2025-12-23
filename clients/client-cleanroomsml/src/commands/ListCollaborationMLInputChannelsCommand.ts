@@ -27,9 +27,7 @@ export interface ListCollaborationMLInputChannelsCommandInput extends ListCollab
  *
  * The output of {@link ListCollaborationMLInputChannelsCommand}.
  */
-export interface ListCollaborationMLInputChannelsCommandOutput
-  extends ListCollaborationMLInputChannelsResponse,
-    __MetadataBearer {}
+export interface ListCollaborationMLInputChannelsCommandOutput extends ListCollaborationMLInputChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the ML input channels in a collaboration.</p>

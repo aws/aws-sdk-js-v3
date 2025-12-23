@@ -24,9 +24,7 @@ export interface CreateConfiguredTableAssociationCommandInput extends CreateConf
  *
  * The output of {@link CreateConfiguredTableAssociationCommand}.
  */
-export interface CreateConfiguredTableAssociationCommandOutput
-  extends CreateConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface CreateConfiguredTableAssociationCommandOutput extends CreateConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a configured table association. A configured table association links a configured table with a collaboration.</p>

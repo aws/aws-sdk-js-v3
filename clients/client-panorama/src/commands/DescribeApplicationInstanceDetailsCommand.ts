@@ -27,9 +27,7 @@ export interface DescribeApplicationInstanceDetailsCommandInput extends Describe
  *
  * The output of {@link DescribeApplicationInstanceDetailsCommand}.
  */
-export interface DescribeApplicationInstanceDetailsCommandOutput
-  extends DescribeApplicationInstanceDetailsResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationInstanceDetailsCommandOutput extends DescribeApplicationInstanceDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an application instance's configuration manifest.</p>

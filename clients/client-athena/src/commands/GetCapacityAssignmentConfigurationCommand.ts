@@ -27,9 +27,7 @@ export interface GetCapacityAssignmentConfigurationCommandInput extends GetCapac
  *
  * The output of {@link GetCapacityAssignmentConfigurationCommand}.
  */
-export interface GetCapacityAssignmentConfigurationCommandOutput
-  extends GetCapacityAssignmentConfigurationOutput,
-    __MetadataBearer {}
+export interface GetCapacityAssignmentConfigurationCommandOutput extends GetCapacityAssignmentConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the capacity assignment configuration for a capacity reservation, if one

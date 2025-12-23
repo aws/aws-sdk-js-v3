@@ -24,9 +24,7 @@ export interface DeleteChannelPlacementGroupCommandInput extends DeleteChannelPl
  *
  * The output of {@link DeleteChannelPlacementGroupCommand}.
  */
-export interface DeleteChannelPlacementGroupCommandOutput
-  extends DeleteChannelPlacementGroupResponse,
-    __MetadataBearer {}
+export interface DeleteChannelPlacementGroupCommandOutput extends DeleteChannelPlacementGroupResponse, __MetadataBearer {}
 
 /**
  * Delete the specified ChannelPlacementGroup that exists in the specified Cluster.

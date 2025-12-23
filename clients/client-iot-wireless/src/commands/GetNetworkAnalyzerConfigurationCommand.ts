@@ -27,9 +27,7 @@ export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkA
  *
  * The output of {@link GetNetworkAnalyzerConfigurationCommand}.
  */
-export interface GetNetworkAnalyzerConfigurationCommandOutput
-  extends GetNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface GetNetworkAnalyzerConfigurationCommandOutput extends GetNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get network analyzer configuration.</p>

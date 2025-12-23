@@ -193,7 +193,10 @@ export interface Translate {
     args: GetParallelDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetParallelDataCommandOutput>;
-  getParallelData(args: GetParallelDataCommandInput, cb: (err: any, data?: GetParallelDataCommandOutput) => void): void;
+  getParallelData(
+    args: GetParallelDataCommandInput,
+    cb: (err: any, data?: GetParallelDataCommandOutput) => void
+  ): void;
   getParallelData(
     args: GetParallelDataCommandInput,
     options: __HttpHandlerOptions,
@@ -207,7 +210,10 @@ export interface Translate {
     args: GetTerminologyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTerminologyCommandOutput>;
-  getTerminology(args: GetTerminologyCommandInput, cb: (err: any, data?: GetTerminologyCommandOutput) => void): void;
+  getTerminology(
+    args: GetTerminologyCommandInput,
+    cb: (err: any, data?: GetTerminologyCommandOutput) => void
+  ): void;
   getTerminology(
     args: GetTerminologyCommandInput,
     options: __HttpHandlerOptions,
@@ -235,8 +241,14 @@ export interface Translate {
    * @see {@link ListLanguagesCommand}
    */
   listLanguages(): Promise<ListLanguagesCommandOutput>;
-  listLanguages(args: ListLanguagesCommandInput, options?: __HttpHandlerOptions): Promise<ListLanguagesCommandOutput>;
-  listLanguages(args: ListLanguagesCommandInput, cb: (err: any, data?: ListLanguagesCommandOutput) => void): void;
+  listLanguages(
+    args: ListLanguagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLanguagesCommandOutput>;
+  listLanguages(
+    args: ListLanguagesCommandInput,
+    cb: (err: any, data?: ListLanguagesCommandOutput) => void
+  ): void;
   listLanguages(
     args: ListLanguagesCommandInput,
     options: __HttpHandlerOptions,
@@ -351,8 +363,14 @@ export interface Translate {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -379,8 +397,14 @@ export interface Translate {
   /**
    * @see {@link TranslateTextCommand}
    */
-  translateText(args: TranslateTextCommandInput, options?: __HttpHandlerOptions): Promise<TranslateTextCommandOutput>;
-  translateText(args: TranslateTextCommandInput, cb: (err: any, data?: TranslateTextCommandOutput) => void): void;
+  translateText(
+    args: TranslateTextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TranslateTextCommandOutput>;
+  translateText(
+    args: TranslateTextCommandInput,
+    cb: (err: any, data?: TranslateTextCommandOutput) => void
+  ): void;
   translateText(
     args: TranslateTextCommandInput,
     options: __HttpHandlerOptions,
@@ -390,8 +414,14 @@ export interface Translate {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

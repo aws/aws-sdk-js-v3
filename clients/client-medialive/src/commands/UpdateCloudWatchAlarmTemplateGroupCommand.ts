@@ -27,9 +27,7 @@ export interface UpdateCloudWatchAlarmTemplateGroupCommandInput extends UpdateCl
  *
  * The output of {@link UpdateCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface UpdateCloudWatchAlarmTemplateGroupCommandOutput
-  extends UpdateCloudWatchAlarmTemplateGroupResponse,
-    __MetadataBearer {}
+export interface UpdateCloudWatchAlarmTemplateGroupCommandOutput extends UpdateCloudWatchAlarmTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Updates the specified cloudwatch alarm template group.

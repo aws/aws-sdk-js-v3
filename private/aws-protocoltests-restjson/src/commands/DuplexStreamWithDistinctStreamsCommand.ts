@@ -37,9 +37,7 @@ export interface DuplexStreamWithDistinctStreamsCommandInput extends DuplexStrea
  *
  * The output of {@link DuplexStreamWithDistinctStreamsCommand}.
  */
-export interface DuplexStreamWithDistinctStreamsCommandOutput
-  extends DuplexStreamWithDistinctStreamsOutput,
-    __MetadataBearer {}
+export interface DuplexStreamWithDistinctStreamsCommandOutput extends DuplexStreamWithDistinctStreamsOutput, __MetadataBearer {}
 
 /**
  * @public

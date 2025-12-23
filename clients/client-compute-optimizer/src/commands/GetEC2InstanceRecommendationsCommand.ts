@@ -28,9 +28,7 @@ export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2Instanc
  *
  * The output of {@link GetEC2InstanceRecommendationsCommand}.
  */
-export interface GetEC2InstanceRecommendationsCommandOutput
-  extends GetEC2InstanceRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetEC2InstanceRecommendationsCommandOutput extends GetEC2InstanceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns Amazon EC2 instance recommendations.</p>

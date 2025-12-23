@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
-export interface DescribeOrganizationResourceCollectionHealthCommandInput
-  extends DescribeOrganizationResourceCollectionHealthRequest {}
+export interface DescribeOrganizationResourceCollectionHealthCommandInput extends DescribeOrganizationResourceCollectionHealthRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
-export interface DescribeOrganizationResourceCollectionHealthCommandOutput
-  extends DescribeOrganizationResourceCollectionHealthResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationResourceCollectionHealthCommandOutput extends DescribeOrganizationResourceCollectionHealthResponse, __MetadataBearer {}
 
 /**
  * <p>Provides an overview of your system's health. If additional member accounts are part

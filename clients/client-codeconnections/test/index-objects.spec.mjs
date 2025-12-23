@@ -105,6 +105,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  paginateListConnections,
+  paginateListHosts,
+  paginateListRepositoryLinks,
+  paginateListSyncConfigurations,
   ProviderType,
   PublishDeploymentStatus,
   PullRequestComment,
@@ -169,10 +173,6 @@ import {
   UpdateSyncConfigurationInput$,
   UpdateSyncConfigurationOutput$,
   VpcConfiguration$,
-  paginateListConnections,
-  paginateListHosts,
-  paginateListRepositoryLinks,
-  paginateListSyncConfigurations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

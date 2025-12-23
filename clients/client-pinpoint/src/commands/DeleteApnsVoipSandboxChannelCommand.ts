@@ -24,9 +24,7 @@ export interface DeleteApnsVoipSandboxChannelCommandInput extends DeleteApnsVoip
  *
  * The output of {@link DeleteApnsVoipSandboxChannelCommand}.
  */
-export interface DeleteApnsVoipSandboxChannelCommandOutput
-  extends DeleteApnsVoipSandboxChannelResponse,
-    __MetadataBearer {}
+export interface DeleteApnsVoipSandboxChannelCommandOutput extends DeleteApnsVoipSandboxChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>

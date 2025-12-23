@@ -27,9 +27,7 @@ export interface DeleteObservabilityConfigurationCommandInput extends DeleteObse
  *
  * The output of {@link DeleteObservabilityConfigurationCommand}.
  */
-export interface DeleteObservabilityConfigurationCommandOutput
-  extends DeleteObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteObservabilityConfigurationCommandOutput extends DeleteObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an App Runner observability configuration resource. You can delete a specific revision or the latest active revision. You can't delete a

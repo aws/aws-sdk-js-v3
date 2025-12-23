@@ -24,9 +24,7 @@ export interface UpdateWirelessDeviceImportTaskCommandInput extends UpdateWirele
  *
  * The output of {@link UpdateWirelessDeviceImportTaskCommand}.
  */
-export interface UpdateWirelessDeviceImportTaskCommandOutput
-  extends UpdateWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface UpdateWirelessDeviceImportTaskCommandOutput extends UpdateWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Update an import task to add more devices to the task.</p>

@@ -24,9 +24,7 @@ export interface AcceptMarketplaceRegistrationCommandInput extends AcceptMarketp
  *
  * The output of {@link AcceptMarketplaceRegistrationCommand}.
  */
-export interface AcceptMarketplaceRegistrationCommandOutput
-  extends AcceptMarketplaceRegistrationOutput,
-    __MetadataBearer {}
+export interface AcceptMarketplaceRegistrationCommandOutput extends AcceptMarketplaceRegistrationOutput, __MetadataBearer {}
 
 /**
  * <p>Registers the Amazon Web Services Marketplace token for your Amazon Web Services account to activate your Oracle Database@Amazon Web Services subscription.</p>

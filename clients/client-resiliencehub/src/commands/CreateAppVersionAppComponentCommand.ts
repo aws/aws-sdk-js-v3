@@ -24,9 +24,7 @@ export interface CreateAppVersionAppComponentCommandInput extends CreateAppVersi
  *
  * The output of {@link CreateAppVersionAppComponentCommand}.
  */
-export interface CreateAppVersionAppComponentCommandOutput
-  extends CreateAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface CreateAppVersionAppComponentCommandOutput extends CreateAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Application Component in the Resilience Hub application.</p>

@@ -192,6 +192,11 @@ import {
   Operator,
   Options$,
   OverwriteMode,
+  paginateListAgents,
+  paginateListLocations,
+  paginateListTagsForResource,
+  paginateListTaskExecutions,
+  paginateListTasks,
   PhaseStatus,
   Platform$,
   PosixPermissions,
@@ -304,11 +309,6 @@ import {
   UpdateTaskRequest$,
   UpdateTaskResponse$,
   VerifyMode,
-  paginateListAgents,
-  paginateListLocations,
-  paginateListTagsForResource,
-  paginateListTaskExecutions,
-  paginateListTasks,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

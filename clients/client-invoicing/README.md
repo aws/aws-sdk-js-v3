@@ -9,10 +9,8 @@ AWS SDK for JavaScript Invoicing Client for Node.js, Browser and React Native.
 <p> <b>Amazon Web Services Invoice Configuration</b> </p> <p>You can use Amazon Web Services Invoice Configuration APIs to programmatically create, update, delete, get, and list invoice units. You can also programmatically fetch the information of the invoice receiver. For example, business legal name, address, and invoicing contacts. </p> <p>You can use Amazon Web Services Invoice Configuration to receive separate Amazon Web Services invoices based your organizational needs. By using Amazon Web Services Invoice Configuration, you can configure invoice units that are groups of Amazon Web Services accounts that represent your business entities, and receive separate invoices for each business entity. You can also assign a unique member or payer account as the invoice receiver for each invoice unit. As you create new accounts within your Organizations using Amazon Web Services Invoice Configuration APIs, you can automate the creation of new invoice units and subsequently automate the addition of new accounts to your invoice units.</p> <p> <b>Amazon Web Services Procurement Portal Preferences</b> </p> <p>You can use Amazon Web Services Procurement Portal Preferences APIs to programmatically create, update, delete, get, and list procurement portal connections and e-invoice delivery settings. You can also programmatically fetch and modify the status of procurement portal configurations. For example, SAP Business Network or Coupa connections, configure e-invoice delivery and purchase order retrieval features.</p> <p>You can use Amazon Web Services Procurement Portal Preferences to connect e-invoice delivery to your procurement portals based on your organizational needs. By using Amazon Web Services Procurement Portal Preferences, you can configure connections to SAP Business Network and Coupa procurement portals that retrieve purchase orders and deliver Amazon Web Services invoices on the same day they are generated. You can also set up testing environments to validate invoice delivery without affecting live transactions, and manage contact information for portal setup and support. </p> <p>Administrative users should understand that billing read-only policies will show all procurement portal connection details. Review your IAM policies to ensure appropriate access controls are in place for procurement portal preferences.</p> <p> <b>Amazon Web Services Invoice Management</b> </p> <p>You can use Amazon Web Services Invoice Management APIs to programmatically list invoice summaries and get invoice documents. You can also programmatically fetch invoice documents with S3 pre-signed URLs.</p> <p>You can use Amazon Web Services Invoice Management to access invoice information based on your organizational needs. By using Amazon Web Services Invoice Management, you can retrieve paginated lists of invoice summaries that include invoice metadata such as invoice IDs, amounts, and currencies without downloading documents. You can also download invoice documents in PDF format using S3 pre-signed URLs with built-in expiration. As you manage invoices across your organization using Amazon Web Services Invoice Management APIs, you can create invoice retrieval processes and integrate invoice data into your financial systems.</p> <p>Service endpoint</p> <p>You can use the following endpoints for Amazon Web Services Invoice Configuration, Amazon Web Services Procurement Portal Preferences, and Amazon Web Services Invoice Management:</p> <ul> <li> <p> <code>https://invoicing.us-east-1.api.aws</code> </p> </li> </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-invoicing
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-invoicing`
 - `yarn add @aws-sdk/client-invoicing`
 - `pnpm add @aws-sdk/client-invoicing`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new InvoicingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListInvoiceUnitsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ BatchGetInvoiceProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/BatchGetInvoiceProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/BatchGetInvoiceProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/BatchGetInvoiceProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateInvoiceUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/CreateInvoiceUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/CreateInvoiceUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/CreateInvoiceUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateProcurementPortalPreference
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/CreateProcurementPortalPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/CreateProcurementPortalPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/CreateProcurementPortalPreferenceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ DeleteInvoiceUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/DeleteInvoiceUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/DeleteInvoiceUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/DeleteInvoiceUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ DeleteProcurementPortalPreference
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/DeleteProcurementPortalPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/DeleteProcurementPortalPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/DeleteProcurementPortalPreferenceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ GetInvoicePDF
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/GetInvoicePDFCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoicePDFCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoicePDFCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ GetInvoiceUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/GetInvoiceUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoiceUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoiceUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ GetProcurementPortalPreference
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/GetProcurementPortalPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetProcurementPortalPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetProcurementPortalPreferenceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListInvoiceSummaries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListInvoiceSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListInvoiceSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListInvoiceSummariesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListInvoiceUnits
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListInvoiceUnitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListInvoiceUnitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListInvoiceUnitsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ ListProcurementPortalPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListProcurementPortalPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ PutProcurementPortalPreference
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/PutProcurementPortalPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/PutProcurementPortalPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/PutProcurementPortalPreferenceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ UpdateInvoiceUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/UpdateInvoiceUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateInvoiceUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateInvoiceUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,5 +317,4 @@ UpdateProcurementPortalPreferenceStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/UpdateProcurementPortalPreferenceStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateProcurementPortalPreferenceStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateProcurementPortalPreferenceStatusCommandOutput/)
-
 </details>

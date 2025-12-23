@@ -764,7 +764,10 @@ export interface SparkSubmit {
  * <p>The driver that the job runs on.</p>
  * @public
  */
-export type JobDriver = JobDriver.HiveMember | JobDriver.SparkSubmitMember | JobDriver.$UnknownMember;
+export type JobDriver =
+  | JobDriver.HiveMember
+  | JobDriver.SparkSubmitMember
+  | JobDriver.$UnknownMember;
 
 /**
  * @public

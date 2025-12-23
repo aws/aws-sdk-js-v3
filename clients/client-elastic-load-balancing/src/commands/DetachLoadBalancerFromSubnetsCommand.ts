@@ -28,9 +28,7 @@ export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBal
  *
  * The output of {@link DetachLoadBalancerFromSubnetsCommand}.
  */
-export interface DetachLoadBalancerFromSubnetsCommandOutput
-  extends DetachLoadBalancerFromSubnetsOutput,
-    __MetadataBearer {}
+export interface DetachLoadBalancerFromSubnetsCommandOutput extends DetachLoadBalancerFromSubnetsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>

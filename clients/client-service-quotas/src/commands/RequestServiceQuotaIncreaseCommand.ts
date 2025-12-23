@@ -24,9 +24,7 @@ export interface RequestServiceQuotaIncreaseCommandInput extends RequestServiceQ
  *
  * The output of {@link RequestServiceQuotaIncreaseCommand}.
  */
-export interface RequestServiceQuotaIncreaseCommandOutput
-  extends RequestServiceQuotaIncreaseResponse,
-    __MetadataBearer {}
+export interface RequestServiceQuotaIncreaseCommandOutput extends RequestServiceQuotaIncreaseResponse, __MetadataBearer {}
 
 /**
  * <p>Submits a quota increase request for the specified quota at the account or resource

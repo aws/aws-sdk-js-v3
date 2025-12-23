@@ -24,9 +24,7 @@ export interface UpdateParticipantRoleConfigCommandInput extends UpdateParticipa
  *
  * The output of {@link UpdateParticipantRoleConfigCommand}.
  */
-export interface UpdateParticipantRoleConfigCommandOutput
-  extends UpdateParticipantRoleConfigResponse,
-    __MetadataBearer {}
+export interface UpdateParticipantRoleConfigCommandOutput extends UpdateParticipantRoleConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically

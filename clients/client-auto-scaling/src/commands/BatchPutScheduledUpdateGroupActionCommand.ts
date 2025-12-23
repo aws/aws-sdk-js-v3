@@ -27,9 +27,7 @@ export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPut
  *
  * The output of {@link BatchPutScheduledUpdateGroupActionCommand}.
  */
-export interface BatchPutScheduledUpdateGroupActionCommandOutput
-  extends BatchPutScheduledUpdateGroupActionAnswer,
-    __MetadataBearer {}
+export interface BatchPutScheduledUpdateGroupActionCommandOutput extends BatchPutScheduledUpdateGroupActionAnswer, __MetadataBearer {}
 
 /**
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>

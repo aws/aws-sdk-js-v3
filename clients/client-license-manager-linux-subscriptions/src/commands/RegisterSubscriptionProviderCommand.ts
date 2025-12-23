@@ -28,9 +28,7 @@ export interface RegisterSubscriptionProviderCommandInput extends RegisterSubscr
  *
  * The output of {@link RegisterSubscriptionProviderCommand}.
  */
-export interface RegisterSubscriptionProviderCommandOutput
-  extends RegisterSubscriptionProviderResponse,
-    __MetadataBearer {}
+export interface RegisterSubscriptionProviderCommandOutput extends RegisterSubscriptionProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Register the supported third-party subscription provider for your Bring Your Own License (BYOL) subscription.</p>

@@ -27,9 +27,7 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends Updat
  *
  * The output of {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
-export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
-  extends UpdateApprovalRuleTemplateDescriptionOutput,
-    __MetadataBearer {}
+export interface UpdateApprovalRuleTemplateDescriptionCommandOutput extends UpdateApprovalRuleTemplateDescriptionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the description for a specified approval rule template.</p>

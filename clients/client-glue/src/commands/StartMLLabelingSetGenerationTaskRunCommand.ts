@@ -27,9 +27,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartML
  *
  * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
  */
-export interface StartMLLabelingSetGenerationTaskRunCommandOutput
-  extends StartMLLabelingSetGenerationTaskRunResponse,
-    __MetadataBearer {}
+export interface StartMLLabelingSetGenerationTaskRunCommandOutput extends StartMLLabelingSetGenerationTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the active learning workflow for your machine learning transform to improve the

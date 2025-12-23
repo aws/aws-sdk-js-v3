@@ -24,9 +24,7 @@ export interface UpdatePublishingDestinationCommandInput extends UpdatePublishin
  *
  * The output of {@link UpdatePublishingDestinationCommand}.
  */
-export interface UpdatePublishingDestinationCommandOutput
-  extends UpdatePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface UpdatePublishingDestinationCommandOutput extends UpdatePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates information about the publishing destination specified by the

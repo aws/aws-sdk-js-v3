@@ -28,9 +28,7 @@ export interface AssociatePrincipalWithPortfolioCommandInput extends AssociatePr
  *
  * The output of {@link AssociatePrincipalWithPortfolioCommand}.
  */
-export interface AssociatePrincipalWithPortfolioCommandOutput
-  extends AssociatePrincipalWithPortfolioOutput,
-    __MetadataBearer {}
+export interface AssociatePrincipalWithPortfolioCommandOutput extends AssociatePrincipalWithPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Associates the specified principal ARN with the specified portfolio.</p>

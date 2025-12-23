@@ -28,9 +28,7 @@ export interface DescribeConfigurationTemplatesCommandInput extends DescribeConf
  *
  * The output of {@link DescribeConfigurationTemplatesCommand}.
  */
-export interface DescribeConfigurationTemplatesCommandOutput
-  extends DescribeConfigurationTemplatesResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationTemplatesCommandOutput extends DescribeConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to return the valid and default values that are used when creating

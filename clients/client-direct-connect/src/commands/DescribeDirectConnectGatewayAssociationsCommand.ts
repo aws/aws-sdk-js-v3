@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationsCommandInput
-  extends DescribeDirectConnectGatewayAssociationsRequest {}
+export interface DescribeDirectConnectGatewayAssociationsCommandInput extends DescribeDirectConnectGatewayAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationsCommandOutput
-  extends DescribeDirectConnectGatewayAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAssociationsCommandOutput extends DescribeDirectConnectGatewayAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>

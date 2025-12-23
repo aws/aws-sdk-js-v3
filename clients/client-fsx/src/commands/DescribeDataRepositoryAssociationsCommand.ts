@@ -27,9 +27,7 @@ export interface DescribeDataRepositoryAssociationsCommandInput extends Describe
  *
  * The output of {@link DescribeDataRepositoryAssociationsCommand}.
  */
-export interface DescribeDataRepositoryAssociationsCommandOutput
-  extends DescribeDataRepositoryAssociationsResponse,
-    __MetadataBearer {}
+export interface DescribeDataRepositoryAssociationsCommandOutput extends DescribeDataRepositoryAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache

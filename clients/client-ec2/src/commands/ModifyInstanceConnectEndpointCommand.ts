@@ -24,9 +24,7 @@ export interface ModifyInstanceConnectEndpointCommandInput extends ModifyInstanc
  *
  * The output of {@link ModifyInstanceConnectEndpointCommand}.
  */
-export interface ModifyInstanceConnectEndpointCommandOutput
-  extends ModifyInstanceConnectEndpointResult,
-    __MetadataBearer {}
+export interface ModifyInstanceConnectEndpointCommandOutput extends ModifyInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified EC2 Instance Connect Endpoint.</p>

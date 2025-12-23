@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { BedrockDataAutomationRuntimeServiceException as __BaseException } from "./BedrockDataAutomationRuntimeServiceException";
+import {
+  BedrockDataAutomationRuntimeServiceException as __BaseException,
+} from "./BedrockDataAutomationRuntimeServiceException";
 
 /**
  * This exception will be thrown when customer does not have access to API.

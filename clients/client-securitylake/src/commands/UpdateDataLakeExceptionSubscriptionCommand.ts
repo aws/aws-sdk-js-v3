@@ -27,9 +27,7 @@ export interface UpdateDataLakeExceptionSubscriptionCommandInput extends UpdateD
  *
  * The output of {@link UpdateDataLakeExceptionSubscriptionCommand}.
  */
-export interface UpdateDataLakeExceptionSubscriptionCommandOutput
-  extends UpdateDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateDataLakeExceptionSubscriptionCommandOutput extends UpdateDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified notification subscription in Amazon Security Lake for the organization

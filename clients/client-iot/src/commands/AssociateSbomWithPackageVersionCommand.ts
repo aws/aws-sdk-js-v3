@@ -27,9 +27,7 @@ export interface AssociateSbomWithPackageVersionCommandInput extends AssociateSb
  *
  * The output of {@link AssociateSbomWithPackageVersionCommand}.
  */
-export interface AssociateSbomWithPackageVersionCommandOutput
-  extends AssociateSbomWithPackageVersionResponse,
-    __MetadataBearer {}
+export interface AssociateSbomWithPackageVersionCommandOutput extends AssociateSbomWithPackageVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the selected software bill of materials (SBOM) with a specific software package version.</p>

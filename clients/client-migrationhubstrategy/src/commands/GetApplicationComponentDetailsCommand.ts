@@ -28,9 +28,7 @@ export interface GetApplicationComponentDetailsCommandInput extends GetApplicati
  *
  * The output of {@link GetApplicationComponentDetailsCommand}.
  */
-export interface GetApplicationComponentDetailsCommandOutput
-  extends GetApplicationComponentDetailsResponse,
-    __MetadataBearer {}
+export interface GetApplicationComponentDetailsCommandOutput extends GetApplicationComponentDetailsResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves details about an application component. </p>

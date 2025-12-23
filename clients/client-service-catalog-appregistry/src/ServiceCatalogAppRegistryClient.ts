@@ -380,8 +380,7 @@ export type ServiceCatalogAppRegistryClientResolvedConfigType = __SmithyResolved
  *
  *  The resolved configuration interface of ServiceCatalogAppRegistryClient class. This is resolved and normalized from the {@link ServiceCatalogAppRegistryClientConfig | constructor configuration interface}.
  */
-export interface ServiceCatalogAppRegistryClientResolvedConfig
-  extends ServiceCatalogAppRegistryClientResolvedConfigType {}
+export interface ServiceCatalogAppRegistryClientResolvedConfig extends ServiceCatalogAppRegistryClientResolvedConfigType {}
 
 /**
  * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>

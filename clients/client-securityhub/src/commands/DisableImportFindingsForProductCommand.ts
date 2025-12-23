@@ -27,9 +27,7 @@ export interface DisableImportFindingsForProductCommandInput extends DisableImpo
  *
  * The output of {@link DisableImportFindingsForProductCommand}.
  */
-export interface DisableImportFindingsForProductCommandOutput
-  extends DisableImportFindingsForProductResponse,
-    __MetadataBearer {}
+export interface DisableImportFindingsForProductCommandOutput extends DisableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the integration of the specified product with Security Hub. After the integration is

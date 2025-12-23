@@ -24,9 +24,7 @@ export interface ListPerformanceAnalysisReportsCommandInput extends ListPerforma
  *
  * The output of {@link ListPerformanceAnalysisReportsCommand}.
  */
-export interface ListPerformanceAnalysisReportsCommandOutput
-  extends ListPerformanceAnalysisReportsResponse,
-    __MetadataBearer {}
+export interface ListPerformanceAnalysisReportsCommandOutput extends ListPerformanceAnalysisReportsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the analysis reports created for the DB instance. The reports are sorted based on the start time of each report.</p>

@@ -24,9 +24,7 @@ export interface ListAutonomousVirtualMachinesCommandInput extends ListAutonomou
  *
  * The output of {@link ListAutonomousVirtualMachinesCommand}.
  */
-export interface ListAutonomousVirtualMachinesCommandOutput
-  extends ListAutonomousVirtualMachinesOutput,
-    __MetadataBearer {}
+export interface ListAutonomousVirtualMachinesCommandOutput extends ListAutonomousVirtualMachinesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all Autonomous VMs in an Autonomous VM cluster.</p>

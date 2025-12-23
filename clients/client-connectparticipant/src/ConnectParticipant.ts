@@ -120,8 +120,14 @@ export interface ConnectParticipant {
   /**
    * @see {@link DescribeViewCommand}
    */
-  describeView(args: DescribeViewCommandInput, options?: __HttpHandlerOptions): Promise<DescribeViewCommandOutput>;
-  describeView(args: DescribeViewCommandInput, cb: (err: any, data?: DescribeViewCommandOutput) => void): void;
+  describeView(
+    args: DescribeViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeViewCommandOutput>;
+  describeView(
+    args: DescribeViewCommandInput,
+    cb: (err: any, data?: DescribeViewCommandOutput) => void
+  ): void;
   describeView(
     args: DescribeViewCommandInput,
     options: __HttpHandlerOptions,
@@ -148,8 +154,14 @@ export interface ConnectParticipant {
   /**
    * @see {@link GetAttachmentCommand}
    */
-  getAttachment(args: GetAttachmentCommandInput, options?: __HttpHandlerOptions): Promise<GetAttachmentCommandOutput>;
-  getAttachment(args: GetAttachmentCommandInput, cb: (err: any, data?: GetAttachmentCommandOutput) => void): void;
+  getAttachment(
+    args: GetAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAttachmentCommandOutput>;
+  getAttachment(
+    args: GetAttachmentCommandInput,
+    cb: (err: any, data?: GetAttachmentCommandOutput) => void
+  ): void;
   getAttachment(
     args: GetAttachmentCommandInput,
     options: __HttpHandlerOptions,
@@ -176,8 +188,14 @@ export interface ConnectParticipant {
   /**
    * @see {@link GetTranscriptCommand}
    */
-  getTranscript(args: GetTranscriptCommandInput, options?: __HttpHandlerOptions): Promise<GetTranscriptCommandOutput>;
-  getTranscript(args: GetTranscriptCommandInput, cb: (err: any, data?: GetTranscriptCommandOutput) => void): void;
+  getTranscript(
+    args: GetTranscriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTranscriptCommandOutput>;
+  getTranscript(
+    args: GetTranscriptCommandInput,
+    cb: (err: any, data?: GetTranscriptCommandOutput) => void
+  ): void;
   getTranscript(
     args: GetTranscriptCommandInput,
     options: __HttpHandlerOptions,
@@ -187,8 +205,14 @@ export interface ConnectParticipant {
   /**
    * @see {@link SendEventCommand}
    */
-  sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
-  sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
+  sendEvent(
+    args: SendEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEventCommandOutput>;
+  sendEvent(
+    args: SendEventCommandInput,
+    cb: (err: any, data?: SendEventCommandOutput) => void
+  ): void;
   sendEvent(
     args: SendEventCommandInput,
     options: __HttpHandlerOptions,
@@ -198,8 +222,14 @@ export interface ConnectParticipant {
   /**
    * @see {@link SendMessageCommand}
    */
-  sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
-  sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
+  sendMessage(
+    args: SendMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendMessageCommandOutput>;
+  sendMessage(
+    args: SendMessageCommandInput,
+    cb: (err: any, data?: SendMessageCommandOutput) => void
+  ): void;
   sendMessage(
     args: SendMessageCommandInput,
     options: __HttpHandlerOptions,

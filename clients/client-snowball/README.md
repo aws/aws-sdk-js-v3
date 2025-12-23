@@ -14,10 +14,8 @@ and manage jobs for a Snow Family device. To transfer data locally with a Snow F
 you'll need to use the Snowball Edge client or the Amazon S3 API Interface for Snowball or OpsHub for Snow Family. For more information, see the <a href="https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html">User Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-snowball
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-snowball`
 - `yarn add @aws-sdk/client-snowball`
 - `pnpm add @aws-sdk/client-snowball`
@@ -53,9 +51,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SnowballClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListJobsCommand(params);
 ```
 
@@ -214,7 +210,6 @@ CancelCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CancelClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CancelClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CancelClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -222,7 +217,6 @@ CancelJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CancelJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CancelJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CancelJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ CreateAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CreateAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateAddressCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ CreateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CreateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ CreateJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CreateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ CreateLongTermPricing
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CreateLongTermPricingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateLongTermPricingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateLongTermPricingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ CreateReturnShippingLabel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/CreateReturnShippingLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateReturnShippingLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/CreateReturnShippingLabelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ DescribeAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/DescribeAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeAddressCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ DescribeAddresses
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/DescribeAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeAddressesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +273,6 @@ DescribeCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/DescribeClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +280,6 @@ DescribeJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/DescribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +287,6 @@ DescribeReturnShippingLabel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/DescribeReturnShippingLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeReturnShippingLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/DescribeReturnShippingLabelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +294,6 @@ GetJobManifest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/GetJobManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetJobManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetJobManifestCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +301,6 @@ GetJobUnlockCode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/GetJobUnlockCodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetJobUnlockCodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetJobUnlockCodeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +308,6 @@ GetSnowballUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/GetSnowballUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetSnowballUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetSnowballUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +315,6 @@ GetSoftwareUpdates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/GetSoftwareUpdatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetSoftwareUpdatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/GetSoftwareUpdatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +322,6 @@ ListClusterJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListClusterJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListClusterJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListClusterJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,7 +329,6 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListClustersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -358,7 +336,6 @@ ListCompatibleImages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListCompatibleImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListCompatibleImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListCompatibleImagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -366,7 +343,6 @@ ListJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -374,7 +350,6 @@ ListLongTermPricing
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListLongTermPricingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListLongTermPricingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListLongTermPricingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -382,7 +357,6 @@ ListPickupLocations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListPickupLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListPickupLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListPickupLocationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -390,7 +364,6 @@ ListServiceVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/ListServiceVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListServiceVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/ListServiceVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -398,7 +371,6 @@ UpdateCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateClusterCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -406,7 +378,6 @@ UpdateJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/UpdateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -414,7 +385,6 @@ UpdateJobShipmentState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/UpdateJobShipmentStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateJobShipmentStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateJobShipmentStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -422,5 +392,4 @@ UpdateLongTermPricing
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/snowball/command/UpdateLongTermPricingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateLongTermPricingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-snowball/Interface/UpdateLongTermPricingCommandOutput/)
-
 </details>

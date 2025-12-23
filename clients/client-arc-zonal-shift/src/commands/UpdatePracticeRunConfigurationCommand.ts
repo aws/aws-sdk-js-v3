@@ -24,9 +24,7 @@ export interface UpdatePracticeRunConfigurationCommandInput extends UpdatePracti
  *
  * The output of {@link UpdatePracticeRunConfigurationCommand}.
  */
-export interface UpdatePracticeRunConfigurationCommandOutput
-  extends UpdatePracticeRunConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdatePracticeRunConfigurationCommandOutput extends UpdatePracticeRunConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Update a practice run configuration to change one or more of the following: add, change, or remove the blocking alarm; change the outcome alarm; or add, change, or remove blocking dates or time windows.</p>

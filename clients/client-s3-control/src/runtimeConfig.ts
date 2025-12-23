@@ -2,10 +2,10 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
-import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
+import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -43,18 +43,16 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
-    authSchemePreference:
-      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
+    authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
-    region:
-      config?.region ??
-      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
+    region: config?.region ?? loadNodeConfig(
+        NODE_REGION_CONFIG_OPTIONS,
+        {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
+    ),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
@@ -69,8 +67,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
     useArnRegion: config?.useArnRegion ?? loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig),
-    useDualstackEndpoint:
-      config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+    useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };

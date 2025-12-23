@@ -29,8 +29,8 @@ import {
   DescribeCampaignCommand,
   DescribeCampaignRequest$,
   DescribeCampaignResponse$,
-  DialRequest$,
   DialerConfig$,
+  DialRequest$,
   EncryptionConfig$,
   EncryptionType,
   FailedCampaignStateResponse$,
@@ -74,6 +74,7 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   OutboundCallConfig$,
+  paginateListCampaigns,
   PauseCampaign$,
   PauseCampaignCommand,
   PauseCampaignRequest$,
@@ -121,7 +122,6 @@ import {
   UpdateCampaignOutboundCallConfigRequest$,
   ValidationException,
   ValidationException$,
-  paginateListCampaigns,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

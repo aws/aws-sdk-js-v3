@@ -27,9 +27,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandInput extends Descri
  *
  * The output of {@link DescribeReservedDBInstancesOfferingsCommand}.
  */
-export interface DescribeReservedDBInstancesOfferingsCommandOutput
-  extends ReservedDBInstancesOfferingMessage,
-    __MetadataBearer {}
+export interface DescribeReservedDBInstancesOfferingsCommandOutput extends ReservedDBInstancesOfferingMessage, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved DB instance offerings.</p>

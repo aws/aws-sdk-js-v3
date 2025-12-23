@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput
-  extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
-export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
-  extends AcceptTransitGatewayMulticastDomainAssociationsResult,
-    __MetadataBearer {}
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput extends AcceptTransitGatewayMulticastDomainAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>

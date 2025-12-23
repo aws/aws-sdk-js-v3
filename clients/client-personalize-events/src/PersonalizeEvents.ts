@@ -42,8 +42,14 @@ export interface PersonalizeEvents {
   /**
    * @see {@link PutActionsCommand}
    */
-  putActions(args: PutActionsCommandInput, options?: __HttpHandlerOptions): Promise<PutActionsCommandOutput>;
-  putActions(args: PutActionsCommandInput, cb: (err: any, data?: PutActionsCommandOutput) => void): void;
+  putActions(
+    args: PutActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutActionsCommandOutput>;
+  putActions(
+    args: PutActionsCommandInput,
+    cb: (err: any, data?: PutActionsCommandOutput) => void
+  ): void;
   putActions(
     args: PutActionsCommandInput,
     options: __HttpHandlerOptions,
@@ -53,8 +59,14 @@ export interface PersonalizeEvents {
   /**
    * @see {@link PutEventsCommand}
    */
-  putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
-  putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
+  putEvents(
+    args: PutEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventsCommandOutput>;
+  putEvents(
+    args: PutEventsCommandInput,
+    cb: (err: any, data?: PutEventsCommandOutput) => void
+  ): void;
   putEvents(
     args: PutEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -64,8 +76,14 @@ export interface PersonalizeEvents {
   /**
    * @see {@link PutItemsCommand}
    */
-  putItems(args: PutItemsCommandInput, options?: __HttpHandlerOptions): Promise<PutItemsCommandOutput>;
-  putItems(args: PutItemsCommandInput, cb: (err: any, data?: PutItemsCommandOutput) => void): void;
+  putItems(
+    args: PutItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutItemsCommandOutput>;
+  putItems(
+    args: PutItemsCommandInput,
+    cb: (err: any, data?: PutItemsCommandOutput) => void
+  ): void;
   putItems(
     args: PutItemsCommandInput,
     options: __HttpHandlerOptions,
@@ -75,8 +93,14 @@ export interface PersonalizeEvents {
   /**
    * @see {@link PutUsersCommand}
    */
-  putUsers(args: PutUsersCommandInput, options?: __HttpHandlerOptions): Promise<PutUsersCommandOutput>;
-  putUsers(args: PutUsersCommandInput, cb: (err: any, data?: PutUsersCommandOutput) => void): void;
+  putUsers(
+    args: PutUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutUsersCommandOutput>;
+  putUsers(
+    args: PutUsersCommandInput,
+    cb: (err: any, data?: PutUsersCommandOutput) => void
+  ): void;
   putUsers(
     args: PutUsersCommandInput,
     options: __HttpHandlerOptions,

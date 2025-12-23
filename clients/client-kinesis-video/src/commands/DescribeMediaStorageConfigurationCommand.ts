@@ -27,9 +27,7 @@ export interface DescribeMediaStorageConfigurationCommandInput extends DescribeM
  *
  * The output of {@link DescribeMediaStorageConfigurationCommand}.
  */
-export interface DescribeMediaStorageConfigurationCommandOutput
-  extends DescribeMediaStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeMediaStorageConfigurationCommandOutput extends DescribeMediaStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>

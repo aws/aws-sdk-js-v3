@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteGlueIdentityCenterConfigurationCommand}.
  */
-export interface DeleteGlueIdentityCenterConfigurationCommandInput
-  extends DeleteGlueIdentityCenterConfigurationRequest {}
+export interface DeleteGlueIdentityCenterConfigurationCommandInput extends DeleteGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteGlueIdentityCenterConfigurationCommand}.
  */
-export interface DeleteGlueIdentityCenterConfigurationCommandOutput
-  extends DeleteGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteGlueIdentityCenterConfigurationCommandOutput extends DeleteGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the existing Glue Identity Center configuration, removing the integration between Glue and

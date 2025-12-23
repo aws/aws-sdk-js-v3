@@ -60,6 +60,9 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   MetricsSummary$,
+  paginateGetFindings,
+  paginateListFindingsMetrics,
+  paginateListScans,
   Recommendation$,
   Remediation$,
   Resource$,
@@ -92,9 +95,6 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   Vulnerability$,
-  paginateGetFindings,
-  paginateListFindingsMetrics,
-  paginateListScans,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

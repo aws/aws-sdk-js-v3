@@ -27,9 +27,7 @@ export interface DescribeTrafficDistributionGroupCommandInput extends DescribeTr
  *
  * The output of {@link DescribeTrafficDistributionGroupCommand}.
  */
-export interface DescribeTrafficDistributionGroupCommandOutput
-  extends DescribeTrafficDistributionGroupResponse,
-    __MetadataBearer {}
+export interface DescribeTrafficDistributionGroupCommandOutput extends DescribeTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Gets details and status of a traffic distribution group.</p>

@@ -31,9 +31,7 @@ export interface ListAutomationRulePreviewSummariesCommandInput extends ListAuto
  *
  * The output of {@link ListAutomationRulePreviewSummariesCommand}.
  */
-export interface ListAutomationRulePreviewSummariesCommandOutput
-  extends ListAutomationRulePreviewSummariesResponse,
-    __MetadataBearer {}
+export interface ListAutomationRulePreviewSummariesCommandOutput extends ListAutomationRulePreviewSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a summary of the recommended actions that match your rule preview configuration and criteria. </p>

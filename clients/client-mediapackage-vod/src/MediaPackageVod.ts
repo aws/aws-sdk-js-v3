@@ -97,8 +97,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link ConfigureLogsCommand}
    */
-  configureLogs(args: ConfigureLogsCommandInput, options?: __HttpHandlerOptions): Promise<ConfigureLogsCommandOutput>;
-  configureLogs(args: ConfigureLogsCommandInput, cb: (err: any, data?: ConfigureLogsCommandOutput) => void): void;
+  configureLogs(
+    args: ConfigureLogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConfigureLogsCommandOutput>;
+  configureLogs(
+    args: ConfigureLogsCommandInput,
+    cb: (err: any, data?: ConfigureLogsCommandOutput) => void
+  ): void;
   configureLogs(
     args: ConfigureLogsCommandInput,
     options: __HttpHandlerOptions,
@@ -108,8 +114,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link CreateAssetCommand}
    */
-  createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
-  createAsset(args: CreateAssetCommandInput, cb: (err: any, data?: CreateAssetCommandOutput) => void): void;
+  createAsset(
+    args: CreateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetCommandOutput>;
+  createAsset(
+    args: CreateAssetCommandInput,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
   createAsset(
     args: CreateAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -153,8 +165,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link DeleteAssetCommand}
    */
-  deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
-  deleteAsset(args: DeleteAssetCommandInput, cb: (err: any, data?: DeleteAssetCommandOutput) => void): void;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -198,8 +216,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link DescribeAssetCommand}
    */
-  describeAsset(args: DescribeAssetCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAssetCommandOutput>;
-  describeAsset(args: DescribeAssetCommandInput, cb: (err: any, data?: DescribeAssetCommandOutput) => void): void;
+  describeAsset(
+    args: DescribeAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetCommandOutput>;
+  describeAsset(
+    args: DescribeAssetCommandInput,
+    cb: (err: any, data?: DescribeAssetCommandOutput) => void
+  ): void;
   describeAsset(
     args: DescribeAssetCommandInput,
     options: __HttpHandlerOptions,
@@ -244,8 +268,14 @@ export interface MediaPackageVod {
    * @see {@link ListAssetsCommand}
    */
   listAssets(): Promise<ListAssetsCommandOutput>;
-  listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
-  listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
+  listAssets(
+    args: ListAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetsCommandOutput>;
+  listAssets(
+    args: ListAssetsCommandInput,
+    cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
   listAssets(
     args: ListAssetsCommandInput,
     options: __HttpHandlerOptions,
@@ -308,8 +338,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -319,8 +355,14 @@ export interface MediaPackageVod {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

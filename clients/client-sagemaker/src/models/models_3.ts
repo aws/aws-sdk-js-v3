@@ -143,7 +143,6 @@ import {
   WorkforceIpAddressType,
   WorkforceStatus,
 } from "./enums";
-
 import {
   type AlgorithmSpecification,
   type AmazonQSettings,
@@ -192,7 +191,6 @@ import {
   OutputParameter,
   Tag,
 } from "./models_0";
-
 import {
   type DockerSettings,
   type EdgeOutputConfig,
@@ -217,7 +215,6 @@ import {
   FeatureDefinition,
   HyperParameterTrainingJobDefinition,
 } from "./models_1";
-
 import {
   type DataCaptureConfigSummary,
   type DataProcessing,
@@ -2795,7 +2792,9 @@ export interface TargetTrackingScalingPolicyConfiguration {
  * <p>An object containing a recommended scaling policy.</p>
  * @public
  */
-export type ScalingPolicy = ScalingPolicy.TargetTrackingMember | ScalingPolicy.$UnknownMember;
+export type ScalingPolicy =
+  | ScalingPolicy.TargetTrackingMember
+  | ScalingPolicy.$UnknownMember;
 
 /**
  * @public

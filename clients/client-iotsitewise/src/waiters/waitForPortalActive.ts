@@ -10,9 +10,9 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribePortalComman
     const result: any = await client.send(new DescribePortalCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.portalStatus.state;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

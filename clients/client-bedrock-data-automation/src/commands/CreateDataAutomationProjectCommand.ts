@@ -28,9 +28,7 @@ export interface CreateDataAutomationProjectCommandInput extends CreateDataAutom
  *
  * The output of {@link CreateDataAutomationProjectCommand}.
  */
-export interface CreateDataAutomationProjectCommandOutput
-  extends CreateDataAutomationProjectResponse,
-    __MetadataBearer {}
+export interface CreateDataAutomationProjectCommandOutput extends CreateDataAutomationProjectResponse, __MetadataBearer {}
 
 /**
  * Creates an Amazon Bedrock Data Automation Project

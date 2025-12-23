@@ -24,9 +24,7 @@ export interface CreateWorkspaceServiceAccountCommandInput extends CreateWorkspa
  *
  * The output of {@link CreateWorkspaceServiceAccountCommand}.
  */
-export interface CreateWorkspaceServiceAccountCommandOutput
-  extends CreateWorkspaceServiceAccountResponse,
-    __MetadataBearer {}
+export interface CreateWorkspaceServiceAccountCommandOutput extends CreateWorkspaceServiceAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a service account for the workspace. A service account can be used to call

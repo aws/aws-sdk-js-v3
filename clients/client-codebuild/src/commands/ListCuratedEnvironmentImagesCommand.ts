@@ -24,9 +24,7 @@ export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnv
  *
  * The output of {@link ListCuratedEnvironmentImagesCommand}.
  */
-export interface ListCuratedEnvironmentImagesCommandOutput
-  extends ListCuratedEnvironmentImagesOutput,
-    __MetadataBearer {}
+export interface ListCuratedEnvironmentImagesCommandOutput extends ListCuratedEnvironmentImagesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about Docker images that are managed by CodeBuild.</p>

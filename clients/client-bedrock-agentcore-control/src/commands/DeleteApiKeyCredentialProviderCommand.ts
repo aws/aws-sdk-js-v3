@@ -28,9 +28,7 @@ export interface DeleteApiKeyCredentialProviderCommandInput extends DeleteApiKey
  *
  * The output of {@link DeleteApiKeyCredentialProviderCommand}.
  */
-export interface DeleteApiKeyCredentialProviderCommandOutput
-  extends DeleteApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface DeleteApiKeyCredentialProviderCommandOutput extends DeleteApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an API key credential provider.</p>

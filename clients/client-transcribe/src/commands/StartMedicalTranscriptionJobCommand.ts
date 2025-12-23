@@ -24,9 +24,7 @@ export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTr
  *
  * The output of {@link StartMedicalTranscriptionJobCommand}.
  */
-export interface StartMedicalTranscriptionJobCommandOutput
-  extends StartMedicalTranscriptionJobResponse,
-    __MetadataBearer {}
+export interface StartMedicalTranscriptionJobCommandOutput extends StartMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Transcribes the audio from a medical dictation or conversation and applies any

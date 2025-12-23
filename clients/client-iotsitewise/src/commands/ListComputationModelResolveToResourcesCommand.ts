@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListComputationModelResolveToResourcesCommandInput
-  extends ListComputationModelResolveToResourcesRequest {}
+export interface ListComputationModelResolveToResourcesCommandInput extends ListComputationModelResolveToResourcesRequest {}
 /**
  * @public
  *
  * The output of {@link ListComputationModelResolveToResourcesCommand}.
  */
-export interface ListComputationModelResolveToResourcesCommandOutput
-  extends ListComputationModelResolveToResourcesResponse,
-    __MetadataBearer {}
+export interface ListComputationModelResolveToResourcesCommandOutput extends ListComputationModelResolveToResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all distinct resources that are resolved from the executed actions of the

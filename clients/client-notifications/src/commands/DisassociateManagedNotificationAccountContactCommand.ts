@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateManagedNotificationAccountContactCommand}.
  */
-export interface DisassociateManagedNotificationAccountContactCommandInput
-  extends DisassociateManagedNotificationAccountContactRequest {}
+export interface DisassociateManagedNotificationAccountContactCommandInput extends DisassociateManagedNotificationAccountContactRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateManagedNotificationAccountContactCommand}.
  */
-export interface DisassociateManagedNotificationAccountContactCommandOutput
-  extends DisassociateManagedNotificationAccountContactResponse,
-    __MetadataBearer {}
+export interface DisassociateManagedNotificationAccountContactCommandOutput extends DisassociateManagedNotificationAccountContactResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Account Contact with a particular <code>ManagedNotificationConfiguration</code>.</p>

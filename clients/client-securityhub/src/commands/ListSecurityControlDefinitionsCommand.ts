@@ -24,9 +24,7 @@ export interface ListSecurityControlDefinitionsCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityControlDefinitionsCommand}.
  */
-export interface ListSecurityControlDefinitionsCommandOutput
-  extends ListSecurityControlDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurityControlDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>

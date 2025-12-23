@@ -24,9 +24,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBIns
  *
  * The output of {@link DeleteDBInstanceAutomatedBackupCommand}.
  */
-export interface DeleteDBInstanceAutomatedBackupCommandOutput
-  extends DeleteDBInstanceAutomatedBackupResult,
-    __MetadataBearer {}
+export interface DeleteDBInstanceAutomatedBackupCommandOutput extends DeleteDBInstanceAutomatedBackupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>

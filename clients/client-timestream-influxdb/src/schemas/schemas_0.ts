@@ -254,807 +254,364 @@ import { TimestreamInfluxDBServiceException } from "../models/TimestreamInfluxDB
 /* eslint no-var: 0 */
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateDbClusterInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDCI,
+export var CreateDbClusterInput$: StaticStructureSchema = [3, n0, _CDCI,
   0,
   [_n, _u, _p, _o, _b, _po, _dPGI, _dIT, _dST, _aS, _nT, _pA, _vSI, _vSGI, _dT, _fM, _lDC, _t],
-  [
-    0,
-    [() => Username, 0],
-    [() => Password, 0],
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    1,
-    0,
-    2,
-    64 | 0,
-    64 | 0,
-    0,
-    0,
-    () => LogDeliveryConfiguration$,
-    128 | 0,
-  ],
+  [0, [() => Username, 0], [() => Password, 0], 0, 0, 1, 0, 0, 0, 1, 0, 2, 64 | 0, 64 | 0, 0, 0, () => LogDeliveryConfiguration$, 128 | 0]
 ];
-export var CreateDbClusterOutput$: StaticStructureSchema = [3, n0, _CDCO, 0, [_dCI, _dCS], [0, 0]];
-export var CreateDbInstanceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDII,
+export var CreateDbClusterOutput$: StaticStructureSchema = [3, n0, _CDCO,
+  0,
+  [_dCI, _dCS],
+  [0, 0]
+];
+export var CreateDbInstanceInput$: StaticStructureSchema = [3, n0, _CDII,
   0,
   [_n, _u, _p, _o, _b, _dIT, _vSI, _vSGI, _pA, _dST, _aS, _dPGI, _dT, _lDC, _t, _po, _nT],
-  [
-    0,
-    [() => Username, 0],
-    [() => Password, 0],
-    0,
-    0,
-    0,
-    64 | 0,
-    64 | 0,
-    2,
-    0,
-    1,
-    0,
-    0,
-    () => LogDeliveryConfiguration$,
-    128 | 0,
-    1,
-    0,
-  ],
+  [0, [() => Username, 0], [() => Password, 0], 0, 0, 0, 64 | 0, 64 | 0, 2, 0, 1, 0, 0, () => LogDeliveryConfiguration$, 128 | 0, 1, 0]
 ];
-export var CreateDbInstanceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDIO,
+export var CreateDbInstanceOutput$: StaticStructureSchema = [3, n0, _CDIO,
   0,
-  [
-    _i,
-    _n,
-    _a,
-    _s,
-    _en,
-    _po,
-    _nT,
-    _dIT,
-    _dST,
-    _aS,
-    _dT,
-    _vSI,
-    _pA,
-    _vSGI,
-    _dPGI,
-    _aZ,
-    _sAZ,
-    _lDC,
-    _iAPSA,
-    _dCI,
-    _iM,
-    _iMn,
-  ],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+  [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _vSI, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0]
 ];
-export var CreateDbParameterGroupInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDPGI,
+export var CreateDbParameterGroupInput$: StaticStructureSchema = [3, n0, _CDPGI,
   0,
   [_n, _d, _pa, _t],
-  [0, 0, () => _Parameters$, 128 | 0],
+  [0, 0, () => _Parameters$, 128 | 0]
 ];
-export var CreateDbParameterGroupOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDPGO,
+export var CreateDbParameterGroupOutput$: StaticStructureSchema = [3, n0, _CDPGO,
   0,
   [_i, _n, _a, _d, _pa],
-  [0, 0, 0, 0, () => _Parameters$],
+  [0, 0, 0, 0, () => _Parameters$]
 ];
-export var DbClusterSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCS,
+export var DbClusterSummary$: StaticStructureSchema = [3, n0, _DCS,
   0,
   [_i, _n, _a, _s, _en, _rE, _po, _dT, _dIT, _nT, _dST, _aS, _eT],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
 ];
-export var DbInstanceForClusterSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIFCS,
+export var DbInstanceForClusterSummary$: StaticStructureSchema = [3, n0, _DIFCS,
   0,
   [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _iM, _iMn],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64 | 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64 | 0]
 ];
-export var DbInstanceSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIS,
+export var DbInstanceSummary$: StaticStructureSchema = [3, n0, _DIS,
   0,
   [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0]
 ];
-export var DbParameterGroupSummary$: StaticStructureSchema = [3, n0, _DPGS, 0, [_i, _n, _a, _d], [0, 0, 0, 0]];
-export var DeleteDbClusterInput$: StaticStructureSchema = [3, n0, _DDCI, 0, [_dCI], [0]];
-export var DeleteDbClusterOutput$: StaticStructureSchema = [3, n0, _DDCO, 0, [_dCS], [0]];
-export var DeleteDbInstanceInput$: StaticStructureSchema = [3, n0, _DDII, 0, [_id], [0]];
-export var DeleteDbInstanceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDIO,
+export var DbParameterGroupSummary$: StaticStructureSchema = [3, n0, _DPGS,
   0,
-  [
-    _i,
-    _n,
-    _a,
-    _s,
-    _en,
-    _po,
-    _nT,
-    _dIT,
-    _dST,
-    _aS,
-    _dT,
-    _vSI,
-    _pA,
-    _vSGI,
-    _dPGI,
-    _aZ,
-    _sAZ,
-    _lDC,
-    _iAPSA,
-    _dCI,
-    _iM,
-    _iMn,
-  ],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+  [_i, _n, _a, _d],
+  [0, 0, 0, 0]
 ];
-export var Duration$: StaticStructureSchema = [3, n0, _D, 0, [_dTu, _v], [0, 1]];
-export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI, 0, [_dCI], [0]];
-export var GetDbClusterOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDCO,
+export var DeleteDbClusterInput$: StaticStructureSchema = [3, n0, _DDCI,
+  0,
+  [_dCI],
+  [0]
+];
+export var DeleteDbClusterOutput$: StaticStructureSchema = [3, n0, _DDCO,
+  0,
+  [_dCS],
+  [0]
+];
+export var DeleteDbInstanceInput$: StaticStructureSchema = [3, n0, _DDII,
+  0,
+  [_id],
+  [0]
+];
+export var DeleteDbInstanceOutput$: StaticStructureSchema = [3, n0, _DDIO,
+  0,
+  [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _vSI, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0]
+];
+export var Duration$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_dTu, _v],
+  [0, 1]
+];
+export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI,
+  0,
+  [_dCI],
+  [0]
+];
+export var GetDbClusterOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
   [_i, _n, _a, _s, _en, _rE, _po, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGI, _lDC, _iAPSA, _vSI, _vSGI, _fM],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, () => LogDeliveryConfiguration$, 0, 64 | 0, 64 | 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, () => LogDeliveryConfiguration$, 0, 64 | 0, 64 | 0, 0]
 ];
-export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII, 0, [_id], [0]];
-export var GetDbInstanceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDIO,
+export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
   0,
-  [
-    _i,
-    _n,
-    _a,
-    _s,
-    _en,
-    _po,
-    _nT,
-    _dIT,
-    _dST,
-    _aS,
-    _dT,
-    _vSI,
-    _pA,
-    _vSGI,
-    _dPGI,
-    _aZ,
-    _sAZ,
-    _lDC,
-    _iAPSA,
-    _dCI,
-    _iM,
-    _iMn,
-  ],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+  [_id],
+  [0]
 ];
-export var GetDbParameterGroupInput$: StaticStructureSchema = [3, n0, _GDPGI, 0, [_id], [0]];
-export var GetDbParameterGroupOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDPGO,
+export var GetDbInstanceOutput$: StaticStructureSchema = [3, n0, _GDIO,
+  0,
+  [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _vSI, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0]
+];
+export var GetDbParameterGroupInput$: StaticStructureSchema = [3, n0, _GDPGI,
+  0,
+  [_id],
+  [0]
+];
+export var GetDbParameterGroupOutput$: StaticStructureSchema = [3, n0, _GDPGO,
   0,
   [_i, _n, _a, _d, _pa],
-  [0, 0, 0, 0, () => _Parameters$],
+  [0, 0, 0, 0, () => _Parameters$]
 ];
-export var InfluxDBv2Parameters$: StaticStructureSchema = [
-  3,
-  n0,
-  _IDBP,
+export var InfluxDBv2Parameters$: StaticStructureSchema = [3, n0, _IDBP,
   0,
-  [
-    _fLE,
-    _lL,
-    _nTo,
-    _qC,
-    _qQS,
-    _tT,
-    _mD,
-    _hIT,
-    _hRHT,
-    _hRT,
-    _hWT,
-    _iMSB,
-    _iMSP,
-    _iMSS,
-    _pD,
-    _qIMB,
-    _qMMB,
-    _qMB,
-    _sL,
-    _sRD,
-    _sCMMS,
-    _sCSMS,
-    _sCSWCD,
-    _sCFWCD,
-    _sCTB,
-    _sMCC,
-    _sMILFS,
-    _sNVFS,
-    _sRCI,
-    _sSFMCSC,
-    _sSISCS,
-    _sWMCW,
-    _sWMWD,
-    _uD,
-  ],
-  [
-    2,
-    0,
-    2,
-    1,
-    1,
-    0,
-    2,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    1,
-    1,
-    1,
-    2,
-    1,
-    1,
-    1,
-    1,
-    2,
-    1,
-    1,
-    () => Duration$,
-    () => Duration$,
-    1,
-    1,
-    1,
-    2,
-    () => Duration$,
-    1,
-    1,
-    1,
-    () => Duration$,
-    2,
-  ],
+  [_fLE, _lL, _nTo, _qC, _qQS, _tT, _mD, _hIT, _hRHT, _hRT, _hWT, _iMSB, _iMSP, _iMSS, _pD, _qIMB, _qMMB, _qMB, _sL, _sRD, _sCMMS, _sCSMS, _sCSWCD, _sCFWCD, _sCTB, _sMCC, _sMILFS, _sNVFS, _sRCI, _sSFMCSC, _sSISCS, _sWMCW, _sWMWD, _uD],
+  [2, 0, 2, 1, 1, 0, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, () => Duration$, () => Duration$, 1, 1, 1, 2, () => Duration$, 1, 1, 1, () => Duration$, 2]
 ];
-export var InfluxDBv3CoreParameters$: StaticStructureSchema = [
-  3,
-  n0,
-  _IDBCP,
+export var InfluxDBv3CoreParameters$: StaticStructureSchema = [3, n0, _IDBCP,
   0,
-  [
-    _qFL,
-    _qLS,
-    _lF,
-    _lFo,
-    _dFNT,
-    _dFRT,
-    _dFRDLS,
-    _dFREI,
-    _dFRGQI,
-    _dFRMBT,
-    _dFRMIEPT,
-    _dFRTKA,
-    _dFRTP,
-    _dFMPF,
-    _dFUCPL,
-    _dFC,
-    _mHRS,
-    _fSMT,
-    _wSS,
-    _wMWBS,
-    _sWFTK,
-    _pCA,
-    _pMCPP,
-    _pMCPI,
-    _dPMC,
-    _pMCQPD,
-    _lCEI,
-    _dCEI,
-    _gD,
-    _eMPB,
-    _pMCS,
-    _wRFOE,
-    _wRCL,
-    _tICME,
-    _tICCL,
-    _gLD,
-    _rCI,
-    _dGP,
-    _hDDD,
-  ],
-  [
-    1,
-    1,
-    0,
-    0,
-    1,
-    0,
-    2,
-    1,
-    1,
-    1,
-    1,
-    () => Duration$,
-    1,
-    1,
-    2,
-    0,
-    1,
-    () => PercentOrAbsoluteLong$,
-    1,
-    1,
-    1,
-    () => Duration$,
-    1,
-    () => Duration$,
-    2,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => PercentOrAbsoluteLong$,
-    () => PercentOrAbsoluteLong$,
-    2,
-    1,
-    1,
-    1,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-  ],
+  [_qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD],
+  [1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$]
 ];
-export var InfluxDBv3EnterpriseParameters$: StaticStructureSchema = [
-  3,
-  n0,
-  _IDBEP,
+export var InfluxDBv3EnterpriseParameters$: StaticStructureSchema = [3, n0, _IDBEP,
   0,
-  [
-    _qFL,
-    _qLS,
-    _lF,
-    _lFo,
-    _dFNT,
-    _dFRT,
-    _dFRDLS,
-    _dFREI,
-    _dFRGQI,
-    _dFRMBT,
-    _dFRMIEPT,
-    _dFRTKA,
-    _dFRTP,
-    _dFMPF,
-    _dFUCPL,
-    _dFC,
-    _mHRS,
-    _fSMT,
-    _wSS,
-    _wMWBS,
-    _sWFTK,
-    _pCA,
-    _pMCPP,
-    _pMCPI,
-    _dPMC,
-    _pMCQPD,
-    _lCEI,
-    _dCEI,
-    _gD,
-    _eMPB,
-    _pMCS,
-    _wRFOE,
-    _wRCL,
-    _tICME,
-    _tICCL,
-    _gLD,
-    _rCI,
-    _dGP,
-    _hDDD,
-    _iQI,
-    _qOI,
-    _dC,
-    _cRL,
-    _cMNFPP,
-    _cGD,
-    _cM,
-    _cCW,
-    _cCI,
-    _lVCDFH,
-    _dVCDFH,
-    _rIe,
-    _cSI,
-  ],
-  [
-    1,
-    1,
-    0,
-    0,
-    1,
-    0,
-    2,
-    1,
-    1,
-    1,
-    1,
-    () => Duration$,
-    1,
-    1,
-    2,
-    0,
-    1,
-    () => PercentOrAbsoluteLong$,
-    1,
-    1,
-    1,
-    () => Duration$,
-    1,
-    () => Duration$,
-    2,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => PercentOrAbsoluteLong$,
-    () => PercentOrAbsoluteLong$,
-    2,
-    1,
-    1,
-    1,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    () => Duration$,
-    1,
-    1,
-    2,
-    1,
-    1,
-    () => Duration$,
-    0,
-    () => Duration$,
-    () => Duration$,
-    2,
-    2,
-    () => Duration$,
-    () => Duration$,
-  ],
+  [_qFL, _qLS, _lF, _lFo, _dFNT, _dFRT, _dFRDLS, _dFREI, _dFRGQI, _dFRMBT, _dFRMIEPT, _dFRTKA, _dFRTP, _dFMPF, _dFUCPL, _dFC, _mHRS, _fSMT, _wSS, _wMWBS, _sWFTK, _pCA, _pMCPP, _pMCPI, _dPMC, _pMCQPD, _lCEI, _dCEI, _gD, _eMPB, _pMCS, _wRFOE, _wRCL, _tICME, _tICCL, _gLD, _rCI, _dGP, _hDDD, _iQI, _qOI, _dC, _cRL, _cMNFPP, _cGD, _cM, _cCW, _cCI, _lVCDFH, _dVCDFH, _rIe, _cSI],
+  [1, 1, 0, 0, 1, 0, 2, 1, 1, 1, 1, () => Duration$, 1, 1, 2, 0, 1, () => PercentOrAbsoluteLong$, 1, 1, 1, () => Duration$, 1, () => Duration$, 2, () => Duration$, () => Duration$, () => Duration$, () => Duration$, () => PercentOrAbsoluteLong$, () => PercentOrAbsoluteLong$, 2, 1, 1, 1, () => Duration$, () => Duration$, () => Duration$, () => Duration$, 1, 1, 2, 1, 1, () => Duration$, 0, () => Duration$, () => Duration$, 2, 2, () => Duration$, () => Duration$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListDbClustersInput$: StaticStructureSchema = [3, n0, _LDCI, 0, [_nTe, _mR], [0, 1]];
-export var ListDbClustersOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDCO,
+export var ListDbClustersInput$: StaticStructureSchema = [3, n0, _LDCI,
+  0,
+  [_nTe, _mR],
+  [0, 1]
+];
+export var ListDbClustersOutput$: StaticStructureSchema = [3, n0, _LDCO,
   0,
   [_it, _nTe],
-  [() => DbClusterSummaryList, 0],
+  [() => DbClusterSummaryList, 0]
 ];
-export var ListDbInstancesForClusterInput$: StaticStructureSchema = [3, n0, _LDIFCI, 0, [_dCI, _nTe, _mR], [0, 0, 1]];
-export var ListDbInstancesForClusterOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDIFCO,
+export var ListDbInstancesForClusterInput$: StaticStructureSchema = [3, n0, _LDIFCI,
+  0,
+  [_dCI, _nTe, _mR],
+  [0, 0, 1]
+];
+export var ListDbInstancesForClusterOutput$: StaticStructureSchema = [3, n0, _LDIFCO,
   0,
   [_it, _nTe],
-  [() => DbInstanceForClusterSummaryList, 0],
+  [() => DbInstanceForClusterSummaryList, 0]
 ];
-export var ListDbInstancesInput$: StaticStructureSchema = [3, n0, _LDII, 0, [_nTe, _mR], [0, 1]];
-export var ListDbInstancesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDIO,
+export var ListDbInstancesInput$: StaticStructureSchema = [3, n0, _LDII,
+  0,
+  [_nTe, _mR],
+  [0, 1]
+];
+export var ListDbInstancesOutput$: StaticStructureSchema = [3, n0, _LDIO,
   0,
   [_it, _nTe],
-  [() => DbInstanceSummaryList, 0],
+  [() => DbInstanceSummaryList, 0]
 ];
-export var ListDbParameterGroupsInput$: StaticStructureSchema = [3, n0, _LDPGI, 0, [_nTe, _mR], [0, 1]];
-export var ListDbParameterGroupsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDPGO,
+export var ListDbParameterGroupsInput$: StaticStructureSchema = [3, n0, _LDPGI,
+  0,
+  [_nTe, _mR],
+  [0, 1]
+];
+export var ListDbParameterGroupsOutput$: StaticStructureSchema = [3, n0, _LDPGO,
   0,
   [_it, _nTe],
-  [() => DbParameterGroupSummaryList, 0],
+  [() => DbParameterGroupSummaryList, 0]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDC, 0, [_sC], [() => S3Configuration$]];
-export var RebootDbClusterInput$: StaticStructureSchema = [3, n0, _RDCI, 0, [_dCI, _iI], [0, 64 | 0]];
-export var RebootDbClusterOutput$: StaticStructureSchema = [3, n0, _RDCO, 0, [_dCS], [0]];
-export var RebootDbInstanceInput$: StaticStructureSchema = [3, n0, _RDII, 0, [_id], [0]];
-export var RebootDbInstanceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDIO,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [
-    _i,
-    _n,
-    _a,
-    _s,
-    _en,
-    _po,
-    _nT,
-    _dIT,
-    _dST,
-    _aS,
-    _dT,
-    _vSI,
-    _pA,
-    _vSGI,
-    _dPGI,
-    _aZ,
-    _sAZ,
-    _lDC,
-    _iAPSA,
-    _dCI,
-    _iM,
-    _iMn,
-  ],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+  [_rA],
+  [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDC,
+  0,
+  [_sC],
+  [() => S3Configuration$]
+];
+export var RebootDbClusterInput$: StaticStructureSchema = [3, n0, _RDCI,
+  0,
+  [_dCI, _iI],
+  [0, 64 | 0]
+];
+export var RebootDbClusterOutput$: StaticStructureSchema = [3, n0, _RDCO,
+  0,
+  [_dCS],
+  [0]
+];
+export var RebootDbInstanceInput$: StaticStructureSchema = [3, n0, _RDII,
+  0,
+  [_id],
+  [0]
+];
+export var RebootDbInstanceOutput$: StaticStructureSchema = [3, n0, _RDIO,
+  0,
+  [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _vSI, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var S3Configuration$: StaticStructureSchema = [3, n0, _SC, 0, [_bN, _ena], [0, 2]];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_bN, _ena],
+  [0, 2]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _t],
+  [0, 128 | 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]],
+  [0, [1, { [_hH]: _RA }]]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, 1], 64 | 0]];
-export var UpdateDbClusterInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDCI,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tK],
+  [[0, 1], 64 | 0]
+];
+export var UpdateDbClusterInput$: StaticStructureSchema = [3, n0, _UDCI,
   0,
   [_dCI, _lDC, _dPGI, _po, _dIT, _fM],
-  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0],
+  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0]
 ];
-export var UpdateDbClusterOutput$: StaticStructureSchema = [3, n0, _UDCO, 0, [_dCS], [0]];
-export var UpdateDbInstanceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDII,
+export var UpdateDbClusterOutput$: StaticStructureSchema = [3, n0, _UDCO,
+  0,
+  [_dCS],
+  [0]
+];
+export var UpdateDbInstanceInput$: StaticStructureSchema = [3, n0, _UDII,
   0,
   [_id, _lDC, _dPGI, _po, _dIT, _dT, _dST, _aS],
-  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, 0, 1],
+  [0, () => LogDeliveryConfiguration$, 0, 1, 0, 0, 0, 1]
 ];
-export var UpdateDbInstanceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDIO,
+export var UpdateDbInstanceOutput$: StaticStructureSchema = [3, n0, _UDIO,
   0,
-  [
-    _i,
-    _n,
-    _a,
-    _s,
-    _en,
-    _po,
-    _nT,
-    _dIT,
-    _dST,
-    _aS,
-    _dT,
-    _vSI,
-    _pA,
-    _vSGI,
-    _dPGI,
-    _aZ,
-    _sAZ,
-    _lDC,
-    _iAPSA,
-    _dCI,
-    _iM,
-    _iMn,
-  ],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+  [_i, _n, _a, _s, _en, _po, _nT, _dIT, _dST, _aS, _dT, _vSI, _pA, _vSGI, _dPGI, _aZ, _sAZ, _lDC, _iAPSA, _dCI, _iM, _iMn],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var TimestreamInfluxDBServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "TimestreamInfluxDBServiceException",
-  0,
-  [],
-  [],
-];
+export var TimestreamInfluxDBServiceException$: StaticErrorSchema = [-3, _sm, "TimestreamInfluxDBServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TimestreamInfluxDBServiceException$, TimestreamInfluxDBServiceException);
-var DbClusterSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => DbClusterSummary$];
-var DbInstanceForClusterSummaryList: StaticListSchema = [1, n0, _DIFCSL, 0, () => DbInstanceForClusterSummary$];
+var DbClusterSummaryList: StaticListSchema = [1, n0, _DCSL,
+  0, () => DbClusterSummary$
+];
+var DbInstanceForClusterSummaryList: StaticListSchema = [1, n0, _DIFCSL,
+  0, () => DbInstanceForClusterSummary$
+];
 var DbInstanceIdList = 64 | 0;
-var DbInstanceSummaryList: StaticListSchema = [1, n0, _DISL, 0, () => DbInstanceSummary$];
-var DbParameterGroupSummaryList: StaticListSchema = [1, n0, _DPGSL, 0, () => DbParameterGroupSummary$];
+var DbInstanceSummaryList: StaticListSchema = [1, n0, _DISL,
+  0, () => DbInstanceSummary$
+];
+var DbParameterGroupSummaryList: StaticListSchema = [1, n0, _DPGSL,
+  0, () => DbParameterGroupSummary$
+];
 var InstanceModeList = 64 | 0;
 var TagKeys = 64 | 0;
 var VpcSecurityGroupIdList = 64 | 0;
 var VpcSubnetIdList = 64 | 0;
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
-export var _Parameters$: StaticUnionSchema = [
-  4,
-  n0,
-  _Pa,
+export var _Parameters$: StaticUnionSchema = [4, n0, _Pa,
   0,
   [_IDB, _IDBC, _IDBE],
-  [() => InfluxDBv2Parameters$, () => InfluxDBv3CoreParameters$, () => InfluxDBv3EnterpriseParameters$],
+  [() => InfluxDBv2Parameters$, () => InfluxDBv3CoreParameters$, () => InfluxDBv3EnterpriseParameters$]
 ];
-export var PercentOrAbsoluteLong$: StaticUnionSchema = [4, n0, _POAL, 0, [_pe, _ab], [0, 1]];
-export var CreateDbCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDC,
-  2,
-  () => CreateDbClusterInput$,
-  () => CreateDbClusterOutput$,
-];
-export var CreateDbInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDI,
-  2,
-  () => CreateDbInstanceInput$,
-  () => CreateDbInstanceOutput$,
-];
-export var CreateDbParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDPG,
-  2,
-  () => CreateDbParameterGroupInput$,
-  () => CreateDbParameterGroupOutput$,
-];
-export var DeleteDbCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDC,
-  2,
-  () => DeleteDbClusterInput$,
-  () => DeleteDbClusterOutput$,
-];
-export var DeleteDbInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDI,
-  2,
-  () => DeleteDbInstanceInput$,
-  () => DeleteDbInstanceOutput$,
-];
-export var GetDbCluster$: StaticOperationSchema = [9, n0, _GDC, 0, () => GetDbClusterInput$, () => GetDbClusterOutput$];
-export var GetDbInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDI,
+export var PercentOrAbsoluteLong$: StaticUnionSchema = [4, n0, _POAL,
   0,
-  () => GetDbInstanceInput$,
-  () => GetDbInstanceOutput$,
+  [_pe, _ab],
+  [0, 1]
 ];
-export var GetDbParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDPG,
-  0,
-  () => GetDbParameterGroupInput$,
-  () => GetDbParameterGroupOutput$,
+export var CreateDbCluster$: StaticOperationSchema = [9, n0, _CDC,
+  2, () => CreateDbClusterInput$, () => CreateDbClusterOutput$
 ];
-export var ListDbClusters$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDCi,
-  0,
-  () => ListDbClustersInput$,
-  () => ListDbClustersOutput$,
+export var CreateDbInstance$: StaticOperationSchema = [9, n0, _CDI,
+  2, () => CreateDbInstanceInput$, () => CreateDbInstanceOutput$
 ];
-export var ListDbInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDI,
-  0,
-  () => ListDbInstancesInput$,
-  () => ListDbInstancesOutput$,
+export var CreateDbParameterGroup$: StaticOperationSchema = [9, n0, _CDPG,
+  2, () => CreateDbParameterGroupInput$, () => CreateDbParameterGroupOutput$
 ];
-export var ListDbInstancesForCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDIFC,
-  0,
-  () => ListDbInstancesForClusterInput$,
-  () => ListDbInstancesForClusterOutput$,
+export var DeleteDbCluster$: StaticOperationSchema = [9, n0, _DDC,
+  2, () => DeleteDbClusterInput$, () => DeleteDbClusterOutput$
 ];
-export var ListDbParameterGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _LDPG,
-  0,
-  () => ListDbParameterGroupsInput$,
-  () => ListDbParameterGroupsOutput$,
+export var DeleteDbInstance$: StaticOperationSchema = [9, n0, _DDI,
+  2, () => DeleteDbInstanceInput$, () => DeleteDbInstanceOutput$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var GetDbCluster$: StaticOperationSchema = [9, n0, _GDC,
+  0, () => GetDbClusterInput$, () => GetDbClusterOutput$
 ];
-export var RebootDbCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDC,
-  2,
-  () => RebootDbClusterInput$,
-  () => RebootDbClusterOutput$,
+export var GetDbInstance$: StaticOperationSchema = [9, n0, _GDI,
+  0, () => GetDbInstanceInput$, () => GetDbInstanceOutput$
 ];
-export var RebootDbInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDI,
-  2,
-  () => RebootDbInstanceInput$,
-  () => RebootDbInstanceOutput$,
+export var GetDbParameterGroup$: StaticOperationSchema = [9, n0, _GDPG,
+  0, () => GetDbParameterGroupInput$, () => GetDbParameterGroupOutput$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest$, () => __Unit];
-export var UntagResource$: StaticOperationSchema = [9, n0, _UR, 2, () => UntagResourceRequest$, () => __Unit];
-export var UpdateDbCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _UDC,
-  2,
-  () => UpdateDbClusterInput$,
-  () => UpdateDbClusterOutput$,
+export var ListDbClusters$: StaticOperationSchema = [9, n0, _LDCi,
+  0, () => ListDbClustersInput$, () => ListDbClustersOutput$
 ];
-export var UpdateDbInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _UDI,
-  2,
-  () => UpdateDbInstanceInput$,
-  () => UpdateDbInstanceOutput$,
+export var ListDbInstances$: StaticOperationSchema = [9, n0, _LDI,
+  0, () => ListDbInstancesInput$, () => ListDbInstancesOutput$
+];
+export var ListDbInstancesForCluster$: StaticOperationSchema = [9, n0, _LDIFC,
+  0, () => ListDbInstancesForClusterInput$, () => ListDbInstancesForClusterOutput$
+];
+export var ListDbParameterGroups$: StaticOperationSchema = [9, n0, _LDPG,
+  0, () => ListDbParameterGroupsInput$, () => ListDbParameterGroupsOutput$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var RebootDbCluster$: StaticOperationSchema = [9, n0, _RDC,
+  2, () => RebootDbClusterInput$, () => RebootDbClusterOutput$
+];
+export var RebootDbInstance$: StaticOperationSchema = [9, n0, _RDI,
+  2, () => RebootDbInstanceInput$, () => RebootDbInstanceOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  2, () => TagResourceRequest$, () => __Unit
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  2, () => UntagResourceRequest$, () => __Unit
+];
+export var UpdateDbCluster$: StaticOperationSchema = [9, n0, _UDC,
+  2, () => UpdateDbClusterInput$, () => UpdateDbClusterOutput$
+];
+export var UpdateDbInstance$: StaticOperationSchema = [9, n0, _UDI,
+  2, () => UpdateDbInstanceInput$, () => UpdateDbInstanceOutput$
 ];

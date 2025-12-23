@@ -24,9 +24,7 @@ export interface DescribeImageReplicationStatusCommandInput extends DescribeImag
  *
  * The output of {@link DescribeImageReplicationStatusCommand}.
  */
-export interface DescribeImageReplicationStatusCommandOutput
-  extends DescribeImageReplicationStatusResponse,
-    __MetadataBearer {}
+export interface DescribeImageReplicationStatusCommandOutput extends DescribeImageReplicationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the replication status for a specified image.</p>

@@ -28,9 +28,7 @@ export interface DescribeConfigurationSettingsCommandInput extends DescribeConfi
  *
  * The output of {@link DescribeConfigurationSettingsCommand}.
  */
-export interface DescribeConfigurationSettingsCommandOutput
-  extends ConfigurationSettingsDescriptions,
-    __MetadataBearer {}
+export interface DescribeConfigurationSettingsCommandOutput extends ConfigurationSettingsDescriptions, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the settings for the specified configuration set, that is,

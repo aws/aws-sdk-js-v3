@@ -67,6 +67,11 @@ import {
   ListUserAssociationsCommand,
   ListUserAssociationsRequest$,
   ListUserAssociationsResponse$,
+  paginateListIdentityProviders,
+  paginateListInstances,
+  paginateListLicenseServerEndpoints,
+  paginateListProductSubscriptions,
+  paginateListUserAssociations,
   ProductUserSummary$,
   RdsSalSettings$,
   RegisterIdentityProvider$,
@@ -107,11 +112,6 @@ import {
   UpdateSettings$,
   ValidationException,
   ValidationException$,
-  paginateListIdentityProviders,
-  paginateListInstances,
-  paginateListLicenseServerEndpoints,
-  paginateListProductSubscriptions,
-  paginateListUserAssociations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -24,9 +24,7 @@ export interface UpdateRestoreTestingSelectionCommandInput extends UpdateRestore
  *
  * The output of {@link UpdateRestoreTestingSelectionCommand}.
  */
-export interface UpdateRestoreTestingSelectionCommandOutput
-  extends UpdateRestoreTestingSelectionOutput,
-    __MetadataBearer {}
+export interface UpdateRestoreTestingSelectionCommandOutput extends UpdateRestoreTestingSelectionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified restore testing selection.</p>

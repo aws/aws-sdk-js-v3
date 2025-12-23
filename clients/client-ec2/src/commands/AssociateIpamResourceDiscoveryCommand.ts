@@ -24,9 +24,7 @@ export interface AssociateIpamResourceDiscoveryCommandInput extends AssociateIpa
  *
  * The output of {@link AssociateIpamResourceDiscoveryCommand}.
  */
-export interface AssociateIpamResourceDiscoveryCommandOutput
-  extends AssociateIpamResourceDiscoveryResult,
-    __MetadataBearer {}
+export interface AssociateIpamResourceDiscoveryCommandOutput extends AssociateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
  * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>

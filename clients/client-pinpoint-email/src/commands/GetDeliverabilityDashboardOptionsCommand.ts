@@ -27,9 +27,7 @@ export interface GetDeliverabilityDashboardOptionsCommandInput extends GetDelive
  *
  * The output of {@link GetDeliverabilityDashboardOptionsCommand}.
  */
-export interface GetDeliverabilityDashboardOptionsCommandOutput
-  extends GetDeliverabilityDashboardOptionsResponse,
-    __MetadataBearer {}
+export interface GetDeliverabilityDashboardOptionsCommandOutput extends GetDeliverabilityDashboardOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.

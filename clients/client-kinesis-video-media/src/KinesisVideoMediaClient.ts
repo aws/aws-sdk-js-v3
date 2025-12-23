@@ -79,12 +79,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetMediaCommandInput;
+export type ServiceInputTypes =
+  | GetMediaCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetMediaCommandOutput;
+export type ServiceOutputTypes =
+  | GetMediaCommandOutput;
 
 /**
  * @public
@@ -240,6 +242,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   sdkStreamMixin?: __SdkStreamMixinInjector;
+
 }
 
 /**

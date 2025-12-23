@@ -1,4 +1,5 @@
 import {
+  _Record$,
   AccessDeniedException,
   AccessDeniedException$,
   ArrayValue$,
@@ -75,7 +76,6 @@ import {
   UnsupportedResultException$,
   UpdateResult$,
   Value$,
-  _Record$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -4,26 +4,23 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { GetStreamSessionCommand, GetStreamSessionCommandInput } from "../commands/GetStreamSessionCommand";
 import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 
-const checkState = async (
-  client: GameLiftStreamsClient,
-  input: GetStreamSessionCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: GameLiftStreamsClient, input: GetStreamSessionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetStreamSessionCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

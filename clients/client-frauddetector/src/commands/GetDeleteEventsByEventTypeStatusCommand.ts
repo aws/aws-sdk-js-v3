@@ -27,9 +27,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandInput extends GetDeleteE
  *
  * The output of {@link GetDeleteEventsByEventTypeStatusCommand}.
  */
-export interface GetDeleteEventsByEventTypeStatusCommandOutput
-  extends GetDeleteEventsByEventTypeStatusResult,
-    __MetadataBearer {}
+export interface GetDeleteEventsByEventTypeStatusCommandOutput extends GetDeleteEventsByEventTypeStatusResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>

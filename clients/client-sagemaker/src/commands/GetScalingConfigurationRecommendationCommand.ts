@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetScalingConfigurationRecommendationCommand}.
  */
-export interface GetScalingConfigurationRecommendationCommandInput
-  extends GetScalingConfigurationRecommendationRequest {}
+export interface GetScalingConfigurationRecommendationCommandInput extends GetScalingConfigurationRecommendationRequest {}
 /**
  * @public
  *
  * The output of {@link GetScalingConfigurationRecommendationCommand}.
  */
-export interface GetScalingConfigurationRecommendationCommandOutput
-  extends GetScalingConfigurationRecommendationResponse,
-    __MetadataBearer {}
+export interface GetScalingConfigurationRecommendationCommandOutput extends GetScalingConfigurationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies that you can apply to your SageMaker endpoint.</p>

@@ -31,9 +31,7 @@ export interface GetDirectConnectGatewayAttachmentCommandInput extends GetDirect
  *
  * The output of {@link GetDirectConnectGatewayAttachmentCommand}.
  */
-export interface GetDirectConnectGatewayAttachmentCommandOutput
-  extends GetDirectConnectGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface GetDirectConnectGatewayAttachmentCommandOutput extends GetDirectConnectGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific Amazon Web Services Direct Connect gateway attachment.</p>

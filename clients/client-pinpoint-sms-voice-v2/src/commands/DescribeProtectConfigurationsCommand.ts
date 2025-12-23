@@ -28,9 +28,7 @@ export interface DescribeProtectConfigurationsCommandInput extends DescribeProte
  *
  * The output of {@link DescribeProtectConfigurationsCommand}.
  */
-export interface DescribeProtectConfigurationsCommandOutput
-  extends DescribeProtectConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeProtectConfigurationsCommandOutput extends DescribeProtectConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the protect configurations that match any of filters. If a filter isn’t provided then all protect configurations are returned.</p>

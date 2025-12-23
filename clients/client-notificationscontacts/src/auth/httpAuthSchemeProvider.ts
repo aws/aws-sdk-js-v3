@@ -49,17 +49,13 @@ export const defaultNotificationsContactsHttpAuthSchemeParametersProvider = asyn
 ): Promise<NotificationsContactsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: NotificationsContactsHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: NotificationsContactsHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface NotificationsContactsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultNotificationsContactsHttpAuthSchemeProvider: NotificationsContactsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultNotificationsContactsHttpAuthSchemeProvider: NotificationsContactsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

@@ -27,9 +27,7 @@ export interface ListAvailableResourceDimensionsCommandInput extends ListAvailab
  *
  * The output of {@link ListAvailableResourceDimensionsCommand}.
  */
-export interface ListAvailableResourceDimensionsCommandOutput
-  extends ListAvailableResourceDimensionsResponse,
-    __MetadataBearer {}
+export interface ListAvailableResourceDimensionsCommandOutput extends ListAvailableResourceDimensionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>

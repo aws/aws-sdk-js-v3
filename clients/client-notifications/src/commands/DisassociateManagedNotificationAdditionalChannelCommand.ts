@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface DisassociateManagedNotificationAdditionalChannelCommandInput
-  extends DisassociateManagedNotificationAdditionalChannelRequest {}
+export interface DisassociateManagedNotificationAdditionalChannelCommandInput extends DisassociateManagedNotificationAdditionalChannelRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateManagedNotificationAdditionalChannelCommand}.
  */
-export interface DisassociateManagedNotificationAdditionalChannelCommandOutput
-  extends DisassociateManagedNotificationAdditionalChannelResponse,
-    __MetadataBearer {}
+export interface DisassociateManagedNotificationAdditionalChannelCommandOutput extends DisassociateManagedNotificationAdditionalChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an additional Channel from a particular <code>ManagedNotificationConfiguration</code>.</p> <p>Supported Channels include Amazon Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).</p>

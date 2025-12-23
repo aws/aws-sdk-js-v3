@@ -27,9 +27,7 @@ export interface UpdateKinesisStreamingDestinationCommandInput extends UpdateKin
  *
  * The output of {@link UpdateKinesisStreamingDestinationCommand}.
  */
-export interface UpdateKinesisStreamingDestinationCommandOutput
-  extends UpdateKinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface UpdateKinesisStreamingDestinationCommandOutput extends UpdateKinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>The command to update the Kinesis stream destination.</p>

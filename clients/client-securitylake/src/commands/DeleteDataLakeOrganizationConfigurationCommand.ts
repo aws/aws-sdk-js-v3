@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandInput
-  extends DeleteDataLakeOrganizationConfigurationRequest {}
+export interface DeleteDataLakeOrganizationConfigurationCommandInput extends DeleteDataLakeOrganizationConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandOutput
-  extends DeleteDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteDataLakeOrganizationConfigurationCommandOutput extends DeleteDataLakeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Turns off automatic enablement of Amazon Security Lake for member accounts that are added to an organization in Organizations. Only the delegated

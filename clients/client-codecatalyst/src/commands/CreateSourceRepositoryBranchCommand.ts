@@ -24,9 +24,7 @@ export interface CreateSourceRepositoryBranchCommandInput extends CreateSourceRe
  *
  * The output of {@link CreateSourceRepositoryBranchCommand}.
  */
-export interface CreateSourceRepositoryBranchCommandOutput
-  extends CreateSourceRepositoryBranchResponse,
-    __MetadataBearer {}
+export interface CreateSourceRepositoryBranchCommandOutput extends CreateSourceRepositoryBranchResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>

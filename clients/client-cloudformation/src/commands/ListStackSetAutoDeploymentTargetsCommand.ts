@@ -31,9 +31,7 @@ export interface ListStackSetAutoDeploymentTargetsCommandInput extends ListStack
  *
  * The output of {@link ListStackSetAutoDeploymentTargetsCommand}.
  */
-export interface ListStackSetAutoDeploymentTargetsCommandOutput
-  extends ListStackSetAutoDeploymentTargetsOutput,
-    __MetadataBearer {}
+export interface ListStackSetAutoDeploymentTargetsCommandOutput extends ListStackSetAutoDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about deployment targets for a StackSet.</p>

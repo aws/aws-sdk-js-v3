@@ -84,7 +84,6 @@ import {
   TtlDurationUnit,
   VendorGuidance,
 } from "./enums";
-
 import {
   type AmazonQSettings,
   type AnnotationConsolidationConfig,

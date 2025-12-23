@@ -93,8 +93,14 @@ export interface S3Vectors {
   /**
    * @see {@link CreateIndexCommand}
    */
-  createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
-  createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
+  createIndex(
+    args: CreateIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIndexCommandOutput>;
+  createIndex(
+    args: CreateIndexCommandInput,
+    cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
   createIndex(
     args: CreateIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -122,8 +128,14 @@ export interface S3Vectors {
    * @see {@link DeleteIndexCommand}
    */
   deleteIndex(): Promise<DeleteIndexCommandOutput>;
-  deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
-  deleteIndex(args: DeleteIndexCommandInput, cb: (err: any, data?: DeleteIndexCommandOutput) => void): void;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIndexCommandOutput>;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    cb: (err: any, data?: DeleteIndexCommandOutput) => void
+  ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -169,8 +181,14 @@ export interface S3Vectors {
   /**
    * @see {@link DeleteVectorsCommand}
    */
-  deleteVectors(args: DeleteVectorsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVectorsCommandOutput>;
-  deleteVectors(args: DeleteVectorsCommandInput, cb: (err: any, data?: DeleteVectorsCommandOutput) => void): void;
+  deleteVectors(
+    args: DeleteVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVectorsCommandOutput>;
+  deleteVectors(
+    args: DeleteVectorsCommandInput,
+    cb: (err: any, data?: DeleteVectorsCommandOutput) => void
+  ): void;
   deleteVectors(
     args: DeleteVectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -181,8 +199,14 @@ export interface S3Vectors {
    * @see {@link GetIndexCommand}
    */
   getIndex(): Promise<GetIndexCommandOutput>;
-  getIndex(args: GetIndexCommandInput, options?: __HttpHandlerOptions): Promise<GetIndexCommandOutput>;
-  getIndex(args: GetIndexCommandInput, cb: (err: any, data?: GetIndexCommandOutput) => void): void;
+  getIndex(
+    args: GetIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIndexCommandOutput>;
+  getIndex(
+    args: GetIndexCommandInput,
+    cb: (err: any, data?: GetIndexCommandOutput) => void
+  ): void;
   getIndex(
     args: GetIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -197,7 +221,10 @@ export interface S3Vectors {
     args: GetVectorBucketCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVectorBucketCommandOutput>;
-  getVectorBucket(args: GetVectorBucketCommandInput, cb: (err: any, data?: GetVectorBucketCommandOutput) => void): void;
+  getVectorBucket(
+    args: GetVectorBucketCommandInput,
+    cb: (err: any, data?: GetVectorBucketCommandOutput) => void
+  ): void;
   getVectorBucket(
     args: GetVectorBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -225,8 +252,14 @@ export interface S3Vectors {
   /**
    * @see {@link GetVectorsCommand}
    */
-  getVectors(args: GetVectorsCommandInput, options?: __HttpHandlerOptions): Promise<GetVectorsCommandOutput>;
-  getVectors(args: GetVectorsCommandInput, cb: (err: any, data?: GetVectorsCommandOutput) => void): void;
+  getVectors(
+    args: GetVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVectorsCommandOutput>;
+  getVectors(
+    args: GetVectorsCommandInput,
+    cb: (err: any, data?: GetVectorsCommandOutput) => void
+  ): void;
   getVectors(
     args: GetVectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -237,8 +270,14 @@ export interface S3Vectors {
    * @see {@link ListIndexesCommand}
    */
   listIndexes(): Promise<ListIndexesCommandOutput>;
-  listIndexes(args: ListIndexesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndexesCommandOutput>;
-  listIndexes(args: ListIndexesCommandInput, cb: (err: any, data?: ListIndexesCommandOutput) => void): void;
+  listIndexes(
+    args: ListIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexesCommandOutput>;
+  listIndexes(
+    args: ListIndexesCommandInput,
+    cb: (err: any, data?: ListIndexesCommandOutput) => void
+  ): void;
   listIndexes(
     args: ListIndexesCommandInput,
     options: __HttpHandlerOptions,
@@ -284,8 +323,14 @@ export interface S3Vectors {
    * @see {@link ListVectorsCommand}
    */
   listVectors(): Promise<ListVectorsCommandOutput>;
-  listVectors(args: ListVectorsCommandInput, options?: __HttpHandlerOptions): Promise<ListVectorsCommandOutput>;
-  listVectors(args: ListVectorsCommandInput, cb: (err: any, data?: ListVectorsCommandOutput) => void): void;
+  listVectors(
+    args: ListVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVectorsCommandOutput>;
+  listVectors(
+    args: ListVectorsCommandInput,
+    cb: (err: any, data?: ListVectorsCommandOutput) => void
+  ): void;
   listVectors(
     args: ListVectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -312,8 +357,14 @@ export interface S3Vectors {
   /**
    * @see {@link PutVectorsCommand}
    */
-  putVectors(args: PutVectorsCommandInput, options?: __HttpHandlerOptions): Promise<PutVectorsCommandOutput>;
-  putVectors(args: PutVectorsCommandInput, cb: (err: any, data?: PutVectorsCommandOutput) => void): void;
+  putVectors(
+    args: PutVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVectorsCommandOutput>;
+  putVectors(
+    args: PutVectorsCommandInput,
+    cb: (err: any, data?: PutVectorsCommandOutput) => void
+  ): void;
   putVectors(
     args: PutVectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -323,8 +374,14 @@ export interface S3Vectors {
   /**
    * @see {@link QueryVectorsCommand}
    */
-  queryVectors(args: QueryVectorsCommandInput, options?: __HttpHandlerOptions): Promise<QueryVectorsCommandOutput>;
-  queryVectors(args: QueryVectorsCommandInput, cb: (err: any, data?: QueryVectorsCommandOutput) => void): void;
+  queryVectors(
+    args: QueryVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryVectorsCommandOutput>;
+  queryVectors(
+    args: QueryVectorsCommandInput,
+    cb: (err: any, data?: QueryVectorsCommandOutput) => void
+  ): void;
   queryVectors(
     args: QueryVectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -334,8 +391,14 @@ export interface S3Vectors {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -345,8 +408,14 @@ export interface S3Vectors {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

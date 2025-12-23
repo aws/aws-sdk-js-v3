@@ -27,9 +27,7 @@ export interface ListFoundationModelAgreementOffersCommandInput extends ListFoun
  *
  * The output of {@link ListFoundationModelAgreementOffersCommand}.
  */
-export interface ListFoundationModelAgreementOffersCommandOutput
-  extends ListFoundationModelAgreementOffersResponse,
-    __MetadataBearer {}
+export interface ListFoundationModelAgreementOffersCommandOutput extends ListFoundationModelAgreementOffersResponse, __MetadataBearer {}
 
 /**
  * <p>Get the offers associated with the specified model.</p>

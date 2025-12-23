@@ -24,9 +24,7 @@ export interface CreateLocationObjectStorageCommandInput extends CreateLocationO
  *
  * The output of {@link CreateLocationObjectStorageCommand}.
  */
-export interface CreateLocationObjectStorageCommandOutput
-  extends CreateLocationObjectStorageResponse,
-    __MetadataBearer {}
+export interface CreateLocationObjectStorageCommandOutput extends CreateLocationObjectStorageResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You

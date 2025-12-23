@@ -24,9 +24,7 @@ export interface GetComplianceDetailsByResourceCommandInput extends GetComplianc
  *
  * The output of {@link GetComplianceDetailsByResourceCommand}.
  */
-export interface GetComplianceDetailsByResourceCommandOutput
-  extends GetComplianceDetailsByResourceResponse,
-    __MetadataBearer {}
+export interface GetComplianceDetailsByResourceCommandOutput extends GetComplianceDetailsByResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified Amazon Web Services resource.

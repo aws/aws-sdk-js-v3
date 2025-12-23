@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
-export interface DisassociateTransitGatewayPolicyTableCommandInput
-  extends DisassociateTransitGatewayPolicyTableRequest {}
+export interface DisassociateTransitGatewayPolicyTableCommandInput extends DisassociateTransitGatewayPolicyTableRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
-export interface DisassociateTransitGatewayPolicyTableCommandOutput
-  extends DisassociateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayPolicyTableCommandOutput extends DisassociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Removes the association between an an attachment and a policy table.</p>

@@ -24,9 +24,7 @@ export interface PutBandwidthRateLimitScheduleCommandInput extends PutBandwidthR
  *
  * The output of {@link PutBandwidthRateLimitScheduleCommand}.
  */
-export interface PutBandwidthRateLimitScheduleCommandOutput
-  extends PutBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface PutBandwidthRateLimitScheduleCommandOutput extends PutBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p>This action sets the bandwidth rate limit schedule for a specified gateway.

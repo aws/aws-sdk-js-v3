@@ -31,9 +31,7 @@ export interface StartRecommendationReportGenerationCommandInput extends StartRe
  *
  * The output of {@link StartRecommendationReportGenerationCommand}.
  */
-export interface StartRecommendationReportGenerationCommandOutput
-  extends StartRecommendationReportGenerationResponse,
-    __MetadataBearer {}
+export interface StartRecommendationReportGenerationCommandOutput extends StartRecommendationReportGenerationResponse, __MetadataBearer {}
 
 /**
  * <p> Starts generating a recommendation report. </p>

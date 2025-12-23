@@ -24,9 +24,7 @@ export interface GetOutpostBillingInformationCommandInput extends GetOutpostBill
  *
  * The output of {@link GetOutpostBillingInformationCommand}.
  */
-export interface GetOutpostBillingInformationCommandOutput
-  extends GetOutpostBillingInformationOutput,
-    __MetadataBearer {}
+export interface GetOutpostBillingInformationCommandOutput extends GetOutpostBillingInformationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets current and historical billing information about the specified Outpost.</p>

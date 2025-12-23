@@ -31,9 +31,7 @@ export interface DescribeReplicationSubnetGroupsCommandInput extends DescribeRep
  *
  * The output of {@link DescribeReplicationSubnetGroupsCommand}.
  */
-export interface DescribeReplicationSubnetGroupsCommandOutput
-  extends DescribeReplicationSubnetGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationSubnetGroupsCommandOutput extends DescribeReplicationSubnetGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the replication subnet groups.</p>

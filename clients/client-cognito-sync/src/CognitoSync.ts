@@ -105,8 +105,14 @@ export interface CognitoSync {
   /**
    * @see {@link BulkPublishCommand}
    */
-  bulkPublish(args: BulkPublishCommandInput, options?: __HttpHandlerOptions): Promise<BulkPublishCommandOutput>;
-  bulkPublish(args: BulkPublishCommandInput, cb: (err: any, data?: BulkPublishCommandOutput) => void): void;
+  bulkPublish(
+    args: BulkPublishCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BulkPublishCommandOutput>;
+  bulkPublish(
+    args: BulkPublishCommandInput,
+    cb: (err: any, data?: BulkPublishCommandOutput) => void
+  ): void;
   bulkPublish(
     args: BulkPublishCommandInput,
     options: __HttpHandlerOptions,
@@ -116,8 +122,14 @@ export interface CognitoSync {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -131,7 +143,10 @@ export interface CognitoSync {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -226,8 +241,14 @@ export interface CognitoSync {
   /**
    * @see {@link ListDatasetsCommand}
    */
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -255,8 +276,14 @@ export interface CognitoSync {
   /**
    * @see {@link ListRecordsCommand}
    */
-  listRecords(args: ListRecordsCommandInput, options?: __HttpHandlerOptions): Promise<ListRecordsCommandOutput>;
-  listRecords(args: ListRecordsCommandInput, cb: (err: any, data?: ListRecordsCommandOutput) => void): void;
+  listRecords(
+    args: ListRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecordsCommandOutput>;
+  listRecords(
+    args: ListRecordsCommandInput,
+    cb: (err: any, data?: ListRecordsCommandOutput) => void
+  ): void;
   listRecords(
     args: ListRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -270,7 +297,10 @@ export interface CognitoSync {
     args: RegisterDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterDeviceCommandOutput>;
-  registerDevice(args: RegisterDeviceCommandInput, cb: (err: any, data?: RegisterDeviceCommandOutput) => void): void;
+  registerDevice(
+    args: RegisterDeviceCommandInput,
+    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): void;
   registerDevice(
     args: RegisterDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -348,8 +378,14 @@ export interface CognitoSync {
   /**
    * @see {@link UpdateRecordsCommand}
    */
-  updateRecords(args: UpdateRecordsCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRecordsCommandOutput>;
-  updateRecords(args: UpdateRecordsCommandInput, cb: (err: any, data?: UpdateRecordsCommandOutput) => void): void;
+  updateRecords(
+    args: UpdateRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecordsCommandOutput>;
+  updateRecords(
+    args: UpdateRecordsCommandInput,
+    cb: (err: any, data?: UpdateRecordsCommandOutput) => void
+  ): void;
   updateRecords(
     args: UpdateRecordsCommandInput,
     options: __HttpHandlerOptions,

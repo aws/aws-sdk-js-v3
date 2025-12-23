@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -29,11 +29,7 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type HostWithPathOperation<Context> = __Operation<
-  HostWithPathOperationServerInput,
-  HostWithPathOperationServerOutput,
-  Context
->;
+export type HostWithPathOperation<Context> = __Operation<HostWithPathOperationServerInput, HostWithPathOperationServerOutput, Context>
 
 export interface HostWithPathOperationServerInput {}
 export namespace HostWithPathOperationServerInput {
@@ -46,41 +42,33 @@ export interface HostWithPathOperationServerOutput {}
 
 export type HostWithPathOperationErrors = never;
 
-export class HostWithPathOperationSerializer
-  implements __OperationSerializer<RestJsonService<any>, "HostWithPathOperation", HostWithPathOperationErrors>
-{
+export class HostWithPathOperationSerializer implements __OperationSerializer<RestJsonService<any>, "HostWithPathOperation", HostWithPathOperationErrors> {
   serialize = serializeHostWithPathOperationResponse;
   deserialize = deserializeHostWithPathOperationRequest;
 
   isOperationError(error: any): error is HostWithPathOperationErrors {
     return false;
-  }
+  };
 
   serializeError(error: HostWithPathOperationErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getHostWithPathOperationHandler = <Context>(
-  operation: __Operation<HostWithPathOperationServerInput, HostWithPathOperationServerOutput, Context>,
-  customizer: __ValidationCustomizer<"HostWithPathOperation">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getHostWithPathOperationHandler = <Context>(operation: __Operation<HostWithPathOperationServerInput, HostWithPathOperationServerOutput, Context>, customizer: __ValidationCustomizer<"HostWithPathOperation">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "HostWithPathOperation">([
     new httpbinding.UriSpec<"RestJson", "HostWithPathOperation">(
-      "GET",
-      [{ type: "path_literal", value: "HostWithPathOperation" }],
-      [],
-      { service: "RestJson", operation: "HostWithPathOperation" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "HostWithPathOperation" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HostWithPathOperation" }),
   ]);
-  return new HostWithPathOperationHandler(
-    operation,
-    mux,
-    new HostWithPathOperationSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new HostWithPathOperationHandler(operation, mux, new HostWithPathOperationSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -89,7 +77,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -104,45 +92,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class HostWithPathOperationHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<HostWithPathOperationServerInput, HostWithPathOperationServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "HostWithPathOperation">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "HostWithPathOperation",
-    HostWithPathOperationErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "HostWithPathOperation", HostWithPathOperationErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"HostWithPathOperation">;
   /**
    * Construct a HostWithPathOperation handler.
@@ -169,20 +149,9 @@ export class HostWithPathOperationHandler<Context> implements __ServiceHandler<C
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.HostWithPathOperation. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.HostWithPathOperation. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "HostWithPathOperation",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      HostWithPathOperationServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "HostWithPathOperation", this.serializer, this.operation, this.serializeFrameworkException, HostWithPathOperationServerInput.validate, this.validationCustomizer);
   }
 }

@@ -24,9 +24,7 @@ export interface MergePullRequestByFastForwardCommandInput extends MergePullRequ
  *
  * The output of {@link MergePullRequestByFastForwardCommand}.
  */
-export interface MergePullRequestByFastForwardCommandOutput
-  extends MergePullRequestByFastForwardOutput,
-    __MetadataBearer {}
+export interface MergePullRequestByFastForwardCommandOutput extends MergePullRequestByFastForwardOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to merge the source commit of a pull request into the specified destination

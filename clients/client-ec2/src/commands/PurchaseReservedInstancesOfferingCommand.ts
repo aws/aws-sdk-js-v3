@@ -27,9 +27,7 @@ export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseR
  *
  * The output of {@link PurchaseReservedInstancesOfferingCommand}.
  */
-export interface PurchaseReservedInstancesOfferingCommandOutput
-  extends PurchaseReservedInstancesOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedInstancesOfferingCommandOutput extends PurchaseReservedInstancesOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay

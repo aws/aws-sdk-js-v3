@@ -416,8 +416,7 @@ export type Route53RecoveryReadinessClientResolvedConfigType = __SmithyResolvedC
  *
  *  The resolved configuration interface of Route53RecoveryReadinessClient class. This is resolved and normalized from the {@link Route53RecoveryReadinessClientConfig | constructor configuration interface}.
  */
-export interface Route53RecoveryReadinessClientResolvedConfig
-  extends Route53RecoveryReadinessClientResolvedConfigType {}
+export interface Route53RecoveryReadinessClientResolvedConfig extends Route53RecoveryReadinessClientResolvedConfigType {}
 
 /**
  * <p>Recovery readiness</p>

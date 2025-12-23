@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
-export interface UpdateDirectConnectGatewayAssociationCommandInput
-  extends UpdateDirectConnectGatewayAssociationRequest {}
+export interface UpdateDirectConnectGatewayAssociationCommandInput extends UpdateDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateDirectConnectGatewayAssociationCommand}.
  */
-export interface UpdateDirectConnectGatewayAssociationCommandOutput
-  extends UpdateDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface UpdateDirectConnectGatewayAssociationCommandOutput extends UpdateDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of the Direct Connect gateway association.</p>

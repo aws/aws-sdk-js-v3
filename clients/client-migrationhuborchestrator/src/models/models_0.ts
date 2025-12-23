@@ -760,7 +760,9 @@ export interface UpdateMigrationWorkflowResponse {
  * <p>The migration workflow template used as the source for the new template.</p>
  * @public
  */
-export type TemplateSource = TemplateSource.WorkflowIdMember | TemplateSource.$UnknownMember;
+export type TemplateSource =
+  | TemplateSource.WorkflowIdMember
+  | TemplateSource.$UnknownMember;
 
 /**
  * @public

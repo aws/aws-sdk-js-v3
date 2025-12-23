@@ -7,34 +7,31 @@ import {
   GetResourceRequestStatusCommandInput,
 } from "../commands/GetResourceRequestStatusCommand";
 
-const checkState = async (
-  client: CloudControlClient,
-  input: GetResourceRequestStatusCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CloudControlClient, input: GetResourceRequestStatusCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetResourceRequestStatusCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ProgressEvent.OperationStatus;
-      };
+      }
       if (returnComparator() === "SUCCESS") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ProgressEvent.OperationStatus;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ProgressEvent.OperationStatus;
-      };
+      }
       if (returnComparator() === "CANCEL_COMPLETE") {
         return { state: WaiterState.FAILURE, reason };
       }

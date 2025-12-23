@@ -24,9 +24,7 @@ export interface ListLabelingJobsForWorkteamCommandInput extends ListLabelingJob
  *
  * The output of {@link ListLabelingJobsForWorkteamCommand}.
  */
-export interface ListLabelingJobsForWorkteamCommandOutput
-  extends ListLabelingJobsForWorkteamResponse,
-    __MetadataBearer {}
+export interface ListLabelingJobsForWorkteamCommandOutput extends ListLabelingJobsForWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>

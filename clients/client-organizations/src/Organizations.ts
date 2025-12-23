@@ -377,7 +377,10 @@ export interface Organizations {
     args: AcceptHandshakeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AcceptHandshakeCommandOutput>;
-  acceptHandshake(args: AcceptHandshakeCommandInput, cb: (err: any, data?: AcceptHandshakeCommandOutput) => void): void;
+  acceptHandshake(
+    args: AcceptHandshakeCommandInput,
+    cb: (err: any, data?: AcceptHandshakeCommandOutput) => void
+  ): void;
   acceptHandshake(
     args: AcceptHandshakeCommandInput,
     options: __HttpHandlerOptions,
@@ -387,8 +390,14 @@ export interface Organizations {
   /**
    * @see {@link AttachPolicyCommand}
    */
-  attachPolicy(args: AttachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<AttachPolicyCommandOutput>;
-  attachPolicy(args: AttachPolicyCommandInput, cb: (err: any, data?: AttachPolicyCommandOutput) => void): void;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachPolicyCommandOutput>;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    cb: (err: any, data?: AttachPolicyCommandOutput) => void
+  ): void;
   attachPolicy(
     args: AttachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -402,7 +411,10 @@ export interface Organizations {
     args: CancelHandshakeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelHandshakeCommandOutput>;
-  cancelHandshake(args: CancelHandshakeCommandInput, cb: (err: any, data?: CancelHandshakeCommandOutput) => void): void;
+  cancelHandshake(
+    args: CancelHandshakeCommandInput,
+    cb: (err: any, data?: CancelHandshakeCommandOutput) => void
+  ): void;
   cancelHandshake(
     args: CancelHandshakeCommandInput,
     options: __HttpHandlerOptions,
@@ -412,8 +424,14 @@ export interface Organizations {
   /**
    * @see {@link CloseAccountCommand}
    */
-  closeAccount(args: CloseAccountCommandInput, options?: __HttpHandlerOptions): Promise<CloseAccountCommandOutput>;
-  closeAccount(args: CloseAccountCommandInput, cb: (err: any, data?: CloseAccountCommandOutput) => void): void;
+  closeAccount(
+    args: CloseAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CloseAccountCommandOutput>;
+  closeAccount(
+    args: CloseAccountCommandInput,
+    cb: (err: any, data?: CloseAccountCommandOutput) => void
+  ): void;
   closeAccount(
     args: CloseAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -423,8 +441,14 @@ export interface Organizations {
   /**
    * @see {@link CreateAccountCommand}
    */
-  createAccount(args: CreateAccountCommandInput, options?: __HttpHandlerOptions): Promise<CreateAccountCommandOutput>;
-  createAccount(args: CreateAccountCommandInput, cb: (err: any, data?: CreateAccountCommandOutput) => void): void;
+  createAccount(
+    args: CreateAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountCommandOutput>;
+  createAccount(
+    args: CreateAccountCommandInput,
+    cb: (err: any, data?: CreateAccountCommandOutput) => void
+  ): void;
   createAccount(
     args: CreateAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -486,8 +510,14 @@ export interface Organizations {
   /**
    * @see {@link CreatePolicyCommand}
    */
-  createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
-  createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyCommandOutput>;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    cb: (err: any, data?: CreatePolicyCommandOutput) => void
+  ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -549,8 +579,14 @@ export interface Organizations {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -599,7 +635,10 @@ export interface Organizations {
     args: DescribeAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAccountCommandOutput>;
-  describeAccount(args: DescribeAccountCommandInput, cb: (err: any, data?: DescribeAccountCommandOutput) => void): void;
+  describeAccount(
+    args: DescribeAccountCommandInput,
+    cb: (err: any, data?: DescribeAccountCommandOutput) => void
+  ): void;
   describeAccount(
     args: DescribeAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -699,7 +738,10 @@ export interface Organizations {
     args: DescribePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePolicyCommandOutput>;
-  describePolicy(args: DescribePolicyCommandInput, cb: (err: any, data?: DescribePolicyCommandOutput) => void): void;
+  describePolicy(
+    args: DescribePolicyCommandInput,
+    cb: (err: any, data?: DescribePolicyCommandOutput) => void
+  ): void;
   describePolicy(
     args: DescribePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -744,8 +786,14 @@ export interface Organizations {
   /**
    * @see {@link DetachPolicyCommand}
    */
-  detachPolicy(args: DetachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<DetachPolicyCommandOutput>;
-  detachPolicy(args: DetachPolicyCommandInput, cb: (err: any, data?: DetachPolicyCommandOutput) => void): void;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachPolicyCommandOutput>;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    cb: (err: any, data?: DetachPolicyCommandOutput) => void
+  ): void;
   detachPolicy(
     args: DetachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -894,8 +942,14 @@ export interface Organizations {
    * @see {@link ListAccountsCommand}
    */
   listAccounts(): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsCommandOutput>;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    cb: (err: any, data?: ListAccountsCommandOutput) => void
+  ): void;
   listAccounts(
     args: ListAccountsCommandInput,
     options: __HttpHandlerOptions,
@@ -957,8 +1011,14 @@ export interface Organizations {
   /**
    * @see {@link ListChildrenCommand}
    */
-  listChildren(args: ListChildrenCommandInput, options?: __HttpHandlerOptions): Promise<ListChildrenCommandOutput>;
-  listChildren(args: ListChildrenCommandInput, cb: (err: any, data?: ListChildrenCommandOutput) => void): void;
+  listChildren(
+    args: ListChildrenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChildrenCommandOutput>;
+  listChildren(
+    args: ListChildrenCommandInput,
+    cb: (err: any, data?: ListChildrenCommandOutput) => void
+  ): void;
   listChildren(
     args: ListChildrenCommandInput,
     options: __HttpHandlerOptions,
@@ -1125,8 +1185,14 @@ export interface Organizations {
   /**
    * @see {@link ListParentsCommand}
    */
-  listParents(args: ListParentsCommandInput, options?: __HttpHandlerOptions): Promise<ListParentsCommandOutput>;
-  listParents(args: ListParentsCommandInput, cb: (err: any, data?: ListParentsCommandOutput) => void): void;
+  listParents(
+    args: ListParentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListParentsCommandOutput>;
+  listParents(
+    args: ListParentsCommandInput,
+    cb: (err: any, data?: ListParentsCommandOutput) => void
+  ): void;
   listParents(
     args: ListParentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1136,8 +1202,14 @@ export interface Organizations {
   /**
    * @see {@link ListPoliciesCommand}
    */
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -1165,8 +1237,14 @@ export interface Organizations {
    * @see {@link ListRootsCommand}
    */
   listRoots(): Promise<ListRootsCommandOutput>;
-  listRoots(args: ListRootsCommandInput, options?: __HttpHandlerOptions): Promise<ListRootsCommandOutput>;
-  listRoots(args: ListRootsCommandInput, cb: (err: any, data?: ListRootsCommandOutput) => void): void;
+  listRoots(
+    args: ListRootsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRootsCommandOutput>;
+  listRoots(
+    args: ListRootsCommandInput,
+    cb: (err: any, data?: ListRootsCommandOutput) => void
+  ): void;
   listRoots(
     args: ListRootsCommandInput,
     options: __HttpHandlerOptions,
@@ -1210,8 +1288,14 @@ export interface Organizations {
   /**
    * @see {@link MoveAccountCommand}
    */
-  moveAccount(args: MoveAccountCommandInput, options?: __HttpHandlerOptions): Promise<MoveAccountCommandOutput>;
-  moveAccount(args: MoveAccountCommandInput, cb: (err: any, data?: MoveAccountCommandOutput) => void): void;
+  moveAccount(
+    args: MoveAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MoveAccountCommandOutput>;
+  moveAccount(
+    args: MoveAccountCommandInput,
+    cb: (err: any, data?: MoveAccountCommandOutput) => void
+  ): void;
   moveAccount(
     args: MoveAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1272,8 +1356,14 @@ export interface Organizations {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1300,8 +1390,14 @@ export interface Organizations {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1328,8 +1424,14 @@ export interface Organizations {
   /**
    * @see {@link UpdatePolicyCommand}
    */
-  updatePolicy(args: UpdatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePolicyCommandOutput>;
-  updatePolicy(args: UpdatePolicyCommandInput, cb: (err: any, data?: UpdatePolicyCommandOutput) => void): void;
+  updatePolicy(
+    args: UpdatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePolicyCommandOutput>;
+  updatePolicy(
+    args: UpdatePolicyCommandInput,
+    cb: (err: any, data?: UpdatePolicyCommandOutput) => void
+  ): void;
   updatePolicy(
     args: UpdatePolicyCommandInput,
     options: __HttpHandlerOptions,

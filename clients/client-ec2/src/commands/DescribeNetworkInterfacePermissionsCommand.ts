@@ -27,9 +27,7 @@ export interface DescribeNetworkInterfacePermissionsCommandInput extends Describ
  *
  * The output of {@link DescribeNetworkInterfacePermissionsCommand}.
  */
-export interface DescribeNetworkInterfacePermissionsCommandOutput
-  extends DescribeNetworkInterfacePermissionsResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInterfacePermissionsCommandOutput extends DescribeNetworkInterfacePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions for your network interfaces. </p>

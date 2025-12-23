@@ -31,9 +31,7 @@ export interface AddApplicationReferenceDataSourceCommandInput extends AddApplic
  *
  * The output of {@link AddApplicationReferenceDataSourceCommand}.
  */
-export interface AddApplicationReferenceDataSourceCommandOutput
-  extends AddApplicationReferenceDataSourceResponse,
-    __MetadataBearer {}
+export interface AddApplicationReferenceDataSourceCommandOutput extends AddApplicationReferenceDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p>

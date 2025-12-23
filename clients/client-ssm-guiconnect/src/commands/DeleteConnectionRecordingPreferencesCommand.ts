@@ -27,9 +27,7 @@ export interface DeleteConnectionRecordingPreferencesCommandInput extends Delete
  *
  * The output of {@link DeleteConnectionRecordingPreferencesCommand}.
  */
-export interface DeleteConnectionRecordingPreferencesCommandOutput
-  extends DeleteConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface DeleteConnectionRecordingPreferencesCommandOutput extends DeleteConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the preferences for recording RDP connections.</p>

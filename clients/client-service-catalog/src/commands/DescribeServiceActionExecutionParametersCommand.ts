@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeServiceActionExecutionParametersCommand}.
  */
-export interface DescribeServiceActionExecutionParametersCommandInput
-  extends DescribeServiceActionExecutionParametersInput {}
+export interface DescribeServiceActionExecutionParametersCommandInput extends DescribeServiceActionExecutionParametersInput {}
 /**
  * @public
  *
  * The output of {@link DescribeServiceActionExecutionParametersCommand}.
  */
-export interface DescribeServiceActionExecutionParametersCommandOutput
-  extends DescribeServiceActionExecutionParametersOutput,
-    __MetadataBearer {}
+export interface DescribeServiceActionExecutionParametersCommandOutput extends DescribeServiceActionExecutionParametersOutput, __MetadataBearer {}
 
 /**
  * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>

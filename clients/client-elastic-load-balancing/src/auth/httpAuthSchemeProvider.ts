@@ -49,17 +49,13 @@ export const defaultElasticLoadBalancingHttpAuthSchemeParametersProvider = async
 ): Promise<ElasticLoadBalancingHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: ElasticLoadBalancingHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: ElasticLoadBalancingHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface ElasticLoadBalancingHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultElasticLoadBalancingHttpAuthSchemeProvider: ElasticLoadBalancingHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultElasticLoadBalancingHttpAuthSchemeProvider: ElasticLoadBalancingHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

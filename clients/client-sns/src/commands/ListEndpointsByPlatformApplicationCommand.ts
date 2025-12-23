@@ -27,9 +27,7 @@ export interface ListEndpointsByPlatformApplicationCommandInput extends ListEndp
  *
  * The output of {@link ListEndpointsByPlatformApplicationCommand}.
  */
-export interface ListEndpointsByPlatformApplicationCommandOutput
-  extends ListEndpointsByPlatformApplicationResponse,
-    __MetadataBearer {}
+export interface ListEndpointsByPlatformApplicationCommandOutput extends ListEndpointsByPlatformApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the endpoints and endpoint attributes for devices in a supported push

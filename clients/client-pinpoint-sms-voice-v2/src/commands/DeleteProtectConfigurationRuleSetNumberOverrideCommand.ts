@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface DeleteProtectConfigurationRuleSetNumberOverrideCommandInput
-  extends DeleteProtectConfigurationRuleSetNumberOverrideRequest {}
+export interface DeleteProtectConfigurationRuleSetNumberOverrideCommandInput extends DeleteProtectConfigurationRuleSetNumberOverrideRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput
-  extends DeleteProtectConfigurationRuleSetNumberOverrideResult,
-    __MetadataBearer {}
+export interface DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput extends DeleteProtectConfigurationRuleSetNumberOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Permanently delete the protect configuration rule set number override.</p>

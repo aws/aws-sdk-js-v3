@@ -27,9 +27,7 @@ export interface GetGlueIdentityCenterConfigurationCommandInput extends GetGlueI
  *
  * The output of {@link GetGlueIdentityCenterConfigurationCommand}.
  */
-export interface GetGlueIdentityCenterConfigurationCommandOutput
-  extends GetGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface GetGlueIdentityCenterConfigurationCommandOutput extends GetGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current Glue Identity Center configuration details, including the associated Identity Center instance and

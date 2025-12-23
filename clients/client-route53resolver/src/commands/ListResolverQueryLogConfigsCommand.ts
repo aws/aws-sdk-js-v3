@@ -28,9 +28,7 @@ export interface ListResolverQueryLogConfigsCommandInput extends ListResolverQue
  *
  * The output of {@link ListResolverQueryLogConfigsCommand}.
  */
-export interface ListResolverQueryLogConfigsCommandOutput
-  extends ListResolverQueryLogConfigsResponse,
-    __MetadataBearer {}
+export interface ListResolverQueryLogConfigsCommandOutput extends ListResolverQueryLogConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save

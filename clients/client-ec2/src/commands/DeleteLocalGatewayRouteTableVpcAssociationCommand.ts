@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
-  extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-  extends DeleteLocalGatewayRouteTableVpcAssociationResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput extends DeleteLocalGatewayRouteTableVpcAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified association between a VPC and local gateway route table.</p>

@@ -28,9 +28,7 @@ export interface UpdateWhatsAppMessageTemplateCommandInput extends UpdateWhatsAp
  *
  * The output of {@link UpdateWhatsAppMessageTemplateCommand}.
  */
-export interface UpdateWhatsAppMessageTemplateCommandOutput
-  extends UpdateWhatsAppMessageTemplateOutput,
-    __MetadataBearer {}
+export interface UpdateWhatsAppMessageTemplateCommandOutput extends UpdateWhatsAppMessageTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing WhatsApp message template.</p>

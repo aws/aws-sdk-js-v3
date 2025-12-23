@@ -24,9 +24,7 @@ export interface PutConfigurationSetVdmOptionsCommandInput extends PutConfigurat
  *
  * The output of {@link PutConfigurationSetVdmOptionsCommand}.
  */
-export interface PutConfigurationSetVdmOptionsCommandOutput
-  extends PutConfigurationSetVdmOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetVdmOptionsCommandOutput extends PutConfigurationSetVdmOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>

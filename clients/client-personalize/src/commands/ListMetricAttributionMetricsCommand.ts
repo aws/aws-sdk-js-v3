@@ -24,9 +24,7 @@ export interface ListMetricAttributionMetricsCommandInput extends ListMetricAttr
  *
  * The output of {@link ListMetricAttributionMetricsCommand}.
  */
-export interface ListMetricAttributionMetricsCommandOutput
-  extends ListMetricAttributionMetricsResponse,
-    __MetadataBearer {}
+export interface ListMetricAttributionMetricsCommandOutput extends ListMetricAttributionMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the metrics for the metric attribution.</p>

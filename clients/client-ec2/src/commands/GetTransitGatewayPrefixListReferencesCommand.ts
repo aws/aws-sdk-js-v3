@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
-export interface GetTransitGatewayPrefixListReferencesCommandInput
-  extends GetTransitGatewayPrefixListReferencesRequest {}
+export interface GetTransitGatewayPrefixListReferencesCommandInput extends GetTransitGatewayPrefixListReferencesRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
-export interface GetTransitGatewayPrefixListReferencesCommandOutput
-  extends GetTransitGatewayPrefixListReferencesResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayPrefixListReferencesCommandOutput extends GetTransitGatewayPrefixListReferencesResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>

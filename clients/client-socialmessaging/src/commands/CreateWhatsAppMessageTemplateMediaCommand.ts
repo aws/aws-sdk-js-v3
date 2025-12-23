@@ -31,9 +31,7 @@ export interface CreateWhatsAppMessageTemplateMediaCommandInput extends CreateWh
  *
  * The output of {@link CreateWhatsAppMessageTemplateMediaCommand}.
  */
-export interface CreateWhatsAppMessageTemplateMediaCommandOutput
-  extends CreateWhatsAppMessageTemplateMediaOutput,
-    __MetadataBearer {}
+export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateWhatsAppMessageTemplateMediaOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads media for use in a WhatsApp message template.</p>

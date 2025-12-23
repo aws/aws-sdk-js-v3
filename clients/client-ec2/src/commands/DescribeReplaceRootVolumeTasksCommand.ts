@@ -24,9 +24,7 @@ export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeRepl
  *
  * The output of {@link DescribeReplaceRootVolumeTasksCommand}.
  */
-export interface DescribeReplaceRootVolumeTasksCommandOutput
-  extends DescribeReplaceRootVolumeTasksResult,
-    __MetadataBearer {}
+export interface DescribeReplaceRootVolumeTasksCommandOutput extends DescribeReplaceRootVolumeTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes a root volume replacement task. For more information, see

@@ -27,9 +27,7 @@ export interface DescribeMaintenanceWindowExecutionsCommandInput extends Describ
  *
  * The output of {@link DescribeMaintenanceWindowExecutionsCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionsCommandOutput
-  extends DescribeMaintenanceWindowExecutionsResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowExecutionsCommandOutput extends DescribeMaintenanceWindowExecutionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the executions of a maintenance window. This includes information about when the

@@ -27,9 +27,7 @@ export interface CreateInferenceRecommendationsJobCommandInput extends CreateInf
  *
  * The output of {@link CreateInferenceRecommendationsJobCommand}.
  */
-export interface CreateInferenceRecommendationsJobCommandOutput
-  extends CreateInferenceRecommendationsJobResponse,
-    __MetadataBearer {}
+export interface CreateInferenceRecommendationsJobCommandOutput extends CreateInferenceRecommendationsJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a recommendation job. You can create either an instance recommendation or load test job.</p>

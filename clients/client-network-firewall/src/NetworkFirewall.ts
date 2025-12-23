@@ -554,7 +554,10 @@ export interface NetworkFirewall {
     args: CreateFirewallCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFirewallCommandOutput>;
-  createFirewall(args: CreateFirewallCommandInput, cb: (err: any, data?: CreateFirewallCommandOutput) => void): void;
+  createFirewall(
+    args: CreateFirewallCommandInput,
+    cb: (err: any, data?: CreateFirewallCommandOutput) => void
+  ): void;
   createFirewall(
     args: CreateFirewallCommandInput,
     options: __HttpHandlerOptions,
@@ -581,8 +584,14 @@ export interface NetworkFirewall {
   /**
    * @see {@link CreateProxyCommand}
    */
-  createProxy(args: CreateProxyCommandInput, options?: __HttpHandlerOptions): Promise<CreateProxyCommandOutput>;
-  createProxy(args: CreateProxyCommandInput, cb: (err: any, data?: CreateProxyCommandOutput) => void): void;
+  createProxy(
+    args: CreateProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxyCommandOutput>;
+  createProxy(
+    args: CreateProxyCommandInput,
+    cb: (err: any, data?: CreateProxyCommandOutput) => void
+  ): void;
   createProxy(
     args: CreateProxyCommandInput,
     options: __HttpHandlerOptions,
@@ -647,7 +656,10 @@ export interface NetworkFirewall {
     args: CreateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRuleGroupCommandOutput>;
-  createRuleGroup(args: CreateRuleGroupCommandInput, cb: (err: any, data?: CreateRuleGroupCommandOutput) => void): void;
+  createRuleGroup(
+    args: CreateRuleGroupCommandInput,
+    cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
+  ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -696,7 +708,10 @@ export interface NetworkFirewall {
     args: DeleteFirewallCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFirewallCommandOutput>;
-  deleteFirewall(args: DeleteFirewallCommandInput, cb: (err: any, data?: DeleteFirewallCommandOutput) => void): void;
+  deleteFirewall(
+    args: DeleteFirewallCommandInput,
+    cb: (err: any, data?: DeleteFirewallCommandOutput) => void
+  ): void;
   deleteFirewall(
     args: DeleteFirewallCommandInput,
     options: __HttpHandlerOptions,
@@ -741,8 +756,14 @@ export interface NetworkFirewall {
   /**
    * @see {@link DeleteProxyCommand}
    */
-  deleteProxy(args: DeleteProxyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProxyCommandOutput>;
-  deleteProxy(args: DeleteProxyCommandInput, cb: (err: any, data?: DeleteProxyCommandOutput) => void): void;
+  deleteProxy(
+    args: DeleteProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxyCommandOutput>;
+  deleteProxy(
+    args: DeleteProxyCommandInput,
+    cb: (err: any, data?: DeleteProxyCommandOutput) => void
+  ): void;
   deleteProxy(
     args: DeleteProxyCommandInput,
     options: __HttpHandlerOptions,
@@ -827,7 +848,10 @@ export interface NetworkFirewall {
     args: DeleteRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
-  deleteRuleGroup(args: DeleteRuleGroupCommandInput, cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void): void;
+  deleteRuleGroup(
+    args: DeleteRuleGroupCommandInput,
+    cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
+  ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -962,8 +986,14 @@ export interface NetworkFirewall {
    * @see {@link DescribeProxyCommand}
    */
   describeProxy(): Promise<DescribeProxyCommandOutput>;
-  describeProxy(args: DescribeProxyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeProxyCommandOutput>;
-  describeProxy(args: DescribeProxyCommandInput, cb: (err: any, data?: DescribeProxyCommandOutput) => void): void;
+  describeProxy(
+    args: DescribeProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProxyCommandOutput>;
+  describeProxy(
+    args: DescribeProxyCommandInput,
+    cb: (err: any, data?: DescribeProxyCommandOutput) => void
+  ): void;
   describeProxy(
     args: DescribeProxyCommandInput,
     options: __HttpHandlerOptions,
@@ -1237,8 +1267,14 @@ export interface NetworkFirewall {
    * @see {@link ListFirewallsCommand}
    */
   listFirewalls(): Promise<ListFirewallsCommandOutput>;
-  listFirewalls(args: ListFirewallsCommandInput, options?: __HttpHandlerOptions): Promise<ListFirewallsCommandOutput>;
-  listFirewalls(args: ListFirewallsCommandInput, cb: (err: any, data?: ListFirewallsCommandOutput) => void): void;
+  listFirewalls(
+    args: ListFirewallsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallsCommandOutput>;
+  listFirewalls(
+    args: ListFirewallsCommandInput,
+    cb: (err: any, data?: ListFirewallsCommandOutput) => void
+  ): void;
   listFirewalls(
     args: ListFirewallsCommandInput,
     options: __HttpHandlerOptions,
@@ -1283,8 +1319,14 @@ export interface NetworkFirewall {
    * @see {@link ListProxiesCommand}
    */
   listProxies(): Promise<ListProxiesCommandOutput>;
-  listProxies(args: ListProxiesCommandInput, options?: __HttpHandlerOptions): Promise<ListProxiesCommandOutput>;
-  listProxies(args: ListProxiesCommandInput, cb: (err: any, data?: ListProxiesCommandOutput) => void): void;
+  listProxies(
+    args: ListProxiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProxiesCommandOutput>;
+  listProxies(
+    args: ListProxiesCommandInput,
+    cb: (err: any, data?: ListProxiesCommandOutput) => void
+  ): void;
   listProxies(
     args: ListProxiesCommandInput,
     options: __HttpHandlerOptions,
@@ -1335,7 +1377,10 @@ export interface NetworkFirewall {
     args: ListRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRuleGroupsCommandOutput>;
-  listRuleGroups(args: ListRuleGroupsCommandInput, cb: (err: any, data?: ListRuleGroupsCommandOutput) => void): void;
+  listRuleGroups(
+    args: ListRuleGroupsCommandInput,
+    cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
+  ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1470,7 +1515,10 @@ export interface NetworkFirewall {
     args: StartFlowFlushCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartFlowFlushCommandOutput>;
-  startFlowFlush(args: StartFlowFlushCommandInput, cb: (err: any, data?: StartFlowFlushCommandOutput) => void): void;
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    cb: (err: any, data?: StartFlowFlushCommandOutput) => void
+  ): void;
   startFlowFlush(
     args: StartFlowFlushCommandInput,
     options: __HttpHandlerOptions,
@@ -1480,8 +1528,14 @@ export interface NetworkFirewall {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1491,8 +1545,14 @@ export interface NetworkFirewall {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1642,8 +1702,14 @@ export interface NetworkFirewall {
   /**
    * @see {@link UpdateProxyCommand}
    */
-  updateProxy(args: UpdateProxyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProxyCommandOutput>;
-  updateProxy(args: UpdateProxyCommandInput, cb: (err: any, data?: UpdateProxyCommandOutput) => void): void;
+  updateProxy(
+    args: UpdateProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxyCommandOutput>;
+  updateProxy(
+    args: UpdateProxyCommandInput,
+    cb: (err: any, data?: UpdateProxyCommandOutput) => void
+  ): void;
   updateProxy(
     args: UpdateProxyCommandInput,
     options: __HttpHandlerOptions,
@@ -1674,7 +1740,10 @@ export interface NetworkFirewall {
     args: UpdateProxyRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateProxyRuleCommandOutput>;
-  updateProxyRule(args: UpdateProxyRuleCommandInput, cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void): void;
+  updateProxyRule(
+    args: UpdateProxyRuleCommandInput,
+    cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void
+  ): void;
   updateProxyRule(
     args: UpdateProxyRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1722,7 +1791,10 @@ export interface NetworkFirewall {
     args: UpdateRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
-  updateRuleGroup(args: UpdateRuleGroupCommandInput, cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void): void;
+  updateRuleGroup(
+    args: UpdateRuleGroupCommandInput,
+    cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
+  ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
     options: __HttpHandlerOptions,

@@ -4,42 +4,39 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
 import { GetPolicyGenerationCommand, GetPolicyGenerationCommandInput } from "../commands/GetPolicyGenerationCommand";
 
-const checkState = async (
-  client: BedrockAgentCoreControlClient,
-  input: GetPolicyGenerationCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyGenerationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetPolicyGenerationCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "GENERATED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "GENERATING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "GENERATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

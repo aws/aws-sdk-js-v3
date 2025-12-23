@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface DeleteConfiguredModelAlgorithmAssociationCommandInput
-  extends DeleteConfiguredModelAlgorithmAssociationRequest {}
+export interface DeleteConfiguredModelAlgorithmAssociationCommandInput extends DeleteConfiguredModelAlgorithmAssociationRequest {}
 /**
  * @public
  *

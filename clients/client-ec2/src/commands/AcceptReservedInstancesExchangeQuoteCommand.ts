@@ -27,9 +27,7 @@ export interface AcceptReservedInstancesExchangeQuoteCommandInput extends Accept
  *
  * The output of {@link AcceptReservedInstancesExchangeQuoteCommand}.
  */
-export interface AcceptReservedInstancesExchangeQuoteCommandOutput
-  extends AcceptReservedInstancesExchangeQuoteResult,
-    __MetadataBearer {}
+export interface AcceptReservedInstancesExchangeQuoteCommandOutput extends AcceptReservedInstancesExchangeQuoteResult, __MetadataBearer {}
 
 /**
  * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>

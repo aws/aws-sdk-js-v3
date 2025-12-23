@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListInvalidationsForDistributionTenantCommand}.
  */
-export interface ListInvalidationsForDistributionTenantCommandInput
-  extends ListInvalidationsForDistributionTenantRequest {}
+export interface ListInvalidationsForDistributionTenantCommandInput extends ListInvalidationsForDistributionTenantRequest {}
 /**
  * @public
  *
  * The output of {@link ListInvalidationsForDistributionTenantCommand}.
  */
-export interface ListInvalidationsForDistributionTenantCommandOutput
-  extends ListInvalidationsForDistributionTenantResult,
-    __MetadataBearer {}
+export interface ListInvalidationsForDistributionTenantCommandOutput extends ListInvalidationsForDistributionTenantResult, __MetadataBearer {}
 
 /**
  * <p>Lists the invalidations for a distribution tenant.</p>

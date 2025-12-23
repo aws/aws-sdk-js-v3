@@ -28,9 +28,7 @@ export interface UpdateCustomRoutingListenerCommandInput extends UpdateCustomRou
  *
  * The output of {@link UpdateCustomRoutingListenerCommand}.
  */
-export interface UpdateCustomRoutingListenerCommandOutput
-  extends UpdateCustomRoutingListenerResponse,
-    __MetadataBearer {}
+export interface UpdateCustomRoutingListenerCommandOutput extends UpdateCustomRoutingListenerResponse, __MetadataBearer {}
 
 /**
  * <p>Update a listener for a custom routing accelerator. </p>

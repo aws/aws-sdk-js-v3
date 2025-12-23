@@ -27,9 +27,7 @@ export interface StartTargetedSentimentDetectionJobCommandInput extends StartTar
  *
  * The output of {@link StartTargetedSentimentDetectionJobCommand}.
  */
-export interface StartTargetedSentimentDetectionJobCommandOutput
-  extends StartTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartTargetedSentimentDetectionJobCommandOutput extends StartTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the

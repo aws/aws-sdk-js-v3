@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayRouteTablesCommandInput extends DescribeT
  *
  * The output of {@link DescribeTransitGatewayRouteTablesCommand}.
  */
-export interface DescribeTransitGatewayRouteTablesCommandOutput
-  extends DescribeTransitGatewayRouteTablesResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayRouteTablesCommandOutput extends DescribeTransitGatewayRouteTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.

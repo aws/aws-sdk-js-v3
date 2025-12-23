@@ -24,9 +24,7 @@ export interface GetCommentsForComparedCommitCommandInput extends GetCommentsFor
  *
  * The output of {@link GetCommentsForComparedCommitCommand}.
  */
-export interface GetCommentsForComparedCommitCommandOutput
-  extends GetCommentsForComparedCommitOutput,
-    __MetadataBearer {}
+export interface GetCommentsForComparedCommitCommandOutput extends GetCommentsForComparedCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about comments made on the comparison between two commits.</p>

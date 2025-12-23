@@ -49,11 +49,9 @@ export const defaultMarketplaceCatalogHttpAuthSchemeParametersProvider = async (
 ): Promise<MarketplaceCatalogHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface MarketplaceCatalogHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultMarketplaceCatalogHttpAuthSchemeProvider: MarketplaceCatalogHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultMarketplaceCatalogHttpAuthSchemeProvider: MarketplaceCatalogHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

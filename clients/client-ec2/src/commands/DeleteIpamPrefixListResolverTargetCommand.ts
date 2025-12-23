@@ -27,9 +27,7 @@ export interface DeleteIpamPrefixListResolverTargetCommandInput extends DeleteIp
  *
  * The output of {@link DeleteIpamPrefixListResolverTargetCommand}.
  */
-export interface DeleteIpamPrefixListResolverTargetCommandOutput
-  extends DeleteIpamPrefixListResolverTargetResult,
-    __MetadataBearer {}
+export interface DeleteIpamPrefixListResolverTargetCommandOutput extends DeleteIpamPrefixListResolverTargetResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.</p>

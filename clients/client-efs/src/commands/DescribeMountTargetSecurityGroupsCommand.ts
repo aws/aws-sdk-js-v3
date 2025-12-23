@@ -27,9 +27,7 @@ export interface DescribeMountTargetSecurityGroupsCommandInput extends DescribeM
  *
  * The output of {@link DescribeMountTargetSecurityGroupsCommand}.
  */
-export interface DescribeMountTargetSecurityGroupsCommandOutput
-  extends DescribeMountTargetSecurityGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeMountTargetSecurityGroupsCommandOutput extends DescribeMountTargetSecurityGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the security groups currently in effect for a mount target. This operation

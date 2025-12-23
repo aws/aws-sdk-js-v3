@@ -24,9 +24,7 @@ export interface DeleteRemediationConfigurationCommandInput extends DeleteRemedi
  *
  * The output of {@link DeleteRemediationConfigurationCommand}.
  */
-export interface DeleteRemediationConfigurationCommandOutput
-  extends DeleteRemediationConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteRemediationConfigurationCommandOutput extends DeleteRemediationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the remediation configuration.</p>

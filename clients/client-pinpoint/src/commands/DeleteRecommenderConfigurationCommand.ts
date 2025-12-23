@@ -24,9 +24,7 @@ export interface DeleteRecommenderConfigurationCommandInput extends DeleteRecomm
  *
  * The output of {@link DeleteRecommenderConfigurationCommand}.
  */
-export interface DeleteRecommenderConfigurationCommandOutput
-  extends DeleteRecommenderConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteRecommenderConfigurationCommandOutput extends DeleteRecommenderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>

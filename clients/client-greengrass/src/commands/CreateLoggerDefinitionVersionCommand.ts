@@ -24,9 +24,7 @@ export interface CreateLoggerDefinitionVersionCommandInput extends CreateLoggerD
  *
  * The output of {@link CreateLoggerDefinitionVersionCommand}.
  */
-export interface CreateLoggerDefinitionVersionCommandOutput
-  extends CreateLoggerDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateLoggerDefinitionVersionCommandOutput extends CreateLoggerDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a logger definition that has already been defined.

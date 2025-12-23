@@ -37,9 +37,7 @@ export type MalformedAcceptWithPayloadCommandOutputType = Omit<MalformedAcceptWi
  *
  * The output of {@link MalformedAcceptWithPayloadCommand}.
  */
-export interface MalformedAcceptWithPayloadCommandOutput
-  extends MalformedAcceptWithPayloadCommandOutputType,
-    __MetadataBearer {}
+export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

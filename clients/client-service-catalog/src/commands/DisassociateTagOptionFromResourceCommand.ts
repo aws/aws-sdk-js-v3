@@ -31,9 +31,7 @@ export interface DisassociateTagOptionFromResourceCommandInput extends Disassoci
  *
  * The output of {@link DisassociateTagOptionFromResourceCommand}.
  */
-export interface DisassociateTagOptionFromResourceCommandOutput
-  extends DisassociateTagOptionFromResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateTagOptionFromResourceCommandOutput extends DisassociateTagOptionFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified TagOption from the specified resource.</p>

@@ -24,9 +24,7 @@ export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnec
  *
  * The output of {@link PutVoiceConnectorTerminationCommand}.
  */
-export interface PutVoiceConnectorTerminationCommandOutput
-  extends PutVoiceConnectorTerminationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorTerminationCommandOutput extends PutVoiceConnectorTerminationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's termination settings.</p>

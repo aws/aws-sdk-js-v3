@@ -28,9 +28,7 @@ export interface UpdateAppInstanceUserEndpointCommandInput extends UpdateAppInst
  *
  * The output of {@link UpdateAppInstanceUserEndpointCommand}.
  */
-export interface UpdateAppInstanceUserEndpointCommandOutput
-  extends UpdateAppInstanceUserEndpointResponse,
-    __MetadataBearer {}
+export interface UpdateAppInstanceUserEndpointCommandOutput extends UpdateAppInstanceUserEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>

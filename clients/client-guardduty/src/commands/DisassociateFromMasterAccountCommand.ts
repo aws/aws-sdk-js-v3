@@ -24,9 +24,7 @@ export interface DisassociateFromMasterAccountCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
-export interface DisassociateFromMasterAccountCommandOutput
-  extends DisassociateFromMasterAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateFromMasterAccountCommandOutput extends DisassociateFromMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>

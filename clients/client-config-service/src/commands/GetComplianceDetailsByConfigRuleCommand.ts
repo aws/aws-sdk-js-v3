@@ -27,9 +27,7 @@ export interface GetComplianceDetailsByConfigRuleCommandInput extends GetComplia
  *
  * The output of {@link GetComplianceDetailsByConfigRuleCommand}.
  */
-export interface GetComplianceDetailsByConfigRuleCommandOutput
-  extends GetComplianceDetailsByConfigRuleResponse,
-    __MetadataBearer {}
+export interface GetComplianceDetailsByConfigRuleCommandOutput extends GetComplianceDetailsByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified Config

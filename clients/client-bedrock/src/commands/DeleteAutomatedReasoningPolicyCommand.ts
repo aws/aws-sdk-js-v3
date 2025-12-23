@@ -24,9 +24,7 @@ export interface DeleteAutomatedReasoningPolicyCommandInput extends DeleteAutoma
  *
  * The output of {@link DeleteAutomatedReasoningPolicyCommand}.
  */
-export interface DeleteAutomatedReasoningPolicyCommandOutput
-  extends DeleteAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface DeleteAutomatedReasoningPolicyCommandOutput extends DeleteAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Automated Reasoning policy or policy version. This operation is idempotent. If you delete a policy more than once, each call succeeds. Deleting a policy removes it permanently and cannot be undone.</p>

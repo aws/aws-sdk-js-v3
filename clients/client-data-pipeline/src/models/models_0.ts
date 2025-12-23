@@ -803,7 +803,7 @@ export interface QueryObjectsInput {
   query?: Query | undefined;
 
   /**
-   * <p>Indicates whether the query applies to components or instances. The possible values are:
+   * <p>Indicates whether the query applies to components or instances. The possible values are:	
    *             <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
    * @public
    */

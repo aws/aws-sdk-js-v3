@@ -24,9 +24,7 @@ export interface ListPodIdentityAssociationsCommandInput extends ListPodIdentity
  *
  * The output of {@link ListPodIdentityAssociationsCommand}.
  */
-export interface ListPodIdentityAssociationsCommandOutput
-  extends ListPodIdentityAssociationsResponse,
-    __MetadataBearer {}
+export interface ListPodIdentityAssociationsCommandOutput extends ListPodIdentityAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>List the EKS Pod Identity associations in a cluster. You can filter the list by the namespace that the

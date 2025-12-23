@@ -356,8 +356,14 @@ export interface Amp {
   /**
    * @see {@link CreateScraperCommand}
    */
-  createScraper(args: CreateScraperCommandInput, options?: __HttpHandlerOptions): Promise<CreateScraperCommandOutput>;
-  createScraper(args: CreateScraperCommandInput, cb: (err: any, data?: CreateScraperCommandOutput) => void): void;
+  createScraper(
+    args: CreateScraperCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScraperCommandOutput>;
+  createScraper(
+    args: CreateScraperCommandInput,
+    cb: (err: any, data?: CreateScraperCommandOutput) => void
+  ): void;
   createScraper(
     args: CreateScraperCommandInput,
     options: __HttpHandlerOptions,
@@ -372,7 +378,10 @@ export interface Amp {
     args: CreateWorkspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkspaceCommandOutput>;
-  createWorkspace(args: CreateWorkspaceCommandInput, cb: (err: any, data?: CreateWorkspaceCommandOutput) => void): void;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -484,8 +493,14 @@ export interface Amp {
   /**
    * @see {@link DeleteScraperCommand}
    */
-  deleteScraper(args: DeleteScraperCommandInput, options?: __HttpHandlerOptions): Promise<DeleteScraperCommandOutput>;
-  deleteScraper(args: DeleteScraperCommandInput, cb: (err: any, data?: DeleteScraperCommandOutput) => void): void;
+  deleteScraper(
+    args: DeleteScraperCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScraperCommandOutput>;
+  deleteScraper(
+    args: DeleteScraperCommandInput,
+    cb: (err: any, data?: DeleteScraperCommandOutput) => void
+  ): void;
   deleteScraper(
     args: DeleteScraperCommandInput,
     options: __HttpHandlerOptions,
@@ -516,7 +531,10 @@ export interface Amp {
     args: DeleteWorkspaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkspaceCommandOutput>;
-  deleteWorkspace(args: DeleteWorkspaceCommandInput, cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void): void;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
+  ): void;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
     options: __HttpHandlerOptions,
@@ -632,7 +650,10 @@ export interface Amp {
     args: DescribeScraperCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeScraperCommandOutput>;
-  describeScraper(args: DescribeScraperCommandInput, cb: (err: any, data?: DescribeScraperCommandOutput) => void): void;
+  describeScraper(
+    args: DescribeScraperCommandInput,
+    cb: (err: any, data?: DescribeScraperCommandOutput) => void
+  ): void;
   describeScraper(
     args: DescribeScraperCommandInput,
     options: __HttpHandlerOptions,
@@ -746,8 +767,14 @@ export interface Amp {
    * @see {@link ListScrapersCommand}
    */
   listScrapers(): Promise<ListScrapersCommandOutput>;
-  listScrapers(args: ListScrapersCommandInput, options?: __HttpHandlerOptions): Promise<ListScrapersCommandOutput>;
-  listScrapers(args: ListScrapersCommandInput, cb: (err: any, data?: ListScrapersCommandOutput) => void): void;
+  listScrapers(
+    args: ListScrapersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScrapersCommandOutput>;
+  listScrapers(
+    args: ListScrapersCommandInput,
+    cb: (err: any, data?: ListScrapersCommandOutput) => void
+  ): void;
   listScrapers(
     args: ListScrapersCommandInput,
     options: __HttpHandlerOptions,
@@ -779,7 +806,10 @@ export interface Amp {
     args: ListWorkspacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkspacesCommandOutput>;
-  listWorkspaces(args: ListWorkspacesCommandInput, cb: (err: any, data?: ListWorkspacesCommandOutput) => void): void;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
+  ): void;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
     options: __HttpHandlerOptions,
@@ -857,8 +887,14 @@ export interface Amp {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -868,8 +904,14 @@ export interface Amp {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -913,8 +955,14 @@ export interface Amp {
   /**
    * @see {@link UpdateScraperCommand}
    */
-  updateScraper(args: UpdateScraperCommandInput, options?: __HttpHandlerOptions): Promise<UpdateScraperCommandOutput>;
-  updateScraper(args: UpdateScraperCommandInput, cb: (err: any, data?: UpdateScraperCommandOutput) => void): void;
+  updateScraper(
+    args: UpdateScraperCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScraperCommandOutput>;
+  updateScraper(
+    args: UpdateScraperCommandInput,
+    cb: (err: any, data?: UpdateScraperCommandOutput) => void
+  ): void;
   updateScraper(
     args: UpdateScraperCommandInput,
     options: __HttpHandlerOptions,

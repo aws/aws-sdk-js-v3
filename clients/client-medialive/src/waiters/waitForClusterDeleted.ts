@@ -10,17 +10,17 @@ const checkState = async (client: MediaLiveClient, input: DescribeClusterCommand
     const result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }

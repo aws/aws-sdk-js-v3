@@ -49,17 +49,13 @@ export const defaultApplicationAutoScalingHttpAuthSchemeParametersProvider = asy
 ): Promise<ApplicationAutoScalingHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: ApplicationAutoScalingHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: ApplicationAutoScalingHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface ApplicationAutoScalingHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultApplicationAutoScalingHttpAuthSchemeProvider: ApplicationAutoScalingHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultApplicationAutoScalingHttpAuthSchemeProvider: ApplicationAutoScalingHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

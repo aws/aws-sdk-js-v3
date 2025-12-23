@@ -126,353 +126,268 @@ import {
 /* eslint no-var: 0 */
 var PatchDocument: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 var Properties: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var AlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
-export var CancelResourceRequestInput$: StaticStructureSchema = [3, n0, _CRRI, 0, [_RT], [0]];
-export var CancelResourceRequestOutput$: StaticStructureSchema = [3, n0, _CRRO, 0, [_PE], [[() => ProgressEvent$, 0]]];
-export var ClientTokenConflictException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CTCE,
+export var CancelResourceRequestInput$: StaticStructureSchema = [3, n0, _CRRI,
+  0,
+  [_RT],
+  [0]
+];
+export var CancelResourceRequestOutput$: StaticStructureSchema = [3, n0, _CRRO,
+  0,
+  [_PE],
+  [[() => ProgressEvent$, 0]]
+];
+export var ClientTokenConflictException$: StaticErrorSchema = [-3, n0, _CTCE,
   { [_aQE]: [`ClientTokenConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ClientTokenConflictException$, ClientTokenConflictException);
-export var ConcurrentModificationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_aQE]: [`ConcurrentModificationException`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConcurrentOperationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _COE,
+export var ConcurrentOperationException$: StaticErrorSchema = [-3, n0, _COE,
   { [_aQE]: [`ConcurrentOperationException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ConcurrentOperationException$, ConcurrentOperationException);
-export var CreateResourceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRI,
+export var CreateResourceInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_TN, _TVI, _RA, _CT, _DS],
-  [0, 0, 0, [0, 4], [() => Properties, 0]],
+  [0, 0, 0, [0, 4], [() => Properties, 0]]
 ];
-export var CreateResourceOutput$: StaticStructureSchema = [3, n0, _CRO, 0, [_PE], [[() => ProgressEvent$, 0]]];
-export var DeleteResourceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRI,
+export var CreateResourceOutput$: StaticStructureSchema = [3, n0, _CRO,
+  0,
+  [_PE],
+  [[() => ProgressEvent$, 0]]
+];
+export var DeleteResourceInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
   [_TN, _TVI, _RA, _CT, _I],
-  [0, 0, 0, [0, 4], 0],
+  [0, 0, 0, [0, 4], 0]
 ];
-export var DeleteResourceOutput$: StaticStructureSchema = [3, n0, _DRO, 0, [_PE], [[() => ProgressEvent$, 0]]];
-export var GeneralServiceException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _GSE,
+export var DeleteResourceOutput$: StaticStructureSchema = [3, n0, _DRO,
+  0,
+  [_PE],
+  [[() => ProgressEvent$, 0]]
+];
+export var GeneralServiceException$: StaticErrorSchema = [-3, n0, _GSE,
   { [_aQE]: [`GeneralServiceException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(GeneralServiceException$, GeneralServiceException);
-export var GetResourceInput$: StaticStructureSchema = [3, n0, _GRI, 0, [_TN, _TVI, _RA, _I], [0, 0, 0, 0]];
-export var GetResourceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRO,
+export var GetResourceInput$: StaticStructureSchema = [3, n0, _GRI,
+  0,
+  [_TN, _TVI, _RA, _I],
+  [0, 0, 0, 0]
+];
+export var GetResourceOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
   [_TN, _RD],
-  [0, [() => ResourceDescription$, 0]],
+  [0, [() => ResourceDescription$, 0]]
 ];
-export var GetResourceRequestStatusInput$: StaticStructureSchema = [3, n0, _GRRSI, 0, [_RT], [0]];
-export var GetResourceRequestStatusOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRRSO,
+export var GetResourceRequestStatusInput$: StaticStructureSchema = [3, n0, _GRRSI,
+  0,
+  [_RT],
+  [0]
+];
+export var GetResourceRequestStatusOutput$: StaticStructureSchema = [3, n0, _GRRSO,
   0,
   [_PE, _HPE],
-  [[() => ProgressEvent$, 0], () => HooksProgressEvent],
+  [[() => ProgressEvent$, 0], () => HooksProgressEvent]
 ];
-export var HandlerFailureException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _HFE,
+export var HandlerFailureException$: StaticErrorSchema = [-3, n0, _HFE,
   { [_aQE]: [`HandlerFailureException`, 502], [_e]: _s, [_hE]: 502 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(HandlerFailureException$, HandlerFailureException);
-export var HandlerInternalFailureException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _HIFE,
+export var HandlerInternalFailureException$: StaticErrorSchema = [-3, n0, _HIFE,
   { [_aQE]: [`HandlerInternalFailureException`, 502], [_e]: _s, [_hE]: 502 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(HandlerInternalFailureException$, HandlerInternalFailureException);
-export var HookProgressEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _HPEo,
+export var HookProgressEvent$: StaticStructureSchema = [3, n0, _HPEo,
   0,
   [_HTN, _HTVI, _HTA, _IP, _HS, _HET, _HSM, _FM],
-  [0, 0, 0, 0, 0, 4, 0, 0],
+  [0, 0, 0, 0, 0, 4, 0, 0]
 ];
-export var InvalidCredentialsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
+export var InvalidCredentialsException$: StaticErrorSchema = [-3, n0, _ICE,
   { [_aQE]: [`InvalidCredentialsException`, 401], [_e]: _c, [_hE]: 401 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidCredentialsException$, InvalidCredentialsException);
-export var InvalidRequestException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
   { [_aQE]: [`InvalidRequestException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var ListResourceRequestsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRI,
+export var ListResourceRequestsInput$: StaticStructureSchema = [3, n0, _LRRI,
   0,
   [_MR, _NT, _RRSF],
-  [1, 0, () => ResourceRequestStatusFilter$],
+  [1, 0, () => ResourceRequestStatusFilter$]
 ];
-export var ListResourceRequestsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRRO,
+export var ListResourceRequestsOutput$: StaticStructureSchema = [3, n0, _LRRO,
   0,
   [_RRSS, _NT],
-  [[() => ResourceRequestStatusSummaries, 0], 0],
+  [[() => ResourceRequestStatusSummaries, 0], 0]
 ];
-export var ListResourcesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRI,
+export var ListResourcesInput$: StaticStructureSchema = [3, n0, _LRI,
   0,
   [_TN, _TVI, _RA, _NT, _MR, _RM],
-  [0, 0, 0, 0, 1, [() => Properties, 0]],
+  [0, 0, 0, 0, 1, [() => Properties, 0]]
 ];
-export var ListResourcesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRO,
+export var ListResourcesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
   [_TN, _RDe, _NT],
-  [0, [() => ResourceDescriptions, 0], 0],
+  [0, [() => ResourceDescriptions, 0], 0]
 ];
-export var NetworkFailureException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
+export var NetworkFailureException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_aQE]: [`NetworkFailureException`, 502], [_e]: _s, [_hE]: 502 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(NetworkFailureException$, NetworkFailureException);
-export var NotStabilizedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSE,
+export var NotStabilizedException$: StaticErrorSchema = [-3, n0, _NSE,
   { [_aQE]: [`NotStabilizedException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(NotStabilizedException$, NotStabilizedException);
-export var NotUpdatableException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NUE,
+export var NotUpdatableException$: StaticErrorSchema = [-3, n0, _NUE,
   { [_aQE]: [`NotUpdatableException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(NotUpdatableException$, NotUpdatableException);
-export var PrivateTypeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTE,
+export var PrivateTypeException$: StaticErrorSchema = [-3, n0, _PTE,
   { [_aQE]: [`PrivateTypeException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(PrivateTypeException$, PrivateTypeException);
-export var ProgressEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _PE,
+export var ProgressEvent$: StaticStructureSchema = [3, n0, _PE,
   0,
   [_TN, _I, _RT, _HRT, _O, _OS, _ET, _RM, _SM, _EC, _RAe],
-  [0, 0, 0, 0, 0, 0, 4, [() => Properties, 0], 0, 0, 4],
+  [0, 0, 0, 0, 0, 0, 4, [() => Properties, 0], 0, 0, 4]
 ];
-export var RequestTokenNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTNFE,
+export var RequestTokenNotFoundException$: StaticErrorSchema = [-3, n0, _RTNFE,
   { [_aQE]: [`RequestTokenNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(RequestTokenNotFoundException$, RequestTokenNotFoundException);
-export var ResourceConflictException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
   { [_aQE]: [`ResourceConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
-export var ResourceDescription$: StaticStructureSchema = [3, n0, _RD, 0, [_I, _P], [0, [() => Properties, 0]]];
-export var ResourceNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ResourceDescription$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_I, _P],
+  [0, [() => Properties, 0]]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceRequestStatusFilter$: StaticStructureSchema = [3, n0, _RRSF, 0, [_Op, _OSp], [64 | 0, 64 | 0]];
-export var ServiceInternalErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SIEE,
+export var ResourceRequestStatusFilter$: StaticStructureSchema = [3, n0, _RRSF,
+  0,
+  [_Op, _OSp],
+  [64 | 0, 64 | 0]
+];
+export var ServiceInternalErrorException$: StaticErrorSchema = [-3, n0, _SIEE,
   { [_aQE]: [`ServiceInternalErrorException`, 502], [_e]: _s, [_hE]: 502 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ServiceInternalErrorException$, ServiceInternalErrorException);
-export var ServiceLimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLEE,
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
   { [_aQE]: [`ServiceLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TypeNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
+export var TypeNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
   { [_aQE]: [`TypeNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TypeNotFoundException$, TypeNotFoundException);
-export var UnsupportedActionException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UAE,
+export var UnsupportedActionException$: StaticErrorSchema = [-3, n0, _UAE,
   { [_aQE]: [`UnsupportedActionException`, 405], [_e]: _c, [_hE]: 405 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(UnsupportedActionException$, UnsupportedActionException);
-export var UpdateResourceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _URI,
+export var UpdateResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_TN, _TVI, _RA, _CT, _I, _PD],
-  [0, 0, 0, [0, 4], 0, [() => PatchDocument, 0]],
+  [0, 0, 0, [0, 4], 0, [() => PatchDocument, 0]]
 ];
-export var UpdateResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [_PE], [[() => ProgressEvent$, 0]]];
+export var UpdateResourceOutput$: StaticStructureSchema = [3, n0, _URO,
+  0,
+  [_PE],
+  [[() => ProgressEvent$, 0]]
+];
 export var CloudControlServiceException$: StaticErrorSchema = [-3, _sm, "CloudControlServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudControlServiceException$, CloudControlServiceException);
-var HooksProgressEvent: StaticListSchema = [1, n0, _HPE, 0, () => HookProgressEvent$];
+var HooksProgressEvent: StaticListSchema = [1, n0, _HPE,
+  0, () => HookProgressEvent$
+];
 var Operations = 64 | 0;
 var OperationStatuses = 64 | 0;
-var ResourceDescriptions: StaticListSchema = [1, n0, _RDe, 0, [() => ResourceDescription$, 0]];
-var ResourceRequestStatusSummaries: StaticListSchema = [1, n0, _RRSS, 0, [() => ProgressEvent$, 0]];
-export var CancelResourceRequest$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRR,
-  2,
-  () => CancelResourceRequestInput$,
-  () => CancelResourceRequestOutput$,
+var ResourceDescriptions: StaticListSchema = [1, n0, _RDe,
+  0, [() => ResourceDescription$,
+    0]
 ];
-export var CreateResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _CR,
-  0,
-  () => CreateResourceInput$,
-  () => CreateResourceOutput$,
+var ResourceRequestStatusSummaries: StaticListSchema = [1, n0, _RRSS,
+  0, [() => ProgressEvent$,
+    0]
 ];
-export var DeleteResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _DR,
-  0,
-  () => DeleteResourceInput$,
-  () => DeleteResourceOutput$,
+export var CancelResourceRequest$: StaticOperationSchema = [9, n0, _CRR,
+  2, () => CancelResourceRequestInput$, () => CancelResourceRequestOutput$
 ];
-export var GetResource$: StaticOperationSchema = [9, n0, _GR, 0, () => GetResourceInput$, () => GetResourceOutput$];
-export var GetResourceRequestStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRRS,
-  0,
-  () => GetResourceRequestStatusInput$,
-  () => GetResourceRequestStatusOutput$,
+export var CreateResource$: StaticOperationSchema = [9, n0, _CR,
+  0, () => CreateResourceInput$, () => CreateResourceOutput$
 ];
-export var ListResourceRequests$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRR,
-  0,
-  () => ListResourceRequestsInput$,
-  () => ListResourceRequestsOutput$,
+export var DeleteResource$: StaticOperationSchema = [9, n0, _DR,
+  0, () => DeleteResourceInput$, () => DeleteResourceOutput$
 ];
-export var ListResources$: StaticOperationSchema = [
-  9,
-  n0,
-  _LR,
-  0,
-  () => ListResourcesInput$,
-  () => ListResourcesOutput$,
+export var GetResource$: StaticOperationSchema = [9, n0, _GR,
+  0, () => GetResourceInput$, () => GetResourceOutput$
 ];
-export var UpdateResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  0,
-  () => UpdateResourceInput$,
-  () => UpdateResourceOutput$,
+export var GetResourceRequestStatus$: StaticOperationSchema = [9, n0, _GRRS,
+  0, () => GetResourceRequestStatusInput$, () => GetResourceRequestStatusOutput$
+];
+export var ListResourceRequests$: StaticOperationSchema = [9, n0, _LRR,
+  0, () => ListResourceRequestsInput$, () => ListResourceRequestsOutput$
+];
+export var ListResources$: StaticOperationSchema = [9, n0, _LR,
+  0, () => ListResourcesInput$, () => ListResourcesOutput$
+];
+export var UpdateResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UpdateResourceInput$, () => UpdateResourceOutput$
 ];

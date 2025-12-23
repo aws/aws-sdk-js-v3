@@ -24,9 +24,7 @@ export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWork
  *
  * The output of {@link DescribeWorkspaceConfigurationCommand}.
  */
-export interface DescribeWorkspaceConfigurationCommandOutput
-  extends DescribeWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeWorkspaceConfigurationCommandOutput extends DescribeWorkspaceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to return information about the configuration of a workspace. The configuration details returned include workspace configuration status, label set limits, and retention period.</p>

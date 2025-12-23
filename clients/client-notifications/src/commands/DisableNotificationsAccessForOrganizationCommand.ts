@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface DisableNotificationsAccessForOrganizationCommandInput
-  extends DisableNotificationsAccessForOrganizationRequest {}
+export interface DisableNotificationsAccessForOrganizationCommandInput extends DisableNotificationsAccessForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface DisableNotificationsAccessForOrganizationCommandOutput
-  extends DisableNotificationsAccessForOrganizationResponse,
-    __MetadataBearer {}
+export interface DisableNotificationsAccessForOrganizationCommandOutput extends DisableNotificationsAccessForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>

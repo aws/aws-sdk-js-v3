@@ -24,9 +24,7 @@ export interface CreateLocalGatewayRouteTableCommandInput extends CreateLocalGat
  *
  * The output of {@link CreateLocalGatewayRouteTableCommand}.
  */
-export interface CreateLocalGatewayRouteTableCommandOutput
-  extends CreateLocalGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayRouteTableCommandOutput extends CreateLocalGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>

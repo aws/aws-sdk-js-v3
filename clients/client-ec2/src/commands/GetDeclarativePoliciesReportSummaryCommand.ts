@@ -27,9 +27,7 @@ export interface GetDeclarativePoliciesReportSummaryCommandInput extends GetDecl
  *
  * The output of {@link GetDeclarativePoliciesReportSummaryCommand}.
  */
-export interface GetDeclarativePoliciesReportSummaryCommandOutput
-  extends GetDeclarativePoliciesReportSummaryResult,
-    __MetadataBearer {}
+export interface GetDeclarativePoliciesReportSummaryCommandOutput extends GetDeclarativePoliciesReportSummaryResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a summary of the account status report.</p>

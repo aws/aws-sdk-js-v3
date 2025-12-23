@@ -27,9 +27,7 @@ export interface ListInferenceRecommendationsJobsCommandInput extends ListInfere
  *
  * The output of {@link ListInferenceRecommendationsJobsCommand}.
  */
-export interface ListInferenceRecommendationsJobsCommandOutput
-  extends ListInferenceRecommendationsJobsResponse,
-    __MetadataBearer {}
+export interface ListInferenceRecommendationsJobsCommandOutput extends ListInferenceRecommendationsJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists recommendation jobs that satisfy various filters.</p>

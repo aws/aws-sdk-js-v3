@@ -28,10 +28,8 @@ using speech analytics</a> in the <i>Amazon Connect Administrator
 Guide</i>. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-connect-contact-lens
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-connect-contact-lens`
 - `yarn add @aws-sdk/client-connect-contact-lens`
 - `pnpm add @aws-sdk/client-connect-contact-lens`
@@ -46,18 +44,12 @@ the commands you need, for example `ListRealtimeContactAnalysisSegmentsCommand`:
 
 ```js
 // ES5 example
-const {
-  ConnectContactLensClient,
-  ListRealtimeContactAnalysisSegmentsCommand,
-} = require("@aws-sdk/client-connect-contact-lens");
+const { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } = require("@aws-sdk/client-connect-contact-lens");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ConnectContactLensClient,
-  ListRealtimeContactAnalysisSegmentsCommand,
-} from "@aws-sdk/client-connect-contact-lens";
+import { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } from "@aws-sdk/client-connect-contact-lens";
 ```
 
 ### Usage
@@ -73,9 +65,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ConnectContactLensClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRealtimeContactAnalysisSegmentsCommand(params);
 ```
 
@@ -234,5 +224,4 @@ ListRealtimeContactAnalysisSegments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect-contact-lens/command/ListRealtimeContactAnalysisSegmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect-contact-lens/Interface/ListRealtimeContactAnalysisSegmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect-contact-lens/Interface/ListRealtimeContactAnalysisSegmentsCommandOutput/)
-
 </details>

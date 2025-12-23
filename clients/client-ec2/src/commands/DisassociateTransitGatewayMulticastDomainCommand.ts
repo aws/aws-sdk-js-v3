@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
-export interface DisassociateTransitGatewayMulticastDomainCommandInput
-  extends DisassociateTransitGatewayMulticastDomainRequest {}
+export interface DisassociateTransitGatewayMulticastDomainCommandInput extends DisassociateTransitGatewayMulticastDomainRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
-export interface DisassociateTransitGatewayMulticastDomainCommandOutput
-  extends DisassociateTransitGatewayMulticastDomainResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayMulticastDomainCommandOutput extends DisassociateTransitGatewayMulticastDomainResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>

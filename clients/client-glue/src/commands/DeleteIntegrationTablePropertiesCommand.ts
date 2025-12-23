@@ -27,9 +27,7 @@ export interface DeleteIntegrationTablePropertiesCommandInput extends DeleteInte
  *
  * The output of {@link DeleteIntegrationTablePropertiesCommand}.
  */
-export interface DeleteIntegrationTablePropertiesCommandOutput
-  extends DeleteIntegrationTablePropertiesResponse,
-    __MetadataBearer {}
+export interface DeleteIntegrationTablePropertiesCommandOutput extends DeleteIntegrationTablePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the table properties that have been created for the tables that need to be replicated.</p>

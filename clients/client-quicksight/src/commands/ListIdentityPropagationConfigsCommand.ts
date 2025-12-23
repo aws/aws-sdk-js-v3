@@ -24,9 +24,7 @@ export interface ListIdentityPropagationConfigsCommandInput extends ListIdentity
  *
  * The output of {@link ListIdentityPropagationConfigsCommand}.
  */
-export interface ListIdentityPropagationConfigsCommandOutput
-  extends ListIdentityPropagationConfigsResponse,
-    __MetadataBearer {}
+export interface ListIdentityPropagationConfigsCommandOutput extends ListIdentityPropagationConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all services and authorized targets that the Quick Sight IAM Identity Center application can access.</p>

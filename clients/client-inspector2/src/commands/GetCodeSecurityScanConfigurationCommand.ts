@@ -27,9 +27,7 @@ export interface GetCodeSecurityScanConfigurationCommandInput extends GetCodeSec
  *
  * The output of {@link GetCodeSecurityScanConfigurationCommand}.
  */
-export interface GetCodeSecurityScanConfigurationCommandOutput
-  extends GetCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface GetCodeSecurityScanConfigurationCommandOutput extends GetCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a code security scan configuration.</p>

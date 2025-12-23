@@ -24,9 +24,7 @@ export interface GetResourceEvaluationSummaryCommandInput extends GetResourceEva
  *
  * The output of {@link GetResourceEvaluationSummaryCommand}.
  */
-export interface GetResourceEvaluationSummaryCommandOutput
-  extends GetResourceEvaluationSummaryResponse,
-    __MetadataBearer {}
+export interface GetResourceEvaluationSummaryCommandOutput extends GetResourceEvaluationSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.

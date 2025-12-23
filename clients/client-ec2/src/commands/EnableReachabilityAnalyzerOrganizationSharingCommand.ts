@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
-export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput
-  extends EnableReachabilityAnalyzerOrganizationSharingRequest {}
+export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput extends EnableReachabilityAnalyzerOrganizationSharingRequest {}
 /**
  * @public
  *
  * The output of {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
-export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
-  extends EnableReachabilityAnalyzerOrganizationSharingResult,
-    __MetadataBearer {}
+export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput extends EnableReachabilityAnalyzerOrganizationSharingResult, __MetadataBearer {}
 
 /**
  * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.

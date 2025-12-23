@@ -24,9 +24,7 @@ export interface GetSourceRepositoryCloneUrlsCommandInput extends GetSourceRepos
  *
  * The output of {@link GetSourceRepositoryCloneUrlsCommand}.
  */
-export interface GetSourceRepositoryCloneUrlsCommandOutput
-  extends GetSourceRepositoryCloneUrlsResponse,
-    __MetadataBearer {}
+export interface GetSourceRepositoryCloneUrlsCommandOutput extends GetSourceRepositoryCloneUrlsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the URLs that can be used with a Git client to clone a source

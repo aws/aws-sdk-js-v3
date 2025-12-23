@@ -24,9 +24,7 @@ export interface AssociateOrganizationalUnitCommandInput extends AssociateOrgani
  *
  * The output of {@link AssociateOrganizationalUnitCommand}.
  */
-export interface AssociateOrganizationalUnitCommandOutput
-  extends AssociateOrganizationalUnitResponse,
-    __MetadataBearer {}
+export interface AssociateOrganizationalUnitCommandOutput extends AssociateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an organizational unit with a notification configuration.</p>

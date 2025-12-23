@@ -24,9 +24,7 @@ export interface BatchDeleteTopicReviewedAnswerCommandInput extends BatchDeleteT
  *
  * The output of {@link BatchDeleteTopicReviewedAnswerCommand}.
  */
-export interface BatchDeleteTopicReviewedAnswerCommandOutput
-  extends BatchDeleteTopicReviewedAnswerResponse,
-    __MetadataBearer {}
+export interface BatchDeleteTopicReviewedAnswerCommandOutput extends BatchDeleteTopicReviewedAnswerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes reviewed answers for Q Topic.</p>

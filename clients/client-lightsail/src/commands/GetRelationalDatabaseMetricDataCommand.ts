@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseMetricDataCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseMetricDataCommand}.
  */
-export interface GetRelationalDatabaseMetricDataCommandOutput
-  extends GetRelationalDatabaseMetricDataResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseMetricDataCommandOutput extends GetRelationalDatabaseMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns the data points of the specified metric for a database in Amazon Lightsail.</p>

@@ -96,7 +96,10 @@ export interface ValidationExceptionField {
  * <p>The application definition for a particular application. </p>
  * @public
  */
-export type Definition = Definition.ContentMember | Definition.S3LocationMember | Definition.$UnknownMember;
+export type Definition =
+  | Definition.ContentMember
+  | Definition.S3LocationMember
+  | Definition.$UnknownMember;
 
 /**
  * @public
@@ -226,7 +229,9 @@ export interface CreateApplicationResponse {
  * <p>Defines an external storage location.</p>
  * @public
  */
-export type ExternalLocation = ExternalLocation.S3LocationMember | ExternalLocation.$UnknownMember;
+export type ExternalLocation =
+  | ExternalLocation.S3LocationMember
+  | ExternalLocation.$UnknownMember;
 
 /**
  * @public

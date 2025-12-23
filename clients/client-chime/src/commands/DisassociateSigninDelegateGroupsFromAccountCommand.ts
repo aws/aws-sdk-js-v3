@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
-export interface DisassociateSigninDelegateGroupsFromAccountCommandInput
-  extends DisassociateSigninDelegateGroupsFromAccountRequest {}
+export interface DisassociateSigninDelegateGroupsFromAccountCommandInput extends DisassociateSigninDelegateGroupsFromAccountRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
  */
-export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
-  extends DisassociateSigninDelegateGroupsFromAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput extends DisassociateSigninDelegateGroupsFromAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>

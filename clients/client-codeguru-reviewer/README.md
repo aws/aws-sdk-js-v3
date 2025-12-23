@@ -23,10 +23,8 @@ endpoints (Amazon Web Services PrivateLink)</a> in the <i>Amazon CodeGuru Review
 Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codeguru-reviewer
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codeguru-reviewer`
 - `yarn add @aws-sdk/client-codeguru-reviewer`
 - `pnpm add @aws-sdk/client-codeguru-reviewer`
@@ -62,9 +60,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeGuruReviewerClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListCodeReviewsCommand(params);
 ```
 
@@ -223,7 +219,6 @@ AssociateRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/AssociateRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/AssociateRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/AssociateRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -231,7 +226,6 @@ CreateCodeReview
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/CreateCodeReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/CreateCodeReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/CreateCodeReviewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -239,7 +233,6 @@ DescribeCodeReview
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/DescribeCodeReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeCodeReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeCodeReviewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -247,7 +240,6 @@ DescribeRecommendationFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/DescribeRecommendationFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeRecommendationFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeRecommendationFeedbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +247,6 @@ DescribeRepositoryAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/DescribeRepositoryAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeRepositoryAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DescribeRepositoryAssociationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +254,6 @@ DisassociateRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/DisassociateRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DisassociateRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/DisassociateRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,7 +261,6 @@ ListCodeReviews
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/ListCodeReviewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListCodeReviewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListCodeReviewsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -279,7 +268,6 @@ ListRecommendationFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/ListRecommendationFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRecommendationFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRecommendationFeedbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +275,6 @@ ListRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/ListRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRecommendationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +282,6 @@ ListRepositoryAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/ListRepositoryAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRepositoryAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListRepositoryAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +289,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +296,6 @@ PutRecommendationFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/PutRecommendationFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/PutRecommendationFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/PutRecommendationFeedbackCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +303,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,5 +310,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-reviewer/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-reviewer/Interface/UntagResourceCommandOutput/)
-
 </details>

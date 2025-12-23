@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
-export interface GetVoiceConnectorLoggingConfigurationCommandInput
-  extends GetVoiceConnectorLoggingConfigurationRequest {}
+export interface GetVoiceConnectorLoggingConfigurationCommandInput extends GetVoiceConnectorLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
-export interface GetVoiceConnectorLoggingConfigurationCommandOutput
-  extends GetVoiceConnectorLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorLoggingConfigurationCommandOutput extends GetVoiceConnectorLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the logging configuration settings for the specified Voice Connector.

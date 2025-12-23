@@ -1,4 +1,5 @@
 import {
+  _Record$,
   AlreadyStreamedException,
   AlreadyStreamedException$,
   BulkPublish$,
@@ -105,7 +106,6 @@ import {
   UpdateRecordsCommand,
   UpdateRecordsRequest$,
   UpdateRecordsResponse$,
-  _Record$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

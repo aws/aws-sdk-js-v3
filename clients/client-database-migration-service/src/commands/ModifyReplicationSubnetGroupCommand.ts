@@ -28,9 +28,7 @@ export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicat
  *
  * The output of {@link ModifyReplicationSubnetGroupCommand}.
  */
-export interface ModifyReplicationSubnetGroupCommandOutput
-  extends ModifyReplicationSubnetGroupResponse,
-    __MetadataBearer {}
+export interface ModifyReplicationSubnetGroupCommandOutput extends ModifyReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for the specified replication subnet group.</p>

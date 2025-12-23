@@ -27,9 +27,7 @@ export interface ListAppAssessmentComplianceDriftsCommandInput extends ListAppAs
  *
  * The output of {@link ListAppAssessmentComplianceDriftsCommand}.
  */
-export interface ListAppAssessmentComplianceDriftsCommandOutput
-  extends ListAppAssessmentComplianceDriftsResponse,
-    __MetadataBearer {}
+export interface ListAppAssessmentComplianceDriftsCommandOutput extends ListAppAssessmentComplianceDriftsResponse, __MetadataBearer {}
 
 /**
  * <p>List of compliance drifts that were detected while running an

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrderableReplicationInstancesCommand}.
  */
-export interface DescribeOrderableReplicationInstancesCommandInput
-  extends DescribeOrderableReplicationInstancesMessage {}
+export interface DescribeOrderableReplicationInstancesCommandInput extends DescribeOrderableReplicationInstancesMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeOrderableReplicationInstancesCommand}.
  */
-export interface DescribeOrderableReplicationInstancesCommandOutput
-  extends DescribeOrderableReplicationInstancesResponse,
-    __MetadataBearer {}
+export interface DescribeOrderableReplicationInstancesCommandOutput extends DescribeOrderableReplicationInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the replication instance types that can be created in the

@@ -27,9 +27,7 @@ export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSuppo
  *
  * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
  */
-export interface ListSupportedPhoneNumberCountriesCommandOutput
-  extends ListSupportedPhoneNumberCountriesResponse,
-    __MetadataBearer {}
+export interface ListSupportedPhoneNumberCountriesCommandOutput extends ListSupportedPhoneNumberCountriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the countries that you can order phone numbers from.</p>

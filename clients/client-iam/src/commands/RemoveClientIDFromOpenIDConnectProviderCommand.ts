@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link RemoveClientIDFromOpenIDConnectProviderCommand}.
  */
-export interface RemoveClientIDFromOpenIDConnectProviderCommandInput
-  extends RemoveClientIDFromOpenIDConnectProviderRequest {}
+export interface RemoveClientIDFromOpenIDConnectProviderCommandInput extends RemoveClientIDFromOpenIDConnectProviderRequest {}
 /**
  * @public
  *

@@ -24,9 +24,7 @@ export interface ListUserAccessLoggingSettingsCommandInput extends ListUserAcces
  *
  * The output of {@link ListUserAccessLoggingSettingsCommand}.
  */
-export interface ListUserAccessLoggingSettingsCommandOutput
-  extends ListUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface ListUserAccessLoggingSettingsCommandOutput extends ListUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of user access logging settings.</p>

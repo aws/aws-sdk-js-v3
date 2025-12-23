@@ -10,9 +10,9 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
     const result: any = await client.send(new DescribeImageCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ImageStatus;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

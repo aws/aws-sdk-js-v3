@@ -27,9 +27,7 @@ export interface AcceptReservedNodeExchangeCommandInput extends AcceptReservedNo
  *
  * The output of {@link AcceptReservedNodeExchangeCommand}.
  */
-export interface AcceptReservedNodeExchangeCommandOutput
-  extends AcceptReservedNodeExchangeOutputMessage,
-    __MetadataBearer {}
+export interface AcceptReservedNodeExchangeCommandOutput extends AcceptReservedNodeExchangeOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the

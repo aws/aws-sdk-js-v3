@@ -28,9 +28,7 @@ export interface GetTelemetryEvaluationStatusCommandInput {}
  *
  * The output of {@link GetTelemetryEvaluationStatusCommand}.
  */
-export interface GetTelemetryEvaluationStatusCommandOutput
-  extends GetTelemetryEvaluationStatusOutput,
-    __MetadataBearer {}
+export interface GetTelemetryEvaluationStatusCommandOutput extends GetTelemetryEvaluationStatusOutput, __MetadataBearer {}
 
 /**
  * <p> Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop. </p>

@@ -27,9 +27,7 @@ export interface DescribeVerifiedAccessTrustProvidersCommandInput extends Descri
  *
  * The output of {@link DescribeVerifiedAccessTrustProvidersCommand}.
  */
-export interface DescribeVerifiedAccessTrustProvidersCommandOutput
-  extends DescribeVerifiedAccessTrustProvidersResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessTrustProvidersCommandOutput extends DescribeVerifiedAccessTrustProvidersResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access trust providers.</p>

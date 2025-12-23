@@ -32,9 +32,7 @@ export type GetHostedConfigurationVersionCommandOutputType = Omit<HostedConfigur
  *
  * The output of {@link GetHostedConfigurationVersionCommand}.
  */
-export interface GetHostedConfigurationVersionCommandOutput
-  extends GetHostedConfigurationVersionCommandOutputType,
-    __MetadataBearer {}
+export interface GetHostedConfigurationVersionCommandOutput extends GetHostedConfigurationVersionCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specific configuration version.</p>

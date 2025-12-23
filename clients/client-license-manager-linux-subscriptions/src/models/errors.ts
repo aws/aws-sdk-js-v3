@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } from "./LicenseManagerLinuxSubscriptionsServiceException";
+import {
+  LicenseManagerLinuxSubscriptionsServiceException as __BaseException,
+} from "./LicenseManagerLinuxSubscriptionsServiceException";
 
 /**
  * <p>An exception occurred with the service.</p>

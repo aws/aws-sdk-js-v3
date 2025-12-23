@@ -24,9 +24,7 @@ export interface DescribeVolumesModificationsCommandInput extends DescribeVolume
  *
  * The output of {@link DescribeVolumesModificationsCommand}.
  */
-export interface DescribeVolumesModificationsCommandOutput
-  extends DescribeVolumesModificationsResult,
-    __MetadataBearer {}
+export interface DescribeVolumesModificationsCommandOutput extends DescribeVolumesModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>

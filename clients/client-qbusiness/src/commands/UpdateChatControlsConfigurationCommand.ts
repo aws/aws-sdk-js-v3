@@ -27,9 +27,7 @@ export interface UpdateChatControlsConfigurationCommandInput extends UpdateChatC
  *
  * The output of {@link UpdateChatControlsConfigurationCommand}.
  */
-export interface UpdateChatControlsConfigurationCommandOutput
-  extends UpdateChatControlsConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateChatControlsConfigurationCommandOutput extends UpdateChatControlsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a set of chat controls configured for an existing Amazon Q Business application.</p>

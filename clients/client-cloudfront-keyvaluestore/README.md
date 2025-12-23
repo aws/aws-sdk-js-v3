@@ -9,10 +9,8 @@ AWS SDK for JavaScript CloudFrontKeyValueStore Client for Node.js, Browser and R
 <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudfront-keyvaluestore
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudfront-keyvaluestore`
 - `yarn add @aws-sdk/client-cloudfront-keyvaluestore`
 - `pnpm add @aws-sdk/client-cloudfront-keyvaluestore`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudFrontKeyValueStoreClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListKeysCommand(params);
 ```
 
@@ -209,7 +205,6 @@ DeleteKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/DeleteKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/DeleteKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/DeleteKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DescribeKeyValueStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/DescribeKeyValueStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/DescribeKeyValueStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/DescribeKeyValueStoreCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ GetKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/GetKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/GetKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/GetKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ ListKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/ListKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/ListKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/ListKeysCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ PutKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/PutKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/PutKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/PutKeyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,5 +240,4 @@ UpdateKeys
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront-keyvaluestore/command/UpdateKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/UpdateKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront-keyvaluestore/Interface/UpdateKeysCommandOutput/)
-
 </details>

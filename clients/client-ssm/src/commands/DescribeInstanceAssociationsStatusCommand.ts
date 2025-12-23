@@ -27,9 +27,7 @@ export interface DescribeInstanceAssociationsStatusCommandInput extends Describe
  *
  * The output of {@link DescribeInstanceAssociationsStatusCommand}.
  */
-export interface DescribeInstanceAssociationsStatusCommandOutput
-  extends DescribeInstanceAssociationsStatusResult,
-    __MetadataBearer {}
+export interface DescribeInstanceAssociationsStatusCommandOutput extends DescribeInstanceAssociationsStatusResult, __MetadataBearer {}
 
 /**
  * <p>The status of the associations for the managed nodes.</p>

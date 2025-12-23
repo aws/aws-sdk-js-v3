@@ -43,10 +43,8 @@ the <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticat
 </a> documentation.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-appflow
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-appflow`
 - `yarn add @aws-sdk/client-appflow`
 - `pnpm add @aws-sdk/client-appflow`
@@ -82,9 +80,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AppflowClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListFlowsCommand(params);
 ```
 
@@ -243,7 +239,6 @@ CancelFlowExecutions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/CancelFlowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CancelFlowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CancelFlowExecutionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -251,7 +246,6 @@ CreateConnectorProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/CreateConnectorProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CreateConnectorProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CreateConnectorProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +253,6 @@ CreateFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/CreateFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CreateFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/CreateFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +260,6 @@ DeleteConnectorProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DeleteConnectorProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DeleteConnectorProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DeleteConnectorProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,7 +267,6 @@ DeleteFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DeleteFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DeleteFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DeleteFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -283,7 +274,6 @@ DescribeConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -291,7 +281,6 @@ DescribeConnectorEntity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeConnectorEntityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorEntityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorEntityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -299,7 +288,6 @@ DescribeConnectorProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeConnectorProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorProfilesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -307,7 +295,6 @@ DescribeConnectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeConnectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -315,7 +302,6 @@ DescribeFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -323,7 +309,6 @@ DescribeFlowExecutionRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/DescribeFlowExecutionRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeFlowExecutionRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/DescribeFlowExecutionRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -331,7 +316,6 @@ ListConnectorEntities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/ListConnectorEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListConnectorEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListConnectorEntitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -339,7 +323,6 @@ ListConnectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListConnectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -347,7 +330,6 @@ ListFlows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/ListFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListFlowsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -355,7 +337,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -363,7 +344,6 @@ RegisterConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/RegisterConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/RegisterConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/RegisterConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -371,7 +351,6 @@ ResetConnectorMetadataCache
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/ResetConnectorMetadataCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ResetConnectorMetadataCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/ResetConnectorMetadataCacheCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -379,7 +358,6 @@ StartFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/StartFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/StartFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/StartFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -387,7 +365,6 @@ StopFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/StopFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/StopFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/StopFlowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -395,7 +372,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -403,7 +379,6 @@ UnregisterConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/UnregisterConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UnregisterConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UnregisterConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -411,7 +386,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -419,7 +393,6 @@ UpdateConnectorProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/UpdateConnectorProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateConnectorProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateConnectorProfileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -427,7 +400,6 @@ UpdateConnectorRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/UpdateConnectorRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateConnectorRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateConnectorRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -435,5 +407,4 @@ UpdateFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appflow/command/UpdateFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appflow/Interface/UpdateFlowCommandOutput/)
-
 </details>

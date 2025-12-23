@@ -24,9 +24,7 @@ export interface DisassociateTrackerConsumerCommandInput extends DisassociateTra
  *
  * The output of {@link DisassociateTrackerConsumerCommand}.
  */
-export interface DisassociateTrackerConsumerCommandOutput
-  extends DisassociateTrackerConsumerResponse,
-    __MetadataBearer {}
+export interface DisassociateTrackerConsumerCommandOutput extends DisassociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a tracker resource and a geofence collection.</p> <note> <p>Once you unlink a tracker resource from a geofence collection, the tracker positions will no longer be automatically evaluated against geofences.</p> </note>

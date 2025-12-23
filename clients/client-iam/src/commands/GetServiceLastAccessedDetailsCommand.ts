@@ -24,9 +24,7 @@ export interface GetServiceLastAccessedDetailsCommandInput extends GetServiceLas
  *
  * The output of {@link GetServiceLastAccessedDetailsCommand}.
  */
-export interface GetServiceLastAccessedDetailsCommandOutput
-  extends GetServiceLastAccessedDetailsResponse,
-    __MetadataBearer {}
+export interface GetServiceLastAccessedDetailsCommandOutput extends GetServiceLastAccessedDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a service last accessed report that was created using the

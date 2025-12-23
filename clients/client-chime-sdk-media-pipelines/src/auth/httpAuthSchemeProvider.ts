@@ -49,17 +49,13 @@ export const defaultChimeSDKMediaPipelinesHttpAuthSchemeParametersProvider = asy
 ): Promise<ChimeSDKMediaPipelinesHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: ChimeSDKMediaPipelinesHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: ChimeSDKMediaPipelinesHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface ChimeSDKMediaPipelinesHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultChimeSDKMediaPipelinesHttpAuthSchemeProvider: ChimeSDKMediaPipelinesHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultChimeSDKMediaPipelinesHttpAuthSchemeProvider: ChimeSDKMediaPipelinesHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

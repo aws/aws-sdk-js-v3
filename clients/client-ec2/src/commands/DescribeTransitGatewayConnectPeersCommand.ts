@@ -27,9 +27,7 @@ export interface DescribeTransitGatewayConnectPeersCommandInput extends Describe
  *
  * The output of {@link DescribeTransitGatewayConnectPeersCommand}.
  */
-export interface DescribeTransitGatewayConnectPeersCommandOutput
-  extends DescribeTransitGatewayConnectPeersResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayConnectPeersCommandOutput extends DescribeTransitGatewayConnectPeersResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Connect peers.</p>

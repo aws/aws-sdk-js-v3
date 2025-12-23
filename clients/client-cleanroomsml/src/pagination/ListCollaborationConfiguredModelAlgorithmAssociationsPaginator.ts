@@ -21,10 +21,4 @@ export const paginateListCollaborationConfiguredModelAlgorithmAssociations: (
   CleanRoomsMLPaginationConfiguration,
   ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
   ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput
->(
-  CleanRoomsMLClient,
-  ListCollaborationConfiguredModelAlgorithmAssociationsCommand,
-  "nextToken",
-  "nextToken",
-  "maxResults"
-);
+>(CleanRoomsMLClient, ListCollaborationConfiguredModelAlgorithmAssociationsCommand, "nextToken", "nextToken", "maxResults");

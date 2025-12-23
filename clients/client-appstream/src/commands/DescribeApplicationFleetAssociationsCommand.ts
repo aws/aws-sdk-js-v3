@@ -27,9 +27,7 @@ export interface DescribeApplicationFleetAssociationsCommandInput extends Descri
  *
  * The output of {@link DescribeApplicationFleetAssociationsCommand}.
  */
-export interface DescribeApplicationFleetAssociationsCommandOutput
-  extends DescribeApplicationFleetAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeApplicationFleetAssociationsCommandOutput extends DescribeApplicationFleetAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>

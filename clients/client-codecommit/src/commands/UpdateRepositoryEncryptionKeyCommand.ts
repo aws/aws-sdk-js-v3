@@ -24,9 +24,7 @@ export interface UpdateRepositoryEncryptionKeyCommandInput extends UpdateReposit
  *
  * The output of {@link UpdateRepositoryEncryptionKeyCommand}.
  */
-export interface UpdateRepositoryEncryptionKeyCommandOutput
-  extends UpdateRepositoryEncryptionKeyOutput,
-    __MetadataBearer {}
+export interface UpdateRepositoryEncryptionKeyCommandOutput extends UpdateRepositoryEncryptionKeyOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>

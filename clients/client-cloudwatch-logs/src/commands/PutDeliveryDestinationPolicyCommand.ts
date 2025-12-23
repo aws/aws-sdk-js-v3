@@ -28,9 +28,7 @@ export interface PutDeliveryDestinationPolicyCommandInput extends PutDeliveryDes
  *
  * The output of {@link PutDeliveryDestinationPolicyCommand}.
  */
-export interface PutDeliveryDestinationPolicyCommandOutput
-  extends PutDeliveryDestinationPolicyResponse,
-    __MetadataBearer {}
+export interface PutDeliveryDestinationPolicyCommandOutput extends PutDeliveryDestinationPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account. To

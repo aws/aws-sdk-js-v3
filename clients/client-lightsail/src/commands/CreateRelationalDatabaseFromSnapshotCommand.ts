@@ -27,9 +27,7 @@ export interface CreateRelationalDatabaseFromSnapshotCommandInput extends Create
  *
  * The output of {@link CreateRelationalDatabaseFromSnapshotCommand}.
  */
-export interface CreateRelationalDatabaseFromSnapshotCommandOutput
-  extends CreateRelationalDatabaseFromSnapshotResult,
-    __MetadataBearer {}
+export interface CreateRelationalDatabaseFromSnapshotCommandOutput extends CreateRelationalDatabaseFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>

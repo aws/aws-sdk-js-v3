@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListOrganizationRecommendationAccountsCommand}.
  */
-export interface ListOrganizationRecommendationAccountsCommandInput
-  extends ListOrganizationRecommendationAccountsRequest {}
+export interface ListOrganizationRecommendationAccountsCommandInput extends ListOrganizationRecommendationAccountsRequest {}
 /**
  * @public
  *
  * The output of {@link ListOrganizationRecommendationAccountsCommand}.
  */
-export interface ListOrganizationRecommendationAccountsCommandOutput
-  extends ListOrganizationRecommendationAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationRecommendationAccountsCommandOutput extends ListOrganizationRecommendationAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the accounts that own the resources for an organization aggregate recommendation. This API only

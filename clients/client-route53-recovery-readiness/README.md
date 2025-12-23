@@ -9,10 +9,8 @@ AWS SDK for JavaScript Route53RecoveryReadiness Client for Node.js, Browser and 
 <p>Recovery readiness</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route53-recovery-readiness
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route53-recovery-readiness`
 - `yarn add @aws-sdk/client-route53-recovery-readiness`
 - `pnpm add @aws-sdk/client-route53-recovery-readiness`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53RecoveryReadinessClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListCellsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateCell
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/CreateCellCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateCellCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateCellCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ CreateCrossAccountAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/CreateCrossAccountAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateCrossAccountAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateCrossAccountAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ CreateReadinessCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/CreateReadinessCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateReadinessCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateReadinessCheckCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ CreateRecoveryGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/CreateRecoveryGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateRecoveryGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateRecoveryGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ CreateResourceSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/CreateResourceSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateResourceSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/CreateResourceSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ DeleteCell
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/DeleteCellCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteCellCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteCellCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ DeleteCrossAccountAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/DeleteCrossAccountAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteCrossAccountAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteCrossAccountAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ DeleteReadinessCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/DeleteReadinessCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteReadinessCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteReadinessCheckCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ DeleteRecoveryGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/DeleteRecoveryGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteRecoveryGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteRecoveryGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ DeleteResourceSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/DeleteResourceSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteResourceSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/DeleteResourceSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ GetArchitectureRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetArchitectureRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetArchitectureRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetArchitectureRecommendationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ GetCell
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetCellCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetCellCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetCellCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ GetCellReadinessSummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetCellReadinessSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetCellReadinessSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetCellReadinessSummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ GetReadinessCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetReadinessCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ GetReadinessCheckResourceStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetReadinessCheckResourceStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckResourceStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckResourceStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ GetReadinessCheckStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetReadinessCheckStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetReadinessCheckStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ GetRecoveryGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetRecoveryGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetRecoveryGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetRecoveryGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ GetRecoveryGroupReadinessSummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetRecoveryGroupReadinessSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetRecoveryGroupReadinessSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetRecoveryGroupReadinessSummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ GetResourceSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/GetResourceSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetResourceSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/GetResourceSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ ListCells
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListCellsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListCellsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListCellsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ ListCrossAccountAuthorizations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListCrossAccountAuthorizationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListCrossAccountAuthorizationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListCrossAccountAuthorizationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ ListReadinessChecks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListReadinessChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListReadinessChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListReadinessChecksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ ListRecoveryGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListRecoveryGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListRecoveryGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListRecoveryGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ ListResourceSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListResourceSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListResourceSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListResourceSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ ListRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ ListTagsForResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/ListTagsForResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListTagsForResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/ListTagsForResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ UpdateCell
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/UpdateCellCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateCellCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateCellCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ UpdateReadinessCheck
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/UpdateReadinessCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateReadinessCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateReadinessCheckCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +415,6 @@ UpdateRecoveryGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/UpdateRecoveryGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateRecoveryGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateRecoveryGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,5 +422,4 @@ UpdateResourceSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-readiness/command/UpdateResourceSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateResourceSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-readiness/Interface/UpdateResourceSetCommandOutput/)
-
 </details>

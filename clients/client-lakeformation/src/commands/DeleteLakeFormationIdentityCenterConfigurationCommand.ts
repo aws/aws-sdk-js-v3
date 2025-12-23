@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DeleteLakeFormationIdentityCenterConfigurationCommandInput
-  extends DeleteLakeFormationIdentityCenterConfigurationRequest {}
+export interface DeleteLakeFormationIdentityCenterConfigurationCommandInput extends DeleteLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface DeleteLakeFormationIdentityCenterConfigurationCommandOutput
-  extends DeleteLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteLakeFormationIdentityCenterConfigurationCommandOutput extends DeleteLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an IAM Identity Center connection with Lake Formation.</p>

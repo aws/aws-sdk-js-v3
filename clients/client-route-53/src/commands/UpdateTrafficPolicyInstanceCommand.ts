@@ -25,9 +25,7 @@ export interface UpdateTrafficPolicyInstanceCommandInput extends UpdateTrafficPo
  *
  * The output of {@link UpdateTrafficPolicyInstanceCommand}.
  */
-export interface UpdateTrafficPolicyInstanceCommandOutput
-  extends UpdateTrafficPolicyInstanceResponse,
-    __MetadataBearer {}
+export interface UpdateTrafficPolicyInstanceCommandOutput extends UpdateTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
  * <note>
@@ -135,7 +133,10 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "UpdateTrafficPolicyInstance", {})
   .n("Route53Client", "UpdateTrafficPolicyInstanceCommand")

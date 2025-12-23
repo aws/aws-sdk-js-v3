@@ -27,9 +27,7 @@ export interface BatchRemoveChannelRoleFromAccessorsCommandInput extends BatchRe
  *
  * The output of {@link BatchRemoveChannelRoleFromAccessorsCommand}.
  */
-export interface BatchRemoveChannelRoleFromAccessorsCommandOutput
-  extends BatchRemoveChannelRoleFromAccessorsOutput,
-    __MetadataBearer {}
+export interface BatchRemoveChannelRoleFromAccessorsCommandOutput extends BatchRemoveChannelRoleFromAccessorsOutput, __MetadataBearer {}
 
 /**
  * <p>Remove a role from multiple users or groups in a private re:Post channel.</p>

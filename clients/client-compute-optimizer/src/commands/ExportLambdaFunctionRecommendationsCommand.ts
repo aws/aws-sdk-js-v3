@@ -31,9 +31,7 @@ export interface ExportLambdaFunctionRecommendationsCommandInput extends ExportL
  *
  * The output of {@link ExportLambdaFunctionRecommendationsCommand}.
  */
-export interface ExportLambdaFunctionRecommendationsCommandOutput
-  extends ExportLambdaFunctionRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportLambdaFunctionRecommendationsCommandOutput extends ExportLambdaFunctionRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Lambda functions.</p>

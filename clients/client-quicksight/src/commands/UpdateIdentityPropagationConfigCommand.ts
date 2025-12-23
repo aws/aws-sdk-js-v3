@@ -27,9 +27,7 @@ export interface UpdateIdentityPropagationConfigCommandInput extends UpdateIdent
  *
  * The output of {@link UpdateIdentityPropagationConfigCommand}.
  */
-export interface UpdateIdentityPropagationConfigCommandOutput
-  extends UpdateIdentityPropagationConfigResponse,
-    __MetadataBearer {}
+export interface UpdateIdentityPropagationConfigCommandOutput extends UpdateIdentityPropagationConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates services and authorized targets to configure what the Quick Sight IAM Identity Center application can access.</p>

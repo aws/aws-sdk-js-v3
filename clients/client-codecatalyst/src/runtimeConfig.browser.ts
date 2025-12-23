@@ -28,9 +28,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     runtime: "browser",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

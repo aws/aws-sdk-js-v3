@@ -24,9 +24,7 @@ export interface DescribeDetectorModelAnalysisCommandInput extends DescribeDetec
  *
  * The output of {@link DescribeDetectorModelAnalysisCommand}.
  */
-export interface DescribeDetectorModelAnalysisCommandOutput
-  extends DescribeDetectorModelAnalysisResponse,
-    __MetadataBearer {}
+export interface DescribeDetectorModelAnalysisCommandOutput extends DescribeDetectorModelAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves runtime information about a detector model analysis.</p>

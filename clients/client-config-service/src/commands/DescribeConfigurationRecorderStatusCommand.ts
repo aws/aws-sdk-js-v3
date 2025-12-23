@@ -27,9 +27,7 @@ export interface DescribeConfigurationRecorderStatusCommandInput extends Describ
  *
  * The output of {@link DescribeConfigurationRecorderStatusCommand}.
  */
-export interface DescribeConfigurationRecorderStatusCommandOutput
-  extends DescribeConfigurationRecorderStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRecorderStatusCommandOutput extends DescribeConfigurationRecorderStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the configuration

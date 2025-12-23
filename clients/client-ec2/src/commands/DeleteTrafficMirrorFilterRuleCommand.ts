@@ -24,9 +24,7 @@ export interface DeleteTrafficMirrorFilterRuleCommandInput extends DeleteTraffic
  *
  * The output of {@link DeleteTrafficMirrorFilterRuleCommand}.
  */
-export interface DeleteTrafficMirrorFilterRuleCommandOutput
-  extends DeleteTrafficMirrorFilterRuleResult,
-    __MetadataBearer {}
+export interface DeleteTrafficMirrorFilterRuleCommandOutput extends DeleteTrafficMirrorFilterRuleResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Traffic Mirror rule.</p>

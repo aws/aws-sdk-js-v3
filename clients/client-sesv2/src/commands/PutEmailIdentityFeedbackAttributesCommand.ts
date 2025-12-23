@@ -27,9 +27,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmail
  *
  * The output of {@link PutEmailIdentityFeedbackAttributesCommand}.
  */
-export interface PutEmailIdentityFeedbackAttributesCommandOutput
-  extends PutEmailIdentityFeedbackAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityFeedbackAttributesCommandOutput extends PutEmailIdentityFeedbackAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines

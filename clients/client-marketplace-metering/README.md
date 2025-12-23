@@ -7,7 +7,6 @@
 AWS SDK for JavaScript MarketplaceMetering Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Web Services Marketplace Metering Service</fullname>
-
 <p>This reference provides descriptions of the low-level Marketplace Metering Service API.</p>
 <p>Amazon Web Services Marketplace sellers can use this API to submit usage data for custom usage
 dimensions.</p>
@@ -148,10 +147,8 @@ Marketplace Seller Operations</a>.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-metering
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-metering`
 - `yarn add @aws-sdk/client-marketplace-metering`
 - `pnpm add @aws-sdk/client-marketplace-metering`
@@ -187,9 +184,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceMeteringClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ResolveCustomerCommand(params);
 ```
 
@@ -348,7 +343,6 @@ BatchMeterUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/BatchMeterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/BatchMeterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/BatchMeterUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +350,6 @@ MeterUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/MeterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/MeterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/MeterUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +357,6 @@ RegisterUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/RegisterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/RegisterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/RegisterUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,5 +364,4 @@ ResolveCustomer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/ResolveCustomerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/ResolveCustomerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/ResolveCustomerCommandOutput/)
-
 </details>

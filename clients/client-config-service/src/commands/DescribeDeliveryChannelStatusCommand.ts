@@ -24,9 +24,7 @@ export interface DescribeDeliveryChannelStatusCommandInput extends DescribeDeliv
  *
  * The output of {@link DescribeDeliveryChannelStatusCommand}.
  */
-export interface DescribeDeliveryChannelStatusCommandOutput
-  extends DescribeDeliveryChannelStatusResponse,
-    __MetadataBearer {}
+export interface DescribeDeliveryChannelStatusCommandOutput extends DescribeDeliveryChannelStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the specified delivery channel.

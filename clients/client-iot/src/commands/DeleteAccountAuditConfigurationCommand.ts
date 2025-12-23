@@ -27,9 +27,7 @@ export interface DeleteAccountAuditConfigurationCommandInput extends DeleteAccou
  *
  * The output of {@link DeleteAccountAuditConfigurationCommand}.
  */
-export interface DeleteAccountAuditConfigurationCommandOutput
-  extends DeleteAccountAuditConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAccountAuditConfigurationCommandOutput extends DeleteAccountAuditConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Restores the default settings for Device Defender audits for this account. Any

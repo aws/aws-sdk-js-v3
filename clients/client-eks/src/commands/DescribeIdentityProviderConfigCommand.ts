@@ -24,9 +24,7 @@ export interface DescribeIdentityProviderConfigCommandInput extends DescribeIden
  *
  * The output of {@link DescribeIdentityProviderConfigCommand}.
  */
-export interface DescribeIdentityProviderConfigCommandOutput
-  extends DescribeIdentityProviderConfigResponse,
-    __MetadataBearer {}
+export interface DescribeIdentityProviderConfigCommandOutput extends DescribeIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an identity provider configuration.</p>

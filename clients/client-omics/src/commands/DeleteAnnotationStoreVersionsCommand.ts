@@ -24,9 +24,7 @@ export interface DeleteAnnotationStoreVersionsCommandInput extends DeleteAnnotat
  *
  * The output of {@link DeleteAnnotationStoreVersionsCommand}.
  */
-export interface DeleteAnnotationStoreVersionsCommandOutput
-  extends DeleteAnnotationStoreVersionsResponse,
-    __MetadataBearer {}
+export interface DeleteAnnotationStoreVersionsCommandOutput extends DeleteAnnotationStoreVersionsResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes one or multiple versions of an annotation store. </p>

@@ -27,9 +27,7 @@ export interface ListRelatedResourcesForAuditFindingCommandInput extends ListRel
  *
  * The output of {@link ListRelatedResourcesForAuditFindingCommand}.
  */
-export interface ListRelatedResourcesForAuditFindingCommandOutput
-  extends ListRelatedResourcesForAuditFindingResponse,
-    __MetadataBearer {}
+export interface ListRelatedResourcesForAuditFindingCommandOutput extends ListRelatedResourcesForAuditFindingResponse, __MetadataBearer {}
 
 /**
  * <p>The related resources of an Audit finding.

@@ -24,9 +24,7 @@ export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerC
  *
  * The output of {@link DescribeWorkerConfigurationCommand}.
  */
-export interface DescribeWorkerConfigurationCommandOutput
-  extends DescribeWorkerConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeWorkerConfigurationCommandOutput extends DescribeWorkerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a worker configuration.</p>

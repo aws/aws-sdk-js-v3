@@ -44,7 +44,10 @@ export interface JsonFormatRef {
  * <p>An object that represents the format for the logs.</p>
  * @public
  */
-export type LoggingFormat = LoggingFormat.JsonMember | LoggingFormat.TextMember | LoggingFormat.$UnknownMember;
+export type LoggingFormat =
+  | LoggingFormat.JsonMember
+  | LoggingFormat.TextMember
+  | LoggingFormat.$UnknownMember;
 
 /**
  * @public
@@ -121,7 +124,9 @@ export interface FileAccessLog {
  * <p>An object that represents the access logging information for a virtual node.</p>
  * @public
  */
-export type AccessLog = AccessLog.FileMember | AccessLog.$UnknownMember;
+export type AccessLog =
+  | AccessLog.FileMember
+  | AccessLog.$UnknownMember;
 
 /**
  * @public
@@ -1370,7 +1375,9 @@ export interface VirtualGatewayFileAccessLog {
  * <p>The access log configuration for a virtual gateway.</p>
  * @public
  */
-export type VirtualGatewayAccessLog = VirtualGatewayAccessLog.FileMember | VirtualGatewayAccessLog.$UnknownMember;
+export type VirtualGatewayAccessLog =
+  | VirtualGatewayAccessLog.FileMember
+  | VirtualGatewayAccessLog.$UnknownMember;
 
 /**
  * @public
@@ -3118,7 +3125,9 @@ export interface VirtualServiceBackend {
  *          traffic to.</p>
  * @public
  */
-export type Backend = Backend.VirtualServiceMember | Backend.$UnknownMember;
+export type Backend =
+  | Backend.VirtualServiceMember
+  | Backend.$UnknownMember;
 
 /**
  * @public

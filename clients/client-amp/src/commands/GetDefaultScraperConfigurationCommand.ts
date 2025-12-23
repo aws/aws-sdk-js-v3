@@ -24,9 +24,7 @@ export interface GetDefaultScraperConfigurationCommandInput extends GetDefaultSc
  *
  * The output of {@link GetDefaultScraperConfigurationCommand}.
  */
-export interface GetDefaultScraperConfigurationCommandOutput
-  extends GetDefaultScraperConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDefaultScraperConfigurationCommandOutput extends GetDefaultScraperConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default scraper configuration used when Amazon EKS creates a scraper for you.</p>

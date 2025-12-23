@@ -24,9 +24,7 @@ export interface UpdateRecoveryPointIndexSettingsCommandInput extends UpdateReco
  *
  * The output of {@link UpdateRecoveryPointIndexSettingsCommand}.
  */
-export interface UpdateRecoveryPointIndexSettingsCommandOutput
-  extends UpdateRecoveryPointIndexSettingsOutput,
-    __MetadataBearer {}
+export interface UpdateRecoveryPointIndexSettingsCommandOutput extends UpdateRecoveryPointIndexSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation updates the settings of a recovery point index.</p>

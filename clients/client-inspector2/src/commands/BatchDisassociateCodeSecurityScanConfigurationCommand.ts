@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchDisassociateCodeSecurityScanConfigurationCommandInput
-  extends BatchDisassociateCodeSecurityScanConfigurationRequest {}
+export interface BatchDisassociateCodeSecurityScanConfigurationCommandInput extends BatchDisassociateCodeSecurityScanConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateCodeSecurityScanConfigurationCommand}.
  */
-export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput
-  extends BatchDisassociateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput extends BatchDisassociateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates multiple code repositories from an Amazon Inspector code security scan

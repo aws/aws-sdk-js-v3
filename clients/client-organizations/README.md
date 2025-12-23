@@ -79,10 +79,8 @@ Organizations API calls with CloudTrail</a> in the
 on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">CloudTrail User Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-organizations
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-organizations`
 - `yarn add @aws-sdk/client-organizations`
 - `pnpm add @aws-sdk/client-organizations`
@@ -118,9 +116,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new OrganizationsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRootsCommand(params);
 ```
 
@@ -279,7 +275,6 @@ AcceptHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/AcceptHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/AcceptHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/AcceptHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +282,6 @@ AttachPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/AttachPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/AttachPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/AttachPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +289,6 @@ CancelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CancelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CancelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CancelHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +296,6 @@ CloseAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CloseAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CloseAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CloseAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +303,6 @@ CreateAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CreateAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +310,6 @@ CreateGovCloudAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CreateGovCloudAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateGovCloudAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateGovCloudAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,7 +317,6 @@ CreateOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CreateOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -335,7 +324,6 @@ CreateOrganizationalUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CreateOrganizationalUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateOrganizationalUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreateOrganizationalUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -343,7 +331,6 @@ CreatePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/CreatePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreatePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/CreatePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -351,7 +338,6 @@ DeclineHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeclineHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeclineHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeclineHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -359,7 +345,6 @@ DeleteOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeleteOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -367,7 +352,6 @@ DeleteOrganizationalUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeleteOrganizationalUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteOrganizationalUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteOrganizationalUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -375,7 +359,6 @@ DeletePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeletePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeletePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeletePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -383,7 +366,6 @@ DeleteResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeleteResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +373,6 @@ DeregisterDelegatedAdministrator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DeregisterDelegatedAdministratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeregisterDelegatedAdministratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DeregisterDelegatedAdministratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +380,6 @@ DescribeAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,7 +387,6 @@ DescribeCreateAccountStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeCreateAccountStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeCreateAccountStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeCreateAccountStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -415,7 +394,6 @@ DescribeEffectivePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeEffectivePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeEffectivePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeEffectivePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -423,7 +401,6 @@ DescribeHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeHandshakeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -431,7 +408,6 @@ DescribeOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -439,7 +415,6 @@ DescribeOrganizationalUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeOrganizationalUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeOrganizationalUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeOrganizationalUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -447,7 +422,6 @@ DescribePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -455,7 +429,6 @@ DescribeResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -463,7 +436,6 @@ DescribeResponsibilityTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResponsibilityTransferCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -471,7 +443,6 @@ DetachPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DetachPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DetachPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DetachPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -479,7 +450,6 @@ DisableAWSServiceAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DisableAWSServiceAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DisableAWSServiceAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DisableAWSServiceAccessCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -487,7 +457,6 @@ DisablePolicyType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DisablePolicyTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DisablePolicyTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DisablePolicyTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -495,7 +464,6 @@ EnableAllFeatures
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/EnableAllFeaturesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnableAllFeaturesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnableAllFeaturesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -503,7 +471,6 @@ EnableAWSServiceAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/EnableAWSServiceAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnableAWSServiceAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnableAWSServiceAccessCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -511,7 +478,6 @@ EnablePolicyType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/EnablePolicyTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnablePolicyTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/EnablePolicyTypeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -519,7 +485,6 @@ InviteAccountToOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/InviteAccountToOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteAccountToOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteAccountToOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -527,7 +492,6 @@ InviteOrganizationToTransferResponsibility
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/InviteOrganizationToTransferResponsibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteOrganizationToTransferResponsibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteOrganizationToTransferResponsibilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -535,7 +499,6 @@ LeaveOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/LeaveOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/LeaveOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/LeaveOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -543,7 +506,6 @@ ListAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -551,7 +513,6 @@ ListAccountsForParent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListAccountsForParentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsForParentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsForParentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -559,7 +520,6 @@ ListAccountsWithInvalidEffectivePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListAccountsWithInvalidEffectivePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsWithInvalidEffectivePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAccountsWithInvalidEffectivePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -567,7 +527,6 @@ ListAWSServiceAccessForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListAWSServiceAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAWSServiceAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListAWSServiceAccessForOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -575,7 +534,6 @@ ListChildren
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListChildrenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListChildrenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListChildrenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -583,7 +541,6 @@ ListCreateAccountStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListCreateAccountStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListCreateAccountStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListCreateAccountStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -591,7 +548,6 @@ ListDelegatedAdministrators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListDelegatedAdministratorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedAdministratorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedAdministratorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -599,7 +555,6 @@ ListDelegatedServicesForAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListDelegatedServicesForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedServicesForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListDelegatedServicesForAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -607,7 +562,6 @@ ListEffectivePolicyValidationErrors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListEffectivePolicyValidationErrorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListEffectivePolicyValidationErrorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListEffectivePolicyValidationErrorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -615,7 +569,6 @@ ListHandshakesForAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListHandshakesForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListHandshakesForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListHandshakesForAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -623,7 +576,6 @@ ListHandshakesForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListHandshakesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListHandshakesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListHandshakesForOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -631,7 +583,6 @@ ListInboundResponsibilityTransfers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListInboundResponsibilityTransfersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListInboundResponsibilityTransfersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListInboundResponsibilityTransfersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -639,7 +590,6 @@ ListOrganizationalUnitsForParent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListOrganizationalUnitsForParentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOrganizationalUnitsForParentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOrganizationalUnitsForParentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -647,7 +597,6 @@ ListOutboundResponsibilityTransfers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListOutboundResponsibilityTransfersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOutboundResponsibilityTransfersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOutboundResponsibilityTransfersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -655,7 +604,6 @@ ListParents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListParentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListParentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListParentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -663,7 +611,6 @@ ListPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListPoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -671,7 +618,6 @@ ListPoliciesForTarget
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListPoliciesForTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListPoliciesForTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListPoliciesForTargetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -679,7 +625,6 @@ ListRoots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListRootsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListRootsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListRootsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -687,7 +632,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -695,7 +639,6 @@ ListTargetsForPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListTargetsForPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListTargetsForPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListTargetsForPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -703,7 +646,6 @@ MoveAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/MoveAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/MoveAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/MoveAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -711,7 +653,6 @@ PutResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/PutResourcePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -719,7 +660,6 @@ RegisterDelegatedAdministrator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/RegisterDelegatedAdministratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/RegisterDelegatedAdministratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/RegisterDelegatedAdministratorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -727,7 +667,6 @@ RemoveAccountFromOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/RemoveAccountFromOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/RemoveAccountFromOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/RemoveAccountFromOrganizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -735,7 +674,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -743,7 +681,6 @@ TerminateResponsibilityTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/TerminateResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TerminateResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TerminateResponsibilityTransferCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -751,7 +688,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -759,7 +695,6 @@ UpdateOrganizationalUnit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UpdateOrganizationalUnitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateOrganizationalUnitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateOrganizationalUnitCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -767,7 +702,6 @@ UpdatePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UpdatePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdatePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdatePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -775,5 +709,4 @@ UpdateResponsibilityTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UpdateResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateResponsibilityTransferCommandOutput/)
-
 </details>

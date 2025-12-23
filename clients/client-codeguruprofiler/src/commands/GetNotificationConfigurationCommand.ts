@@ -28,9 +28,7 @@ export interface GetNotificationConfigurationCommandInput extends GetNotificatio
  *
  * The output of {@link GetNotificationConfigurationCommand}.
  */
-export interface GetNotificationConfigurationCommandOutput
-  extends GetNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetNotificationConfigurationCommandOutput extends GetNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get the current configuration for anomaly notifications for a profiling group.</p>

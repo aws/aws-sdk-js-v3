@@ -24,9 +24,7 @@ export interface DeletePullRequestApprovalRuleCommandInput extends DeletePullReq
  *
  * The output of {@link DeletePullRequestApprovalRuleCommand}.
  */
-export interface DeletePullRequestApprovalRuleCommandOutput
-  extends DeletePullRequestApprovalRuleOutput,
-    __MetadataBearer {}
+export interface DeletePullRequestApprovalRuleCommandOutput extends DeletePullRequestApprovalRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an approval rule from a specified pull request. Approval rules can be deleted from a pull request only if the pull request is open, and if the

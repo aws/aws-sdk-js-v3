@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
-export interface UpdateLicenseSpecificationsForResourceCommandInput
-  extends UpdateLicenseSpecificationsForResourceRequest {}
+export interface UpdateLicenseSpecificationsForResourceCommandInput extends UpdateLicenseSpecificationsForResourceRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateLicenseSpecificationsForResourceCommand}.
  */
-export interface UpdateLicenseSpecificationsForResourceCommandOutput
-  extends UpdateLicenseSpecificationsForResourceResponse,
-    __MetadataBearer {}
+export interface UpdateLicenseSpecificationsForResourceCommandOutput extends UpdateLicenseSpecificationsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>

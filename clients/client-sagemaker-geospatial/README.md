@@ -9,10 +9,8 @@ AWS SDK for JavaScript SageMakerGeospatial Client for Node.js, Browser and React
 <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-geospatial
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-geospatial`
 - `yarn add @aws-sdk/client-sagemaker-geospatial`
 - `pnpm add @aws-sdk/client-sagemaker-geospatial`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SageMakerGeospatialClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListEarthObservationJobsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ DeleteEarthObservationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/DeleteEarthObservationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/DeleteEarthObservationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/DeleteEarthObservationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteVectorEnrichmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/DeleteVectorEnrichmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/DeleteVectorEnrichmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/DeleteVectorEnrichmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ ExportEarthObservationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ExportEarthObservationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ExportEarthObservationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ExportEarthObservationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ ExportVectorEnrichmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ExportVectorEnrichmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ExportVectorEnrichmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ExportVectorEnrichmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ GetEarthObservationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/GetEarthObservationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetEarthObservationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetEarthObservationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ GetRasterDataCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/GetRasterDataCollectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetRasterDataCollectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetRasterDataCollectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ GetTile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/GetTileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetTileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetTileCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ GetVectorEnrichmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/GetVectorEnrichmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetVectorEnrichmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/GetVectorEnrichmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ ListEarthObservationJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ListEarthObservationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListEarthObservationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListEarthObservationJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ ListRasterDataCollections
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ListRasterDataCollectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListRasterDataCollectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListRasterDataCollectionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ ListVectorEnrichmentJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/ListVectorEnrichmentJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListVectorEnrichmentJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/ListVectorEnrichmentJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ SearchRasterDataCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/SearchRasterDataCollectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/SearchRasterDataCollectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/SearchRasterDataCollectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ StartEarthObservationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/StartEarthObservationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StartEarthObservationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StartEarthObservationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ StartVectorEnrichmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/StartVectorEnrichmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StartVectorEnrichmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StartVectorEnrichmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ StopEarthObservationJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/StopEarthObservationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StopEarthObservationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StopEarthObservationJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ StopVectorEnrichmentJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/StopVectorEnrichmentJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StopVectorEnrichmentJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/StopVectorEnrichmentJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,5 +331,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-geospatial/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-geospatial/Interface/UntagResourceCommandOutput/)
-
 </details>

@@ -31,9 +31,7 @@ export interface InvokeBlueprintOptimizationAsyncCommandInput extends InvokeBlue
  *
  * The output of {@link InvokeBlueprintOptimizationAsyncCommand}.
  */
-export interface InvokeBlueprintOptimizationAsyncCommandOutput
-  extends InvokeBlueprintOptimizationAsyncResponse,
-    __MetadataBearer {}
+export interface InvokeBlueprintOptimizationAsyncCommandOutput extends InvokeBlueprintOptimizationAsyncResponse, __MetadataBearer {}
 
 /**
  * Invoke an async job to perform Blueprint Optimization

@@ -24,9 +24,7 @@ export interface BatchModifyClusterSnapshotsCommandInput extends BatchModifyClus
  *
  * The output of {@link BatchModifyClusterSnapshotsCommand}.
  */
-export interface BatchModifyClusterSnapshotsCommandOutput
-  extends BatchModifyClusterSnapshotsOutputMessage,
-    __MetadataBearer {}
+export interface BatchModifyClusterSnapshotsCommandOutput extends BatchModifyClusterSnapshotsOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a set of cluster snapshots.</p>

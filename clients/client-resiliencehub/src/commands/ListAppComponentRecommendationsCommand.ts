@@ -27,9 +27,7 @@ export interface ListAppComponentRecommendationsCommandInput extends ListAppComp
  *
  * The output of {@link ListAppComponentRecommendationsCommand}.
  */
-export interface ListAppComponentRecommendationsCommandOutput
-  extends ListAppComponentRecommendationsResponse,
-    __MetadataBearer {}
+export interface ListAppComponentRecommendationsCommandOutput extends ListAppComponentRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recommendations for an Resilience Hub Application Component.</p>

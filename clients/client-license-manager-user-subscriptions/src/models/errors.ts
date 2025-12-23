@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { LicenseManagerUserSubscriptionsServiceException as __BaseException } from "./LicenseManagerUserSubscriptionsServiceException";
+import {
+  LicenseManagerUserSubscriptionsServiceException as __BaseException,
+} from "./LicenseManagerUserSubscriptionsServiceException";
 
 /**
  * <p>You don't have sufficient access to perform this action.</p>

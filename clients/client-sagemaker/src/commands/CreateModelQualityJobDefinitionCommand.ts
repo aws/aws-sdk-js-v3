@@ -27,9 +27,7 @@ export interface CreateModelQualityJobDefinitionCommandInput extends CreateModel
  *
  * The output of {@link CreateModelQualityJobDefinitionCommand}.
  */
-export interface CreateModelQualityJobDefinitionCommandOutput
-  extends CreateModelQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateModelQualityJobDefinitionCommandOutput extends CreateModelQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a definition for a job that monitors model quality and drift. For information about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker AI Model Monitor</a>.</p>

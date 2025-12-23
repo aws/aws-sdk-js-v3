@@ -24,9 +24,7 @@ export interface ReplaceNetworkAclAssociationCommandInput extends ReplaceNetwork
  *
  * The output of {@link ReplaceNetworkAclAssociationCommand}.
  */
-export interface ReplaceNetworkAclAssociationCommandOutput
-  extends ReplaceNetworkAclAssociationResult,
-    __MetadataBearer {}
+export interface ReplaceNetworkAclAssociationCommandOutput extends ReplaceNetworkAclAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Changes which network ACL a subnet is associated with. By default when you create a

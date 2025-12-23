@@ -28,9 +28,7 @@ export interface CancelMetadataModelCreationCommandInput extends CancelMetadataM
  *
  * The output of {@link CancelMetadataModelCreationCommand}.
  */
-export interface CancelMetadataModelCreationCommandOutput
-  extends CancelMetadataModelCreationResponse,
-    __MetadataBearer {}
+export interface CancelMetadataModelCreationCommandOutput extends CancelMetadataModelCreationResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a single metadata model creation operation that was started with <code>StartMetadataModelCreation</code>.</p>

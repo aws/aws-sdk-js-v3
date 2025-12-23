@@ -24,9 +24,7 @@ export interface DisassociateMemberFromQueueCommandInput extends DisassociateMem
  *
  * The output of {@link DisassociateMemberFromQueueCommand}.
  */
-export interface DisassociateMemberFromQueueCommandOutput
-  extends DisassociateMemberFromQueueResponse,
-    __MetadataBearer {}
+export interface DisassociateMemberFromQueueCommandOutput extends DisassociateMemberFromQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a member from a queue.</p>

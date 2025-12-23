@@ -27,9 +27,7 @@ export interface DescribeUsageReportSubscriptionsCommandInput extends DescribeUs
  *
  * The output of {@link DescribeUsageReportSubscriptionsCommand}.
  */
-export interface DescribeUsageReportSubscriptionsCommandOutput
-  extends DescribeUsageReportSubscriptionsResult,
-    __MetadataBearer {}
+export interface DescribeUsageReportSubscriptionsCommandOutput extends DescribeUsageReportSubscriptionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more usage report subscriptions.</p>

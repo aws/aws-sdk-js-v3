@@ -24,9 +24,7 @@ export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlack
  *
  * The output of {@link DeleteSlackChannelConfigurationCommand}.
  */
-export interface DeleteSlackChannelConfigurationCommandOutput
-  extends DeleteSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteSlackChannelConfigurationCommandOutput extends DeleteSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Slack channel configuration for AWS Chatbot</p>

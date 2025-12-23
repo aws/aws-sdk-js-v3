@@ -28,9 +28,7 @@ export interface CreateFleetAdvisorCollectorCommandInput extends CreateFleetAdvi
  *
  * The output of {@link CreateFleetAdvisorCollectorCommand}.
  */
-export interface CreateFleetAdvisorCollectorCommandOutput
-  extends CreateFleetAdvisorCollectorResponse,
-    __MetadataBearer {}
+export interface CreateFleetAdvisorCollectorCommandOutput extends CreateFleetAdvisorCollectorResponse, __MetadataBearer {}
 
 /**
  * <important>

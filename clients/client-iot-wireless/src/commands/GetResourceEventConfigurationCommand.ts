@@ -24,9 +24,7 @@ export interface GetResourceEventConfigurationCommandInput extends GetResourceEv
  *
  * The output of {@link GetResourceEventConfigurationCommand}.
  */
-export interface GetResourceEventConfigurationCommandOutput
-  extends GetResourceEventConfigurationResponse,
-    __MetadataBearer {}
+export interface GetResourceEventConfigurationCommandOutput extends GetResourceEventConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Get the event configuration for a particular resource identifier.</p>

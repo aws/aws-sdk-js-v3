@@ -24,9 +24,7 @@ export interface ListDocumentClassificationJobsCommandInput extends ListDocument
  *
  * The output of {@link ListDocumentClassificationJobsCommand}.
  */
-export interface ListDocumentClassificationJobsCommandOutput
-  extends ListDocumentClassificationJobsResponse,
-    __MetadataBearer {}
+export interface ListDocumentClassificationJobsCommandOutput extends ListDocumentClassificationJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>

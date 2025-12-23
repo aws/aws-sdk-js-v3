@@ -31,9 +31,7 @@ export interface ListEventIntegrationAssociationsCommandInput extends ListEventI
  *
  * The output of {@link ListEventIntegrationAssociationsCommand}.
  */
-export interface ListEventIntegrationAssociationsCommandOutput
-  extends ListEventIntegrationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListEventIntegrationAssociationsCommandOutput extends ListEventIntegrationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of event integration associations in the account. </p>

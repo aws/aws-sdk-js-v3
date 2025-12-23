@@ -407,7 +407,10 @@ export interface WellArchitected {
     args: AssociateLensesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociateLensesCommandOutput>;
-  associateLenses(args: AssociateLensesCommandInput, cb: (err: any, data?: AssociateLensesCommandOutput) => void): void;
+  associateLenses(
+    args: AssociateLensesCommandInput,
+    cb: (err: any, data?: AssociateLensesCommandOutput) => void
+  ): void;
   associateLenses(
     args: AssociateLensesCommandInput,
     options: __HttpHandlerOptions,
@@ -438,7 +441,10 @@ export interface WellArchitected {
     args: CreateLensShareCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLensShareCommandOutput>;
-  createLensShare(args: CreateLensShareCommandInput, cb: (err: any, data?: CreateLensShareCommandOutput) => void): void;
+  createLensShare(
+    args: CreateLensShareCommandInput,
+    cb: (err: any, data?: CreateLensShareCommandOutput) => void
+  ): void;
   createLensShare(
     args: CreateLensShareCommandInput,
     options: __HttpHandlerOptions,
@@ -469,7 +475,10 @@ export interface WellArchitected {
     args: CreateMilestoneCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateMilestoneCommandOutput>;
-  createMilestone(args: CreateMilestoneCommandInput, cb: (err: any, data?: CreateMilestoneCommandOutput) => void): void;
+  createMilestone(
+    args: CreateMilestoneCommandInput,
+    cb: (err: any, data?: CreateMilestoneCommandOutput) => void
+  ): void;
   createMilestone(
     args: CreateMilestoneCommandInput,
     options: __HttpHandlerOptions,
@@ -479,8 +488,14 @@ export interface WellArchitected {
   /**
    * @see {@link CreateProfileCommand}
    */
-  createProfile(args: CreateProfileCommandInput, options?: __HttpHandlerOptions): Promise<CreateProfileCommandOutput>;
-  createProfile(args: CreateProfileCommandInput, cb: (err: any, data?: CreateProfileCommandOutput) => void): void;
+  createProfile(
+    args: CreateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileCommandOutput>;
+  createProfile(
+    args: CreateProfileCommandInput,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
   createProfile(
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -545,7 +560,10 @@ export interface WellArchitected {
     args: CreateWorkloadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkloadCommandOutput>;
-  createWorkload(args: CreateWorkloadCommandInput, cb: (err: any, data?: CreateWorkloadCommandOutput) => void): void;
+  createWorkload(
+    args: CreateWorkloadCommandInput,
+    cb: (err: any, data?: CreateWorkloadCommandOutput) => void
+  ): void;
   createWorkload(
     args: CreateWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -572,8 +590,14 @@ export interface WellArchitected {
   /**
    * @see {@link DeleteLensCommand}
    */
-  deleteLens(args: DeleteLensCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLensCommandOutput>;
-  deleteLens(args: DeleteLensCommandInput, cb: (err: any, data?: DeleteLensCommandOutput) => void): void;
+  deleteLens(
+    args: DeleteLensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLensCommandOutput>;
+  deleteLens(
+    args: DeleteLensCommandInput,
+    cb: (err: any, data?: DeleteLensCommandOutput) => void
+  ): void;
   deleteLens(
     args: DeleteLensCommandInput,
     options: __HttpHandlerOptions,
@@ -587,7 +611,10 @@ export interface WellArchitected {
     args: DeleteLensShareCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLensShareCommandOutput>;
-  deleteLensShare(args: DeleteLensShareCommandInput, cb: (err: any, data?: DeleteLensShareCommandOutput) => void): void;
+  deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
+  ): void;
   deleteLensShare(
     args: DeleteLensShareCommandInput,
     options: __HttpHandlerOptions,
@@ -597,8 +624,14 @@ export interface WellArchitected {
   /**
    * @see {@link DeleteProfileCommand}
    */
-  deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
-  deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileCommandOutput>;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
   deleteProfile(
     args: DeleteProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -663,7 +696,10 @@ export interface WellArchitected {
     args: DeleteWorkloadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkloadCommandOutput>;
-  deleteWorkload(args: DeleteWorkloadCommandInput, cb: (err: any, data?: DeleteWorkloadCommandOutput) => void): void;
+  deleteWorkload(
+    args: DeleteWorkloadCommandInput,
+    cb: (err: any, data?: DeleteWorkloadCommandOutput) => void
+  ): void;
   deleteWorkload(
     args: DeleteWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -724,8 +760,14 @@ export interface WellArchitected {
   /**
    * @see {@link ExportLensCommand}
    */
-  exportLens(args: ExportLensCommandInput, options?: __HttpHandlerOptions): Promise<ExportLensCommandOutput>;
-  exportLens(args: ExportLensCommandInput, cb: (err: any, data?: ExportLensCommandOutput) => void): void;
+  exportLens(
+    args: ExportLensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportLensCommandOutput>;
+  exportLens(
+    args: ExportLensCommandInput,
+    cb: (err: any, data?: ExportLensCommandOutput) => void
+  ): void;
   exportLens(
     args: ExportLensCommandInput,
     options: __HttpHandlerOptions,
@@ -735,8 +777,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetAnswerCommand}
    */
-  getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
-  getAnswer(args: GetAnswerCommandInput, cb: (err: any, data?: GetAnswerCommandOutput) => void): void;
+  getAnswer(
+    args: GetAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnswerCommandOutput>;
+  getAnswer(
+    args: GetAnswerCommandInput,
+    cb: (err: any, data?: GetAnswerCommandOutput) => void
+  ): void;
   getAnswer(
     args: GetAnswerCommandInput,
     options: __HttpHandlerOptions,
@@ -781,8 +829,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetLensCommand}
    */
-  getLens(args: GetLensCommandInput, options?: __HttpHandlerOptions): Promise<GetLensCommandOutput>;
-  getLens(args: GetLensCommandInput, cb: (err: any, data?: GetLensCommandOutput) => void): void;
+  getLens(
+    args: GetLensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLensCommandOutput>;
+  getLens(
+    args: GetLensCommandInput,
+    cb: (err: any, data?: GetLensCommandOutput) => void
+  ): void;
   getLens(
     args: GetLensCommandInput,
     options: __HttpHandlerOptions,
@@ -792,8 +846,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetLensReviewCommand}
    */
-  getLensReview(args: GetLensReviewCommandInput, options?: __HttpHandlerOptions): Promise<GetLensReviewCommandOutput>;
-  getLensReview(args: GetLensReviewCommandInput, cb: (err: any, data?: GetLensReviewCommandOutput) => void): void;
+  getLensReview(
+    args: GetLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLensReviewCommandOutput>;
+  getLensReview(
+    args: GetLensReviewCommandInput,
+    cb: (err: any, data?: GetLensReviewCommandOutput) => void
+  ): void;
   getLensReview(
     args: GetLensReviewCommandInput,
     options: __HttpHandlerOptions,
@@ -837,8 +897,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetMilestoneCommand}
    */
-  getMilestone(args: GetMilestoneCommandInput, options?: __HttpHandlerOptions): Promise<GetMilestoneCommandOutput>;
-  getMilestone(args: GetMilestoneCommandInput, cb: (err: any, data?: GetMilestoneCommandOutput) => void): void;
+  getMilestone(
+    args: GetMilestoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMilestoneCommandOutput>;
+  getMilestone(
+    args: GetMilestoneCommandInput,
+    cb: (err: any, data?: GetMilestoneCommandOutput) => void
+  ): void;
   getMilestone(
     args: GetMilestoneCommandInput,
     options: __HttpHandlerOptions,
@@ -848,8 +914,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetProfileCommand}
    */
-  getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
-  getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
+  getProfile(
+    args: GetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileCommandOutput>;
+  getProfile(
+    args: GetProfileCommandInput,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
+  ): void;
   getProfile(
     args: GetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -928,8 +1000,14 @@ export interface WellArchitected {
   /**
    * @see {@link GetWorkloadCommand}
    */
-  getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
-  getWorkload(args: GetWorkloadCommandInput, cb: (err: any, data?: GetWorkloadCommandOutput) => void): void;
+  getWorkload(
+    args: GetWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkloadCommandOutput>;
+  getWorkload(
+    args: GetWorkloadCommandInput,
+    cb: (err: any, data?: GetWorkloadCommandOutput) => void
+  ): void;
   getWorkload(
     args: GetWorkloadCommandInput,
     options: __HttpHandlerOptions,
@@ -939,8 +1017,14 @@ export interface WellArchitected {
   /**
    * @see {@link ImportLensCommand}
    */
-  importLens(args: ImportLensCommandInput, options?: __HttpHandlerOptions): Promise<ImportLensCommandOutput>;
-  importLens(args: ImportLensCommandInput, cb: (err: any, data?: ImportLensCommandOutput) => void): void;
+  importLens(
+    args: ImportLensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportLensCommandOutput>;
+  importLens(
+    args: ImportLensCommandInput,
+    cb: (err: any, data?: ImportLensCommandOutput) => void
+  ): void;
   importLens(
     args: ImportLensCommandInput,
     options: __HttpHandlerOptions,
@@ -950,8 +1034,14 @@ export interface WellArchitected {
   /**
    * @see {@link ListAnswersCommand}
    */
-  listAnswers(args: ListAnswersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnswersCommandOutput>;
-  listAnswers(args: ListAnswersCommandInput, cb: (err: any, data?: ListAnswersCommandOutput) => void): void;
+  listAnswers(
+    args: ListAnswersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnswersCommandOutput>;
+  listAnswers(
+    args: ListAnswersCommandInput,
+    cb: (err: any, data?: ListAnswersCommandOutput) => void
+  ): void;
   listAnswers(
     args: ListAnswersCommandInput,
     options: __HttpHandlerOptions,
@@ -996,8 +1086,14 @@ export interface WellArchitected {
    * @see {@link ListLensesCommand}
    */
   listLenses(): Promise<ListLensesCommandOutput>;
-  listLenses(args: ListLensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLensesCommandOutput>;
-  listLenses(args: ListLensesCommandInput, cb: (err: any, data?: ListLensesCommandOutput) => void): void;
+  listLenses(
+    args: ListLensesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLensesCommandOutput>;
+  listLenses(
+    args: ListLensesCommandInput,
+    cb: (err: any, data?: ListLensesCommandOutput) => void
+  ): void;
   listLenses(
     args: ListLensesCommandInput,
     options: __HttpHandlerOptions,
@@ -1028,7 +1124,10 @@ export interface WellArchitected {
     args: ListLensReviewsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLensReviewsCommandOutput>;
-  listLensReviews(args: ListLensReviewsCommandInput, cb: (err: any, data?: ListLensReviewsCommandOutput) => void): void;
+  listLensReviews(
+    args: ListLensReviewsCommandInput,
+    cb: (err: any, data?: ListLensReviewsCommandOutput) => void
+  ): void;
   listLensReviews(
     args: ListLensReviewsCommandInput,
     options: __HttpHandlerOptions,
@@ -1042,7 +1141,10 @@ export interface WellArchitected {
     args: ListLensSharesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLensSharesCommandOutput>;
-  listLensShares(args: ListLensSharesCommandInput, cb: (err: any, data?: ListLensSharesCommandOutput) => void): void;
+  listLensShares(
+    args: ListLensSharesCommandInput,
+    cb: (err: any, data?: ListLensSharesCommandOutput) => void
+  ): void;
   listLensShares(
     args: ListLensSharesCommandInput,
     options: __HttpHandlerOptions,
@@ -1056,7 +1158,10 @@ export interface WellArchitected {
     args: ListMilestonesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMilestonesCommandOutput>;
-  listMilestones(args: ListMilestonesCommandInput, cb: (err: any, data?: ListMilestonesCommandOutput) => void): void;
+  listMilestones(
+    args: ListMilestonesCommandInput,
+    cb: (err: any, data?: ListMilestonesCommandOutput) => void
+  ): void;
   listMilestones(
     args: ListMilestonesCommandInput,
     options: __HttpHandlerOptions,
@@ -1103,8 +1208,14 @@ export interface WellArchitected {
    * @see {@link ListProfilesCommand}
    */
   listProfiles(): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
-  listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfilesCommandOutput>;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    cb: (err: any, data?: ListProfilesCommandOutput) => void
+  ): void;
   listProfiles(
     args: ListProfilesCommandInput,
     options: __HttpHandlerOptions,
@@ -1219,8 +1330,14 @@ export interface WellArchitected {
    * @see {@link ListWorkloadsCommand}
    */
   listWorkloads(): Promise<ListWorkloadsCommandOutput>;
-  listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
-  listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkloadsCommandOutput>;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
   listWorkloads(
     args: ListWorkloadsCommandInput,
     options: __HttpHandlerOptions,
@@ -1247,8 +1364,14 @@ export interface WellArchitected {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1258,8 +1381,14 @@ export interface WellArchitected {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1269,8 +1398,14 @@ export interface WellArchitected {
   /**
    * @see {@link UpdateAnswerCommand}
    */
-  updateAnswer(args: UpdateAnswerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAnswerCommandOutput>;
-  updateAnswer(args: UpdateAnswerCommandInput, cb: (err: any, data?: UpdateAnswerCommandOutput) => void): void;
+  updateAnswer(
+    args: UpdateAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnswerCommandOutput>;
+  updateAnswer(
+    args: UpdateAnswerCommandInput,
+    cb: (err: any, data?: UpdateAnswerCommandOutput) => void
+  ): void;
   updateAnswer(
     args: UpdateAnswerCommandInput,
     options: __HttpHandlerOptions,
@@ -1332,8 +1467,14 @@ export interface WellArchitected {
   /**
    * @see {@link UpdateProfileCommand}
    */
-  updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
-  updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileCommandOutput>;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
   updateProfile(
     args: UpdateProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -1415,7 +1556,10 @@ export interface WellArchitected {
     args: UpdateWorkloadCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkloadCommandOutput>;
-  updateWorkload(args: UpdateWorkloadCommandInput, cb: (err: any, data?: UpdateWorkloadCommandOutput) => void): void;
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
+  ): void;
   updateWorkload(
     args: UpdateWorkloadCommandInput,
     options: __HttpHandlerOptions,

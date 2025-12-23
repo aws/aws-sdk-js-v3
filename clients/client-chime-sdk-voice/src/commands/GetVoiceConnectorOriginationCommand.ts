@@ -24,9 +24,7 @@ export interface GetVoiceConnectorOriginationCommandInput extends GetVoiceConnec
  *
  * The output of {@link GetVoiceConnectorOriginationCommand}.
  */
-export interface GetVoiceConnectorOriginationCommandOutput
-  extends GetVoiceConnectorOriginationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorOriginationCommandOutput extends GetVoiceConnectorOriginationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the origination settings for the specified Voice Connector.</p>

@@ -10,17 +10,17 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCo
     const result: any = await client.send(new DescribeAssetModelCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.assetModelStatus.state;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.assetModelStatus.state;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

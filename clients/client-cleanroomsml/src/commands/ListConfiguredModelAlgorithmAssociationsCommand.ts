@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListConfiguredModelAlgorithmAssociationsCommand}.
  */
-export interface ListConfiguredModelAlgorithmAssociationsCommandInput
-  extends ListConfiguredModelAlgorithmAssociationsRequest {}
+export interface ListConfiguredModelAlgorithmAssociationsCommandInput extends ListConfiguredModelAlgorithmAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListConfiguredModelAlgorithmAssociationsCommand}.
  */
-export interface ListConfiguredModelAlgorithmAssociationsCommandOutput
-  extends ListConfiguredModelAlgorithmAssociationsResponse,
-    __MetadataBearer {}
+export interface ListConfiguredModelAlgorithmAssociationsCommandOutput extends ListConfiguredModelAlgorithmAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of configured model algorithm associations.</p>

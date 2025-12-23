@@ -24,9 +24,7 @@ export interface ListJobParameterDefinitionsCommandInput extends ListJobParamete
  *
  * The output of {@link ListJobParameterDefinitionsCommand}.
  */
-export interface ListJobParameterDefinitionsCommandOutput
-  extends ListJobParameterDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListJobParameterDefinitionsCommandOutput extends ListJobParameterDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists parameter definitions of a job.</p>

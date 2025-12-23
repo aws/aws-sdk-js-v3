@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
-export interface DisassociateAwsAccountFromPartnerAccountCommandInput
-  extends DisassociateAwsAccountFromPartnerAccountRequest {}
+export interface DisassociateAwsAccountFromPartnerAccountCommandInput extends DisassociateAwsAccountFromPartnerAccountRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
-export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
-  extends DisassociateAwsAccountFromPartnerAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateAwsAccountFromPartnerAccountCommandOutput extends DisassociateAwsAccountFromPartnerAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates your AWS account from a partner account. If

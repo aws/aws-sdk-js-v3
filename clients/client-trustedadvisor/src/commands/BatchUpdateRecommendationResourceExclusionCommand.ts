@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateRecommendationResourceExclusionCommand}.
  */
-export interface BatchUpdateRecommendationResourceExclusionCommandInput
-  extends BatchUpdateRecommendationResourceExclusionRequest {}
+export interface BatchUpdateRecommendationResourceExclusionCommandInput extends BatchUpdateRecommendationResourceExclusionRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateRecommendationResourceExclusionCommand}.
  */
-export interface BatchUpdateRecommendationResourceExclusionCommandOutput
-  extends BatchUpdateRecommendationResourceExclusionResponse,
-    __MetadataBearer {}
+export interface BatchUpdateRecommendationResourceExclusionCommandOutput extends BatchUpdateRecommendationResourceExclusionResponse, __MetadataBearer {}
 
 /**
  * <p>Update one or more exclusion status for a list of recommendation resources</p>

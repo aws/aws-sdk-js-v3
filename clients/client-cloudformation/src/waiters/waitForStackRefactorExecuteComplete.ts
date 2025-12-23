@@ -7,34 +7,31 @@ import {
   DescribeStackRefactorCommandInput,
 } from "../commands/DescribeStackRefactorCommand";
 
-const checkState = async (
-  client: CloudFormationClient,
-  input: DescribeStackRefactorCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeStackRefactorCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeStackRefactorCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ExecutionStatus;
-      };
+      }
       if (returnComparator() === "EXECUTE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ExecutionStatus;
-      };
+      }
       if (returnComparator() === "EXECUTE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ExecutionStatus;
-      };
+      }
       if (returnComparator() === "ROLLBACK_COMPLETE") {
         return { state: WaiterState.FAILURE, reason };
       }

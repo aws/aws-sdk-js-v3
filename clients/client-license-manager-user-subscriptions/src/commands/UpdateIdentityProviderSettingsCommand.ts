@@ -28,9 +28,7 @@ export interface UpdateIdentityProviderSettingsCommandInput extends UpdateIdenti
  *
  * The output of {@link UpdateIdentityProviderSettingsCommand}.
  */
-export interface UpdateIdentityProviderSettingsCommandOutput
-  extends UpdateIdentityProviderSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateIdentityProviderSettingsCommandOutput extends UpdateIdentityProviderSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates additional product configuration settings for the registered identity provider.</p>

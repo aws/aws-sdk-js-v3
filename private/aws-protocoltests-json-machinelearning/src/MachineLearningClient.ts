@@ -82,12 +82,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = PredictCommandInput;
+export type ServiceInputTypes =
+  | PredictCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = PredictCommandOutput;
+export type ServiceOutputTypes =
+  | PredictCommandOutput;
 
 /**
  * @public

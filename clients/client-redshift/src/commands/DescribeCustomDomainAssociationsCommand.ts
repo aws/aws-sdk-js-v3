@@ -24,9 +24,7 @@ export interface DescribeCustomDomainAssociationsCommandInput extends DescribeCu
  *
  * The output of {@link DescribeCustomDomainAssociationsCommand}.
  */
-export interface DescribeCustomDomainAssociationsCommandOutput
-  extends CustomDomainAssociationsMessage,
-    __MetadataBearer {}
+export interface DescribeCustomDomainAssociationsCommandOutput extends CustomDomainAssociationsMessage, __MetadataBearer {}
 
 /**
  * <p>Contains information about custom domain associations for a cluster.</p>

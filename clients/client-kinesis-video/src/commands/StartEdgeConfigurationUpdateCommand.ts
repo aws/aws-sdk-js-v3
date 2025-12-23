@@ -24,9 +24,7 @@ export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfi
  *
  * The output of {@link StartEdgeConfigurationUpdateCommand}.
  */
-export interface StartEdgeConfigurationUpdateCommandOutput
-  extends StartEdgeConfigurationUpdateOutput,
-    __MetadataBearer {}
+export interface StartEdgeConfigurationUpdateCommandOutput extends StartEdgeConfigurationUpdateOutput, __MetadataBearer {}
 
 /**
  * <p>An asynchronous API that updates a stream’s existing edge configuration.

@@ -27,9 +27,7 @@ export interface UpdateRepositoryCreationTemplateCommandInput extends UpdateRepo
  *
  * The output of {@link UpdateRepositoryCreationTemplateCommand}.
  */
-export interface UpdateRepositoryCreationTemplateCommandOutput
-  extends UpdateRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateRepositoryCreationTemplateCommandOutput extends UpdateRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing repository creation template.</p>

@@ -39,9 +39,9 @@ import {
   DisassociateVolumeCommand,
   DisassociateVolumeRequest$,
   DisassociateVolumeResponse$,
+  EbsBlockDevice$,
   EC2InstanceError$,
   EC2ManagedInstance$,
-  EbsBlockDevice$,
   EnaSrdSpecificationRequest$,
   EnaSrdUdpSpecificationRequest$,
   EnclaveOptionsRequest$,
@@ -88,6 +88,9 @@ import {
   ListWorkspaceInstancesResponse$,
   ManagedInstanceRequest$,
   MarketTypeEnum,
+  paginateListInstanceTypes,
+  paginateListRegions,
+  paginateListWorkspaceInstances,
   Placement$,
   PrivateDnsNameOptionsRequest$,
   PrivateIpAddressSpecification$,
@@ -124,9 +127,6 @@ import {
   WorkspacesInstances,
   WorkspacesInstancesClient,
   WorkspacesInstancesServiceException,
-  paginateListInstanceTypes,
-  paginateListRegions,
-  paginateListWorkspaceInstances,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

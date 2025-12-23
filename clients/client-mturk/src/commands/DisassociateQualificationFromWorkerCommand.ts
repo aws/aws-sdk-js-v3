@@ -27,9 +27,7 @@ export interface DisassociateQualificationFromWorkerCommandInput extends Disasso
  *
  * The output of {@link DisassociateQualificationFromWorkerCommand}.
  */
-export interface DisassociateQualificationFromWorkerCommandOutput
-  extends DisassociateQualificationFromWorkerResponse,
-    __MetadataBearer {}
+export interface DisassociateQualificationFromWorkerCommandOutput extends DisassociateQualificationFromWorkerResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -118,6 +118,11 @@ import {
   ListTemplatesCommand,
   ListTemplatesRequest$,
   ListTemplatesResponse$,
+  paginateListConnectors,
+  paginateListDirectoryRegistrations,
+  paginateListServicePrincipalNames,
+  paginateListTemplateGroupAccessControlEntries,
+  paginateListTemplates,
   PcaConnectorAd,
   PcaConnectorAdClient,
   PcaConnectorAdServiceException,
@@ -167,11 +172,6 @@ import {
   ValidityPeriod$,
   ValidityPeriodType,
   VpcInformation$,
-  paginateListConnectors,
-  paginateListDirectoryRegistrations,
-  paginateListServicePrincipalNames,
-  paginateListTemplateGroupAccessControlEntries,
-  paginateListTemplates,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

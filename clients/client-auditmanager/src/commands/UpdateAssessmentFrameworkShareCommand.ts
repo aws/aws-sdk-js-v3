@@ -24,9 +24,7 @@ export interface UpdateAssessmentFrameworkShareCommandInput extends UpdateAssess
  *
  * The output of {@link UpdateAssessmentFrameworkShareCommand}.
  */
-export interface UpdateAssessmentFrameworkShareCommandOutput
-  extends UpdateAssessmentFrameworkShareResponse,
-    __MetadataBearer {}
+export interface UpdateAssessmentFrameworkShareCommandOutput extends UpdateAssessmentFrameworkShareResponse, __MetadataBearer {}
 
 /**
  * <p> Updates a share request for a custom framework in Audit Manager. </p>

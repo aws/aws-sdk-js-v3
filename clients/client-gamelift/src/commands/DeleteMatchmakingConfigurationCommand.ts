@@ -24,9 +24,7 @@ export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchm
  *
  * The output of {@link DeleteMatchmakingConfigurationCommand}.
  */
-export interface DeleteMatchmakingConfigurationCommandOutput
-  extends DeleteMatchmakingConfigurationOutput,
-    __MetadataBearer {}
+export interface DeleteMatchmakingConfigurationCommandOutput extends DeleteMatchmakingConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>

@@ -526,7 +526,10 @@ export interface MediaConnect {
     args: AddFlowOutputsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddFlowOutputsCommandOutput>;
-  addFlowOutputs(args: AddFlowOutputsCommandInput, cb: (err: any, data?: AddFlowOutputsCommandOutput) => void): void;
+  addFlowOutputs(
+    args: AddFlowOutputsCommandInput,
+    cb: (err: any, data?: AddFlowOutputsCommandOutput) => void
+  ): void;
   addFlowOutputs(
     args: AddFlowOutputsCommandInput,
     options: __HttpHandlerOptions,
@@ -540,7 +543,10 @@ export interface MediaConnect {
     args: AddFlowSourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddFlowSourcesCommandOutput>;
-  addFlowSources(args: AddFlowSourcesCommandInput, cb: (err: any, data?: AddFlowSourcesCommandOutput) => void): void;
+  addFlowSources(
+    args: AddFlowSourcesCommandInput,
+    cb: (err: any, data?: AddFlowSourcesCommandOutput) => void
+  ): void;
   addFlowSources(
     args: AddFlowSourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -618,8 +624,14 @@ export interface MediaConnect {
   /**
    * @see {@link CreateBridgeCommand}
    */
-  createBridge(args: CreateBridgeCommandInput, options?: __HttpHandlerOptions): Promise<CreateBridgeCommandOutput>;
-  createBridge(args: CreateBridgeCommandInput, cb: (err: any, data?: CreateBridgeCommandOutput) => void): void;
+  createBridge(
+    args: CreateBridgeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBridgeCommandOutput>;
+  createBridge(
+    args: CreateBridgeCommandInput,
+    cb: (err: any, data?: CreateBridgeCommandOutput) => void
+  ): void;
   createBridge(
     args: CreateBridgeCommandInput,
     options: __HttpHandlerOptions,
@@ -629,8 +641,14 @@ export interface MediaConnect {
   /**
    * @see {@link CreateFlowCommand}
    */
-  createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
-  createFlow(args: CreateFlowCommandInput, cb: (err: any, data?: CreateFlowCommandOutput) => void): void;
+  createFlow(
+    args: CreateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFlowCommandOutput>;
+  createFlow(
+    args: CreateFlowCommandInput,
+    cb: (err: any, data?: CreateFlowCommandOutput) => void
+  ): void;
   createFlow(
     args: CreateFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -640,8 +658,14 @@ export interface MediaConnect {
   /**
    * @see {@link CreateGatewayCommand}
    */
-  createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
-  createGateway(args: CreateGatewayCommandInput, cb: (err: any, data?: CreateGatewayCommandOutput) => void): void;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayCommandOutput>;
+  createGateway(
+    args: CreateGatewayCommandInput,
+    cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
   createGateway(
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -702,8 +726,14 @@ export interface MediaConnect {
   /**
    * @see {@link DeleteBridgeCommand}
    */
-  deleteBridge(args: DeleteBridgeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBridgeCommandOutput>;
-  deleteBridge(args: DeleteBridgeCommandInput, cb: (err: any, data?: DeleteBridgeCommandOutput) => void): void;
+  deleteBridge(
+    args: DeleteBridgeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBridgeCommandOutput>;
+  deleteBridge(
+    args: DeleteBridgeCommandInput,
+    cb: (err: any, data?: DeleteBridgeCommandOutput) => void
+  ): void;
   deleteBridge(
     args: DeleteBridgeCommandInput,
     options: __HttpHandlerOptions,
@@ -713,8 +743,14 @@ export interface MediaConnect {
   /**
    * @see {@link DeleteFlowCommand}
    */
-  deleteFlow(args: DeleteFlowCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFlowCommandOutput>;
-  deleteFlow(args: DeleteFlowCommandInput, cb: (err: any, data?: DeleteFlowCommandOutput) => void): void;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFlowCommandOutput>;
+  deleteFlow(
+    args: DeleteFlowCommandInput,
+    cb: (err: any, data?: DeleteFlowCommandOutput) => void
+  ): void;
   deleteFlow(
     args: DeleteFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -724,8 +760,14 @@ export interface MediaConnect {
   /**
    * @see {@link DeleteGatewayCommand}
    */
-  deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
-  deleteGateway(args: DeleteGatewayCommandInput, cb: (err: any, data?: DeleteGatewayCommandOutput) => void): void;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayCommandOutput>;
+  deleteGateway(
+    args: DeleteGatewayCommandInput,
+    cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -807,7 +849,10 @@ export interface MediaConnect {
     args: DescribeBridgeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBridgeCommandOutput>;
-  describeBridge(args: DescribeBridgeCommandInput, cb: (err: any, data?: DescribeBridgeCommandOutput) => void): void;
+  describeBridge(
+    args: DescribeBridgeCommandInput,
+    cb: (err: any, data?: DescribeBridgeCommandOutput) => void
+  ): void;
   describeBridge(
     args: DescribeBridgeCommandInput,
     options: __HttpHandlerOptions,
@@ -817,8 +862,14 @@ export interface MediaConnect {
   /**
    * @see {@link DescribeFlowCommand}
    */
-  describeFlow(args: DescribeFlowCommandInput, options?: __HttpHandlerOptions): Promise<DescribeFlowCommandOutput>;
-  describeFlow(args: DescribeFlowCommandInput, cb: (err: any, data?: DescribeFlowCommandOutput) => void): void;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowCommandOutput>;
+  describeFlow(
+    args: DescribeFlowCommandInput,
+    cb: (err: any, data?: DescribeFlowCommandOutput) => void
+  ): void;
   describeFlow(
     args: DescribeFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -866,7 +917,10 @@ export interface MediaConnect {
     args: DescribeGatewayCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeGatewayCommandOutput>;
-  describeGateway(args: DescribeGatewayCommandInput, cb: (err: any, data?: DescribeGatewayCommandOutput) => void): void;
+  describeGateway(
+    args: DescribeGatewayCommandInput,
+    cb: (err: any, data?: DescribeGatewayCommandOutput) => void
+  ): void;
   describeGateway(
     args: DescribeGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -931,7 +985,10 @@ export interface MediaConnect {
     args: GetRouterInputCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRouterInputCommandOutput>;
-  getRouterInput(args: GetRouterInputCommandInput, cb: (err: any, data?: GetRouterInputCommandOutput) => void): void;
+  getRouterInput(
+    args: GetRouterInputCommandInput,
+    cb: (err: any, data?: GetRouterInputCommandOutput) => void
+  ): void;
   getRouterInput(
     args: GetRouterInputCommandInput,
     options: __HttpHandlerOptions,
@@ -996,7 +1053,10 @@ export interface MediaConnect {
     args: GetRouterOutputCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRouterOutputCommandOutput>;
-  getRouterOutput(args: GetRouterOutputCommandInput, cb: (err: any, data?: GetRouterOutputCommandOutput) => void): void;
+  getRouterOutput(
+    args: GetRouterOutputCommandInput,
+    cb: (err: any, data?: GetRouterOutputCommandOutput) => void
+  ): void;
   getRouterOutput(
     args: GetRouterOutputCommandInput,
     options: __HttpHandlerOptions,
@@ -1024,8 +1084,14 @@ export interface MediaConnect {
    * @see {@link ListBridgesCommand}
    */
   listBridges(): Promise<ListBridgesCommandOutput>;
-  listBridges(args: ListBridgesCommandInput, options?: __HttpHandlerOptions): Promise<ListBridgesCommandOutput>;
-  listBridges(args: ListBridgesCommandInput, cb: (err: any, data?: ListBridgesCommandOutput) => void): void;
+  listBridges(
+    args: ListBridgesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBridgesCommandOutput>;
+  listBridges(
+    args: ListBridgesCommandInput,
+    cb: (err: any, data?: ListBridgesCommandOutput) => void
+  ): void;
   listBridges(
     args: ListBridgesCommandInput,
     options: __HttpHandlerOptions,
@@ -1054,8 +1120,14 @@ export interface MediaConnect {
    * @see {@link ListFlowsCommand}
    */
   listFlows(): Promise<ListFlowsCommandOutput>;
-  listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
-  listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
+  listFlows(
+    args: ListFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowsCommandOutput>;
+  listFlows(
+    args: ListFlowsCommandInput,
+    cb: (err: any, data?: ListFlowsCommandOutput) => void
+  ): void;
   listFlows(
     args: ListFlowsCommandInput,
     options: __HttpHandlerOptions,
@@ -1084,8 +1156,14 @@ export interface MediaConnect {
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
-  listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewaysCommandOutput>;
+  listGateways(
+    args: ListGatewaysCommandInput,
+    cb: (err: any, data?: ListGatewaysCommandOutput) => void
+  ): void;
   listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -1096,8 +1174,14 @@ export interface MediaConnect {
    * @see {@link ListOfferingsCommand}
    */
   listOfferings(): Promise<ListOfferingsCommandOutput>;
-  listOfferings(args: ListOfferingsCommandInput, options?: __HttpHandlerOptions): Promise<ListOfferingsCommandOutput>;
-  listOfferings(args: ListOfferingsCommandInput, cb: (err: any, data?: ListOfferingsCommandOutput) => void): void;
+  listOfferings(
+    args: ListOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOfferingsCommandOutput>;
+  listOfferings(
+    args: ListOfferingsCommandInput,
+    cb: (err: any, data?: ListOfferingsCommandOutput) => void
+  ): void;
   listOfferings(
     args: ListOfferingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1383,8 +1467,14 @@ export interface MediaConnect {
   /**
    * @see {@link StartFlowCommand}
    */
-  startFlow(args: StartFlowCommandInput, options?: __HttpHandlerOptions): Promise<StartFlowCommandOutput>;
-  startFlow(args: StartFlowCommandInput, cb: (err: any, data?: StartFlowCommandOutput) => void): void;
+  startFlow(
+    args: StartFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowCommandOutput>;
+  startFlow(
+    args: StartFlowCommandInput,
+    cb: (err: any, data?: StartFlowCommandOutput) => void
+  ): void;
   startFlow(
     args: StartFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,8 +1518,14 @@ export interface MediaConnect {
   /**
    * @see {@link StopFlowCommand}
    */
-  stopFlow(args: StopFlowCommandInput, options?: __HttpHandlerOptions): Promise<StopFlowCommandOutput>;
-  stopFlow(args: StopFlowCommandInput, cb: (err: any, data?: StopFlowCommandOutput) => void): void;
+  stopFlow(
+    args: StopFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopFlowCommandOutput>;
+  stopFlow(
+    args: StopFlowCommandInput,
+    cb: (err: any, data?: StopFlowCommandOutput) => void
+  ): void;
   stopFlow(
     args: StopFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -1443,7 +1539,10 @@ export interface MediaConnect {
     args: StopRouterInputCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopRouterInputCommandOutput>;
-  stopRouterInput(args: StopRouterInputCommandInput, cb: (err: any, data?: StopRouterInputCommandOutput) => void): void;
+  stopRouterInput(
+    args: StopRouterInputCommandInput,
+    cb: (err: any, data?: StopRouterInputCommandOutput) => void
+  ): void;
   stopRouterInput(
     args: StopRouterInputCommandInput,
     options: __HttpHandlerOptions,
@@ -1487,8 +1586,14 @@ export interface MediaConnect {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1502,7 +1607,10 @@ export interface MediaConnect {
     args: TakeRouterInputCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TakeRouterInputCommandOutput>;
-  takeRouterInput(args: TakeRouterInputCommandInput, cb: (err: any, data?: TakeRouterInputCommandOutput) => void): void;
+  takeRouterInput(
+    args: TakeRouterInputCommandInput,
+    cb: (err: any, data?: TakeRouterInputCommandOutput) => void
+  ): void;
   takeRouterInput(
     args: TakeRouterInputCommandInput,
     options: __HttpHandlerOptions,
@@ -1529,8 +1637,14 @@ export interface MediaConnect {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1540,8 +1654,14 @@ export interface MediaConnect {
   /**
    * @see {@link UpdateBridgeCommand}
    */
-  updateBridge(args: UpdateBridgeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBridgeCommandOutput>;
-  updateBridge(args: UpdateBridgeCommandInput, cb: (err: any, data?: UpdateBridgeCommandOutput) => void): void;
+  updateBridge(
+    args: UpdateBridgeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBridgeCommandOutput>;
+  updateBridge(
+    args: UpdateBridgeCommandInput,
+    cb: (err: any, data?: UpdateBridgeCommandOutput) => void
+  ): void;
   updateBridge(
     args: UpdateBridgeCommandInput,
     options: __HttpHandlerOptions,
@@ -1602,8 +1722,14 @@ export interface MediaConnect {
   /**
    * @see {@link UpdateFlowCommand}
    */
-  updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;
-  updateFlow(args: UpdateFlowCommandInput, cb: (err: any, data?: UpdateFlowCommandOutput) => void): void;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlowCommandOutput>;
+  updateFlow(
+    args: UpdateFlowCommandInput,
+    cb: (err: any, data?: UpdateFlowCommandOutput) => void
+  ): void;
   updateFlow(
     args: UpdateFlowCommandInput,
     options: __HttpHandlerOptions,

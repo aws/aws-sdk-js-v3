@@ -27,9 +27,7 @@ export interface UpdateNotificationConfigurationCommandInput extends UpdateNotif
  *
  * The output of {@link UpdateNotificationConfigurationCommand}.
  */
-export interface UpdateNotificationConfigurationCommandOutput
-  extends UpdateNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateNotificationConfigurationCommandOutput extends UpdateNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a <code>NotificationConfiguration</code>.</p>

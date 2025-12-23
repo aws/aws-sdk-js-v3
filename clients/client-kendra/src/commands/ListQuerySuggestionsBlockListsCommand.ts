@@ -24,9 +24,7 @@ export interface ListQuerySuggestionsBlockListsCommandInput extends ListQuerySug
  *
  * The output of {@link ListQuerySuggestionsBlockListsCommand}.
  */
-export interface ListQuerySuggestionsBlockListsCommandOutput
-  extends ListQuerySuggestionsBlockListsResponse,
-    __MetadataBearer {}
+export interface ListQuerySuggestionsBlockListsCommandOutput extends ListQuerySuggestionsBlockListsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the block lists used for query suggestions for an index.</p>

@@ -27,9 +27,7 @@ export interface DeleteConfiguredTableAnalysisRuleCommandInput extends DeleteCon
  *
  * The output of {@link DeleteConfiguredTableAnalysisRuleCommand}.
  */
-export interface DeleteConfiguredTableAnalysisRuleCommandOutput
-  extends DeleteConfiguredTableAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredTableAnalysisRuleCommandOutput extends DeleteConfiguredTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a configured table analysis rule.</p>

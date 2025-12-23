@@ -24,9 +24,7 @@ export interface ListHyperParameterTuningJobsCommandInput extends ListHyperParam
  *
  * The output of {@link ListHyperParameterTuningJobsCommand}.
  */
-export interface ListHyperParameterTuningJobsCommandOutput
-  extends ListHyperParameterTuningJobsResponse,
-    __MetadataBearer {}
+export interface ListHyperParameterTuningJobsCommandOutput extends ListHyperParameterTuningJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that describe the hyperparameter tuning jobs launched in your account.</p>

@@ -24,9 +24,7 @@ export interface DescribeNetworkInsightsPathsCommandInput extends DescribeNetwor
  *
  * The output of {@link DescribeNetworkInsightsPathsCommand}.
  */
-export interface DescribeNetworkInsightsPathsCommandOutput
-  extends DescribeNetworkInsightsPathsResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInsightsPathsCommandOutput extends DescribeNetworkInsightsPathsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your paths.</p>

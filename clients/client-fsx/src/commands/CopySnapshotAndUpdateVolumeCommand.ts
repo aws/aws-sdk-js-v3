@@ -24,9 +24,7 @@ export interface CopySnapshotAndUpdateVolumeCommandInput extends CopySnapshotAnd
  *
  * The output of {@link CopySnapshotAndUpdateVolumeCommand}.
  */
-export interface CopySnapshotAndUpdateVolumeCommandOutput
-  extends CopySnapshotAndUpdateVolumeResponse,
-    __MetadataBearer {}
+export interface CopySnapshotAndUpdateVolumeCommandOutput extends CopySnapshotAndUpdateVolumeResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html">on-demand data replication</a> in the Amazon FSx for OpenZFS User

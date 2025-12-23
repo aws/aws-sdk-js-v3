@@ -1,16 +1,14 @@
-export * from "./DescribeMalwareScansPaginator";
-
-export * from "./DescribeOrganizationConfigurationPaginator";
-
-export * from "./GetUsageStatisticsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeMalwareScansPaginator";
+export * from "./DescribeOrganizationConfigurationPaginator";
+export * from "./GetUsageStatisticsPaginator";
 export * from "./ListCoveragePaginator";
 export * from "./ListDetectorsPaginator";
 export * from "./ListFiltersPaginator";
 export * from "./ListFindingsPaginator";
-export * from "./ListIPSetsPaginator";
 export * from "./ListInvitationsPaginator";
+export * from "./ListIPSetsPaginator";
 export * from "./ListMalwareScansPaginator";
 export * from "./ListMembersPaginator";
 export * from "./ListOrganizationAdminAccountsPaginator";

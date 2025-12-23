@@ -1901,7 +1901,9 @@ export namespace AggregationResponse {
  * <p>Identifies a specific resource in a code repository that will be scanned.</p>
  * @public
  */
-export type CodeSecurityResource = CodeSecurityResource.ProjectIdMember | CodeSecurityResource.$UnknownMember;
+export type CodeSecurityResource =
+  | CodeSecurityResource.ProjectIdMember
+  | CodeSecurityResource.$UnknownMember;
 
 /**
  * @public

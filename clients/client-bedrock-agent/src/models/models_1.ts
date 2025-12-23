@@ -13,7 +13,6 @@ import {
   PromptTemplateType,
   SupplementalDataStorageLocationType,
 } from "./enums";
-
 import {
   type AgentKnowledgeBase,
   type AgentVersion,
@@ -1119,7 +1118,9 @@ export interface PromptAgentResource {
  * <p>Contains specifications for a generative AI resource with which to use the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
  * @public
  */
-export type PromptGenAiResource = PromptGenAiResource.AgentMember | PromptGenAiResource.$UnknownMember;
+export type PromptGenAiResource =
+  | PromptGenAiResource.AgentMember
+  | PromptGenAiResource.$UnknownMember;
 
 /**
  * @public
