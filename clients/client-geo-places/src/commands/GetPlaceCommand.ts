@@ -27,7 +27,7 @@ export interface GetPlaceCommandInput extends GetPlaceRequest {}
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
- * <p> <code>GetPlace</code> finds a place by its unique ID. A <code>PlaceId</code> is returned by other place operations.</p>
+ * <p> <code>GetPlace</code> finds a place by its unique ID. A <code>PlaceId</code> is returned by other place operations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/get-place.html">GetPlace</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +95,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //       { // SecondaryAddressComponent
  * //         Number: "STRING_VALUE", // required
+ * //         Designator: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -322,6 +323,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //       SecondaryAddressComponents: [
  * //         {
  * //           Number: "STRING_VALUE", // required
+ * //           Designator: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

@@ -83,9 +83,10 @@ const _GR = "GeocodeRequest";
 const _GRI = "GeocodeResultItem";
 const _GRIL = "GeocodeResultItemList";
 const _GRe = "GeocodeResponse";
-const _H = "Highlights";
+const _H = "Heading";
 const _HL = "HighlightList";
-const _Hi = "Highlight";
+const _Hi = "Highlights";
+const _Hig = "Highlight";
 const _I = "Intersection";
 const _IBC = "IncludeBusinessChains";
 const _IC = "IncludeCountries";
@@ -281,6 +282,7 @@ var CountryCode3: StaticSimpleSchema = [0, n0, _CCou, 8, 0];
 var DistanceMeters: StaticSimpleSchema = [0, n0, _DM, 8, 1];
 var DurationSeconds: StaticSimpleSchema = [0, n0, _DS, 8, 1];
 var GeocodeFilterPlaceType: StaticSimpleSchema = [0, n0, _GFPT, 8, 0];
+var Heading: StaticSimpleSchema = [0, n0, _H, 8, 1];
 var OpeningHoursDisplay: StaticSimpleSchema = [0, n0, _OHD, 8, 0];
 var PlaceType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
 var PostalAuthority: StaticSimpleSchema = [0, n0, _PA, 8, 0];
@@ -347,7 +349,7 @@ export var AutocompleteResponse$: StaticStructureSchema = [3, n0, _ARut,
 ];
 export var AutocompleteResultItem$: StaticStructureSchema = [3, n0, _ARI,
   0,
-  [_PI, _PT, _T, _A, _Di, _La, _PV, _H],
+  [_PI, _PT, _T, _A, _Di, _La, _PV, _Hi],
   [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => DistanceMeters, 0], 0, [() => CountryCode3, 0], [() => AutocompleteHighlights$, 0]]
 ];
 export var BusinessChain$: StaticStructureSchema = [3, n0, _BC,
@@ -440,7 +442,7 @@ export var GetPlaceResponse$: StaticStructureSchema = [3, n0, _GPRe,
   [_PI, _PT, _T, _PB, _A, _ANC, _PCD, _P, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho, _MA, _SA],
   [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [0, { [_hH]: _xagpb }], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => RelatedPlace$, 0], [() => RelatedPlaceList, 0]]
 ];
-export var Highlight$: StaticStructureSchema = [3, n0, _Hi,
+export var Highlight$: StaticStructureSchema = [3, n0, _Hig,
   0,
   [_SI, _EI, _V],
   [1, 1, [() => SensitiveString, 0]]
@@ -523,8 +525,8 @@ export var ReverseGeocodeFilter$: StaticStructureSchema = [3, n0, _RGF,
 ];
 export var ReverseGeocodeRequest$: StaticStructureSchema = [3, n0, _RGR,
   0,
-  [_QP, _QRu, _MR, _F, _AFd, _La, _PV, _IU, _K],
-  [[() => Position, 0], [() => DistanceMeters, 0], 1, () => ReverseGeocodeFilter$, 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }]]
+  [_QP, _QRu, _MR, _F, _AFd, _La, _PV, _IU, _K, _H],
+  [[() => Position, 0], [() => DistanceMeters, 0], 1, () => ReverseGeocodeFilter$, 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }], [() => Heading, 0]]
 ];
 export var ReverseGeocodeResponse$: StaticStructureSchema = [3, n0, _RGRe,
   0,
@@ -578,8 +580,8 @@ export var SearchTextResultItem$: StaticStructureSchema = [3, n0, _STRI,
 ];
 export var SecondaryAddressComponent$: StaticStructureSchema = [3, n0, _SACe,
   0,
-  [_Nu],
-  [[() => SensitiveString, 0]]
+  [_Nu, _De],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var SecondaryAddressComponentMatchScore$: StaticStructureSchema = [3, n0, _SACMS,
   0,
@@ -638,7 +640,7 @@ export var SuggestResponse$: StaticStructureSchema = [3, n0, _SRug,
 ];
 export var SuggestResultItem$: StaticStructureSchema = [3, n0, _SRI,
   0,
-  [_T, _SRIT, _Pl, _Q, _H],
+  [_T, _SRIT, _Pl, _Q, _Hi],
   [[() => SensitiveString, 0], 0, [() => SuggestPlaceResult$, 0], [() => SuggestQueryResult$, 0], [() => SuggestHighlights$, 0]]
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,

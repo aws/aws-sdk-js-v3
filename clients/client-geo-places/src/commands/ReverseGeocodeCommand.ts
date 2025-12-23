@@ -27,7 +27,7 @@ export interface ReverseGeocodeCommandInput extends ReverseGeocodeRequest {}
 export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __MetadataBearer {}
 
 /**
- * <p> <code>ReverseGeocode</code> converts geographic coordinates into a human-readable address or place. You can obtain address component, and other related information such as place type, category, street information. The Reverse Geocode API supports filtering to on place type so that you can refine result based on your need. Also, The Reverse Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p>
+ * <p> <code>ReverseGeocode</code> converts geographic coordinates into a human-readable address or place. You can obtain address component, and other related information such as place type, category, street information. The Reverse Geocode API supports filtering to on place type so that you can refine result based on your need. Also, The Reverse Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html">Reverse Geocode</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  *   PoliticalView: "STRING_VALUE",
  *   IntendedUse: "STRING_VALUE",
  *   Key: "STRING_VALUE",
+ *   Heading: Number("double"),
  * };
  * const command = new ReverseGeocodeCommand(input);
  * const response = await client.send(command);
@@ -106,6 +107,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //           { // SecondaryAddressComponent
  * //             Number: "STRING_VALUE", // required
+ * //             Designator: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },
@@ -204,6 +206,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //             SecondaryAddressComponents: [
  * //               {
  * //                 Number: "STRING_VALUE", // required
+ * //                 Designator: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },

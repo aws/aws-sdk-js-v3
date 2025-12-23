@@ -27,7 +27,7 @@ export interface SearchNearbyCommandInput extends SearchNearbyRequest {}
 export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SearchNearby</code> queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters.</p>
+ * <p> <code>SearchNearby</code> queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-nearby.html">Search Nearby</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +128,7 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //           { // SecondaryAddressComponent
  * //             Number: "STRING_VALUE", // required
+ * //             Designator: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },

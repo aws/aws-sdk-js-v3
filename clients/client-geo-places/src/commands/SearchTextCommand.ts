@@ -27,7 +27,7 @@ export interface SearchTextCommandInput extends SearchTextRequest {}
 export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p>
+ * <p> <code>SearchText</code> searches for geocode and place information. You can then complete a follow-up query suggested from the <code>Suggest</code> API via a query id.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-text.html">Search Text</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +117,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //         SecondaryAddressComponents: [ // SecondaryAddressComponentList
  * //           { // SecondaryAddressComponent
  * //             Number: "STRING_VALUE", // required
+ * //             Designator: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },
