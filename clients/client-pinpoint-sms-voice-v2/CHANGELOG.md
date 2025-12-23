@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** This release adds support for the Registration Reviewer feature, which provides generative AI feedback on a phone number or sender ID registration to ensure completeness before sending to downstream (carrier) review. ([ac0c236](https://github.com/aws/aws-sdk-js-v3/commit/ac0c236ba38cd993193c80298819149e4b8a82a5))
+
+
+
+
+
 # [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

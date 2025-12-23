@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
+
+
+### Features
+
+* **client-s3:** Add additional validation to Outpost bucket names. ([2f30457](https://github.com/aws/aws-sdk-js-v3/commit/2f30457fc7256d5fbdaaa2ab07bf77dbdffab0e2))
+
+
+
+
+
 # [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

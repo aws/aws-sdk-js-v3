@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
+
+
+### Features
+
+* **client-geo-places:** Adds support for InferredSecondaryAddress place type, Designator in SecondaryAddressComponent and Heading in ReverseGeocode. ([1c6374d](https://github.com/aws/aws-sdk-js-v3/commit/1c6374dac803c99b13e8b16025bd03aa3a57282a))
+* **client-pinpoint-sms-voice-v2:** This release adds support for the Registration Reviewer feature, which provides generative AI feedback on a phone number or sender ID registration to ensure completeness before sending to downstream (carrier) review. ([ac0c236](https://github.com/aws/aws-sdk-js-v3/commit/ac0c236ba38cd993193c80298819149e4b8a82a5))
+* **client-s3:** Add additional validation to Outpost bucket names. ([2f30457](https://github.com/aws/aws-sdk-js-v3/commit/2f30457fc7256d5fbdaaa2ab07bf77dbdffab0e2))
+* **clients:** update client endpoints as of 2025-12-23 ([f5aa61b](https://github.com/aws/aws-sdk-js-v3/commit/f5aa61b92c6b1b0f597706be5c47fc96c66e0021))
+
+
+
+
+
 # [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
 
 

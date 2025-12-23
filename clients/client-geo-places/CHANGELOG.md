@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
+
+
+### Features
+
+* **client-geo-places:** Adds support for InferredSecondaryAddress place type, Designator in SecondaryAddressComponent and Heading in ReverseGeocode. ([1c6374d](https://github.com/aws/aws-sdk-js-v3/commit/1c6374dac803c99b13e8b16025bd03aa3a57282a))
+
+
+
+
+
 # [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
 
 **Note:** Version bump only for package @aws-sdk/client-geo-places
