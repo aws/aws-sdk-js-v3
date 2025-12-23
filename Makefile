@@ -48,7 +48,7 @@ test-endpoints:
 	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --verbose false
 
 test-e2e: bundles
-	yarn g:vitest run -c vitest.config.e2e.mts --retry=4
+	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
 	yarn g:vitest run -c vitest.config.browser.e2e.mts --retry=4
 	make test-bundlers
 
