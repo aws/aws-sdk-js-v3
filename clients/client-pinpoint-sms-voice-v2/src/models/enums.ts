@@ -352,6 +352,7 @@ export type PoolStatus = (typeof PoolStatus)[keyof typeof PoolStatus];
  * @enum
  */
 export const RegistrationStatus = {
+  AWS_REVIEWING: "AWS_REVIEWING",
   CLOSED: "CLOSED",
   COMPLETE: "COMPLETE",
   CREATED: "CREATED",
@@ -374,6 +375,7 @@ export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof Regist
 export const RegistrationVersionStatus = {
   APPROVED: "APPROVED",
   ARCHIVED: "ARCHIVED",
+  AWS_REVIEWING: "AWS_REVIEWING",
   DENIED: "DENIED",
   DISCARDED: "DISCARDED",
   DRAFT: "DRAFT",

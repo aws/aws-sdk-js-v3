@@ -94,13 +94,13 @@ export interface AccountLimit {
  */
 export interface AssociateOriginationIdentityRequest {
   /**
-   * <p>The pool to update with the new Identity. This value can be either the PoolId or PoolArn, and you can find these values using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribePools.html">DescribePools</a>.</p> <important> <p>If you are using a shared End User MessagingSMS; resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The pool to update with the new Identity. This value can be either the PoolId or PoolArn, and you can find these values using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribePools.html">DescribePools</a>.</p> <important> <p>If you are using a shared End User Messaging SMS; resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -239,19 +239,19 @@ export interface CarrierLookupResult {
   E164PhoneNumber: string | undefined;
 
   /**
-   * <p>The numeric dialing code for the country or region where the phone number was originally registered.</p>
+   * <p>The country or region numeric dialing code for the phone number.</p>
    * @public
    */
   DialingCountryCode?: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.</p>
+   * <p>The two-character country or region code, in ISO 3166-1 alpha-2 format, for the phone number.</p>
    * @public
    */
   IsoCountryCode?: string | undefined;
 
   /**
-   * <p>The name of the country where the phone number was originally registered.</p>
+   * <p>The name of the country or region for the phone number.</p>
    * @public
    */
   Country?: string | undefined;
@@ -530,7 +530,7 @@ export interface CreateEventDestinationRequest {
   EventDestinationName: string | undefined;
 
   /**
-   * <p>An array of event types that determine which events to log. If "ALL" is used, then End User MessagingSMS logs every event type.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>
+   * <p>An array of event types that determine which events to log. If "ALL" is used, then End User Messaging SMS logs every event type.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>
    * @public
    */
   MatchingEventTypes: EventType[] | undefined;
@@ -640,7 +640,7 @@ export interface CreateOptOutListResult {
  */
 export interface CreatePoolRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribePhoneNumbers.html">DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, and use <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeSenderIds.html">DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <p>After the pool is created you can add more origination identities to the pool by using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribePhoneNumbers.html">DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, and use <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeSenderIds.html">DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <p>After the pool is created you can add more origination identities to the pool by using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -723,7 +723,7 @@ export interface CreatePoolResult {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false, and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false, and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -1062,6 +1062,12 @@ export interface RegistrationVersionStatusHistory {
   SubmittedTimestamp?: Date | undefined;
 
   /**
+   * <p>The time when the registration was in the AWS reviewing state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  AwsReviewingTimestamp?: Date | undefined;
+
+  /**
    * <p>The time when the registration was in the reviewing state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
@@ -1396,7 +1402,7 @@ export interface DeleteEventDestinationResult {
  */
 export interface DeleteKeywordRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values of PoolId and PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values of PoolId and PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -1464,7 +1470,7 @@ export interface DeleteMediaMessageSpendLimitOverrideResult {
  */
 export interface DeleteOptedOutNumberRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -1516,7 +1522,7 @@ export interface DeleteOptedOutNumberResult {
  */
 export interface DeleteOptOutListRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -1550,7 +1556,7 @@ export interface DeleteOptOutListResult {
  */
 export interface DeletePoolRequest {
   /**
-   * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
@@ -1603,7 +1609,7 @@ export interface DeletePoolResult {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -1922,7 +1928,7 @@ export interface DeleteRegistrationFieldValueResult {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource you're deleting the resource-based policy from.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource you're deleting the resource-based policy from.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -1933,7 +1939,7 @@ export interface DeleteResourcePolicyRequest {
  */
 export interface DeleteResourcePolicyResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource that the resource-based policy was deleted from.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource that the resource-based policy was deleted from.</p>
    * @public
    */
   ResourceArn?: string | undefined;
@@ -2160,7 +2166,7 @@ export interface KeywordFilter {
  */
 export interface DescribeKeywordsRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2266,7 +2272,7 @@ export interface OptedOutFilter {
  */
 export interface DescribeOptedOutNumbersRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -2354,7 +2360,7 @@ export interface DescribeOptedOutNumbersResult {
  */
 export interface DescribeOptOutListsRequest {
   /**
-   * <p>The OptOutLists to show the details of. This is an array of strings that can be either the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutLists to show the details of. This is an array of strings that can be either the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListNames?: string[] | undefined;
@@ -2442,7 +2448,7 @@ export interface PhoneNumberFilter {
  */
 export interface DescribePhoneNumbersRequest {
   /**
-   * <p>The unique identifier of phone numbers to find information about. This is an array of strings that can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier of phone numbers to find information about. This is an array of strings that can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PhoneNumberIds?: string[] | undefined;
@@ -2550,7 +2556,7 @@ export interface PhoneNumberInformation {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out request. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
+   * <p>When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out request. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
    * @public
    */
   SelfManagedOptOutsEnabled: boolean | undefined;
@@ -2632,7 +2638,7 @@ export interface PoolFilter {
  */
 export interface DescribePoolsRequest {
   /**
-   * <p>The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolIds?: string[] | undefined;
@@ -2710,7 +2716,7 @@ export interface PoolInformation {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
+   * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
    * @public
    */
   SelfManagedOptOutsEnabled: boolean | undefined;
@@ -3264,6 +3270,12 @@ export interface RegistrationFieldValueInformation {
    * @public
    */
   DeniedReason?: string | undefined;
+
+  /**
+   * <p>Feedback provided for this specific field during the registration review process. This may include validation errors, suggestions for improvement, or additional requirements.</p>
+   * @public
+   */
+  Feedback?: string | undefined;
 }
 
 /**
@@ -3802,6 +3814,12 @@ export interface RegistrationVersionInformation {
    * @public
    */
   DeniedReasons?: RegistrationDeniedReasonInformation[] | undefined;
+
+  /**
+   * <p>Feedback information provided during the registration review process. This includes comments, suggestions, or additional requirements.</p>
+   * @public
+   */
+  Feedback?: string | undefined;
 }
 
 /**
@@ -3852,7 +3870,7 @@ export interface SenderIdFilter {
 }
 
 /**
- * <p> The alphanumeric sender ID in a specific country that you want to describe. For more information on sender IDs see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sender-id-request.html">Requesting sender IDs </a> in the <i>End User MessagingSMS User Guide</i>.</p>
+ * <p> The alphanumeric sender ID in a specific country that you want to describe. For more information on sender IDs see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sender-id-request.html">Requesting sender IDs </a> in the <i>End User Messaging SMS User Guide</i>.</p>
  * @public
  */
 export interface SenderIdAndCountry {
@@ -3874,7 +3892,7 @@ export interface SenderIdAndCountry {
  */
 export interface DescribeSenderIdsRequest {
   /**
-   * <p>An array of SenderIdAndCountry objects to search for.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>An array of SenderIdAndCountry objects to search for.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   SenderIds?: SenderIdAndCountry[] | undefined;
@@ -3993,7 +4011,7 @@ export interface DescribeSpendLimitsRequest {
 }
 
 /**
- * <p>Describes the current monthly spend limits for sending voice and text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html"> Requesting a spending quota increase </a> in the <i>End User MessagingSMS User Guide</i>. </p>
+ * <p>Describes the current monthly spend limits for sending voice and text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html"> Requesting a spending quota increase </a> in the <i>End User Messaging SMS User Guide</i>. </p>
  * @public
  */
 export interface SpendLimit {
@@ -4150,13 +4168,13 @@ export interface DescribeVerifiedDestinationNumbersResult {
  */
 export interface DisassociateOriginationIdentityRequest {
   /**
-   * <p>The unique identifier for the pool to disassociate with the origination identity. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier for the pool to disassociate with the origination identity. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -4353,7 +4371,7 @@ export interface GetProtectConfigurationCountryRuleSetResult {
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User MessagingSMS User Guide.</p>
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p>
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
@@ -4364,7 +4382,7 @@ export interface GetProtectConfigurationCountryRuleSetResult {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource attached to the resource-based policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource attached to the resource-based policy.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -4375,13 +4393,13 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource attached to the resource-based policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource attached to the resource-based policy.</p>
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The JSON formatted string that contains the resource-based policy attached to the End User MessagingSMS resource. </p>
+   * <p>The JSON formatted string that contains the resource-based policy attached to the End User Messaging SMS resource. </p>
    * @public
    */
   Policy?: string | undefined;
@@ -4416,7 +4434,7 @@ export interface PoolOriginationIdentitiesFilter {
  */
 export interface ListPoolOriginationIdentitiesRequest {
   /**
-   * <p>The unique identifier for the pool. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier for the pool. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
@@ -4768,7 +4786,7 @@ export interface ListTagsForResourceResult {
  */
 export interface PutKeywordRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> get the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> get the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -4866,7 +4884,7 @@ export interface PutMessageFeedbackResult {
  */
 export interface PutOptedOutNumberRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn to add the phone number to.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutListName or OptOutListArn to add the phone number to.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -5082,7 +5100,7 @@ export interface PutRegistrationFieldValueResult {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource to attach the resource-based policy to.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource to attach the resource-based policy to.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -5099,7 +5117,7 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the End User MessagingSMS resource attached to the resource-based policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource attached to the resource-based policy.</p>
    * @public
    */
   ResourceArn?: string | undefined;
@@ -5122,7 +5140,7 @@ export interface PutResourcePolicyResult {
  */
 export interface ReleasePhoneNumberRequest {
   /**
-   * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and PhoneNumberArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and PhoneNumberArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -5205,7 +5223,7 @@ export interface ReleasePhoneNumberResult {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -5322,13 +5340,13 @@ export interface RequestPhoneNumberRequest {
   NumberType: RequestableNumberType | undefined;
 
   /**
-   * <p>The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName?: string | undefined;
 
   /**
-   * <p>The pool to associated with the phone number. You can use the PoolId or PoolArn. </p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The pool to associated with the phone number. You can use the PoolId or PoolArn. </p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId?: string | undefined;
@@ -5441,7 +5459,7 @@ export interface RequestPhoneNumberResult {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -5606,7 +5624,7 @@ export interface SendDestinationNumberVerificationCodeRequest {
   LanguageCode?: LanguageCode | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity?: string | undefined;
@@ -5652,7 +5670,7 @@ export interface SendMediaMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -5734,7 +5752,7 @@ export interface SendTextMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity?: string | undefined;
@@ -5788,7 +5806,7 @@ export interface SendTextMessageRequest {
   DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>> | undefined;
 
   /**
-   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using <code>DryRun</code>.</p> <p>The Message Parts per Second (MPS) limit when using <code>DryRun</code> is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message Parts per Second (MPS) limits</a> in the <i>End User MessagingSMS User Guide</i>..</p>
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using <code>DryRun</code>.</p> <p>The Message Parts per Second (MPS) limit when using <code>DryRun</code> is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message Parts per Second (MPS) limits</a> in the <i>End User Messaging SMS User Guide</i>..</p>
    * @public
    */
   DryRun?: boolean | undefined;
@@ -5828,7 +5846,7 @@ export interface SendVoiceMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity to use for the voice call. This can be the PhoneNumber, PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The origination identity to use for the voice call. This can be the PhoneNumber, PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -6128,6 +6146,12 @@ export interface SubmitRegistrationVersionRequest {
    * @public
    */
   RegistrationId: string | undefined;
+
+  /**
+   * <p>Set to true to request AWS review of the registration. When enabled, AWS will perform additional validation and review of the registration submission before processing.</p>
+   * @public
+   */
+  AwsReview?: boolean | undefined;
 }
 
 /**
@@ -6163,6 +6187,12 @@ export interface SubmitRegistrationVersionResult {
    * @public
    */
   RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+
+  /**
+   * <p>Indicates whether AWS review was requested for this registration submission.</p>
+   * @public
+   */
+  AwsReview: boolean | undefined;
 }
 
 /**
@@ -6284,7 +6314,7 @@ export interface UpdateEventDestinationResult {
  */
 export interface UpdatePhoneNumberRequest {
   /**
-   * <p>The unique identifier of the phone number. Valid values for this field can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier of the phone number. Valid values for this field can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -6308,7 +6338,7 @@ export interface UpdatePhoneNumberRequest {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -6450,7 +6480,7 @@ export interface UpdatePhoneNumberResult {
  */
 export interface UpdatePoolRequest {
   /**
-   * <p>The unique identifier of the pool to update. Valid values are either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The unique identifier of the pool to update. Valid values are either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
@@ -6474,13 +6504,13 @@ export interface UpdatePoolRequest {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
-   * <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User MessagingSMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+   * <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName?: string | undefined;
@@ -6545,7 +6575,7 @@ export interface UpdatePoolResult {
   TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
+   * <p>When set to false and an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, End User Messaging SMS automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
   SelfManagedOptOutsEnabled?: boolean | undefined;
@@ -6644,7 +6674,7 @@ export interface UpdateProtectConfigurationCountryRuleSetRequest {
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User MessagingSMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
    * @public
    */
   CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;

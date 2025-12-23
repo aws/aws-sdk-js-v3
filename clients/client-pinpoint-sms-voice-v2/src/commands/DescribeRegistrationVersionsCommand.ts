@@ -68,6 +68,7 @@ export interface DescribeRegistrationVersionsCommandOutput extends DescribeRegis
  * //       RegistrationVersionStatusHistory: { // RegistrationVersionStatusHistory
  * //         DraftTimestamp: new Date("TIMESTAMP"), // required
  * //         SubmittedTimestamp: new Date("TIMESTAMP"),
+ * //         AwsReviewingTimestamp: new Date("TIMESTAMP"),
  * //         ReviewingTimestamp: new Date("TIMESTAMP"),
  * //         RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //         ApprovedTimestamp: new Date("TIMESTAMP"),
@@ -85,6 +86,7 @@ export interface DescribeRegistrationVersionsCommandOutput extends DescribeRegis
  * //           DocumentationLink: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Feedback: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -53,6 +53,7 @@ export interface DiscardRegistrationVersionCommandOutput extends DiscardRegistra
  * //   RegistrationVersionStatusHistory: { // RegistrationVersionStatusHistory
  * //     DraftTimestamp: new Date("TIMESTAMP"), // required
  * //     SubmittedTimestamp: new Date("TIMESTAMP"),
+ * //     AwsReviewingTimestamp: new Date("TIMESTAMP"),
  * //     ReviewingTimestamp: new Date("TIMESTAMP"),
  * //     RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //     ApprovedTimestamp: new Date("TIMESTAMP"),

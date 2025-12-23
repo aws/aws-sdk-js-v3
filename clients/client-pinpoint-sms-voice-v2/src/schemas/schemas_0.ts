@@ -16,6 +16,8 @@ const _AOIRs = "AssociateOriginationIdentityResult";
 const _APC = "AssociateProtectConfiguration";
 const _APCR = "AssociateProtectConfigurationRequest";
 const _APCRs = "AssociateProtectConfigurationResult";
+const _AR = "AwsReview";
+const _ART = "AwsReviewingTimestamp";
 const _AS = "AttachmentStatus";
 const _AT = "ApprovedTimestamp";
 const _ATr = "ArchivedTimestamp";
@@ -233,6 +235,7 @@ const _FP = "FieldPath";
 const _FPi = "FieldPaths";
 const _FR = "FieldRequirement";
 const _FT = "FieldType";
+const _Fe = "Feedback";
 const _Fi = "Fields";
 const _GPCCRS = "GetProtectConfigurationCountryRuleSet";
 const _GPCCRSR = "GetProtectConfigurationCountryRuleSetRequest";
@@ -1432,8 +1435,8 @@ export var RegistrationFieldDisplayHints$: StaticStructureSchema = [3, n0, _RFDH
 ];
 export var RegistrationFieldValueInformation$: StaticStructureSchema = [3, n0, _RFVI,
   0,
-  [_FP, _SC, _TV, _RAI, _DR],
-  [0, 64 | 0, 0, 0, 0]
+  [_FP, _SC, _TV, _RAI, _DR, _Fe],
+  [0, 64 | 0, 0, 0, 0, 0]
 ];
 export var RegistrationFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
@@ -1477,13 +1480,13 @@ export var RegistrationVersionFilter$: StaticStructureSchema = [3, n0, _RVF,
 ];
 export var RegistrationVersionInformation$: StaticStructureSchema = [3, n0, _RVI,
   0,
-  [_VN, _RVS, _RVSH, _DRe],
-  [1, 0, () => RegistrationVersionStatusHistory$, () => RegistrationDeniedReasonInformationList]
+  [_VN, _RVS, _RVSH, _DRe, _Fe],
+  [1, 0, () => RegistrationVersionStatusHistory$, () => RegistrationDeniedReasonInformationList, 0]
 ];
 export var RegistrationVersionStatusHistory$: StaticStructureSchema = [3, n0, _RVSH,
   0,
-  [_DTr, _ST, _RTev, _RAT, _AT, _DTi, _DTe, _RTevo, _ATr],
-  [4, 4, 4, 4, 4, 4, 4, 4, 4]
+  [_DTr, _ST, _ART, _RTev, _RAT, _AT, _DTi, _DTe, _RTevo, _ATr],
+  [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 ];
 export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
   0,
@@ -1684,13 +1687,13 @@ export var SpendLimit$: StaticStructureSchema = [3, n0, _SLp,
 ];
 export var SubmitRegistrationVersionRequest$: StaticStructureSchema = [3, n0, _SRVR,
   0,
-  [_RIe],
-  [0]
+  [_RIe, _AR],
+  [0, 2]
 ];
 export var SubmitRegistrationVersionResult$: StaticStructureSchema = [3, n0, _SRVRu,
   0,
-  [_RA, _RIe, _VN, _RVS, _RVSH],
-  [0, 0, 1, 0, () => RegistrationVersionStatusHistory$]
+  [_RA, _RIe, _VN, _RVS, _RVSH, _AR],
+  [0, 0, 1, 0, () => RegistrationVersionStatusHistory$, 2]
 ];
 export var SupportedAssociation$: StaticStructureSchema = [3, n0, _SAu,
   0,

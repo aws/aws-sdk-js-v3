@@ -42,6 +42,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SubmitRegistrationVersionRequest
  *   RegistrationId: "STRING_VALUE", // required
+ *   AwsReview: true || false,
  * };
  * const command = new SubmitRegistrationVersionCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * //   RegistrationVersionStatusHistory: { // RegistrationVersionStatusHistory
  * //     DraftTimestamp: new Date("TIMESTAMP"), // required
  * //     SubmittedTimestamp: new Date("TIMESTAMP"),
+ * //     AwsReviewingTimestamp: new Date("TIMESTAMP"),
  * //     ReviewingTimestamp: new Date("TIMESTAMP"),
  * //     RequiresAuthenticationTimestamp: new Date("TIMESTAMP"),
  * //     ApprovedTimestamp: new Date("TIMESTAMP"),
@@ -61,6 +63,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * //     RevokedTimestamp: new Date("TIMESTAMP"),
  * //     ArchivedTimestamp: new Date("TIMESTAMP"),
  * //   },
+ * //   AwsReview: true || false, // required
  * // };
  *
  * ```

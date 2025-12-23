@@ -65,6 +65,7 @@ export interface DescribeRegistrationFieldValuesCommandOutput extends DescribeRe
  * //       TextValue: "STRING_VALUE",
  * //       RegistrationAttachmentId: "STRING_VALUE",
  * //       DeniedReason: "STRING_VALUE",
+ * //       Feedback: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
