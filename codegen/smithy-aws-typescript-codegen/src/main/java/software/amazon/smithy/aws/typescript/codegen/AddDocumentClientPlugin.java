@@ -132,6 +132,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 ),
                 writer -> {
                     writer.write("export * from './Interfaces';");
+                    writer.write("export * from './BatchGetPaginator';");
                     for (OperationShape operation : overridenOperationsList) {
                         if (operation.hasTrait(PaginatedTrait.ID)) {
                             String paginationFileName =
