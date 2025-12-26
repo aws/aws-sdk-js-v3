@@ -265,6 +265,9 @@ export class Upload extends EventEmitter {
         }
       }
 
+      // ✅ Suggestion: Use early continue with concise condition
+      if (this.uploadedParts.some(p => p.PartNumber === dataPart.partNumber)) continue;
+
       const partSize: number = byteLength(dataPart.data) || 0;
 
       const requestHandler = this.client.config.requestHandler;
