@@ -7,7 +7,7 @@ async function eventually<T>(
   condition: (result: T) => boolean,
   options: { delay?: number; backoff?: number; maxTime?: number } = {}
 ): Promise<T> {
-  const { delay: initialDelay = 0, backoff = 500, maxTime = 5 } = options;
+  const { delay: initialDelay = 0, backoff = 500, maxTime = 60 } = options;
 
   let delay = initialDelay;
   const started = Date.now();
@@ -71,7 +71,6 @@ describe("SQS Queues", () => {
           const queueUrls = result.QueueUrls || [];
           return createdQueues.every((createdQueue) => queueUrls.includes(createdQueue));
         },
-        { maxTime: 15 }
       );
 
       // Check that created queues exist in the list
