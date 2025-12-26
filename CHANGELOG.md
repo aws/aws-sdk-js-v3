@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.959.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.958.0...v3.959.0) (2025-12-26)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now supports Pipeline Locking using Video Alignment as well as linked single pipeline channels to enable cross-channel and cross-region Pipeline Locking workflows. ([c42cdab](https://github.com/aws/aws-sdk-js-v3/commit/c42cdab1d40bf8e05b4f9ac2b3c3fd01a216a5c2))
+* **clients:** update client endpoints as of 2025-12-26 ([cfa6e7e](https://github.com/aws/aws-sdk-js-v3/commit/cfa6e7ef242a8faed238f30ce20e9ce1b3dcda4c))
+
+
+
+
+
 # [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
 
 
