@@ -391,7 +391,9 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //             CustomEpoch: "STRING_VALUE",
  * //             JamSyncTime: "STRING_VALUE",
  * //           },
- * //           PipelineLockingSettings: {},
+ * //           PipelineLockingSettings: { // PipelineLockingSettings
+ * //             PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ * //           },
  * //         },
  * //       },
  * //       MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
@@ -1347,6 +1349,16 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //     ChannelEngineVersion: {
  * //       ExpirationDate: new Date("TIMESTAMP"),
  * //       Version: "STRING_VALUE",
+ * //     },
+ * //     LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //       FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //         LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //         PrimaryChannelArn: "STRING_VALUE",
+ * //       },
+ * //       PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //         FollowingChannelArns: "<__listOf__string>",
+ * //         LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //       },
  * //     },
  * //   },
  * // };

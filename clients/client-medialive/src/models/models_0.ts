@@ -35,8 +35,6 @@ import {
   AvailBlankingState,
   BandwidthReductionFilterStrength,
   BandwidthReductionPostFilterSharpening,
-  BlackoutSlateNetworkEndBlackout,
-  BlackoutSlateState,
   BurnInAlignment,
   BurnInBackgroundColor,
   BurnInDestinationSubtitleRows,
@@ -210,6 +208,7 @@ import {
   InputTimecodeSource,
   InputType,
   LastFrameClippingBehavior,
+  LinkedChannelType,
   LogLevel,
   M2tsAbsentInputAudioBehavior,
   M2tsArib,
@@ -2628,6 +2627,60 @@ export interface InputSpecification {
 }
 
 /**
+ * Details of a follower channel in a linked pair
+ * @public
+ */
+export interface DescribeFollowerChannelSettings {
+  /**
+   * Specifies this as a follower channel
+   * @public
+   */
+  LinkedChannelType?: LinkedChannelType | undefined;
+
+  /**
+   * The ARN of the primary channel this channel follows
+   * @public
+   */
+  PrimaryChannelArn?: string | undefined;
+}
+
+/**
+ * Details of a primary (leader) channel in a linked pair
+ * @public
+ */
+export interface DescribePrimaryChannelSettings {
+  /**
+   * The ARNs of the following channels for this primary channel
+   * @public
+   */
+  FollowingChannelArns?: string[] | undefined;
+
+  /**
+   * Specifies this as a primary channel
+   * @public
+   */
+  LinkedChannelType?: LinkedChannelType | undefined;
+}
+
+/**
+ * Linked channel configuration details
+ * @public
+ */
+export interface DescribeLinkedChannelSettings {
+  /**
+   * Details of a follower channel in a linked pair
+   * @public
+   */
+  FollowerChannelSettings?: DescribeFollowerChannelSettings | undefined;
+
+  /**
+   * Details of a primary (leader) channel in a linked pair
+   * @public
+   */
+  PrimaryChannelSettings?: DescribePrimaryChannelSettings | undefined;
+}
+
+/**
  * Placeholder documentation for MaintenanceStatus
  * @public
  */
@@ -2810,6 +2863,12 @@ export interface ChannelSummary {
    * @public
    */
   UsedChannelEngineVersions?: ChannelEngineVersionResponse[] | undefined;
+
+  /**
+   * Linked Channel Settings for this channel.
+   * @public
+   */
+  LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
 }
 
 /**
@@ -10158,57 +10217,3 @@ export interface BatchUpdateScheduleResponse {
    */
   Deletes?: BatchScheduleActionDeleteResult | undefined;
 }
-
-/**
- * Blackout Slate
- * @public
- */
-export interface BlackoutSlate {
-  /**
-   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
-   * @public
-   */
-  BlackoutSlateImage?: InputLocation | undefined;
-
-  /**
-   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
-   * @public
-   */
-  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
-
-  /**
-   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
-   * @public
-   */
-  NetworkEndBlackoutImage?: InputLocation | undefined;
-
-  /**
-   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
-   * @public
-   */
-  NetworkId?: string | undefined;
-
-  /**
-   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
-   * @public
-   */
-  State?: BlackoutSlateState | undefined;
-}
-
-/**
- * Placeholder documentation for CancelInputDeviceTransferRequest
- * @public
- */
-export interface CancelInputDeviceTransferRequest {
-  /**
-   * The unique ID of the input device to cancel. For example, hd-123456789abcdef.
-   * @public
-   */
-  InputDeviceId: string | undefined;
-}
-
-/**
- * Placeholder documentation for CancelInputDeviceTransferResponse
- * @public
- */
-export interface CancelInputDeviceTransferResponse {}

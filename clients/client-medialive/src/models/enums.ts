@@ -1260,6 +1260,19 @@ export type InputResolution = (typeof InputResolution)[keyof typeof InputResolut
  * @public
  * @enum
  */
+export const LinkedChannelType = {
+  FOLLOWING_CHANNEL: "FOLLOWING_CHANNEL",
+  PRIMARY_CHANNEL: "PRIMARY_CHANNEL",
+} as const;
+/**
+ * @public
+ */
+export type LinkedChannelType = (typeof LinkedChannelType)[keyof typeof LinkedChannelType];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogLevel = {
   DEBUG: "DEBUG",
   DISABLED: "DISABLED",
@@ -4658,6 +4671,19 @@ export const GlobalConfigurationOutputLockingMode = {
  */
 export type GlobalConfigurationOutputLockingMode =
   (typeof GlobalConfigurationOutputLockingMode)[keyof typeof GlobalConfigurationOutputLockingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineLockingMethod = {
+  SOURCE_TIMECODE: "SOURCE_TIMECODE",
+  VIDEO_ALIGNMENT: "VIDEO_ALIGNMENT",
+} as const;
+/**
+ * @public
+ */
+export type PipelineLockingMethod = (typeof PipelineLockingMethod)[keyof typeof PipelineLockingMethod];
 
 /**
  * @public

@@ -333,6 +333,7 @@ const _DEBRTR = "DeleteEventBridgeRuleTemplateRequest";
 const _DED = "DolbyEDecode";
 const _DEPA = "DiscoveryEntryPointArn";
 const _DF = "DcFilter";
+const _DFCS = "DescribeFollowerChannelSettings";
 const _DFS = "DefaultFontSize";
 const _DFe = "DeblockFilter";
 const _DFen = "DenoiseFilter";
@@ -356,6 +357,7 @@ const _DISGe = "DescribeInputSecurityGroup";
 const _DIe = "DeleteInput";
 const _DIes = "DescribeInput";
 const _DL = "DrcLine";
+const _DLCS = "DescribeLinkedChannelSettings";
 const _DLH = "DefaultLineHeight";
 const _DM = "DeleteMultiplex";
 const _DMP = "DeleteMultiplexProgram";
@@ -388,6 +390,7 @@ const _DO = "DescribeOffering";
 const _DOR = "DescribeOfferingRequest";
 const _DORe = "DescribeOfferingResponse";
 const _DP = "DrcProfile";
+const _DPCS = "DescribePrimaryChannelSettings";
 const _DR = "DefaultRoute";
 const _DRI = "DestinationRefId";
 const _DRR = "DeleteReservationRequest";
@@ -493,12 +496,14 @@ const _FAe = "FeatureActivations";
 const _FAl = "FlickerAq";
 const _FAlo = "FlowArn";
 const _FC = "FailoverConditions";
+const _FCA = "FollowingChannelArns";
 const _FCCS = "FrameCaptureCdnSettings";
 const _FCGS = "FrameCaptureGroupSettings";
 const _FCHS = "FrameCaptureHlsSettings";
 const _FCOS = "FrameCaptureOutputSettings";
-const _FCS = "FailoverConditionSettings";
+const _FCS = "FollowerChannelSettings";
 const _FCSS = "FrameCaptureS3Settings";
+const _FCSa = "FailoverConditionSettings";
 const _FCSr = "FrameCaptureSettings";
 const _FCa = "FailoverCondition";
 const _FCo = "FontColor";
@@ -718,6 +723,8 @@ const _LCR = "ListChannelsRequest";
 const _LCRi = "ListChannelsResponse";
 const _LCRis = "ListClustersRequest";
 const _LCRist = "ListClustersResponse";
+const _LCS = "LinkedChannelSettings";
+const _LCT = "LinkedChannelType";
 const _LCWAT = "ListCloudWatchAlarmTemplates";
 const _LCWATG = "ListCloudWatchAlarmTemplateGroups";
 const _LCWATGR = "ListCloudWatchAlarmTemplateGroupsRequest";
@@ -965,7 +972,9 @@ const _Out = "Outputs";
 const _P = "Profile";
 const _PAAI = "PublicAddressAllocationIds";
 const _PC = "ProgramCount";
+const _PCA = "PrimaryChannelArn";
 const _PCP = "PreferredChannelPipeline";
+const _PCS = "PrimaryChannelSettings";
 const _PCa = "PassthroughControl";
 const _PCar = "ParControl";
 const _PCc = "PcrControl";
@@ -986,6 +995,7 @@ const _PIa = "PatInterval";
 const _PIi = "PipelineIds";
 const _PIm = "PmtInterval";
 const _PIr = "ProgramId";
+const _PLM = "PipelineLockingMethod";
 const _PLS = "PipelineLockingSettings";
 const _PMP = "PrivateMetadataPid";
 const _PN = "ParNumerator";
@@ -1701,12 +1711,14 @@ const _fAe = "featureActivations";
 const _fAl = "flickerAq";
 const _fAlo = "flowArn";
 const _fC = "failoverConditions";
+const _fCA = "followingChannelArns";
 const _fCCS = "frameCaptureCdnSettings";
 const _fCGS = "frameCaptureGroupSettings";
 const _fCHS = "frameCaptureHlsSettings";
 const _fCOS = "frameCaptureOutputSettings";
-const _fCS = "failoverConditionSettings";
+const _fCS = "followerChannelSettings";
 const _fCSS = "frameCaptureS3Settings";
+const _fCSa = "failoverConditionSettings";
 const _fCSr = "frameCaptureSettings";
 const _fCo = "fontColor";
 const _fCr = "framerateControl";
@@ -1855,6 +1867,8 @@ const _l = "level";
 const _lARC = "lookAheadRateControl";
 const _lC = "languageCode";
 const _lCC = "languageCodeControl";
+const _lCS = "linkedChannelSettings";
+const _lCT = "linkedChannelType";
 const _lCf = "lfeControl";
 const _lD = "languageDescription";
 const _lDA = "lastDiscoveredAt";
@@ -2091,7 +2105,9 @@ const _ou = "outputs";
 const _p = "profile";
 const _pAAI = "publicAddressAllocationIds";
 const _pC = "programCount";
+const _pCA = "primaryChannelArn";
 const _pCP = "preferredChannelPipeline";
+const _pCS = "primaryChannelSettings";
 const _pCa = "passthroughControl";
 const _pCar = "parControl";
 const _pCc = "pcrControl";
@@ -2111,6 +2127,7 @@ const _pIa = "patInterval";
 const _pIi = "pipelineIds";
 const _pIm = "pmtInterval";
 const _pIr = "programId";
+const _pLM = "pipelineLockingMethod";
 const _pLS = "pipelineLockingSettings";
 const _pMP = "privateMetadataPid";
 const _pN = "parNumerator";
@@ -2754,8 +2771,8 @@ export var CdiInputSpecification$: StaticStructureSchema = [3, n0, _CIS,
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _Ch,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var ChannelAlert$: StaticStructureSchema = [3, n0, _CAh,
   0,
@@ -2779,8 +2796,8 @@ export var ChannelEngineVersionResponse$: StaticStructureSchema = [3, n0, _CEVRh
 ];
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CSh,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _I, _IA, _IS, _LL, _Ma, _N, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _UCEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => __listOfChannelEngineVersionResponse, { [_jN]: _uCEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _I, _IA, _IS, _LL, _Ma, _N, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _UCEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => __listOfChannelEngineVersionResponse, { [_jN]: _uCEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var ClaimDeviceRequest$: StaticStructureSchema = [3, n0, _CDRl,
   0,
@@ -2870,8 +2887,8 @@ export var CreateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CIS, _CCh, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RIe, _Re, _RA, _Ta, _V, _ASn, _CEV, _DRr],
-  [[() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceCreateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_iTd]: 1, [_jN]: _rIe }], [0, { [_jN]: _re }], [0, { [_jN]: _rA }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettings$, { [_jN]: _v }], [() => AnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }]]
+  [_CIS, _CCh, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RIe, _Re, _RA, _Ta, _V, _ASn, _CEV, _DRr, _LCS],
+  [[() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceCreateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_iTd]: 1, [_jN]: _rIe }], [0, { [_jN]: _re }], [0, { [_jN]: _rA }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettings$, { [_jN]: _v }], [() => AnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }], [() => LinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -3050,8 +3067,8 @@ export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
 ];
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var DeleteCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [3, n0, _DCWATGR,
   0,
@@ -3220,8 +3237,8 @@ export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr,
   0,
@@ -3237,6 +3254,11 @@ export var DescribeClusterSummary$: StaticStructureSchema = [3, n0, _DCS,
   0,
   [_Ar, _CIh, _CTl, _I, _IRA, _N, _NS, _St],
   [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+];
+export var DescribeFollowerChannelSettings$: StaticStructureSchema = [3, n0, _DFCS,
+  0,
+  [_LCT, _PCA],
+  [[0, { [_jN]: _lCT }], [0, { [_jN]: _pCA }]]
 ];
 export var DescribeInputDeviceRequest$: StaticStructureSchema = [3, n0, _DIDR,
   0,
@@ -3277,6 +3299,11 @@ export var DescribeInputSecurityGroupResponse$: StaticStructureSchema = [3, n0, 
   0,
   [_Ar, _I, _Inp, _St, _Ta, _WR],
   [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }]]
+];
+export var DescribeLinkedChannelSettings$: StaticStructureSchema = [3, n0, _DLCS,
+  0,
+  [_FCS, _PCS],
+  [[() => DescribeFollowerChannelSettings$, { [_jN]: _fCS }], [() => DescribePrimaryChannelSettings$, { [_jN]: _pCS }]]
 ];
 export var DescribeMultiplexProgramRequest$: StaticStructureSchema = [3, n0, _DMPRes,
   0,
@@ -3337,6 +3364,11 @@ export var DescribeOfferingResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
   [_Ar, _CCu, _Du, _DU, _FP, _OD, _OI, _OT, _Reg, _RSes, _UP],
   [[0, { [_jN]: _ar }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [1, { [_jN]: _fP }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [1, { [_jN]: _uP }]]
+];
+export var DescribePrimaryChannelSettings$: StaticStructureSchema = [3, n0, _DPCS,
+  0,
+  [_FCA, _LCT],
+  [[64 | 0, { [_jN]: _fCA }], [0, { [_jN]: _lCT }]]
 ];
 export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
@@ -3470,10 +3502,10 @@ export var EventBridgeRuleTemplateTarget$: StaticStructureSchema = [3, n0, _EBRT
 ];
 export var FailoverCondition$: StaticStructureSchema = [3, n0, _FCa,
   0,
-  [_FCS],
-  [[() => FailoverConditionSettings$, { [_jN]: _fCS }]]
+  [_FCSa],
+  [[() => FailoverConditionSettings$, { [_jN]: _fCSa }]]
 ];
-export var FailoverConditionSettings$: StaticStructureSchema = [3, n0, _FCS,
+export var FailoverConditionSettings$: StaticStructureSchema = [3, n0, _FCSa,
   0,
   [_ASSud, _ILS, _VBS],
   [[() => AudioSilenceFailoverSettings$, { [_jN]: _aSSu }], [() => InputLossFailoverSettings$, { [_jN]: _iLS }], [() => VideoBlackFailoverSettings$, { [_jN]: _vBS }]]
@@ -3497,6 +3529,11 @@ export var Fmp4HlsSettings$: StaticStructureSchema = [3, n0, _FHS,
   0,
   [_ARS, _NIB, _TMB],
   [[0, { [_jN]: _aRS }], [0, { [_jN]: _nIB }], [0, { [_jN]: _tMB }]]
+];
+export var FollowerChannelSettings$: StaticStructureSchema = [3, n0, _FCS,
+  0,
+  [_LCT, _PCA],
+  [[0, { [_jN]: _lCT }], [0, { [_jN]: _pCA }]]
 ];
 export var FollowModeScheduleActionStartSettings$: StaticStructureSchema = [3, n0, _FMSASSo,
   0,
@@ -3925,6 +3962,11 @@ export var KeyProviderSettings$: StaticStructureSchema = [3, n0, _KPS,
   0,
   [_SKS],
   [[() => StaticKeySettings$, { [_jN]: _sKS }]]
+];
+export var LinkedChannelSettings$: StaticStructureSchema = [3, n0, _LCS,
+  0,
+  [_FCS, _PCS],
+  [[() => FollowerChannelSettings$, { [_jN]: _fCS }], [() => PrimaryChannelSettings$, { [_jN]: _pCS }]]
 ];
 export var ListAlertsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -4524,13 +4566,18 @@ export var PipelineDetail$: StaticStructureSchema = [3, n0, _PDip,
 ];
 export var PipelineLockingSettings$: StaticStructureSchema = [3, n0, _PLS,
   0,
-  [],
-  []
+  [_PLM],
+  [[0, { [_jN]: _pLM }]]
 ];
 export var PipelinePauseStateSettings$: StaticStructureSchema = [3, n0, _PPSS,
   0,
   [_PI],
   [[0, { [_jN]: _pI }]]
+];
+export var PrimaryChannelSettings$: StaticStructureSchema = [3, n0, _PCS,
+  0,
+  [_LCT],
+  [[0, { [_jN]: _lCT }]]
 ];
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
@@ -4604,8 +4651,8 @@ export var RestartChannelPipelinesRequest$: StaticStructureSchema = [3, n0, _RCP
 ];
 export var RestartChannelPipelinesResponse$: StaticStructureSchema = [3, n0, _RCPRe,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _MSa, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _mSa }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _MSa, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _mSa }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var Route$: StaticStructureSchema = [3, n0, _Rou,
   0,
@@ -4849,8 +4896,8 @@ export var StartChannelRequest$: StaticStructureSchema = [3, n0, _SCR,
 ];
 export var StartChannelResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var StartDeleteMonitorDeploymentRequest$: StaticStructureSchema = [3, n0, _SDMDR,
   0,
@@ -4949,8 +4996,8 @@ export var StopChannelRequest$: StaticStructureSchema = [3, n0, _SCRto,
 ];
 export var StopChannelResponse$: StaticStructureSchema = [3, n0, _SCRtop,
   0,
-  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS],
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var StopInputDeviceRequest$: StaticStructureSchema = [3, n0, _SIDRto,
   0,
@@ -5106,8 +5153,8 @@ export var UpdateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CIS, _CIha, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RA, _CEV, _DRr, _ASn],
-  [[() => CdiInputSpecification$, { [_jN]: _cIS }], [0, 1], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceUpdateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }], [() => AnywhereSettings$, { [_jN]: _aSn }]]
+  [_CIS, _CIha, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RA, _CEV, _DRr, _ASn, _LCS],
+  [[() => CdiInputSpecification$, { [_jN]: _cIS }], [0, 1], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceUpdateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }], [() => AnywhereSettings$, { [_jN]: _aSn }], [() => LinkedChannelSettings$, { [_jN]: _lCS }]]
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,

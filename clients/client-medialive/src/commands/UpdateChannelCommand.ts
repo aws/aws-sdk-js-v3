@@ -344,7 +344,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *           CustomEpoch: "STRING_VALUE",
  *           JamSyncTime: "STRING_VALUE",
  *         },
- *         PipelineLockingSettings: {},
+ *         PipelineLockingSettings: { // PipelineLockingSettings
+ *           PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ *         },
  *       },
  *     },
  *     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
@@ -1275,6 +1277,15 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     ChannelPlacementGroupId: "STRING_VALUE",
  *     ClusterId: "STRING_VALUE",
  *   },
+ *   LinkedChannelSettings: { // LinkedChannelSettings
+ *     FollowerChannelSettings: { // FollowerChannelSettings
+ *       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ *       PrimaryChannelArn: "STRING_VALUE",
+ *     },
+ *     PrimaryChannelSettings: { // PrimaryChannelSettings
+ *       LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ *     },
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -1593,7 +1604,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //             CustomEpoch: "STRING_VALUE",
  * //             JamSyncTime: "STRING_VALUE",
  * //           },
- * //           PipelineLockingSettings: {},
+ * //           PipelineLockingSettings: { // PipelineLockingSettings
+ * //             PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ * //           },
  * //         },
  * //       },
  * //       MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
@@ -2549,6 +2562,16 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     ChannelEngineVersion: {
  * //       ExpirationDate: new Date("TIMESTAMP"),
  * //       Version: "STRING_VALUE",
+ * //     },
+ * //     LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //       FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //         LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //         PrimaryChannelArn: "STRING_VALUE",
+ * //       },
+ * //       PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //         FollowingChannelArns: "<__listOf__string>",
+ * //         LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //       },
  * //     },
  * //   },
  * // };

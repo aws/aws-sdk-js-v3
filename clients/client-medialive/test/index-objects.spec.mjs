@@ -325,6 +325,7 @@ import {
   DescribeClusterRequest$,
   DescribeClusterResponse$,
   DescribeClusterSummary$,
+  DescribeFollowerChannelSettings$,
   DescribeInput$,
   DescribeInputCommand,
   DescribeInputDevice$,
@@ -341,6 +342,7 @@ import {
   DescribeInputSecurityGroupCommand,
   DescribeInputSecurityGroupRequest$,
   DescribeInputSecurityGroupResponse$,
+  DescribeLinkedChannelSettings$,
   DescribeMultiplex$,
   DescribeMultiplexCommand,
   DescribeMultiplexProgram$,
@@ -363,6 +365,7 @@ import {
   DescribeOfferingCommand,
   DescribeOfferingRequest$,
   DescribeOfferingResponse$,
+  DescribePrimaryChannelSettings$,
   DescribeReservation$,
   DescribeReservationCommand,
   DescribeReservationRequest$,
@@ -444,6 +447,7 @@ import {
   Fmp4HlsSettings$,
   Fmp4NielsenId3Behavior,
   Fmp4TimedMetadataBehavior,
+  FollowerChannelSettings$,
   FollowModeScheduleActionStartSettings$,
   FollowPoint,
   ForbiddenException,
@@ -653,6 +657,8 @@ import {
   IpPoolUpdateRequest$,
   KeyProviderSettings$,
   LastFrameClippingBehavior,
+  LinkedChannelSettings$,
+  LinkedChannelType,
   ListAlerts$,
   ListAlertsCommand,
   ListAlertsRequest$,
@@ -899,9 +905,11 @@ import {
   PauseStateScheduleActionSettings$,
   PipelineDetail$,
   PipelineId,
+  PipelineLockingMethod,
   PipelineLockingSettings$,
   PipelinePauseStateSettings$,
   PreferredChannelPipeline,
+  PrimaryChannelSettings$,
   PurchaseOffering$,
   PurchaseOfferingCommand,
   PurchaseOfferingRequest$,
@@ -1647,6 +1655,7 @@ assert(typeof DescribeChannelResponse$ === "object");
 assert(typeof DescribeClusterRequest$ === "object");
 assert(typeof DescribeClusterResponse$ === "object");
 assert(typeof DescribeClusterSummary$ === "object");
+assert(typeof DescribeFollowerChannelSettings$ === "object");
 assert(typeof DescribeInputDeviceRequest$ === "object");
 assert(typeof DescribeInputDeviceResponse$ === "object");
 assert(typeof DescribeInputDeviceThumbnailRequest$ === "object");
@@ -1655,6 +1664,7 @@ assert(typeof DescribeInputRequest$ === "object");
 assert(typeof DescribeInputResponse$ === "object");
 assert(typeof DescribeInputSecurityGroupRequest$ === "object");
 assert(typeof DescribeInputSecurityGroupResponse$ === "object");
+assert(typeof DescribeLinkedChannelSettings$ === "object");
 assert(typeof DescribeMultiplexProgramRequest$ === "object");
 assert(typeof DescribeMultiplexProgramResponse$ === "object");
 assert(typeof DescribeMultiplexRequest$ === "object");
@@ -1667,6 +1677,7 @@ assert(typeof DescribeNodeResponse$ === "object");
 assert(typeof DescribeNodeSummary$ === "object");
 assert(typeof DescribeOfferingRequest$ === "object");
 assert(typeof DescribeOfferingResponse$ === "object");
+assert(typeof DescribePrimaryChannelSettings$ === "object");
 assert(typeof DescribeReservationRequest$ === "object");
 assert(typeof DescribeReservationResponse$ === "object");
 assert(typeof DescribeScheduleRequest$ === "object");
@@ -1699,6 +1710,7 @@ assert(typeof FeatureActivations$ === "object");
 assert(typeof FecOutputSettings$ === "object");
 assert(typeof FixedModeScheduleActionStartSettings$ === "object");
 assert(typeof Fmp4HlsSettings$ === "object");
+assert(typeof FollowerChannelSettings$ === "object");
 assert(typeof FollowModeScheduleActionStartSettings$ === "object");
 assert(typeof FrameCaptureCdnSettings$ === "object");
 assert(typeof FrameCaptureGroupSettings$ === "object");
@@ -1781,6 +1793,7 @@ assert(typeof IpPool$ === "object");
 assert(typeof IpPoolCreateRequest$ === "object");
 assert(typeof IpPoolUpdateRequest$ === "object");
 assert(typeof KeyProviderSettings$ === "object");
+assert(typeof LinkedChannelSettings$ === "object");
 assert(typeof ListAlertsRequest$ === "object");
 assert(typeof ListAlertsResponse$ === "object");
 assert(typeof ListChannelPlacementGroupsRequest$ === "object");
@@ -1901,6 +1914,7 @@ assert(typeof PauseStateScheduleActionSettings$ === "object");
 assert(typeof PipelineDetail$ === "object");
 assert(typeof PipelineLockingSettings$ === "object");
 assert(typeof PipelinePauseStateSettings$ === "object");
+assert(typeof PrimaryChannelSettings$ === "object");
 assert(typeof PurchaseOfferingRequest$ === "object");
 assert(typeof PurchaseOfferingResponse$ === "object");
 assert(typeof RawSettings$ === "object");
@@ -2279,6 +2293,7 @@ assert(typeof InputState === "object");
 assert(typeof InputTimecodeSource === "object");
 assert(typeof InputType === "object");
 assert(typeof LastFrameClippingBehavior === "object");
+assert(typeof LinkedChannelType === "object");
 assert(typeof LogLevel === "object");
 assert(typeof M2tsAbsentInputAudioBehavior === "object");
 assert(typeof M2tsArib === "object");
@@ -2331,6 +2346,7 @@ assert(typeof NodeState === "object");
 assert(typeof OfferingDurationUnits === "object");
 assert(typeof OfferingType === "object");
 assert(typeof PipelineId === "object");
+assert(typeof PipelineLockingMethod === "object");
 assert(typeof PreferredChannelPipeline === "object");
 assert(typeof RebootInputDeviceForce === "object");
 assert(typeof ReservationAutomaticRenewal === "object");

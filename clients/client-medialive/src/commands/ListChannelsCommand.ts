@@ -273,6 +273,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           Version: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       LinkedChannelSettings: { // DescribeLinkedChannelSettings
+ * //         FollowerChannelSettings: { // DescribeFollowerChannelSettings
+ * //           LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //           PrimaryChannelArn: "STRING_VALUE",
+ * //         },
+ * //         PrimaryChannelSettings: { // DescribePrimaryChannelSettings
+ * //           FollowingChannelArns: "<__listOf__string>",
+ * //           LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
