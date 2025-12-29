@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.960.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.959.0...v3.960.0) (2025-12-29)
+
+
+### Features
+
+* **client-connect:** Changes for Contact for Global Search ([4a3526b](https://github.com/aws/aws-sdk-js-v3/commit/4a3526b783ece866bf5ae0a4e0912433455604b6))
+* **client-quicksight:** This release adds support for quick users to be able to perform role upgrades on their own. Additionally it allows admins to make this feature admin or auto approval along with new self upgrade capability that can be restricted by Admins. ([fb0bfe2](https://github.com/aws/aws-sdk-js-v3/commit/fb0bfe2bf33cf85235fa6a1d9cd89aec696e7bcb))
+
+
+
+
+
 # [3.959.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.958.0...v3.959.0) (2025-12-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.960.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.959.0...v3.960.0) (2025-12-29)
+
+
+### Features
+
+* **client-connect:** Changes for Contact for Global Search ([4a3526b](https://github.com/aws/aws-sdk-js-v3/commit/4a3526b783ece866bf5ae0a4e0912433455604b6))
+
+
+
+
+
 # [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
