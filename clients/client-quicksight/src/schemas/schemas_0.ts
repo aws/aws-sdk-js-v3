@@ -658,9 +658,10 @@ const _CTol = "ColumnTag";
 const _CTolu = "ColumnType";
 const _CTon = "ConnectionType";
 const _CTont = "ContentType";
-const _CTr = "CreateTemplate";
-const _CTre = "CreateTheme";
-const _CTrea = "CreateTopic";
+const _CTr = "CreationTime";
+const _CTre = "CreateTemplate";
+const _CTrea = "CreateTheme";
+const _CTreat = "CreateTopic";
 const _CU = "ConfluenceUrl";
 const _CUE = "ConcurrentUpdatingException";
 const _CUo = "ContentUrl";
@@ -1099,6 +1100,9 @@ const _DSSatao = "DataSourceSummaries";
 const _DST = "DashboardSourceTemplate";
 const _DSTe = "DecalStyleType";
 const _DSUC = "DataSetUsageConfiguration";
+const _DSUCR = "DescribeSelfUpgradeConfigurationRequest";
+const _DSUCRe = "DescribeSelfUpgradeConfigurationResponse";
+const _DSUCe = "DescribeSelfUpgradeConfiguration";
 const _DSV = "DecimalStaticValues";
 const _DSa = "DataSources";
 const _DSas = "DashboardSummary";
@@ -1677,6 +1681,7 @@ const _INV = "IncludeNullValue";
 const _IO = "IconOptions";
 const _IP = "IncludePermissions";
 const _IPD = "IntegerParameterDeclaration";
+const _IPE = "InvalidParameterException";
 const _IPL = "IntegerParameterList";
 const _IPRU = "IdentityProviderResourceUri";
 const _IPVCP = "IdentityProviderVpcConnectionProperties";
@@ -1888,6 +1893,9 @@ const _LSC = "LinkSharingConfiguration";
 const _LSCo = "LogoSetConfiguration";
 const _LSS = "LineStyleSettings";
 const _LSSi = "LineSymbolStyle";
+const _LSU = "ListSelfUpgrades";
+const _LSUR = "ListSelfUpgradesRequest";
+const _LSURi = "ListSelfUpgradesResponse";
 const _LSo = "LogoSet";
 const _LT = "LayerType";
 const _LTA = "ListTemplateAliases";
@@ -2106,6 +2114,7 @@ const _OL = "OperandList";
 const _OP = "OverrideParameters";
 const _OPr = "OracleParameters";
 const _OPv = "OverridePermissions";
+const _OR = "OriginalRole";
 const _OT = "OverrideTags";
 const _OV = "OutlierVisibility";
 const _OVPW = "OptimizedViewPortWidth";
@@ -2430,6 +2439,7 @@ const _RM = "RangeMinimum";
 const _RMV = "RangeMinimumValue";
 const _RMVa = "RangeMaximumValue";
 const _RMa = "RangeMaximum";
+const _RN = "RequestNote";
 const _RNCM = "ReadNoneConnectionMetadata";
 const _RNFE = "ResourceNotFoundException";
 const _RO = "ResizeOption";
@@ -2445,6 +2455,7 @@ const _RPes = "ResourcePermission";
 const _RPev = "RevokePermissions";
 const _RR = "ReserveRange";
 const _RRe = "RenderingRules";
+const _RReq = "RequestedRole";
 const _RS = "RefreshSchedules";
 const _RSC = "RecentSnapshotsConfigurations";
 const _RSF = "RenameSharedFolders";
@@ -2454,6 +2465,7 @@ const _RSe = "RefreshSchedule";
 const _RSec = "RecentSnapshots";
 const _RSef = "RefreshStatus";
 const _RSeq = "RequestSource";
+const _RSequ = "RequestStatus";
 const _RSes = "ResourceStatus";
 const _RSesu = "ResultSize";
 const _RSo = "RowSpan";
@@ -2803,8 +2815,14 @@ const _STou = "SourceTable";
 const _STt = "StyleTargets";
 const _STu = "SubType";
 const _SU = "S3Uri";
-const _SUC = "SnapshotUserConfiguration";
+const _SUC = "SelfUpgradeConfiguration";
 const _SUCR = "SnapshotUserConfigurationRedacted";
+const _SUCn = "SnapshotUserConfiguration";
+const _SURD = "SelfUpgradeRequestDetails";
+const _SURDL = "SelfUpgradeRequestDetailList";
+const _SURDe = "SelfUpgradeRequestDetail";
+const _SUS = "SelfUpgradeStatus";
+const _SUUR = "SelfUpgradeUserRole";
 const _SUi = "SizeUnit";
 const _SV = "SharedView";
 const _SVC = "SharedViewConfigurations";
@@ -3256,6 +3274,7 @@ const _URCP = "UpdateRoleCustomPermission";
 const _URCPR = "UpdateRoleCustomPermissionRequest";
 const _URCPRp = "UpdateRoleCustomPermissionResponse";
 const _URD = "UndoRedoDisabled";
+const _URI = "UpgradeRequestId";
 const _URLO = "URLOperation";
 const _URLS = "URLStyling";
 const _URLT = "URLTemplate";
@@ -3272,6 +3291,12 @@ const _USN = "UseServiceName";
 const _USPICECC = "UpdateSPICECapacityConfiguration";
 const _USPICECCR = "UpdateSPICECapacityConfigurationRequest";
 const _USPICECCRp = "UpdateSPICECapacityConfigurationResponse";
+const _USU = "UpdateSelfUpgrade";
+const _USUC = "UpdateSelfUpgradeConfiguration";
+const _USUCR = "UpdateSelfUpgradeConfigurationRequest";
+const _USUCRp = "UpdateSelfUpgradeConfigurationResponse";
+const _USUR = "UpdateSelfUpgradeRequest";
+const _USURp = "UpdateSelfUpgradeResponse";
 const _USn = "UnpivotStep";
 const _USp = "UploadSettings";
 const _USpd = "UpdateStatus";
@@ -3458,6 +3483,8 @@ const _hE = "httpError";
 const _hO = "highlightOperation";
 const _hQ = "httpQuery";
 const _k = "keys";
+const _lUAT = "lastUpdateAttemptTime";
+const _lUFR = "lastUpdateFailureReason";
 const _mr = "max-results";
 const _mr_ = "max-result";
 const _n = "namespace";
@@ -3501,6 +3528,7 @@ import {
   InternalServerException,
   InvalidDataSetParameterValueException,
   InvalidNextTokenException,
+  InvalidParameterException,
   InvalidParameterValueException,
   InvalidRequestException,
   LimitExceededException,
@@ -4348,8 +4376,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _UAWS, _KB, _Act, _Sp, _CAh, _CCA, _Re],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _UAWS, _KB, _Act, _Sp, _CAh, _CCA, _Re, _SUUR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CascadingControlConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
@@ -6294,6 +6322,16 @@ export var DescribeRoleCustomPermissionResponse$: StaticStructureSchema = [3, n0
   [_CPN, _RI, _St],
   [0, 0, 1]
 ];
+export var DescribeSelfUpgradeConfigurationRequest$: StaticStructureSchema = [3, n0, _DSUCR,
+  0,
+  [_AAI, _Na],
+  [[0, 1], [0, 1]]
+];
+export var DescribeSelfUpgradeConfigurationResponse$: StaticStructureSchema = [3, n0, _DSUCRe,
+  0,
+  [_SUC, _RI, _St],
+  [() => SelfUpgradeConfiguration$, 0, [1, 32]]
+];
 export var DescribeTemplateAliasRequest$: StaticStructureSchema = [3, n0, _DTARes,
   0,
   [_AAI, _TIe, _ANl],
@@ -7495,6 +7533,12 @@ export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
   [0, 0]
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
@@ -7957,6 +8001,16 @@ export var ListRoleMembershipsResponse$: StaticStructureSchema = [3, n0, _LRMRi,
   0,
   [_MLe, _NT, _RI, _St],
   [64 | 0, 0, 0, [1, 32]]
+];
+export var ListSelfUpgradesRequest$: StaticStructureSchema = [3, n0, _LSUR,
+  0,
+  [_AAI, _Na, _NT, _MR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]]
+];
+export var ListSelfUpgradesResponse$: StaticStructureSchema = [3, n0, _LSURi,
+  0,
+  [_SURD, _NT, _RI, _St],
+  [() => SelfUpgradeRequestDetailList, 0, 0, [1, 32]]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -9308,6 +9362,16 @@ export var SelectedSheetsFilterScopeConfiguration$: StaticStructureSchema = [3, 
   [_SVSC],
   [() => SheetVisualScopingConfigurations]
 ];
+export var SelfUpgradeConfiguration$: StaticStructureSchema = [3, n0, _SUC,
+  0,
+  [_SUS],
+  [0]
+];
+export var SelfUpgradeRequestDetail$: StaticStructureSchema = [3, n0, _SURDe,
+  0,
+  [_URI, _UN, _OR, _RReq, _RN, _CTr, _RSequ, _lUAT, _lUFR],
+  [0, 0, 0, 0, 0, 1, 0, 1, 0]
+];
 export var SemanticEntityType$: StaticStructureSchema = [3, n0, _SET,
   0,
   [_TNy, _STN, _TPy],
@@ -9564,7 +9628,7 @@ export var SnapshotS3DestinationConfiguration$: StaticStructureSchema = [3, n0, 
   [_BCu],
   [() => S3BucketConfiguration$]
 ];
-export var SnapshotUserConfiguration$: StaticStructureSchema = [3, n0, _SUC,
+export var SnapshotUserConfiguration$: StaticStructureSchema = [3, n0, _SUCn,
   0,
   [_AU],
   [[() => SnapshotAnonymousUserList, 0]]
@@ -10722,6 +10786,26 @@ export var UpdateRoleCustomPermissionResponse$: StaticStructureSchema = [3, n0, 
   [_RI, _St],
   [0, 1]
 ];
+export var UpdateSelfUpgradeConfigurationRequest$: StaticStructureSchema = [3, n0, _USUCR,
+  0,
+  [_AAI, _Na, _SUS],
+  [[0, 1], [0, 1], 0]
+];
+export var UpdateSelfUpgradeConfigurationResponse$: StaticStructureSchema = [3, n0, _USUCRp,
+  0,
+  [_RI, _St],
+  [0, [1, 32]]
+];
+export var UpdateSelfUpgradeRequest$: StaticStructureSchema = [3, n0, _USUR,
+  0,
+  [_AAI, _Na, _URI, _Act],
+  [[0, 1], [0, 1], 0, 0]
+];
+export var UpdateSelfUpgradeResponse$: StaticStructureSchema = [3, n0, _USURp,
+  0,
+  [_SURDe, _RI, _St],
+  [() => SelfUpgradeRequestDetail$, 0, [1, 32]]
+];
 export var UpdateSPICECapacityConfigurationRequest$: StaticStructureSchema = [3, n0, _USPICECCR,
   0,
   [_AAI, _PMu],
@@ -11735,6 +11819,9 @@ var SearchFlowsFilterList: StaticListSchema = [1, n0, _SFFL,
 ];
 var SecurityGroupIdList = 64 | 0;
 var SelectedFieldList = 64 | 0;
+var SelfUpgradeRequestDetailList: StaticListSchema = [1, n0, _SURDL,
+  0, () => SelfUpgradeRequestDetail$
+];
 var SensitiveDoubleList: StaticListSchema = [1, n0, _SDL,
   0, [() => SensitiveDouble,
     0]
@@ -12165,19 +12252,19 @@ export var CreateRefreshSchedule$: StaticOperationSchema = [9, n0, _CRS,
 export var CreateRoleMembership$: StaticOperationSchema = [9, n0, _CRM,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200] }, () => CreateRoleMembershipRequest$, () => CreateRoleMembershipResponse$
 ];
-export var CreateTemplate$: StaticOperationSchema = [9, n0, _CTr,
+export var CreateTemplate$: StaticOperationSchema = [9, n0, _CTre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] }, () => CreateTemplateRequest$, () => CreateTemplateResponse$
 ];
 export var CreateTemplateAlias$: StaticOperationSchema = [9, n0, _CTA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] }, () => CreateTemplateAliasRequest$, () => CreateTemplateAliasResponse$
 ];
-export var CreateTheme$: StaticOperationSchema = [9, n0, _CTre,
+export var CreateTheme$: StaticOperationSchema = [9, n0, _CTrea,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] }, () => CreateThemeRequest$, () => CreateThemeResponse$
 ];
 export var CreateThemeAlias$: StaticOperationSchema = [9, n0, _CTAr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] }, () => CreateThemeAliasRequest$, () => CreateThemeAliasResponse$
 ];
-export var CreateTopic$: StaticOperationSchema = [9, n0, _CTrea,
+export var CreateTopic$: StaticOperationSchema = [9, n0, _CTreat,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics", 200] }, () => CreateTopicRequest$, () => CreateTopicResponse$
 ];
 export var CreateTopicRefreshSchedule$: StaticOperationSchema = [9, n0, _CTRS,
@@ -12408,6 +12495,9 @@ export var DescribeRefreshSchedule$: StaticOperationSchema = [9, n0, _DRSe,
 export var DescribeRoleCustomPermission$: StaticOperationSchema = [9, n0, _DRCPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] }, () => DescribeRoleCustomPermissionRequest$, () => DescribeRoleCustomPermissionResponse$
 ];
+export var DescribeSelfUpgradeConfiguration$: StaticOperationSchema = [9, n0, _DSUCe,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/self-upgrade-configuration", 200] }, () => DescribeSelfUpgradeConfigurationRequest$, () => DescribeSelfUpgradeConfigurationResponse$
+];
 export var DescribeTemplate$: StaticOperationSchema = [9, n0, _DTesc,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] }, () => DescribeTemplateRequest$, () => DescribeTemplateResponse$
 ];
@@ -12539,6 +12629,9 @@ export var ListRefreshSchedules$: StaticOperationSchema = [9, n0, _LRS,
 ];
 export var ListRoleMemberships$: StaticOperationSchema = [9, n0, _LRM,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members", 200] }, () => ListRoleMembershipsRequest$, () => ListRoleMembershipsResponse$
+];
+export var ListSelfUpgrades$: StaticOperationSchema = [9, n0, _LSU,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/self-upgrade-requests", 200] }, () => ListSelfUpgradesRequest$, () => ListSelfUpgradesResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/resources/{ResourceArn}/tags", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
@@ -12740,6 +12833,12 @@ export var UpdateRefreshSchedule$: StaticOperationSchema = [9, n0, _URS,
 ];
 export var UpdateRoleCustomPermission$: StaticOperationSchema = [9, n0, _URCP,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] }, () => UpdateRoleCustomPermissionRequest$, () => UpdateRoleCustomPermissionResponse$
+];
+export var UpdateSelfUpgrade$: StaticOperationSchema = [9, n0, _USU,
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/update-self-upgrade-request", 200] }, () => UpdateSelfUpgradeRequest$, () => UpdateSelfUpgradeResponse$
+];
+export var UpdateSelfUpgradeConfiguration$: StaticOperationSchema = [9, n0, _USUC,
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/self-upgrade-configuration", 200] }, () => UpdateSelfUpgradeConfigurationRequest$, () => UpdateSelfUpgradeConfigurationResponse$
 ];
 export var UpdateSPICECapacityConfiguration$: StaticOperationSchema = [9, n0, _USPICECC,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/spice-capacity-configuration", 200] }, () => UpdateSPICECapacityConfigurationRequest$, () => UpdateSPICECapacityConfigurationResponse$

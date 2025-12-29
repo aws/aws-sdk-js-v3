@@ -477,6 +477,11 @@ import {
   DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
 import {
+  DescribeSelfUpgradeConfigurationCommand,
+  DescribeSelfUpgradeConfigurationCommandInput,
+  DescribeSelfUpgradeConfigurationCommandOutput,
+} from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -680,6 +685,11 @@ import {
   ListRoleMembershipsCommandInput,
   ListRoleMembershipsCommandOutput,
 } from "./commands/ListRoleMembershipsCommand";
+import {
+  ListSelfUpgradesCommand,
+  ListSelfUpgradesCommandInput,
+  ListSelfUpgradesCommandOutput,
+} from "./commands/ListSelfUpgradesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -988,6 +998,16 @@ import {
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
 import {
+  UpdateSelfUpgradeCommand,
+  UpdateSelfUpgradeCommandInput,
+  UpdateSelfUpgradeCommandOutput,
+} from "./commands/UpdateSelfUpgradeCommand";
+import {
+  UpdateSelfUpgradeConfigurationCommand,
+  UpdateSelfUpgradeConfigurationCommandInput,
+  UpdateSelfUpgradeConfigurationCommandOutput,
+} from "./commands/UpdateSelfUpgradeConfigurationCommand";
+import {
   UpdateSPICECapacityConfigurationCommand,
   UpdateSPICECapacityConfigurationCommandInput,
   UpdateSPICECapacityConfigurationCommandOutput,
@@ -1145,6 +1165,7 @@ const commands = {
   DescribeQuickSightQSearchConfigurationCommand,
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
+  DescribeSelfUpgradeConfigurationCommand,
   DescribeTemplateCommand,
   DescribeTemplateAliasCommand,
   DescribeTemplateDefinitionCommand,
@@ -1189,6 +1210,7 @@ const commands = {
   ListNamespacesCommand,
   ListRefreshSchedulesCommand,
   ListRoleMembershipsCommand,
+  ListSelfUpgradesCommand,
   ListTagsForResourceCommand,
   ListTemplateAliasesCommand,
   ListTemplatesCommand,
@@ -1256,6 +1278,8 @@ const commands = {
   UpdateQuickSightQSearchConfigurationCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
+  UpdateSelfUpgradeCommand,
+  UpdateSelfUpgradeConfigurationCommand,
   UpdateSPICECapacityConfigurationCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
@@ -3007,6 +3031,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeSelfUpgradeConfigurationCommand}
+   */
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSelfUpgradeConfigurationCommandOutput>;
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+  describeSelfUpgradeConfiguration(
+    args: DescribeSelfUpgradeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTemplateCommand}
    */
   describeTemplate(
@@ -3752,6 +3793,23 @@ export interface QuickSight {
     args: ListRoleMembershipsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRoleMembershipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSelfUpgradesCommand}
+   */
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSelfUpgradesCommandOutput>;
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    cb: (err: any, data?: ListSelfUpgradesCommandOutput) => void
+  ): void;
+  listSelfUpgrades(
+    args: ListSelfUpgradesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSelfUpgradesCommandOutput) => void
   ): void;
 
   /**
@@ -4891,6 +4949,40 @@ export interface QuickSight {
     args: UpdateRoleCustomPermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSelfUpgradeCommand}
+   */
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSelfUpgradeCommandOutput>;
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    cb: (err: any, data?: UpdateSelfUpgradeCommandOutput) => void
+  ): void;
+  updateSelfUpgrade(
+    args: UpdateSelfUpgradeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSelfUpgradeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSelfUpgradeConfigurationCommand}
+   */
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSelfUpgradeConfigurationCommandOutput>;
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
+  ): void;
+  updateSelfUpgradeConfiguration(
+    args: UpdateSelfUpgradeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
   ): void;
 
   /**

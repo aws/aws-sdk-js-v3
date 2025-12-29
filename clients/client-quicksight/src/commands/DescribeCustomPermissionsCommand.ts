@@ -85,6 +85,7 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * //       ChatAgent: "DENY",
  * //       CreateChatAgents: "DENY",
  * //       Research: "DENY",
+ * //       SelfUpgradeUserRole: "DENY",
  * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",

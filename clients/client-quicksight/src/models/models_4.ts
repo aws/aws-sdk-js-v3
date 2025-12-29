@@ -26,6 +26,9 @@ import {
   ResourceStatus,
   Role,
   SearchFilterOperator,
+  SelfUpgradeAdminAction,
+  SelfUpgradeRequestStatus,
+  SelfUpgradeStatus,
   ServiceType,
   SharingModel,
   ThemeErrorType,
@@ -124,8 +127,152 @@ import {
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   TemplateAlias,
+  TemplateError,
   ThemeAlias,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionResponse {
+  /**
+   * <p>The descriptive name of the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the template described.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>Errors associated with the template version.</p>
+   * @public
+   */
+  Errors?: TemplateError[] | undefined;
+
+  /**
+   * <p>Status associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the template.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of the template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
+   */
+  TemplateArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be set on the template. </p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * @public
@@ -2348,7 +2495,7 @@ export interface GetIdentityContextResponse {
   RequestId: string | undefined;
 
   /**
-   * <p>The identity context information for the user. This is an identity token that should be used as the ContextAssertion parameter in the <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">STS AssumeRole API</a> call to obtain identity enhanced AWS credentials.</p>
+   * <p>The identity context information for the user. This is an identity token that should be used as the ContextAssertion parameter in the <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">STS AssumeRole API</a> call to obtain identity enhanced Amazon Web Services credentials.</p>
    * @public
    */
   Context?: string | undefined;
@@ -3752,6 +3899,124 @@ export interface ListRoleMembershipsResponse {
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSelfUpgradesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the self-upgrade requests.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Suite namespace for the self-upgrade requests.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Details of a self-upgrade request.</p>
+ * @public
+ */
+export interface SelfUpgradeRequestDetail {
+  /**
+   * <p>The ID of the self-upgrade request.</p>
+   * @public
+   */
+  UpgradeRequestId?: string | undefined;
+
+  /**
+   * <p>The username of the user who initiated the self-upgrade request.</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The original role of the user before the upgrade.</p>
+   * @public
+   */
+  OriginalRole?: UserRole | undefined;
+
+  /**
+   * <p>The role that the user is requesting to upgrade to.</p>
+   * @public
+   */
+  RequestedRole?: UserRole | undefined;
+
+  /**
+   * <p>An optional note explaining the reason for the self-upgrade request.</p>
+   * @public
+   */
+  RequestNote?: string | undefined;
+
+  /**
+   * <p>The time when the self-upgrade request was created.</p>
+   * @public
+   */
+  CreationTime?: number | undefined;
+
+  /**
+   * <p>The status of the self-upgrade request.</p>
+   * @public
+   */
+  RequestStatus?: SelfUpgradeRequestStatus | undefined;
+
+  /**
+   * <p>The time of the last update attempt for the self-upgrade request.</p>
+   * @public
+   */
+  lastUpdateAttemptTime?: number | undefined;
+
+  /**
+   * <p>The reason for the last update failure, if applicable.</p>
+   * @public
+   */
+  lastUpdateFailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSelfUpgradesResponse {
+  /**
+   * <p>A list of self-upgrade request details.</p>
+   * @public
+   */
+  SelfUpgradeRequestDetails?: SelfUpgradeRequestDetail[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8412,6 +8677,98 @@ export interface UpdateRoleCustomPermissionRequest {
  * @public
  */
 export interface UpdateRoleCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the self-upgrade request.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Suite namespace for the self-upgrade request.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The ID of the self-upgrade request to update.</p>
+   * @public
+   */
+  UpgradeRequestId: string | undefined;
+
+  /**
+   * <p>The action to perform on the self-upgrade request. Valid values are <code>APPROVE</code>, <code>DENY</code>, or <code>VERIFY</code>.</p>
+   * @public
+   */
+  Action: SelfUpgradeAdminAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeResponse {
+  /**
+   * <p>Details of the updated self-upgrade request.</p>
+   * @public
+   */
+  SelfUpgradeRequestDetail?: SelfUpgradeRequestDetail | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Suite self-upgrade configuration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Suite namespace that you want to update the Quick Suite self-upgrade configuration for.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The self-upgrade status that you want to set for the Quick Suite account.</p>
+   * @public
+   */
+  SelfUpgradeStatus: SelfUpgradeStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeConfigurationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public

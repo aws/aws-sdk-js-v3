@@ -6872,6 +6872,12 @@ export interface Capabilities {
    * @public
    */
   Research?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to enable users to upgrade their user role.</p>
+   * @public
+   */
+  SelfUpgradeUserRole?: CapabilityState | undefined;
 }
 
 /**

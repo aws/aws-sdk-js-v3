@@ -77,6 +77,7 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     ChatAgent: "DENY",
  *     CreateChatAgents: "DENY",
  *     Research: "DENY",
+ *     SelfUpgradeUserRole: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

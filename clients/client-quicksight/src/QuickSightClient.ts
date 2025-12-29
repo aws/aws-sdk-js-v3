@@ -364,6 +364,10 @@ import {
   DescribeRoleCustomPermissionCommandOutput,
 } from "./commands/DescribeRoleCustomPermissionCommand";
 import {
+  DescribeSelfUpgradeConfigurationCommandInput,
+  DescribeSelfUpgradeConfigurationCommandOutput,
+} from "./commands/DescribeSelfUpgradeConfigurationCommand";
+import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
@@ -479,6 +483,7 @@ import {
   ListRoleMembershipsCommandInput,
   ListRoleMembershipsCommandOutput,
 } from "./commands/ListRoleMembershipsCommand";
+import { ListSelfUpgradesCommandInput, ListSelfUpgradesCommandOutput } from "./commands/ListSelfUpgradesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -663,6 +668,11 @@ import {
   UpdateRoleCustomPermissionCommandInput,
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
+import { UpdateSelfUpgradeCommandInput, UpdateSelfUpgradeCommandOutput } from "./commands/UpdateSelfUpgradeCommand";
+import {
+  UpdateSelfUpgradeConfigurationCommandInput,
+  UpdateSelfUpgradeConfigurationCommandOutput,
+} from "./commands/UpdateSelfUpgradeConfigurationCommand";
 import {
   UpdateSPICECapacityConfigurationCommandInput,
   UpdateSPICECapacityConfigurationCommandOutput,
@@ -817,6 +827,7 @@ export type ServiceInputTypes =
   | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
+  | DescribeSelfUpgradeConfigurationCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -861,6 +872,7 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListRefreshSchedulesCommandInput
   | ListRoleMembershipsCommandInput
+  | ListSelfUpgradesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -929,6 +941,8 @@ export type ServiceInputTypes =
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
+  | UpdateSelfUpgradeCommandInput
+  | UpdateSelfUpgradeConfigurationCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -1048,6 +1062,7 @@ export type ServiceOutputTypes =
   | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
+  | DescribeSelfUpgradeConfigurationCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -1092,6 +1107,7 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListRefreshSchedulesCommandOutput
   | ListRoleMembershipsCommandOutput
+  | ListSelfUpgradesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -1160,6 +1176,8 @@ export type ServiceOutputTypes =
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput
+  | UpdateSelfUpgradeCommandOutput
+  | UpdateSelfUpgradeConfigurationCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

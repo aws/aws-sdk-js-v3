@@ -53,6 +53,7 @@ import {
   Role,
   RowLevelPermissionFormatVersion,
   RowLevelPermissionPolicy,
+  SelfUpgradeStatus,
   ServiceType,
   SharingModel,
   SnapshotJobStatus,
@@ -9210,6 +9211,68 @@ export interface DescribeRoleCustomPermissionResponse {
 /**
  * @public
  */
+export interface DescribeSelfUpgradeConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Suite self-upgrade configuration.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Suite namespace that you want to describe the Quick Suite self-upgrade configuration for.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * <p>The self-upgrade configuration for the Quick Suite account.</p>
+ * @public
+ */
+export interface SelfUpgradeConfiguration {
+  /**
+   * <p>Status set for the self-upgrade configuration for the Quick Suite account. It can contain the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_APPROVAL</code>: All the self-upgrade requests will be auto approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_APPROVAL</code>: All the self-upgrade requests will require admin approval.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SelfUpgradeStatus?: SelfUpgradeStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSelfUpgradeConfigurationResponse {
+  /**
+   * <p>The self-upgrade configuration for the Quick Suite account.</p>
+   * @public
+   */
+  SelfUpgradeConfiguration?: SelfUpgradeConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -9517,147 +9580,4 @@ export interface DescribeTemplateDefinitionRequest {
    * @public
    */
   AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateDefinitionResponse {
-  /**
-   * <p>The descriptive name of the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the template described.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>Errors associated with the template version.</p>
-   * @public
-   */
-  Errors?: TemplateError[] | undefined;
-
-  /**
-   * <p>Status associated with the template.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the template.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of the template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplatePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplatePermissionsResponse {
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   * @public
-   */
-  TemplateArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }

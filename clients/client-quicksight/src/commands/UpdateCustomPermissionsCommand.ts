@@ -77,6 +77,7 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     ChatAgent: "DENY",
  *     CreateChatAgents: "DENY",
  *     Research: "DENY",
+ *     SelfUpgradeUserRole: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

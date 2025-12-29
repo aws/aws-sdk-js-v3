@@ -3882,6 +3882,19 @@ export type QSearchStatus = (typeof QSearchStatus)[keyof typeof QSearchStatus];
  * @public
  * @enum
  */
+export const SelfUpgradeStatus = {
+  ADMIN_APPROVAL: "ADMIN_APPROVAL",
+  AUTO_APPROVAL: "AUTO_APPROVAL",
+} as const;
+/**
+ * @public
+ */
+export type SelfUpgradeStatus = (typeof SelfUpgradeStatus)[keyof typeof SelfUpgradeStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TemplateErrorType = {
   ACCESS_DENIED: "ACCESS_DENIED",
   DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
@@ -4119,6 +4132,22 @@ export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typ
  * @public
  * @enum
  */
+export const SelfUpgradeRequestStatus = {
+  APPROVED: "APPROVED",
+  DENIED: "DENIED",
+  PENDING: "PENDING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  VERIFY_FAILED: "VERIFY_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type SelfUpgradeRequestStatus = (typeof SelfUpgradeRequestStatus)[keyof typeof SelfUpgradeRequestStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const QAResultType = {
   DASHBOARD_VISUAL: "DASHBOARD_VISUAL",
   GENERATED_ANSWER: "GENERATED_ANSWER",
@@ -4185,3 +4214,17 @@ export const TopicFilterOperator = {
  * @public
  */
 export type TopicFilterOperator = (typeof TopicFilterOperator)[keyof typeof TopicFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SelfUpgradeAdminAction = {
+  APPROVE: "APPROVE",
+  DENY: "DENY",
+  VERIFY: "VERIFY",
+} as const;
+/**
+ * @public
+ */
+export type SelfUpgradeAdminAction = (typeof SelfUpgradeAdminAction)[keyof typeof SelfUpgradeAdminAction];

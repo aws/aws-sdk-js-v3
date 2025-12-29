@@ -849,6 +849,10 @@ import {
   DescribeRoleCustomPermissionCommand,
   DescribeRoleCustomPermissionRequest$,
   DescribeRoleCustomPermissionResponse$,
+  DescribeSelfUpgradeConfiguration$,
+  DescribeSelfUpgradeConfigurationCommand,
+  DescribeSelfUpgradeConfigurationRequest$,
+  DescribeSelfUpgradeConfigurationResponse$,
   DescribeTemplate$,
   DescribeTemplateAlias$,
   DescribeTemplateAliasCommand,
@@ -1181,6 +1185,8 @@ import {
   InvalidDataSetParameterValueException$,
   InvalidNextTokenException,
   InvalidNextTokenException$,
+  InvalidParameterException,
+  InvalidParameterException$,
   InvalidParameterValueException,
   InvalidParameterValueException$,
   InvalidRequestException,
@@ -1333,6 +1339,10 @@ import {
   ListRoleMembershipsCommand,
   ListRoleMembershipsRequest$,
   ListRoleMembershipsResponse$,
+  ListSelfUpgrades$,
+  ListSelfUpgradesCommand,
+  ListSelfUpgradesRequest$,
+  ListSelfUpgradesResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -1768,6 +1778,11 @@ import {
   SelectedFieldOptions,
   SelectedSheetsFilterScopeConfiguration$,
   SelectedTooltipType,
+  SelfUpgradeAdminAction,
+  SelfUpgradeConfiguration$,
+  SelfUpgradeRequestDetail$,
+  SelfUpgradeRequestStatus,
+  SelfUpgradeStatus,
   SemanticEntityType$,
   SemanticModelConfiguration$,
   SemanticTable$,
@@ -2189,6 +2204,14 @@ import {
   UpdateRoleCustomPermissionCommand,
   UpdateRoleCustomPermissionRequest$,
   UpdateRoleCustomPermissionResponse$,
+  UpdateSelfUpgrade$,
+  UpdateSelfUpgradeCommand,
+  UpdateSelfUpgradeConfiguration$,
+  UpdateSelfUpgradeConfigurationCommand,
+  UpdateSelfUpgradeConfigurationRequest$,
+  UpdateSelfUpgradeConfigurationResponse$,
+  UpdateSelfUpgradeRequest$,
+  UpdateSelfUpgradeResponse$,
   UpdateSPICECapacityConfiguration$,
   UpdateSPICECapacityConfigurationCommand,
   UpdateSPICECapacityConfigurationRequest$,
@@ -2512,6 +2535,8 @@ assert(typeof DescribeRefreshScheduleCommand === "function");
 assert(typeof DescribeRefreshSchedule$ === "object");
 assert(typeof DescribeRoleCustomPermissionCommand === "function");
 assert(typeof DescribeRoleCustomPermission$ === "object");
+assert(typeof DescribeSelfUpgradeConfigurationCommand === "function");
+assert(typeof DescribeSelfUpgradeConfiguration$ === "object");
 assert(typeof DescribeTemplateCommand === "function");
 assert(typeof DescribeTemplate$ === "object");
 assert(typeof DescribeTemplateAliasCommand === "function");
@@ -2600,6 +2625,8 @@ assert(typeof ListRefreshSchedulesCommand === "function");
 assert(typeof ListRefreshSchedules$ === "object");
 assert(typeof ListRoleMembershipsCommand === "function");
 assert(typeof ListRoleMemberships$ === "object");
+assert(typeof ListSelfUpgradesCommand === "function");
+assert(typeof ListSelfUpgrades$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTemplateAliasesCommand === "function");
@@ -2734,6 +2761,10 @@ assert(typeof UpdateRefreshScheduleCommand === "function");
 assert(typeof UpdateRefreshSchedule$ === "object");
 assert(typeof UpdateRoleCustomPermissionCommand === "function");
 assert(typeof UpdateRoleCustomPermission$ === "object");
+assert(typeof UpdateSelfUpgradeCommand === "function");
+assert(typeof UpdateSelfUpgrade$ === "object");
+assert(typeof UpdateSelfUpgradeConfigurationCommand === "function");
+assert(typeof UpdateSelfUpgradeConfiguration$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationCommand === "function");
 assert(typeof UpdateSPICECapacityConfiguration$ === "object");
 assert(typeof UpdateTemplateCommand === "function");
@@ -3309,6 +3340,8 @@ assert(typeof DescribeRefreshScheduleRequest$ === "object");
 assert(typeof DescribeRefreshScheduleResponse$ === "object");
 assert(typeof DescribeRoleCustomPermissionRequest$ === "object");
 assert(typeof DescribeRoleCustomPermissionResponse$ === "object");
+assert(typeof DescribeSelfUpgradeConfigurationRequest$ === "object");
+assert(typeof DescribeSelfUpgradeConfigurationResponse$ === "object");
 assert(typeof DescribeTemplateAliasRequest$ === "object");
 assert(typeof DescribeTemplateAliasResponse$ === "object");
 assert(typeof DescribeTemplateDefinitionRequest$ === "object");
@@ -3633,6 +3666,8 @@ assert(typeof ListRefreshSchedulesRequest$ === "object");
 assert(typeof ListRefreshSchedulesResponse$ === "object");
 assert(typeof ListRoleMembershipsRequest$ === "object");
 assert(typeof ListRoleMembershipsResponse$ === "object");
+assert(typeof ListSelfUpgradesRequest$ === "object");
+assert(typeof ListSelfUpgradesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTemplateAliasesRequest$ === "object");
@@ -3901,6 +3936,8 @@ assert(typeof SectionLayoutConfiguration$ === "object");
 assert(typeof SectionPageBreakConfiguration$ === "object");
 assert(typeof SectionStyle$ === "object");
 assert(typeof SelectedSheetsFilterScopeConfiguration$ === "object");
+assert(typeof SelfUpgradeConfiguration$ === "object");
+assert(typeof SelfUpgradeRequestDetail$ === "object");
 assert(typeof SemanticEntityType$ === "object");
 assert(typeof SemanticModelConfiguration$ === "object");
 assert(typeof SemanticTable$ === "object");
@@ -4180,6 +4217,10 @@ assert(typeof UpdateRefreshScheduleRequest$ === "object");
 assert(typeof UpdateRefreshScheduleResponse$ === "object");
 assert(typeof UpdateRoleCustomPermissionRequest$ === "object");
 assert(typeof UpdateRoleCustomPermissionResponse$ === "object");
+assert(typeof UpdateSelfUpgradeConfigurationRequest$ === "object");
+assert(typeof UpdateSelfUpgradeConfigurationResponse$ === "object");
+assert(typeof UpdateSelfUpgradeRequest$ === "object");
+assert(typeof UpdateSelfUpgradeResponse$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationRequest$ === "object");
 assert(typeof UpdateSPICECapacityConfigurationResponse$ === "object");
 assert(typeof UpdateTemplateAliasRequest$ === "object");
@@ -4455,6 +4496,9 @@ assert(typeof SectionPageBreakStatus === "object");
 assert(typeof SelectAllValueOptions === "object");
 assert(typeof SelectedFieldOptions === "object");
 assert(typeof SelectedTooltipType === "object");
+assert(typeof SelfUpgradeAdminAction === "object");
+assert(typeof SelfUpgradeRequestStatus === "object");
+assert(typeof SelfUpgradeStatus === "object");
 assert(typeof ServiceType === "object");
 assert(typeof SharingModel === "object");
 assert(typeof SheetContentType === "object");
@@ -4546,6 +4590,8 @@ assert(InvalidDataSetParameterValueException.prototype instanceof QuickSightServ
 assert(typeof InvalidDataSetParameterValueException$ === "object");
 assert(InvalidNextTokenException.prototype instanceof QuickSightServiceException);
 assert(typeof InvalidNextTokenException$ === "object");
+assert(InvalidParameterException.prototype instanceof QuickSightServiceException);
+assert(typeof InvalidParameterException$ === "object");
 assert(InvalidParameterValueException.prototype instanceof QuickSightServiceException);
 assert(typeof InvalidParameterValueException$ === "object");
 assert(InvalidRequestException.prototype instanceof QuickSightServiceException);

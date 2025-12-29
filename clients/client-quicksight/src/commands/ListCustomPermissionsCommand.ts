@@ -87,6 +87,7 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  * //         ChatAgent: "DENY",
  * //         CreateChatAgents: "DENY",
  * //         Research: "DENY",
+ * //         SelfUpgradeUserRole: "DENY",
  * //       },
  * //     },
  * //   ],
