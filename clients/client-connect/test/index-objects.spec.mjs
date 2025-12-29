@@ -913,6 +913,7 @@ import {
   GetTrafficDistributionCommand,
   GetTrafficDistributionRequest$,
   GetTrafficDistributionResponse$,
+  GlobalResiliencyMetadata$,
   GranularAccessControlConfiguration$,
   Grouping,
   HierarchyGroup$,
@@ -972,6 +973,8 @@ import {
   InternalServiceException$,
   IntervalDetails$,
   IntervalPeriod,
+  InvalidActiveRegionException,
+  InvalidActiveRegionException$,
   InvalidContactFlowException,
   InvalidContactFlowException$,
   InvalidContactFlowModuleException,
@@ -3266,6 +3269,7 @@ assert(typeof GetTaskTemplateRequest$ === "object");
 assert(typeof GetTaskTemplateResponse$ === "object");
 assert(typeof GetTrafficDistributionRequest$ === "object");
 assert(typeof GetTrafficDistributionResponse$ === "object");
+assert(typeof GlobalResiliencyMetadata$ === "object");
 assert(typeof GranularAccessControlConfiguration$ === "object");
 assert(typeof HierarchyGroup$ === "object");
 assert(typeof HierarchyGroupCondition$ === "object");
@@ -4039,6 +4043,8 @@ assert(IdempotencyException.prototype instanceof ConnectServiceException);
 assert(typeof IdempotencyException$ === "object");
 assert(InternalServiceException.prototype instanceof ConnectServiceException);
 assert(typeof InternalServiceException$ === "object");
+assert(InvalidActiveRegionException.prototype instanceof ConnectServiceException);
+assert(typeof InvalidActiveRegionException$ === "object");
 assert(InvalidContactFlowException.prototype instanceof ConnectServiceException);
 assert(typeof InvalidContactFlowException$ === "object");
 assert(InvalidContactFlowModuleException.prototype instanceof ConnectServiceException);

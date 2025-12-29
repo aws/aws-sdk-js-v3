@@ -144,6 +144,7 @@ const _AR = "AttachmentReference";
 const _ARA = "AssociatedResourceArn";
 const _ARPQ = "AssociateRoutingProfileQueues";
 const _ARPQR = "AssociateRoutingProfileQueuesRequest";
+const _ARc = "ActiveRegion";
 const _ARd = "AdditionalRecipients";
 const _AS = "ActionSummary";
 const _ASA = "AssignSlaAction";
@@ -1091,6 +1092,7 @@ const _GMDVRe = "GetMetricDataV2Response";
 const _GPF = "GetPromptFile";
 const _GPFR = "GetPromptFileRequest";
 const _GPFRe = "GetPromptFileResponse";
+const _GRM = "GlobalResiliencyMetadata";
 const _GSIE = "GlobalSignInEndpoint";
 const _GST = "GreetingStartTimestamp";
 const _GTD = "GetTrafficDistribution";
@@ -1152,6 +1154,7 @@ const _IAA = "IntegrationAssociationArn";
 const _IAC = "InvertActionsColors";
 const _IAI = "IntegrationAssociationId";
 const _IAR = "InboundAdditionalRecipients";
+const _IARE = "InvalidActiveRegionException";
 const _IAS = "IntegrationAssociationSummary";
 const _IASL = "IntegrationAssociationSummaryList";
 const _IAU = "InstanceAccessUrl";
@@ -1572,6 +1575,7 @@ const _OECu = "OutboundEmailContent";
 const _OFI = "OutboundFlowId";
 const _OH = "OperationalHours";
 const _OHp = "OperationalHour";
+const _OR = "OriginRegion";
 const _ORI = "OptionRefIds";
 const _ORIp = "OptionRefId";
 const _ORIr = "OrganizationResourceId";
@@ -2608,6 +2612,7 @@ import {
   DuplicateResourceException,
   IdempotencyException,
   InternalServiceException,
+  InvalidActiveRegionException,
   InvalidContactFlowException,
   InvalidContactFlowModuleException,
   InvalidParameterException,
@@ -3239,8 +3244,8 @@ export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RC, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Re, _DR, _CEon, _TTI, _CDo, _OSu, _Attr, _NCe],
-  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts]
+  [_A, _I, _ICI, _PCI, _CAI, _IM, _N, _D, _C, _QIu, _AI, _IT, _DT, _LUT, _LPT, _LRT, _RST, _TPC, _TPDIS, _STc, _RCI, _WIi, _CIu, _CEu, _SE, _QTAS, _QP, _Ta, _CTST, _RC, _Cu, _Cam, _AMDS, _CVA, _QM, _CMh, _DD, _AER, _SAe, _Re, _DR, _CEon, _TTI, _CDo, _OSu, _Attr, _NCe, _GRM],
+  [0, 0, 0, 0, 0, 0, [() => Name, 0], [() => Description, 0], 0, () => QueueInfo$, () => AgentInfo$, 4, 4, 4, 4, 4, 4, 1, 1, 4, 0, () => WisdomInfo$, 0, () => EndpointInfo$, () => EndpointInfo$, 1, 1, 128 | 0, 4, () => RoutingCriteria$, () => Customer$, () => Campaign$, 0, () => CustomerVoiceActivity$, () => QualityMetrics$, () => ChatMetrics$, () => DisconnectDetails$, () => AdditionalEmailRecipients$, () => SegmentAttributes, () => Recordings, 0, () => ContactEvaluations, () => TaskTemplateInfoV2$, () => ContactDetails$, () => OutboundStrategy$, 128 | 0, () => NextContacts, () => GlobalResiliencyMetadata$]
 ];
 export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -5161,6 +5166,11 @@ export var GetTrafficDistributionResponse$: StaticStructureSchema = [3, n0, _GTD
   [_TCe, _I, _A, _SIC, _ACg],
   [() => TelephonyConfig$, 0, 0, () => SignInConfig$, () => AgentConfig$]
 ];
+export var GlobalResiliencyMetadata$: StaticStructureSchema = [3, n0, _GRM,
+  0,
+  [_ARc, _OR, _TDGI],
+  [0, 0, 0]
+];
 export var GranularAccessControlConfiguration$: StaticStructureSchema = [3, n0, _GACC,
   0,
   [_DTACC],
@@ -5368,6 +5378,12 @@ export var IntervalDetails$: StaticStructureSchema = [3, n0, _IDnt,
   [_TZ, _IP],
   [0, 0]
 ];
+export var InvalidActiveRegionException$: StaticErrorSchema = [-3, n0, _IARE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidActiveRegionException$, InvalidActiveRegionException);
 export var InvalidContactFlowException$: StaticErrorSchema = [-3, n0, _ICFE,
   { [_e]: _c, [_hE]: 400 },
   [_p],

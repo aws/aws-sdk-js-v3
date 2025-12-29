@@ -551,6 +551,28 @@ export class OutputTypeNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ * @public
+ */
+export class InvalidActiveRegionException extends __BaseException {
+  readonly name = "InvalidActiveRegionException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidActiveRegionException, __BaseException>) {
+    super({
+      name: "InvalidActiveRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidActiveRegionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to
  *    get more tags.</p>
  * @public

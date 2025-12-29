@@ -1257,6 +1257,30 @@ export interface DisconnectDetails {
 }
 
 /**
+ * <p>Information about the global resiliency configuration for the contact, including traffic distribution details.</p>
+ * @public
+ */
+export interface GlobalResiliencyMetadata {
+  /**
+   * <p>The current AWS region in which the contact is active. This indicates where the contact is being processed in real-time.</p>
+   * @public
+   */
+  ActiveRegion?: string | undefined;
+
+  /**
+   * <p>The AWS region where the contact was originally created and initiated. This may differ from the ActiveRegion if the contact has been transferred across regions.</p>
+   * @public
+   */
+  OriginRegion?: string | undefined;
+
+  /**
+   * <p>The identifier of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId?: string | undefined;
+}
+
+/**
  * <p> Contact data associated with quick connect operations. </p>
  * @public
  */
@@ -10361,34 +10385,4 @@ export interface ListContactFlowModuleVersionsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of flow.</p>
-   * @public
-   */
-  ContactFlowTypes?: ContactFlowType[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

@@ -450,6 +450,11 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         },
  * //       },
  * //     ],
+ * //     GlobalResiliencyMetadata: { // GlobalResiliencyMetadata
+ * //       ActiveRegion: "STRING_VALUE",
+ * //       OriginRegion: "STRING_VALUE",
+ * //       TrafficDistributionGroupId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -113,6 +113,36 @@ import {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface ListContactFlowsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  ContactFlowTypes?: ContactFlowType[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
  * <p>Contains summary information about a flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -8522,54 +8552,4 @@ export interface StartOutboundChatContactResponse {
    * @public
    */
   ContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartOutboundEmailContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The email address associated with the Amazon Connect instance.</p>
-   * @public
-   */
-  FromEmailAddress?: EmailAddressInfo | undefined;
-
-  /**
-   * <p>The email address of the customer.</p>
-   * @public
-   */
-  DestinationEmailAddress: EmailAddressInfo | undefined;
-
-  /**
-   * <p>The additional recipients address of email in CC.</p>
-   * @public
-   */
-  AdditionalRecipients?: OutboundAdditionalRecipients | undefined;
-
-  /**
-   * <p>The email message body to be sent to the newly created email.</p>
-   * @public
-   */
-  EmailMessage: OutboundEmailContent | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
