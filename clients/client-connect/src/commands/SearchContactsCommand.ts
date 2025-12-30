@@ -144,6 +144,9 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       ],
  *       MatchType: "MATCH_ALL" || "MATCH_ANY" || "MATCH_EXACT" || "MATCH_NONE",
  *     },
+ *     ActiveRegions: [ // ActiveRegionList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -296,6 +299,11 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //         ],
  * //         ActivationTimestamp: new Date("TIMESTAMP"),
  * //         Index: Number("int"),
+ * //       },
+ * //       GlobalResiliencyMetadata: { // GlobalResiliencyMetadata
+ * //         ActiveRegion: "STRING_VALUE",
+ * //         OriginRegion: "STRING_VALUE",
+ * //         TrafficDistributionGroupId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

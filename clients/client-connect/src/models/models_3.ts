@@ -6816,6 +6816,12 @@ export interface ContactSearchSummary {
    * @public
    */
   RoutingCriteria?: RoutingCriteria | undefined;
+
+  /**
+   * <p>Additional routing information for contacts created in ACGR instances.</p>
+   * @public
+   */
+  GlobalResiliencyMetadata?: GlobalResiliencyMetadata | undefined;
 }
 
 /**

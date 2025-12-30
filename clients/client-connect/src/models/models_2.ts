@@ -6033,6 +6033,12 @@ export interface SearchCriteria {
    * @public
    */
   SearchableSegmentAttributes?: SearchableSegmentAttributes | undefined;
+
+  /**
+   * <p>The list of active regions for contacts in ACGR instances.</p>
+   * @public
+   */
+  ActiveRegions?: string[] | undefined;
 }
 
 /**

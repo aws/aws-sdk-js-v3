@@ -1315,6 +1315,7 @@ import {
   paginateListDataTables,
   paginateListDataTableValues,
   paginateListDefaultVocabularies,
+  paginateListEntitySecurityProfiles,
   paginateListEvaluationForms,
   paginateListEvaluationFormVersions,
   paginateListFlowAssociations,
@@ -1340,6 +1341,7 @@ import {
   paginateListRules,
   paginateListSecurityKeys,
   paginateListSecurityProfileApplications,
+  paginateListSecurityProfileFlowModules,
   paginateListSecurityProfilePermissions,
   paginateListSecurityProfiles,
   paginateListTaskTemplates,
@@ -4102,6 +4104,7 @@ assert(typeof paginateListDataTablePrimaryValues === "function");
 assert(typeof paginateListDataTableValues === "function");
 assert(typeof paginateListDataTables === "function");
 assert(typeof paginateListDefaultVocabularies === "function");
+assert(typeof paginateListEntitySecurityProfiles === "function");
 assert(typeof paginateListEvaluationFormVersions === "function");
 assert(typeof paginateListEvaluationForms === "function");
 assert(typeof paginateListFlowAssociations === "function");
@@ -4127,6 +4130,7 @@ assert(typeof paginateListRoutingProfiles === "function");
 assert(typeof paginateListRules === "function");
 assert(typeof paginateListSecurityKeys === "function");
 assert(typeof paginateListSecurityProfileApplications === "function");
+assert(typeof paginateListSecurityProfileFlowModules === "function");
 assert(typeof paginateListSecurityProfilePermissions === "function");
 assert(typeof paginateListSecurityProfiles === "function");
 assert(typeof paginateListTaskTemplates === "function");
