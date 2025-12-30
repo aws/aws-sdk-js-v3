@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.961.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.960.0...v3.961.0) (2025-12-30)
+
+
+### Features
+
+* **client-connect:** Adds support for searching global contacts using the ActiveRegions filter, and pagination support for ListSecurityProfileFlowModules and ListEntitySecurityProfiles. ([fc92179](https://github.com/aws/aws-sdk-js-v3/commit/fc9217959a8a8c07818df4172e4bca8c1594464d))
+
+
+
+
+
 # [3.960.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.959.0...v3.960.0) (2025-12-29)
 
 

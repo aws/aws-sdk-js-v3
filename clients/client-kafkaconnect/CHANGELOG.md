@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.961.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.960.0...v3.961.0) (2025-12-30)
+
+
+### Features
+
+* **client-kafkaconnect:** This change sets the KafkaConnect GovCloud FIPS and FIPS DualStack endpoints to use kafkaconnect instead of kafkaconnect-fips as the service name. This is done to match the Kafka endpoints. ([bb5638e](https://github.com/aws/aws-sdk-js-v3/commit/bb5638e8cf3e121e0baa2684eea92d0465722458))
+
+
+
+
+
 # [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-kafkaconnect
