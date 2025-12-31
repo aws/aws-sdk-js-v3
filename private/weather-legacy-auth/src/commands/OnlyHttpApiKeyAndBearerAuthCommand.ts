@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { getHttpApiKeyAuthPlugin } from "../middleware/HttpApiKeyAuth";
-import {
-  de_OnlyHttpApiKeyAndBearerAuthCommand,
-  se_OnlyHttpApiKeyAndBearerAuthCommand,
-} from "../protocols/Aws_restJson1";
+import { OnlyHttpApiKeyAndBearerAuth$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
@@ -71,7 +67,6 @@ export class OnlyHttpApiKeyAndBearerAuthCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSigV4AuthPlugin(config),
       getHttpApiKeyAuthPlugin(config, {
@@ -82,9 +77,7 @@ export class OnlyHttpApiKeyAndBearerAuthCommand extends $Command
   })
   .s("Weather", "OnlyHttpApiKeyAndBearerAuth", {})
   .n("WeatherClient", "OnlyHttpApiKeyAndBearerAuthCommand")
-  .f(void 0, void 0)
-  .ser(se_OnlyHttpApiKeyAndBearerAuthCommand)
-  .de(de_OnlyHttpApiKeyAndBearerAuthCommand)
+  .sc(OnlyHttpApiKeyAndBearerAuth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

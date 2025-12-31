@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import type { IdentityProviderConfig } from "@smithy/types";
@@ -31,6 +32,12 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "aws.test.generic",
+      version: "2018-05-10",
+      serviceTarget: "EchoService",
+    },
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
