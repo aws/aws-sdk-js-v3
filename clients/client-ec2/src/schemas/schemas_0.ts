@@ -1,4 +1,3 @@
-const A = performance.now();
 const _A = "Address";
 const _AA = "AccountAttribute";
 const _AAC = "AsnAuthorizationContext";
@@ -30005,5 +30004,3 @@ export var UpdateSecurityGroupRuleDescriptionsIngress$: StaticOperationSchema = 
 export var WithdrawByoipCidr$: StaticOperationSchema = [9, n0, _WBC,
   0, () => WithdrawByoipCidrRequest$, () => WithdrawByoipCidrResult$
 ];
-const B = performance.now();
-console.log('parse time', B - A);
