@@ -144,7 +144,6 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                                         + clientName + " Client for Node.js, Browser and React Native")
                                     .withMember("useLegacyAuth",
                                         useLegacyAuthServices.contains(serviceTrait.sdkId))
-                                    .withMember("generateSchemas", true)
                                     .withMember("generateIndexTests", true)
                                     .build()))
                     .build()
