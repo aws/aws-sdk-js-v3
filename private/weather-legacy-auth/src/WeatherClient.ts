@@ -26,6 +26,7 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import {
   type EndpointInputConfig,
@@ -356,6 +357,7 @@ export class WeatherClient extends __Client<
     const _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     this.config = _config_11;
+    this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

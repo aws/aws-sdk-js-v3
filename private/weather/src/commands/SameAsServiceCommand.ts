@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SameAsServiceOutput } from "../models/models_0";
-import { de_SameAsServiceCommand, se_SameAsServiceCommand } from "../protocols/Aws_restJson1";
+import { SameAsService$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
@@ -68,16 +67,11 @@ export class SameAsServiceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Weather", "SameAsService", {})
   .n("WeatherClient", "SameAsServiceCommand")
-  .f(void 0, void 0)
-  .ser(se_SameAsServiceCommand)
-  .de(de_SameAsServiceCommand)
+  .sc(SameAsService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

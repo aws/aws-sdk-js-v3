@@ -6,6 +6,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WeatherExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 
 export * from "./models/models_0";
 
