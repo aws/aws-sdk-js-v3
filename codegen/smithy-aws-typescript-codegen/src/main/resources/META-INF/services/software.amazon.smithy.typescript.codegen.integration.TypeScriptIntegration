@@ -34,3 +34,4 @@ software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustom
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AddAwsDefaultSigningName
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AddSTSAuthCustomizations
 software.amazon.smithy.aws.typescript.codegen.auth.http.integration.AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider
+software.amazon.smithy.aws.typescript.codegen.AddCommandBaseClassDocumentation
