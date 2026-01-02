@@ -236,7 +236,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_SSO_LEGACY: "u",
         },
       });
@@ -523,7 +522,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -567,7 +565,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -613,7 +610,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -666,7 +662,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -724,7 +719,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -765,7 +759,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_eu-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -875,7 +868,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -907,7 +899,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_AR_SESSION_TOKEN_eu-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -930,7 +921,6 @@ describe("credential-provider-node integration test", () => {
         sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
       });
@@ -1108,7 +1098,6 @@ describe("credential-provider-node integration test", () => {
           sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
           expiration: new Date("3000-01-01T00:00:00.000Z"),
           $source: {
-            CREDENTIALS_CODE: "e",
             CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
             CREDENTIALS_STS_ASSUME_ROLE: "i",
           },
@@ -1156,7 +1145,6 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "DEFAULT",
         sessionToken: undefined,
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE: "n",
         },
       });
@@ -1232,7 +1220,6 @@ describe("credential-provider-node integration test", () => {
             sessionToken: "SSO_SESSION_TOKEN_us-sso-region-2",
             expiration: new Date("3000-01-01T00:00:00.000Z"),
             $source: {
-              CREDENTIALS_CODE: "e",
               CREDENTIALS_PROFILE_SSO: "r",
               CREDENTIALS_SSO: "s",
             },

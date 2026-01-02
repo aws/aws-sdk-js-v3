@@ -139,10 +139,15 @@ export const resolveAwsSdkSigV4Config = <T>(
       });
       const boundProvider = bindCallerConfig(config, memoizedProvider);
       if (isUserSupplied && !boundProvider.attributed) {
-        resolvedCredentials = async (options: Record<string, any> | undefined) =>
-          boundProvider(options).then((creds: AttributedAwsCredentialIdentity) =>
-            setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
-          );
+        resolvedCredentials = async (options: Record<string, any> | undefined) => {
+          const creds = await boundProvider(options);
+          const attributedCreds = creds as AttributedAwsCredentialIdentity;
+          // Only set CREDENTIALS_CODE if no source attribution exists
+          if (!attributedCreds.$source || Object.keys(attributedCreds.$source).length === 0) {
+            return setCredentialFeature(attributedCreds, "CREDENTIALS_CODE", "e");
+          }
+          return attributedCreds;
+        };
         resolvedCredentials.memoized = boundProvider.memoized;
         resolvedCredentials.configBound = boundProvider.configBound;
         resolvedCredentials.attributed = true;
