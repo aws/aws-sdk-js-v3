@@ -7,10 +7,10 @@ import { MediaConnectClient } from "../MediaConnectClient";
 const checkState = async (client: MediaConnectClient, input: DescribeFlowCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFlowCommand(input));
+    let result: any = await client.send(new DescribeFlowCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Flow.Status;
       }
       if (returnComparator() === "DELETING") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Flow.Status;
       }
       if (returnComparator() === "ERROR") {

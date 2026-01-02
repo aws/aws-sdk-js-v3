@@ -7,7 +7,7 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAssetCommand(input));
+    let result: any = await client.send(new DescribeAssetCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

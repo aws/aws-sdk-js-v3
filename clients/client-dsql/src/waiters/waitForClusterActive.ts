@@ -7,10 +7,10 @@ import { DSQLClient } from "../DSQLClient";
 const checkState = async (client: DSQLClient, input: GetClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetClusterCommand(input));
+    let result: any = await client.send(new GetClusterCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ACTIVE") {

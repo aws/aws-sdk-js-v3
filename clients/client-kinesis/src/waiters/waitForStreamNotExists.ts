@@ -7,7 +7,7 @@ import { KinesisClient } from "../KinesisClient";
 const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStreamCommand(input));
+    let result: any = await client.send(new DescribeStreamCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

@@ -7,10 +7,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetComponentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetComponentCommand(input));
+    let result: any = await client.send(new GetComponentCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.component.deploymentStatus;
       }
       if (returnComparator() === "SUCCEEDED") {
@@ -18,7 +18,7 @@ const checkState = async (client: ProtonClient, input: GetComponentCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.component.deploymentStatus;
       }
       if (returnComparator() === "FAILED") {

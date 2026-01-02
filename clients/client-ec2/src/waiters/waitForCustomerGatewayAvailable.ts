@@ -10,10 +10,10 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCustomerGatewaysCommand(input));
+    let result: any = await client.send(new DescribeCustomerGatewaysCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CustomerGateways);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -29,7 +29,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CustomerGateways);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -43,7 +43,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CustomerGateways);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;

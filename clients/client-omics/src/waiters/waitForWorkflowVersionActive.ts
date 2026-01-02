@@ -7,10 +7,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetWorkflowVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetWorkflowVersionCommand(input));
+    let result: any = await client.send(new GetWorkflowVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: OmicsClient, input: GetWorkflowVersionCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CREATING") {
@@ -26,7 +26,7 @@ const checkState = async (client: OmicsClient, input: GetWorkflowVersionCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "UPDATING") {
@@ -34,7 +34,7 @@ const checkState = async (client: OmicsClient, input: GetWorkflowVersionCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {

@@ -10,10 +10,10 @@ import { NeptuneGraphClient } from "../NeptuneGraphClient";
 const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPrivateGraphEndpointCommand(input));
+    let result: any = await client.send(new GetPrivateGraphEndpointCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETING") {
@@ -21,7 +21,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -29,7 +29,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "AVAILABLE") {

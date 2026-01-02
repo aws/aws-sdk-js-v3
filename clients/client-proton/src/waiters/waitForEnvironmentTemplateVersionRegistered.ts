@@ -10,10 +10,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetEnvironmentTemplateVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetEnvironmentTemplateVersionCommand(input));
+    let result: any = await client.send(new GetEnvironmentTemplateVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.environmentTemplateVersion.status;
       }
       if (returnComparator() === "DRAFT") {
@@ -21,7 +21,7 @@ const checkState = async (client: ProtonClient, input: GetEnvironmentTemplateVer
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.environmentTemplateVersion.status;
       }
       if (returnComparator() === "PUBLISHED") {
@@ -29,7 +29,7 @@ const checkState = async (client: ProtonClient, input: GetEnvironmentTemplateVer
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.environmentTemplateVersion.status;
       }
       if (returnComparator() === "REGISTRATION_FAILED") {

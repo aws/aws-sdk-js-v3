@@ -10,10 +10,10 @@ import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClien
 const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationInstancesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeReplicationInstancesCommand(input));
+    let result: any = await client.send(new DescribeReplicationInstancesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.ReplicationInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
@@ -29,7 +29,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.ReplicationInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
@@ -43,7 +43,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.ReplicationInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
@@ -57,7 +57,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.ReplicationInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;
@@ -71,7 +71,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.ReplicationInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ReplicationInstanceStatus;

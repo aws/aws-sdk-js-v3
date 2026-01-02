@@ -7,10 +7,10 @@ import { DeadlineClient } from "../DeadlineClient";
 const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetFleetCommand(input));
+    let result: any = await client.send(new GetFleetCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CREATE_FAILED") {
@@ -26,7 +26,7 @@ const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "UPDATE_FAILED") {

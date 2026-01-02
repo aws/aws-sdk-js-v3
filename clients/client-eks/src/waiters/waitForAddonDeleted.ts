@@ -7,10 +7,10 @@ import { EKSClient } from "../EKSClient";
 const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAddonCommand(input));
+    let result: any = await client.send(new DescribeAddonCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.addon.status;
       }
       if (returnComparator() === "DELETE_FAILED") {

@@ -7,7 +7,7 @@ import { GetCertificateCommand, GetCertificateCommandInput } from "../commands/G
 const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetCertificateCommand(input));
+    let result: any = await client.send(new GetCertificateCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

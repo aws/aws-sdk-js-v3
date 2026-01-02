@@ -7,10 +7,10 @@ import { MediaConnectClient } from "../MediaConnectClient";
 const checkState = async (client: MediaConnectClient, input: GetRouterInputCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetRouterInputCommand(input));
+    let result: any = await client.send(new GetRouterInputCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RouterInput.State;
       }
       if (returnComparator() === "STANDBY") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RouterInput.State;
       }
       if (returnComparator() === "STOPPING") {
@@ -26,7 +26,7 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RouterInput.State;
       }
       if (returnComparator() === "ERROR") {

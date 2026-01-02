@@ -7,10 +7,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetReadSetImportJobCommand(input));
+    let result: any = await client.send(new GetReadSetImportJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED") {
@@ -18,7 +18,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "SUBMITTED") {
@@ -26,7 +26,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "IN_PROGRESS") {
@@ -34,7 +34,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLING") {
@@ -42,7 +42,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLED") {
@@ -50,7 +50,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -58,7 +58,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED_WITH_FAILURES") {

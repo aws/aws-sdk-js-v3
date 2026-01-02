@@ -7,10 +7,10 @@ import { GetMemoryCommand, GetMemoryCommandInput } from "../commands/GetMemoryCo
 const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemoryCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetMemoryCommand(input));
+    let result: any = await client.send(new GetMemoryCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.memory.status;
       }
       if (returnComparator() === "CREATING") {
@@ -18,7 +18,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemor
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.memory.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -26,7 +26,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemor
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.memory.status;
       }
       if (returnComparator() === "FAILED") {

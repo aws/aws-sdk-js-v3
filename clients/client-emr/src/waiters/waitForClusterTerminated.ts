@@ -7,10 +7,10 @@ import { EMRClient } from "../EMRClient";
 const checkState = async (client: EMRClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeClusterCommand(input));
+    let result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Cluster.Status.State;
       }
       if (returnComparator() === "TERMINATED") {
@@ -18,7 +18,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Cluster.Status.State;
       }
       if (returnComparator() === "TERMINATED_WITH_ERRORS") {

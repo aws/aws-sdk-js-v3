@@ -7,10 +7,10 @@ import { DescribeChangeSetCommand, DescribeChangeSetCommandInput } from "../comm
 const checkState = async (client: CloudFormationClient, input: DescribeChangeSetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeChangeSetCommand(input));
+    let result: any = await client.send(new DescribeChangeSetCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "CREATE_COMPLETE") {
@@ -18,7 +18,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeChangeSet
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "FAILED") {

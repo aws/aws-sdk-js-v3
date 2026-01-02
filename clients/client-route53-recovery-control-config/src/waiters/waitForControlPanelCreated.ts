@@ -7,10 +7,10 @@ import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlCon
 const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeControlPanelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeControlPanelCommand(input));
+    let result: any = await client.send(new DescribeControlPanelCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ControlPanel.Status;
       }
       if (returnComparator() === "DEPLOYED") {
@@ -18,7 +18,7 @@ const checkState = async (client: Route53RecoveryControlConfigClient, input: Des
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ControlPanel.Status;
       }
       if (returnComparator() === "PENDING") {

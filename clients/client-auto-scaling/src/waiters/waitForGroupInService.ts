@@ -10,10 +10,10 @@ import {
 const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingGroupsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
+    let result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.AutoScalingGroups);
         let projection_3 = flat_1.map((element_2: any) => {
           let filterRes_5 = element_2.Instances.filter((element_4: any) => {
@@ -32,7 +32,7 @@ const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingG
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.AutoScalingGroups);
         let projection_3 = flat_1.map((element_2: any) => {
           let filterRes_5 = element_2.Instances.filter((element_4: any) => {

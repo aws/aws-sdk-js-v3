@@ -7,10 +7,10 @@ import { NeptuneClient } from "../NeptuneClient";
 const checkState = async (client: NeptuneClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeDBInstancesCommand(input));
+    let result: any = await client.send(new DescribeDBInstancesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -26,7 +26,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -40,7 +40,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -54,7 +54,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -68,7 +68,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;

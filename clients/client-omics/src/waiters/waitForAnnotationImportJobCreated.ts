@@ -10,10 +10,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetAnnotationImportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetAnnotationImportJobCommand(input));
+    let result: any = await client.send(new GetAnnotationImportJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "SUBMITTED") {
@@ -21,7 +21,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationImportJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "IN_PROGRESS") {
@@ -29,7 +29,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationImportJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -37,7 +37,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationImportJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLED") {
@@ -45,7 +45,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationImportJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED") {

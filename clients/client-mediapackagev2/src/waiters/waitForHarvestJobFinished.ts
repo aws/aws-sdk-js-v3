@@ -7,10 +7,10 @@ import { MediaPackageV2Client } from "../MediaPackageV2Client";
 const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetHarvestJobCommand(input));
+    let result: any = await client.send(new GetHarvestJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "COMPLETED") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "CANCELLED") {
@@ -26,7 +26,7 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "FAILED") {
@@ -34,7 +34,7 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "QUEUED") {
@@ -42,7 +42,7 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "IN_PROGRESS") {

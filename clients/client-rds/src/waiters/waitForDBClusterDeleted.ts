@@ -7,10 +7,10 @@ import { RDSClient } from "../RDSClient";
 const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeDBClustersCommand(input));
+    let result: any = await client.send(new DescribeDBClustersCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.DBClusters.length == 0.0);
       }
       if (returnComparator() == true) {
@@ -18,7 +18,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -32,7 +32,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -46,7 +46,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -60,7 +60,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

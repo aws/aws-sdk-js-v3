@@ -7,7 +7,7 @@ import { S3Client } from "../S3Client";
 const checkState = async (client: S3Client, input: HeadBucketCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new HeadBucketCommand(input));
+    let result: any = await client.send(new HeadBucketCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

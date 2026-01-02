@@ -10,10 +10,10 @@ import { LambdaClient } from "../LambdaClient";
 const checkState = async (client: LambdaClient, input: GetFunctionConfigurationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetFunctionConfigurationCommand(input));
+    let result: any = await client.send(new GetFunctionConfigurationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.LastUpdateStatus;
       }
       if (returnComparator() === "Successful") {
@@ -21,7 +21,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.LastUpdateStatus;
       }
       if (returnComparator() === "Failed") {
@@ -29,7 +29,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.LastUpdateStatus;
       }
       if (returnComparator() === "InProgress") {

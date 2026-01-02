@@ -7,10 +7,10 @@ import { GetTransformerJobCommand, GetTransformerJobCommandInput } from "../comm
 const checkState = async (client: B2biClient, input: GetTransformerJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetTransformerJobCommand(input));
+    let result: any = await client.send(new GetTransformerJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "succeeded") {
@@ -18,7 +18,7 @@ const checkState = async (client: B2biClient, input: GetTransformerJobCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "failed") {

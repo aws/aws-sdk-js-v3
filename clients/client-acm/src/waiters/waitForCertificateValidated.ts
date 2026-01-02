@@ -7,10 +7,10 @@ import { DescribeCertificateCommand, DescribeCertificateCommandInput } from "../
 const checkState = async (client: ACMClient, input: DescribeCertificateCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCertificateCommand(input));
+    let result: any = await client.send(new DescribeCertificateCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ValidationStatus;
@@ -26,7 +26,7 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.ValidationStatus;
@@ -40,7 +40,7 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Certificate.Status;
       }
       if (returnComparator() === "FAILED") {

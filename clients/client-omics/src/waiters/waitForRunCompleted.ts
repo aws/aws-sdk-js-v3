@@ -7,10 +7,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetRunCommand(input));
+    let result: any = await client.send(new GetRunCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED") {
@@ -18,7 +18,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "PENDING") {
@@ -26,7 +26,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "STARTING") {
@@ -34,7 +34,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "RUNNING") {
@@ -42,7 +42,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "STOPPING") {
@@ -50,7 +50,7 @@ const checkState = async (client: OmicsClient, input: GetRunCommandInput): Promi
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {

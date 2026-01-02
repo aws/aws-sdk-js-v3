@@ -10,10 +10,10 @@ import { SESClient } from "../SESClient";
 const checkState = async (client: SESClient, input: GetIdentityVerificationAttributesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
+    let result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let objectProjection_2 = Object.values(result.VerificationAttributes).map((element_1: any) => {
           return element_1.VerificationStatus;
         });

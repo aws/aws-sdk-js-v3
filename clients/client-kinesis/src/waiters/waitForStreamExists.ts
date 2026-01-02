@@ -7,10 +7,10 @@ import { KinesisClient } from "../KinesisClient";
 const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStreamCommand(input));
+    let result: any = await client.send(new DescribeStreamCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.StreamDescription.StreamStatus;
       }
       if (returnComparator() === "ACTIVE") {

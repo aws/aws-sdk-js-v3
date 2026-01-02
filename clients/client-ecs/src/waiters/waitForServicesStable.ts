@@ -7,10 +7,10 @@ import { ECSClient } from "../ECSClient";
 const checkState = async (client: ECSClient, input: DescribeServicesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeServicesCommand(input));
+    let result: any = await client.send(new DescribeServicesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.failures);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.reason;
@@ -24,7 +24,7 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.services);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.status;
@@ -38,7 +38,7 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.services);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.status;
@@ -52,7 +52,7 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let filterRes_2 = result.services.filter((element_1: any) => {
           return (!((element_1.deployments.length == 1.0) && (element_1.runningCount == element_1.desiredCount)));
         });

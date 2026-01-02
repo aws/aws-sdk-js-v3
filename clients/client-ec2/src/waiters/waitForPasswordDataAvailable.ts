@@ -7,10 +7,10 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: GetPasswordDataCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPasswordDataCommand(input));
+    let result: any = await client.send(new GetPasswordDataCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.PasswordData.length > 0.0);
       }
       if (returnComparator() == true) {

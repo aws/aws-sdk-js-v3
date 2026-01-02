@@ -10,10 +10,10 @@ import {
 const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluationStatusCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPlanEvaluationStatusCommand(input));
+    let result: any = await client.send(new GetPlanEvaluationStatusCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.evaluationState;
       }
       if (returnComparator() === "passed") {
@@ -21,7 +21,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluatio
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.evaluationState;
       }
       if (returnComparator() === "actionRequired") {
@@ -29,7 +29,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluatio
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.evaluationState;
       }
       if (returnComparator() === "pendingEvaluation") {

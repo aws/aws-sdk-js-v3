@@ -7,10 +7,10 @@ import { RDSClient } from "../RDSClient";
 const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeDBInstancesCommand(input));
+    let result: any = await client.send(new DescribeDBInstancesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.DBInstances.length == 0.0);
       }
       if (returnComparator() == true) {
@@ -18,7 +18,7 @@ const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -32,7 +32,7 @@ const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -46,7 +46,7 @@ const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;
@@ -60,7 +60,7 @@ const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.DBInstances);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.DBInstanceStatus;

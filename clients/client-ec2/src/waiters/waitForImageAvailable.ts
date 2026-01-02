@@ -7,10 +7,10 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeImagesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeImagesCommand(input));
+    let result: any = await client.send(new DescribeImagesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Images);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -26,7 +26,7 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Images);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;

@@ -7,10 +7,10 @@ import { EMRClient } from "../EMRClient";
 const checkState = async (client: EMRClient, input: DescribeStepCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStepCommand(input));
+    let result: any = await client.send(new DescribeStepCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       }
       if (returnComparator() === "COMPLETED") {
@@ -18,7 +18,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       }
       if (returnComparator() === "FAILED") {
@@ -26,7 +26,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       }
       if (returnComparator() === "CANCELLED") {

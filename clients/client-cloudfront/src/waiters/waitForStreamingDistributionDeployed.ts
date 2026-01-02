@@ -10,10 +10,10 @@ import {
 const checkState = async (client: CloudFrontClient, input: GetStreamingDistributionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetStreamingDistributionCommand(input));
+    let result: any = await client.send(new GetStreamingDistributionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.StreamingDistribution.Status;
       }
       if (returnComparator() === "Deployed") {

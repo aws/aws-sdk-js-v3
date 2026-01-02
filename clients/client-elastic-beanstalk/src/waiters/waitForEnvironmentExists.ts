@@ -7,10 +7,10 @@ import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnvironmentsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeEnvironmentsCommand(input));
+    let result: any = await client.send(new DescribeEnvironmentsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Environments);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -26,7 +26,7 @@ const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnviron
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Environments);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

@@ -7,10 +7,10 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: DescribeChannelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeChannelCommand(input));
+    let result: any = await client.send(new DescribeChannelCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       }
       if (returnComparator() === "IDLE") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       }
       if (returnComparator() === "CREATING") {
@@ -26,7 +26,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       }
       if (returnComparator() === "CREATE_FAILED") {

@@ -10,10 +10,10 @@ import {
 const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
+    let result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.anomalyDetector.status.statusCode;
       }
       if (returnComparator() === "ACTIVE") {
@@ -21,7 +21,7 @@ const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.anomalyDetector.status.statusCode;
       }
       if (returnComparator() === "CREATING") {
@@ -29,7 +29,7 @@ const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.anomalyDetector.status.statusCode;
       }
       if (returnComparator() === "UPDATING") {

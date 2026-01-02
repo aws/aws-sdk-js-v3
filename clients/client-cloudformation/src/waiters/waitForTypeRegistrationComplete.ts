@@ -10,10 +10,10 @@ import {
 const checkState = async (client: CloudFormationClient, input: DescribeTypeRegistrationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTypeRegistrationCommand(input));
+    let result: any = await client.send(new DescribeTypeRegistrationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ProgressStatus;
       }
       if (returnComparator() === "COMPLETE") {
@@ -21,7 +21,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeTypeRegis
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ProgressStatus;
       }
       if (returnComparator() === "FAILED") {

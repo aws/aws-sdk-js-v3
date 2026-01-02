@@ -7,10 +7,10 @@ import { DescribeStacksCommand, DescribeStacksCommandInput } from "../commands/D
 const checkState = async (client: CloudFormationClient, input: DescribeStacksCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStacksCommand(input));
+    let result: any = await client.send(new DescribeStacksCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;
@@ -26,7 +26,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;
@@ -40,7 +40,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;
@@ -54,7 +54,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;
@@ -68,7 +68,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;
@@ -82,7 +82,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Stacks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.StackStatus;

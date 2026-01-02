@@ -7,10 +7,10 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetSignalMapCommand(input));
+    let result: any = await client.send(new GetSignalMapCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DELETE_COMPLETE") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DELETE_IN_PROGRESS") {
@@ -26,7 +26,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DELETE_FAILED") {

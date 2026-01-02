@@ -10,7 +10,7 @@ import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeLoadBalancersCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeLoadBalancersCommand(input));
+    let result: any = await client.send(new DescribeLoadBalancersCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

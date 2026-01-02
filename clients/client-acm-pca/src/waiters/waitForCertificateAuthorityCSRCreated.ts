@@ -10,7 +10,7 @@ import {
 const checkState = async (client: ACMPCAClient, input: GetCertificateAuthorityCsrCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetCertificateAuthorityCsrCommand(input));
+    let result: any = await client.send(new GetCertificateAuthorityCsrCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

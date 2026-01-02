@@ -7,10 +7,10 @@ import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClien
 const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeEndpointsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeEndpointsCommand(input));
+    let result: any = await client.send(new DescribeEndpointsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Endpoints);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -24,7 +24,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Endpoints);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

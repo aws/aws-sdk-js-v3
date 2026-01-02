@@ -7,10 +7,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetEnvironmentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetEnvironmentCommand(input));
+    let result: any = await client.send(new GetEnvironmentCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.environment.deploymentStatus;
       }
       if (returnComparator() === "SUCCEEDED") {
@@ -18,7 +18,7 @@ const checkState = async (client: ProtonClient, input: GetEnvironmentCommandInpu
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.environment.deploymentStatus;
       }
       if (returnComparator() === "FAILED") {

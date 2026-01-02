@@ -10,10 +10,10 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeSecurityGroupVpcAssociationsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeSecurityGroupVpcAssociationsCommand(input));
+    let result: any = await client.send(new DescribeSecurityGroupVpcAssociationsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.SecurityGroupVpcAssociations);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -29,7 +29,7 @@ const checkState = async (client: EC2Client, input: DescribeSecurityGroupVpcAsso
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.SecurityGroupVpcAssociations);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -43,7 +43,7 @@ const checkState = async (client: EC2Client, input: DescribeSecurityGroupVpcAsso
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.SecurityGroupVpcAssociations);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -57,7 +57,7 @@ const checkState = async (client: EC2Client, input: DescribeSecurityGroupVpcAsso
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.SecurityGroupVpcAssociations);
         return (flat_1.length == 0.0);
       }

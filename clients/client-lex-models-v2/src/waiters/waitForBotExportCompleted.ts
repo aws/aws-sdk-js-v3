@@ -7,10 +7,10 @@ import { LexModelsV2Client } from "../LexModelsV2Client";
 const checkState = async (client: LexModelsV2Client, input: DescribeExportCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeExportCommand(input));
+    let result: any = await client.send(new DescribeExportCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       }
       if (returnComparator() === "Completed") {
@@ -18,7 +18,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeExportComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       }
       if (returnComparator() === "Deleting") {
@@ -26,7 +26,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeExportComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       }
       if (returnComparator() === "Failed") {

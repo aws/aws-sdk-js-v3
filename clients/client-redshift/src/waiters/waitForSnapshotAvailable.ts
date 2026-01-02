@@ -10,10 +10,10 @@ import { RedshiftClient } from "../RedshiftClient";
 const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshotsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeClusterSnapshotsCommand(input));
+    let result: any = await client.send(new DescribeClusterSnapshotsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Snapshots);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -29,7 +29,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshot
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Snapshots);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -43,7 +43,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshot
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Snapshots);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

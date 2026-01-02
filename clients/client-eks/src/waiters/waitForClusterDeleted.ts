@@ -7,10 +7,10 @@ import { EKSClient } from "../EKSClient";
 const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeClusterCommand(input));
+    let result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       }
       if (returnComparator() === "CREATING") {
@@ -26,7 +26,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       }
       if (returnComparator() === "PENDING") {

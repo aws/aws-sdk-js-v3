@@ -10,10 +10,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
+    let result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETED") {
@@ -21,7 +21,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETING") {
