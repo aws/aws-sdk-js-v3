@@ -91,6 +91,13 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   ],
  *   Website: "STRING_VALUE",
  *   Birthdate: "STRING_VALUE",
+ *   Roles: [ // Roles
+ *     { // Role
+ *       Value: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
  *   Extensions: { // Extensions
  *     "<keys>": "DOCUMENT_VALUE",
  *   },

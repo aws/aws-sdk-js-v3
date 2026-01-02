@@ -113,6 +113,7 @@ export type {
   Name,
   PhoneNumber,
   Photo,
+  Role,
   UniqueAttribute,
   UpdateGroupRequest,
   UpdateGroupResponse,

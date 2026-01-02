@@ -99,6 +99,7 @@ import {
   ResourceNotFoundException$,
   ResourceNotFoundExceptionReason,
   ResourceType,
+  Role$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ThrottlingException,
@@ -210,6 +211,7 @@ assert(typeof MemberId$ === "object");
 assert(typeof Name$ === "object");
 assert(typeof PhoneNumber$ === "object");
 assert(typeof Photo$ === "object");
+assert(typeof Role$ === "object");
 assert(typeof UniqueAttribute$ === "object");
 assert(typeof UpdateGroupRequest$ === "object");
 assert(typeof UpdateGroupResponse$ === "object");

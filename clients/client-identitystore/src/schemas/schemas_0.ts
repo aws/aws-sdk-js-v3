@@ -121,8 +121,9 @@ const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
 const _Re = "Region";
 const _Res = "Results";
+const _Ro = "Roles";
+const _Rol = "Role";
 const _SA = "StreetAddress";
-const _SBT = "SensitiveBooleanType";
 const _SQEE = "ServiceQuotaExceededException";
 const _SST = "SensitiveStringType";
 const _T = "Type";
@@ -182,7 +183,6 @@ import { IdentitystoreServiceException } from "../models/IdentitystoreServiceExc
 var ExternalIdIdentifier: StaticSimpleSchema = [0, n0, _EII, 8, 0];
 var ExternalIdIssuer: StaticSimpleSchema = [0, n0, _EIIx, 8, 0];
 var GroupDisplayName: StaticSimpleSchema = [0, n0, _GDN, 8, 0];
-var SensitiveBooleanType: StaticSimpleSchema = [0, n0, _SBT, 8, 2];
 var SensitiveStringType: StaticSimpleSchema = [0, n0, _SST, 8, 0];
 var UserName: StaticSimpleSchema = [0, n0, _UN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
@@ -194,7 +194,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
   [_SA, _L, _Re, _PC, _C, _F, _T, _P],
-  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveBooleanType, 0]]
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
 ];
 export var AttributeOperation$: StaticStructureSchema = [3, n0, _AO,
   0,
@@ -229,8 +229,8 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B, _Ex],
-  [0, [() => UserName, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 128 | 15]
+  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B, _Ro, _Ex],
+  [0, [() => UserName, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 128 | 15]
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -294,13 +294,13 @@ export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DUResc,
   0,
-  [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _CA, _CB, _UA, _UB, _Ex],
-  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 4, 0, 4, 0, 128 | 15]
+  [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _Ro, _CA, _CB, _UA, _UB, _Ex],
+  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15]
 ];
 export var Email$: StaticStructureSchema = [3, n0, _Em,
   0,
   [_V, _T, _P],
-  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveBooleanType, 0]]
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
 ];
 export var ExternalId$: StaticStructureSchema = [3, n0, _EIx,
   0,
@@ -355,7 +355,7 @@ export var GroupMembership$: StaticStructureSchema = [3, n0, _GM,
 export var GroupMembershipExistenceResult$: StaticStructureSchema = [3, n0, _GMER,
   0,
   [_GI, _MI, _ME],
-  [0, () => MemberId$, [() => SensitiveBooleanType, 0]]
+  [0, () => MemberId$, 2]
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -371,7 +371,7 @@ export var IsMemberInGroupsRequest$: StaticStructureSchema = [3, n0, _IMIGR,
 export var IsMemberInGroupsResponse$: StaticStructureSchema = [3, n0, _IMIGRs,
   0,
   [_Res],
-  [[() => GroupMembershipExistenceResults, 0]]
+  [() => GroupMembershipExistenceResults]
 ];
 export var ListGroupMembershipsForMemberRequest$: StaticStructureSchema = [3, n0, _LGMFMR,
   0,
@@ -421,12 +421,12 @@ export var Name$: StaticStructureSchema = [3, n0, _N,
 export var PhoneNumber$: StaticStructureSchema = [3, n0, _PNh,
   0,
   [_V, _T, _P],
-  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveBooleanType, 0]]
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
 ];
 export var Photo$: StaticStructureSchema = [3, n0, _Pho,
   0,
   [_V, _T, _Di, _P],
-  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveBooleanType, 0]]
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -434,6 +434,11 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   [0, 0, 0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var Role$: StaticStructureSchema = [3, n0, _Rol,
+  0,
+  [_V, _T, _P],
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
+];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _RI],
@@ -473,8 +478,8 @@ export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
 ];
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
-  [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _CA, _CB, _UA, _UB, _Ex],
-  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 4, 0, 4, 0, 128 | 15]
+  [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _Ro, _CA, _CB, _UA, _UB, _Ex],
+  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15]
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -506,8 +511,7 @@ var Filters: StaticListSchema = [1, n0, _Fil,
 ];
 var GroupIds = 64 | 0;
 var GroupMembershipExistenceResults: StaticListSchema = [1, n0, _GMERr,
-  0, [() => GroupMembershipExistenceResult$,
-    0]
+  0, () => GroupMembershipExistenceResult$
 ];
 var GroupMemberships: StaticListSchema = [1, n0, _GMr,
   0, () => GroupMembership$
@@ -522,6 +526,10 @@ var PhoneNumbers: StaticListSchema = [1, n0, _PN,
 ];
 var Photos: StaticListSchema = [1, n0, _Ph,
   0, [() => Photo$,
+    0]
+];
+var Roles: StaticListSchema = [1, n0, _Ro,
+  0, [() => Role$,
     0]
 ];
 var Users: StaticListSchema = [1, n0, _U,

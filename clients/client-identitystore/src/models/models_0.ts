@@ -1060,6 +1060,30 @@ export interface Photo {
 }
 
 /**
+ * <p>The role associated with the user.</p>
+ * @public
+ */
+export interface Role {
+  /**
+   * <p>A string containing a role name. For example, "Researcher."</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>A string representing the type of role. For example, "Work."</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>A Boolean value representing whether this is the primary role for the associated resource.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateUserRequest {
@@ -1164,6 +1188,12 @@ export interface CreateUserRequest {
    * @public
    */
   Birthdate?: string | undefined;
+
+  /**
+   * <p>A list of <code>Role</code> objects containing roles associated with the user.</p>
+   * @public
+   */
+  Roles?: Role[] | undefined;
 
   /**
    * <p>A map with additional attribute extensions for the user. Each map key corresponds to an extension name, while map values represent extension data in <code>Document</code> type (not supported by Java V1, Go V1 and older versions of the CLI). <code>aws:identitystore:enterprise</code> is the only supported extension name.</p>
@@ -1359,6 +1389,12 @@ export interface DescribeUserResponse {
   Birthdate?: string | undefined;
 
   /**
+   * <p>The roles of the user.</p>
+   * @public
+   */
+  Roles?: Role[] | undefined;
+
+  /**
    * <p>The date and time the user was created.</p>
    * @public
    */
@@ -1550,6 +1586,12 @@ export interface User {
    * @public
    */
   Birthdate?: string | undefined;
+
+  /**
+   * <p>A list of <code>Role</code> objects containing roles associated with the user.</p>
+   * @public
+   */
+  Roles?: Role[] | undefined;
 
   /**
    * <p>The date and time the user was created.</p>

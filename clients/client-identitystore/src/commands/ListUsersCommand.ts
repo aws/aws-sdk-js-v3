@@ -117,6 +117,13 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       ],
  * //       Website: "STRING_VALUE",
  * //       Birthdate: "STRING_VALUE",
+ * //       Roles: [ // Roles
+ * //         { // Role
+ * //           Value: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           Primary: true || false,
+ * //         },
+ * //       ],
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       CreatedBy: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"),
