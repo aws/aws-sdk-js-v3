@@ -48,6 +48,9 @@ dependencies {
 
 abstract class SetAwsSdkVersionsTask : DefaultTask() {
     @get:InputDirectory
+    abstract val libDir: DirectoryProperty
+
+    @get:InputDirectory
     abstract val packagesDir: DirectoryProperty
 
     @get:InputDirectory
@@ -62,17 +65,7 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
         outputFile.parentFile.mkdirs()
         outputFile.printWriter().close()
 
-        val roots =
-            packagesDir.asFile
-                .get()
-                .listFiles()
-                .orEmpty()
-                .toMutableList() +
-                clientsDir.asFile
-                    .get()
-                    .listFiles()
-                    .orEmpty()
-                    .toList()
+        val roots = dirToList(libDir) + dirToList(packagesDir) + dirToList(clientsDir)
         roots.forEach { packageDir ->
             val packageJsonFile = File(packageDir, "package.json")
             if (packageJsonFile.isFile()) {
@@ -86,9 +79,18 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
             }
         }
     }
+
+    private fun dirToList(dir: DirectoryProperty): List<File> {
+        return dir.asFile
+            .get()
+            .listFiles()
+            .orEmpty()
+            .toMutableList()
+    }
 }
 
 tasks.register<SetAwsSdkVersionsTask>("set-aws-sdk-versions") {
+    libDir.set(layout.projectDirectory.dir("../../lib"))
     packagesDir.set(layout.projectDirectory.dir("../../packages"))
     clientsDir.set(layout.projectDirectory.dir("../../clients"))
     versionsFile.set(layout.buildDirectory.file("generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties"))
