@@ -523,6 +523,31 @@
           "private": true
         }
       }
+    },
+    "aws-protocoltests-restxml-s3": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["com.amazonaws.s3#AmazonS3"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-restxml-s3",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true,
+          "experimentalIdentityAndAuth": false
+        }
+      }
     }
   }
 }
