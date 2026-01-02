@@ -52,7 +52,7 @@ const mockValidCreds = {
     secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
     sessionToken: "session-token",
     accountId: "123456789012",
-    expiresAt: "2026-01-01T00:00:00.000Z",
+    expiresAt: "3000-01-01T00:00:00.000Z",
   },
   clientId: "test-client-id",
   refreshToken: "test-refresh-token",
@@ -92,9 +92,6 @@ describe("LoginCredentialsFetcher", () => {
 
   it("should load cached credentials successfully", async () => {
     mockReadFile.mockResolvedValue(JSON.stringify(mockValidCreds));
-
-    const mockNow = new Date("2025-12-31T00:00:00.000Z").getTime();
-    vi.spyOn(Date, "now").mockReturnValue(mockNow);
 
     const fetcher = new LoginCredentialsFetcher(mockProfile);
     const result = await fetcher.loadCredentials();
