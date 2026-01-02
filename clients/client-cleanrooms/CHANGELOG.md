@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.962.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.961.0...v3.962.0) (2026-01-02)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for publishing detailed metrics to CloudWatch for operational monitoring of collaborations, including query performance and resource utilization. ([762ac21](https://github.com/aws/aws-sdk-js-v3/commit/762ac21345b897ffb3b28e2186dbcc5cd5f9c6e3))
+
+
+
+
+
 # [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

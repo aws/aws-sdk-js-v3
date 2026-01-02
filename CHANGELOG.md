@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.962.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.961.0...v3.962.0) (2026-01-02)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for publishing detailed metrics to CloudWatch for operational monitoring of collaborations, including query performance and resource utilization. ([762ac21](https://github.com/aws/aws-sdk-js-v3/commit/762ac21345b897ffb3b28e2186dbcc5cd5f9c6e3))
+* **client-identitystore:** This change introduces "Roles" attribute for User entities supported by AWS Identity Store SDK. ([80de895](https://github.com/aws/aws-sdk-js-v3/commit/80de895df2c3392d5eadd1db0c35e60f18a9c70c))
+* **codegen:** include lib package versions in sdkVersions.properties file ([#7616](https://github.com/aws/aws-sdk-js-v3/issues/7616)) ([978a072](https://github.com/aws/aws-sdk-js-v3/commit/978a07208a279b14c54c5b02cbc7476ced67da8c))
+
+
+
+
+
 # [3.961.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.960.0...v3.961.0) (2025-12-30)
 
 

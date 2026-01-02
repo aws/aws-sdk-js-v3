@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.962.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.961.0...v3.962.0) (2026-01-02)
+
+
+### Features
+
+* **client-identitystore:** This change introduces "Roles" attribute for User entities supported by AWS Identity Store SDK. ([80de895](https://github.com/aws/aws-sdk-js-v3/commit/80de895df2c3392d5eadd1db0c35e60f18a9c70c))
+
+
+
+
+
 # [3.958.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.957.0...v3.958.0) (2025-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-identitystore
