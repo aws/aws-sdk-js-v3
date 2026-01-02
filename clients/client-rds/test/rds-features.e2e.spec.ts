@@ -25,7 +25,7 @@ describe(RDS.name, () => {
 
   describe("Describe DB security group", () => {
     it("should create security group, describe it, and verify structure", async () => {
-      dbSecurityGroupName = `aws-sdk-js-rds-e2e`;
+      dbSecurityGroupName = `aws-sdk-js-rds-e2e-${Date.now()}`;
 
       const expectedDescription = "Test security group for e2e tests";
 
