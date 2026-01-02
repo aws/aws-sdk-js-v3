@@ -10,10 +10,10 @@ import { ElastiCacheClient } from "../ElastiCacheClient";
 const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCacheClustersCommand(input));
+    let result: any = await client.send(new DescribeCacheClustersCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -29,7 +29,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -43,7 +43,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -57,7 +57,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -71,7 +71,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -85,7 +85,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;
@@ -99,7 +99,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CacheClusters);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.CacheClusterStatus;

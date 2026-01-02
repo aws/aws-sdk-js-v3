@@ -10,10 +10,10 @@ import {
 const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingGroupsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
+    let result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.AutoScalingGroups.length > 0.0);
       }
       if (returnComparator() == true) {
@@ -21,7 +21,7 @@ const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingG
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.AutoScalingGroups.length > 0.0);
       }
       if (returnComparator() == false) {

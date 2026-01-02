@@ -7,10 +7,10 @@ import { SageMakerClient } from "../SageMakerClient";
 const checkState = async (client: SageMakerClient, input: DescribeEndpointCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeEndpointCommand(input));
+    let result: any = await client.send(new DescribeEndpointCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.EndpointStatus;
       }
       if (returnComparator() === "InService") {
@@ -18,7 +18,7 @@ const checkState = async (client: SageMakerClient, input: DescribeEndpointComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.EndpointStatus;
       }
       if (returnComparator() === "Failed") {

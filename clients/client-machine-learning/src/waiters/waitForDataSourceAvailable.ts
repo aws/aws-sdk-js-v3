@@ -10,10 +10,10 @@ import { MachineLearningClient } from "../MachineLearningClient";
 const checkState = async (client: MachineLearningClient, input: DescribeDataSourcesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeDataSourcesCommand(input));
+    let result: any = await client.send(new DescribeDataSourcesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Results);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -29,7 +29,7 @@ const checkState = async (client: MachineLearningClient, input: DescribeDataSour
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Results);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

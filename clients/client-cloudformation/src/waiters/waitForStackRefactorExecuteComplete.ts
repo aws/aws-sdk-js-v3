@@ -10,10 +10,10 @@ import {
 const checkState = async (client: CloudFormationClient, input: DescribeStackRefactorCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeStackRefactorCommand(input));
+    let result: any = await client.send(new DescribeStackRefactorCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExecutionStatus;
       }
       if (returnComparator() === "EXECUTE_COMPLETE") {
@@ -21,7 +21,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStackRefa
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExecutionStatus;
       }
       if (returnComparator() === "EXECUTE_FAILED") {
@@ -29,7 +29,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStackRefa
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExecutionStatus;
       }
       if (returnComparator() === "ROLLBACK_COMPLETE") {

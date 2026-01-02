@@ -10,10 +10,10 @@ import { RTBFabricClient } from "../RTBFabricClient";
 const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLinkCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetOutboundExternalLinkCommand(input));
+    let result: any = await client.send(new GetOutboundExternalLinkCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -21,7 +21,7 @@ const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLin
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "REJECTED") {
@@ -29,7 +29,7 @@ const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLin
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -37,7 +37,7 @@ const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLin
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETED") {
@@ -45,7 +45,7 @@ const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLin
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ISOLATED") {

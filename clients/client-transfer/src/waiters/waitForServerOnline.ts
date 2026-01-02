@@ -7,10 +7,10 @@ import { TransferClient } from "../TransferClient";
 const checkState = async (client: TransferClient, input: DescribeServerCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeServerCommand(input));
+    let result: any = await client.send(new DescribeServerCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Server.State;
       }
       if (returnComparator() === "ONLINE") {
@@ -18,7 +18,7 @@ const checkState = async (client: TransferClient, input: DescribeServerCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Server.State;
       }
       if (returnComparator() === "START_FAILED") {

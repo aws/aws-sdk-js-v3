@@ -10,10 +10,10 @@ import { HealthLakeClient } from "../HealthLakeClient";
 const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFHIRExportJobCommand(input));
+    let result: any = await client.send(new DescribeFHIRExportJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
       }
       if (returnComparator() === "COMPLETED") {
@@ -21,7 +21,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJob
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
       }
       if (returnComparator() === "COMPLETED_WITH_ERRORS") {
@@ -29,7 +29,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJob
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
       }
       if (returnComparator() === "CANCEL_COMPLETED") {
@@ -37,7 +37,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJob
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
       }
       if (returnComparator() === "FAILED") {
@@ -45,7 +45,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJob
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ExportJobProperties.JobStatus;
       }
       if (returnComparator() === "CANCEL_FAILED") {

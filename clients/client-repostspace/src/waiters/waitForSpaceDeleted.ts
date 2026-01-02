@@ -7,10 +7,10 @@ import { RepostspaceClient } from "../RepostspaceClient";
 const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetSpaceCommand(input));
+    let result: any = await client.send(new GetSpaceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETED") {
@@ -18,7 +18,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETE_FAILED") {
@@ -26,7 +26,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETING") {

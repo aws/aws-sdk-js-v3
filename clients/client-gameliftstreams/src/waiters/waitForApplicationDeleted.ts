@@ -7,7 +7,7 @@ import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetApplicationCommand(input));
+    let result: any = await client.send(new GetApplicationCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

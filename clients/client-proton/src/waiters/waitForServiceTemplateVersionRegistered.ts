@@ -10,10 +10,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetServiceTemplateVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetServiceTemplateVersionCommand(input));
+    let result: any = await client.send(new GetServiceTemplateVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       }
       if (returnComparator() === "DRAFT") {
@@ -21,7 +21,7 @@ const checkState = async (client: ProtonClient, input: GetServiceTemplateVersion
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       }
       if (returnComparator() === "PUBLISHED") {
@@ -29,7 +29,7 @@ const checkState = async (client: ProtonClient, input: GetServiceTemplateVersion
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       }
       if (returnComparator() === "REGISTRATION_FAILED") {

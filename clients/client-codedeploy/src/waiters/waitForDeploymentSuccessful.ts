@@ -7,10 +7,10 @@ import { GetDeploymentCommand, GetDeploymentCommandInput } from "../commands/Get
 const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetDeploymentCommand(input));
+    let result: any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       }
       if (returnComparator() === "Succeeded") {
@@ -18,7 +18,7 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       }
       if (returnComparator() === "Failed") {
@@ -26,7 +26,7 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       }
       if (returnComparator() === "Stopped") {

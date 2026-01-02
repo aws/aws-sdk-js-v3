@@ -10,10 +10,10 @@ import { RDSClient } from "../RDSClient";
 const checkState = async (client: RDSClient, input: DescribeTenantDatabasesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTenantDatabasesCommand(input));
+    let result: any = await client.send(new DescribeTenantDatabasesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.TenantDatabases);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -29,7 +29,7 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.TenantDatabases);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -43,7 +43,7 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.TenantDatabases);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
@@ -57,7 +57,7 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.TenantDatabases);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

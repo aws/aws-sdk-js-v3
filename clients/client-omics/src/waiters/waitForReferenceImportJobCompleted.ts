@@ -10,10 +10,10 @@ import { OmicsClient } from "../OmicsClient";
 const checkState = async (client: OmicsClient, input: GetReferenceImportJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetReferenceImportJobCommand(input));
+    let result: any = await client.send(new GetReferenceImportJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED") {
@@ -21,7 +21,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "SUBMITTED") {
@@ -29,7 +29,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "IN_PROGRESS") {
@@ -37,7 +37,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLING") {
@@ -45,7 +45,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLED") {
@@ -53,7 +53,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -61,7 +61,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "COMPLETED_WITH_FAILURES") {

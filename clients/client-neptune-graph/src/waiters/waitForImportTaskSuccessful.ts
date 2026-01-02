@@ -7,10 +7,10 @@ import { NeptuneGraphClient } from "../NeptuneGraphClient";
 const checkState = async (client: NeptuneGraphClient, input: GetImportTaskCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetImportTaskCommand(input));
+    let result: any = await client.send(new GetImportTaskCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLING") {
@@ -18,7 +18,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "CANCELLED") {
@@ -26,7 +26,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "ROLLING_BACK") {
@@ -34,7 +34,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "FAILED") {
@@ -42,7 +42,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "SUCCEEDED") {

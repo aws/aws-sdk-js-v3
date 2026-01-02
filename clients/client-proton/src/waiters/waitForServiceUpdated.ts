@@ -7,10 +7,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetServiceCommand(input));
+    let result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       }
       if (returnComparator() === "UPDATE_FAILED_CLEANUP_COMPLETE") {
@@ -26,7 +26,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       }
       if (returnComparator() === "UPDATE_FAILED_CLEANUP_FAILED") {
@@ -34,7 +34,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       }
       if (returnComparator() === "UPDATE_FAILED") {
@@ -42,7 +42,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       }
       if (returnComparator() === "UPDATE_COMPLETE_CLEANUP_FAILED") {

@@ -10,10 +10,10 @@ import { ECRClient } from "../ECRClient";
 const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeImageScanFindingsCommand(input));
+    let result: any = await client.send(new DescribeImageScanFindingsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.imageScanStatus.status;
       }
       if (returnComparator() === "COMPLETE") {
@@ -21,7 +21,7 @@ const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.imageScanStatus.status;
       }
       if (returnComparator() === "FAILED") {

@@ -7,10 +7,10 @@ import { NeptuneGraphClient } from "../NeptuneGraphClient";
 const checkState = async (client: NeptuneGraphClient, input: GetGraphSnapshotCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetGraphSnapshotCommand(input));
+    let result: any = await client.send(new GetGraphSnapshotCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return (result.status != "DELETING");
       }
       if (returnComparator() == true) {

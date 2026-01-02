@@ -10,10 +10,10 @@ import { HealthLakeClient } from "../HealthLakeClient";
 const checkState = async (client: HealthLakeClient, input: DescribeFHIRDatastoreCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFHIRDatastoreCommand(input));
+    let result: any = await client.send(new DescribeFHIRDatastoreCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.DatastoreProperties.DatastoreStatus;
       }
       if (returnComparator() === "DELETED") {

@@ -7,10 +7,10 @@ import { DeadlineClient } from "../DeadlineClient";
 const checkState = async (client: DeadlineClient, input: GetLicenseEndpointCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetLicenseEndpointCommand(input));
+    let result: any = await client.send(new GetLicenseEndpointCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "READY") {
@@ -18,7 +18,7 @@ const checkState = async (client: DeadlineClient, input: GetLicenseEndpointComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "NOT_READY") {

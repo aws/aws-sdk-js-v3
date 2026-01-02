@@ -7,10 +7,10 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 const checkState = async (client: IoTSiteWiseClient, input: DescribePortalCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribePortalCommand(input));
+    let result: any = await client.send(new DescribePortalCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.portalStatus.state;
       }
       if (returnComparator() === "ACTIVE") {

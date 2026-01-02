@@ -7,10 +7,10 @@ import { DeadlineClient } from "../DeadlineClient";
 const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetJobCommand(input));
+    let result: any = await client.send(new GetJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "CREATE_COMPLETE") {
@@ -18,7 +18,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "UPDATE_IN_PROGRESS") {
@@ -26,7 +26,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "UPDATE_FAILED") {
@@ -34,7 +34,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "UPDATE_SUCCEEDED") {
@@ -42,7 +42,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "UPLOAD_FAILED") {
@@ -50,7 +50,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.lifecycleStatus;
       }
       if (returnComparator() === "CREATE_FAILED") {

@@ -10,10 +10,10 @@ import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlCon
 const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeRoutingControlCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeRoutingControlCommand(input));
+    let result: any = await client.send(new DescribeRoutingControlCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RoutingControl.Status;
       }
       if (returnComparator() === "DEPLOYED") {
@@ -21,7 +21,7 @@ const checkState = async (client: Route53RecoveryControlConfigClient, input: Des
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RoutingControl.Status;
       }
       if (returnComparator() === "PENDING") {

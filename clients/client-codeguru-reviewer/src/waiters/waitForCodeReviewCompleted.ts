@@ -7,10 +7,10 @@ import { DescribeCodeReviewCommand, DescribeCodeReviewCommandInput } from "../co
 const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeReviewCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeCodeReviewCommand(input));
+    let result: any = await client.send(new DescribeCodeReviewCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.CodeReview.State;
       }
       if (returnComparator() === "Completed") {
@@ -18,7 +18,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeRev
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.CodeReview.State;
       }
       if (returnComparator() === "Failed") {
@@ -26,7 +26,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeRev
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.CodeReview.State;
       }
       if (returnComparator() === "Pending") {

@@ -10,10 +10,10 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: DescribeChannelPlacementGroupCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeChannelPlacementGroupCommand(input));
+    let result: any = await client.send(new DescribeChannelPlacementGroupCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       }
       if (returnComparator() === "DELETED") {
@@ -21,7 +21,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelPlaceme
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       }
       if (returnComparator() === "DELETING") {

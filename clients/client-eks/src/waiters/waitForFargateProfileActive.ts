@@ -10,10 +10,10 @@ import { EKSClient } from "../EKSClient";
 const checkState = async (client: EKSClient, input: DescribeFargateProfileCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFargateProfileCommand(input));
+    let result: any = await client.send(new DescribeFargateProfileCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.fargateProfile.status;
       }
       if (returnComparator() === "CREATE_FAILED") {
@@ -21,7 +21,7 @@ const checkState = async (client: EKSClient, input: DescribeFargateProfileComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.fargateProfile.status;
       }
       if (returnComparator() === "ACTIVE") {

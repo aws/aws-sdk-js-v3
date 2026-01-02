@@ -10,10 +10,10 @@ import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
 const checkState = async (client: ElasticLoadBalancingClient, input: DescribeInstanceHealthCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeInstanceHealthCommand(input));
+    let result: any = await client.send(new DescribeInstanceHealthCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.InstanceStates);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;

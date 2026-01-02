@@ -7,10 +7,10 @@ import { SageMakerClient } from "../SageMakerClient";
 const checkState = async (client: SageMakerClient, input: DescribeImageVersionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeImageVersionCommand(input));
+    let result: any = await client.send(new DescribeImageVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ImageVersionStatus;
       }
       if (returnComparator() === "CREATED") {
@@ -18,7 +18,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageVersionCo
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ImageVersionStatus;
       }
       if (returnComparator() === "CREATE_FAILED") {

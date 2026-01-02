@@ -7,10 +7,10 @@ import { DescribeFleetsCommand, DescribeFleetsCommandInput } from "../commands/D
 const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeFleetsCommand(input));
+    let result: any = await client.send(new DescribeFleetsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Fleets);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -26,7 +26,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Fleets);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
@@ -40,7 +40,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Fleets);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;

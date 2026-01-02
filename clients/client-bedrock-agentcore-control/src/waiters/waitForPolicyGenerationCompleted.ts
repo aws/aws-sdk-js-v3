@@ -7,10 +7,10 @@ import { GetPolicyGenerationCommand, GetPolicyGenerationCommandInput } from "../
 const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyGenerationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPolicyGenerationCommand(input));
+    let result: any = await client.send(new GetPolicyGenerationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "GENERATED") {
@@ -18,7 +18,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "GENERATING") {
@@ -26,7 +26,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "GENERATE_FAILED") {
@@ -34,7 +34,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       }
       if (returnComparator() === "DELETE_FAILED") {

@@ -7,10 +7,10 @@ import { ProtonClient } from "../ProtonClient";
 const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetServiceCommand(input));
+    let result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.pipeline.deploymentStatus;
       }
       if (returnComparator() === "SUCCEEDED") {
@@ -18,7 +18,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.pipeline.deploymentStatus;
       }
       if (returnComparator() === "FAILED") {

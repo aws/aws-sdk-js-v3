@@ -7,10 +7,10 @@ import { MediaLiveClient } from "../MediaLiveClient";
 const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetSignalMapCommand(input));
+    let result: any = await client.send(new GetSignalMapCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_COMPLETE") {
@@ -18,7 +18,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DEPLOYMENT_COMPLETE") {
@@ -26,7 +26,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_IN_PROGRESS") {
@@ -34,7 +34,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DEPLOYMENT_IN_PROGRESS") {
@@ -42,7 +42,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_FAILED") {
@@ -50,7 +50,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.MonitorDeployment.Status;
       }
       if (returnComparator() === "DEPLOYMENT_FAILED") {

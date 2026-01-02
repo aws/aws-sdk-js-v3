@@ -10,10 +10,10 @@ import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeLoadBalancersCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeLoadBalancersCommand(input));
+    let result: any = await client.send(new DescribeLoadBalancersCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.LoadBalancers);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.State.Code;

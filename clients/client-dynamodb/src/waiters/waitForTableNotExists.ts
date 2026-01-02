@@ -7,7 +7,7 @@ import { DynamoDBClient } from "../DynamoDBClient";
 const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTableCommand(input));
+    let result: any = await client.send(new DescribeTableCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

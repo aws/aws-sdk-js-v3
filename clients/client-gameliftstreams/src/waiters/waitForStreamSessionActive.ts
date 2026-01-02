@@ -7,10 +7,10 @@ import { GameLiftStreamsClient } from "../GameLiftStreamsClient";
 const checkState = async (client: GameLiftStreamsClient, input: GetStreamSessionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetStreamSessionCommand(input));
+    let result: any = await client.send(new GetStreamSessionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamSession
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       }
       if (returnComparator() === "ERROR") {

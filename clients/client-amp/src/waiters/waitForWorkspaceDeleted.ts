@@ -7,10 +7,10 @@ import { DescribeWorkspaceCommand, DescribeWorkspaceCommandInput } from "../comm
 const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeWorkspaceCommand(input));
+    let result: any = await client.send(new DescribeWorkspaceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.workspace.status.statusCode;
       }
       if (returnComparator() === "DELETING") {

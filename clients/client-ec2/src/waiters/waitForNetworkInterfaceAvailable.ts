@@ -10,10 +10,10 @@ import { EC2Client } from "../EC2Client";
 const checkState = async (client: EC2Client, input: DescribeNetworkInterfacesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeNetworkInterfacesCommand(input));
+    let result: any = await client.send(new DescribeNetworkInterfacesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.NetworkInterfaces);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;

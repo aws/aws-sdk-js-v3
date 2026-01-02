@@ -7,10 +7,10 @@ import { ECSClient } from "../ECSClient";
 const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeTasksCommand(input));
+    let result: any = await client.send(new DescribeTasksCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.tasks);
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.lastStatus;

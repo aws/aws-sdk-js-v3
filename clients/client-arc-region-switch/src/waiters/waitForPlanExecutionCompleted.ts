@@ -7,10 +7,10 @@ import { GetPlanExecutionCommand, GetPlanExecutionCommandInput } from "../comman
 const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecutionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new GetPlanExecutionCommand(input));
+    let result: any = await client.send(new GetPlanExecutionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.executionState;
       }
       if (returnComparator() === "completed") {
@@ -18,7 +18,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecution
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.executionState;
       }
       if (returnComparator() === "completedWithExceptions") {
@@ -26,7 +26,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecution
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.executionState;
       }
       if (returnComparator() === "failed") {
@@ -34,7 +34,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecution
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.executionState;
       }
       if (returnComparator() === "canceled") {
@@ -42,7 +42,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecution
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.executionState;
       }
       if (returnComparator() === "planExecutionTimedOut") {

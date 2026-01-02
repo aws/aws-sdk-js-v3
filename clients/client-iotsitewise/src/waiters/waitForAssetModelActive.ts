@@ -7,10 +7,10 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeAssetModelCommand(input));
+    let result: any = await client.send(new DescribeAssetModelCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.assetModelStatus.state;
       }
       if (returnComparator() === "ACTIVE") {
@@ -18,7 +18,7 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCo
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.assetModelStatus.state;
       }
       if (returnComparator() === "FAILED") {

@@ -7,10 +7,10 @@ import { DescribeScraperCommand, DescribeScraperCommandInput } from "../commands
 const checkState = async (client: AmpClient, input: DescribeScraperCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeScraperCommand(input));
+    let result: any = await client.send(new DescribeScraperCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.scraper.status.statusCode;
       }
       if (returnComparator() === "DELETION_FAILED") {

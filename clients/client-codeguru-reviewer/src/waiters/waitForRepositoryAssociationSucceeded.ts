@@ -10,10 +10,10 @@ import {
 const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    const result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
+    let result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RepositoryAssociation.State;
       }
       if (returnComparator() === "Associated") {
@@ -21,7 +21,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeReposit
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RepositoryAssociation.State;
       }
       if (returnComparator() === "Failed") {
@@ -29,7 +29,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeReposit
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RepositoryAssociation.State;
       }
       if (returnComparator() === "Associating") {
