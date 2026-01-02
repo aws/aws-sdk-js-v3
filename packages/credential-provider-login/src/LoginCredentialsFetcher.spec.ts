@@ -93,6 +93,9 @@ describe("LoginCredentialsFetcher", () => {
   it("should load cached credentials successfully", async () => {
     mockReadFile.mockResolvedValue(JSON.stringify(mockValidCreds));
 
+    const mockNow = new Date("2025-12-31T00:00:00.000Z").getTime();
+    vi.spyOn(Date, "now").mockReturnValue(mockNow);
+
     const fetcher = new LoginCredentialsFetcher(mockProfile);
     const result = await fetcher.loadCredentials();
 
