@@ -82,6 +82,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *       isResponsible: true || false, // required
  *     },
  *   },
+ *   isMetricsEnabled: true || false,
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);
@@ -146,6 +147,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
+ * //     isMetricsEnabled: true || false,
  * //   },
  * // };
  *

@@ -2693,6 +2693,12 @@ export interface CreateCollaborationInput {
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
+
+  /**
+   * <p>An indicator as to whether metrics have been enabled or disabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -2801,6 +2807,12 @@ export interface Collaboration {
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
+
+  /**
+   * <p>An indicator as to whether metrics are enabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -7472,6 +7484,12 @@ export interface CreateMembershipInput {
    * @public
    */
   paymentConfiguration?: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**
@@ -7580,6 +7598,12 @@ export interface Membership {
    * @public
    */
   paymentConfiguration: MembershipPaymentConfiguration | undefined;
+
+  /**
+   * <p>An indicator as to whether Amazon CloudWatch metrics are enabled for the membership.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch.</p>
+   * @public
+   */
+  isMetricsEnabled?: boolean | undefined;
 }
 
 /**

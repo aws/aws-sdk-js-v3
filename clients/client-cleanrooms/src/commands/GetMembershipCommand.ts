@@ -102,6 +102,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
+ * //     isMetricsEnabled: true || false,
  * //   },
  * // };
  *

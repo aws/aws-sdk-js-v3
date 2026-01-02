@@ -124,6 +124,7 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //         isResponsible: true || false, // required
  * //       },
  * //     },
+ * //     isMetricsEnabled: true || false,
  * //   },
  * // };
  *

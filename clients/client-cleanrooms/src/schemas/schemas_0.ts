@@ -661,6 +661,7 @@ const _hQ = "httpQuery";
 const _i = "id";
 const _iAA = "isAutoApproved";
 const _iMC = "idMappingConfig";
+const _iME = "isMetricsEnabled";
 const _iMJI = "idMappingJobId";
 const _iMT = "idMappingTable";
 const _iMTI = "idMappingTableIdentifier";
@@ -1033,8 +1034,8 @@ export var ChangeInput$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var Collaboration$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_i, _a, _n, _de, _cAI, _cDN, _cT, _uT, _mS, _mI, _mA, _dEM, _qLS, _jLS, _aE, _aACT, _aRR],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => DataEncryptionMetadata$, 0, 0, 0, 64 | 0, 64 | 0]
+  [_i, _a, _n, _de, _cAI, _cDN, _cT, _uT, _mS, _mI, _mA, _dEM, _qLS, _jLS, _aE, _aACT, _aRR, _iME],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => DataEncryptionMetadata$, 0, 0, 0, 64 | 0, 64 | 0, 2]
 ];
 export var CollaborationAnalysisTemplate$: StaticStructureSchema = [3, n0, _CAT,
   0,
@@ -1209,8 +1210,8 @@ export var CreateCollaborationChangeRequestOutput$: StaticStructureSchema = [3, 
 ];
 export var CreateCollaborationInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_me, _n, _de, _cMA, _cMLMA, _cDN, _dEM, _qLS, _jLS, _ta, _cPC, _aE, _aACRT, _aRR],
-  [() => MemberList, 0, 0, 64 | 0, () => MLMemberAbilities$, 0, () => DataEncryptionMetadata$, 0, 0, 128 | 0, () => PaymentConfiguration$, 0, 64 | 0, 64 | 0]
+  [_me, _n, _de, _cMA, _cMLMA, _cDN, _dEM, _qLS, _jLS, _ta, _cPC, _aE, _aACRT, _aRR, _iME],
+  [() => MemberList, 0, 0, 64 | 0, () => MLMemberAbilities$, 0, () => DataEncryptionMetadata$, 0, 0, 128 | 0, () => PaymentConfiguration$, 0, 64 | 0, 64 | 0, 2]
 ];
 export var CreateCollaborationOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
@@ -1289,8 +1290,8 @@ export var CreateIdNamespaceAssociationOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateMembershipInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_cIo, _qLS, _jLS, _ta, _dRC, _dJRC, _pC],
-  [0, 0, 0, 128 | 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$, () => MembershipPaymentConfiguration$]
+  [_cIo, _qLS, _jLS, _ta, _dRC, _dJRC, _pC, _iME],
+  [0, 0, 0, 128 | 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$, () => MembershipPaymentConfiguration$, 2]
 ];
 export var CreateMembershipOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
@@ -2000,8 +2001,8 @@ export var MemberChangeSpecification$: StaticStructureSchema = [3, n0, _MCS,
 ];
 export var Membership$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_i, _a, _cA, _cI, _cCAI, _cCDN, _cNol, _cT, _uT, _st, _mAe, _mMA, _qLS, _jLS, _dRC, _dJRC, _pC],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 64 | 0, () => MLMemberAbilities$, 0, 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$, () => MembershipPaymentConfiguration$]
+  [_i, _a, _cA, _cI, _cCAI, _cCDN, _cNol, _cT, _uT, _st, _mAe, _mMA, _qLS, _jLS, _dRC, _dJRC, _pC, _iME],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 64 | 0, () => MLMemberAbilities$, 0, 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$, () => MembershipPaymentConfiguration$, 2]
 ];
 export var MembershipJobComputePaymentConfig$: StaticStructureSchema = [3, n0, _MJCPC,
   0,
