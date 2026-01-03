@@ -75,7 +75,6 @@ describe(fromLoginCredentials.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_LOGIN: "AD",
         },
         accessKeyId: "LOGIN_ACCESS_KEY_ID",
@@ -123,7 +122,6 @@ describe(fromLoginCredentials.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_LOGIN: "AD",
         },
         accessKeyId: "LOGIN_ACCESS_KEY_ID",

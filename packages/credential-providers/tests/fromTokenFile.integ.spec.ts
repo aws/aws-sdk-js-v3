@@ -32,7 +32,6 @@ describe(fromTokenFile.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
           CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h",
         },
@@ -63,7 +62,6 @@ describe(fromTokenFile.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
         },
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",

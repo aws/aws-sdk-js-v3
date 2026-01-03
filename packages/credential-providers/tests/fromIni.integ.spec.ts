@@ -31,7 +31,6 @@ describe(fromIni.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE: "n",
         },
         accessKeyId: "A",
@@ -57,7 +56,6 @@ describe(fromIni.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE: "n",
         },
         accessKeyId: "A",
@@ -84,7 +82,6 @@ describe(fromIni.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE: "n",
         },
         accessKeyId: "A",

@@ -24,7 +24,6 @@ describe(fromProcess.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROCESS: "w",
         },
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
@@ -48,7 +47,6 @@ describe(fromProcess.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROCESS: "w",
         },
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
@@ -73,7 +71,6 @@ describe(fromProcess.name, () => {
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
         $source: {
-          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROCESS: "w",
         },
         accessKeyId: "PROCESS_ACCESS_KEY_ID",
