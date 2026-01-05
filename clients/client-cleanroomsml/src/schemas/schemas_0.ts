@@ -270,6 +270,7 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VE = "ValidationException";
 const _WCC = "WorkerComputeConfiguration";
+const _WCCP = "WorkerComputeConfigurationProperties";
 const _a = "arguments";
 const _aAI = "allowedAccountIds";
 const _aB = "accessBudgets";
@@ -394,6 +395,7 @@ const _pPH = "previousPolicyHash";
 const _pQI = "protectedQueryIdentifier";
 const _pQIP = "protectedQueryInputParameters";
 const _pa = "parameters";
+const _pr = "properties";
 const _qN = "quotaName";
 const _qS = "queryString";
 const _qV = "quotaValue";
@@ -427,6 +429,7 @@ const _sc = "schema";
 const _sco = "score";
 const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cleanroomsml";
+const _sp = "spark";
 const _t = "type";
 const _tCC = "trainingContainerConfig";
 const _tCID = "trainingContainerImageDigest";
@@ -1385,8 +1388,8 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
-  [_t, _nu],
-  [0, 1]
+  [_t, _nu, _pr],
+  [0, 1, () => WorkerComputeConfigurationProperties$]
 ];
 var __Unit = "unit" as const;
 export var CleanRoomsMLServiceException$: StaticErrorSchema = [-3, _sm, "CleanRoomsMLServiceException", 0, [], []];
@@ -1493,6 +1496,7 @@ var Environment = 128 | 0;
 var HyperParameters = 128 | 0;
 var InferenceEnvironmentMap = 128 | 0;
 var ParameterMap = 128 | 0;
+var SparkProperties = 128 | 0;
 var TagMap = 128 | 0;
 export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CCo,
   0,
@@ -1508,6 +1512,11 @@ export var PrivacyBudgets$: StaticUnionSchema = [4, n0, _PB,
   0,
   [_aB],
   [() => AccessBudgets]
+];
+export var WorkerComputeConfigurationProperties$: StaticUnionSchema = [4, n0, _WCCP,
+  0,
+  [_sp],
+  [128 | 0]
 ];
 export var CancelTrainedModel$: StaticOperationSchema = [9, n0, _CTM,
   { [_ht]: ["PATCH", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200] }, () => CancelTrainedModelRequest$, () => __Unit

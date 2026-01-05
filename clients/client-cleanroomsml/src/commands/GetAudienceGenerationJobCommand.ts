@@ -69,6 +69,11 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * //       worker: { // WorkerComputeConfiguration
  * //         type: "CR.1X" || "CR.4X",
  * //         number: Number("int"),
+ * //         properties: { // WorkerComputeConfigurationProperties Union: only one key present
+ * //           spark: { // SparkProperties
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   },

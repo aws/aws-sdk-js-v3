@@ -360,6 +360,7 @@ import {
   ValidationException,
   ValidationException$,
   WorkerComputeConfiguration$,
+  WorkerComputeConfigurationProperties$,
   WorkerComputeType,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -663,6 +664,7 @@ assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateConfiguredAudienceModelRequest$ === "object");
 assert(typeof UpdateConfiguredAudienceModelResponse$ === "object");
 assert(typeof WorkerComputeConfiguration$ === "object");
+assert(typeof WorkerComputeConfigurationProperties$ === "object");
 // enums
 assert(typeof AccessBudgetType === "object");
 assert(typeof AudienceExportJobStatus === "object");
