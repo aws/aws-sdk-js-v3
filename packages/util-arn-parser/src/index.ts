@@ -43,7 +43,15 @@ type buildOptions = Omit<ARN, "partition"> & { partition?: string };
  */
 export const build = (arnObject: buildOptions): string => {
   const { partition = "aws", service, region, accountId, resource } = arnObject;
-  if ([service, region, accountId, resource].some((segment) => typeof segment !== "string")) {
+  if ([service, resource].some((segment) => typeof segment !== "string")) {
+    throw new Error("Input ARN object is invalid");
+  }
+  // S3 ARNs omit region and account ID (https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-arn-format.html)
+  if (service === "s3") {
+    return `arn:${partition}:${service}:::${resource}`;
+  }
+
+  if ([region, accountId].some((segment) => typeof segment !== "string")) {
     throw new Error("Input ARN object is invalid");
   }
   return `arn:${partition}:${service}:${region}:${accountId}:${resource}`;
