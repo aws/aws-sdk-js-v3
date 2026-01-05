@@ -93,9 +93,6 @@ describe(resolveAwsSdkSigV4Config.name, () => {
     expect(await config.credentials()).toEqual({
       accessKeyId: "unit-test",
       secretAccessKey: "unit-test",
-      $source: {
-        CREDENTIALS_CODE: "e",
-      },
     });
 
     {

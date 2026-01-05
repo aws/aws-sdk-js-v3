@@ -41,9 +41,6 @@ describe(fromCognitoIdentityPool.name, () => {
       });
       await s3.listBuckets();
       expect(await s3.config.credentials()).toEqual({
-        $source: {
-          CREDENTIALS_CODE: "e",
-        },
         accessKeyId: "COGNITO_ACCESS_KEY_ID",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         identityId: "us-east-2:COGNITO_IDENTITY_ID",
