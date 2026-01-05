@@ -146,8 +146,8 @@ export const resolveAwsSdkSigV4Config = <T>(
           const creds = await boundProvider(options);
           const attributedCreds = creds as AttributedAwsCredentialIdentity;
 
-          // Only set CREDENTIALS_CODE if user provided a credential object
-          if (isCredentialObject) {
+          // Only set CREDENTIALS_CODE if user provided a credential object and no source attribution exists
+          if (isCredentialObject && (!attributedCreds.$source || Object.keys(attributedCreds.$source).length === 0)) {
             return setCredentialFeature(attributedCreds, "CREDENTIALS_CODE", "e");
           }
           return attributedCreds;
