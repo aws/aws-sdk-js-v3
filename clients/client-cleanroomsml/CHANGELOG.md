@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.963.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.962.0...v3.963.0) (2026-01-05)
+
+
+### Features
+
+* **client-cleanroomsml:** AWS Clean Rooms ML now supports advanced Spark configurations to optimize SQL performance when creating an MLInputChannel or an audience generation job. ([5e2a5e9](https://github.com/aws/aws-sdk-js-v3/commit/5e2a5e9ee5f2fe62244ed7f83820d0421e3188fb))
+
+
+
+
+
 # [3.962.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.961.0...v3.962.0) (2026-01-02)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml
