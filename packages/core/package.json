@@ -3,7 +3,7 @@
   "version": "3.957.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "scripts": {
-    "build": "yarn lint && concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline core && rimraf ./dist-cjs/api-extractor-type-index.js",
     "build:es": "tsc -p tsconfig.es.json && rimraf ./dist-es/api-extractor-type-index.js",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
