@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.964.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.963.0...v3.964.0) (2026-01-06)
+
+
+### Bug Fixes
+
+* **core:** make CREDENTIALS_CODE mutually exclusive with other credential sources ([#7615](https://github.com/aws/aws-sdk-js-v3/issues/7615)) ([05e017e](https://github.com/aws/aws-sdk-js-v3/commit/05e017ef8879b33a3fbe8a27df7a5b662831178d))
+
+
+### Features
+
+* **client-cost-explorer:** This release updates existing reservation recommendations API to support deployment model. ([c9e728d](https://github.com/aws/aws-sdk-js-v3/commit/c9e728da65fc98ee3da8d145c0c39a37f327f7dd))
+* **client-emr-serverless:** Added support for enabling disk encryption using customer managed AWS KMS keys to CreateApplication, UpdateApplication and StartJobRun APIs. ([9d932c3](https://github.com/aws/aws-sdk-js-v3/commit/9d932c38fdfacf45989a4bb733e10d9dddb91824))
+
+
+
+
+
 # [3.963.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.962.0...v3.963.0) (2026-01-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.964.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.963.0...v3.964.0) (2026-01-06)
+
+
+### Bug Fixes
+
+* **core:** make CREDENTIALS_CODE mutually exclusive with other credential sources ([#7615](https://github.com/aws/aws-sdk-js-v3/issues/7615)) ([05e017e](https://github.com/aws/aws-sdk-js-v3/commit/05e017ef8879b33a3fbe8a27df7a5b662831178d))
+
+
+
+
+
 # [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
 
 **Note:** Version bump only for package @aws-sdk/core

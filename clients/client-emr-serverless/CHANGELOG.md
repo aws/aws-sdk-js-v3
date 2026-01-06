@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.964.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.963.0...v3.964.0) (2026-01-06)
+
+
+### Features
+
+* **client-emr-serverless:** Added support for enabling disk encryption using customer managed AWS KMS keys to CreateApplication, UpdateApplication and StartJobRun APIs. ([9d932c3](https://github.com/aws/aws-sdk-js-v3/commit/9d932c38fdfacf45989a4bb733e10d9dddb91824))
+
+
+
+
+
 # [3.962.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.961.0...v3.962.0) (2026-01-02)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless
