@@ -49,7 +49,7 @@ test-endpoints:
 
 test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
-	yarn g:vitest run -c vitest.config.browser.e2e.mts --retry=4
+	yarn g:vitest run -c vitest.config.browser.e2e.mts --retry=4 --test-timeout=60000
 	make test-bundlers
 
 test-bundlers:

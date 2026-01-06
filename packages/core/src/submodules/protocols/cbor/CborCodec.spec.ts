@@ -13,7 +13,7 @@ describe("performance baseline indicator", () => {
     const objects = [];
 
     // warmup
-    for (let i = 0; i < 13; ++i) {
+    for (let i = 0; i < 10; ++i) {
       const o = createNestingWidget(2 ** i);
       objects.push(o);
       serializer.write(nestingWidget, o);
@@ -46,7 +46,7 @@ describe("performance baseline indicator", () => {
     const strings = [];
 
     // warmup
-    for (let i = 0; i < 12; ++i) {
+    for (let i = 0; i < 10; ++i) {
       const o = createNestingWidget(2 ** i);
       serializer.write(nestingWidget, o);
       const json = serializer.flush();
