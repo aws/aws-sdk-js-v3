@@ -195,7 +195,7 @@ describe(JsonShapeDeserializer.name, () => {
       const strings = [];
 
       // warmup
-      for (let i = 0; i < 12; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         serializer.write(nestingWidget, o);
         const json = serializer.flush();

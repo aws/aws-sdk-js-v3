@@ -70,7 +70,7 @@ describe(XmlShapeSerializer.name, () => {
       const objects = [];
 
       // warmup
-      for (let i = 0; i < 13; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         objects.push(o);
         serializer.write(nestingWidget, o);

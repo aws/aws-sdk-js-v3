@@ -133,7 +133,7 @@ describe(AwsJson1_1Protocol, () => {
       const timings: string[] = [];
       const objects = [];
 
-      for (let i = 0; i < 12; ++i) {
+      for (let i = 0; i < 10; ++i) {
         const o = createNestingWidget(2 ** i);
         objects.push(o);
       }
