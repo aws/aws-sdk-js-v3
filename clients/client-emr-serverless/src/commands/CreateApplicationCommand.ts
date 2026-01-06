@@ -127,6 +127,12 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
  *   },
+ *   diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ *     encryptionContext: { // EncryptionContext
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     encryptionKeyArn: "STRING_VALUE",
+ *   },
  *   interactiveConfiguration: { // InteractiveConfiguration
  *     studioEnabled: true || false,
  *     livyEndpointEnabled: true || false,

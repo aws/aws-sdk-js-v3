@@ -104,6 +104,12 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //           remoteWriteUrl: "STRING_VALUE",
  * //         },
  * //       },
+ * //       diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ * //         encryptionContext: { // EncryptionContext
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //     jobDriver: { // JobDriver Union: only one key present
  * //       sparkSubmit: { // SparkSubmit

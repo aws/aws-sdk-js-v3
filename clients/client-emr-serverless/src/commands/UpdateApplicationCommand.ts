@@ -127,6 +127,12 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
  *   },
+ *   diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ *     encryptionContext: { // EncryptionContext
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     encryptionKeyArn: "STRING_VALUE",
+ *   },
  *   schedulerConfiguration: { // SchedulerConfiguration
  *     queueTimeoutMinutes: Number("int"),
  *     maxConcurrentRuns: Number("int"),
@@ -239,6 +245,12 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //       prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
  * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ * //       encryptionContext: { // EncryptionContext
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       encryptionKeyArn: "STRING_VALUE",
  * //     },
  * //     interactiveConfiguration: { // InteractiveConfiguration
  * //       studioEnabled: true || false,

@@ -67,6 +67,7 @@ export type {
   CreateApplicationResponse,
   DeleteApplicationRequest,
   DeleteApplicationResponse,
+  DiskEncryptionConfiguration,
   GetApplicationRequest,
   GetApplicationResponse,
   GetDashboardForJobRunRequest,

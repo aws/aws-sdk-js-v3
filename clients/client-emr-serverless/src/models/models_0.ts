@@ -32,6 +32,24 @@ export interface AutoStopConfig {
 }
 
 /**
+ * <p>The configuration object that allows encrypting local disks.</p>
+ * @public
+ */
+export interface DiskEncryptionConfiguration {
+  /**
+   * <p>Specifies the optional encryption context that will be used when encrypting the data. An encryption context is a collection of non-secret key-value pairs that represent additional authenticated data. </p>
+   * @public
+   */
+  encryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt local disks.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
  * <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
  * @public
  */
@@ -1402,6 +1420,12 @@ export interface Application {
   monitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
+
+  /**
    * <p>The interactive configuration object that enables the interactive use cases for an application.</p>
    * @public
    */
@@ -1442,6 +1466,12 @@ export interface ConfigurationOverrides {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>The override configuration to encrypt local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
 }
 
 /**
@@ -1537,6 +1567,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
 
   /**
    * <p>The interactive configuration object that enables the interactive use cases to use when running an application.</p>
@@ -1650,6 +1686,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>The configuration object that allows encrypting local disks.</p>
+   * @public
+   */
+  diskEncryptionConfiguration?: DiskEncryptionConfiguration | undefined;
 
   /**
    * <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>

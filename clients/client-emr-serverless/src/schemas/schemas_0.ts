@@ -17,6 +17,7 @@ const _CWLC = "CloudWatchLoggingConfiguration";
 const _DA = "DeleteApplication";
 const _DAR = "DeleteApplicationRequest";
 const _DARe = "DeleteApplicationResponse";
+const _DEC = "DiskEncryptionConfiguration";
 const _EPA = "EntryPointArgument";
 const _EPAn = "EntryPointArguments";
 const _EPP = "EntryPointPath";
@@ -126,9 +127,11 @@ const _cl = "client";
 const _co = "configurations";
 const _cp = "cpu";
 const _d = "disk";
+const _dEC = "diskEncryptionConfiguration";
 const _dT = "diskType";
 const _e = "enabled";
 const _eA = "endedAt";
+const _eC = "encryptionContext";
 const _eIP = "executionIamPolicy";
 const _eKA = "encryptionKeyArn";
 const _eP = "entryPoint";
@@ -250,8 +253,8 @@ var Query: StaticSimpleSchema = [0, n0, _Q, 8, 0];
 var SparkSubmitParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _n, _a, _rL, _t, _s, _sD, _iC, _mC, _cA, _uA, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _iCn, _sC, _iCC, _jLCAC],
-  [0, 0, 0, 0, 0, 0, 0, () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 4, 4, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfiguration$, () => JobLevelCostAllocationConfiguration$]
+  [_aI, _n, _a, _rL, _t, _s, _sD, _iC, _mC, _cA, _uA, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
+  [0, 0, 0, 0, 0, 0, 0, () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 4, 4, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfiguration$, () => JobLevelCostAllocationConfiguration$]
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -290,8 +293,8 @@ export var Configuration$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
   0,
-  [_aC, _mCo],
-  [[() => ConfigurationList, 0], () => MonitoringConfiguration$]
+  [_aC, _mCo, _dEC],
+  [[() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$]
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_er]: _cl, [_hE]: 409 },
@@ -301,8 +304,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_n, _rL, _t, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _iCn, _sC, _iCC, _jLCAC],
-  [0, 0, 0, [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
+  [_n, _rL, _t, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
+  [0, 0, 0, [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -318,6 +321,11 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [],
   []
+];
+export var DiskEncryptionConfiguration$: StaticStructureSchema = [3, n0, _DEC,
+  0,
+  [_eC, _eKA],
+  [128 | 0, 0]
 ];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
@@ -574,8 +582,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_aI, _cT, _iC, _mC, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _iCn, _rL, _rC, _mCo, _sC, _iCC, _jLCAC],
-  [[0, 1], [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, () => InteractiveConfiguration$, 0, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
+  [_aI, _cT, _iC, _mC, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _iCn, _rL, _rC, _mCo, _dEC, _sC, _iCC, _jLCAC],
+  [[0, 1], [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, () => InteractiveConfiguration$, 0, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -629,6 +637,7 @@ var PolicyArnList = 64 | 0;
 var SecurityGroupIds = 64 | 0;
 var SubnetIds = 64 | 0;
 var TagKeyList = 64 | 0;
+var EncryptionContext = 128 | 0;
 var InitialCapacityConfigMap: StaticMapSchema = [2, n0, _ICCM,
   0, 0, () => InitialCapacityConfig$
 ];

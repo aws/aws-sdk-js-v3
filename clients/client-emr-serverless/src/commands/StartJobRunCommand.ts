@@ -102,6 +102,12 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *         remoteWriteUrl: "STRING_VALUE",
  *       },
  *     },
+ *     diskEncryptionConfiguration: { // DiskEncryptionConfiguration
+ *       encryptionContext: { // EncryptionContext
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       encryptionKeyArn: "STRING_VALUE",
+ *     },
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
