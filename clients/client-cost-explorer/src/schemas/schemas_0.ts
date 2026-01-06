@@ -144,6 +144,7 @@ const _DE = "DatabaseEngine";
 const _DEa = "DatabaseEdition";
 const _DI = "DateInterval";
 const _DK = "DimensionKey";
+const _DM = "DeploymentModel";
 const _DN = "DimensionName";
 const _DO = "DeploymentOption";
 const _DRBPS = "DiskReadBytesPerSecond";
@@ -1351,8 +1352,8 @@ export var ProvideAnomalyFeedbackResponse$: StaticStructureSchema = [3, n0, _PAF
 ];
 export var RDSInstanceDetails$: StaticStructureSchema = [3, n0, _RDSID,
   0,
-  [_Fa, _IT, _Re, _DE, _DEa, _DO, _LM, _CG, _SFE],
-  [0, 0, 0, 0, 0, 0, 0, 2, 2]
+  [_Fa, _IT, _Re, _DE, _DEa, _DO, _LM, _CG, _SFE, _DM],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, 0]
 ];
 export var RecommendationDetailData$: StaticStructureSchema = [3, n0, _RDD,
   0,

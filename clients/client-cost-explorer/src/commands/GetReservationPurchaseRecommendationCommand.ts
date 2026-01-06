@@ -179,6 +179,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput extends GetRe
  * //               LicenseModel: "STRING_VALUE",
  * //               CurrentGeneration: true || false,
  * //               SizeFlexEligible: true || false,
+ * //               DeploymentModel: "STRING_VALUE",
  * //             },
  * //             RedshiftInstanceDetails: { // RedshiftInstanceDetails
  * //               Family: "STRING_VALUE",

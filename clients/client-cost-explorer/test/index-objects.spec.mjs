@@ -254,12 +254,16 @@ import {
   paginateGetAnomalySubscriptions,
   paginateGetCostAndUsageComparisons,
   paginateGetCostComparisonDrivers,
+  paginateGetReservationPurchaseRecommendation,
+  paginateGetRightsizingRecommendation,
   paginateGetSavingsPlansCoverage,
   paginateGetSavingsPlansUtilizationDetails,
+  paginateListCommitmentPurchaseAnalyses,
   paginateListCostAllocationTagBackfillHistory,
   paginateListCostAllocationTags,
   paginateListCostCategoryDefinitions,
   paginateListCostCategoryResourceAssociations,
+  paginateListSavingsPlansPurchaseRecommendationGeneration,
   PaymentOption,
   PlatformDifference,
   ProvideAnomalyFeedback$,
@@ -745,10 +749,14 @@ assert(typeof paginateGetAnomalyMonitors === "function");
 assert(typeof paginateGetAnomalySubscriptions === "function");
 assert(typeof paginateGetCostAndUsageComparisons === "function");
 assert(typeof paginateGetCostComparisonDrivers === "function");
+assert(typeof paginateGetReservationPurchaseRecommendation === "function");
+assert(typeof paginateGetRightsizingRecommendation === "function");
 assert(typeof paginateGetSavingsPlansCoverage === "function");
 assert(typeof paginateGetSavingsPlansUtilizationDetails === "function");
+assert(typeof paginateListCommitmentPurchaseAnalyses === "function");
 assert(typeof paginateListCostAllocationTagBackfillHistory === "function");
 assert(typeof paginateListCostAllocationTags === "function");
 assert(typeof paginateListCostCategoryDefinitions === "function");
 assert(typeof paginateListCostCategoryResourceAssociations === "function");
+assert(typeof paginateListSavingsPlansPurchaseRecommendationGeneration === "function");
 console.log(`CostExplorer index test passed.`);
