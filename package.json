@@ -37,6 +37,7 @@
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
     "lint:api": "node scripts/validation/api-snapshot-validation.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
+    "pkg:changed": "node ./scripts/update-versions/getChangedPackages.mjs",
     "test:all": "yarn build:all && jest --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
     "test:ci": "lerna run test --since origin/main",
     "test:e2e": "make test-e2e && node ./tests/canary/canary",
