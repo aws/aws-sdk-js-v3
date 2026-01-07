@@ -104,7 +104,7 @@
     "lerna": "5.5.2",
     "lint-staged": "^10.0.1",
     "prettier": "2.8.5",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.10",
     "ts-jest": "29.1.1",
     "ts-loader": "9.4.2",
     "tsx": "4.19.2",
