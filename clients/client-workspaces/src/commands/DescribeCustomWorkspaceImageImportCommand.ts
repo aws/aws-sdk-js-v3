@@ -47,7 +47,9 @@ export interface DescribeCustomWorkspaceImageImportCommandOutput extends Describ
  * // { // DescribeCustomWorkspaceImageImportResult
  * //   ImageId: "STRING_VALUE",
  * //   InfrastructureConfigurationArn: "STRING_VALUE",
- * //   State: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //   State: "PENDING" || "IN_PROGRESS" || "PROCESSING_SOURCE_IMAGE" || "IMAGE_TESTING_START" || "UPDATING_OPERATING_SYSTEM" || "IMAGE_COMPATIBILITY_CHECKING" || "IMAGE_TESTING_GENERALIZATION" || "CREATING_TEST_INSTANCE" || "INSTALLING_COMPONENTS" || "GENERALIZING" || "VALIDATING" || "PUBLISHING" || "COMPLETED" || "ERROR",
+ * //   StateMessage: "STRING_VALUE",
+ * //   ProgressPercentage: Number("int"),
  * //   Created: new Date("TIMESTAMP"),
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
  * //   ImageSource: { // ImageSourceIdentifier Union: only one key present

@@ -65,7 +65,7 @@ export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWor
  * const response = await client.send(command);
  * // { // ImportCustomWorkspaceImageResult
  * //   ImageId: "STRING_VALUE",
- * //   State: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //   State: "PENDING" || "IN_PROGRESS" || "PROCESSING_SOURCE_IMAGE" || "IMAGE_TESTING_START" || "UPDATING_OPERATING_SYSTEM" || "IMAGE_COMPATIBILITY_CHECKING" || "IMAGE_TESTING_GENERALIZATION" || "CREATING_TEST_INSTANCE" || "INSTALLING_COMPONENTS" || "GENERALIZING" || "VALIDATING" || "PUBLISHING" || "COMPLETED" || "ERROR",
  * // };
  *
  * ```

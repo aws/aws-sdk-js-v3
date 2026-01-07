@@ -459,7 +459,8 @@ const _PCSWRL = "PendingCreateStandbyWorkspacesRequestList";
 const _PI = "PoolId";
 const _PIo = "PoolIds";
 const _PN = "PoolName";
-const _PP = "PreferredProtocol";
+const _PP = "ProgressPercentage";
+const _PPr = "PreferredProtocol";
 const _PR = "PrimaryRegion";
 const _PRe = "PendingRequests";
 const _PSR = "PendingStandbyRequests";
@@ -536,6 +537,7 @@ const _SIe = "SessionId";
 const _SIu = "SubnetId";
 const _SL = "SupportLink";
 const _SLn = "SnapshotList";
+const _SM = "StateMessage";
 const _SOSN = "SupportedOperatingSystemNames";
 const _SP = "SamlProperties";
 const _SPe = "SelfservicePermissions";
@@ -1250,8 +1252,8 @@ export var DescribeCustomWorkspaceImageImportRequest$: StaticStructureSchema = [
 ];
 export var DescribeCustomWorkspaceImageImportResult$: StaticStructureSchema = [3, n0, _DCWIIRe,
   0,
-  [_II, _ICA, _S, _C, _LUT, _IS, _IBII, _ED],
-  [0, 0, 0, 4, 4, () => ImageSourceIdentifier$, 0, () => CustomWorkspaceImageImportErrorDetailsList]
+  [_II, _ICA, _S, _SM, _PP, _C, _LUT, _IS, _IBII, _ED],
+  [0, 0, 0, 0, 1, 4, 4, () => ImageSourceIdentifier$, 0, () => CustomWorkspaceImageImportErrorDetailsList]
 ];
 export var DescribeImageAssociationsRequest$: StaticStructureSchema = [3, n0, _DIAR,
   0,
@@ -1455,12 +1457,12 @@ export var GetAccountLinkResult$: StaticStructureSchema = [3, n0, _GALRe,
 ];
 export var GlobalAcceleratorForDirectory$: StaticStructureSchema = [3, n0, _GAFD,
   0,
-  [_Mo, _PP],
+  [_Mo, _PPr],
   [0, 0]
 ];
 export var GlobalAcceleratorForWorkSpace$: StaticStructureSchema = [3, n0, _GAFWS,
   0,
-  [_Mo, _PP],
+  [_Mo, _PPr],
   [0, 0]
 ];
 export var IDCConfig$: StaticStructureSchema = [3, n0, _IDCC,

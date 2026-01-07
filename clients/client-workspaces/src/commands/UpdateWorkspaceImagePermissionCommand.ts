@@ -34,7 +34,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput extends UpdateWorks
  *          <p>After an image has been shared, the recipient account can copy the image to other
  *          Regions as needed.</p>
  *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
- *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
  *          <p>For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html"> Share or Unshare a Custom
  *             WorkSpaces Image</a>.</p>
  *          <note>
@@ -46,7 +46,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput extends UpdateWorks
  *                <li>
  *                   <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
  *                   isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
- *                   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web ServicesSupport.</p>
+ *                   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>
  *                </li>
  *             </ul>
  *          </note>

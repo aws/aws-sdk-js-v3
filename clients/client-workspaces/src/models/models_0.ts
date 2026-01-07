@@ -3325,6 +3325,18 @@ export interface DescribeCustomWorkspaceImageImportResult {
   State?: CustomWorkspaceImageImportState | undefined;
 
   /**
+   * <p>The state message of the WorkSpace image import workflow.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+
+  /**
+   * <p>The estimated progress percentage of the WorkSpace image import workflow.</p>
+   * @public
+   */
+  ProgressPercentage?: number | undefined;
+
+  /**
    * <p>The timestamp when the WorkSpace image import was created.</p>
    * @public
    */

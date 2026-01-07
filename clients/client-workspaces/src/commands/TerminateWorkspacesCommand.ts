@@ -30,7 +30,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
- *             is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before
+ *             is destroyed. If you need to archive any user data, contact Amazon Web Services Support before
  *             terminating the WorkSpace.</p>
  *          </important>
  *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>

@@ -53,7 +53,7 @@ export interface DisassociateWorkspaceApplicationCommandOutput extends Disassoci
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     State: "PENDING_INSTALL" || "PENDING_INSTALL_DEPLOYMENT" || "PENDING_UNINSTALL" || "PENDING_UNINSTALL_DEPLOYMENT" || "INSTALLING" || "UNINSTALLING" || "ERROR" || "COMPLETED" || "REMOVED",
  * //     StateReason: { // AssociationStateReason
- * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable",
+ * //       ErrorCode: "ValidationError.InsufficientDiskSpace" || "ValidationError.InsufficientMemory" || "ValidationError.UnsupportedOperatingSystem" || "DeploymentError.InternalServerError" || "DeploymentError.WorkspaceUnreachable" || "ValidationError.ApplicationOldVersionExists",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //     WorkspaceId: "STRING_VALUE",

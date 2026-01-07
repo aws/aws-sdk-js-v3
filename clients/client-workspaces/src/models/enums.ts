@@ -190,6 +190,7 @@ export type AssociationState = (typeof AssociationState)[keyof typeof Associatio
  * @enum
  */
 export const AssociationErrorCode = {
+  APPLICATION_OLDVERSIONEXIST_FAILURE: "ValidationError.ApplicationOldVersionExists",
   INSUFFICIENT_DISKSPACE: "ValidationError.InsufficientDiskSpace",
   INSUFFICIENT_MEMORY: "ValidationError.InsufficientMemory",
   INTERNAL_SERVER_ERROR: "DeploymentError.InternalServerError",
@@ -679,9 +680,19 @@ export type CustomImageProtocol = (typeof CustomImageProtocol)[keyof typeof Cust
  */
 export const CustomWorkspaceImageImportState = {
   COMPLETED: "COMPLETED",
+  CREATING_TEST_INSTANCE: "CREATING_TEST_INSTANCE",
   ERROR: "ERROR",
+  GENERALIZING: "GENERALIZING",
+  IMAGE_COMPATIBILITY_CHECKING: "IMAGE_COMPATIBILITY_CHECKING",
+  IMAGE_TESTING_GENERALIZATION: "IMAGE_TESTING_GENERALIZATION",
+  IMAGE_TESTING_START: "IMAGE_TESTING_START",
+  INSTALLING_COMPONENTS: "INSTALLING_COMPONENTS",
   IN_PROGRESS: "IN_PROGRESS",
   PENDING: "PENDING",
+  PROCESSING_SOURCE_IMAGE: "PROCESSING_SOURCE_IMAGE",
+  PUBLISHING: "PUBLISHING",
+  UPDATING_OPERATING_SYSTEM: "UPDATING_OPERATING_SYSTEM",
+  VALIDATING: "VALIDATING",
 } as const;
 /**
  * @public

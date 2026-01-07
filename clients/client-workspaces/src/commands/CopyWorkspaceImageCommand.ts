@@ -31,7 +31,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
  *             Image</a>.</p>
  *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
- *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
  *          <important>
  *             <p>Before copying a shared image, be sure to verify that it has been shared from the
  *             correct Amazon Web Services account. To determine if an image has been shared and to see
