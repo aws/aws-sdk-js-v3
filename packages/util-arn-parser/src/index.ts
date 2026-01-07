@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export interface ARN {
   partition: string;
   service: string;
@@ -7,12 +10,14 @@ export interface ARN {
 }
 /**
  * Validate whether a string is an ARN.
+ * @internal
  */
 export const validate = (str: any): boolean =>
   typeof str === "string" && str.indexOf("arn:") === 0 && str.split(":").length >= 6;
 
 /**
  * Parse an ARN string into structure with partition, service, region, accountId and resource values
+ * @internal
  */
 export const parse = (arn: string): ARN => {
   const segments = arn.split(":");
@@ -36,10 +41,14 @@ export const parse = (arn: string): ARN => {
   };
 };
 
+/**
+ * @internal
+ */
 type buildOptions = Omit<ARN, "partition"> & { partition?: string };
 
 /**
  * Build an ARN with service, partition, region, accountId, and resources strings
+ * @internal
  */
 export const build = (arnObject: buildOptions): string => {
   const { partition = "aws", service, region, accountId, resource } = arnObject;
