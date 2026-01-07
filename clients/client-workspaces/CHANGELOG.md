@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.965.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.964.0...v3.965.0) (2026-01-07)
+
+
+### Features
+
+* **client-workspaces:** Add StateMessage and ProgressPercentage fields to DescribeCustomWorkspaceImageImport API response. ([fe652fb](https://github.com/aws/aws-sdk-js-v3/commit/fe652fb5ea11048f611a06e03b9181ef85614e5d))
+
+
+
+
+
 # [3.964.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.963.0...v3.964.0) (2026-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces
