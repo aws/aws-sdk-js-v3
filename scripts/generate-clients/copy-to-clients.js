@@ -48,7 +48,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
           "@tsconfig/node18": "18.2.4",
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
-          rimraf: "3.0.2",
+          rimraf: "5.0.10",
           typescript: "~5.8.3",
         };
 
