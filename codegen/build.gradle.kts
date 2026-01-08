@@ -37,9 +37,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.41.0"
-    // no-op change line to include latest commit(s) in 0.41.0.
-    // this can be removed on the next version bump.
+    version = "0.41.1"
 }
 
 // The root project doesn't produce a JAR.
