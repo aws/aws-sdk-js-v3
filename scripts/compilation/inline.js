@@ -24,6 +24,13 @@ if (!_package) {
   }));
 
   packages.push(
+    ...listFolders(path.join(root, "packages-internal")).map((pkg) => ({
+      pkgJsonFilePath: path.join(root, "packages-internal", pkg, "package.json"),
+      pkg,
+    }))
+  );
+
+  packages.push(
     ...["dynamodb", "storage"].map((lib) => ({
       pkg: `lib-${lib}`,
       pkgJsonFilePath: path.join(root, "lib", `lib-${lib}`, "package.json"),

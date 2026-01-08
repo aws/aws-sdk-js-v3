@@ -14,11 +14,12 @@ const root = path.join(__dirname, "..", "..");
 const clients = path.join(root, "clients");
 const lib = path.join(root, "lib");
 const packages = path.join(root, "packages");
-const private = path.join(root, "private");
+const packagesInternal = path.join(root, "packages-internal");
+const _private = path.join(root, "private");
 
 (async () => {
   const errors = [];
-  for (const group of [clients, lib, packages, private]) {
+  for (const group of [clients, lib, packages, packagesInternal, _private]) {
     for (const folder of fs.readdirSync(group)) {
       const packagePath = path.join(group, folder);
       const distTypes = path.join(packagePath, "dist-types");

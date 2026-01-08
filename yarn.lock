@@ -24693,9 +24693,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-locate-window@npm:^3.0.0, @aws-sdk/util-locate-window@workspace:packages/util-locate-window":
+"@aws-sdk/util-locate-window@npm:^3.0.0, @aws-sdk/util-locate-window@workspace:packages-internal/util-locate-window":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-locate-window@workspace:packages/util-locate-window"
+  resolution: "@aws-sdk/util-locate-window@workspace:packages-internal/util-locate-window"
   dependencies:
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"

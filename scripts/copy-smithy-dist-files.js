@@ -5,7 +5,6 @@
 
 const fs = require("fs");
 const path = require("path");
-const { spawnProcess } = require("./utils/spawn-process");
 
 const aws = path.join(__dirname, "..", "..");
 

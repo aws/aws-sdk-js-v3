@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const path = require("path");
-const readline = require("readline");
 
 const findFolders = require("./lib/findFolders");
 const findScripts = require("./lib/findScripts");
@@ -24,12 +23,14 @@ async function main() {
   const clients = listFolders(path.join(root, "clients"));
   const lib = listFolders(path.join(root, "lib"));
   const packages = listFolders(path.join(root, "packages"));
+  const packagesInternal = listFolders(path.join(root, "packages-internal"));
   const _private = listFolders(path.join(root, "private"));
 
   const allPackages = [
     ...clients.map((c) => new Package(c, path.join(root, "clients", c))),
     ...lib.map((l) => new Package(l, path.join(root, "lib", l))),
     ...packages.map((p) => new Package(p, path.join(root, "packages", p))),
+    ...packagesInternal.map((p) => new Package(p, path.join(root, "packages-internal", p))),
     ..._private.map((p) => new Package(p, path.join(root, "private", p))),
   ];
 

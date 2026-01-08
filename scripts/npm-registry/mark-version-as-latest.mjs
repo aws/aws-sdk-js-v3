@@ -44,6 +44,7 @@ function recordPackages(dir) {
 
 recordPackages(path.join(root, "lib"));
 recordPackages(path.join(root, "packages"));
+// Note: this must be done manually for packages-internal since they do not align with the unified version.
 recordPackages(path.join(root, "clients"));
 
 const targetVersion = await ask("What is the version that should become [latest] (e.g. 3.512.0 no v-prefix)?");
