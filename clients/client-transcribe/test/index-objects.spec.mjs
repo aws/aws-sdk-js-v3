@@ -260,6 +260,20 @@ import {
   VocabularyFilterMethod,
   VocabularyInfo$,
   VocabularyState,
+  waitForCallAnalyticsJobCompleted,
+  waitForLanguageModelCompleted,
+  waitForMedicalScribeJobCompleted,
+  waitForMedicalTranscriptionJobCompleted,
+  waitForMedicalVocabularyReady,
+  waitForTranscriptionJobCompleted,
+  waitForVocabularyReady,
+  waitUntilCallAnalyticsJobCompleted,
+  waitUntilLanguageModelCompleted,
+  waitUntilMedicalScribeJobCompleted,
+  waitUntilMedicalTranscriptionJobCompleted,
+  waitUntilMedicalVocabularyReady,
+  waitUntilTranscriptionJobCompleted,
+  waitUntilVocabularyReady,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -519,6 +533,21 @@ assert(typeof LimitExceededException$ === "object");
 assert(NotFoundException.prototype instanceof TranscribeServiceException);
 assert(typeof NotFoundException$ === "object");
 assert(TranscribeServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForCallAnalyticsJobCompleted === "function");
+assert(typeof waitForLanguageModelCompleted === "function");
+assert(typeof waitForMedicalScribeJobCompleted === "function");
+assert(typeof waitForMedicalTranscriptionJobCompleted === "function");
+assert(typeof waitForMedicalVocabularyReady === "function");
+assert(typeof waitForTranscriptionJobCompleted === "function");
+assert(typeof waitForVocabularyReady === "function");
+assert(typeof waitUntilCallAnalyticsJobCompleted === "function");
+assert(typeof waitUntilLanguageModelCompleted === "function");
+assert(typeof waitUntilMedicalScribeJobCompleted === "function");
+assert(typeof waitUntilMedicalTranscriptionJobCompleted === "function");
+assert(typeof waitUntilMedicalVocabularyReady === "function");
+assert(typeof waitUntilTranscriptionJobCompleted === "function");
+assert(typeof waitUntilVocabularyReady === "function");
 // paginators
 assert(typeof paginateListCallAnalyticsCategories === "function");
 assert(typeof paginateListCallAnalyticsJobs === "function");
