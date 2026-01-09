@@ -29,6 +29,7 @@ import {
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
+  MemoryView,
   NetworkMode,
   OAuthGrantType,
   OnlineEvaluationConfigStatus,
@@ -5978,6 +5979,12 @@ export interface GetMemoryInput {
    * @public
    */
   memoryId: string | undefined;
+
+  /**
+   * <p>The level of detail to return for the memory.</p>
+   * @public
+   */
+  view?: MemoryView | undefined;
 }
 
 /**

@@ -392,6 +392,7 @@ import {
   MemoryStrategyStatus,
   MemoryStrategyType,
   MemorySummary$,
+  MemoryView,
   MessageBasedTrigger$,
   MessageBasedTriggerInput$,
   MetadataConfiguration$,
@@ -1139,6 +1140,7 @@ assert(typeof KeyType === "object");
 assert(typeof MemoryStatus === "object");
 assert(typeof MemoryStrategyStatus === "object");
 assert(typeof MemoryStrategyType === "object");
+assert(typeof MemoryView === "object");
 assert(typeof NetworkMode === "object");
 assert(typeof OAuthGrantType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");

@@ -798,6 +798,7 @@ const _vC = "vpcConfig";
 const _vI = "versionId";
 const _vM = "validationMode";
 const _ve = "version";
+const _vi = "view";
 const _wI = "workloadIdentities";
 const _wIA = "workloadIdentityArn";
 const _wID = "workloadIdentityDetails";
@@ -1490,8 +1491,8 @@ export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
-  [_mIe],
-  [[0, 1]]
+  [_mIe, _vi],
+  [[0, 1], [0, { [_hQ]: _vi }]]
 ];
 export var GetMemoryOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,

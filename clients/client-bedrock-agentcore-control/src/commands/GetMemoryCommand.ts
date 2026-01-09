@@ -42,6 +42,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetMemoryInput
  *   memoryId: "STRING_VALUE", // required
+ *   view: "full" || "without_decryption",
  * };
  * const command = new GetMemoryCommand(input);
  * const response = await client.send(command);

@@ -502,6 +502,19 @@ export type MemoryStrategyType = (typeof MemoryStrategyType)[keyof typeof Memory
  * @public
  * @enum
  */
+export const MemoryView = {
+  FULL: "full",
+  WITHOUT_DECRYPTION: "without_decryption",
+} as const;
+/**
+ * @public
+ */
+export type MemoryView = (typeof MemoryView)[keyof typeof MemoryView];
+
+/**
+ * @public
+ * @enum
+ */
 export const CredentialProviderVendorType = {
   AtlassianOauth2: "AtlassianOauth2",
   Auth0Oauth2: "Auth0Oauth2",

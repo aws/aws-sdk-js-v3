@@ -275,6 +275,7 @@ export type {
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
+  MemoryView,
   NetworkMode,
   OAuthGrantType,
   OnlineEvaluationConfigStatus,
