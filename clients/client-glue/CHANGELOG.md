@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
+
+
+### Features
+
+* **client-glue:** Adding MaterializedViews task run APIs ([d430d64](https://github.com/aws/aws-sdk-js-v3/commit/d430d646041c31a9c79377cfd4257ee74b4f5bd8))
+
+
+
+
+
 # [3.965.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.964.0...v3.965.0) (2026-01-07)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-cloudtrail-data",
   "description": "AWS SDK for JavaScript Cloudtrail Data Client for Node.js, Browser and React Native",
-  "version": "3.965.0",
+  "version": "3.966.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-cloudtrail-data",

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds optional field "view" to GetMemory API input to give customers control over whether CMK encrypted data such as strategy decryption or override prompts is returned or not. ([c68a59e](https://github.com/aws/aws-sdk-js-v3/commit/c68a59e81cb8413535a9a4fa8160627897f20c92))
+* **client-cloudfront:** Added EntityLimitExceeded exception handling to the following API operations AssociateDistributionWebACL, AssociateDistributionTenantWebACL, UpdateDistributionWithStagingConfig ([858e6e8](https://github.com/aws/aws-sdk-js-v3/commit/858e6e8b74ecb701a7ee3ad01dc3fd3171f779db))
+* **client-glue:** Adding MaterializedViews task run APIs ([d430d64](https://github.com/aws/aws-sdk-js-v3/commit/d430d646041c31a9c79377cfd4257ee74b4f5bd8))
+* **client-medialive:** MediaPackage v2 output groups in MediaLive can now accept one additional destination for single pipeline channels and up to two additional destinations for standard channels. MediaPackage v2 destinations now support sending to cross region MediaPackage channels. ([ce03931](https://github.com/aws/aws-sdk-js-v3/commit/ce039310db8a23f0a23c6632ad1046ef977ed04e))
+* **client-transcribe:** Adds waiters to Amazon Transcribe. ([93eb18c](https://github.com/aws/aws-sdk-js-v3/commit/93eb18c5dabe2062d6a8c4422382e830874953bf))
+* **clients:** update client endpoints as of 2026-01-09 ([060fef3](https://github.com/aws/aws-sdk-js-v3/commit/060fef3420727847ae6b20758ac861aec5812597))
+
+
+
+
+
 # [3.965.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.964.0...v3.965.0) (2026-01-07)
 
 

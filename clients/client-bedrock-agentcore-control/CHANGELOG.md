@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds optional field "view" to GetMemory API input to give customers control over whether CMK encrypted data such as strategy decryption or override prompts is returned or not. ([c68a59e](https://github.com/aws/aws-sdk-js-v3/commit/c68a59e81cb8413535a9a4fa8160627897f20c92))
+
+
+
+
+
 # [3.965.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.964.0...v3.965.0) (2026-01-07)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

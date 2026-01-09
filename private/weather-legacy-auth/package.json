@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/weather-legacy-auth",
   "description": "@aws-sdk/weather-legacy-auth client",
-  "version": "3.965.0",
+  "version": "3.966.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
