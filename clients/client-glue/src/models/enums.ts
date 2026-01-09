@@ -1756,6 +1756,37 @@ export type DQCompositeRuleEvaluationMethod =
  * @public
  * @enum
  */
+export const MaterializedViewRefreshType = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+/**
+ * @public
+ */
+export type MaterializedViewRefreshType =
+  (typeof MaterializedViewRefreshType)[keyof typeof MaterializedViewRefreshType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaterializedViewRefreshState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type MaterializedViewRefreshState =
+  (typeof MaterializedViewRefreshState)[keyof typeof MaterializedViewRefreshState];
+
+/**
+ * @public
+ * @enum
+ */
 export const TaskType = {
   EVALUATION: "EVALUATION",
   EXPORT_LABELS: "EXPORT_LABELS",

@@ -770,6 +770,10 @@ import {
   GetMappingCommand,
   GetMappingRequest$,
   GetMappingResponse$,
+  GetMaterializedViewRefreshTaskRun$,
+  GetMaterializedViewRefreshTaskRunCommand,
+  GetMaterializedViewRefreshTaskRunRequest$,
+  GetMaterializedViewRefreshTaskRunResponse$,
   GetMLTaskRun$,
   GetMLTaskRunCommand,
   GetMLTaskRunRequest$,
@@ -1095,6 +1099,10 @@ import {
   ListJobsCommand,
   ListJobsRequest$,
   ListJobsResponse$,
+  ListMaterializedViewRefreshTaskRuns$,
+  ListMaterializedViewRefreshTaskRunsCommand,
+  ListMaterializedViewRefreshTaskRunsRequest$,
+  ListMaterializedViewRefreshTaskRunsResponse$,
   ListMLTransforms$,
   ListMLTransformsCommand,
   ListMLTransformsRequest$,
@@ -1141,6 +1149,15 @@ import {
   LongColumnStatisticsData$,
   Mapping$,
   MappingEntry$,
+  MaterializedViewRefreshState,
+  MaterializedViewRefreshTaskNotRunningException,
+  MaterializedViewRefreshTaskNotRunningException$,
+  MaterializedViewRefreshTaskRun$,
+  MaterializedViewRefreshTaskRunningException,
+  MaterializedViewRefreshTaskRunningException$,
+  MaterializedViewRefreshTaskStoppingException,
+  MaterializedViewRefreshTaskStoppingException$,
+  MaterializedViewRefreshType,
   Merge$,
   MetadataInfo$,
   MetadataKeyValuePair$,
@@ -1219,6 +1236,7 @@ import {
   paginateListDevEndpoints,
   paginateListEntities,
   paginateListJobs,
+  paginateListMaterializedViewRefreshTaskRuns,
   paginateListMLTransforms,
   paginateListRegistries,
   paginateListSchemas,
@@ -1449,6 +1467,10 @@ import {
   StartJobRunCommand,
   StartJobRunRequest$,
   StartJobRunResponse$,
+  StartMaterializedViewRefreshTaskRun$,
+  StartMaterializedViewRefreshTaskRunCommand,
+  StartMaterializedViewRefreshTaskRunRequest$,
+  StartMaterializedViewRefreshTaskRunResponse$,
   StartMLEvaluationTaskRun$,
   StartMLEvaluationTaskRunCommand,
   StartMLEvaluationTaskRunRequest$,
@@ -1490,6 +1512,10 @@ import {
   StopCrawlerScheduleCommand,
   StopCrawlerScheduleRequest$,
   StopCrawlerScheduleResponse$,
+  StopMaterializedViewRefreshTaskRun$,
+  StopMaterializedViewRefreshTaskRunCommand,
+  StopMaterializedViewRefreshTaskRunRequest$,
+  StopMaterializedViewRefreshTaskRunResponse$,
   StopSession$,
   StopSessionCommand,
   StopSessionRequest$,
@@ -1977,6 +2003,8 @@ assert(typeof GetJobsCommand === "function");
 assert(typeof GetJobs$ === "object");
 assert(typeof GetMappingCommand === "function");
 assert(typeof GetMapping$ === "object");
+assert(typeof GetMaterializedViewRefreshTaskRunCommand === "function");
+assert(typeof GetMaterializedViewRefreshTaskRun$ === "object");
 assert(typeof GetMLTaskRunCommand === "function");
 assert(typeof GetMLTaskRun$ === "object");
 assert(typeof GetMLTaskRunsCommand === "function");
@@ -2085,6 +2113,8 @@ assert(typeof ListIntegrationResourcePropertiesCommand === "function");
 assert(typeof ListIntegrationResourceProperties$ === "object");
 assert(typeof ListJobsCommand === "function");
 assert(typeof ListJobs$ === "object");
+assert(typeof ListMaterializedViewRefreshTaskRunsCommand === "function");
+assert(typeof ListMaterializedViewRefreshTaskRuns$ === "object");
 assert(typeof ListMLTransformsCommand === "function");
 assert(typeof ListMLTransforms$ === "object");
 assert(typeof ListRegistriesCommand === "function");
@@ -2151,6 +2181,8 @@ assert(typeof StartImportLabelsTaskRunCommand === "function");
 assert(typeof StartImportLabelsTaskRun$ === "object");
 assert(typeof StartJobRunCommand === "function");
 assert(typeof StartJobRun$ === "object");
+assert(typeof StartMaterializedViewRefreshTaskRunCommand === "function");
+assert(typeof StartMaterializedViewRefreshTaskRun$ === "object");
 assert(typeof StartMLEvaluationTaskRunCommand === "function");
 assert(typeof StartMLEvaluationTaskRun$ === "object");
 assert(typeof StartMLLabelingSetGenerationTaskRunCommand === "function");
@@ -2167,6 +2199,8 @@ assert(typeof StopCrawlerCommand === "function");
 assert(typeof StopCrawler$ === "object");
 assert(typeof StopCrawlerScheduleCommand === "function");
 assert(typeof StopCrawlerSchedule$ === "object");
+assert(typeof StopMaterializedViewRefreshTaskRunCommand === "function");
+assert(typeof StopMaterializedViewRefreshTaskRun$ === "object");
 assert(typeof StopSessionCommand === "function");
 assert(typeof StopSession$ === "object");
 assert(typeof StopTriggerCommand === "function");
@@ -2663,6 +2697,8 @@ assert(typeof GetJobsRequest$ === "object");
 assert(typeof GetJobsResponse$ === "object");
 assert(typeof GetMappingRequest$ === "object");
 assert(typeof GetMappingResponse$ === "object");
+assert(typeof GetMaterializedViewRefreshTaskRunRequest$ === "object");
+assert(typeof GetMaterializedViewRefreshTaskRunResponse$ === "object");
 assert(typeof GetMLTaskRunRequest$ === "object");
 assert(typeof GetMLTaskRunResponse$ === "object");
 assert(typeof GetMLTaskRunsRequest$ === "object");
@@ -2829,6 +2865,8 @@ assert(typeof ListIntegrationResourcePropertiesRequest$ === "object");
 assert(typeof ListIntegrationResourcePropertiesResponse$ === "object");
 assert(typeof ListJobsRequest$ === "object");
 assert(typeof ListJobsResponse$ === "object");
+assert(typeof ListMaterializedViewRefreshTaskRunsRequest$ === "object");
+assert(typeof ListMaterializedViewRefreshTaskRunsResponse$ === "object");
 assert(typeof ListMLTransformsRequest$ === "object");
 assert(typeof ListMLTransformsResponse$ === "object");
 assert(typeof ListRegistriesInput$ === "object");
@@ -2853,6 +2891,7 @@ assert(typeof Location$ === "object");
 assert(typeof LongColumnStatisticsData$ === "object");
 assert(typeof Mapping$ === "object");
 assert(typeof MappingEntry$ === "object");
+assert(typeof MaterializedViewRefreshTaskRun$ === "object");
 assert(typeof Merge$ === "object");
 assert(typeof MetadataInfo$ === "object");
 assert(typeof MetadataKeyValuePair$ === "object");
@@ -3015,6 +3054,8 @@ assert(typeof StartImportLabelsTaskRunResponse$ === "object");
 assert(typeof StartingEventBatchCondition$ === "object");
 assert(typeof StartJobRunRequest$ === "object");
 assert(typeof StartJobRunResponse$ === "object");
+assert(typeof StartMaterializedViewRefreshTaskRunRequest$ === "object");
+assert(typeof StartMaterializedViewRefreshTaskRunResponse$ === "object");
 assert(typeof StartMLEvaluationTaskRunRequest$ === "object");
 assert(typeof StartMLEvaluationTaskRunResponse$ === "object");
 assert(typeof StartMLLabelingSetGenerationTaskRunRequest$ === "object");
@@ -3038,6 +3079,8 @@ assert(typeof StopCrawlerRequest$ === "object");
 assert(typeof StopCrawlerResponse$ === "object");
 assert(typeof StopCrawlerScheduleRequest$ === "object");
 assert(typeof StopCrawlerScheduleResponse$ === "object");
+assert(typeof StopMaterializedViewRefreshTaskRunRequest$ === "object");
+assert(typeof StopMaterializedViewRefreshTaskRunResponse$ === "object");
 assert(typeof StopSessionRequest$ === "object");
 assert(typeof StopSessionResponse$ === "object");
 assert(typeof StopTriggerRequest$ === "object");
@@ -3238,6 +3281,8 @@ assert(typeof LastCrawlStatus === "object");
 assert(typeof LastRefreshType === "object");
 assert(typeof Logical === "object");
 assert(typeof LogicalOperator === "object");
+assert(typeof MaterializedViewRefreshState === "object");
+assert(typeof MaterializedViewRefreshType === "object");
 assert(typeof MetadataOperation === "object");
 assert(typeof MLUserDataEncryptionModeString === "object");
 assert(typeof NodeType === "object");
@@ -3354,6 +3399,12 @@ assert(InvalidStateException.prototype instanceof GlueServiceException);
 assert(typeof InvalidStateException$ === "object");
 assert(KMSKeyNotAccessibleFault.prototype instanceof GlueServiceException);
 assert(typeof KMSKeyNotAccessibleFault$ === "object");
+assert(MaterializedViewRefreshTaskNotRunningException.prototype instanceof GlueServiceException);
+assert(typeof MaterializedViewRefreshTaskNotRunningException$ === "object");
+assert(MaterializedViewRefreshTaskRunningException.prototype instanceof GlueServiceException);
+assert(typeof MaterializedViewRefreshTaskRunningException$ === "object");
+assert(MaterializedViewRefreshTaskStoppingException.prototype instanceof GlueServiceException);
+assert(typeof MaterializedViewRefreshTaskStoppingException$ === "object");
 assert(MLTransformNotReadyException.prototype instanceof GlueServiceException);
 assert(typeof MLTransformNotReadyException$ === "object");
 assert(NoScheduleException.prototype instanceof GlueServiceException);
@@ -3422,6 +3473,7 @@ assert(typeof paginateListDevEndpoints === "function");
 assert(typeof paginateListEntities === "function");
 assert(typeof paginateListJobs === "function");
 assert(typeof paginateListMLTransforms === "function");
+assert(typeof paginateListMaterializedViewRefreshTaskRuns === "function");
 assert(typeof paginateListRegistries === "function");
 assert(typeof paginateListSchemaVersions === "function");
 assert(typeof paginateListSchemas === "function");

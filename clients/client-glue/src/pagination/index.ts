@@ -35,6 +35,7 @@ export * from "./ListDataQualityRulesetsPaginator";
 export * from "./ListDevEndpointsPaginator";
 export * from "./ListEntitiesPaginator";
 export * from "./ListJobsPaginator";
+export * from "./ListMaterializedViewRefreshTaskRunsPaginator";
 export * from "./ListMLTransformsPaginator";
 export * from "./ListRegistriesPaginator";
 export * from "./ListSchemasPaginator";

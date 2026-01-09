@@ -1,5 +1,14 @@
 // smithy-typescript generated code
-import { ExecutionClass, JobMode, Permission, ResourceAction, ResourceState, WorkerType } from "./enums";
+import {
+  ExecutionClass,
+  JobMode,
+  Permission,
+  ResourceAction,
+  ResourceState,
+  TableOptimizerType,
+  ViewUpdateAction,
+  WorkerType,
+} from "./enums";
 import {
   type Aggregate,
   type AmazonRedshiftSource,
@@ -28,6 +37,7 @@ import {
   type ErrorDetail,
   type EvaluateDataQuality,
   type EvaluateDataQualityMultiFrame,
+  type EventBatchingCondition,
   type ExecutionProperty,
   type FillMissingValues,
   type Filter,
@@ -48,6 +58,7 @@ import {
   type PIIDetection,
   type PostgreSQLCatalogSource,
   type PostgreSQLCatalogTarget,
+  type Predicate,
   type Recipe,
   type RedshiftSource,
   type RedshiftTarget,
@@ -85,12 +96,245 @@ import {
   type Spigot,
   type SplitFields,
   type StorageDescriptor,
+  type TableOptimizerConfiguration,
   type Trigger,
   type Union,
+  Action,
   Column,
 } from "./models_0";
-import type { ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
-import { type FederatedTable, type ViewDefinition, ColumnRowFilter, ViewValidation } from "./models_2";
+import type { ProfileConfiguration, TableIdentifier, TableInput, UserDefinedFunctionInput } from "./models_1";
+import {
+  type FederatedTable,
+  type ViewDefinition,
+  ColumnRowFilter,
+  IcebergTableUpdate,
+  ViewValidation,
+} from "./models_2";
+
+/**
+ * <p>Contains the update operations to be applied to an existing Iceberg table inGlue Data Catalog, defining the new state of the table metadata.
+ *     </p>
+ * @public
+ */
+export interface UpdateIcebergTableInput {
+  /**
+   * <p>The list of table update operations that specify the changes to be made to the Iceberg table, including schema modifications, partition
+   *       specifications, and table properties.</p>
+   * @public
+   */
+  Updates: IcebergTableUpdate[] | undefined;
+}
+
+/**
+ * <p>Input parameters specific to updating Apache Iceberg tables in Glue Data
+ *       Catalog, containing the update operations to be applied to an existing Iceberg
+ *       table.</p>
+ * @public
+ */
+export interface UpdateIcebergInput {
+  /**
+   * <p>The specific update operations to be applied to the Iceberg table, containing a
+   *       list of updates that define the new state of the table including schema,
+   *       partitions, and properties.</p>
+   * @public
+   */
+  UpdateIcebergTableInput: UpdateIcebergTableInput | undefined;
+}
+
+/**
+ * <p>Input parameters for updating open table format tables in GlueData Catalog,
+ *       serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+ * @public
+ */
+export interface UpdateOpenTableFormatInput {
+  /**
+   * <p>Apache Iceberg-specific update parameters that define the table modifications to
+   *       be applied, including schema changes, partition specifications, and table
+   *       properties.</p>
+   * @public
+   */
+  UpdateIcebergInput?: UpdateIcebergInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
+   *       ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog database in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the table within the specified database that will be
+   *       created in the Glue Data Catalog.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>An updated <code>TableInput</code> object to define the metadata table
+   *       in the catalog.</p>
+   * @public
+   */
+  TableInput?: TableInput | undefined;
+
+  /**
+   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
+   *       before updating it. However, if <code>skipArchive</code> is set to true,
+   *         <code>UpdateTable</code> does not create the archived version.</p>
+   * @public
+   */
+  SkipArchive?: boolean | undefined;
+
+  /**
+   * <p>The transaction ID at which to update the table contents. </p>
+   * @public
+   */
+  TransactionId?: string | undefined;
+
+  /**
+   * <p>The version ID at which to update the table contents. </p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The operation to be performed when updating the view.</p>
+   * @public
+   */
+  ViewUpdateAction?: ViewUpdateAction | undefined;
+
+  /**
+   * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>Input parameters for updating open table format tables in GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+   * @public
+   */
+  UpdateOpenTableFormatInput?: UpdateOpenTableFormatInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerRequest {
+  /**
+   * <p>The Catalog ID of the table.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The type of table optimizer.</p>
+   * @public
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+   * @public
+   */
+  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTableOptimizerResponse {}
+
+/**
+ * <p>A structure used to provide information used to update a trigger. This object updates the
+ *       previous trigger definition by overwriting it completely.</p>
+ * @public
+ */
+export interface TriggerUpdate {
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of this trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+   *       Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>The actions initiated by this trigger.</p>
+   * @public
+   */
+  Actions?: Action[] | undefined;
+
+  /**
+   * <p>The predicate of this trigger, which defines when it will fire.</p>
+   * @public
+   */
+  Predicate?: Predicate | undefined;
+
+  /**
+   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+   *       before EventBridge event trigger fires.</p>
+   * @public
+   */
+  EventBatchingCondition?: EventBatchingCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTriggerRequest {
+  /**
+   * <p>The name of the trigger to update.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The new values with which to update the trigger.</p>
+   * @public
+   */
+  TriggerUpdate: TriggerUpdate | undefined;
+}
 
 /**
  * @public

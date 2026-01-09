@@ -1112,6 +1112,13 @@ GetMapping
 </details>
 <details>
 <summary>
+GetMaterializedViewRefreshTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetMaterializedViewRefreshTaskRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetMaterializedViewRefreshTaskRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetMaterializedViewRefreshTaskRunCommandOutput/)
+</details>
+<details>
+<summary>
 GetMLTaskRun
 </summary>
 
@@ -1490,6 +1497,13 @@ ListJobs
 </details>
 <details>
 <summary>
+ListMaterializedViewRefreshTaskRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListMaterializedViewRefreshTaskRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListMaterializedViewRefreshTaskRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListMaterializedViewRefreshTaskRunsCommandOutput/)
+</details>
+<details>
+<summary>
 ListMLTransforms
 </summary>
 
@@ -1721,6 +1735,13 @@ StartJobRun
 </details>
 <details>
 <summary>
+StartMaterializedViewRefreshTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartMaterializedViewRefreshTaskRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartMaterializedViewRefreshTaskRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartMaterializedViewRefreshTaskRunCommandOutput/)
+</details>
+<details>
+<summary>
 StartMLEvaluationTaskRun
 </summary>
 
@@ -1774,6 +1795,13 @@ StopCrawlerSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopCrawlerScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopCrawlerScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopCrawlerScheduleCommandOutput/)
+</details>
+<details>
+<summary>
+StopMaterializedViewRefreshTaskRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopMaterializedViewRefreshTaskRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopMaterializedViewRefreshTaskRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopMaterializedViewRefreshTaskRunCommandOutput/)
 </details>
 <details>
 <summary>

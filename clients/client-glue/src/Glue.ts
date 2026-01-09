@@ -597,6 +597,11 @@ import { GetJobRunsCommand, GetJobRunsCommandInput, GetJobRunsCommandOutput } fr
 import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
 import { GetMappingCommand, GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import {
+  GetMaterializedViewRefreshTaskRunCommand,
+  GetMaterializedViewRefreshTaskRunCommandInput,
+  GetMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/GetMaterializedViewRefreshTaskRunCommand";
+import {
   GetMLTaskRunCommand,
   GetMLTaskRunCommandInput,
   GetMLTaskRunCommandOutput,
@@ -819,6 +824,11 @@ import {
 } from "./commands/ListIntegrationResourcePropertiesCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListMaterializedViewRefreshTaskRunsCommand,
+  ListMaterializedViewRefreshTaskRunsCommandInput,
+  ListMaterializedViewRefreshTaskRunsCommandOutput,
+} from "./commands/ListMaterializedViewRefreshTaskRunsCommand";
+import {
   ListMLTransformsCommand,
   ListMLTransformsCommandInput,
   ListMLTransformsCommandOutput,
@@ -976,6 +986,11 @@ import {
 } from "./commands/StartImportLabelsTaskRunCommand";
 import { StartJobRunCommand, StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import {
+  StartMaterializedViewRefreshTaskRunCommand,
+  StartMaterializedViewRefreshTaskRunCommandInput,
+  StartMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/StartMaterializedViewRefreshTaskRunCommand";
+import {
   StartMLEvaluationTaskRunCommand,
   StartMLEvaluationTaskRunCommandInput,
   StartMLEvaluationTaskRunCommandOutput,
@@ -1011,6 +1026,11 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import {
+  StopMaterializedViewRefreshTaskRunCommand,
+  StopMaterializedViewRefreshTaskRunCommandInput,
+  StopMaterializedViewRefreshTaskRunCommandOutput,
+} from "./commands/StopMaterializedViewRefreshTaskRunCommand";
 import { StopSessionCommand, StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
 import { StopTriggerCommand, StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import {
@@ -1294,6 +1314,7 @@ const commands = {
   GetJobRunsCommand,
   GetJobsCommand,
   GetMappingCommand,
+  GetMaterializedViewRefreshTaskRunCommand,
   GetMLTaskRunCommand,
   GetMLTaskRunsCommand,
   GetMLTransformCommand,
@@ -1348,6 +1369,7 @@ const commands = {
   ListEntitiesCommand,
   ListIntegrationResourcePropertiesCommand,
   ListJobsCommand,
+  ListMaterializedViewRefreshTaskRunsCommand,
   ListMLTransformsCommand,
   ListRegistriesCommand,
   ListSchemasCommand,
@@ -1381,6 +1403,7 @@ const commands = {
   StartExportLabelsTaskRunCommand,
   StartImportLabelsTaskRunCommand,
   StartJobRunCommand,
+  StartMaterializedViewRefreshTaskRunCommand,
   StartMLEvaluationTaskRunCommand,
   StartMLLabelingSetGenerationTaskRunCommand,
   StartTriggerCommand,
@@ -1389,6 +1412,7 @@ const commands = {
   StopColumnStatisticsTaskRunScheduleCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
+  StopMaterializedViewRefreshTaskRunCommand,
   StopSessionCommand,
   StopTriggerCommand,
   StopWorkflowRunCommand,
@@ -3655,6 +3679,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetMaterializedViewRefreshTaskRunCommand}
+   */
+  getMaterializedViewRefreshTaskRun(
+    args: GetMaterializedViewRefreshTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMaterializedViewRefreshTaskRunCommandOutput>;
+  getMaterializedViewRefreshTaskRun(
+    args: GetMaterializedViewRefreshTaskRunCommandInput,
+    cb: (err: any, data?: GetMaterializedViewRefreshTaskRunCommandOutput) => void
+  ): void;
+  getMaterializedViewRefreshTaskRun(
+    args: GetMaterializedViewRefreshTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMaterializedViewRefreshTaskRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMLTaskRunCommand}
    */
   getMLTaskRun(
@@ -4595,6 +4636,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListMaterializedViewRefreshTaskRunsCommand}
+   */
+  listMaterializedViewRefreshTaskRuns(
+    args: ListMaterializedViewRefreshTaskRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMaterializedViewRefreshTaskRunsCommandOutput>;
+  listMaterializedViewRefreshTaskRuns(
+    args: ListMaterializedViewRefreshTaskRunsCommandInput,
+    cb: (err: any, data?: ListMaterializedViewRefreshTaskRunsCommandOutput) => void
+  ): void;
+  listMaterializedViewRefreshTaskRuns(
+    args: ListMaterializedViewRefreshTaskRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMaterializedViewRefreshTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMLTransformsCommand}
    */
   listMLTransforms(): Promise<ListMLTransformsCommandOutput>;
@@ -5165,6 +5223,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartMaterializedViewRefreshTaskRunCommand}
+   */
+  startMaterializedViewRefreshTaskRun(
+    args: StartMaterializedViewRefreshTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMaterializedViewRefreshTaskRunCommandOutput>;
+  startMaterializedViewRefreshTaskRun(
+    args: StartMaterializedViewRefreshTaskRunCommandInput,
+    cb: (err: any, data?: StartMaterializedViewRefreshTaskRunCommandOutput) => void
+  ): void;
+  startMaterializedViewRefreshTaskRun(
+    args: StartMaterializedViewRefreshTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMaterializedViewRefreshTaskRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMLEvaluationTaskRunCommand}
    */
   startMLEvaluationTaskRun(
@@ -5298,6 +5373,23 @@ export interface Glue {
     args: StopCrawlerScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopCrawlerScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopMaterializedViewRefreshTaskRunCommand}
+   */
+  stopMaterializedViewRefreshTaskRun(
+    args: StopMaterializedViewRefreshTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMaterializedViewRefreshTaskRunCommandOutput>;
+  stopMaterializedViewRefreshTaskRun(
+    args: StopMaterializedViewRefreshTaskRunCommandInput,
+    cb: (err: any, data?: StopMaterializedViewRefreshTaskRunCommandOutput) => void
+  ): void;
+  stopMaterializedViewRefreshTaskRun(
+    args: StopMaterializedViewRefreshTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMaterializedViewRefreshTaskRunCommandOutput) => void
   ): void;
 
   /**

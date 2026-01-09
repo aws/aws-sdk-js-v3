@@ -800,6 +800,7 @@ const _FPi = "FilterPredicate";
 const _FPr = "FromPath";
 const _FR = "FailureReason";
 const _FRAEE = "FederatedResourceAlreadyExistsException";
+const _FRu = "FullRefresh";
 const _FS = "FunctionSpec";
 const _FSE = "FederationSourceException";
 const _FSEC = "FederationSourceErrorCode";
@@ -965,6 +966,9 @@ const _GMLTRetr = "GetMLTransformsResponse";
 const _GMLTe = "GetMLTransforms";
 const _GMR = "GetMappingRequest";
 const _GMRe = "GetMappingResponse";
+const _GMVRTR = "GetMaterializedViewRefreshTaskRun";
+const _GMVRTRR = "GetMaterializedViewRefreshTaskRunRequest";
+const _GMVRTRRe = "GetMaterializedViewRefreshTaskRunResponse";
 const _GN = "GroupName";
 const _GP = "GrokPattern";
 const _GPI = "GetPartitionIndexes";
@@ -1323,6 +1327,9 @@ const _LMLTR = "ListMLTransformsRequest";
 const _LMLTRi = "ListMLTransformsResponse";
 const _LMO = "LastModifiedOn";
 const _LMT = "LastModifiedTimestamp";
+const _LMVRTR = "ListMaterializedViewRefreshTaskRuns";
+const _LMVRTRR = "ListMaterializedViewRefreshTaskRunsRequest";
+const _LMVRTRRi = "ListMaterializedViewRefreshTaskRunsResponse";
 const _LN = "LineNumber";
 const _LO = "LogicalOperator";
 const _LPL = "LimitedPathList";
@@ -1423,6 +1430,13 @@ const _MTD = "MaximumTraversalDepth";
 const _MUDE = "MlUserDataEncryption";
 const _MUDEM = "MlUserDataEncryptionMode";
 const _MV = "MinValue";
+const _MVRTNRE = "MaterializedViewRefreshTaskNotRunningException";
+const _MVRTR = "MaterializedViewRefreshTaskRun";
+const _MVRTRE = "MaterializedViewRefreshTaskRunningException";
+const _MVRTRI = "MaterializedViewRefreshTaskRunId";
+const _MVRTRL = "MaterializedViewRefreshTaskRunsList";
+const _MVRTRa = "MaterializedViewRefreshTaskRuns";
+const _MVRTSE = "MaterializedViewRefreshTaskStoppingException";
 const _MVa = "MaxValue";
 const _MVas = "MaskValue";
 const _MVax = "MaximumValue";
@@ -1523,6 +1537,7 @@ const _PA = "PreAction";
 const _PAo = "PostAction";
 const _PAr = "PrivateAddress";
 const _PAu = "PublicAddress";
+const _PB = "ProcessedBytes";
 const _PC = "PartitionColumn";
 const _PCI = "ParentCatalogId";
 const _PCP = "PythonConnectionProperties";
@@ -1713,6 +1728,7 @@ const _RT = "RefreshToken";
 const _RTD = "RedshiftTmpDir";
 const _RTe = "RedshiftTarget";
 const _RTed = "RedactText";
+const _RTef = "RefreshType";
 const _RTeq = "RequestTime";
 const _RTes = "ResourceType";
 const _RTo = "RowTag";
@@ -1899,6 +1915,12 @@ const _SMLLSGTRR = "StartMLLabelingSetGenerationTaskRunRequest";
 const _SMLLSGTRRt = "StartMLLabelingSetGenerationTaskRunResponse";
 const _SMR = "StatisticModelResult";
 const _SMRt = "StatisticModelResults";
+const _SMVRTR = "StartMaterializedViewRefreshTaskRun";
+const _SMVRTRR = "StartMaterializedViewRefreshTaskRunRequest";
+const _SMVRTRRt = "StartMaterializedViewRefreshTaskRunResponse";
+const _SMVRTRRto = "StopMaterializedViewRefreshTaskRunRequest";
+const _SMVRTRRtop = "StopMaterializedViewRefreshTaskRunResponse";
+const _SMVRTRt = "StopMaterializedViewRefreshTaskRun";
 const _SN = "SchemaName";
 const _SND = "SnowflakeNodeData";
 const _SNRE = "SchedulerNotRunningException";
@@ -2384,6 +2406,9 @@ import {
   InvalidIntegrationStateFault,
   InvalidStateException,
   KMSKeyNotAccessibleFault,
+  MaterializedViewRefreshTaskNotRunningException,
+  MaterializedViewRefreshTaskRunningException,
+  MaterializedViewRefreshTaskStoppingException,
   MLTransformNotReadyException,
   NoScheduleException,
   OperationNotSupportedException,
@@ -4643,6 +4668,16 @@ export var GetMappingResponse$: StaticStructureSchema = [3, n0, _GMRe,
   [_Ma],
   [() => MappingList]
 ];
+export var GetMaterializedViewRefreshTaskRunRequest$: StaticStructureSchema = [3, n0, _GMVRTRR,
+  0,
+  [_CI, _MVRTRI],
+  [0, 0]
+];
+export var GetMaterializedViewRefreshTaskRunResponse$: StaticStructureSchema = [3, n0, _GMVRTRRe,
+  0,
+  [_MVRTR],
+  [() => MaterializedViewRefreshTaskRun$]
+];
 export var GetMLTaskRunRequest$: StaticStructureSchema = [3, n0, _GMLTRR,
   0,
   [_TIr, _TRI],
@@ -5557,6 +5592,16 @@ export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
   [_JNo, _NTe],
   [64 | 0, 0]
 ];
+export var ListMaterializedViewRefreshTaskRunsRequest$: StaticStructureSchema = [3, n0, _LMVRTRR,
+  0,
+  [_CI, _DN, _TN, _MRax, _NTe],
+  [0, 0, 0, 1, 0]
+];
+export var ListMaterializedViewRefreshTaskRunsResponse$: StaticStructureSchema = [3, n0, _LMVRTRRi,
+  0,
+  [_MVRTRa, _NTe],
+  [() => MaterializedViewRefreshTaskRunsList, 0]
+];
 export var ListMLTransformsRequest$: StaticStructureSchema = [3, n0, _LMLTR,
   0,
   [_NTe, _MRax, _Fi, _Sor, _Tag],
@@ -5677,6 +5722,29 @@ export var MappingEntry$: StaticStructureSchema = [3, n0, _ME,
   [_STo, _SPou, _ST, _TT, _TPar, _TTa],
   [0, 0, 0, 0, 0, 0]
 ];
+export var MaterializedViewRefreshTaskNotRunningException$: StaticErrorSchema = [-3, n0, _MVRTNRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MaterializedViewRefreshTaskNotRunningException$, MaterializedViewRefreshTaskNotRunningException);
+export var MaterializedViewRefreshTaskRun$: StaticStructureSchema = [3, n0, _MVRTR,
+  0,
+  [_CIu, _MVRTRI, _DN, _TN, _CI, _Rol, _St, _CTre, _LU, _STta, _ET, _EM, _DPUS, _RTef, _PB],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 1, 0, 1]
+];
+export var MaterializedViewRefreshTaskRunningException$: StaticErrorSchema = [-3, n0, _MVRTRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MaterializedViewRefreshTaskRunningException$, MaterializedViewRefreshTaskRunningException);
+export var MaterializedViewRefreshTaskStoppingException$: StaticErrorSchema = [-3, n0, _MVRTSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MaterializedViewRefreshTaskStoppingException$, MaterializedViewRefreshTaskStoppingException);
 export var Merge$: StaticStructureSchema = [3, n0, _Me,
   0,
   [_N, _I, _So, _PKr],
@@ -6553,6 +6621,16 @@ export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   [_JRI],
   [0]
 ];
+export var StartMaterializedViewRefreshTaskRunRequest$: StaticStructureSchema = [3, n0, _SMVRTRR,
+  0,
+  [_CI, _DN, _TN, _FRu],
+  [0, 0, 0, 2]
+];
+export var StartMaterializedViewRefreshTaskRunResponse$: StaticStructureSchema = [3, n0, _SMVRTRRt,
+  0,
+  [_MVRTRI],
+  [0]
+];
 export var StartMLEvaluationTaskRunRequest$: StaticStructureSchema = [3, n0, _SMLETRR,
   0,
   [_TIr],
@@ -6664,6 +6742,16 @@ export var StopCrawlerScheduleRequest$: StaticStructureSchema = [3, n0, _SCSRto,
   [0]
 ];
 export var StopCrawlerScheduleResponse$: StaticStructureSchema = [3, n0, _SCSRtop,
+  0,
+  [],
+  []
+];
+export var StopMaterializedViewRefreshTaskRunRequest$: StaticStructureSchema = [3, n0, _SMVRTRRto,
+  0,
+  [_CI, _DN, _TN],
+  [0, 0, 0]
+];
+export var StopMaterializedViewRefreshTaskRunResponse$: StaticStructureSchema = [3, n0, _SMVRTRRtop,
   0,
   [],
   []
@@ -7637,6 +7725,9 @@ var Mappings: StaticListSchema = [1, n0, _Map,
   0, () => Mapping$
 ];
 var MatchCriteria = 64 | 0;
+var MaterializedViewRefreshTaskRunsList: StaticListSchema = [1, n0, _MVRTRL,
+  0, () => MaterializedViewRefreshTaskRun$
+];
 var MetadataList: StaticListSchema = [1, n0, _MLe,
   0, () => MetadataKeyValuePair$
 ];
@@ -8267,6 +8358,9 @@ export var GetJobs$: StaticOperationSchema = [9, n0, _GJe,
 export var GetMapping$: StaticOperationSchema = [9, n0, _GM,
   0, () => GetMappingRequest$, () => GetMappingResponse$
 ];
+export var GetMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _GMVRTR,
+  0, () => GetMaterializedViewRefreshTaskRunRequest$, () => GetMaterializedViewRefreshTaskRunResponse$
+];
 export var GetMLTaskRun$: StaticOperationSchema = [9, n0, _GMLTReta,
   0, () => GetMLTaskRunRequest$, () => GetMLTaskRunResponse$
 ];
@@ -8429,6 +8523,9 @@ export var ListIntegrationResourceProperties$: StaticOperationSchema = [9, n0, _
 export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
   0, () => ListJobsRequest$, () => ListJobsResponse$
 ];
+export var ListMaterializedViewRefreshTaskRuns$: StaticOperationSchema = [9, n0, _LMVRTR,
+  0, () => ListMaterializedViewRefreshTaskRunsRequest$, () => ListMaterializedViewRefreshTaskRunsResponse$
+];
 export var ListMLTransforms$: StaticOperationSchema = [9, n0, _LMLT,
   0, () => ListMLTransformsRequest$, () => ListMLTransformsResponse$
 ];
@@ -8528,6 +8625,9 @@ export var StartImportLabelsTaskRun$: StaticOperationSchema = [9, n0, _SILTR,
 export var StartJobRun$: StaticOperationSchema = [9, n0, _SJR,
   0, () => StartJobRunRequest$, () => StartJobRunResponse$
 ];
+export var StartMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _SMVRTR,
+  0, () => StartMaterializedViewRefreshTaskRunRequest$, () => StartMaterializedViewRefreshTaskRunResponse$
+];
 export var StartMLEvaluationTaskRun$: StaticOperationSchema = [9, n0, _SMLETR,
   0, () => StartMLEvaluationTaskRunRequest$, () => StartMLEvaluationTaskRunResponse$
 ];
@@ -8551,6 +8651,9 @@ export var StopCrawler$: StaticOperationSchema = [9, n0, _SCto,
 ];
 export var StopCrawlerSchedule$: StaticOperationSchema = [9, n0, _SCSto,
   0, () => StopCrawlerScheduleRequest$, () => StopCrawlerScheduleResponse$
+];
+export var StopMaterializedViewRefreshTaskRun$: StaticOperationSchema = [9, n0, _SMVRTRt,
+  0, () => StopMaterializedViewRefreshTaskRunRequest$, () => StopMaterializedViewRefreshTaskRunResponse$
 ];
 export var StopSession$: StaticOperationSchema = [9, n0, _SSto,
   0, () => StopSessionRequest$, () => StopSessionResponse$

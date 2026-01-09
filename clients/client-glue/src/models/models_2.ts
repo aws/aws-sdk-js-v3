@@ -43,7 +43,6 @@ import {
   TransformStatusType,
   TransformType,
   ViewDialect,
-  ViewUpdateAction,
   WorkerType,
 } from "./enums";
 import {
@@ -55,20 +54,16 @@ import {
   type DatabaseInput,
   type DataQualityTargetTable,
   type ErrorDetail,
-  type EventBatchingCondition,
   type LakeFormationConfiguration,
   type LineageConfiguration,
   type NotificationProperty,
   type PartitionInput,
-  type Predicate,
   type RecrawlPolicy,
   type SchemaChangePolicy,
   type SchemaId,
   type TableOptimizer,
-  type TableOptimizerConfiguration,
   type TimestampedInclusionAnnotation,
   type Workflow,
-  Action,
   CustomEntityType,
   DataSource,
   GlueTable,
@@ -84,7 +79,7 @@ import {
   type DataCatalogEncryptionSettings,
   type DataQualityEvaluationRunAdditionalRunOptions,
   type EncryptionConfiguration,
-  type EvaluationMetrics,
+  type FindMatchesMetrics,
   type IcebergPartitionSpec,
   type IcebergSchema,
   type IcebergSortOrder,
@@ -95,7 +90,6 @@ import {
   type RegistryId,
   type SourceProcessingProperties,
   type SourceTableConfig,
-  type TableInput,
   type TargetProcessingProperties,
   type TargetTableConfig,
   type TransformEncryption,
@@ -104,11 +98,185 @@ import {
   ColumnStatistics,
   IntegrationError,
   MappingEntry,
+  MaterializedViewRefreshTaskRun,
   ResourceUri,
-  SchemaColumn,
   Session,
   Tag,
 } from "./models_1";
+
+/**
+ * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+ * @public
+ */
+export interface EvaluationMetrics {
+  /**
+   * <p>The type of machine learning transform.</p>
+   * @public
+   */
+  TransformType: TransformType | undefined;
+
+  /**
+   * <p>The evaluation metrics for the find matches algorithm.</p>
+   * @public
+   */
+  FindMatchesMetrics?: FindMatchesMetrics | undefined;
+}
+
+/**
+ * <p>A key-value pair representing a column and data type that this transform can
+ *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
+ * @public
+ */
+export interface SchemaColumn {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of data in the column.</p>
+   * @public
+   */
+  DataType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTransformResponse {
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   * @public
+   */
+  TransformId?: string | undefined;
+
+  /**
+   * <p>The unique name given to the transform when it was created.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the transform.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   * @public
+   */
+  Status?: TransformStatusType | undefined;
+
+  /**
+   * <p>The date and time when the transform was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when the transform was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>A list of Glue table definitions used by the transform.</p>
+   * @public
+   */
+  InputRecordTables?: GlueTable[] | undefined;
+
+  /**
+   * <p>The configuration parameters that are specific to the algorithm used.</p>
+   * @public
+   */
+  Parameters?: TransformParameters | undefined;
+
+  /**
+   * <p>The latest evaluation metrics.</p>
+   * @public
+   */
+  EvaluationMetrics?: EvaluationMetrics | undefined;
+
+  /**
+   * <p>The number of labels available for this transform.</p>
+   * @public
+   */
+  LabelCount?: number | undefined;
+
+  /**
+   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
+   *       transform accepts. Has an upper bound of 100 columns.</p>
+   * @public
+   */
+  Schema?: SchemaColumn[] | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string | undefined;
+
+  /**
+   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
+   *         page</a>. </p>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+
+  /**
+   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType | undefined;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   * @public
+   */
+  MaxRetries?: number | undefined;
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   * @public
+   */
+  TransformEncryption?: TransformEncryption | undefined;
+}
 
 /**
  * <p>The criteria used to filter the machine learning transforms.</p>
@@ -4318,6 +4486,58 @@ export interface ListJobsResponse {
 /**
  * @public
  */
+export interface ListMaterializedViewRefreshTaskRunsRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The database where the table resides.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the table for which statistics is generated.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMaterializedViewRefreshTaskRunsResponse {
+  /**
+   * <p>The results of the ListMaterializedViewRefreshTaskRuns action. </p>
+   * @public
+   */
+  MaterializedViewRefreshTaskRuns?: MaterializedViewRefreshTaskRun[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all task run IDs have yet been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListMLTransformsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -6257,6 +6477,46 @@ export interface StartJobRunResponse {
 /**
  * @public
  */
+export interface StartMaterializedViewRefreshTaskRunRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table to generate run the materialized view refresh task.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>Specifies whether this is a full refresh of the task run.</p>
+   * @public
+   */
+  FullRefresh?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMaterializedViewRefreshTaskRunResponse {
+  /**
+   * <p>The identifier for the materialized view refresh task run.</p>
+   * @public
+   */
+  MaterializedViewRefreshTaskRunId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartMLEvaluationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -6431,6 +6691,34 @@ export interface StopCrawlerScheduleRequest {
  * @public
  */
 export interface StopCrawlerScheduleResponse {}
+
+/**
+ * @public
+ */
+export interface StopMaterializedViewRefreshTaskRunRequest {
+  /**
+   * <p>The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table to generate statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMaterializedViewRefreshTaskRunResponse {}
 
 /**
  * @public
@@ -7939,229 +8227,4 @@ export interface IcebergTableUpdate {
    * @public
    */
   KeyId?: string | undefined;
-}
-
-/**
- * <p>Contains the update operations to be applied to an existing Iceberg table inGlue Data Catalog, defining the new state of the table metadata.
- *     </p>
- * @public
- */
-export interface UpdateIcebergTableInput {
-  /**
-   * <p>The list of table update operations that specify the changes to be made to the Iceberg table, including schema modifications, partition
-   *       specifications, and table properties.</p>
-   * @public
-   */
-  Updates: IcebergTableUpdate[] | undefined;
-}
-
-/**
- * <p>Input parameters specific to updating Apache Iceberg tables in Glue Data
- *       Catalog, containing the update operations to be applied to an existing Iceberg
- *       table.</p>
- * @public
- */
-export interface UpdateIcebergInput {
-  /**
-   * <p>The specific update operations to be applied to the Iceberg table, containing a
-   *       list of updates that define the new state of the table including schema,
-   *       partitions, and properties.</p>
-   * @public
-   */
-  UpdateIcebergTableInput: UpdateIcebergTableInput | undefined;
-}
-
-/**
- * <p>Input parameters for updating open table format tables in GlueData Catalog,
- *       serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
- * @public
- */
-export interface UpdateOpenTableFormatInput {
-  /**
-   * <p>Apache Iceberg-specific update parameters that define the table modifications to
-   *       be applied, including schema changes, partition specifications, and table
-   *       properties.</p>
-   * @public
-   */
-  UpdateIcebergInput?: UpdateIcebergInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the catalog database in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The unique identifier for the table within the specified database that will be
-   *       created in the Glue Data Catalog.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   * @public
-   */
-  TableInput?: TableInput | undefined;
-
-  /**
-   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
-   *       before updating it. However, if <code>skipArchive</code> is set to true,
-   *         <code>UpdateTable</code> does not create the archived version.</p>
-   * @public
-   */
-  SkipArchive?: boolean | undefined;
-
-  /**
-   * <p>The transaction ID at which to update the table contents. </p>
-   * @public
-   */
-  TransactionId?: string | undefined;
-
-  /**
-   * <p>The version ID at which to update the table contents. </p>
-   * @public
-   */
-  VersionId?: string | undefined;
-
-  /**
-   * <p>The operation to be performed when updating the view.</p>
-   * @public
-   */
-  ViewUpdateAction?: ViewUpdateAction | undefined;
-
-  /**
-   * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
-   * @public
-   */
-  Force?: boolean | undefined;
-
-  /**
-   * <p>Input parameters for updating open table format tables in GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
-   * @public
-   */
-  UpdateOpenTableFormatInput?: UpdateOpenTableFormatInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTableResponse {}
-
-/**
- * @public
- */
-export interface UpdateTableOptimizerRequest {
-  /**
-   * <p>The Catalog ID of the table.</p>
-   * @public
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The name of the database in the catalog in which the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The type of table optimizer.</p>
-   * @public
-   */
-  Type: TableOptimizerType | undefined;
-
-  /**
-   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
-   * @public
-   */
-  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTableOptimizerResponse {}
-
-/**
- * <p>A structure used to provide information used to update a trigger. This object updates the
- *       previous trigger definition by overwriting it completely.</p>
- * @public
- */
-export interface TriggerUpdate {
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of this trigger.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
-   *       Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   * @public
-   */
-  Schedule?: string | undefined;
-
-  /**
-   * <p>The actions initiated by this trigger.</p>
-   * @public
-   */
-  Actions?: Action[] | undefined;
-
-  /**
-   * <p>The predicate of this trigger, which defines when it will fire.</p>
-   * @public
-   */
-  Predicate?: Predicate | undefined;
-
-  /**
-   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
-   *       before EventBridge event trigger fires.</p>
-   * @public
-   */
-  EventBatchingCondition?: EventBatchingCondition | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTriggerRequest {
-  /**
-   * <p>The name of the trigger to update.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The new values with which to update the trigger.</p>
-   * @public
-   */
-  TriggerUpdate: TriggerUpdate | undefined;
 }
