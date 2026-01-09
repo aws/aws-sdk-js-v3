@@ -438,6 +438,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput extends Update
  * @throws {@link CNAMEAlreadyExists} (client fault)
  *  <p>The CNAME specified is already defined for CloudFront.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *

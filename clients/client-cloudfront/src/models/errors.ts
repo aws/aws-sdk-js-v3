@@ -114,6 +114,28 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 }
 
 /**
+ * <p>The entity limit has been exceeded.</p>
+ * @public
+ */
+export class EntityLimitExceeded extends __BaseException {
+  readonly name = "EntityLimitExceeded" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
+    super({
+      name: "EntityLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The entity was not found.</p>
  * @public
  */
@@ -1605,28 +1627,6 @@ export class EntityAlreadyExists extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, EntityAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The entity limit has been exceeded.</p>
- * @public
- */
-export class EntityLimitExceeded extends __BaseException {
-  readonly name = "EntityLimitExceeded" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
-    super({
-      name: "EntityLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
     this.Message = opts.Message;
   }
 }

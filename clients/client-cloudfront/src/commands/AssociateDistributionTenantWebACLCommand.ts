@@ -63,6 +63,9 @@ export interface AssociateDistributionTenantWebACLCommandOutput extends Associat
  * @throws {@link AccessDenied} (client fault)
  *  <p>Access denied.</p>
  *
+ * @throws {@link EntityLimitExceeded} (client fault)
+ *  <p>The entity limit has been exceeded.</p>
+ *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
  *
