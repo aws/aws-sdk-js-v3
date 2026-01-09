@@ -23,8 +23,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/core": "*",
-    "@smithy/core": "^3.20.1",
-    "@smithy/smithy-client": "^4.10.3",
+    "@smithy/core": "^3.20.2",
+    "@smithy/smithy-client": "^4.10.4",
     "@smithy/types": "^4.11.0",
     "@smithy/util-base64": "^4.3.0",
     "tslib": "^2.6.2"
