@@ -17,7 +17,7 @@ describe("disableHostPrefix", () => {
     requireRequestsFrom(loc).toMatch({
       hostname: `geofencing.geo.${region}.amazonaws.com`,
     });
-    await loc.listGeofences();
+    await loc.listGeofences({ CollectionName: "test-collection" });
   });
 
   it("should allow disabling host prefix", async () => {
@@ -32,6 +32,6 @@ describe("disableHostPrefix", () => {
     requireRequestsFrom(loc).toMatch({
       hostname: `geo.${region}.amazonaws.com`,
     });
-    await loc.listGeofences();
+    await loc.listGeofences({ CollectionName: "test-collection" });
   });
 });
