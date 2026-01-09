@@ -14,6 +14,36 @@ import { HttpHandlerOptions } from "@smithy/types";
 import { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 
 /**
+ * Canned failure policy that stops all transfers on first failure (default behavior).
+ * Cancels all ongoing requests and terminates the transfer process.
+ *
+ * @alpha
+ */
+export const STOP_ON_FAILURE = async (error: unknown): Promise<void> => {
+  throw error;
+};
+
+/**
+ * Canned failure policy that continues transfers despite failures.
+ * Ignores individual failures and continues with remaining objects.
+ *
+ * @alpha
+ */
+export const CONTINUE_ON_FAILURE = async (error: unknown): Promise<void> => {
+  // Do nothing - continue with other files
+};
+
+/**
+ * Failure policy callback type for handling failed transfers.
+ * 
+ * @param error - The error that occurred during transfer
+ * @returns Promise that resolves to continue or throws to stop all transfers
+ *
+ * @alpha
+ */
+export type FailurePolicy = (error: unknown) => Promise<void>;
+
+/**
  * Constructor parameters for the S3 Transfer Manager configuration.
  *
  * @alpha
@@ -149,7 +179,7 @@ export interface IS3TransferManager {
     filter?: (filepath: string) => boolean;
     s3Delimiter?: string;
     putObjectRequestCallback?: (putObjectRequest: PutObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
+    failurePolicy?: FailurePolicy;
     transferOptions?: TransferOptions;
   }): Promise<{
     objectsUploaded: number;
@@ -179,7 +209,7 @@ export interface IS3TransferManager {
     recursive?: boolean;
     filter?: (object?: S3Object) => boolean;
     getObjectRequestCallback?: (getObjectRequest: GetObjectCommandInput) => Promise<void>;
-    failurePolicy?: (error?: unknown) => Promise<void>;
+    failurePolicy?: FailurePolicy;
     transferOptions?: TransferOptions;
   }): Promise<{
     objectsDownloaded: number;

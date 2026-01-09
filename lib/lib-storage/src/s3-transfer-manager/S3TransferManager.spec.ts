@@ -1,8 +1,9 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
 import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import { promises as fs } from "fs";
 import { Readable } from "stream";
-import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { joinStreams } from "./join-streams";
@@ -554,127 +555,572 @@ describe("S3TransferManager Unit Tests", () => {
     });
   });
 
-  describe("validatePartDownload()", () => {
-    let tm: any;
-    beforeAll(async () => {
-      tm = new S3TransferManager() as any;
-    }, 120_000);
+  describe("upload()", () => {
+    let mockS3Client: any;
+    let tm: S3TransferManager;
 
-    it("Should pass correct ranges based on part number without throwing an error", () => {
-      const partSize = 5242880;
-      const ranges = [
-        { partNumber: 1, range: "bytes 0-5242879/13631488" },
-        { partNumber: 2, range: "bytes 5242880-10485759/13631488" },
-        { partNumber: 3, range: "bytes 10485760-13631487/13631488" },
-      ];
-
-      for (const { partNumber, range } of ranges) {
-        expect(() => {
-          tm.validatePartDownload(range, partNumber, partSize);
-        }).not.toThrow();
-      }
+    beforeEach(() => {
+      mockS3Client = {
+        send: vi.fn(),
+      };
+      tm = new S3TransferManager({ s3ClientInstance: mockS3Client as any });
     });
 
-    it("Should throw error for incorrect start position", () => {
-      const partSize = 5242880;
+    it("should use Upload class for large files", async () => {
+      const largeBody = Buffer.alloc(20 * 1024 * 1024); // 20MB - above 16MB threshold
+      const request = { Bucket: "test-bucket", Key: "test-key", Body: largeBody };
 
-      expect(() => {
-        tm.validatePartDownload("bytes 5242881-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
+      // Mock the Upload class
+      const mockUpload = {
+        done: vi.fn().mockResolvedValue({
+          ETag: "test-etag",
+          Location: "test-location",
+          $metadata: { httpStatusCode: 200 },
+        }),
+      };
 
-      expect(() => {
-        tm.validatePartDownload("bytes 5242879-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
+      vi.doMock("../Upload", () => ({
+        Upload: vi.fn(() => mockUpload),
+      }));
 
-      expect(() => {
-        tm.validatePartDownload("bytes 0-5242879/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 0");
+      await tm.upload(request);
+
+      expect(mockUpload.done).toHaveBeenCalled();
     });
 
-    it("Should throw error for incorrect end position", () => {
-      const partSize = 5242880;
+    it("should dispatch transfer events", async () => {
+      const body = Buffer.alloc(8 * 1024 * 1024);
+      const request = { Bucket: "test-bucket", Key: "test-key", Body: body };
 
-      expect(() => {
-        tm.validatePartDownload("bytes 5242880-10485760/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
+      mockS3Client.send.mockResolvedValue({
+        ETag: "test-etag",
+        $metadata: { httpStatusCode: 200 },
+      });
 
-      expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
-      }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
-    });
+      const initiatedSpy = vi.fn();
+      const completeSpy = vi.fn();
 
-    it("Should handle last part correctly when not a full part size", () => {
-      const partSize = 5242880;
+      tm.addEventListener("transferInitiated", initiatedSpy);
+      tm.addEventListener("transferComplete", completeSpy);
 
-      expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
-      }).not.toThrow();
-    });
+      await tm.upload(request);
 
-    it("Should throw error for invalid ContentRange format", () => {
-      const partSize = 5242880;
-
-      expect(() => {
-        tm.validatePartDownload("invalid-format", 2, partSize);
-      }).toThrow("Invalid ContentRange format: invalid-format");
-    });
-
-    it("Should throw error for missing ContentRange", () => {
-      const partSize = 5242880;
-
-      expect(() => {
-        tm.validatePartDownload(undefined, 2, partSize);
-      }).toThrow("Missing ContentRange for part 2.");
+      expect(initiatedSpy).toHaveBeenCalled();
+      expect(completeSpy).toHaveBeenCalled();
     });
   });
 
-  describe("validateRangeDownload()", () => {
-    let tm: any;
-    beforeAll(async () => {
-      tm = new S3TransferManager() as any;
-    }, 120_000);
+  describe("uploadAll()", () => {
+    let mockS3Client: any;
+    let tm: S3TransferManager;
+    let mockUpload: any;
 
-    it("Should pass when response range matches request range", () => {
+    beforeEach(() => {
+      mockS3Client = {
+        send: vi.fn(),
+      };
+      tm = new S3TransferManager({ s3ClientInstance: mockS3Client as any });
+
+      mockUpload = vi.spyOn(tm, "upload").mockResolvedValue({
+        ETag: "test-etag",
+        $metadata: { httpStatusCode: 200 },
+      } as any);
+
+      // Mock fs module
+      vi.mock("fs", () => ({
+        promises: {
+          stat: vi.fn(),
+          lstat: vi.fn(),
+          readdir: vi.fn(),
+        },
+        createReadStream: vi.fn(() => ({
+          pipe: vi.fn(),
+          on: vi.fn(),
+          once: vi.fn(),
+          emit: vi.fn(),
+        })),
+        lstatSync: vi.fn(),
+        statSync: vi.fn(),
+        readdirSync: vi.fn(),
+        existsSync: vi.fn(() => true),
+      }));
+
+      vi.clearAllMocks();
+      vi.resetModules();
+    });
+
+    afterEach(() => {
+      vi.clearAllMocks();
+      vi.resetModules();
+      vi.restoreAllMocks();
+    });
+
+    it("should handle transferOptions parameter", () => {
+      const abortController = new AbortController();
+      const eventListeners = {
+        transferInitiated: [vi.fn()],
+        bytesTransferred: [vi.fn()],
+        transferComplete: [vi.fn()],
+        transferFailed: [vi.fn()],
+      };
+
+      const options = {
+        bucket: "test-bucket",
+        source: "/mock/path",
+        transferOptions: {
+          abortSignal: abortController.signal,
+          eventListeners,
+        },
+      };
+
       expect(() => {
-        tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242879/13631488");
+        const result = tm.uploadAll(options);
+        result.catch(() => {}); // Prevent unhandled rejection
       }).not.toThrow();
     });
 
-    it("Should pass when response range ends at total size", () => {
+    it("upload single file recursively", async () => {
+      vi.mocked(fs.stat).mockResolvedValue({ isDirectory: () => true } as any);
+      vi.mocked(fs.lstat).mockResolvedValue({ isDirectory: () => false, isSymbolicLink: () => false } as any);
+      vi.mocked(fs.readdir).mockResolvedValue(["file.txt"] as any);
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/single-file-dir",
+        recursive: true,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(1);
+      expect(result).toEqual({
+        objectsUploaded: 1,
+        objectsFailed: 0,
+      });
+    });
+
+    it("upload single file recursively with s3Prefix", async () => {
+      vi.mocked(fs.stat).mockImplementation(async (path: any) => {
+        if (path === "/test/single-file-dir") {
+          return { isDirectory: () => true } as any;
+        }
+        return { isDirectory: () => false } as any;
+      });
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/single-file-dir") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+      vi.mocked(fs.readdir).mockResolvedValue(["file.txt"] as any);
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/single-file-dir",
+        recursive: true,
+        s3Prefix: "prefix/",
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(1);
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: expect.stringMatching(/^prefix\//),
+        }),
+        undefined
+      );
+      expect(result).toEqual({
+        objectsUploaded: 1,
+        objectsFailed: 0,
+      });
+    });
+
+    it("multi file at root recursively", async () => {
+      vi.mocked(fs.stat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-at-root") {
+          return { isDirectory: () => true } as any;
+        }
+        return { isDirectory: () => false } as any;
+      });
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-at-root") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+      vi.mocked(fs.readdir).mockResolvedValue(["file1.txt", "file2.txt"] as any);
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-at-root",
+        recursive: true,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(2);
+      expect(result).toEqual({
+        objectsUploaded: 2,
+        objectsFailed: 0,
+      });
+    });
+
+    it("multi file with subdir recursively", async () => {
+      vi.mocked(fs.stat).mockResolvedValue({ isDirectory: () => true } as any);
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-with-subdir" || path === "/test/multi-file-with-subdir/subdir") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+      vi.mocked(fs.readdir).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-with-subdir/subdir") {
+          return ["file2.txt"] as any;
+        }
+        return ["file1.txt", "subdir"] as any;
+      });
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-with-subdir",
+        recursive: true,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(2);
+      expect(result).toEqual({
+        objectsUploaded: 2,
+        objectsFailed: 0,
+      });
+    });
+
+    it("multi file with subdir non-recursively", async () => {
+      vi.mocked(fs.stat).mockResolvedValue({ isDirectory: () => true } as any);
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-with-subdir" || path === "/test/multi-file-with-subdir/subdir") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+      vi.mocked(fs.readdir).mockResolvedValue(["file1.txt", "subdir"] as any);
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-with-subdir",
+        recursive: false,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(1);
+      expect(result).toEqual({
+        objectsUploaded: 1,
+        objectsFailed: 0,
+      });
+    });
+
+    it("multi file with subdir and filter recursively", async () => {
+      const { promises: fs } = await import("fs");
+
+      vi.mocked(fs.stat).mockResolvedValue({ isDirectory: () => true } as any);
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-with-subdir" || path === "/test/multi-file-with-subdir/subdir") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+      vi.mocked(fs.readdir).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-with-subdir/subdir") {
+          return ["file3.txt"] as any;
+        }
+        return ["file1.txt", "file2.log", "subdir"] as any;
+      });
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-with-subdir",
+        recursive: true,
+        filter: (filepath: string) => filepath.endsWith(".txt"),
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(2);
+      expect(result).toEqual({
+        objectsUploaded: 2,
+        objectsFailed: 0,
+      });
+    });
+
+    it("error when source is not directory", async () => {
+      vi.mocked(fs.stat).mockResolvedValue({ isDirectory: () => false } as any);
+
+      await expect(
+        tm.uploadAll({
+          bucket: "test-bucket",
+          source: "/test/non-dir-source",
+        })
+      ).rejects.toThrow("doesn't point to a valid directory");
+    });
+
+    it("folder containing both file and symlink with s3prefix", async () => {
+      vi.mocked(fs.stat).mockImplementation(async (path: any) => {
+        if (
+          path === "/test/multi-file-contain-symlink" ||
+          path === "/test/multi-file-contain-symlink/to" ||
+          path === "/test/multi-file-contain-symlink/to/the" ||
+          path === "/test/multi-file-contain-symlink/to/symBar" ||
+          path === "/test/dstDir1"
+        ) {
+          return { isDirectory: () => true } as any;
+        }
+        return { isDirectory: () => false } as any;
+      });
+
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (
+          path === "/test/multi-file-contain-symlink" ||
+          path === "/test/multi-file-contain-symlink/to" ||
+          path === "/test/multi-file-contain-symlink/to/the" ||
+          path === "/test/dstDir1"
+        ) {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/to/the/symFoo") {
+          return { isDirectory: () => false, isSymbolicLink: () => true } as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/to/symBar") {
+          return { isDirectory: () => true, isSymbolicLink: () => true } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+
+      vi.mocked(fs.readdir).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-contain-symlink") {
+          return ["foo", "bar", "to"] as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/to") {
+          return ["baz", "the", "symBar", "yee"] as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/to/the") {
+          return ["symFoo"] as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/to/symBar" || path === "/test/dstDir1") {
+          return ["foo"] as any;
+        }
+        return [] as any;
+      });
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-contain-symlink",
+        s3Prefix: "bla",
+        followSymbolicLinks: true,
+        recursive: true,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(6);
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/foo",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/bar",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/to/baz",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/to/the/symFoo",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/to/symBar/foo",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/to/yee",
+        }),
+        undefined
+      );
+      expect(result).toEqual({
+        objectsUploaded: 6,
+        objectsFailed: 0,
+      });
+    });
+
+    it("folder containing symlink folder with prefix but non-recursive", async () => {
+      vi.mocked(fs.stat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-contain-symlink" || path === "/test/dstDir1") {
+          return { isDirectory: () => true } as any;
+        }
+        return { isDirectory: () => false } as any;
+      });
+
+      vi.mocked(fs.lstat).mockImplementation(async (path: any) => {
+        if (path === "/test/multi-file-contain-symlink") {
+          return { isDirectory: () => true, isSymbolicLink: () => false } as any;
+        }
+        if (path === "/test/multi-file-contain-symlink/symDir") {
+          return { isDirectory: () => true, isSymbolicLink: () => true } as any;
+        }
+        return { isDirectory: () => false, isSymbolicLink: () => false } as any;
+      });
+
+      vi.mocked(fs.readdir).mockResolvedValue(["foo", "bar", "symDir"] as any);
+
+      const result = await tm.uploadAll({
+        bucket: "test-bucket",
+        source: "/test/multi-file-contain-symlink",
+        s3Prefix: "bla",
+        followSymbolicLinks: true,
+        recursive: false,
+      });
+
+      expect(mockUpload).toHaveBeenCalledTimes(3);
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/foo",
+        }),
+        undefined
+      );
+      expect(mockUpload).toHaveBeenCalledWith(
+        expect.objectContaining({
+          Key: "bla/bar",
+        }),
+        undefined
+      );
+      expect(result).toEqual({
+        objectsUploaded: 3,
+        objectsFailed: 0,
+      });
+    });
+  });
+});
+
+describe("validatePartDownload()", () => {
+  let tm: any;
+  beforeAll(async () => {
+    tm = new S3TransferManager() as any;
+  }, 120_000);
+
+  it("Should pass correct ranges based on part number without throwing an error", () => {
+    const partSize = 5242880;
+    const ranges = [
+      { partNumber: 1, range: "bytes 0-5242879/13631488" },
+      { partNumber: 2, range: "bytes 5242880-10485759/13631488" },
+      { partNumber: 3, range: "bytes 10485760-13631487/13631488" },
+    ];
+
+    for (const { partNumber, range } of ranges) {
       expect(() => {
-        tm.validateRangeDownload("bytes=10485760-13631500", "bytes 10485760-13631487/13631488");
+        tm.validatePartDownload(range, partNumber, partSize);
       }).not.toThrow();
-    });
+    }
+  });
 
-    it("Should throw error for missing response range", () => {
-      expect(() => {
-        tm.validateRangeDownload("bytes=0-5242879", undefined);
-      }).toThrow("Missing ContentRange for range bytes=0-5242879.");
-    });
+  it("Should throw error for incorrect start position", () => {
+    const partSize = 5242880;
 
-    it("Should throw error for invalid response range format", () => {
-      expect(() => {
-        tm.validateRangeDownload("bytes=0-5242879", "invalid-format");
-      }).toThrow("Invalid ContentRange format: invalid-format");
-    });
+    expect(() => {
+      tm.validatePartDownload("bytes 5242881-10485759/13631488", 2, partSize);
+    }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
 
-    it("Should throw error for invalid request range format", () => {
-      expect(() => {
-        tm.validateRangeDownload("invalid-format", "bytes 0-5242879/13631488");
-      }).toThrow("Invalid Range format: invalid-format");
-    });
+    expect(() => {
+      tm.validatePartDownload("bytes 5242879-10485759/13631488", 2, partSize);
+    }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
 
-    it("Should throw error for incorrect start position", () => {
-      expect(() => {
-        tm.validateRangeDownload("bytes=0-5242879", "bytes 1-5242879/13631488");
-      }).toThrow("Expected range to start at 0 but got 1");
-    });
+    expect(() => {
+      tm.validatePartDownload("bytes 0-5242879/13631488", 2, partSize);
+    }).toThrow("Expected part 2 to start at 5242880 but got 0");
+  });
 
-    it("Should throw error for incorrect end position", () => {
-      expect(() => {
-        tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242878/13631488");
-      }).toThrow("Expected range to end at 5242879 but got 5242878");
-    });
+  it("Should throw error for incorrect end position", () => {
+    const partSize = 5242880;
+
+    expect(() => {
+      tm.validatePartDownload("bytes 5242880-10485760/13631488", 2, partSize);
+    }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
+
+    expect(() => {
+      tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
+    }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
+  });
+
+  it("Should handle last part correctly when not a full part size", () => {
+    const partSize = 5242880;
+
+    expect(() => {
+      tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
+    }).not.toThrow();
+  });
+
+  it("Should throw error for invalid ContentRange format", () => {
+    const partSize = 5242880;
+
+    expect(() => {
+      tm.validatePartDownload("invalid-format", 2, partSize);
+    }).toThrow("Invalid ContentRange format: invalid-format");
+  });
+
+  it("Should throw error for missing ContentRange", () => {
+    const partSize = 5242880;
+
+    expect(() => {
+      tm.validatePartDownload(undefined, 2, partSize);
+    }).toThrow("Missing ContentRange for part 2.");
+  });
+});
+
+describe("validateRangeDownload()", () => {
+  let tm: any;
+  beforeAll(async () => {
+    tm = new S3TransferManager() as any;
+  }, 120_000);
+
+  it("Should pass when response range matches request range", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242879/13631488");
+    }).not.toThrow();
+  });
+
+  it("Should pass when response range ends at total size", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=10485760-13631500", "bytes 10485760-13631487/13631488");
+    }).not.toThrow();
+  });
+
+  it("Should throw error for missing response range", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=0-5242879", undefined);
+    }).toThrow("Missing ContentRange for range bytes=0-5242879.");
+  });
+
+  it("Should throw error for invalid response range format", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=0-5242879", "invalid-format");
+    }).toThrow("Invalid ContentRange format: invalid-format");
+  });
+
+  it("Should throw error for invalid request range format", () => {
+    expect(() => {
+      tm.validateRangeDownload("invalid-format", "bytes 0-5242879/13631488");
+    }).toThrow("Invalid Range format: invalid-format");
+  });
+
+  it("Should throw error for incorrect start position", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=0-5242879", "bytes 1-5242879/13631488");
+    }).toThrow("Expected range to start at 0 but got 1");
+  });
+
+  it("Should throw error for incorrect end position", () => {
+    expect(() => {
+      tm.validateRangeDownload("bytes=0-5242879", "bytes 0-5242878/13631488");
+    }).toThrow("Expected range to end at 5242879 but got 5242878");
   });
 });
 
