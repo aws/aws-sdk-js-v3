@@ -1,5 +1,6 @@
 import { GetObjectCommandOutput, S3 } from "@aws-sdk/client-s3";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { promises as fs } from "fs";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
@@ -317,6 +318,166 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
     it("single object: multipartDownloadType = RANGE, range = null, partNumber = null", async () => {
       await complianceTests("single", "RANGE", undefined, undefined);
+    }, 60_000);
+  });
+
+  describe("single object upload tests", () => {
+    it("should upload small file using PutObjectCommand", async () => {
+      const Body = data(5 * 1024 * 1024); // 5MB - below multipart threshold
+      const Key = "upload-small-file";
+
+      let transferInitiated = false;
+      let transferComplete = false;
+
+      const tm = new S3TransferManager({ s3ClientInstance: client });
+
+      const result = await tm.upload(
+        { Bucket, Key, Body },
+        {
+          eventListeners: {
+            transferInitiated: [
+              () => {
+                transferInitiated = true;
+              },
+            ],
+            transferComplete: [
+              () => {
+                transferComplete = true;
+              },
+            ],
+          },
+        }
+      );
+
+      expect(result.ETag).toBeDefined();
+      expect(transferInitiated).toBe(true);
+      expect(transferComplete).toBe(true);
+
+      // Verify upload by downloading
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToByteArray();
+      expect(downloadedData?.length).toBe(Body.length);
+    }, 30_000);
+
+    it("should upload large file using multipart upload", async () => {
+      const Body = data(20 * 1024 * 1024); // 20MB - above multipart threshold
+      const Key = "upload-large-file";
+
+      let transferInitiated = false;
+      let transferComplete = false;
+
+      const tm = new S3TransferManager({ s3ClientInstance: client });
+
+      const result = await tm.upload(
+        { Bucket, Key, Body },
+        {
+          eventListeners: {
+            transferInitiated: [
+              () => {
+                transferInitiated = true;
+              },
+            ],
+            transferComplete: [
+              () => {
+                transferComplete = true;
+              },
+            ],
+          },
+        }
+      );
+
+      expect(result.ETag).toBeDefined();
+      expect(transferInitiated).toBe(true);
+      expect(transferComplete).toBe(true);
+
+      // Verify upload by downloading
+      const download = await client.getObject({ Bucket, Key });
+      const downloadedData = await download.Body?.transformToByteArray();
+      expect(downloadedData?.length).toBe(Body.length);
+    }, 60_000);
+  });
+
+  describe("uploadAll() e2e tests", () => {
+    const testDir = "/tmp/s3-transfer-test";
+
+    beforeAll(async () => {
+      // Create test directory structure
+      await fs.mkdir(testDir, { recursive: true });
+      await fs.mkdir(`${testDir}/subdir`, { recursive: true });
+
+      // Create test files
+      await fs.writeFile(`${testDir}/file1.txt`, "content of file 1");
+      await fs.writeFile(`${testDir}/file2.log`, "content of file 2");
+      await fs.writeFile(`${testDir}/subdir/file3.txt`, "content of file 3");
+    });
+
+    afterAll(async () => {
+      try {
+        await fs.rm(testDir, { recursive: true, force: true });
+      } catch (error) {
+        // Ignore cleanup errors
+      }
+    });
+
+    it("should upload all files recursively", async () => {
+      const tm = new S3TransferManager({ s3ClientInstance: client });
+      const s3Prefix = "uploadall-recursive";
+
+      const result = await tm.uploadAll({
+        bucket: Bucket,
+        source: testDir,
+        s3Prefix,
+        recursive: true,
+      });
+
+      expect(result.objectsUploaded).toBe(3);
+      expect(result.objectsFailed).toBe(0);
+
+      // Verify uploads
+      const objects = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
+      expect(objects.Contents?.length).toBe(3);
+
+      const keys = objects.Contents?.map((obj) => obj.Key).sort();
+      expect(keys).toEqual([`${s3Prefix}/file1.txt`, `${s3Prefix}/file2.log`, `${s3Prefix}/subdir/file3.txt`]);
+    }, 60_000);
+
+    it("should upload files non-recursively", async () => {
+      const tm = new S3TransferManager({ s3ClientInstance: client });
+      const s3Prefix = "uploadall-nonrecursive";
+
+      const result = await tm.uploadAll({
+        bucket: Bucket,
+        source: testDir,
+        s3Prefix,
+        recursive: false,
+      });
+
+      expect(result.objectsUploaded).toBe(2); // Only root level files
+      expect(result.objectsFailed).toBe(0);
+
+      const objects = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
+      const keys = objects.Contents?.map((obj) => obj.Key).sort();
+      expect(keys).toEqual([`${s3Prefix}/file1.txt`, `${s3Prefix}/file2.log`]);
+    }, 60_000);
+
+    it("should upload with file filter", async () => {
+      const tm = new S3TransferManager({ s3ClientInstance: client });
+      const s3Prefix = "uploadall-filtered";
+
+      const result = await tm.uploadAll({
+        bucket: Bucket,
+        source: testDir,
+        s3Prefix,
+        recursive: true,
+        filter: (filepath) => filepath.endsWith(".txt"),
+      });
+
+      expect(result.objectsUploaded).toBe(2); // Only .txt files
+      expect(result.objectsFailed).toBe(0);
+
+      const objects = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
+      const keys = objects.Contents?.map((obj) => obj.Key).sort();
+      expect(keys).toEqual([`${s3Prefix}/file1.txt`, `${s3Prefix}/subdir/file3.txt`]);
     }, 60_000);
   });
 });

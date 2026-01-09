@@ -4,14 +4,17 @@ import type {
   GetObjectCommandInput,
   PutObjectCommandInput,
 } from "@aws-sdk/client-s3";
-import { GetObjectCommand, HeadObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import { createReadStream, promises as fs } from "fs";
+import { join, relative, resolve, sep } from "path";
 
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
 import type {
   DownloadRequest,
   DownloadResponse,
+  FailurePolicy,
   IS3TransferManager,
   S3TransferManagerConfig,
   TransferCompleteEvent,
@@ -21,6 +24,7 @@ import type {
   UploadRequest,
   UploadResponse,
 } from "./types";
+import { STOP_ON_FAILURE } from "./types";
 
 /**
  * Client for efficient transfer of objects to and from Amazon S3.
@@ -245,8 +249,81 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public upload(request: UploadRequest, transferOptions?: TransferOptions): Promise<UploadResponse> {
-    throw new Error("Method not implemented.");
+  public async upload(request: UploadRequest, transferOptions?: TransferOptions): Promise<UploadResponse> {
+    this.checkAborted(transferOptions);
+    this.addEventListeners(transferOptions?.eventListeners);
+
+    const { byteLength } = await import("../byteLength");
+    const contentLength = byteLength(request.Body);
+
+    const removeLocalEventListeners = () => {
+      this.removeEventListeners(transferOptions?.eventListeners);
+      if (transferOptions?.abortSignal) {
+        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
+        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+      }
+    };
+
+    try {
+      this.dispatchTransferInitiatedEvent(request, contentLength);
+
+      let result: UploadResponse;
+
+      if (contentLength && contentLength < this.multipartUploadThresholdBytes) {
+        // Use single PutObjectCommand.
+        result = await this.s3ClientInstance.send(new PutObjectCommand(request), transferOptions);
+      } else {
+        // Use multipart upload from Upload class.
+        const { Upload } = await import("../Upload");
+        const { AbortController } = await import("@smithy/abort-controller");
+
+        const abortController = new AbortController();
+        if (transferOptions?.abortSignal) {
+          if (transferOptions.abortSignal.aborted) {
+            abortController.abort();
+          } else {
+            (transferOptions.abortSignal as any).addEventListener("abort", () => {
+              abortController.abort();
+            });
+          }
+        }
+
+        const upload = new Upload({
+          client: this.s3ClientInstance,
+          params: request,
+          partSize: this.targetPartSizeBytes,
+          abortController,
+        });
+        result = await upload.done();
+      }
+
+      this.dispatchEvent(
+        Object.assign(new Event("transferComplete"), {
+          request,
+          response: result,
+          snapshot: {
+            transferredBytes: contentLength || 0,
+            totalBytes: contentLength || 0,
+          },
+        })
+      );
+
+      removeLocalEventListeners();
+      return result;
+    } catch (error) {
+      this.dispatchEvent(
+        Object.assign(new Event("transferFailed"), {
+          request,
+          error,
+          snapshot: {
+            transferredBytes: 0,
+            totalBytes: contentLength || 0,
+          },
+        })
+      );
+      removeLocalEventListeners();
+      throw error;
+    }
   }
 
   /**
@@ -350,19 +427,125 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public uploadAll(options: {
+  public async uploadAll(options: {
     bucket: string;
     source: string;
     followSymbolicLinks?: boolean;
     recursive?: boolean;
+    maxDepth?: number;
     s3Prefix?: string;
     filter?: (filepath: string) => boolean;
     s3Delimiter?: string;
-    putObjectRequestCallback?: (putObjectRequest: PutObjectCommandInput) => Promise<void>;
+    uploadObjectRequestModifier?: (putObjectRequest: PutObjectCommandInput) => PutObjectCommandInput;
+    maxConcurrency?: number;
     failurePolicy?: (error?: unknown) => Promise<void>;
     transferOptions?: TransferOptions;
   }): Promise<{ objectsUploaded: number; objectsFailed: number }> {
-    throw new Error("Method not implemented.");
+    const {
+      bucket,
+      source,
+      followSymbolicLinks = false,
+      recursive = false,
+      maxDepth,
+      s3Prefix = "",
+      filter,
+      uploadObjectRequestModifier,
+      maxConcurrency = 100,
+      failurePolicy = STOP_ON_FAILURE,
+      transferOptions,
+    } = options;
+
+    // Validate source directory
+    const sourceDir = await fs.stat(source);
+    if (!sourceDir.isDirectory()) {
+      throw new Error(`The source path ${source} doesn't point to a valid directory`);
+    }
+
+    // Add a check for existence of bucket?
+
+    const fileEntries: Array<{ key: string; path: string }> = [];
+    const traversed = new Set<string>();
+    let objectsUploaded = 0;
+    let objectsFailed = 0;
+
+    const deriveS3Key = (filePath: string): string => {
+      let relativePath = relative(source, filePath);
+      if (sep !== "/") {
+        relativePath = relativePath.split(sep).join("/");
+      }
+      if (!s3Prefix) return relativePath;
+      const prefix = s3Prefix.endsWith("/") ? s3Prefix : `${s3Prefix}/`;
+      return `${prefix}${relativePath}`;
+    };
+
+    const getAbsPath = async (path: string): Promise<string | null> => {
+      const fileStats = await fs.lstat(path);
+      if (fileStats.isSymbolicLink() && !followSymbolicLinks) return null;
+      if (traversed.has(path)) throw new Error(`Traversed duplicate path ${path}`);
+      traversed.add(path);
+      return resolve(path);
+    };
+
+    const traverse = async (path: string, currentDepth = 0): Promise<void> => {
+      if (maxDepth !== undefined && currentDepth > maxDepth) return;
+      const absPath = await getAbsPath(path);
+      if (!absPath) return;
+
+      const fileStats = followSymbolicLinks ? await fs.stat(absPath) : await fs.lstat(absPath);
+      if (fileStats.isDirectory()) {
+        if (recursive || currentDepth === 0) {
+          const subFiles = await fs.readdir(absPath);
+          for (const subFile of subFiles) {
+            await traverse(join(path, subFile), currentDepth + 1);
+          }
+        }
+      } else {
+        if (filter && !filter(path)) return;
+        const key = deriveS3Key(absPath);
+        fileEntries.push({ key, path: absPath });
+      }
+    };
+
+    await traverse(source);
+
+    // Process uploads
+    const executing = new Set<Promise<void>>();
+
+    for (const entry of fileEntries) {
+      if (executing.size >= maxConcurrency) {
+        await Promise.race(executing);
+      }
+
+      const taskPromise = (async () => {
+        try {
+          this.checkAborted(transferOptions);
+          const body = createReadStream(entry.path);
+          let putObjectRequest: PutObjectCommandInput = {
+            Bucket: bucket,
+            Key: entry.key,
+            Body: body,
+          };
+          if (uploadObjectRequestModifier) {
+            putObjectRequest = uploadObjectRequestModifier({ ...putObjectRequest });
+          }
+          await this.upload(putObjectRequest, transferOptions);
+          objectsUploaded++;
+        } catch (error) {
+          if (failurePolicy) {
+            await failurePolicy(error);
+            objectsFailed++;
+          } else {
+            throw error;
+          }
+        }
+      })();
+
+      const promise = taskPromise.finally(() => executing.delete(promise));
+      executing.add(promise);
+    }
+
+    await Promise.all(executing);
+    return { objectsUploaded, objectsFailed };
   }
 
   /**
@@ -721,7 +904,7 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private checkAborted(transferOptions?: TransferOptions): void {
+  protected checkAborted(transferOptions?: TransferOptions): void {
     if (transferOptions?.abortSignal?.aborted) {
       throw Object.assign(new Error("Download aborted."), { name: "AbortError" });
     }
