@@ -1059,6 +1059,7 @@ export type {
   MaintenanceUpdateSettings,
   MediaConnectFlow,
   MediaConnectFlowRequest,
+  MediaPackageAdditionalDestinations,
   MediaPackageGroupSettings,
   MediaPackageOutputDestinationSettings,
   MediaPackageOutputSettings,

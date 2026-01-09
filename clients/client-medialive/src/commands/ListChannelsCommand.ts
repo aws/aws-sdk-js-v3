@@ -58,6 +58,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               ChannelId: "STRING_VALUE",
  * //               ChannelGroup: "STRING_VALUE",
  * //               ChannelName: "STRING_VALUE",
+ * //               ChannelEndpointId: "STRING_VALUE",
+ * //               MediaPackageRegionName: "STRING_VALUE",
  * //             },
  * //           ],
  * //           MultiplexSettings: { // MultiplexProgramChannelDestinationSettings

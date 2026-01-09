@@ -68,6 +68,8 @@ import {
   type AnywhereSettings,
   type AvailBlanking,
   type AvailConfiguration,
+  type BatchScheduleActionCreateResult,
+  type BatchScheduleActionDeleteResult,
   type CdiInputSpecification,
   type ClusterNetworkSettings,
   type DescribeAnywhereSettings,
@@ -150,6 +152,24 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_0";
+
+/**
+ * Placeholder documentation for BatchUpdateScheduleResponse
+ * @public
+ */
+export interface BatchUpdateScheduleResponse {
+  /**
+   * Schedule actions created in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateResult | undefined;
+
+  /**
+   * Schedule actions deleted from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteResult | undefined;
+}
 
 /**
  * Blackout Slate

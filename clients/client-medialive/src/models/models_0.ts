@@ -396,7 +396,7 @@ export interface AudioNormalizationSettings {
   AlgorithmControl?: AudioNormalizationAlgorithmControl | undefined;
 
   /**
-   * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
+   * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act recommends a target of -24 LKFS. The EBU R-128 specification recommends a target of -23 LKFS.
    * @public
    */
   TargetLkfs?: number | undefined;
@@ -2080,6 +2080,18 @@ export interface MediaPackageOutputDestinationSettings {
    * @public
    */
   ChannelName?: string | undefined;
+
+  /**
+   * Endpoint 1 or 2 of the channel in MediaPackageV2. Only use if you are sending CMAF Ingest output to a CMAF ingest endpoint on a MediaPackage channel that uses MediaPackage v2.
+   * @public
+   */
+  ChannelEndpointId?: string | undefined;
+
+  /**
+   * Region the channel group and channel are located in for MediaPackageV2. Only use if you are sending CMAF Ingest output to a CMAF ingest endpoint on a MediaPackage channel that uses MediaPackage v2.
+   * @public
+   */
+  MediaPackageRegionName?: string | undefined;
 }
 
 /**
@@ -4654,6 +4666,18 @@ export interface MediaConnectFlowRequest {
 }
 
 /**
+ * Additional output destinations for a CMAF Ingest output group
+ * @public
+ */
+export interface MediaPackageAdditionalDestinations {
+  /**
+   * The destination location
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+}
+
+/**
  * A direct source or destination neighbor to an AWS media resource.
  * @public
  */
@@ -6952,6 +6976,12 @@ export interface MediaPackageV2GroupSettings {
    * @public
    */
   TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
+
+  /**
+   * Optional an array of additional destinational HTTP destinations for the OutputGroup outputs
+   * @public
+   */
+  AdditionalDestinations?: MediaPackageAdditionalDestinations[] | undefined;
 }
 
 /**
@@ -10198,22 +10228,4 @@ export interface BatchUpdateScheduleRequest {
    * @public
    */
   Deletes?: BatchScheduleActionDeleteRequest | undefined;
-}
-
-/**
- * Placeholder documentation for BatchUpdateScheduleResponse
- * @public
- */
-export interface BatchUpdateScheduleResponse {
-  /**
-   * Schedule actions created in the schedule.
-   * @public
-   */
-  Creates?: BatchScheduleActionCreateResult | undefined;
-
-  /**
-   * Schedule actions deleted from the schedule.
-   * @public
-   */
-  Deletes?: BatchScheduleActionDeleteResult | undefined;
 }

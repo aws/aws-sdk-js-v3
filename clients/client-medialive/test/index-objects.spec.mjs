@@ -791,6 +791,7 @@ import {
   MediaLive,
   MediaLiveClient,
   MediaLiveServiceException,
+  MediaPackageAdditionalDestinations$,
   MediaPackageGroupSettings$,
   MediaPackageOutputDestinationSettings$,
   MediaPackageOutputSettings$,
@@ -1849,6 +1850,7 @@ assert(typeof MaintenanceStatus$ === "object");
 assert(typeof MaintenanceUpdateSettings$ === "object");
 assert(typeof MediaConnectFlow$ === "object");
 assert(typeof MediaConnectFlowRequest$ === "object");
+assert(typeof MediaPackageAdditionalDestinations$ === "object");
 assert(typeof MediaPackageGroupSettings$ === "object");
 assert(typeof MediaPackageOutputDestinationSettings$ === "object");
 assert(typeof MediaPackageOutputSettings$ === "object");

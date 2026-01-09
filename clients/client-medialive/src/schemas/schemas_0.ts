@@ -184,6 +184,7 @@ const _CEBRTGRr = "CreateEventBridgeRuleTemplateGroupResponse";
 const _CEBRTR = "CreateEventBridgeRuleTemplateRequest";
 const _CEBRTRr = "CreateEventBridgeRuleTemplateResponse";
 const _CEE = "ChannelEgressEndpoint";
+const _CEI = "ChannelEndpointId";
 const _CEV = "ChannelEngineVersion";
 const _CEVR = "ChannelEngineVersionRequest";
 const _CEVRh = "ChannelEngineVersionResponse";
@@ -853,6 +854,7 @@ const _MOD = "MultiplexOutputDestination";
 const _MOPB = "MvOverPictureBoundaries";
 const _MOS = "MultiplexOutputSettings";
 const _MP = "MultiplexProgram";
+const _MPAD = "MediaPackageAdditionalDestinations";
 const _MPCDS = "MultiplexProgramChannelDestinationSettings";
 const _MPGS = "MediaPackageGroupSettings";
 const _MPIM = "MultiplexPacketIdentifiersMapping";
@@ -860,6 +862,7 @@ const _MPODS = "MediaPackageOutputDestinationSettings";
 const _MPOS = "MediaPackageOutputSettings";
 const _MPPD = "MultiplexProgramPipelineDetail";
 const _MPPIM = "MultiplexProgramPacketIdentifiersMap";
+const _MPRN = "MediaPackageRegionName";
 const _MPS = "MultiplexProgramSettings";
 const _MPSD = "MultiplexProgramServiceDescriptor";
 const _MPSe = "MediaPackageSettings";
@@ -1560,6 +1563,7 @@ const _cDa = "captionData";
 const _cDc = "ccDescriptor";
 const _cDo = "columnDepth";
 const _cE = "customEpoch";
+const _cEI = "channelEndpointId";
 const _cEV = "channelEngineVersion";
 const _cFB = "cacheFullBehavior";
 const _cG = "channelGroup";
@@ -1934,6 +1938,7 @@ const _lOMA = "__listOfMultiplexAlert";
 const _lOMCF = "__listOfMediaConnectFlow";
 const _lOMCFR = "__listOfMediaConnectFlowRequest";
 const _lOMOD = "__listOfMultiplexOutputDestination";
+const _lOMPAD = "__listOfMediaPackageAdditionalDestinations";
 const _lOMPODS = "__listOfMediaPackageOutputDestinationSettings";
 const _lOMPPD = "__listOfMultiplexProgramPipelineDetail";
 const _lOMPS = "__listOfMultiplexProgramSummary";
@@ -2019,6 +2024,7 @@ const _mOS = "multiplexOutputSettings";
 const _mP = "multiplexProgram";
 const _mPGS = "mediaPackageGroupSettings";
 const _mPOS = "mediaPackageOutputSettings";
+const _mPRN = "mediaPackageRegionName";
 const _mPS = "multiplexProgramSettings";
 const _mPSe = "mediaPackageSettings";
 const _mPVDS = "mediaPackageV2DestinationSettings";
@@ -4243,6 +4249,11 @@ export var MediaConnectFlowRequest$: StaticStructureSchema = [3, n0, _MCFR,
   [_FAlo],
   [[0, { [_jN]: _fAlo }]]
 ];
+export var MediaPackageAdditionalDestinations$: StaticStructureSchema = [3, n0, _MPAD,
+  0,
+  [_De],
+  [[() => OutputLocationRef$, { [_jN]: _de }]]
+];
 export var MediaPackageGroupSettings$: StaticStructureSchema = [3, n0, _MPGS,
   0,
   [_De, _MVGS],
@@ -4250,8 +4261,8 @@ export var MediaPackageGroupSettings$: StaticStructureSchema = [3, n0, _MPGS,
 ];
 export var MediaPackageOutputDestinationSettings$: StaticStructureSchema = [3, n0, _MPODS,
   0,
-  [_CIha, _CG, _CN],
-  [[0, { [_jN]: _cIha }], [0, { [_jN]: _cG }], [0, { [_jN]: _cN }]]
+  [_CIha, _CG, _CN, _CEI, _MPRN],
+  [[0, { [_jN]: _cIha }], [0, { [_jN]: _cG }], [0, { [_jN]: _cN }], [0, { [_jN]: _cEI }], [0, { [_jN]: _mPRN }]]
 ];
 export var MediaPackageOutputSettings$: StaticStructureSchema = [3, n0, _MPOS,
   0,
@@ -4265,8 +4276,8 @@ export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [3, n0, _
 ];
 export var MediaPackageV2GroupSettings$: StaticStructureSchema = [3, n0, _MPVGS,
   0,
-  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP],
-  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }]]
+  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP, _AD],
+  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfMediaPackageAdditionalDestinations, { [_jN]: _aD }]]
 ];
 export var MediaResource$: StaticStructureSchema = [3, n0, _MRe,
   0,
@@ -5597,6 +5608,10 @@ var __listOfMediaConnectFlow: StaticListSchema = [1, n0, _lOMCF,
 ];
 var __listOfMediaConnectFlowRequest: StaticListSchema = [1, n0, _lOMCFR,
   0, [() => MediaConnectFlowRequest$,
+    0]
+];
+var __listOfMediaPackageAdditionalDestinations: StaticListSchema = [1, n0, _lOMPAD,
+  0, [() => MediaPackageAdditionalDestinations$,
     0]
 ];
 var __listOfMediaPackageOutputDestinationSettings: StaticListSchema = [1, n0, _lOMPODS,
