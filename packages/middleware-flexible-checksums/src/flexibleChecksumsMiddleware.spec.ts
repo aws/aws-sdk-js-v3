@@ -190,6 +190,35 @@ describe(flexibleChecksumsMiddleware.name, () => {
       });
     });
 
+    it("treats zero-length streaming body as non-streaming", async () => {
+      vi.mocked(isStreaming).mockReturnValue(true);
+      vi.mocked(hasHeader).mockReturnValue(false);
+
+      const zeroLengthHeaders = { "content-length": 0 } as any;
+      const zeroLengthRequest = { body: { body: "mockStream" }, headers: zeroLengthHeaders } as any;
+
+      const mockRawChecksum = Buffer.from(mockChecksum);
+      const mockBase64Encoder = vi.fn().mockReturnValue(mockChecksum);
+      vi.mocked(stringHasher).mockResolvedValue(mockRawChecksum);
+
+      const handler = flexibleChecksumsMiddleware(
+        { ...mockConfig, base64Encoder: mockBase64Encoder } as any,
+        mockMiddlewareConfig
+      )(mockNext, {} as any);
+
+      await handler({ ...mockArgs, request: zeroLengthRequest } as any);
+
+      expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, "");
+      expect(mockNext).toHaveBeenCalledWith({
+        ...mockArgs,
+        request: {
+          ...zeroLengthRequest,
+          headers: { ...zeroLengthHeaders, [mockChecksumLocationName]: mockChecksum },
+          body: "",
+        },
+      });
+    });
+
     it("for non-streaming body", async () => {
       const mockRawChecksum = Buffer.from(mockChecksum);
       const mockBase64Encoder = vi.fn().mockReturnValue(mockChecksum);

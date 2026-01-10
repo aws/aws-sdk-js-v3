@@ -81,6 +81,8 @@ export const flexibleChecksumsMiddleware =
     const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
     const requestChecksumCalculation = await config.requestChecksumCalculation();
 
+    const hasZeroLengthBody = Number(headers["content-length"]) === 0;
+
     const requestAlgorithmMemberName = requestAlgorithmMember?.name;
     const requestAlgorithmMemberHttpHeader = requestAlgorithmMember?.httpHeader;
     // The value for input member to configure flexible checksum is not set.
@@ -123,7 +125,7 @@ export const flexibleChecksumsMiddleware =
       }
       const checksumLocationName = getChecksumLocationName(checksumAlgorithm);
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
-      if (isStreaming(requestBody)) {
+      if (isStreaming(requestBody) && !hasZeroLengthBody) {
         const { getAwsChunkedEncodingStream, bodyLengthChecker } = config;
         updatedBody = getAwsChunkedEncodingStream(
           typeof config.requestStreamBufferSize === "number" && config.requestStreamBufferSize >= 8 * 1024
@@ -149,7 +151,8 @@ export const flexibleChecksumsMiddleware =
         };
         delete updatedHeaders["content-length"];
       } else if (!hasHeader(checksumLocationName, headers)) {
-        const rawChecksum = await stringHasher(checksumAlgorithmFn, requestBody);
+        updatedBody = hasZeroLengthBody && isStreaming(requestBody) ? "" : requestBody;
+        const rawChecksum = await stringHasher(checksumAlgorithmFn, updatedBody);
         updatedHeaders = {
           ...headers,
           [checksumLocationName]: base64Encoder(rawChecksum),
