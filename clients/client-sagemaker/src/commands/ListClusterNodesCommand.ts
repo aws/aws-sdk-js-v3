@@ -65,6 +65,7 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * //       },
  * //       UltraServerInfo: { // UltraServerInfo
  * //         Id: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
  * //       },
  * //       PrivateDnsHostname: "STRING_VALUE",
  * //     },

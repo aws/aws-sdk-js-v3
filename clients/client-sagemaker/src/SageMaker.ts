@@ -7465,6 +7465,7 @@ export interface SageMaker {
   /**
    * @see {@link SearchTrainingPlanOfferingsCommand}
    */
+  searchTrainingPlanOfferings(): Promise<SearchTrainingPlanOfferingsCommandOutput>;
   searchTrainingPlanOfferings(
     args: SearchTrainingPlanOfferingsCommandInput,
     options?: __HttpHandlerOptions

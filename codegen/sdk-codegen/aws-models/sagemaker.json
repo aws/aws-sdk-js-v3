@@ -6131,7 +6131,7 @@
         "Arn": {
           "target": "com.amazonaws.sagemaker#String1024",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the metadata for the Amazon Bedrock custom model deployment. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) for the Amazon Bedrock custom model deployment. </p>"
           }
         }
       },
@@ -6145,7 +6145,7 @@
         "Arn": {
           "target": "com.amazonaws.sagemaker#String1024",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model metadata. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model. </p>"
           }
         }
       },
@@ -6159,7 +6159,7 @@
         "Arn": {
           "target": "com.amazonaws.sagemaker#String1024",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import metadata. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import. </p>"
           }
         }
       },
@@ -6173,7 +6173,7 @@
         "Arn": {
           "target": "com.amazonaws.sagemaker#String1024",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput metadata. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput. </p>"
           }
         }
       },
@@ -39703,7 +39703,7 @@
         "Arn": {
           "target": "com.amazonaws.sagemaker#String2048",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the inference component metadata. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the inference component. </p>"
           }
         }
       },
@@ -43252,25 +43252,25 @@
         "ActionArns": {
           "target": "com.amazonaws.sagemaker#MapString2048",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata action. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage action. </p>"
           }
         },
         "ArtifactArns": {
           "target": "com.amazonaws.sagemaker#MapString2048",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata artifact. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage artifact. </p>"
           }
         },
         "ContextArns": {
           "target": "com.amazonaws.sagemaker#MapString2048",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata context. </p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage context. </p>"
           }
         },
         "Associations": {
           "target": "com.amazonaws.sagemaker#AssociationInfoList",
           "traits": {
-            "smithy.api#documentation": "<p> The lineage metadata associations. </p>"
+            "smithy.api#documentation": "<p> The lineage associations. </p>"
           }
         }
       },
@@ -54894,13 +54894,13 @@
         "IsCheckpoint": {
           "target": "com.amazonaws.sagemaker#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p> The checkpoint of the model package. </p>"
+            "smithy.api#documentation": "<p> Specifies whether the model data is a training checkpoint. </p>"
           }
         },
         "BaseModel": {
           "target": "com.amazonaws.sagemaker#BaseModel",
           "traits": {
-            "smithy.api#documentation": "<p> The base model of the package. </p>"
+            "smithy.api#documentation": "<p> Identifies the foundation model that was used as the starting point for model customization. </p>"
           }
         }
       },
@@ -70991,17 +70991,13 @@
         "DurationHours": {
           "target": "com.amazonaws.sagemaker#TrainingPlanDurationHoursInput",
           "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The desired duration in hours for the training plan offerings.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The desired duration in hours for the training plan offerings.</p>"
           }
         },
         "TargetResources": {
           "target": "com.amazonaws.sagemaker#SageMakerResourceNames",
           "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>"
           }
         }
       },
@@ -73042,7 +73038,7 @@
         "MlflowExperimentName": {
           "target": "com.amazonaws.sagemaker#MlflowExperimentEntityName",
           "traits": {
-            "smithy.api#documentation": "<p> The MLflow experiment name of the start execution. </p>"
+            "smithy.api#documentation": "<p> The MLflow experiment name of the pipeline execution. </p>"
           }
         }
       },
@@ -80087,6 +80083,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the UltraServer.</p>"
+          }
+        },
+        "Type": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the UltraServer.</p>"
           }
         }
       },

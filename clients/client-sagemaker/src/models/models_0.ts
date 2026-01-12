@@ -506,13 +506,13 @@ export interface ModelPackageContainerDefinition {
   ModelDataETag?: string | undefined;
 
   /**
-   * <p> The checkpoint of the model package. </p>
+   * <p> Specifies whether the model data is a training checkpoint. </p>
    * @public
    */
   IsCheckpoint?: boolean | undefined;
 
   /**
-   * <p> The base model of the package. </p>
+   * <p> Identifies the foundation model that was used as the starting point for model customization. </p>
    * @public
    */
   BaseModel?: BaseModel | undefined;
@@ -4118,7 +4118,7 @@ export interface BatchTransformInput {
  */
 export interface BedrockCustomModelDeploymentMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the metadata for the Amazon Bedrock custom model deployment. </p>
+   * <p> The Amazon Resource Name (ARN) for the Amazon Bedrock custom model deployment. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -4130,7 +4130,7 @@ export interface BedrockCustomModelDeploymentMetadata {
  */
 export interface BedrockCustomModelMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model metadata. </p>
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -4142,7 +4142,7 @@ export interface BedrockCustomModelMetadata {
  */
 export interface BedrockModelImportMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import metadata. </p>
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -4154,7 +4154,7 @@ export interface BedrockModelImportMetadata {
  */
 export interface BedrockProvisionedModelThroughputMetadata {
   /**
-   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput metadata. </p>
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -6060,6 +6060,12 @@ export interface UltraServerInfo {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The type of the UltraServer.</p>
+   * @public
+   */
+  Type?: string | undefined;
 }
 
 /**

@@ -88,6 +88,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     DesiredImageId: "STRING_VALUE",
  * //     UltraServerInfo: { // UltraServerInfo
  * //       Id: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
  * //     },
  * //     KubernetesConfig: { // ClusterKubernetesConfigNodeDetails
  * //       CurrentLabels: { // ClusterKubernetesLabels

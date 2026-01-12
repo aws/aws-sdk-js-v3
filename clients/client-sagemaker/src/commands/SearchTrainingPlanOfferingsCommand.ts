@@ -43,8 +43,8 @@ export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTraining
  *   UltraServerCount: Number("int"),
  *   StartTimeAfter: new Date("TIMESTAMP"),
  *   EndTimeBefore: new Date("TIMESTAMP"),
- *   DurationHours: Number("long"), // required
- *   TargetResources: [ // SageMakerResourceNames // required
+ *   DurationHours: Number("long"),
+ *   TargetResources: [ // SageMakerResourceNames
  *     "training-job" || "hyperpod-cluster" || "endpoint",
  *   ],
  * };

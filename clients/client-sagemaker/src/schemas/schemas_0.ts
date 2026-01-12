@@ -9988,8 +9988,8 @@ export var UltraServer$: StaticStructureSchema = [3, n0, _USlt,
 ];
 export var UltraServerInfo$: StaticStructureSchema = [3, n0, _USI,
   0,
-  [_Id],
-  [0]
+  [_Id, _T],
+  [0, 0]
 ];
 export var UltraServerSummary$: StaticStructureSchema = [3, n0, _USS,
   0,
