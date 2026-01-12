@@ -30,8 +30,8 @@ export const independentPackagesConfig = {
 /**
  * Execute `lerna version`.
  */
-export const runLernaVersion = async () =>
-  spawnProcess("yarn", [
+export const runLernaVersion = async (useNewLinkedVersion = false) => {
+  await spawnProcess("yarn", [
     "lerna",
     "version",
     "--exact",
@@ -41,6 +41,10 @@ export const runLernaVersion = async () =>
     "--no-commit-hooks",
     "--yes",
   ]);
+  if (useNewLinkedVersion) {
+    lernaConfig.version = await getWorkspaceVersion();
+  }
+};
 
 /**
  * Returns the output of `lerna list`.

@@ -9,7 +9,7 @@
 import { independentPackagesConfig, linkedPackagesConfig, overwriteLerna, runLernaVersion } from "./lib/release.mjs";
 
 overwriteLerna(linkedPackagesConfig);
-await runLernaVersion();
+await runLernaVersion(true);
 
 overwriteLerna(independentPackagesConfig);
 await runLernaVersion();
