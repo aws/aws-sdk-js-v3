@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.967.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.966.0...v3.967.0) (2026-01-12)
+
+
+### Features
+
+* **client-iot-managed-integrations:** This release introduces WiFi Simple Setup (WSS) enabling device provisioning via barcode scanning with automated network discovery, authentication, and credential provisioning. Additionally, it introduces 2P Device Capability Rediscovery for updating hub-managed device capabilities post-onboarding. ([0c3b572](https://github.com/aws/aws-sdk-js-v3/commit/0c3b5726c53534dd67d1c3dda1c1ea2d90d58255))
+
+
+
+
+
 # [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-managed-integrations

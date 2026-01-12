@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.967.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.966.0...v3.967.0) (2026-01-12)
+
+
+### Features
+
+* **client-billing:** Cost Categories filtering support to BillingView data filter expressions through the new costCategories parameter, enabling users to filter billing views by AWS Cost Categories for more granular cost management and allocation. ([419d38b](https://github.com/aws/aws-sdk-js-v3/commit/419d38bf429fa9c968faf113a12dd9ac0cb78d3a))
+
+
+
+
+
 # [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
 
 **Note:** Version bump only for package @aws-sdk/client-billing

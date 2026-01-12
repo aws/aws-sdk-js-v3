@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.967.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.966.0...v3.967.0) (2026-01-12)
+
+
+### Features
+
+* **client-billing:** Cost Categories filtering support to BillingView data filter expressions through the new costCategories parameter, enabling users to filter billing views by AWS Cost Categories for more granular cost management and allocation. ([419d38b](https://github.com/aws/aws-sdk-js-v3/commit/419d38bf429fa9c968faf113a12dd9ac0cb78d3a))
+* **client-iot-managed-integrations:** This release introduces WiFi Simple Setup (WSS) enabling device provisioning via barcode scanning with automated network discovery, authentication, and credential provisioning. Additionally, it introduces 2P Device Capability Rediscovery for updating hub-managed device capabilities post-onboarding. ([0c3b572](https://github.com/aws/aws-sdk-js-v3/commit/0c3b5726c53534dd67d1c3dda1c1ea2d90d58255))
+* **client-sagemaker:** Added ultraServerType to the UltraServerInfo structure to support server type identification for SageMaker HyperPod ([ed0201e](https://github.com/aws/aws-sdk-js-v3/commit/ed0201e370f520056f96d8f307ca2caa621c6d6c))
+* **clients:** update client endpoints as of 2026-01-12 ([691a3a4](https://github.com/aws/aws-sdk-js-v3/commit/691a3a43fc80bb9bd289d1ad088f274a2be64da5))
+
+
+
+
+
 # [3.966.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.965.0...v3.966.0) (2026-01-09)
 
 
