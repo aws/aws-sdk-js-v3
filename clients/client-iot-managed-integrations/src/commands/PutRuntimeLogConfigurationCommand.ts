@@ -31,7 +31,7 @@ export interface PutRuntimeLogConfigurationCommandInput extends PutRuntimeLogCon
 export interface PutRuntimeLogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Set the runtime log configuration for a specific managed thing or for all managed things as a group.</p>
+ * <p>Set the runtime log configuration for a specific managed thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

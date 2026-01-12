@@ -76,6 +76,11 @@ export interface GetManagedThingCommandOutput extends GetManagedThingResponse, _
  * //   Tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
+ * //     EnableAsProvisioner: true || false,
+ * //     EnableAsProvisionee: true || false,
+ * //     TimeoutInMinutes: Number("int"),
+ * //   },
  * // };
  *
  * ```

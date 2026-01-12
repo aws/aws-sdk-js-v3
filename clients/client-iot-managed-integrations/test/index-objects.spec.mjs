@@ -341,6 +341,7 @@ import {
   paginateListProvisioningProfiles,
   paginateListSchemaVersions,
   ProactiveRefreshTokenRenewal$,
+  ProtocolType,
   ProvisioningProfileSummary$,
   ProvisioningStatus,
   ProvisioningType,
@@ -443,6 +444,7 @@ import {
   UpdateOtaTaskRequest$,
   ValidationException,
   ValidationException$,
+  WiFiSimpleSetupConfiguration$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -817,6 +819,7 @@ assert(typeof UpdateEventLogConfigurationRequest$ === "object");
 assert(typeof UpdateManagedThingRequest$ === "object");
 assert(typeof UpdateNotificationConfigurationRequest$ === "object");
 assert(typeof UpdateOtaTaskRequest$ === "object");
+assert(typeof WiFiSimpleSetupConfiguration$ === "object");
 // enums
 assert(typeof AbortCriteriaAction === "object");
 assert(typeof AbortCriteriaFailureType === "object");
@@ -842,6 +845,7 @@ assert(typeof OtaProtocol === "object");
 assert(typeof OtaStatus === "object");
 assert(typeof OtaTaskExecutionStatus === "object");
 assert(typeof OtaType === "object");
+assert(typeof ProtocolType === "object");
 assert(typeof ProvisioningStatus === "object");
 assert(typeof ProvisioningType === "object");
 assert(typeof RetryCriteriaFailureType === "object");

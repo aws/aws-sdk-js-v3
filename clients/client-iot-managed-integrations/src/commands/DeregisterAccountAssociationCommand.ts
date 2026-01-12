@@ -59,6 +59,9 @@ export interface DeregisterAccountAssociationCommandOutput extends __MetadataBea
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User is not authorized.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict with the request.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *

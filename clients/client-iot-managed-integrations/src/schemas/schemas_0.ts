@@ -156,8 +156,11 @@ const _De = "Device";
 const _Dev = "Devices";
 const _E = "Endpoints";
 const _EA = "EndpointAddress";
+const _EAP = "EnableAsProvisioner";
+const _EAPn = "EnableAsProvisionee";
 const _EB = "EndBehavior";
 const _EC = "EndpointConfig";
+const _EDI = "EndDeviceIdentifier";
 const _EI = "ExtrinsicId";
 const _EIF = "EndpointIdFilter";
 const _EIn = "EndpointId";
@@ -469,6 +472,7 @@ const _TE = "ThrottlingException";
 const _TES = "TaskExecutionSummary";
 const _TF = "TypeFilter";
 const _TI = "TaskId";
+const _TIM = "TimeoutInMinutes";
 const _TIr = "TraceId";
 const _TK = "TagKeys";
 const _TM = "TagsMap";
@@ -510,6 +514,7 @@ const _URRn = "UntagResourceResponse";
 const _V = "Visibility";
 const _VE = "ValidationException";
 const _VF = "VisibilityFilter";
+const _WFSSC = "WiFiSimpleSetupConfiguration";
 const _a = "actions";
 const _aTI = "actionTraceId";
 const _aU = "authUrl";
@@ -776,8 +781,8 @@ export var CreateEventLogConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateManagedThingRequest$: StaticStructureSchema = [3, n0, _CMTR,
   0,
-  [_R, _O, _CLI, _AM, _AMT, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
-  [0, [() => Owner, 0], 0, [() => AuthMaterialString, 0], 0, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0]
+  [_R, _O, _CLI, _AM, _AMT, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
+  [0, [() => Owner, 0], 0, [() => AuthMaterialString, 0], 0, () => WiFiSimpleSetupConfiguration$, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0]
 ];
 export var CreateManagedThingResponse$: StaticStructureSchema = [3, n0, _CMTRr,
   0,
@@ -1071,8 +1076,8 @@ export var GetManagedThingRequest$: StaticStructureSchema = [3, n0, _GMTR,
 ];
 export var GetManagedThingResponse$: StaticStructureSchema = [3, n0, _GMTRe,
   0,
-  [_I, _Ar, _O, _CLI, _API, _R, _PS, _N, _M, _B, _SN, _UPC, _IAN, _CPI, _CDIo, _CDI, _DSK, _MA, _PCI, _C, _CAr, _UA, _AA, _HNM, _MD, _Ta],
-  [0, 0, [() => Owner, 0], 0, 0, 0, 0, 0, [() => Model, 0], [() => Brand, 0], [() => SerialNumber, 0], [() => UniversalProductCode, 0], [() => InternationalArticleNumber, 0], 0, 0, [() => ConnectorDeviceId, 0], [() => DeviceSpecificKey, 0], [() => MacAddress, 0], 0, [() => Classification, 0], 4, 4, 4, 0, 128 | 0, [() => TagsMap, 0]]
+  [_I, _Ar, _O, _CLI, _API, _R, _PS, _N, _M, _B, _SN, _UPC, _IAN, _CPI, _CDIo, _CDI, _DSK, _MA, _PCI, _C, _CAr, _UA, _AA, _HNM, _MD, _Ta, _WFSSC],
+  [0, 0, [() => Owner, 0], 0, 0, 0, 0, 0, [() => Model, 0], [() => Brand, 0], [() => SerialNumber, 0], [() => UniversalProductCode, 0], [() => InternationalArticleNumber, 0], 0, 0, [() => ConnectorDeviceId, 0], [() => DeviceSpecificKey, 0], [() => MacAddress, 0], 0, [() => Classification, 0], 4, 4, 4, 0, 128 | 0, [() => TagsMap, 0], () => WiFiSimpleSetupConfiguration$]
 ];
 export var GetManagedThingStateRequest$: StaticStructureSchema = [3, n0, _GMTSR,
   0,
@@ -1603,8 +1608,8 @@ export var StartAccountAssociationRefreshResponse$: StaticStructureSchema = [3, 
 ];
 export var StartDeviceDiscoveryRequest$: StaticStructureSchema = [3, n0, _SDDR,
   0,
-  [_DT, _CPD, _CIont, _CAIo, _AAIc, _AM, _AMT, _CT, _Ta],
-  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0]]
+  [_DT, _CPD, _CIont, _CAIo, _AAIc, _AM, _AMT, _CT, _Ta, _P, _EDI],
+  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0], 0, 0]
 ];
 export var StartDeviceDiscoveryResponse$: StaticStructureSchema = [3, n0, _SDDRt,
   0,
@@ -1685,8 +1690,8 @@ export var UpdateEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateManagedThingRequest$: StaticStructureSchema = [3, n0, _UMTR,
   0,
-  [_Id, _O, _CLI, _SN, _B, _M, _N, _CR, _CSa, _Ca, _C, _HNM, _MD],
-  [[0, 1], [() => Owner, 0], 0, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [() => Classification, 0], 0, 128 | 0]
+  [_Id, _O, _CLI, _SN, _WFSSC, _B, _M, _N, _CR, _CSa, _Ca, _C, _HNM, _MD],
+  [[0, 1], [() => Owner, 0], 0, [() => SerialNumber, 0], () => WiFiSimpleSetupConfiguration$, [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [() => Classification, 0], 0, 128 | 0]
 ];
 export var UpdateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
@@ -1704,6 +1709,11 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   [0]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var WiFiSimpleSetupConfiguration$: StaticStructureSchema = [3, n0, _WFSSC,
+  0,
+  [_EAP, _EAPn, _TIM],
+  [2, 2, 1]
+];
 var __Unit = "unit" as const;
 export var IoTManagedIntegrationsServiceException$: StaticErrorSchema = [-3, _sm, "IoTManagedIntegrationsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTManagedIntegrationsServiceException$, IoTManagedIntegrationsServiceException);

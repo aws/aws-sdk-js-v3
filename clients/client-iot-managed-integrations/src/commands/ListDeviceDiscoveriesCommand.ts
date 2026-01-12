@@ -43,7 +43,7 @@ export interface ListDeviceDiscoveriesCommandOutput extends ListDeviceDiscoverie
  * const input = { // ListDeviceDiscoveriesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   TypeFilter: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM",
+ *   TypeFilter: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY",
  *   StatusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT",
  * };
  * const command = new ListDeviceDiscoveriesCommand(input);
@@ -52,7 +52,7 @@ export interface ListDeviceDiscoveriesCommandOutput extends ListDeviceDiscoverie
  * //   Items: [ // DeviceDiscoveryListDefinition
  * //     { // DeviceDiscoverySummary
  * //       Id: "STRING_VALUE",
- * //       DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM",
+ * //       DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY",
  * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT",
  * //     },
  * //   ],

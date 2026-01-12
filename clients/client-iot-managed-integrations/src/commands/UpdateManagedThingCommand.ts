@@ -45,6 +45,11 @@ export interface UpdateManagedThingCommandOutput extends __MetadataBearer {}
  *   Owner: "STRING_VALUE",
  *   CredentialLockerId: "STRING_VALUE",
  *   SerialNumber: "STRING_VALUE",
+ *   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
+ *     EnableAsProvisioner: true || false,
+ *     EnableAsProvisionee: true || false,
+ *     TimeoutInMinutes: Number("int"),
+ *   },
  *   Brand: "STRING_VALUE",
  *   Model: "STRING_VALUE",
  *   Name: "STRING_VALUE",

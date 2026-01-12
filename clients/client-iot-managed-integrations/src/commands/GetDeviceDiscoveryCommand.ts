@@ -48,7 +48,7 @@ export interface GetDeviceDiscoveryCommandOutput extends GetDeviceDiscoveryRespo
  * // { // GetDeviceDiscoveryResponse
  * //   Id: "STRING_VALUE", // required
  * //   Arn: "STRING_VALUE", // required
- * //   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM", // required
+ * //   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY", // required
  * //   Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT", // required
  * //   StartedAt: new Date("TIMESTAMP"), // required
  * //   ControllerId: "STRING_VALUE",

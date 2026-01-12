@@ -41,7 +41,7 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // StartDeviceDiscoveryRequest
- *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM", // required
+ *   DiscoveryType: "ZWAVE" || "ZIGBEE" || "CLOUD" || "CUSTOM" || "CONTROLLER_CAPABILITY_REDISCOVERY", // required
  *   CustomProtocolDetail: { // CustomProtocolDetail
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -54,6 +54,8 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Protocol: "ZWAVE" || "ZIGBEE" || "CUSTOM",
+ *   EndDeviceIdentifier: "STRING_VALUE",
  * };
  * const command = new StartDeviceDiscoveryCommand(input);
  * const response = await client.send(command);
