@@ -75,14 +75,20 @@ export const getLernaList = async () => {
  * package list but not the linked-version package list.
  */
 export const getLernaChanged = async () => {
-  const lernaList = await spawnProcessReturnValue(
-    "yarn",
-    ["run", "--silent", "lerna", "changed", "--toposort", "--loglevel", "silent", "--json"],
-    {
-      cwd: root,
-    }
-  );
-  return JSON.parse(lernaList);
+  try {
+    const lernaList = await spawnProcessReturnValue(
+      "yarn",
+      ["run", "--silent", "lerna", "changed", "--toposort", "--loglevel", "silent", "--json"],
+      {
+        cwd: root,
+      }
+    );
+    return JSON.parse(lernaList);
+  } catch (e) {
+    // lerna returns code 1 when no changes are found, but we can continue.
+    console.warn(e);
+    return [];
+  }
 };
 
 export const getWorkspaceVersion = async () => {
