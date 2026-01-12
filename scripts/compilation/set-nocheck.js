@@ -7,6 +7,7 @@ const root = path.join(__dirname, "..", "..");
 for (const packageFolder of [
   ...listFolders(path.join(root, "lib"), false),
   ...listFolders(path.join(root, "packages"), false),
+  ...listFolders(path.join(root, "packages-internal"), false),
   ...listFolders(path.join(root, "clients"), false),
   ...listFolders(path.join(root, "private"), false),
 ]) {

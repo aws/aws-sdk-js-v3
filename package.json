@@ -30,7 +30,7 @@
     "generate-clients": "node ./scripts/generate-clients",
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
-    "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
+    "lerna:version": "node ./scripts/update-versions/bumpReleaseCandidates.mjs",
     "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",
@@ -129,6 +129,7 @@
       "clients/*",
       "lib/*",
       "packages/*",
+      "packages-internal/*",
       "private/*"
     ]
   },

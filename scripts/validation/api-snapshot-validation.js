@@ -18,6 +18,7 @@ api.$schema = "https://json-schema.org/draft/2020-12/schema";
 
 const packageDirs = [
   ...fs.readdirSync(path.join(root, "packages")).map((f) => path.join(root, "packages", f)),
+  ...fs.readdirSync(path.join(root, "packages-internal")).map((f) => path.join(root, "packages-internal", f)),
   ...fs.readdirSync(path.join(root, "lib")).map((f) => path.join(root, "lib", f)),
 ];
 const errors = [];

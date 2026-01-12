@@ -9,8 +9,9 @@ const pkgJsonEnforcement = require("./package-json-enforcement");
 
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
+const packagesInternal = path.join(root, "packages-internal");
 const _private = path.join(root, "private");
-const topLevelFolders = [packages, _private];
+const topLevelFolders = [packages, packagesInternal, _private];
 const packageFolders = [];
 const walk = require("../utils/walk");
 const { listFolders } = require("../utils/list-folders");
