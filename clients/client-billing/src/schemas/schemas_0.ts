@@ -13,6 +13,7 @@ const _BVN = "BillingViewName";
 const _CBV = "CreateBillingView";
 const _CBVR = "CreateBillingViewRequest";
 const _CBVRr = "CreateBillingViewResponse";
+const _CCV = "CostCategoryValues";
 const _CE = "ConflictException";
 const _DBV = "DeleteBillingView";
 const _DBVR = "DeleteBillingViewRequest";
@@ -73,6 +74,7 @@ const _bVTi = "billingViewTypes";
 const _bVi = "billingViews";
 const _c = "client";
 const _cA = "createdAt";
+const _cC = "costCategories";
 const _cT = "clientToken";
 const _d = "description";
 const _dFE = "dataFilterExpression";
@@ -193,6 +195,11 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   [0, 0, 0]
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
+  0,
+  [_k, _v],
+  [0, 64 | 0]
+];
 export var CreateBillingViewRequest$: StaticStructureSchema = [3, n0, _CBVR,
   0,
   [_n, _d, _sV, _dFE, _cT, _rTe],
@@ -230,8 +237,8 @@ export var DisassociateSourceViewsResponse$: StaticStructureSchema = [3, n0, _DS
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_di, _t, _tR],
-  [() => DimensionValues$, () => TagValues$, () => TimeRange$]
+  [_di, _t, _cC, _tR],
+  [() => DimensionValues$, () => TagValues$, () => CostCategoryValues$, () => TimeRange$]
 ];
 export var GetBillingViewRequest$: StaticStructureSchema = [3, n0, _GBVR,
   0,

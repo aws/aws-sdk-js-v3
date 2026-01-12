@@ -66,6 +66,24 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * <p> The Cost Categories values used for filtering the costs. </p>
+ * @public
+ */
+export interface CostCategoryValues {
+  /**
+   * <p> The unique name of the Cost Category. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The specific value of the Cost Category. </p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
  * <p> The metadata that you can use to filter and group your results. </p>
  * @public
  */
@@ -120,7 +138,7 @@ export interface TimeRange {
 }
 
 /**
- * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+ * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>
  * @public
  */
 export interface Expression {
@@ -135,6 +153,12 @@ export interface Expression {
    * @public
    */
   tags?: TagValues | undefined;
+
+  /**
+   * <p> The filter that's based on <code>CostCategory</code> values. </p>
+   * @public
+   */
+  costCategories?: CostCategoryValues | undefined;
 
   /**
    * <p> Specifies a time range filter for the billing view data. </p>
@@ -184,7 +208,7 @@ export interface CreateBillingViewRequest {
   sourceViews: string[] | undefined;
 
   /**
-   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;
@@ -346,7 +370,7 @@ export interface BillingViewElement {
   sourceAccountId?: string | undefined;
 
   /**
-   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;
@@ -692,7 +716,7 @@ export interface UpdateBillingViewRequest {
   description?: string | undefined;
 
   /**
-   * <p>See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+   * <p>See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>
    * @public
    */
   dataFilterExpression?: Expression | undefined;

@@ -62,6 +62,12 @@ export interface GetBillingViewCommandOutput extends GetBillingViewResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       costCategories: { // CostCategoryValues
+ * //         key: "STRING_VALUE", // required
+ * //         values: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //       timeRange: { // TimeRange
  * //         beginDateInclusive: new Date("TIMESTAMP"),
  * //         endDateInclusive: new Date("TIMESTAMP"),

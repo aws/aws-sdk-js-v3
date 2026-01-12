@@ -19,6 +19,7 @@ import {
   BillingViewType,
   ConflictException,
   ConflictException$,
+  CostCategoryValues$,
   CreateBillingView$,
   CreateBillingViewCommand,
   CreateBillingViewRequest$,
@@ -122,6 +123,7 @@ assert(typeof AssociateSourceViewsResponse$ === "object");
 assert(typeof BillingViewElement$ === "object");
 assert(typeof BillingViewHealthStatus$ === "object");
 assert(typeof BillingViewListElement$ === "object");
+assert(typeof CostCategoryValues$ === "object");
 assert(typeof CreateBillingViewRequest$ === "object");
 assert(typeof CreateBillingViewResponse$ === "object");
 assert(typeof DeleteBillingViewRequest$ === "object");
