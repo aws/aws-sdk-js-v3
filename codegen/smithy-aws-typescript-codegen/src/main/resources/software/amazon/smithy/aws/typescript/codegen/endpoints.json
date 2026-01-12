@@ -3755,6 +3755,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -14054,6 +14055,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {
               "variants": [
                 {
@@ -17313,6 +17315,7 @@
                 }
               ]
             },
+            "ap-southeast-6": {},
             "ap-southeast-7": {
               "variants": [
                 {
@@ -23333,6 +23336,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-5": {},
+            "ap-southeast-6": {},
             "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
@@ -46471,6 +46475,11 @@
           }
         },
         "firehose": {
+          "endpoints": {
+            "eusc-de-east-1": {}
+          }
+        },
+        "fsx": {
           "endpoints": {
             "eusc-de-east-1": {}
           }
