@@ -5,7 +5,6 @@ import { promises as fs } from "fs";
 import { Readable } from "stream";
 import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
 
@@ -15,12 +14,8 @@ describe("S3TransferManager Unit Tests", () => {
   let region: string;
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
-    void getIntegTestResources;
+    region = "us-west-2";
+    Bucket = `S3TransferManager-test-${Date.now()}`;
 
     client = new S3({
       region,
