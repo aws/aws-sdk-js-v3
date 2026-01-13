@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "@aws-sdk/client-iam": "*",
-    "@tsconfig/node18": "18.2.4",
     "@tsconfig/node20": "20.1.8",
     "@types/chai": "^4.2.11",
     "@types/node": "^20.14.8",
